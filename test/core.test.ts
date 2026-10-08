@@ -1,21 +1,17 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { computeStrength, sectionProps, designSize, designValue, buildIndex, ranking, multiConstraint, paretoFront, sym, fmt, type StrengthInput, type SecType, type AshbyState, type MatClass } from "../src/index";
+import { computeStrength, sectionProps, designSize, designValue, buildIndex, ranking, multiConstraint, paretoFront, sym, fmt, pointTrace, indexTrace, indexId, recommend, byScore, defaultIndexLine, type StrengthInput, type SecType, type AshbyState, type MatClass } from "../src/index";
 import { repo } from "../src/data";
+import { evalCase, type Case } from "../verification/eval";
 
-const golden = JSON.parse(readFileSync(new URL("./golden.json", import.meta.url), "utf8")) as Array<{ id: string; case: { type: string; sec?: SecType; dims?: Record<string, number>; inp?: StrengthInput }; expect: Record<string, number>; tol: number }>;
+const golden = JSON.parse(readFileSync(new URL("./golden.json", import.meta.url), "utf8")) as Array<{ id: string; case: Omit<Case, "id">; expect: Record<string, number>; tol: number }>;
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 0, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
 describe("Gegenrechnung (golden.json aus verification/pruefung.py)", () => {
   for (const g of golden) {
     it(g.id, () => {
-      let got: Record<string, number | null>;
-      if (g.case.type === "section") { const s = sectionProps(g.case.sec as SecType, g.case.dims ?? {}); got = s as unknown as Record<string, number>; }
-      else {
-        const r = computeStrength(repo, g.case.inp as StrengthInput);
-        got = { M: r.bend?.M ?? null, w: r.bend?.w ?? null, dL: r.axial?.dL ?? null, sk: r.buck?.sigmaK ?? null, lamT: r.buck?.lambdaT ?? null, theta: r.tors?.theta ?? null, tau: r.tauT };
-      }
+      const got = evalCase(repo, { id: g.id, ...g.case } as Case);
       for (const [k, v] of Object.entries(g.expect)) {
         const x = got[k];
         expect(x, `${g.id} ${k}`).not.toBeNull();
@@ -99,6 +95,44 @@ describe("Ashby", () => {
     const mc = multiConstraint(repo, cands, { secType: "rund_hohl", dims: { D: 60, t: 4 }, caseId: "EQ", L: 1200, F: 2, q: 2, a: 300, fDiv: 300, SFreq: 1.5, SBreq: 2 }, 5);
     const front = paretoFront(mc.rows);
     for (let i = 1; i < front.length; i++) { expect(front[i]!.mass!).toBeGreaterThan(front[i - 1]!.mass!); expect(front[i]!.cost!).toBeLessThan(front[i - 1]!.cost!); }
+  });
+});
+
+describe("Ashby Rechenweg und Empfehlung", () => {
+  const classes: Record<MatClass, boolean> = { Metall: true, Polymer: true, Keramik: true, Verbundwerkstoff: true, Naturwerkstoff: true };
+  const ix = buildIndex("Balken", "Steifigkeit", "Masse")!;
+  const st: AshbyState = { index: ix, classes, limits: { Emin: 20, rhoMax: null, sfMin: null, priceMax: null }, shapeMode: "max", phiUser: null };
+  const basis = { secType: "rund_hohl" as const, dims: { D: 60, t: 4 }, caseId: "EQ", L: 1200, F: 2, q: 2, a: 300, fDiv: 300, SFreq: 1.5, SBreq: 2 };
+  it("Index-ID stabil", () => { expect(indexId(ix)).toBe("A-IX-BA-S-M"); expect(indexTrace(ix)[0]?.value).toBe(2); });
+  it("Rechenweg je Werkstoff endet mit dem Indexwert der Rangliste", () => {
+    for (const ws of [false, true]) for (const p of ranking(repo, st, ws).slice(0, 10)) {
+      const tr = pointTrace(ix, st, p, ws);
+      expect(tr.find((s) => s.id === "A-M")?.value).toBe(p.idx);
+      expect(tr.find((s) => s.id === "A-REL")?.value).toBe(p.rel);
+      expect(tr.some((s) => s.id === "A-PHI-MAX")).toBe(ws);
+    }
+  });
+  it("Schritt 6: σ_zul wie Nachweis Blatt 1 (EN AW-6082: R_m/S_B = 155 MPa maßgebend)", () => {
+    const r = multiConstraint(repo, [repo.byId("W038")!], basis, 5).rows[0]!;
+    expect(r.sigmaZul).toBeCloseTo(155, 9); expect(r.strengthBasis).toBe("R_m");
+    expect(r.trace.find((s) => s.id === "C-Z")?.value).toBe(r.Z);
+  });
+  it("Schritt 6: DC01 ohne R_p-Auslegungswert wird markiert", () => {
+    const r = multiConstraint(repo, [repo.byId("W004")!], basis, 5).rows[0]!;
+    expect(r.note).not.toBeNull(); expect(r.strengthBasis).toBe("R_m");
+  });
+  it("Schritt 6: Profil aus Blatt 1 erfüllt nach Skalierung Durchbiegung genau", () => {
+    const r = multiConstraint(repo, [repo.byId("W038")!], basis, 5).rows[0]!;
+    const res = computeStrength(repo, { ...base, dims: { D: 60 * r.sStiff, t: 4 * r.sStiff } });
+    expect(res.bend!.w).toBeCloseTo(4, 6);
+  });
+  it("Empfehlung: Schritt 6 vor 5 vor 4, α = 5 → EN AW-1050A", () => {
+    const r4 = ranking(repo, st, false), r5 = ranking(repo, st, true);
+    const mc = multiConstraint(repo, r4.map((p) => p.m), basis, 5);
+    const rec = recommend(r4, r5, mc, 5)!;
+    expect(rec.step).toBe(6); expect(rec.m.name).toBe("EN AW-1050A"); expect(rec.m.id).toBe(byScore(mc.rows)[0]?.m.id);
+    expect(recommend(r4, r5, null, 5)?.step).toBe(5); expect(recommend(r4, null, null, 5)?.step).toBe(4);
+    expect(defaultIndexLine(r4)).toBe(r4[6]?.idx);
   });
 });
 

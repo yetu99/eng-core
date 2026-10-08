@@ -1,8 +1,60 @@
-# Formelkatalog eng-core 0.3.0
+# Formelkatalog eng-core 0.4.0
 
-Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten. Freigaben in `formelstatus.json` eintragen.
+Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
+Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
-Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft.
+Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
+
+Stand: 143 Formeln, davon 0 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 143 Entwurf.
+
+## Werkstoffauswahl (Ashby Kap. 5 bis 7)
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| A-IX-BA-F-K | Materialindex Balken, Festigkeit, Kosten minimieren | M = σ_f^⅔ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-BA-F-M | Materialindex Balken, Festigkeit, Masse minimieren | M = σ_f^⅔ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-BA-F-V | Materialindex Balken, Festigkeit, Bauraum minimieren | M = σ_f^⅔ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-BA-S-K | Materialindex Balken, Steifigkeit, Kosten minimieren | M = E^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-BA-S-M | Materialindex Balken, Steifigkeit, Masse minimieren | M = E^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-BA-S-V | Materialindex Balken, Steifigkeit, Bauraum minimieren | M = E^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-FE-E-K | Materialindex Feder, Energie speichern, Kosten minimieren | M = σ_f² / (E·C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-FE-E-M | Materialindex Feder, Energie speichern, Masse minimieren | M = σ_f² / (E·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-FE-E-V | Materialindex Feder, Energie speichern, Bauraum minimieren | M = σ_f² / E | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-PL-F-K | Materialindex Platte, Festigkeit, Kosten minimieren | M = σ_f^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-PL-F-M | Materialindex Platte, Festigkeit, Masse minimieren | M = σ_f^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-PL-F-V | Materialindex Platte, Festigkeit, Bauraum minimieren | M = σ_f^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-PL-S-K | Materialindex Platte, Steifigkeit, Kosten minimieren | M = E^⅓ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-PL-S-M | Materialindex Platte, Steifigkeit, Masse minimieren | M = E^⅓ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-PL-S-V | Materialindex Platte, Steifigkeit, Bauraum minimieren | M = E^⅓ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ST-K-K | Materialindex Stütze, Knicken, Kosten minimieren | M = E^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ST-K-M | Materialindex Stütze, Knicken, Masse minimieren | M = E^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ST-K-V | Materialindex Stütze, Knicken, Bauraum minimieren | M = E^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-WE-F-K | Materialindex Welle, Festigkeit, Kosten minimieren | M = σ_f^⅔ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-WE-F-M | Materialindex Welle, Festigkeit, Masse minimieren | M = σ_f^⅔ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-WE-F-V | Materialindex Welle, Festigkeit, Bauraum minimieren | M = σ_f^⅔ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-WE-S-K | Materialindex Welle, Steifigkeit, Kosten minimieren | M = E^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-WE-S-M | Materialindex Welle, Steifigkeit, Masse minimieren | M = E^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-WE-S-V | Materialindex Welle, Steifigkeit, Bauraum minimieren | M = E^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ZS-F-K | Materialindex Zugstab, Festigkeit, Kosten minimieren | M = σ_f / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ZS-F-M | Materialindex Zugstab, Festigkeit, Masse minimieren | M = σ_f / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ZS-F-V | Materialindex Zugstab, Festigkeit, Bauraum minimieren | M = σ_f | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ZS-S-K | Materialindex Zugstab, Steifigkeit, Kosten minimieren | M = E / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ZS-S-M | Materialindex Zugstab, Steifigkeit, Masse minimieren | M = E / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-IX-ZS-S-V | Materialindex Zugstab, Steifigkeit, Bauraum minimieren | M = E | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | Entwurf |
+| A-M | Indexwert | M = y^n / x^k | – | Indexwerte nur innerhalb einer Auswahl vergleichbar | Entwurf |
+| A-PHI-MAX | Formfaktor, obere Grenze je Werkstoffklasse | φ = φ_max (Tab. 7.3, Zeile nach Werkstoffgruppe, Spalte nach Belastung und Versagensart) | – | Ashby (1999) Tab. 7.3; Mg, Ti, Cu, Zn wie Al-Legierungen; Keramik φ = 1 | Entwurf |
+| A-PHI-USER | Formfaktor aus Blatt 1 (gleiches Profil für alle) | φ = Formfaktor des Profils aus Blatt 1 (Belastung und Versagensart wie Index) | – | siehe F-BE, F-BF, F-TE, F-TF | Entwurf |
+| A-REL | Relative Güte (Masse, Kosten oder Bauraum bezogen auf Rang 1) | rel = M₁ / M | – |  | Entwurf |
+| A-SHIFT-0 | Formwirkung bei Bauraum (k = 0), Ordinate | y* = φ·y | GPa | Ashby (1999) Kap. 7.7 | Entwurf |
+| A-SHIFT-X | Strukturierter Werkstoff, Abszisse | x* = x / φ^a mit a = n/(k − n) | kg/m³ | Ashby (1999) Kap. 7.7 | Entwurf |
+| A-SHIFT-Y | Strukturierter Werkstoff, Ordinate | y* = y / φ^a mit a = n/(k − n) | GPa | Ashby (1999) Kap. 7.7 | Entwurf |
+| A-X-CRHO | Abszisse: Volumenkosten C_m·ρ | C_m·ρ = Preis je kg · Dichte | €/m³ |  | Entwurf |
+| A-X-E | Abszisse: E-Modul E | E aus Datenbank | GPa |  | Entwurf |
+| A-X-ECRHO | Abszisse: E·C_m·ρ | E·C_m·ρ = E · C_m · ρ | GPa·€/m³ |  | Entwurf |
+| A-X-ERHO | Abszisse: E·ρ | E·ρ = E · ρ | GPa·kg/m³ |  | Entwurf |
+| A-X-RHO | Abszisse: Dichte ρ | ρ aus Datenbank | kg/m³ |  | Entwurf |
+| A-Y-E | E-Modul (Datenbank, repräsentativ) | E aus Datenbank | GPa |  | Entwurf |
+| A-Y-SF | Festigkeit für Auswahldiagramme | σ_f = R_p, sonst R_m, sonst σ_bB (repräsentativ) | MPa | Ashby (1999) Kap. 3.3 | Entwurf |
 
 ## Biegung
 
@@ -22,6 +74,25 @@ Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py
 | B-M-KQ | Größtes Biegemoment | M_max = q·L²/2 | N·mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2a | Entwurf |
 | B-SIG | Biegespannung | σ_b = M_max / W | MPa |  | Entwurf |
 | B-TAUQ | Schubspannung aus Querkraft (Näherung) | τ_Q = κ·Q_max / A | MPa | κ je Querschnitt | Entwurf |
+
+## Zielkonflikte (Ashby Kap. 9)
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| C-A0 | Ausgangsprofil Blatt 1: Fläche | A₀ (siehe Q-…) | mm² |  | Entwurf |
+| C-C | Werkstoffkosten | C = m·C_m | € |  | Entwurf |
+| C-FZUL | Zulässige Durchbiegung | f_zul = L / n | mm |  | Entwurf |
+| C-I0 | Ausgangsprofil Blatt 1: Flächenträgheitsmoment | I₀ (siehe Q-…) | mm⁴ |  | Entwurf |
+| C-M | Maßgebende Masse (aktive Randbedingung) | m = max(m_St, m_F) | kg | Ashby (1999) Kap. 9.5, aktive Randbedingung | Entwurf |
+| C-MF | Masse aus Festigkeit | m_F = ρ·A₀·s_F²·L | kg |  | Entwurf |
+| C-MMAX | Größtes Biegemoment (Lastfall Blatt 1) | M_max nach Lastfall, siehe B-M-… | N·mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2e | Entwurf |
+| C-MST | Masse aus Steifigkeit | m_St = ρ·A₀·s_St²·L | kg |  | Entwurf |
+| C-SF | Skalierung aus Festigkeit (W ∝ s³) | s_F = (M_max / (σ_zul·W₀))^(1/3) | – | Ashby (1999) Kap. 9.5, aktive Randbedingung | Entwurf |
+| C-SST | Skalierung aus Steifigkeit (I ∝ s⁴) | s_St = (w_k / (E·f_zul·I₀))^(1/4) | – | Ashby (1999) Kap. 9.5, aktive Randbedingung | Entwurf |
+| C-SZUL | Zulässige Biegespannung (wie Nachweis Blatt 1) | σ_zul = min(R_p / S_F, R_m / S_B) | MPa | unterer Auslegungswert; spröde: σ_bB bzw. R_m | Entwurf |
+| C-W0 | Ausgangsprofil Blatt 1: Widerstandsmoment | W₀ (siehe Q-…) | mm³ |  | Entwurf |
+| C-WK | Durchbiegungsbeiwert (Durchbiegung mal E·I) | w_k = f·E·I nach Lastfall, siehe B-F-… | N·mm³ | Ashby App. A.3; Roark Tab. 8.1 Fall 2e | Entwurf |
+| C-Z | Gesamtwertung | Z = α·m + C | € | Ashby (1999) Kap. 9.6, Austauschkonstante | Entwurf |
 
 ## Bemessen
 

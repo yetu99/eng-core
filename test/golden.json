@@ -533,5 +533,188 @@
    "lamT": 72.89994766676685
   },
   "tol": 0.0001
+ },
+ {
+  "id": "Konflikt W038",
+  "case": {
+   "id": "Konflikt W038",
+   "type": "conflict",
+   "materialId": "W038",
+   "basis": {
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "caseId": "EQ",
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2
+   },
+   "alpha": 5
+  },
+  "expect": {
+   "mStiff": 1.9015758303464767,
+   "mStrength": 0.9079770348722791,
+   "mass": 1.9015758303464767,
+   "sigmaZul": 155.0,
+   "Z": 18.064970388291528
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "Konflikt W001",
+  "case": {
+   "id": "Konflikt W001",
+   "type": "conflict",
+   "materialId": "W001",
+   "basis": {
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "caseId": "EQ",
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2
+   },
+   "alpha": 5
+  },
+  "expect": {
+   "mStiff": 3.191970830611089,
+   "mStrength": 2.621103397885999,
+   "mass": 3.191970830611089,
+   "sigmaZul": 156.66666666666666,
+   "Z": 19.151824983666536
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "Index Balken Steifigkeit Masse none",
+  "case": {
+   "id": "Index Balken Steifigkeit Masse none",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.003098740839015095
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index Balken Festigkeit Masse none",
+  "case": {
+   "id": "Index Balken Festigkeit Masse none",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.015087541157394515
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index Platte Steifigkeit Kosten none",
+  "case": {
+   "id": "Index Platte Steifigkeit Kosten none",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Platte",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0003392004361982351
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index Feder Energie speichern Masse none",
+  "case": {
+   "id": "Index Feder Energie speichern Masse none",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Feder",
+   "con": "Energie speichern",
+   "obj": "Masse",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.3576719576719577
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index Balken Steifigkeit Masse max",
+  "case": {
+   "id": "Index Balken Steifigkeit Masse max",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "shapeMode": "max",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.020554721371128307
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index Balken Festigkeit Masse max",
+  "case": {
+   "id": "Index Balken Festigkeit Masse max",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "shapeMode": "max",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.07003016256283559
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index Welle Steifigkeit Bauraum max",
+  "case": {
+   "id": "Index Welle Steifigkeit Bauraum max",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Welle",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "shapeMode": "max",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 46.58325879540846
+  },
+  "tol": 1e-09
  }
 ]

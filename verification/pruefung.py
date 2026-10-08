@@ -78,6 +78,31 @@ for case, beta in [('K2', 1), ('K1', 2)]:
 lT = math.pi * math.sqrt(2 * E_AL / Rp); j = Rp - Rp**2 * lT**2 / (4 * math.pi**2 * E_AL); e = math.pi**2 * E_AL / lT**2
 dj = -2 * Rp**2 * lT / (4 * math.pi**2 * E_AL); de = -2 * math.pi**2 * E_AL / lT**3
 
+# Schritt 6 (Ashby 9.5): Profil aus Blatt 1 formtreu skaliert, Masse aus Steifigkeit und Festigkeit.
+# Unabhängig: Biegelinie per Finite Differenzen (fd_beam), I und A per numerischer Integration, σ_zul wie Nachweis Blatt 1.
+_, wEQ = fd_beam('EQ', F=0, q=2.0); wk = wEQ * EI            # w_k = f·E·I in N·mm³
+MEQ = 2.0 * L**2 / 8; A0, I0 = A2, Ii; W0 = I0 / 30; fzul = L / 300
+basis = dict(secType='rund_hohl', dims={'D': 60, 't': 4}, caseId='EQ', L=1200, F=2, q=2, a=300, fDiv=300, SFreq=1.5, SBreq=2)
+for mid, Emod, rho, Rp_, Rm_, price in [('W038', 70000.0, 2700.0, 260.0, 310.0, 4.5), ('W001', 210000.0, 7850.0, 235.0, 360.0, 1.0)]:
+    szul = min(Rp_ / 1.5, Rm_ / 2.0)                          # duktil: min(R_p/S_F, R_m/S_B), unterer Auslegungswert
+    sSt = (wk / (Emod * fzul * I0)) ** 0.25; sF = (MEQ / (szul * W0)) ** (1 / 3)
+    mSt = rho * A0 * sSt**2 * L * 1e-9; mF = rho * A0 * sF**2 * L * 1e-9; m = max(mSt, mF)
+    id_ = f'Konflikt {mid}'; cases.append(dict(id=id_, type='conflict', materialId=mid, basis=basis, alpha=5))
+    ref[id_] = (dict(mStiff=mSt, mStrength=mF, mass=m, sigmaZul=szul, Z=5 * m + m * price), 2e-3)
+# Ashby-Indizes (Kap. 5 bis 7): EN AW-6082, E 70 GPa, ρ 2700 kg/m³, σ_f = R_p 260 MPa (repräsentativ), C_m 4,5 €/kg
+E6, r6, s6, c6 = 70.0, 2700.0, 260.0, 4.5
+for fn, con, obj, mode, val in [
+    ('Balken', 'Steifigkeit', 'Masse', 'none', E6**0.5 / r6),
+    ('Balken', 'Festigkeit', 'Masse', 'none', s6**(2 / 3) / r6),
+    ('Platte', 'Steifigkeit', 'Kosten', 'none', E6**(1 / 3) / (c6 * r6)),
+    ('Feder', 'Energie speichern', 'Masse', 'none', s6**2 / (E6 * r6)),
+    ('Balken', 'Steifigkeit', 'Masse', 'max', (44 * E6)**0.5 / r6),       # φ_B^e = 44 (Al, Tab. 7.3): M = (φE)^½/ρ
+    ('Balken', 'Festigkeit', 'Masse', 'max', (10 * s6)**(2 / 3) / r6),    # φ_B^f = 10: M = (φσ)^⅔/ρ
+    ('Welle', 'Steifigkeit', 'Bauraum', 'max', (31 * E6)**0.5),          # k = 0: M = (φ_T^e·E)^½
+]:
+    id_ = f'Index {fn} {con} {obj} {mode}'; cases.append(dict(id=id_, type='ashby', materialId='W038', fn=fn, con=con, obj=obj, shapeMode=mode, phiUser=None))
+    ref[id_] = (dict(idx=val), 1e-9)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 rows, fails = [], 0

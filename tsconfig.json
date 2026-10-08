@@ -17,5 +17,5 @@
     "exactOptionalPropertyTypes": true,
     "verbatimModuleSyntax": false
   },
-  "include": ["src/**/*.ts", "test/**/*.ts", "verification/**/*.ts"]
+  "include": ["src/**/*.ts", "test/**/*.ts", "verification/**/*.ts", "scripts/**/*.ts"]
 }
