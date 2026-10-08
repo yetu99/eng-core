@@ -1,0 +1,8142 @@
+[
+ {
+  "material_id": "W001",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": "Weich, lange Späne, Neigung zu Aufbauschneiden",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Alle gängigen Schmelzschweißverfahren, in der Regel ohne Vorwärmen",
+  "source_id": "Q005",
+  "confidence": 2,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": "Feuerverzinkbar, Eignung abhängig vom Si- und P-Gehalt",
+  "source_id": "Q001",
+  "confidence": 2,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W001",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W002",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Warmumformen hebt die Vergütung auf",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": "Kontrollierte Wärmeeinbringung und Vorwärmen nach EN 1011-2",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W003",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W004",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": "Zinkdämpfe absaugen, Schnittkanten nachbehandeln",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W005",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W006",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": "Vorwärmen nötig wegen C-Gehalt",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W007",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": "Nur mit Vorwärmen und Nachwärmen",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W008",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W009",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W010",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W011",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Umformen warm",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nicht schweißbar (Pb, S)",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W012",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nicht schweißbar",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W013",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W014",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": "Kaltverfestigung, scharfe Schneiden und konstanter Vorschub",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W015",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W016",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nicht schweißbar (Schwefel)",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W017",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W018",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W019",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Standardwerkstoff im Laserstrahlschmelzen",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W020",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W021",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": "Wärmeeinbringung begrenzen, Ferritgehalt kontrollieren",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W022",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W023",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W024",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Umformen warm",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W025",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W026",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Umformen warm",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W027",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Umformen warm",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W028",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Praktisch nicht schweißbar",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W029",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W030",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W031",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W032",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W033",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W034",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": "Eloxierbar, Farbe weniger gleichmäßig als 6060",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W035",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Sehr gut dekorativ eloxierbar",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W036",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W037",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W038",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nicht schmelzschweißbar, Rührreibschweißen möglich",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W039",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W040",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W041",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W042",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W043",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": "Wasserstoffversprödung bei reduzierender Atmosphäre",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W044",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W045",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Umformen warm",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W046",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nicht schweißbar (Blei)",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W047",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W048",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Umformen warm",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W049",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Umformen kalt",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W050",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W051",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W052",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Laserstrahl- und Elektronenstrahlschmelzen etabliert",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W053",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Laserstrahlschmelzen etabliert",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Umformen kalt",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Umformen warm",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W054",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Gießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Umformen kalt",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Umformen warm",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Sehr gut, Späne brennbar, Brandschutz beachten",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W055",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Oberflächenbehandlung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W056",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Gießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Umformen kalt",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Umformen warm",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Wärmebehandlung / Härten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W057",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Thermoformen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W058",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Thermoformen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W059",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Thermoformen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W060",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Spritzgießen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Thermoformen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Heizelementmuffenschweißen Standard",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W061",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Spritzgießen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Thermoformen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Lösemittelkleben Standard bei Rohren",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W062",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Thermoformen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W063",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Spritzgießen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Thermoformen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W064",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Thermoformen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W065",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Thermoformen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W066",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Thermoformen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Extrudieren",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Thermoformen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Thermoformen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W069",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Thermoformen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Spritzgießen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nicht schmelzverarbeitbar, Pressen und Sintern",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Extrudieren",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Thermoformen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nur nach Ätzen der Oberfläche",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W071",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Thermoformen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Schweißen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Kleben",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W072",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Thermoformen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W073",
+  "process": "Additive Fertigung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Extrudieren",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Thermoformen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W074",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Thermoformen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Schweißen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Spritzgießen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Extrudieren",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Thermoformen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Spritzgießen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Thermoformen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W077",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Spritzgießen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Thermoformen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W078",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Spritzgießen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Extrudieren",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Thermoformen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W079",
+  "process": "Additive Fertigung",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Thermoformen",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W080",
+  "process": "Additive Fertigung",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Thermoformen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W081",
+  "process": "Additive Fertigung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W082",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W082",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W082",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W082",
+  "process": "Löten",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W083",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W083",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W083",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W083",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W084",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W084",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W084",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W084",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W085",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W085",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W085",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W085",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W086",
+  "process": "Sintern",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W086",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W086",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W086",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W087",
+  "process": "Sintern",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W087",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W087",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W087",
+  "process": "Löten",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W088",
+  "process": "Sintern",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W088",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W088",
+  "process": "Kleben",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W088",
+  "process": "Löten",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W089",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W089",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nur Erodieren oder Schleifen",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W089",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W089",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Hartmetallträger wird auf Werkzeug gelötet",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W090",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W090",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W090",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W090",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W091",
+  "process": "Laminieren / Infusion",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W091",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W091",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W091",
+  "process": "Trennen / Sägen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W092",
+  "process": "Laminieren / Infusion",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W092",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W092",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W092",
+  "process": "Trennen / Sägen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W093",
+  "process": "Laminieren / Infusion",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W093",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W093",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W093",
+  "process": "Trennen / Sägen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W094",
+  "process": "Laminieren / Infusion",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W094",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W094",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W094",
+  "process": "Trennen / Sägen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W095",
+  "process": "Sintern",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W095",
+  "process": "Zerspanen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": "Nur Schleifen oder Erodieren",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W095",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W095",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W096",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W096",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W096",
+  "process": "Trennen / Sägen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W096",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W097",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W097",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W097",
+  "process": "Trennen / Sägen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W097",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W098",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W098",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W098",
+  "process": "Trennen / Sägen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W098",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W099",
+  "process": "Zerspanen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W099",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W099",
+  "process": "Trennen / Sägen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W099",
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W100",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W100",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W100",
+  "process": "Trennen / Sägen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W100",
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ }
+]

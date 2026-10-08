@@ -1,0 +1,66 @@
+[
+ {
+  "name": "Gießen",
+  "class_mask": "x...."
+ },
+ {
+  "name": "Umformen kalt",
+  "class_mask": "x...."
+ },
+ {
+  "name": "Umformen warm",
+  "class_mask": "x...."
+ },
+ {
+  "name": "Zerspanen",
+  "class_mask": "xxxxx"
+ },
+ {
+  "name": "Schweißen",
+  "class_mask": "xx..."
+ },
+ {
+  "name": "Löten",
+  "class_mask": "x.x.."
+ },
+ {
+  "name": "Kleben",
+  "class_mask": "xxxxx"
+ },
+ {
+  "name": "Wärmebehandlung / Härten",
+  "class_mask": "x...."
+ },
+ {
+  "name": "Oberflächenbehandlung",
+  "class_mask": "x...x"
+ },
+ {
+  "name": "Additive Fertigung",
+  "class_mask": "xx..."
+ },
+ {
+  "name": "Spritzgießen",
+  "class_mask": ".x..."
+ },
+ {
+  "name": "Extrudieren",
+  "class_mask": ".x..."
+ },
+ {
+  "name": "Thermoformen",
+  "class_mask": ".x..."
+ },
+ {
+  "name": "Sintern",
+  "class_mask": "..xx."
+ },
+ {
+  "name": "Laminieren / Infusion",
+  "class_mask": "...x."
+ },
+ {
+  "name": "Trennen / Sägen",
+  "class_mask": "...xx"
+ }
+]

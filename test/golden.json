@@ -1,0 +1,537 @@
+[
+ {
+  "id": "S1 Rund voll D40",
+  "case": {
+   "id": "S1 Rund voll D40",
+   "type": "section",
+   "sec": "rund_voll",
+   "dims": {
+    "D": 40
+   }
+  },
+  "expect": {
+   "A": 1256.6370614359173,
+   "I": 125663.70614359177,
+   "phiBe": 1,
+   "phiTe": 1,
+   "phiBf": 1,
+   "phiTf": 1
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "S2 Rund hohl 60x4",
+  "case": {
+   "id": "S2 Rund hohl 60x4",
+   "type": "section",
+   "sec": "rund_hohl",
+   "dims": {
+    "D": 60,
+    "t": 4
+   }
+  },
+  "expect": {
+   "I": 277264.4012352207,
+   "K": 554528.8024704414,
+   "W": 9242.146707840691
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "S3 Rechteck 30x60",
+  "case": {
+   "id": "S3 Rechteck 30x60",
+   "type": "section",
+   "sec": "rechteck_voll",
+   "dims": {
+    "b": 30,
+    "h": 60
+   }
+  },
+  "expect": {
+   "A": 1800,
+   "I": 540000.0,
+   "K": 370464.3169474808
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "S4 Quadrat 30",
+  "case": {
+   "id": "S4 Quadrat 30",
+   "type": "section",
+   "sec": "rechteck_voll",
+   "dims": {
+    "b": 30,
+    "h": 30
+   }
+  },
+  "expect": {
+   "K": 113867.38212745066,
+   "phiBe": 1.0471975511965976
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "S5 Dreieck a60",
+  "case": {
+   "id": "S5 Dreieck a60",
+   "type": "section",
+   "sec": "dreieck_voll",
+   "dims": {
+    "a": 60
+   }
+  },
+  "expect": {
+   "A": 1558.8457268119894,
+   "I": 233826.85902179836,
+   "W": 6749.999999999998,
+   "phiBe": 1.2091995761561452
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "S6 Dreieck hohl 90x5",
+  "case": {
+   "id": "S6 Dreieck hohl 90x5",
+   "type": "section",
+   "sec": "dreieck_hohl",
+   "dims": {
+    "a": 90,
+    "t": 5
+   }
+  },
+  "expect": {
+   "A": 1220.0961894323336,
+   "I": 680320.9859683812
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "S7 Rechteckrohr 40x80x4",
+  "case": {
+   "id": "S7 Rechteckrohr 40x80x4",
+   "type": "section",
+   "sec": "rechteck_hohl",
+   "dims": {
+    "b": 40,
+    "h": 80,
+    "t": 4
+   }
+  },
+  "expect": {
+   "A": 896,
+   "I": 711338.6666666666
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "B KE",
+  "case": {
+   "id": "B KE",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "M": 2400000.0,
+   "w": 59.35540974441764
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "B KQ",
+  "case": {
+   "id": "B KQ",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KQ",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 0,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "M": 1440000.0,
+   "w": 26.709935544273335
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "B EE",
+  "case": {
+   "id": "B EE",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "M": 600000.0,
+   "w": 3.7097126259905244
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "B EQ",
+  "case": {
+   "id": "B EQ",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "EQ",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 0,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "M": 360000.0,
+   "w": 2.7822841796715396
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "B E4",
+  "case": {
+   "id": "B E4",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "E4",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "M": 600000.0,
+   "w": 5.100855102254593
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "B BQ",
+  "case": {
+   "id": "B BQ",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "BQ",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 0,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "M": 240000.0,
+   "w": 0.5564848145008214
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "Z2 hängend",
+  "case": {
+   "id": "Z2 hängend",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "zug",
+    "sub": "Z2",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 50,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "dL": 1.2182949613767504
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "T2 Welle",
+  "case": {
+   "id": "T2 Welle",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "torsion",
+    "sub": "T2",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 300,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "theta": 0.35223872988587945,
+   "tau": 8.114997778208043
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "Knick K2",
+  "case": {
+   "id": "Knick K2",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "druck",
+    "sub": "K2",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 20,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "sk": 170.59636239594153,
+   "lamT": 72.89994766676685
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "Knick K1",
+  "case": {
+   "id": "Knick K1",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "druck",
+    "sub": "K1",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 20,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "sk": 47.257584962160486,
+   "lamT": 72.89994766676685
+  },
+  "tol": 0.0001
+ }
+]
