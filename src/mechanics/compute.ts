@@ -6,6 +6,7 @@
  * Knicken: Euler für λ ≥ λ_T = π·√(2E/R_p), sonst Johnson-Parabel (tangiert Euler bei σ = R_p/2).
  */
 import { fmt } from "../format";
+import { DATA_VERSION } from "../dataVersion";
 import { sectionProps, SECTIONS, type Dims, type SecType, type SectionProps } from "../sections";
 import { step, type CalcStep, type Trace, type TraceGroup } from "../trace";
 import { defaultNu, strengthDesign, DV_SYMBOL, type DvChoice, type Material, type Repo, type StrengthDesign } from "../materials";
@@ -97,8 +98,8 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const rowG = repo.row(mat.id, "P-G"), rowNu = repo.row(mat.id, "P-NU");
   const nu = rowNu?.value ?? defaultNu(mat.cls);
   const Gm = rowG?.value ? rowG.value * 1000 : E / (2 * (1 + nu));
-  add("werkstoff", step("W-E", "E-Modul", "E (Werkstoffdatenbank, Standardvariante)", `${fmt(Egpa)} GPa`, E, "MPa", "WDB v0.3"));
-  add("werkstoff", step("W-RHO", "Dichte", "ρ (Werkstoffdatenbank)", `${fmt(rho)} kg/m³`, rho, "kg/m³", "WDB v0.3"));
+  add("werkstoff", step("W-E", "E-Modul", "E (Werkstoffdatenbank, Standardvariante)", `${fmt(Egpa)} GPa`, E, "MPa", DATA_VERSION));
+  add("werkstoff", step("W-RHO", "Dichte", "ρ (Werkstoffdatenbank)", `${fmt(rho)} kg/m³`, rho, "kg/m³", DATA_VERSION));
   if (rowG?.value) add("werkstoff", step("W-G-DB", "Schubmodul", "G (Werkstoffdatenbank)", `${fmt(rowG.value)} GPa`, Gm, "MPa", repo.sourceName(rowG.source_id)));
   else add("werkstoff", step("W-G", "Schubmodul", "G = E / (2·(1 + ν))", `${fmt(E)} / (2·(1 + ${fmt(nu)}))`, Gm, "MPa", rowNu ? `ν aus ${repo.sourceName(rowNu.source_id)}` : "ν Klassen-Richtwert (Annahme)"));
 

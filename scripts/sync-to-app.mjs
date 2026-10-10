@@ -16,6 +16,7 @@ const copy = (src, dst, rel) => { const buf = readFileSync(src); mkdirSync(dirna
 for (const f of walk(join(root, "src"))) { const rel = relative(join(root, "src"), f); copy(f, join(app, "src/core", rel), `core/${rel}`); }
 for (const f of walk(join(root, "data")).filter((f) => f.endsWith(".json"))) { const rel = relative(join(root, "data"), f); copy(f, join(app, "src/data", rel), `data/${rel}`); }
 writeFileSync(join(app, "src/core/README.md"), `# src/core (eng-core ${pkg.version})\n\nNicht in dieser App bearbeiten. Quelle: Repo eng-core, eingespielt mit scripts/sync-to-app.mjs.\nPrüfsummen: MANIFEST.json. Formeln: FORMELKATALOG.md im Repo eng-core.\n`);
-writeFileSync(join(app, "src/data/README.md"), `# src/data (Werkstoffdatenbank v0.3)\n\nJSON-Export der Werkstoffdatenbank, identisch mit dem Werkstoffatlas. Nicht in dieser App bearbeiten.\n`);
+const snap = JSON.parse(readFileSync(join(root, "data/snapshot.json"), "utf8"));
+writeFileSync(join(app, "src/data/README.md"), `# src/data (Werkstoffdaten ${snap.release.version})\n\nVersionierter Abzug aus Supabase (Tabellen wa_*), identisch mit dem Werkstoffatlas. Nicht in dieser App bearbeiten; neu erzeugen mit npm run data:pull im Repo eng-core.\n`);
 writeFileSync(join(app, "src/core/MANIFEST.json"), JSON.stringify(manifest, null, 1) + "\n");
 console.log(`eng-core ${pkg.version}: ${Object.keys(manifest.files).length} Dateien nach ${app} kopiert`);

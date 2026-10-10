@@ -1,6 +1,6 @@
 {
   "name": "@yetu/eng-core",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "type": "module",
   "description": "Deterministischer Rechenkern der Ingenieur-Werkbank (Festigkeit, Ashby-Werkstoffauswahl). Single Point of Truth für Formeln.",
@@ -10,6 +10,8 @@
     "verify": "python3 verification/pruefung.py",
     "golden": "python3 verification/pruefung.py --write-golden",
     "sync": "node scripts/sync-to-app.mjs",
+    "data:pull": "node scripts/pull-data.mjs",
+    "data:check": "node scripts/pull-data.mjs --check",
     "katalog": "tsx scripts/formelkatalog.ts",
     "freigabe:export": "python3 scripts/formelfreigabe.py export",
     "freigabe:import": "python3 scripts/formelfreigabe.py import"

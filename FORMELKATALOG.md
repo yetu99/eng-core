@@ -1,4 +1,4 @@
-# Formelkatalog eng-core 0.4.1
+# Formelkatalog eng-core 0.4.2
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
@@ -188,10 +188,10 @@ Stand: 144 Formeln, davon 134 freigegeben, 0 abgelehnt, 8 neu zu prüfen, 2 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | Entwurf |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB v0.3 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.0.1 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB v0.3 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.0.1 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | geändert, neu prüfen |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | geändert, neu prüfen |
 

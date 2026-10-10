@@ -1,5 +1,5 @@
 /**
- * Werkstoff-Repository über den JSON-Export der Werkstoffdatenbank (identisch mit dem Werkstoffatlas).
+ * Werkstoff-Repository über den Datenabzug aus Supabase (data/*.json, identisch mit dem Werkstoffatlas).
  * Einheiten wie in der Datenbank: E und G in GPa, ρ in kg/m³, Festigkeiten in MPa, Preis in €/kg.
  *
  * Repräsentativer Wert (Anzeige, Ashby): erste Zeile je (Standardvariante, Eigenschaft) nach sort_key,

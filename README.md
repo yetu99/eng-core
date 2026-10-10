@@ -7,7 +7,7 @@ Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für 
 | Ordner | Inhalt |
 |---|---|
 | `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung, Torsion, Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte |
-| `data/` | JSON-Export der Werkstoffdatenbank v0.3 (identisch mit dem Werkstoffatlas) |
+| `data/` | Versionierter Abzug der Werkstoffdaten aus Supabase (Tabellen `wa_*`, identisch mit dem Werkstoffatlas), Datenstand in `data/snapshot.json` |
 | `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby |
 | `verification/` | `pruefung.py`: unabhängige Python-Gegenrechnung (numerische Integration, Finite Differenzen, Reihenlösungen) |
 | `scripts/` | `katalog.ts` (Formelkatalog als Daten), `formelkatalog.ts` (erzeugt FORMELKATALOG.md), `formelfreigabe.py` (Freigabe-Excel Export/Import), `sync-to-app.mjs` (kopiert den Kern in eine App) |
@@ -27,6 +27,18 @@ python3 verification/pruefung.py
 ```
 
 Bei jedem Push läuft dasselbe automatisch auf GitHub (`.github/workflows/verify.yml`).
+
+## Werkstoffdaten aktualisieren
+
+Master der Werkstoffdaten ist Supabase (Projekt Kompendium, Tabellen `wa_*`, seit WDB 1.0). `data/` ist ein Abzug davon, damit Rechnungen, Golden-Tests und PDFs reproduzierbar bleiben. Der Datenstand steht in jedem Rechenweg (`W-E`, `W-RHO`).
+
+```bash
+npm run data:check   # meldet, ob die Datenbank einen neueren Stand hat (Exit 1 = veraltet)
+npm run data:pull    # schreibt data/*.json und data/snapshot.json neu (gleicher Stand = gleiche Bytes)
+npx vitest run && python3 verification/pruefung.py && npx tsx scripts/formelkatalog.ts
+```
+
+Danach committen und mit `sync-to-app` in die Werkbank einspielen. Die Dateien in `data/` nie von Hand ändern; der Test `test/data.test.ts` prüft die Prüfsummen.
 
 ## In eine App einspielen
 
