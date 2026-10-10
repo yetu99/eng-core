@@ -2,7 +2,7 @@
  * eng-core: Rechenkern der Ingenieur-Werkbank.
  * Single Point of Truth für alle Formeln. Änderungen nur über das Repo eng-core mit Tests und Gegenrechnung.
  */
-export const CORE_VERSION = "0.4.0";
+export const CORE_VERSION = "0.4.1";
 
 export * from "./format";
 export * from "./trace";

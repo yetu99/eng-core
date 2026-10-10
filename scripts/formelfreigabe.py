@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -109,9 +110,15 @@ def parse_date(v) -> str | None:
 
 # --------------------------------------------------------------------------------------------- Export
 
-def export(out: Path) -> None:
+def export(out: Path, only_open: bool = False) -> None:
     cat = load_catalog()
     entries, status = cat["entries"], cat["status"]
+    if only_open:
+        # nur Formeln ohne gültige Freigabe: offen, abgelehnt oder seit der Freigabe geändert
+        def approved(e: dict) -> bool:
+            st = status.get(e["id"])
+            return bool(st) and st.get("status") == "freigegeben" and st.get("formel") in (None, e["formula"])
+        entries = [e for e in entries if not approved(e)]
     wb = Workbook()
     ws = wb.active
     ws.title = SHEET
@@ -169,7 +176,9 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
         vals["in_datum"] = None if stale or not st.get("datum") else dt.date.fromisoformat(st["datum"])
         vals["in_durch"] = None if stale else st.get("durch")
         k = st.get("kommentar")
-        vals["in_kommentar"] = (f"[Formel geändert seit Freigabe vom {st.get('datum', '?')}] " + (k or "")).strip() if stale else k
+        ans = st.get("antwort")
+        pre = (f"[Formel geändert seit Prüfung vom {st.get('datum', '?')}] " if stale else "") + (f"[Antwort: {ans}] " if ans else "")
+        vals["in_kommentar"] = (pre + (k or "")).strip() or None
         for _, _, key in COLS:
             c = ws.cell(row=r, column=C[key], value=vals.get(key))
             c.font, c.border = F_BASE, BORDER
@@ -322,7 +331,8 @@ def import_xlsx(path: Path, dry_run: bool) -> int:
         e = by_id[fid]
         get = lambda k: ws.cell(row=r, column=col[k]).value if col.get(k) else None
         stat = str(get("in_status") or "offen").strip().lower()
-        kommentar = str(get("in_kommentar") or "").strip() or None
+        # automatisch vorangestellte Hinweise ([Formel geändert …], [Antwort: …], [umgesetzt …]) nicht erneut speichern
+        kommentar = re.sub(r"^(\[[^\]]*\]\s*)+", "", str(get("in_kommentar") or "").strip()).strip() or None
         durch = str(get("in_durch") or "").strip() or None
         try:
             datum = parse_date(get("in_datum"))
@@ -350,13 +360,16 @@ def import_xlsx(path: Path, dry_run: bool) -> int:
             rec["durch"] = durch
         if kommentar:
             rec["kommentar"] = kommentar
+        prev = cat["status"].get(fid, {})
+        if prev.get("antwort"):
+            rec["antwort"] = prev["antwort"]  # Antwort des Kern-Verantwortlichen bleibt erhalten
         rec["formel"] = e["formula"]
         new[fid] = rec
 
     old = cat["status"]
     missing = [i for i in by_id if i not in seen]
     if missing:
-        warn.append(f"{len(missing)} Formeln fehlen in der Excel (älterer Export?): {', '.join(missing[:10])}{' …' if len(missing) > 10 else ''}; ihr bisheriger Status bleibt erhalten")
+        warn.append(f"{len(missing)} Formeln fehlen in der Excel (Teilexport oder älterer Export): {', '.join(missing[:10])}{' …' if len(missing) > 10 else ''}; ihr bisheriger Status bleibt erhalten")
         for i in missing:
             if i in old:
                 new[i] = old[i]
@@ -387,13 +400,15 @@ def main() -> None:
     sub = ap.add_subparsers(dest="cmd", required=True)
     ex = sub.add_parser("export", help="Freigabe-Excel aus dem Rechenkern erzeugen")
     ex.add_argument("--out", type=Path, default=None)
+    ex.add_argument("--offen", action="store_true", help="nur Formeln ohne gültige Freigabe exportieren")
     im = sub.add_parser("import", help="Ausgefüllte Excel nach formelstatus.json übernehmen")
     im.add_argument("xlsx", type=Path)
     im.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     if a.cmd == "export":
         ver = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
-        export((a.out or ROOT / "freigabe" / f"Formelfreigabe_eng-core_{ver}.xlsx").resolve())
+        name = f"Formelfreigabe_eng-core_{ver}{'_offen' if a.offen else ''}.xlsx"
+        export((a.out or ROOT / "freigabe" / name).resolve(), a.offen)
     else:
         sys.exit(import_xlsx(a.xlsx.resolve(), a.dry_run))
 

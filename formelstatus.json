@@ -1,1 +1,878 @@
-{}
+{
+  "A-IX-BA-F-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^⅔ / (C_m·ρ)"
+  },
+  "A-IX-BA-F-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^⅔ / ρ"
+  },
+  "A-IX-BA-F-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^⅔"
+  },
+  "A-IX-BA-S-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½ / (C_m·ρ)"
+  },
+  "A-IX-BA-S-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½ / ρ"
+  },
+  "A-IX-BA-S-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½"
+  },
+  "A-IX-FE-E-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f² / (E·C_m·ρ)"
+  },
+  "A-IX-FE-E-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f² / (E·ρ)"
+  },
+  "A-IX-FE-E-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f² / E"
+  },
+  "A-IX-PL-F-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^½ / (C_m·ρ)"
+  },
+  "A-IX-PL-F-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^½ / ρ"
+  },
+  "A-IX-PL-F-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^½"
+  },
+  "A-IX-PL-S-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^⅓ / (C_m·ρ)"
+  },
+  "A-IX-PL-S-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^⅓ / ρ"
+  },
+  "A-IX-PL-S-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^⅓"
+  },
+  "A-IX-ST-K-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½ / (C_m·ρ)"
+  },
+  "A-IX-ST-K-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½ / ρ"
+  },
+  "A-IX-ST-K-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½"
+  },
+  "A-IX-WE-F-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^⅔ / (C_m·ρ)"
+  },
+  "A-IX-WE-F-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^⅔ / ρ"
+  },
+  "A-IX-WE-F-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f^⅔"
+  },
+  "A-IX-WE-S-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½ / (C_m·ρ)"
+  },
+  "A-IX-WE-S-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½ / ρ"
+  },
+  "A-IX-WE-S-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E^½"
+  },
+  "A-IX-ZS-F-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f / (C_m·ρ)"
+  },
+  "A-IX-ZS-F-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f / ρ"
+  },
+  "A-IX-ZS-F-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = σ_f"
+  },
+  "A-IX-ZS-S-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E / (C_m·ρ)"
+  },
+  "A-IX-ZS-S-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E / ρ"
+  },
+  "A-IX-ZS-S-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = E"
+  },
+  "A-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M = y^n / x^k"
+  },
+  "A-PHI-MAX": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "φ = φ_max (Tab. 7.3, Zeile nach Werkstoffgruppe, Spalte nach Belastung und Versagensart)"
+  },
+  "A-PHI-USER": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "φ = Formfaktor des Profils aus Blatt 1 (Belastung und Versagensart wie Index)"
+  },
+  "A-REL": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "rel = M₁ / M"
+  },
+  "A-SHIFT-0": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "y* = φ·y"
+  },
+  "A-SHIFT-X": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "x* = x / φ^a mit a = n/(k − n)"
+  },
+  "A-SHIFT-Y": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "y* = y / φ^a mit a = n/(k − n)"
+  },
+  "A-X-CRHO": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "C_m·ρ = Preis je kg · Dichte"
+  },
+  "A-X-E": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "E aus Datenbank"
+  },
+  "A-X-ECRHO": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "E·C_m·ρ = E · C_m · ρ"
+  },
+  "A-X-ERHO": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "E·ρ = E · ρ"
+  },
+  "A-X-RHO": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "ρ aus Datenbank"
+  },
+  "A-Y-E": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "E aus Datenbank"
+  },
+  "A-Y-SF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_f = R_p, sonst R_m, sonst σ_bB (repräsentativ)"
+  },
+  "B-F-BQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f = q·L⁴ / (384·E·I)"
+  },
+  "B-F-E4": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f = F·a·(3L² − 4a²) / (24·E·I)"
+  },
+  "B-F-EE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f = F·L³ / (48·E·I)"
+  },
+  "B-F-EQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f = 5·q·L⁴ / (384·E·I)"
+  },
+  "B-F-KE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f = F·L³ / (3·E·I)"
+  },
+  "B-F-KQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f = q·L⁴ / (8·E·I)"
+  },
+  "B-M-BQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max = q·L²/12 (Einspannung)"
+  },
+  "B-M-E4": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max = F·a"
+  },
+  "B-M-EE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max = F·L/4"
+  },
+  "B-M-EQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max = q·L²/8"
+  },
+  "B-M-KE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max = F·L"
+  },
+  "B-M-KQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max = q·L²/2"
+  },
+  "B-SIG": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_b = M_max / W"
+  },
+  "B-TAUQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "τ_Q = κ·Q_max / A"
+  },
+  "C-A0": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A₀ (siehe Q-…)"
+  },
+  "C-C": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "C = m·C_m"
+  },
+  "C-FZUL": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f_zul = L / n"
+  },
+  "C-I0": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I₀ (siehe Q-…)"
+  },
+  "C-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "m = max(m_St, m_F)"
+  },
+  "C-MF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "m_F = ρ·A₀·s_F²·L"
+  },
+  "C-MMAX": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "M_max nach Lastfall, siehe B-M-…"
+  },
+  "C-MST": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "m_St = ρ·A₀·s_St²·L"
+  },
+  "C-SF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "s_F = (M_max / (σ_zul·W₀))^(1/3)"
+  },
+  "C-SST": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "s_St = (w_k / (E·f_zul·I₀))^(1/4)"
+  },
+  "C-SZUL": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_zul = min(R_p / S_F, R_m / S_B)"
+  },
+  "C-W0": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W₀ (siehe Q-…)"
+  },
+  "C-WK": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "w_k = f·E·I nach Lastfall, siehe B-F-…"
+  },
+  "C-Z": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Z = α·m + C"
+  },
+  "D-BIS": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "max. Ausnutzung u(s) = 1, Bisektion im log-Raum"
+  },
+  "D-ERF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "D_erf = D₀·s"
+  },
+  "D-GEW": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "D aufgerundet auf 1 mm"
+  },
+  "D-U": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "u = max(S_erf / S)"
+  },
+  "F-BE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "φ_B^e = 4π·I / A²"
+  },
+  "F-BF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "φ_B^f = 4√π·W / A^1,5"
+  },
+  "F-TE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "φ_T^e = 2π·Iₜ / A²"
+  },
+  "F-TF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "φ_T^f = 2√π·Wₜ / A^1,5"
+  },
+  "K-FK": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "F_k = σ_k·A"
+  },
+  "K-LAM": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "λ = L_k / i"
+  },
+  "K-LAMT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "λ_T = π·√(2E / R_p)"
+  },
+  "K-LK": {
+    "status": "offen",
+    "kommentar": "das ist die allgemine knicklänge wenn du beta schreibst, was ja auch korrekt ist, als lass in der benennung einfach nur eulerfall 1 weg? Dann ist es absolut korrekt",
+    "formel": "L_k = β·L",
+    "antwort": "Benennung jetzt nur „Knicklänge“, der Eulerfall steht im Beispiel (β = … (Eulerfall n))."
+  },
+  "K-SKE": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_k = π²·E / λ²"
+  },
+  "K-SKJ": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_k = R_p − R_p²·λ² / (4π²E)"
+  },
+  "N-FZUL": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "f_zul = L / 300"
+  },
+  "N-SB": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "S_B = R_m / σ_v"
+  },
+  "N-SF": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "S_F = R_p / σ_v"
+  },
+  "N-SK": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "S_K = F_k / |F_N|"
+  },
+  "N-SV": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_v = √(σ² + 3τ_t²),  σ = |σ_b| + |σ_N|"
+  },
+  "Q-DH-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A = √3/4·(a² − aᵢ²)"
+  },
+  "Q-DH-I": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I = √3·(a⁴ − aᵢ⁴)/96"
+  },
+  "Q-DH-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Iₜ = 4·Aₘ²·t / Uₘ,  aₘ = a − √3·t"
+  },
+  "Q-DH-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W = I / (a/√3)"
+  },
+  "Q-DH-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Wₜ = 2·Aₘ·t"
+  },
+  "Q-DH-ai": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "aᵢ = a − 2√3·t"
+  },
+  "Q-DV-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A = √3/4·a²"
+  },
+  "Q-DV-I": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I = √3·a⁴/96"
+  },
+  "Q-DV-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Iₜ = √3·a⁴/80"
+  },
+  "Q-DV-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W = I/e = a³/32"
+  },
+  "Q-DV-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Wₜ = a³/20"
+  },
+  "Q-DV-e": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "e = a/√3"
+  },
+  "Q-RE-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A = b·h"
+  },
+  "Q-RE-I": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I = b·h³/12"
+  },
+  "Q-RE-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Iₜ = a·c³·[16/3 − 3,36·(c/a)·(1 − c⁴/(12a⁴))],  a = max/2, c = min/2"
+  },
+  "Q-RE-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W = b·h²/6"
+  },
+  "Q-RE-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Wₜ = 8·a·c² / (3·[1 + 0,6095r + 0,8865r² − 1,8023r³ + 0,91r⁴]),  r = c/a"
+  },
+  "Q-RH-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A = π·(D² − d²)/4"
+  },
+  "Q-RH-I": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I = π·(D⁴ − d⁴)/64"
+  },
+  "Q-RH-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Iₜ = π·(D⁴ − d⁴)/32"
+  },
+  "Q-RH-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W = I / (D/2)"
+  },
+  "Q-RH-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Wₜ = Iₜ / (D/2)"
+  },
+  "Q-RH-d": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "d = D − 2t"
+  },
+  "Q-RR-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A = b·h − (b − 2t)·(h − 2t)"
+  },
+  "Q-RR-AM": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Aₘ = (b − t)·(h − t)"
+  },
+  "Q-RR-I": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I = [b·h³ − (b − 2t)·(h − 2t)³]/12"
+  },
+  "Q-RR-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Iₜ = 4·Aₘ²·t / Uₘ"
+  },
+  "Q-RR-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W = I / (h/2)"
+  },
+  "Q-RR-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Wₜ = 2·Aₘ·t"
+  },
+  "Q-RV-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "A = π·D²/4"
+  },
+  "Q-RV-I": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "I = π·D⁴/64"
+  },
+  "Q-RV-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Iₜ = Iₚ = π·D⁴/32"
+  },
+  "Q-RV-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "W = I / (D/2)"
+  },
+  "Q-RV-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "Wₜ = Iₚ / (D/2)"
+  },
+  "Q-i": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "i = √(I_min / A)"
+  },
+  "Q-m": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "m = ρ·A·L"
+  },
+  "T-PHI1": {
+    "status": "abgelehnt",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
+    "formel": "φ = T·L / (G·Iₜ)",
+    "antwort": "Torsionsmoment heißt jetzt M_t, Winkel indiziert als φ_Ende."
+  },
+  "T-PHI2": {
+    "status": "abgelehnt",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "Ich glaube für den Verdrehwinkel in der Mitte ist der Faktor im Nenner 2 antelle von 4? Und ich hätte gerne das Torsionsmoment nicht T sondern M_t genannt. Und klare Indizierung von phi, zb phi_mitte?",
+    "formel": "φ = T·L / (4·G·Iₜ)",
+    "antwort": "Faktor 4 ist richtig: jede Hälfte trägt M_t,A = M_t/2 über die Länge L/2, also φ_Mitte = (M_t/2)·(L/2)/(G·Iₜ) = M_t·L/(4·G·Iₜ). Faktor 2 gälte, wenn das volle M_t über L/2 wirkte. Die Formel zeigt jetzt beide Schritte, Gegenrechnung (Verträglichkeit) bestätigt. M_t und φ_Mitte umbenannt."
+  },
+  "T-TA": {
+    "status": "abgelehnt",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
+    "formel": "T_A = T_B = T / 2",
+    "antwort": "Torsionsmoment heißt jetzt M_t, Einspannmomente M_t,A und M_t,B."
+  },
+  "T-TAU": {
+    "status": "abgelehnt",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
+    "formel": "τ_t = T / Wₜ",
+    "antwort": "M_t,max eingeführt: einseitig M_t, beidseitig M_t,A."
+  },
+  "W-E": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "E (Werkstoffdatenbank, Standardvariante)"
+  },
+  "W-G": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
+    "formel": "G = E / (2·(1 + ν))",
+    "antwort": "ν kommt aus der Datenbank, sonst Klassen-Richtwert: Metall 0,3, Polymer 0,38, Keramik 0,22, Verbund 0,3, Natur 0,3. Für Metalle also genau 0,3. Der Rechenweg markiert, wenn der Richtwert genutzt wird."
+  },
+  "W-G-DB": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "G (Werkstoffdatenbank)"
+  },
+  "W-RHO": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "ρ (Werkstoffdatenbank)"
+  },
+  "W-RM": {
+    "status": "abgelehnt",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin.",
+    "formel": "R_m = unterer Wert aus ≥ 310 MPa",
+    "antwort": "Wie W-RP. Biegefestigkeit spröder Werkstoffe hat jetzt eine eigene ID (W-BB)."
+  },
+  "W-RP": {
+    "status": "abgelehnt",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin.",
+    "formel": "R_p = unterer Wert aus ≥ 260 MPa",
+    "antwort": "Formel ist jetzt allgemein (Auslegungswert aus der Datenbankzeile des gewählten Werkstoffs). Der konkrete Bezug (Werkstoff, Datenbankzeile, Werttyp, Bedingung) steht im Beispiel, nicht mehr in der Formel."
+  },
+  "Z-DL": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "ΔL = F_N·L / (E·A)"
+  },
+  "Z-DL2": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "mit eigengewicht, bitte klare Indizierung",
+    "formel": "ΔL = F·L/(E·A) + q_G·L²/(2·E·A)",
+    "antwort": "Aufgeteilt in ΔL_F (Last) und ΔL_G (Eigengewicht)."
+  },
+  "Z-NMAX": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "N_max = F + q_G·L"
+  },
+  "Z-QG": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "q_G = ρ·g·A"
+  },
+  "Z-SIG": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "formel": "σ_N = F_N / A"
+  },
+  "Z-SIG2": {
+    "status": "freigegeben",
+    "datum": "2026-10-08",
+    "durch": "Seti",
+    "kommentar": "mit eigengewicht, bitte klare Indizierung",
+    "formel": "σ_N = N_max / A",
+    "antwort": "Indiziert als σ_N,max (an der Einspannung, mit Eigengewicht)."
+  }
+}

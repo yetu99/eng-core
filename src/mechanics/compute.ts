@@ -120,8 +120,8 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const S = strengthDesign(repo, mat, bending, inp.dvChoice, inp.dvManual);
   res.strength = S; res.E = E; res.G = Gm; res.nu = nu;
   const Rp = S.Rp?.v ?? null, Rm = S.Rm?.v ?? null;
-  if (S.Rp) add("werkstoff", step("W-RP", "Streckgrenze (Auslegungswert)", `R_p = ${S.Rp.basis} aus ${S.Rp.db} MPa`, `${S.Rp.type}${S.Rp.cond ? ", " + S.Rp.cond : ""}`, Rp ?? NaN, "MPa", S.Rp.src));
-  if (S.Rm) add("werkstoff", step("W-RM", (S.Rm.prop === "P-BB" ? "Biegefestigkeit" : "Zugfestigkeit") + " (Auslegungswert)", `${DV_SYMBOL[S.Rm.prop]} = ${S.Rm.basis} aus ${S.Rm.db} MPa`, `${S.Rm.type}${S.Rm.cond ? ", " + S.Rm.cond : ""}`, Rm ?? NaN, "MPa", S.Rm.src));
+  if (S.Rp) add("werkstoff", step("W-RP", "Streckgrenze (Auslegungswert)", "R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)", `${mat.name}: Datenbank ${S.Rp.db} MPa (${S.Rp.type}${S.Rp.cond ? ", " + S.Rp.cond : ""}) → ${S.Rp.basis}`, Rp ?? NaN, "MPa", S.Rp.src));
+  if (S.Rm) add("werkstoff", step(S.Rm.prop === "P-BB" ? "W-BB" : "W-RM", (S.Rm.prop === "P-BB" ? "Biegefestigkeit" : "Zugfestigkeit") + " (Auslegungswert)", `${DV_SYMBOL[S.Rm.prop]} = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)`, `${mat.name}: Datenbank ${S.Rm.db} MPa (${S.Rm.type}${S.Rm.cond ? ", " + S.Rm.cond : ""}) → ${S.Rm.basis}`, Rm ?? NaN, "MPa", S.Rm.src));
   for (const d of [S.Rp, S.Rm]) if (d?.warn) res.warnings.push(`${DV_SYMBOL[d.prop]}: ${d.warn}`);
   if (S.brittle) res.warnings.push("Spröder Werkstoff: nur Bruchnachweis");
   if (mat.cls === "Polymer") res.warnings.push("Polymer: Werte gelten für 23 °C und Kurzzeitbelastung");
@@ -153,8 +153,8 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
       res.axial = { N, qG, Nmax, dL, N_x: (x) => N + qG * (L - x), u_x: (x) => (N * x + qG * (L * x - x * x / 2)) / (E * sec.A) };
       add("belastung", step("Z-QG", "Eigengewicht je Länge", "q_G = ρ·g·A", `${fmt(rho)}·${G_ACC}·${fmt(sec.A)}·10⁻⁹`, qG, "N/mm"));
       add("belastung", step("Z-NMAX", "Größte Normalkraft (Einspannung)", "N_max = F + q_G·L", `${fmt(N)} + ${fmt(qG)}·${fmt(L)}`, Nmax, "N"));
-      add("belastung", step("Z-SIG2", "Zugspannung", "σ_N = N_max / A", `${fmt(Nmax)} / ${fmt(sec.A)}`, sigN, "MPa"));
-      add("belastung", step("Z-DL2", "Längenänderung", "ΔL = F·L/(E·A) + q_G·L²/(2·E·A)", `${fmt(N)}·${fmt(L)}/(${fmt(E)}·${fmt(sec.A)}) + ${fmt(qG)}·${fmt(L)}²/(2·${fmt(E)}·${fmt(sec.A)})`, dL, "mm", "Integration σ(x)/E"));
+      add("belastung", step("Z-SIG2", "Größte Zugspannung mit Eigengewicht (Einspannung)", "σ_N,max = N_max / A", `${fmt(Nmax)} / ${fmt(sec.A)}`, sigN, "MPa"));
+      add("belastung", step("Z-DL2", "Längenänderung mit Eigengewicht", "ΔL = ΔL_F + ΔL_G = F·L/(E·A) + q_G·L²/(2·E·A)", `${fmt(N)}·${fmt(L)}/(${fmt(E)}·${fmt(sec.A)}) + ${fmt(qG)}·${fmt(L)}²/(2·${fmt(E)}·${fmt(sec.A)})`, dL, "mm", "Integration σ(x)/E"));
     } else {
       sigN = N / sec.A;
       const dL = N * L / (E * sec.A);
@@ -167,7 +167,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   if (N < 0 && eulerCase !== null) {
     const beta = EULER_BETA[eulerCase], Lk = beta * L, lam = Lk / sec.i;
     const lamT = Rp ? Math.PI * Math.sqrt(2 * E / Rp) : null;
-    add("belastung", step("K-LK", `Knicklänge (Eulerfall ${eulerCase})`, "L_k = β·L", `${fmt(beta)}·${fmt(L)}`, Lk, "mm", inp.mode === "combined" ? "aus der Lagerung abgeleitet" : "Eulerfall gewählt"));
+    add("belastung", step("K-LK", "Knicklänge", "L_k = β·L", `β = ${fmt(beta)} (Eulerfall ${eulerCase}): ${fmt(beta)}·${fmt(L)}`, Lk, "mm", inp.mode === "combined" ? "aus der Lagerung abgeleitet" : "Eulerfall gewählt"));
     add("belastung", step("K-LAM", "Schlankheitsgrad", "λ = L_k / i", `${fmt(Lk)} / ${fmt(sec.i)}`, lam, "–"));
     if (lamT) add("belastung", step("K-LAMT", "Übergangsschlankheit Johnson/Euler", "λ_T = π·√(2E / R_p)", `π·√(2·${fmt(E)} / ${fmt(Rp)})`, lamT, "–", "Johnson-Parabel tangiert Euler bei σ = R_p/2"));
     let sk = Math.PI ** 2 * E / (lam * lam), model: "Euler" | "Johnson" = "Euler";
@@ -192,9 +192,9 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
       T_x: (x) => (twoSided ? (x < L / 2 ? Tm / 2 : -Tm / 2) : Tm),
       phi_x: (x) => (twoSided ? (Tm / 2) * Math.min(x, L - x) : Tm * x) / (Gm * sec.K) * 180 / Math.PI,
     };
-    if (twoSided) add("belastung", step("T-TA", "Einspannmoment je Seite", "T_A = T_B = T / 2", `${fmt(Tm)} / 2`, Teff, "N·mm", "Verträglichkeit, gleiche Steifigkeit beider Hälften"));
-    add("belastung", step("T-TAU", "Torsionsspannung", "τ_t = T / Wₜ", `${fmt(Teff)} / ${fmt(sec.Wt)}`, tauT, "MPa", "Ashby App. A.6"));
-    add("belastung", step(twoSided ? "T-PHI2" : "T-PHI1", twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am Ende", twoSided ? "φ = T·L / (4·G·Iₜ)" : "φ = T·L / (G·Iₜ)", `${fmt(Tm)}·${fmt(L)} / (${twoSided ? "4·" : ""}${fmt(Gm)}·${fmt(sec.K)})`, theta, "°", "Ashby App. A.6"));
+    if (twoSided) add("belastung", step("T-TA", "Einspannmoment je Seite", "M_t,A = M_t,B = M_t / 2", `${fmt(Tm)} / 2`, Teff, "N·mm", "Verträglichkeit, gleiche Steifigkeit beider Hälften"));
+    add("belastung", step("T-TAU", "Torsionsspannung", "τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A)", `${fmt(Teff)} / ${fmt(sec.Wt)}`, tauT, "MPa", "Ashby App. A.6"));
+    add("belastung", step(twoSided ? "T-PHI2" : "T-PHI1", twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", twoSided ? "φ_Mitte = M_t,A·(L/2) / (G·Iₜ) = M_t·L / (4·G·Iₜ)" : "φ_Ende = M_t·L / (G·Iₜ)", `${fmt(Tm)}·${fmt(L)} / (${twoSided ? "4·" : ""}${fmt(Gm)}·${fmt(sec.K)})`, theta, "°", "Ashby App. A.6"));
   }
   const sigma = Math.abs(sigmaB) + Math.abs(sigN);
   const sv = Math.sqrt(sigma * sigma + 3 * tauT * tauT);
@@ -231,7 +231,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   kp("sigmaV", "Vergleichsspannung", "σ_v", sv, "MPa", true, true);
   if (res.bend) kp("f", "Durchbiegung", "f", res.bend.w, "mm", true);
   if (res.axial) kp("dL", "Längenänderung", "ΔL", res.axial.dL, "mm", true);
-  if (res.tors) kp("theta", "Verdrehwinkel", "φ", res.tors.theta, "°", true);
+  if (res.tors) kp("theta", res.tors.twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", res.tors.twoSided ? "φ_Mitte" : "φ_Ende", res.tors.theta, "°", true);
   if (res.buck) kp("Fk", "Knicklast", "F_k", res.buck.Fk / 1000, "kN", true);
   res.kpis = K;
   return res;

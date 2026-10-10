@@ -24,8 +24,8 @@ for (const e of entries) {
 md += `\nStand: ${entries.length} Formeln, davon ${count.freigegeben} freigegeben, ${count.abgelehnt} abgelehnt, ${count.stale} neu zu prüfen, ${count.entwurf} Entwurf.\n` + body;
 const objections = entries.filter((e) => status[e.id]?.kommentar && effectiveStatus(e, status[e.id]).label !== "freigegeben");
 if (objections.length) {
-  md += `\n## Einwände und Verbesserungen\n\n| ID | Status | Datum | Prüfer | Kommentar |\n|---|---|---|---|---|\n`;
-  for (const e of objections) { const s = status[e.id]!; md += `| ${e.id} | ${effectiveStatus(e, s).label} | ${s.datum ?? ""} | ${esc(s.durch ?? "")} | ${esc(s.kommentar ?? "")} |\n`; }
+  md += `\n## Einwände und Verbesserungen\n\n| ID | Status | Datum | Prüfer | Kommentar | Antwort |\n|---|---|---|---|---|---|\n`;
+  for (const e of objections) { const s = status[e.id]!; md += `| ${e.id} | ${effectiveStatus(e, s).label} | ${s.datum ?? ""} | ${esc(s.durch ?? "")} | ${esc(s.kommentar ?? "")} | ${esc(s.antwort ?? "")} |\n`; }
 }
 md += `\n## Gültigkeit und Annahmen\n\n- Linear-elastisch, kleine Verformungen, Bernoulli-Balken, statische Last, isotroper Werkstoff.\n- Torsion Hohlprofile nach Bredt (t ≪ Abmessung); Rechteck voll nach Roark Tab. 10.1 (Näherung, < 0,2 % gegen Saint-Venant-Reihe).\n- Vergleichsspannung GEH an der Randfaser; τ_Q separat (Maximum an der Nulllinie).\n- Knicken: Euler für λ ≥ λ_T = π·√(2E/R_p), darunter Johnson-Parabel; keine Imperfektionen, keine Normknickkurven.\n- Auslegungswert standardmäßig unterer Wert der Datenbankzeile; Normhöchstwerte liefern keinen Auslegungswert.\n- Bemessen: Bisektion im log-Raum, 60 Schritte, Raster 1 mm (Wandstärke 0,5 mm).\n`;
 const out = new URL("../FORMELKATALOG.md", import.meta.url);
