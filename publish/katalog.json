@@ -2,7 +2,7 @@
  "core": "0.5.1",
  "data": "WDB 1.0.1",
  "formulas": 154,
- "approved": 148,
+ "approved": 154,
  "items": [
   {
    "id": "A-IX-BA-F-K",
@@ -882,10 +882,10 @@
    "example": "M_A aus dem Randwertproblem (B-LL-R)",
    "example_result": -533333.333333,
    "example_case": "Lastliste (Beidseitig eingespannt: F 3 kN bei 400 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
-   "status": "geaendert",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
    "sort": 520
   },
   {
@@ -899,10 +899,10 @@
    "example": "M(L⁺) = M_A + A·L + Σ Lastterme(L) = -2,667·10⁵",
    "example_result": -266666.666667,
    "example_case": "Lastliste (Beidseitig eingespannt: F 3 kN bei 400 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
-   "status": "geaendert",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
    "sort": 530
   },
   {
@@ -916,9 +916,9 @@
    "example": "bei x_f = 588,7 mm",
    "example_result": 4.54232298609,
    "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
-   "status": "geaendert",
-   "approved_at": null,
-   "approved_by": null,
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
    "comment": null,
    "sort": 540
   },
@@ -933,9 +933,9 @@
    "example": "ΣF = 4100 N, ΣM_0 = 2,64·10⁶ N·mm, A + B = 4100 N",
    "example_result": 0,
    "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
-   "status": "geaendert",
-   "approved_at": null,
-   "approved_by": null,
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
    "comment": null,
    "sort": 550
   },
@@ -967,9 +967,9 @@
    "example": "bei x_M = 300 mm: M = 5,7·10⁵ N·mm",
    "example_result": 570000,
    "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
-   "status": "geaendert",
-   "approved_at": null,
-   "approved_by": null,
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
    "comment": null,
    "sort": 570
   },
@@ -984,10 +984,10 @@
    "example": "Q(1200) = -2200 N",
    "example_result": 2200,
    "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
-   "status": "geaendert",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": "Ergänzen Sie die Bedingung für |Q|_max unbedingt um die Angriffspunkte von Einzellasten bzw. definieren Sie die Segmentgrenzen so feingranular, dass jede Einzellast auf einer Segmentgrenze liegt",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
    "sort": 580
   },
   {

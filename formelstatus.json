@@ -309,31 +309,31 @@
     "status": "freigegeben",
     "datum": "2026-10-12",
     "durch": "Seti",
-    "kommentar": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
-    "formel": "M_A = M(0⁻), Uhrzeigersinn positiv",
-    "antwort": "Umgesetzt (nach Freigabe 12.10.2026): Einspannmomente einheitlich als Schnittmomente an der Einspannstelle mit dem Vorzeichen der Momentenlinie (Zugseite unten positiv), M_A = M(0⁻), M_B = M(L⁺). Beispiel F 3 kN bei 400 mm, beidseitig eingespannt: M_A = −533,3 N·m, M_B = −266,7 N·m, beide negativ wie Roark Tab. 8.1 Fall 1d. Der frühere Ausweis von M_B als Reaktionsmoment im Uhrzeigersinn (+266,7 N·m) ist entfallen, Skizze und Kennwerte zeigen dieselben Werte. Test „Vorzeichen“ in test/loadlist.test.ts. Formeltext geändert, bitte neu prüfen."
+    "erledigt": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
+    "antwort": "Umgesetzt (nach Freigabe 12.10.2026): Einspannmomente einheitlich als Schnittmomente an der Einspannstelle mit dem Vorzeichen der Momentenlinie (Zugseite unten positiv), M_A = M(0⁻), M_B = M(L⁺). Beispiel F 3 kN bei 400 mm, beidseitig eingespannt: M_A = −533,3 N·m, M_B = −266,7 N·m, beide negativ wie Roark Tab. 8.1 Fall 1d. Der frühere Ausweis von M_B als Reaktionsmoment im Uhrzeigersinn (+266,7 N·m) ist entfallen, Skizze und Kennwerte zeigen dieselben Werte. Test „Vorzeichen“ in test/loadlist.test.ts. Formeltext geändert, bitte neu prüfen.",
+    "formel": "M_A = M(0⁻), Vorzeichen wie Momentenlinie (Zugseite unten positiv)"
   },
   "B-LL-CB": {
     "status": "freigegeben",
     "datum": "2026-10-12",
     "durch": "Seti",
-    "kommentar": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
-    "formel": "M_B = −M(L⁺), Uhrzeigersinn positiv",
-    "antwort": "Wie B-LL-CA: M_B = M(L⁺) jetzt mit dem Vorzeichen der Momentenlinie, kein Minuszeichen mehr in der Definition. Bitte neu prüfen."
+    "erledigt": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
+    "antwort": "Wie B-LL-CA: M_B = M(L⁺) jetzt mit dem Vorzeichen der Momentenlinie, kein Minuszeichen mehr in der Definition. Bitte neu prüfen.",
+    "formel": "M_B = M(L⁺), Vorzeichen wie Momentenlinie (Zugseite unten positiv)"
   },
   "B-LL-FX": {
     "status": "freigegeben",
     "datum": "2026-10-12",
     "durch": "Seti",
-    "formel": "f = max |w(x)| über Segmentränder und Nullstellen von φ(x)",
-    "antwort": "Wortlaut präzisiert wie B-LL-QX, Verfahren und Werte unverändert. Bitte neu prüfen."
+    "antwort": "Wortlaut präzisiert wie B-LL-QX, Verfahren und Werte unverändert. Bitte neu prüfen.",
+    "formel": "f = max |w(x)| über alle Lastangriffspunkte, Balkenenden und Nullstellen von φ(x)"
   },
   "B-LL-GG": {
     "status": "freigegeben",
     "datum": "2026-10-12",
     "durch": "Seti",
-    "formel": "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A + M_B − B·L| / (F_ref·L))",
-    "antwort": "Folgeänderung zu B-LL-CA/CB: Momentengleichgewicht mit Schnittmomenten geschrieben (ΣM_0 + M_A − M_B − B·L = 0), Werte unverändert. Bitte neu prüfen."
+    "antwort": "Folgeänderung zu B-LL-CA/CB: Momentengleichgewicht mit Schnittmomenten geschrieben (ΣM_0 + M_A − M_B − B·L = 0), Werte unverändert. Bitte neu prüfen.",
+    "formel": "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A − M_B − B·L| / (F_ref·L)),  ΣM_0 = Moment der Lasten um x = 0 im Uhrzeigersinn"
   },
   "B-LL-M": {
     "status": "freigegeben",
@@ -347,16 +347,16 @@
     "status": "freigegeben",
     "datum": "2026-10-12",
     "durch": "Seti",
-    "formel": "|M|_max über Segmentränder und Nullstellen von Q(x)",
-    "antwort": "Wortlaut präzisiert wie B-LL-QX (Lastangriffspunkte beidseitig), Verfahren und Werte unverändert. Bitte neu prüfen."
+    "antwort": "Wortlaut präzisiert wie B-LL-QX (Lastangriffspunkte beidseitig), Verfahren und Werte unverändert. Bitte neu prüfen.",
+    "formel": "|M|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von Q(x)"
   },
   "B-LL-QX": {
     "status": "freigegeben",
     "datum": "2026-10-12",
     "durch": "Seti",
-    "kommentar": "Ergänzen Sie die Bedingung für |Q|_max unbedingt um die Angriffspunkte von Einzellasten bzw. definieren Sie die Segmentgrenzen so feingranular, dass jede Einzellast auf einer Segmentgrenze liegt",
-    "formel": "|Q|_max über Segmentränder und Nullstellen von q(x)",
-    "antwort": "Umgesetzt: jede Einzellast, jedes Einzelmoment sowie Anfang und Ende jeder Streckenlast ist eine Segmentgrenze, Q wird an jeder Grenze links und rechts ausgewertet. Formeltext präzisiert (ebenso B-LL-MX, B-LL-FX), neuer Test „Querkraft-Extremwert am Angriffspunkt einer Einzellast“. Bitte neu prüfen."
+    "erledigt": "Ergänzen Sie die Bedingung für |Q|_max unbedingt um die Angriffspunkte von Einzellasten bzw. definieren Sie die Segmentgrenzen so feingranular, dass jede Einzellast auf einer Segmentgrenze liegt",
+    "antwort": "Umgesetzt: jede Einzellast, jedes Einzelmoment sowie Anfang und Ende jeder Streckenlast ist eine Segmentgrenze, Q wird an jeder Grenze links und rechts ausgewertet. Formeltext präzisiert (ebenso B-LL-MX, B-LL-FX), neuer Test „Querkraft-Extremwert am Angriffspunkt einer Einzellast“. Bitte neu prüfen.",
+    "formel": "|Q|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von q(x)"
   },
   "B-LL-R": {
     "status": "freigegeben",
