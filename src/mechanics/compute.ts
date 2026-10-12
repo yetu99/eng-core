@@ -13,6 +13,7 @@ import { defaultNu, strengthDesign, DV_SYMBOL, type DvChoice, type Material, typ
 import { BENDING_CASES, BUCKLING_CASES, EULER_BETA, isBendingCase, isBucklingCase, type BendingCase, type Kind } from "./cases";
 import { beamFns, bendingMax, type BeamFns, type BeamMax } from "./beam";
 import { isLoadListCase, normalizeLoads, solveBeam, loadText, LOADLIST_SUPPORTS, type LoadList, type LoadSI, type BeamSolution } from "./loadlist";
+import { computePressure, isPressureCase, PRESSURE_CASES, type PressureLoad, type PressureMaterial, type PressureResult } from "./pressure";
 
 export const G_ACC = 9.81; // m/s²
 
@@ -42,6 +43,8 @@ export interface StrengthInput {
   dvManual: { RE: number | null; RM: number | null };
   /** Lastliste, wirksam bei sub = "LL" (Einzelfall Biegung und Überlagert) */
   loadList?: LoadList | undefined;
+  /** Druckbehälter: Maße und Drücke, wirksam bei kind = "PB" (Lastfall ZG, ZO, KU) */
+  pressure?: PressureLoad | undefined;
 }
 
 export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung"; label: string; S: number | null; req: number; u: number | null; text: string }
@@ -75,6 +78,8 @@ export interface StrengthResult {
   incomplete: string[];
   kpis: Kpi[];
   trace: Trace;
+  /** Druckbehälter (kind = "PB"), sonst null */
+  pressure: PressureResult | null;
 }
 
 export class InputError extends Error {}
@@ -91,8 +96,9 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const res: StrengthResult = {
     input: inp, material: mat, section: sec, errors: [...sec.errors], warnings: [...sec.notes], kind, caseId: "none",
     E: NaN, G: NaN, nu: NaN, strength: null, mass: NaN, L: inp.L, bend: null, fzul: null, axial: null, buck: null, tors: null,
-    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [],
+    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [], pressure: null,
   };
+  if (inp.mode === "single" && inp.kind === "PB") return pressureStrength(repo, inp, res);
   if (!(inp.L > 0)) res.errors.push("Länge L muss größer als 0 sein");
   if (mat.E === null || mat.rho === null) res.errors.push(`${mat.name}: E-Modul oder Dichte nicht belegt`);
   if (res.errors.length) return res;
@@ -303,6 +309,77 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   if (res.axial) kp("dL", "Längenänderung", "ΔL", res.axial.dL, "mm", true);
   if (res.tors) kp("theta", res.tors.twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", res.tors.twoSided ? "φ_Mitte" : "φ_Ende", res.tors.theta, "°", true);
   if (res.buck) kp("Fk", "Knicklast", "F_k", res.buck.Fk / 1000, "kN", true);
+  res.kpis = K;
+  return res;
+}
+
+/** Werkstoffgrößen für den Druckbehälter aus der Datenbank und den Auslegungswerten (gleiche Regeln wie Blatt 1). */
+export function pressureMaterial(repo: Repo, inp: StrengthInput, mat: Material, S: StrengthDesign): PressureMaterial {
+  const rowNu = repo.row(mat.id, "P-NU");
+  return {
+    E: (mat.E as number) * 1000, nu: rowNu?.value ?? defaultNu(mat.cls), nuRef: rowNu?.value ? `ν = ${fmt(rowNu.value)} aus ${repo.sourceName(rowNu.source_id)}` : `ν = ${fmt(defaultNu(mat.cls))} Klassen-Richtwert (Annahme)`,
+    Rp: S.Rp?.v ?? null, Rm: S.Rm?.v ?? null, brittle: S.brittle, RmSym: S.Rm ? DV_SYMBOL[S.Rm.prop] : "R_m", SFreq: inp.SFreq, SBreq: inp.SBreq,
+  };
+}
+
+/** Belastungsart Druckbehälter (PB): Lamé, Nachweis und Kennwerte im Format von Blatt 1. */
+function pressureStrength(repo: Repo, inp: StrengthInput, res: StrengthResult): StrengthResult {
+  const mat = res.material, G = res.trace;
+  const add = (g: TraceGroup, s: CalcStep) => { (G[g] ??= []).push(s); };
+  for (const k of Object.keys(G) as TraceGroup[]) delete G[k];   // Querschnitt aus Blatt 1 gilt hier nicht
+  res.errors = []; res.warnings = []; res.kind = "PB";
+  if (!isPressureCase(inp.sub)) res.errors.push(`Unbekannter Lastfall ${inp.sub}`);
+  if (!inp.pressure) res.errors.push("Druckbehälter: Maße und Drücke fehlen");
+  if (mat.E === null) res.errors.push(`${mat.name}: E-Modul nicht belegt`);
+  if (res.errors.length || !inp.pressure || !isPressureCase(inp.sub)) return res;
+  res.caseId = inp.sub;
+  const pc = PRESSURE_CASES[inp.sub];
+  const S = strengthDesign(repo, mat, false, inp.dvChoice, inp.dvManual);
+  const pm = pressureMaterial(repo, inp, mat, S);
+  res.strength = S; res.E = pm.E; res.nu = pm.nu;
+  const rowG = repo.row(mat.id, "P-G");
+  res.G = rowG?.value ? rowG.value * 1000 : pm.E / (2 * (1 + pm.nu));
+  add("werkstoff", step("W-E", "E-Modul", "E (Werkstoffdatenbank, Standardvariante)", `${fmt(mat.E)} GPa`, pm.E, "MPa", DATA_VERSION));
+  if (S.Rp) add("werkstoff", step("W-RP", "Streckgrenze (Auslegungswert)", "R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)", `${mat.name}: Datenbank ${S.Rp.db} MPa (${S.Rp.type}${S.Rp.cond ? ", " + S.Rp.cond : ""}) → ${S.Rp.basis}`, S.Rp.v ?? NaN, "MPa", S.Rp.src));
+  if (S.Rm) add("werkstoff", step(S.Rm.prop === "P-BB" ? "W-BB" : "W-RM", (S.Rm.prop === "P-BB" ? "Biegefestigkeit" : "Zugfestigkeit") + " (Auslegungswert)", `${DV_SYMBOL[S.Rm.prop]} = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)`, `${mat.name}: Datenbank ${S.Rm.db} MPa (${S.Rm.type}${S.Rm.cond ? ", " + S.Rm.cond : ""}) → ${S.Rm.basis}`, S.Rm.v ?? NaN, "MPa", S.Rm.src));
+  for (const d of [S.Rp, S.Rm]) if (d?.warn) res.warnings.push(`${DV_SYMBOL[d.prop]}: ${d.warn}`);
+  if (S.brittle) res.warnings.push("Spröder Werkstoff: nur Bruchnachweis");
+  if (mat.cls === "Polymer") res.warnings.push("Polymer: Werte gelten für 23 °C und Kurzzeitbelastung");
+
+  const pr = computePressure({ ...inp.pressure, shape: pc.shape, closed: pc.closed }, pm);
+  res.pressure = pr;
+  res.errors.push(...pr.errors);
+  if (pr.errors.length) return res;
+  res.warnings.push(...pr.warnings);
+  pr.steps.querschnitt.forEach((s) => add("querschnitt", s));
+  pr.steps.belastung.forEach((s) => add("belastung", s));
+  pr.steps.nachweis.forEach((s) => add("nachweis", s));
+  res.sigmaV = pr.svMax;
+
+  const checks: Check[] = [];
+  const mk = (key: Check["key"], label: string, S_: number | null, req: number, text: string): Check => ({ key, label, S: S_, req, u: S_ ? req / S_ : null, text });
+  if (!S.brittle) checks.push(pr.SF !== null ? mk("fliessen", "Fließen", pr.SF, inp.SFreq, `R_p / σ_v,max = ${fmt(pm.Rp)} / ${fmt(pr.svMax, 3)}`) : mk("fliessen", "Fließen", null, inp.SFreq, S.Rp?.warn || "R_p nicht belegt"));
+  checks.push(pr.SB !== null ? mk("bruch", "Bruch", pr.SB, inp.SBreq, `${pm.RmSym} / σ_v,max = ${fmt(pm.Rm)} / ${fmt(pr.svMax, 3)}`) : mk("bruch", "Bruch", null, inp.SBreq, S.Rm?.warn || "R_m nicht belegt"));
+  res.checks = checks;
+  const valid = checks.filter((c) => c.u !== null);
+  res.util = valid.length ? Math.max(...valid.map((c) => c.u as number)) : Infinity;
+  res.governing = valid.length ? [...valid].sort((x, y) => (y.u as number) - (x.u as number))[0]?.label ?? null : null;
+  res.incomplete = checks.filter((c) => c.u === null).map((c) => c.label);
+
+  const K: Kpi[] = [];
+  const kp = (key: string, label: string, s: string, value: number, unit: string, result = false, main = false) => K.push(main ? { key, label, sym: s, value, unit, result, main } : { key, label, sym: s, value, unit, result });
+  const P = pr.inner!, Q = pr.outer!, zy = pc.shape === "ZY";
+  kp("a", "Innenradius", "a", pr.a, "mm"); kp("b", "Außenradius", "b", pr.b, "mm"); kp("t", "Wandstärke", "t", pr.t, "mm"); kp("ratio", "Mittlerer Durchmesser je Wandstärke", "D_m/t", pr.ratio, "–");
+  kp("srA", "Radialspannung innen", "σ_r(a)", P.sr, "MPa", true);
+  kp("stA", zy ? "Umfangsspannung innen" : "Tangentialspannung innen", zy ? "σ_θ(a)" : "σ_t(a)", P.st, "MPa", true);
+  kp("stB", zy ? "Umfangsspannung außen" : "Tangentialspannung außen", zy ? "σ_θ(b)" : "σ_t(b)", Q.st, "MPa", true);
+  if (zy) kp("sz", "Axialspannung", "σ_z", P.sz, "MPa", true);
+  kp("svA", "Vergleichsspannung innen", "σ_v(a)", P.sv, "MPa", true); kp("svB", "Vergleichsspannung außen", "σ_v(b)", Q.sv, "MPa", true);
+  kp("sigmaV", "Vergleichsspannung (maßgebend)", "σ_v,max", pr.svMax, "MPa", true, true);
+  kp("tresca", "Vergleichsspannung Tresca", "σ_T", (pr.rGov === "a" ? P : Q).tresca, "MPa", true);
+  if (Number.isFinite(pr.sigmaZul)) kp("sigmaZul", "Zulässige Spannung", "σ_zul", pr.sigmaZul, "MPa", true);
+  kp("uA", "Aufweitung innen", "u(a)", P.u, "mm", true); kp("uB", "Aufweitung außen", "u(b)", Q.u, "mm", true);
+  if (pr.kessel) kp("kessel", "Kesselformel (Vergleich)", zy ? "σ_θ,K" : "σ_t,K", pr.kessel.st, "MPa", true);
   res.kpis = K;
   return res;
 }

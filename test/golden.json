@@ -2566,5 +2566,1299 @@
    "mStrength": 1.233454406455997
   },
   "tol": 0.002
+ },
+ {
+  "id": "D1 Zylinder geschlossen Lamé",
+  "case": {
+   "id": "D1 Zylinder geschlossen Lamé",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "stA": 105.23809523809524,
+   "srA": -10.0,
+   "sz": 47.61904761904762,
+   "stB": 95.23809523809524,
+   "svA": 99.79911795992102,
+   "uA": 0.06710884353741496,
+   "uB": 0.06360544217687075
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D1 Zylinder geschlossen FD",
+  "case": {
+   "id": "D1 Zylinder geschlossen FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "srA": -10.000000000917936,
+   "stA": 105.23809631443706,
+   "sz": 47.619047708866894,
+   "svA": 99.79911889285535,
+   "uA": 0.06710884428718028,
+   "srB": 0.0,
+   "stB": 95.23809617053479,
+   "svB": 82.47861069087139,
+   "uB": 0.0636054428981308,
+   "srM": -4.643127256086174,
+   "stM": 99.88122325995224
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D1 Axialkraftbilanz",
+  "case": {
+   "id": "D1 Axialkraftbilanz",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "Fax": 78539.81633974482
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D2 Kesselformel",
+  "case": {
+   "id": "D2 Kesselformel",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "kSt": 105.0,
+   "kSz": 52.5,
+   "kDev": -0.002262443438914053
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D3 Zylinder offen Lamé",
+  "case": {
+   "id": "D3 Zylinder offen Lamé",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZO",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "sz": 0.0,
+   "stA": 105.23809523809524,
+   "srA": -10.0,
+   "svA": 110.57774478494014
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D3 Zylinder offen FD",
+  "case": {
+   "id": "D3 Zylinder offen FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZO",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "srA": -10.000000003484228,
+   "stA": 105.23809641527214,
+   "sz": 0.0,
+   "svA": 110.57774592138973,
+   "uA": 0.07731292599220682,
+   "srB": 0.0,
+   "stB": 95.23809626049702,
+   "svB": 95.2380962356322,
+   "uB": 0.07482993276438281,
+   "srM": -4.643127256796671,
+   "stM": 99.88122335475542
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D4 Kugel Lamé",
+  "case": {
+   "id": "D4 Kugel Lamé",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "stA": 50.31722054380664,
+   "svA": 60.31722054380665,
+   "uA": 0.02730146741476046
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D4 Kugel FD",
+  "case": {
+   "id": "D4 Kugel FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "srA": -10.000000000895767,
+   "stA": 50.31722090022408,
+   "svA": 60.317220901119846,
+   "uA": 0.02730146759316113,
+   "srB": 0.0,
+   "stB": 45.31722082997989,
+   "svB": 45.317220828821185,
+   "uB": 0.024924471456215815,
+   "srM": -4.524708476426866,
+   "stM": 47.579574905732215
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D5 Außendruck Lamé",
+  "case": {
+   "id": "D5 Außendruck Lamé",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 0,
+     "pa": 5.0
+    }
+   }
+  },
+  "expect": {
+   "stA": -57.61904761904762,
+   "srA": 0.0,
+   "srB": -5.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D5 Außendruck FD",
+  "case": {
+   "id": "D5 Außendruck FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 0,
+     "pa": 5.0
+    }
+   }
+  },
+  "expect": {
+   "srA": 0.0,
+   "stA": -57.61904817223366,
+   "sz": -28.809523854596755,
+   "svA": 49.89955945984531,
+   "uA": -0.03498299358295415,
+   "srB": -5.000000000518574,
+   "stB": -52.61904809855719,
+   "svB": 41.239305356934494,
+   "uB": -0.03337415003098193,
+   "srM": -2.6784363718537367,
+   "stM": -54.94061164413269
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D5 Außendruck Kugel FD",
+  "case": {
+   "id": "D5 Außendruck Kugel FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 0,
+     "pa": 5.0
+    }
+   }
+  },
+  "expect": {
+   "srA": 0.0,
+   "stA": -30.158610452162293,
+   "svA": 30.158610452619254,
+   "uA": -0.015079305226179066,
+   "srB": -5.000000000708166,
+   "stB": -27.658610416751912,
+   "svB": 22.658610416043746,
+   "uB": -0.014033664300475198,
+   "srM": -2.737645761747377,
+   "stM": -28.78978745471722
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D6 Gleichdruck offen",
+  "case": {
+   "id": "D6 Gleichdruck offen",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZO",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 8.0,
+     "pa": 8.0
+    }
+   }
+  },
+  "expect": {
+   "srA": -8.0,
+   "stA": -8.0,
+   "srM": -8.0,
+   "stM": -8.0,
+   "srB": -8.0,
+   "stB": -8.0,
+   "svA": 8.0,
+   "svB": 8.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D6 Gleichdruck geschlossen",
+  "case": {
+   "id": "D6 Gleichdruck geschlossen",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 8.0,
+     "pa": 8.0
+    }
+   }
+  },
+  "expect": {
+   "sz": -8.0,
+   "svA": 0.0,
+   "svB": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D6 Gleichdruck Kugel",
+  "case": {
+   "id": "D6 Gleichdruck Kugel",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 5.0,
+     "pi": 8.0,
+     "pa": 8.0
+    }
+   }
+  },
+  "expect": {
+   "srA": -8.0,
+   "stA": -8.0,
+   "svA": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D6b gemischt geschlossen FD",
+  "case": {
+   "id": "D6b gemischt geschlossen FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 20.0,
+     "pi": 20.0,
+     "pa": 4.0
+    }
+   }
+  },
+  "expect": {
+   "srA": -19.999999999940307,
+   "stA": 45.33333651050194,
+   "sz": 12.666667310065819,
+   "svA": 56.58032913204037,
+   "uA": 0.03395238308390307,
+   "srB": -3.999999999930262,
+   "stB": 29.333335157093092,
+   "svB": 28.867515038843184,
+   "uB": 0.026733335085858324,
+   "srM": -10.01851941889894,
+   "stM": 35.35185380196907
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D6b gemischt Kugel FD",
+  "case": {
+   "id": "D6b gemischt Kugel FD",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 20.0,
+     "pi": 20.0,
+     "pa": 4.0
+    }
+   }
+  },
+  "expect": {
+   "srA": -20.00000000002511,
+   "stA": 17.761470410803113,
+   "svA": 37.761470410828224,
+   "uA": 0.01316644949112122,
+   "srB": -4.0000000000227445,
+   "stB": 9.761469011339962,
+   "svB": 13.761469011362706,
+   "uB": 0.008033028307944797,
+   "srM": -9.394156795978944,
+   "stM": 12.45854679535214
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "D9 dünne Wand",
+  "case": {
+   "id": "D9 dünne Wand",
+   "type": "pressure",
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2.0,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 199.0,
+     "t": 1.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "stA": 1000.0
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "D7 Bemessen Zylinder b fest",
+  "case": {
+   "id": "D7 Bemessen Zylinder b fest",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "outer",
+     "d": 110.0,
+     "t": 1.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 1.0,
+   "tErf": 2.4354937685589295,
+   "tGew": 2.5
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D7b Bemessen Zylinder a fest",
+  "case": {
+   "id": "D7b Bemessen Zylinder a fest",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 1.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 1.0,
+   "tErf": 2.316671403546977,
+   "tGew": 2.5
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D7c Bemessen Kugel b fest",
+  "case": {
+   "id": "D7c Bemessen Kugel b fest",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "outer",
+     "d": 110.0,
+     "t": 1.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 1.0,
+   "tErf": 1.4108830896969093,
+   "tGew": 1.5
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D7d Bemessen Kugel a fest",
+  "case": {
+   "id": "D7d Bemessen Kugel a fest",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 1.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 1.0,
+   "tErf": 1.3163895684812577,
+   "tGew": 1.5
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "D7e Bemessen Zylinder offen (Bisektion)",
+  "case": {
+   "id": "D7e Bemessen Zylinder offen (Bisektion)",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZO",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "outer",
+     "d": 110.0,
+     "t": 1.0,
+     "pi": 10.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 0.0,
+   "tErf": 2.754351892480275,
+   "tGew": 3.0
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "D7f Bemessen mit Außendruck (Bisektion)",
+  "case": {
+   "id": "D7f Bemessen mit Außendruck (Bisektion)",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 1.0,
+     "pi": 30.0,
+     "pa": 5.0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 0.0,
+   "tErf": 6.48748826377795,
+   "tGew": 6.5
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "D8 Bemessen ohne Lösung",
+  "case": {
+   "id": "D8 Bemessen ohne Lösung",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "ZG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "outer",
+     "d": 110.0,
+     "t": 1.0,
+     "pi": 120.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 0.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "D8b Bemessen ohne Lösung Kugel",
+  "case": {
+   "id": "D8b Bemessen ohne Lösung Kugel",
+   "type": "pressure",
+   "design": true,
+   "inp": {
+    "mode": "single",
+    "kind": "PB",
+    "sub": "KU",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.3,
+    "SBreq": 1.5,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "pressure": {
+     "dim": "inner",
+     "d": 100.0,
+     "t": 1.0,
+     "pi": 140.0,
+     "pa": 0
+    }
+   }
+  },
+  "expect": {
+   "designOk": 0.0
+  },
+  "tol": 0
  }
 ]

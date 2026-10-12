@@ -20,11 +20,11 @@ export function fmt(x: number | null | undefined, sig = 4): string {
 
 /**
  * Wandelt die Kurzschreibweise des Rechenwegs in HTML mit Indizes um:
- * "φ_B^e" → "φ<sub>B</sub><sup>e</sup>", "A^1,5" → "A<sup>1,5</sup>".
+ * "φ_B^e" → "φ<sub>B</sub><sup>e</sup>", "A^1,5" → "A<sup>1,5</sup>", "σ_θ" → "σ<sub>θ</sub>" (griechische Kleinbuchstaben im Index).
  * Eingaben stammen ausschließlich aus dem Rechenkern (keine Benutzereingaben).
  */
 export function sym(t: string): string {
   return String(t)
-    .replace(/_\{?([A-Za-z0-9,]+(?:\.[a-z]+)?)\}?/g, "<sub>$1</sub>")
+    .replace(/_\{?([A-Za-z0-9,\u03b1-\u03c9]+(?:\.[a-z]+)?)\}?/g, "<sub>$1</sub>")
     .replace(/\^([A-Za-z0-9,½⅓⅔()/]+)/g, "<sup>$1</sup>");
 }

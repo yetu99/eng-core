@@ -5,7 +5,7 @@
  * Aufruf als CLI: npx tsx scripts/katalog.ts --json  → Katalog als JSON auf stdout
  */
 import { readFileSync, existsSync } from "node:fs";
-import { LOADLIST_SUPPORTS, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
+import { LOADLIST_SUPPORTS, PRESSURE_CASES, isPressureCase, pressureText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
 
 export interface CatalogEntry {
@@ -16,12 +16,13 @@ export interface CatalogEntry {
 export interface FormulaStatus { status: "freigegeben" | "abgelehnt" | "offen"; datum?: string; durch?: string; kommentar?: string; /** Antwort bzw. Umsetzung durch den Kern-Verantwortlichen */ antwort?: string; /** Formeltext zum Zeitpunkt der Prüfung. */ formel?: string; /** Einwand einer Vorrunde, mit der Freigabe erledigt. */ erledigt?: string }
 export type StatusMap = Record<string, FormulaStatus>;
 
-export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)" };
+export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)", P: "Druckbehälter" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
 function caseText(inp: StrengthInput): string {
   const mat = repo.byId(inp.materialId);
+  if (inp.mode === "single" && inp.kind === "PB" && inp.pressure && isPressureCase(inp.sub)) return `Druckbehälter, ${pressureText(inp.sub, inp.pressure)}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; S_F ${inp.SFreq}, S_B ${inp.SBreq}`;
   const load = inp.mode === "combined" ? `Überlagert (${caseLabel("combined", inp.kind, inp.sub)}, N ${inp.N} kN, T ${inp.T} N·m)` : `${caseLabel("single", inp.kind, inp.sub)}`;
   const ll = inp.sub === "LL" && inp.loadList ? ` (${LOADLIST_SUPPORTS[inp.loadList.support].label}: ${inp.loadList.loads.map((l) => l.kind === "F" ? `F ${l.F} kN bei ${l.x} mm` : l.kind === "M" ? `M ${l.M} N·m bei ${l.x} mm` : `q ${l.q1}…${l.q2} kN/m auf ${l.x1}…${l.x2} mm`).join(", ")}${inp.loadList.selfWeight ? ", mit Eigengewicht" : ""})` : "";
   return `${load}${ll}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; ${dimsLabel(inp.secType, inp.dims)}; L ${inp.L} mm${ll ? "" : `; F ${inp.F} kN; q ${inp.q} kN/m`}`;
@@ -54,6 +55,16 @@ export function collectCatalog(): CatalogEntry[] {
   }
   const dInp = { ...base, q: 4 }; const d = designSize(repo, dInp, "formtreu");
   d.trace.forEach((s) => take(s, `Bemessen formtreu: ${caseText(dInp)}`));
+
+  // Druckbehälter (0.6.0): Beispiele wie Prüffälle D1 bis D7 (EN AW-6082, a = 50 mm, t = 5 mm)
+  const pb = (sub: string, pi: number, pa: number, dim: "inner" | "outer" = "inner", d0 = 100, t = 5, over: Partial<StrengthInput> = {}): StrengthInput => ({ ...base, kind: "PB", sub, pressure: { dim, d: d0, t, pi, pa }, ...over });
+  for (const sub of Object.keys(PRESSURE_CASES)) { const inp = pb(sub, 10, 0); const r = computeStrength(repo, inp); Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, caseText(inp)))); }
+  const dz = { SFreq: 1.3, SBreq: 1.5 };
+  for (const [sub, dim, d0, pa] of [["ZG", "outer", 110, 0], ["ZG", "inner", 100, 0], ["KU", "outer", 110, 0], ["KU", "inner", 100, 0], ["ZO", "outer", 110, 0]] as const) {
+    const inp = pb(sub, 10, pa, dim, d0, 1, dz); const r = designPressureStrength(repo, inp);
+    const txt = `Bemessen Wandstärke: Druckbehälter, ${PRESSURE_CASES[sub].label}; ${dim === "outer" ? "Außendurchmesser" : "Innendurchmesser"} ${d0} mm fest; p_i 10 MPa, p_a ${pa} MPa; EN AW-6082 (W038); S_F ${dz.SFreq}, S_B ${dz.SBreq}`;
+    r.trace.forEach((s) => take(s, txt));
+  }
 
   // Blatt 2: alle Materialindizes, Achsenwerte, Form und Rangliste am Beispiel EN AW-6082
   const classes = Object.fromEntries(MAT_CLASSES.map((c) => [c, true])) as Record<MatClass, boolean>;

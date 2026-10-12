@@ -621,6 +621,136 @@
     "durch": "Seti",
     "formel": "σ_v = √(σ² + 3τ_t²),  σ = |σ_b| + |σ_N|"
   },
+  "P-BIS": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+    "antwort": "Eigene ID für die numerische Bemessung der Wandstärke (offener Zylinder, p_a > 0); D-BIS bleibt bei Blatt 1.",
+    "formel": "σ_v,max(t) = σ_zul, Bisektion im log-Raum über t"
+  },
+  "P-GEO": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+    "antwort": "Neu gegenüber der ID-Liste im Konzept V2-A: Radien aus der Eingabe als eigener Schritt, damit jede Zahl im Rechenweg nachvollziehbar ist.",
+    "formel": "a = d_i / 2,  b = a + t"
+  },
+  "P-KU-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+    "formel": "t = b·(1 − (1 − 3p/(2σ_zul))^(1/3))"
+  },
+  "P-KU-BI": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+    "formel": "t = a·((1 − 3p/(2σ_zul))^(−1/3) − 1)"
+  },
+  "P-KU-KS": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_t = p·D_m/(4t),  D_m = a + b,  p = p_i − p_a, nur wenn D_m/t ≥ 20"
+  },
+  "P-KU-SR": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_r(r) = (p_i·a³ − p_a·b³)/(b³ − a³) − (p_i − p_a)·a³·b³/((b³ − a³)·r³)"
+  },
+  "P-KU-ST": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_t(r) = (p_i·a³ − p_a·b³)/(b³ − a³) + (p_i − p_a)·a³·b³/(2·(b³ − a³)·r³)"
+  },
+  "P-KU-SV": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_v = |σ_t − σ_r| (GEH mit σ_θ = σ_φ), bei r = a und r = b, größerer Wert maßgebend"
+  },
+  "P-KU-U": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "u(r) = r/E·[(1 − ν)·σ_t − ν·σ_r]"
+  },
+  "P-NA": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "u = σ_v,max / σ_zul"
+  },
+  "P-NZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "antwort": "P-NS aus dem Konzept entfällt: die Sicherheiten laufen über die freigegebenen N-SF und N-SB mit σ_v = σ_v,max (gleiche Formel).",
+    "formel": "σ_zul = min(R_p / S_F, R_m / S_B)"
+  },
+  "P-TR": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "antwort": "Neu gegenüber der ID-Liste im Konzept: Tresca nach P3 als zusätzlicher Kennwert, nicht im Nachweis.",
+    "formel": "σ_T = σ_max − σ_min der Hauptspannungen σ_r, σ_θ, σ_z an der maßgebenden Stelle"
+  },
+  "P-ZY-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "t = b·(1 − √(1 − √3·p/σ_zul))"
+  },
+  "P-ZY-BI": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "t = a·(1/√(1 − √3·p/σ_zul) − 1)"
+  },
+  "P-ZY-KS": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_θ = p·D_m/(2t),  σ_z = p·D_m/(4t) (geschlossen),  σ_r ≈ −p/2,  D_m = a + b,  p = p_i − p_a, nur wenn D_m/t ≥ 20"
+  },
+  "P-ZY-SR": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_r(r) = (p_i·a² − p_a·b²)/(b² − a²) − (p_i − p_a)·a²·b²/((b² − a²)·r²)"
+  },
+  "P-ZY-ST": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "σ_θ(r) = (p_i·a² − p_a·b²)/(b² − a²) + (p_i − p_a)·a²·b²/((b² − a²)·r²)"
+  },
+  "P-ZY-SV": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "antwort": "Korrektur zu Konzept D6: Gleichdruck beim offenen Zylinder ergibt σ_v = p (σ_z = 0), nicht 0. Hydrostatisch mit σ_v = 0 sind nur der geschlossene Zylinder und die Kugel.",
+    "formel": "σ_v = √(½·[(σ_θ − σ_r)² + (σ_r − σ_z)² + (σ_z − σ_θ)²]), bei r = a und r = b, größerer Wert maßgebend"
+  },
+  "P-ZY-SZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "geschlossen: σ_z = (p_i·a² − p_a·b²)/(b² − a²), konstant über r;  offen: σ_z = 0"
+  },
+  "P-ZY-U": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "antwort": "ν kommt aus der Werkstoffdatenbank (EN AW-6082: 0,3, Bemessungswert), im Konzept D1 stand 0,33: u(a) = 0,06711 mm statt 0,06630 mm.",
+    "formel": "u(r) = r/E·[σ_θ − ν·(σ_r + σ_z)]"
+  },
   "Q-DH-A": {
     "status": "freigegeben",
     "datum": "2026-10-08",

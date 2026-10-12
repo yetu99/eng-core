@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.5.1
+# Formelkatalog eng-core 0.6.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 154 Formeln, davon 154 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 174 Formeln, davon 174 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -143,6 +143,31 @@ Stand: 154 Formeln, davon 154 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | N-SK | Sicherheit gegen Knicken | S_K = F_k / \|F_N\| | – |  | freigegeben (2026-10-08, Seti) |
 | N-SV | Vergleichsspannung (GEH, Randfaser) | σ_v = √(σ² + 3τ_t²),  σ = \|σ_b\| + \|σ_N\| | MPa | Gestaltänderungsenergiehypothese | freigegeben (2026-10-08, Seti) |
 
+## Druckbehälter
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| P-BIS | Erforderliche Wandstärke (numerisch) | σ_v,max(t) = σ_zul, Bisektion im log-Raum über t | mm | deterministisch, feste Schrittzahl | freigegeben (2026-10-12, Seti) |
+| P-GEO | Innen- und Außenradius | a = d_i / 2,  b = a + t | mm | Eingabe | freigegeben (2026-10-12, Seti) |
+| P-KU-B | Erforderliche Wandstärke, Außenradius b fest | t = b·(1 − (1 − 3p/(2σ_zul))^(1/3)) | mm | aus σ_v(a) = 1,5·p·b³/(b³ − a³) = σ_zul | freigegeben (2026-10-12, Seti) |
+| P-KU-BI | Erforderliche Wandstärke, Innenradius a fest | t = a·((1 − 3p/(2σ_zul))^(−1/3) − 1) | mm | aus σ_v(a) = 1,5·p·b³/(b³ − a³) = σ_zul | freigegeben (2026-10-12, Seti) |
+| P-KU-KS | Kesselformel (Vergleich, dünnwandig) | σ_t = p·D_m/(4t),  D_m = a + b,  p = p_i − p_a, nur wenn D_m/t ≥ 20 | MPa | Gross/Hauger TM 2, Kap. 6 (dünnwandig) | freigegeben (2026-10-12, Seti) |
+| P-KU-SR | Radialspannung | σ_r(r) = (p_i·a³ − p_a·b³)/(b³ − a³) − (p_i − p_a)·a³·b³/((b³ − a³)·r³) | MPa | Roark Tab. 13.5; Gross/Hauger TM 2, Kap. 6 | freigegeben (2026-10-12, Seti) |
+| P-KU-ST | Tangentialspannung (beide Richtungen) | σ_t(r) = (p_i·a³ − p_a·b³)/(b³ − a³) + (p_i − p_a)·a³·b³/(2·(b³ − a³)·r³) | MPa | Roark Tab. 13.5; Gross/Hauger TM 2, Kap. 6 | freigegeben (2026-10-12, Seti) |
+| P-KU-SV | Vergleichsspannung (GEH) | σ_v = \|σ_t − σ_r\| (GEH mit σ_θ = σ_φ), bei r = a und r = b, größerer Wert maßgebend | MPa | Gestaltänderungsenergiehypothese | freigegeben (2026-10-12, Seti) |
+| P-KU-U | Radiale Verschiebung (Aufweitung) | u(r) = r/E·[(1 − ν)·σ_t − ν·σ_r] | mm | Hooke; ν = 0,3 aus EN 1999-1-1 | freigegeben (2026-10-12, Seti) |
+| P-NA | Ausnutzung | u = σ_v,max / σ_zul | – |  | freigegeben (2026-10-12, Seti) |
+| P-NZ | Zulässige Spannung | σ_zul = min(R_p / S_F, R_m / S_B) | MPa | wie C-SZUL; spröde: nur R_m / S_B | freigegeben (2026-10-12, Seti) |
+| P-TR | Vergleichsspannung nach Tresca (nur Kennwert) | σ_T = σ_max − σ_min der Hauptspannungen σ_r, σ_θ, σ_z an der maßgebenden Stelle | MPa | Schubspannungshypothese, Konzept V2-A P3 | freigegeben (2026-10-12, Seti) |
+| P-ZY-B | Erforderliche Wandstärke, Außenradius b fest | t = b·(1 − √(1 − √3·p/σ_zul)) | mm | aus σ_v(a) = √3·p·b²/(b² − a²) = σ_zul | freigegeben (2026-10-12, Seti) |
+| P-ZY-BI | Erforderliche Wandstärke, Innenradius a fest | t = a·(1/√(1 − √3·p/σ_zul) − 1) | mm | aus σ_v(a) = √3·p·b²/(b² − a²) = σ_zul | freigegeben (2026-10-12, Seti) |
+| P-ZY-KS | Kesselformel (Vergleich, dünnwandig) | σ_θ = p·D_m/(2t),  σ_z = p·D_m/(4t) (geschlossen),  σ_r ≈ −p/2,  D_m = a + b,  p = p_i − p_a, nur wenn D_m/t ≥ 20 | MPa | Gross/Hauger TM 2, Kap. 6 (dünnwandig) | freigegeben (2026-10-12, Seti) |
+| P-ZY-SR | Radialspannung | σ_r(r) = (p_i·a² − p_a·b²)/(b² − a²) − (p_i − p_a)·a²·b²/((b² − a²)·r²) | MPa | Gross/Hauger TM 2, Kap. 6 (Lamé 1852); Roark Tab. 13.5 | freigegeben (2026-10-12, Seti) |
+| P-ZY-ST | Umfangsspannung | σ_θ(r) = (p_i·a² − p_a·b²)/(b² − a²) + (p_i − p_a)·a²·b²/((b² − a²)·r²) | MPa | Gross/Hauger TM 2, Kap. 6 (Lamé 1852); Roark Tab. 13.5 | freigegeben (2026-10-12, Seti) |
+| P-ZY-SV | Vergleichsspannung (GEH) | σ_v = √(½·[(σ_θ − σ_r)² + (σ_r − σ_z)² + (σ_z − σ_θ)²]), bei r = a und r = b, größerer Wert maßgebend | MPa | Gestaltänderungsenergiehypothese | freigegeben (2026-10-12, Seti) |
+| P-ZY-SZ | Axialspannung | geschlossen: σ_z = (p_i·a² − p_a·b²)/(b² − a²), konstant über r;  offen: σ_z = 0 | MPa | Gleichgewicht am Schnitt, Gross/Hauger TM 2, Kap. 6 | freigegeben (2026-10-12, Seti) |
+| P-ZY-U | Radiale Verschiebung (Aufweitung) | u(r) = r/E·[σ_θ − ν·(σ_r + σ_z)] | mm | Hooke; ν = 0,3 aus EN 1999-1-1 | freigegeben (2026-10-12, Seti) |
+
 ## Querschnitte
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -224,3 +249,4 @@ Stand: 154 Formeln, davon 154 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 - Knicken: Euler für λ ≥ λ_T = π·√(2E/R_p), darunter Johnson-Parabel; keine Imperfektionen, keine Normknickkurven.
 - Auslegungswert standardmäßig unterer Wert der Datenbankzeile; Normhöchstwerte liefern keinen Auslegungswert.
 - Bemessen: Bisektion im log-Raum, 60 Schritte, Raster 1 mm (Wandstärke 0,5 mm).
+- Druckbehälter: Lamé (Zylinder, Kugel), rotationssymmetrisch, ungestörte Wand weit vom Boden, isotherm; keine Böden, Stutzen, Beulen, Wärmespannungen, plastischen Reserven, kein Normnachweis (EN 13445, AD 2000). Bemessen geschlossen bei p_a = 0, sonst Bisektion, Raster 0,5 mm.

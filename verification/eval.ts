@@ -1,9 +1,10 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
-import { computeStrength, sectionProps, multiConstraint, buildIndex, points, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
+import { computeStrength, designPressureStrength, sectionProps, multiConstraint, buildIndex, points, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
   | { id: string; type: "section"; sec: SecType; dims: Record<string, number> }
   | { id: string; type: "calc"; inp: StrengthInput }
+  | { id: string; type: "pressure"; inp: StrengthInput; design?: boolean }
   | { id: string; type: "conflict"; materialId: string; basis: ConflictBasis; alpha: number }
   | { id: string; type: "ashby"; materialId: string; fn: FunctionName; con: string; obj: ObjectiveName; shapeMode: ShapeMode; phiUser: PhiSet | null };
 
@@ -19,6 +20,20 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
       M: r.bend?.M ?? null, w: r.bend?.w ?? null, sv: r.sigmaV, dL: r.axial?.dL ?? null, sk: r.buck?.sigmaK ?? null, lamT: r.buck?.lambdaT ?? null, theta: r.tors?.theta ?? null, tau: r.tauT, util: r.util,
       Q: r.bend?.Q ?? null, A: ll?.A ?? null, B: ll?.B ?? null, MA: ll?.MA ?? null, MB: ll?.MB ?? null, xM: ll?.Mext.x ?? null, xf: ll?.wext.x ?? null,
       res: ll ? Math.max(Math.abs(ll.resF), Math.abs(ll.resM)) : null,
+    };
+  }
+  if (c.type === "pressure") {
+    if (c.design) {
+      const d = designPressureStrength(repo, c.inp);
+      return d.ok ? { designOk: 1, tErf: d.tErf, tGew: d.tGew, closedForm: d.closedForm ? 1 : 0, util: d.result.util, utilErf: d.trace.find((s) => s.id === "P-NA")?.value ?? null } : { designOk: 0 };
+    }
+    const r = computeStrength(repo, c.inp), p = r.pressure;
+    if (!p || !p.inner || !p.outer || !p.sol) return { errors: r.errors.length };
+    const rm = (p.a + p.b) / 2, M = p.sol.at(rm);
+    return {
+      errors: r.errors.length, a: p.a, b: p.b, srA: p.inner.sr, stA: p.inner.st, sz: p.inner.sz, svA: p.inner.sv, uA: p.inner.u,
+      srB: p.outer.sr, stB: p.outer.st, svB: p.outer.sv, uB: p.outer.u, srM: M.sr, stM: M.st, svMax: p.svMax, util: r.util, sigmaZul: p.sigmaZul,
+      Fax: p.input.shape === "ZY" ? p.inner.sz * Math.PI * (p.b * p.b - p.a * p.a) : null, tresca: (p.rGov === "a" ? p.inner : p.outer).tresca, kSt: p.kessel?.st ?? null, kSz: p.kessel?.sz ?? null, kDev: p.kessel?.dev ?? null,
     };
   }
   if (c.type === "conflict") {

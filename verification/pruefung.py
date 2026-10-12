@@ -208,8 +208,122 @@ for mid, Emod, rho, Rp_, Rm_, price in [('W038', 70000.0, 2700.0, 260.0, 310.0, 
     b12 = {**basis, 'caseId': 'LL', 'loadList': dict(support='GG', loads=LLC['T12'][1], selfWeight=False)}
     id_ = f'Konflikt LL T12 {mid}'; cases.append(dict(id=id_, type='conflict', materialId=mid, basis=b12, alpha=5)); ref[id_] = (dict(mStiff=mSt, mStrength=mF), 2e-3)
 
+# ---------------- Druckbehälter (eng-core 0.6.0) ----------------
+# Unabhängig vom Kern (Lamé in geschlossener Form): Verschiebungsmethode mit Finiten Differenzen.
+# Zylinder im verallgemeinerten ebenen Verzerrungszustand (ε_z = c konstant, Unbekannte), Gleichgewicht
+# d(r·σ_r)/dr = σ_θ in Verschiebungen u'' + u'/r − u/r² = 0, Randbedingungen σ_r(a) = −p_i, σ_r(b) = −p_a,
+# Axialkraftbilanz ∫σ_z·2πr dr = p_i·πa² − p_a·πb² (geschlossen) bzw. 0 (offen) bestimmt c.
+# Kugel: u'' + 2u'/r − 2u/r² = 0. 4000 Intervalle, Ableitungen 2. Ordnung, dünn besetztes Gleichungssystem.
+from scipy.sparse import lil_matrix
+from scipy.sparse.linalg import spsolve
+from scipy.optimize import brentq
+NU_AL = 0.3   # ν EN AW-6082 aus der Werkstoffdatenbank (Bemessungswert), wie im Kern
+def pv_fd(shape, closed, a, b, pi, pa, E=E_AL, nu=NU_AL, n=4000):
+    lam = E * nu / ((1 + nu) * (1 - 2 * nu)); mu = E / (2 * (1 + nu)); h = (b - a) / n
+    r = np.linspace(a, b, n + 1); k = 1 if shape == 'ZY' else 2; m = n + 1 + (1 if shape == 'ZY' else 0)
+    Am = lil_matrix((m, m)); rhs = np.zeros(m)
+    for i in range(1, n):   # u'' + k·u'/r − k·u/r² = 0
+        Am[i, i - 1] = 1 / h**2 - k / (2 * h * r[i]); Am[i, i] = -2 / h**2 - k / r[i]**2; Am[i, i + 1] = 1 / h**2 + k / (2 * h * r[i])
+    def sr_row(row, i, d, p):   # σ_r = (λ+2μ)u' + kλ·u/r (+ λ·c beim Zylinder) = −p, u' einseitig 2. Ordnung
+        c3 = [-3, 4, -1] if d > 0 else [3, -4, 1]
+        for j, cc in enumerate(c3): Am[row, i + d * j] += (lam + 2 * mu) * cc / (2 * h)
+        Am[row, i] += k * lam / r[i]
+        if shape == 'ZY': Am[row, n + 1] = lam
+        rhs[row] = -p
+    sr_row(0, 0, 1, pi); sr_row(n, n, -1, pa)
+    if shape == 'ZY':   # Axialkraft: ∫(λ(u' + u/r) + (λ+2μ)c)·2πr dr, Trapezregel, u' zentral bzw. einseitig
+        w = np.full(n + 1, h); w[0] = w[-1] = h / 2
+        for i in range(n + 1):
+            f = w[i] * 2 * math.pi * r[i] * lam
+            if i == 0: st = [(0, -3), (1, 4), (2, -1)]
+            elif i == n: st = [(n, 3), (n - 1, -4), (n - 2, 1)]
+            else: st = [(i - 1, -1), (i + 1, 1)]
+            for j, cc in st: Am[n + 1, j] += f * cc / (2 * h) if i in (0, n) else f * cc / (2 * h)
+            Am[n + 1, i] += f / r[i]; Am[n + 1, n + 1] += w[i] * 2 * math.pi * r[i] * (lam + 2 * mu)
+        rhs[n + 1] = (pi * math.pi * a * a - pa * math.pi * b * b) if closed else 0.0
+    x = spsolve(Am.tocsr(), rhs); u = x[:n + 1]; c = x[n + 1] if shape == 'ZY' else 0.0
+    du = np.gradient(u, h, edge_order=2)
+    if shape == 'ZY':
+        sr = (lam + 2 * mu) * du + lam * u / r + lam * c; st = lam * du + (lam + 2 * mu) * u / r + lam * c; sz = lam * (du + u / r) + (lam + 2 * mu) * c
+    else:
+        sr = (lam + 2 * mu) * du + 2 * lam * u / r; st = lam * du + 2 * (lam + mu) * u / r; sz = st
+    sv = np.sqrt(0.5 * ((st - sr)**2 + (sr - sz)**2 + (sz - st)**2))
+    eq = np.gradient(r * sr, h, edge_order=2) - st if shape == 'ZY' else np.gradient(r**2 * sr, h, edge_order=2) - 2 * r * st   # Gleichgewicht, Rest
+    im = n // 2
+    return dict(srA=sr[0], stA=st[0], sz=sz[0], svA=sv[0], uA=u[0], srB=sr[-1], stB=st[-1], svB=sv[-1], uB=u[-1], srM=sr[im], stM=st[im], eqRes=np.abs(eq[1:-1]).max())
+def lame_py(shape, closed, a, b, pi, pa, r, E=E_AL, nu=NU_AL):
+    """Eigene Umsetzung der Lamé-Formeln aus Konzept V2-A Abschnitt 4 (Literaturwerte)."""
+    if shape == 'ZY':
+        D = b * b - a * a; sr = (pi * a * a - pa * b * b) / D - (pi - pa) * a * a * b * b / (D * r * r); st = (pi * a * a - pa * b * b) / D + (pi - pa) * a * a * b * b / (D * r * r)
+        sz = (pi * a * a - pa * b * b) / D if closed else 0.0; sv = math.sqrt(0.5 * ((st - sr)**2 + (sr - sz)**2 + (sz - st)**2)); u = r / E * (st - nu * (sr + sz))
+    else:
+        D = b**3 - a**3; sr = (pi * a**3 - pa * b**3) / D - (pi - pa) * a**3 * b**3 / (D * r**3); st = (pi * a**3 - pa * b**3) / D + (pi - pa) * a**3 * b**3 / (2 * D * r**3)
+        sz = st; sv = abs(st - sr); u = r / E * ((1 - nu) * st - nu * sr)
+    return dict(sr=sr, st=st, sz=sz, sv=sv, u=u)
+PB_SUB = {('ZY', True): 'ZG', ('ZY', False): 'ZO', ('KU', False): 'KU'}
+def pb_inp(sub, d, t, pi, pa, dim='inner', SF=1.5, SB=2.0):
+    return {**base, 'kind': 'PB', 'sub': sub, 'SFreq': SF, 'SBreq': SB, 'pressure': dict(dim=dim, d=d, t=t, pi=pi, pa=pa)}
+def pb_case(id_, shape, closed, a, b, pi, pa, vals, tol):
+    cases.append(dict(id=id_, type='pressure', inp=pb_inp(PB_SUB[(shape, closed)], 2 * a, b - a, pi, pa))); ref[id_] = (vals, tol)
+def pb_fd(id_, shape, closed, a, b, pi, pa):
+    r = pv_fd(shape, closed, a, b, pi, pa); res_eq = r.pop('eqRes')
+    if res_eq > 1e-3 * max(pi, pa) * b: print(f'WARNUNG Gleichgewicht FD {id_}: {res_eq:.3g}')
+    if shape == 'KU': r.pop('sz')
+    if not closed and shape == 'ZY': r['sz'] = 0.0
+    for k in [k for k, v in r.items() if abs(v) < 1e-9 * max(pi, pa)]: r[k] = 0.0   # exakt null (Randbedingung), Vergleich absolut
+    pb_case(id_ + ' FD', shape, closed, a, b, pi, pa, r, 1e-4)
+a1, b1, p1 = 50.0, 55.0, 10.0
+L1a, L1b = lame_py('ZY', True, a1, b1, p1, 0, a1), lame_py('ZY', True, a1, b1, p1, 0, b1)
+pb_case('D1 Zylinder geschlossen Lamé', 'ZY', True, a1, b1, p1, 0, dict(stA=L1a['st'], srA=-10.0, sz=L1a['sz'], stB=L1b['st'], svA=math.sqrt(3) * p1 * b1**2 / (b1**2 - a1**2), uA=L1a['u'], uB=L1b['u']), 1e-9)
+pb_fd('D1 Zylinder geschlossen', 'ZY', True, a1, b1, p1, 0)
+pb_case('D1 Axialkraftbilanz', 'ZY', True, a1, b1, p1, 0, dict(Fax=p1 * math.pi * a1**2), 1e-9)
+Dm1, t1 = a1 + b1, b1 - a1
+pb_case('D2 Kesselformel', 'ZY', True, a1, b1, p1, 0, dict(kSt=p1 * Dm1 / (2 * t1), kSz=p1 * Dm1 / (4 * t1), kDev=(p1 * Dm1 / (2 * t1) - L1a['st']) / L1a['st']), 1e-9)
+L3 = lame_py('ZY', False, a1, b1, p1, 0, a1)
+pb_case('D3 Zylinder offen Lamé', 'ZY', False, a1, b1, p1, 0, dict(sz=0.0, stA=L3['st'], srA=-10.0, svA=L3['sv']), 1e-9)
+pb_fd('D3 Zylinder offen', 'ZY', False, a1, b1, p1, 0)
+L4 = lame_py('KU', False, a1, b1, p1, 0, a1)
+pb_case('D4 Kugel Lamé', 'KU', False, a1, b1, p1, 0, dict(stA=L4['st'], svA=1.5 * p1 * b1**3 / (b1**3 - a1**3), uA=L4['u']), 1e-9)
+pb_fd('D4 Kugel', 'KU', False, a1, b1, p1, 0)
+pb_case('D5 Außendruck Lamé', 'ZY', True, a1, b1, 0, 5.0, dict(stA=-2 * 5.0 * b1**2 / (b1**2 - a1**2), srA=0.0, srB=-5.0), 1e-9)
+pb_fd('D5 Außendruck', 'ZY', True, a1, b1, 0, 5.0)
+pb_fd('D5 Außendruck Kugel', 'KU', False, a1, b1, 0, 5.0)
+# offen: σ_r = σ_θ = −p, σ_z = 0, also σ_v = √(½·(0 + p² + p²)) = p (nicht 0, Korrektur zu Konzept V2-A D6); geschlossen und Kugel: hydrostatisch, σ_v = 0
+pb_case('D6 Gleichdruck offen', 'ZY', False, a1, b1, 8.0, 8.0, dict(srA=-8.0, stA=-8.0, srM=-8.0, stM=-8.0, srB=-8.0, stB=-8.0, svA=8.0, svB=8.0), 1e-9)
+pb_case('D6 Gleichdruck geschlossen', 'ZY', True, a1, b1, 8.0, 8.0, dict(sz=-8.0, svA=0.0, svB=0.0), 1e-9)
+pb_case('D6 Gleichdruck Kugel', 'KU', False, a1, b1, 8.0, 8.0, dict(srA=-8.0, stA=-8.0, svA=0.0), 1e-9)
+pb_fd('D6b gemischt geschlossen', 'ZY', True, a1, b1 + 15, 20.0, 4.0)
+pb_fd('D6b gemischt Kugel', 'KU', False, a1, b1 + 15, 20.0, 4.0)
+# D9: Grenzfall dünne Wand D_m/t = 200, σ_θ → p·D_m/(2t)
+a9, b9 = 99.5, 100.5
+pb_case('D9 dünne Wand', 'ZY', True, a9, b9, p1, 0, dict(stA=p1 * (a9 + b9) / 2 / (b9 - a9)), 5e-3)
+# Bemessen (D7, D8 und Varianten): σ_zul = min(260/1,3; 310/1,5) = 200 MPa; Referenz geschlossen bzw. eigene Nullstellensuche (brentq)
+SZ = min(260.0 / 1.3, 310.0 / 1.5)
+def util_py(shape, closed, dim, r0, t, pi, pa):
+    a, b = (r0, r0 + t) if dim == 'inner' else (r0 - t, r0)
+    return max(lame_py(shape, closed, a, b, pi, pa, a)['sv'], lame_py(shape, closed, a, b, pi, pa, b)['sv']) / SZ
+DES = []
+def pb_design(id_, sub, shape, closed, dim, r0, pi, pa, tref, tol, closedForm):
+    cases.append(dict(id=id_, type='pressure', design=True, inp=pb_inp(sub, 2 * r0, 1.0, pi, pa, dim=dim, SF=1.3, SB=1.5)))
+    vals = dict(designOk=1.0, closedForm=float(closedForm))
+    if tref is not None: vals.update(tErf=tref, tGew=math.ceil(tref / 0.5 - 1e-9) * 0.5)
+    ref[id_] = (vals, tol); DES.append((id_, shape, closed, dim, r0, pi, pa, 1e-9 if closedForm else 1e-6))
+k7 = math.sqrt(1 - math.sqrt(3) * p1 / SZ)
+pb_design('D7 Bemessen Zylinder b fest', 'ZG', 'ZY', True, 'outer', 55.0, p1, 0, 55.0 * (1 - k7), 1e-9, True)
+pb_design('D7b Bemessen Zylinder a fest', 'ZG', 'ZY', True, 'inner', 50.0, p1, 0, 50.0 * (1 / k7 - 1), 1e-9, True)
+kk = (1 - 3 * p1 / (2 * SZ)) ** (1 / 3)
+pb_design('D7c Bemessen Kugel b fest', 'KU', 'KU', False, 'outer', 55.0, p1, 0, 55.0 * (1 - kk), 1e-9, True)
+pb_design('D7d Bemessen Kugel a fest', 'KU', 'KU', False, 'inner', 50.0, p1, 0, 50.0 * (1 / kk - 1), 1e-9, True)
+pb_design('D7e Bemessen Zylinder offen (Bisektion)', 'ZO', 'ZY', False, 'outer', 55.0, p1, 0, brentq(lambda t: util_py('ZY', False, 'outer', 55.0, t, p1, 0) - 1, 1e-3, 54.9, xtol=1e-14), 1e-6, False)
+pb_design('D7f Bemessen mit Außendruck (Bisektion)', 'ZG', 'ZY', True, 'inner', 50.0, 30.0, 5.0, brentq(lambda t: util_py('ZY', True, 'inner', 50.0, t, 30.0, 5.0) - 1, 1e-3, 500, xtol=1e-14), 1e-6, False)
+cases.append(dict(id='D8 Bemessen ohne Lösung', type='pressure', design=True, inp=pb_inp('ZG', 110.0, 1.0, 120.0, 0, dim='outer', SF=1.3, SB=1.5))); ref['D8 Bemessen ohne Lösung'] = (dict(designOk=0.0), 0)
+cases.append(dict(id='D8b Bemessen ohne Lösung Kugel', type='pressure', design=True, inp=pb_inp('KU', 100.0, 1.0, 140.0, 0, dim='inner', SF=1.3, SB=1.5))); ref['D8b Bemessen ohne Lösung Kugel'] = (dict(designOk=0.0), 0)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
+# Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)
+for id_, shape, closed, dim, r0, pi, pa, tl in DES:
+    rid = id_ + ' Rückeinsetzen'; out[rid] = dict(u=util_py(shape, closed, dim, r0, out[id_]['tErf'], pi, pa)); ref[rid] = (dict(u=1.0), tl)
 rows, fails = [], 0
 for id_, (vals, tol) in ref.items():
     for k, v in vals.items():

@@ -6,9 +6,9 @@ Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für 
 
 | Ordner | Inhalt |
 |---|---|
-| `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung (sechs Standardfälle und Lastliste `mechanics/loadlist.ts`), Torsion, Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte; dazu Prüfstatus für Berichte (`report.ts`, `pruefstatus.json`) und Werkstoff-Detailansicht (`materialDetail.ts`) |
+| `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung (sechs Standardfälle und Lastliste `mechanics/loadlist.ts`), Torsion, Druckbehälter (`mechanics/pressure.ts`), Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte; dazu Prüfstatus für Berichte (`report.ts`, `pruefstatus.json`) und Werkstoff-Detailansicht (`materialDetail.ts`) |
 | `data/` | Versionierter Abzug der Werkstoffdaten aus Supabase (Tabellen `wa_*`, identisch mit dem Werkstoffatlas), Datenstand in `data/snapshot.json` |
-| `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby, Lastliste (`loadlist.test.ts`: Spezialfälle, Spiegelung, Superposition, Randbedingungen, Eingabeprüfung) |
+| `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby, Lastliste (`loadlist.test.ts`: Spezialfälle, Spiegelung, Superposition, Randbedingungen, Eingabeprüfung), Druckbehälter (`pressure.test.ts`: Randbedingungen, Gleichgewicht, Grenzfälle, Monotonie, Bemessen) |
 | `verification/` | `pruefung.py`: unabhängige Python-Gegenrechnung (numerische Integration, Finite Differenzen, Reihenlösungen), `ergebnis.json` (letztes Ergebnis), `abnahme.json` (Stufen P5/P6, von Hand gepflegt) |
 | `publish/` | `katalog.json`: Formelkatalog für den Spiegel in Supabase (`fk_*`), erzeugt mit `npm run katalog:publish` |
 | `supabase/` | Migrationen der Tabellen `fk_*` und der Funktion `fk_publish_github` (Projekt Kompendium) |
@@ -19,6 +19,8 @@ Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für 
 Einheiten intern: N, mm, MPa, kg/m³. Eingaben: F und N in kN, q in kN/m, T in N·m.
 
 **Lastliste (ab 0.5.0).** Biegebalken mit Lagern an den Enden (Krag, gelenkig, eingespannt/gelenkig, beidseitig eingespannt) und bis zu 20 Einzelkräften, Trapez-Streckenlasten und Einzelmomenten (`StrengthInput.sub = "LL"`, `StrengthInput.loadList`). Lösung exakt mit Föppl-Klammern und 4 × 4-Randwertsystem, Extremwerte über vollständige Nullstellensuche je Segment. x ab linkem Ende, Lasten nach unten positiv, Momente im Uhrzeigersinn positiv, Positionen in mm, F in kN, q in kN/m, M in N·m. Gegenrechnung in `pruefung.py` unabhängig über Kraftgrößenverfahren, Gleichgewicht am rechten Teilsystem, Finite Differenzen und Roark Tab. 8.1.
+
+**Druckbehälter (ab 0.6.0).** Belastungsart `kind = "PB"` mit den Lastfällen `ZG` (Zylinder geschlossen), `ZO` (Zylinder offen, σ_z = 0) und `KU` (Hohlkugel), Eingabe `StrengthInput.pressure` (Innen- oder Außendurchmesser in mm, Wandstärke in mm, p_i und p_a als Überdruck in MPa). Lamé für jede Wandstärke, Kesselformel als Vergleich ab D_m/t ≥ 20, Nachweis mit GEH am Innen- und Außenrand gegen σ_zul = min(R_p/S_F, R_m/S_B), Tresca als Kennwert. Bemessen mit `designPressureStrength`: geschlossene Lösung bei p_a = 0 (Zylinder geschlossen, Kugel), sonst Bisektion im log-Raum, Aufrunden auf 0,5 mm. Zug positiv, u(r) nach außen positiv. Gegenrechnung in `pruefung.py` unabhängig über Finite Differenzen der Verschiebungsgleichung (Zylinder mit ε_z als Unbekannter und Axialkraftbilanz), eigene Lamé-Umsetzung und Rückeinsetzen der Bemessung.
 
 ## Prüfen
 

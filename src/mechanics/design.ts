@@ -9,8 +9,9 @@
 import { fmt } from "../format";
 import { sectionProps, type Dims } from "../sections";
 import { step, type CalcStep } from "../trace";
-import type { Repo } from "../materials";
-import { computeStrength, type StrengthInput, type StrengthResult } from "./compute";
+import { strengthDesign, type Repo } from "../materials";
+import { computeStrength, pressureMaterial, type StrengthInput, type StrengthResult } from "./compute";
+import { designPressure, isPressureCase, PRESSURE_CASES } from "./pressure";
 
 export const DESIGN_STEPS = 60;
 export const DESIGN_RANGE: readonly [number, number] = [0.02, 50];
@@ -50,4 +51,26 @@ export function designSize(repo: Repo, inp: StrengthInput, dimKey: string): Desi
   for (const [k, v] of Object.entries(dims)) if (varies(k)) T.push(step(`D-GEW-${k}`, `Gewähltes Maß ${k}`, `${k} aufgerundet auf ${grid(k) === 1 ? "1" : "0,5"} mm`, `${fmt(raw[k] ?? NaN)} → ${fmt(v)}`, v, "mm", "Fertigungsraster"));
   T.push(step("D-U", "Ausnutzung mit gewählten Maßen", "u = max(S_erf / S)", result.governing ? `maßgebend: ${result.governing}` : "", result.util * 100, "%"));
   return { ok: true, s, raw, dims, result, trace: T };
+}
+
+export type PressureDesignResult =
+  | { ok: true; tErf: number; tGew: number; closedForm: boolean; result: StrengthResult; trace: CalcStep[] }
+  | { ok: false; message: string; trace: CalcStep[] };
+
+/**
+ * Bemessen Druckbehälter (kind = "PB"): erforderliche Wandstärke bei festem Innen- oder Außendurchmesser
+ * (inp.pressure.dim), geschlossene Lösung oder Bisektion (pressure.ts), Aufrunden auf 0,5 mm, Nachrechnung.
+ */
+export function designPressureStrength(repo: Repo, inp: StrengthInput): PressureDesignResult {
+  const mat = repo.byId(inp.materialId);
+  if (!mat) return { ok: false, message: `Unbekannter Werkstoff ${inp.materialId}`, trace: [] };
+  if (!isPressureCase(inp.sub) || !inp.pressure) return { ok: false, message: "Druckbehälter: Lastfall, Maße oder Drücke fehlen", trace: [] };
+  if (mat.E === null) return { ok: false, message: `${mat.name}: E-Modul nicht belegt`, trace: [] };
+  const pc = PRESSURE_CASES[inp.sub];
+  const pm = pressureMaterial(repo, inp, mat, strengthDesign(repo, mat, false, inp.dvChoice, inp.dvManual));
+  const d = designPressure({ ...inp.pressure, shape: pc.shape, closed: pc.closed }, pm);
+  if (!d.ok) return { ok: false, message: d.message, trace: d.steps };
+  const result = computeStrength(repo, { ...inp, pressure: { ...inp.pressure, t: d.tGew } });
+  const T = [...d.steps, step("D-U", "Ausnutzung mit gewählten Maßen", "u = max(S_erf / S)", result.governing ? `maßgebend: ${result.governing}` : "", result.util * 100, "%")];
+  return { ok: true, tErf: d.tErf, tGew: d.tGew, closedForm: d.closedForm, result, trace: T };
 }

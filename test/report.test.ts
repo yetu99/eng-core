@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { CORE_VERSION, computeStrength, designSize, PRUEFSTATUS, catalogId, formulaState, traceApproval, reportMeta, reportFooter, reportVerdict, materialDetail, valueText, ATLAS_PATH, buildIndex, ranking, pointTrace, indexTrace, MAT_CLASSES, type StrengthInput, type CalcStep, type MatClass } from "../src/index";
+import { CORE_VERSION, computeStrength, designSize, designPressureStrength, PRUEFSTATUS, catalogId, formulaState, traceApproval, reportMeta, reportFooter, reportVerdict, materialDetail, valueText, ATLAS_PATH, buildIndex, ranking, pointTrace, indexTrace, MAT_CLASSES, type StrengthInput, type CalcStep, type MatClass } from "../src/index";
 import { repo, detailData, DATA_VERSION } from "../src/data";
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
@@ -29,6 +29,10 @@ describe("Prüfstatus und Berichtsangaben", () => {
     const runs: Partial<StrengthInput>[] = [{ kind: "zug", sub: "Z1" }, { kind: "zug", sub: "Z2" }, { kind: "druck", sub: "K2", F: 20 }, { kind: "biegung", sub: "E4" }, { kind: "torsion", sub: "T2" }, { mode: "combined", sub: "EQ", N: -10, T: 150 }];
     const steps = runs.flatMap((r) => allSteps(computeStrength(repo, { ...base, ...r })));
     steps.push(...designSize(repo, { ...base, q: 4 }, "formtreu").trace);
+    for (const sub of ["ZG", "ZO", "KU"]) for (const pa of [0, 4]) {
+      const p = { ...base, kind: "PB" as const, sub, SFreq: 1.3, SBreq: 1.5, pressure: { dim: "inner" as const, d: 100, t: 5, pi: 10, pa } };
+      steps.push(...allSteps(computeStrength(repo, p)), ...designPressureStrength(repo, p).trace, ...designPressureStrength(repo, { ...p, pressure: { ...p.pressure, dim: "outer", d: 110 } }).trace);
+    }
     const ix = buildIndex("Balken", "Steifigkeit", "Masse")!;
     const classes = Object.fromEntries(MAT_CLASSES.map((c) => [c, true])) as Record<MatClass, boolean>;
     const st = { index: ix, classes, limits: { Emin: null, rhoMax: null, sfMin: null, priceMax: null }, shapeMode: "max" as const, phiUser: null };

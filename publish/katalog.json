@@ -1,8 +1,8 @@
 {
- "core": "0.5.1",
+ "core": "0.6.0",
  "data": "WDB 1.0.1",
- "formulas": 154,
- "approved": 154,
+ "formulas": 174,
+ "approved": 174,
  "items": [
   {
    "id": "A-IX-BA-F-K",
@@ -1722,6 +1722,346 @@
    "sort": 1010
   },
   {
+   "id": "P-BIS",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Erforderliche Wandstärke (numerisch)",
+   "formula": "σ_v,max(t) = σ_zul, Bisektion im log-Raum über t",
+   "unit": "mm",
+   "source": "deterministisch, feste Schrittzahl",
+   "example": "t ∈ [5,5·10⁻⁵; 55] mm, 60 Schritte, Außenradius b = 55 mm fest; Zylinder offen, keine geschlossene Lösung",
+   "example_result": 2.75435189248,
+   "example_case": "Bemessen Wandstärke: Druckbehälter, Zylinder, offen (axial frei); Außendurchmesser 110 mm fest; p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.3, S_B 1.5",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+   "sort": 1020
+  },
+  {
+   "id": "P-GEO",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Innen- und Außenradius",
+   "formula": "a = d_i / 2,  b = a + t",
+   "unit": "mm",
+   "source": "Eingabe",
+   "example": "a = 100 / 2 = 50 mm,  b = 50 + 5 = 55 mm",
+   "example_result": 50,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+   "sort": 1030
+  },
+  {
+   "id": "P-KU-B",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Erforderliche Wandstärke, Außenradius b fest",
+   "formula": "t = b·(1 − (1 − 3p/(2σ_zul))^(1/3))",
+   "unit": "mm",
+   "source": "aus σ_v(a) = 1,5·p·b³/(b³ − a³) = σ_zul",
+   "example": "55·(1 − (1 − 3·10 / (2·200))^(1/3))",
+   "example_result": 1.4108830897,
+   "example_case": "Bemessen Wandstärke: Druckbehälter, Hohlkugel; Außendurchmesser 110 mm fest; p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.3, S_B 1.5",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+   "sort": 1040
+  },
+  {
+   "id": "P-KU-BI",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Erforderliche Wandstärke, Innenradius a fest",
+   "formula": "t = a·((1 − 3p/(2σ_zul))^(−1/3) − 1)",
+   "unit": "mm",
+   "source": "aus σ_v(a) = 1,5·p·b³/(b³ − a³) = σ_zul",
+   "example": "50·((1 − 3·10 / (2·200))^(−1/3) − 1)",
+   "example_result": 1.31638956848,
+   "example_case": "Bemessen Wandstärke: Druckbehälter, Hohlkugel; Innendurchmesser 100 mm fest; p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.3, S_B 1.5",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
+   "sort": 1050
+  },
+  {
+   "id": "P-KU-KS",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Kesselformel (Vergleich, dünnwandig)",
+   "formula": "σ_t = p·D_m/(4t),  D_m = a + b,  p = p_i − p_a, nur wenn D_m/t ≥ 20",
+   "unit": "MPa",
+   "source": "Gross/Hauger TM 2, Kap. 6 (dünnwandig)",
+   "example": "D_m = 105 mm, D_m/t = 21;  σ_t = 10·105 / (4·5) = 52,5 MPa;  Abweichung zu Lamé σ_t(a): 4,34 %",
+   "example_result": 52.5,
+   "example_case": "Druckbehälter, Hohlkugel; a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1060
+  },
+  {
+   "id": "P-KU-SR",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Radialspannung",
+   "formula": "σ_r(r) = (p_i·a³ − p_a·b³)/(b³ − a³) − (p_i − p_a)·a³·b³/((b³ − a³)·r³)",
+   "unit": "MPa",
+   "source": "Roark Tab. 13.5; Gross/Hauger TM 2, Kap. 6",
+   "example": "A = (10·50³ − 0·55³) / (55³ − 50³) = 30,21 MPa,  B = (10 − 0)·50³·55³ / (55³ − 50³) = 5,026·10⁶ MPa·mm³;  σ_r(a) = A − B/a³ = -10 MPa,  σ_r(b) = 0 MPa",
+   "example_result": -10,
+   "example_case": "Druckbehälter, Hohlkugel; a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1070
+  },
+  {
+   "id": "P-KU-ST",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Tangentialspannung (beide Richtungen)",
+   "formula": "σ_t(r) = (p_i·a³ − p_a·b³)/(b³ − a³) + (p_i − p_a)·a³·b³/(2·(b³ − a³)·r³)",
+   "unit": "MPa",
+   "source": "Roark Tab. 13.5; Gross/Hauger TM 2, Kap. 6",
+   "example": "σ_t(a) = A + B/(2a³) = 30,21 + 5,026·10⁶ / (2·50³) = 50,32 MPa,  σ_t(b) = 45,32 MPa",
+   "example_result": 50.3172205438,
+   "example_case": "Druckbehälter, Hohlkugel; a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1080
+  },
+  {
+   "id": "P-KU-SV",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Vergleichsspannung (GEH)",
+   "formula": "σ_v = |σ_t − σ_r| (GEH mit σ_θ = σ_φ), bei r = a und r = b, größerer Wert maßgebend",
+   "unit": "MPa",
+   "source": "Gestaltänderungsenergiehypothese",
+   "example": "r = a: |50,32 − (-10)| = 60,32 MPa;  r = b: 45,32 MPa",
+   "example_result": 60.3172205438,
+   "example_case": "Druckbehälter, Hohlkugel; a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1090
+  },
+  {
+   "id": "P-KU-U",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Radiale Verschiebung (Aufweitung)",
+   "formula": "u(r) = r/E·[(1 − ν)·σ_t − ν·σ_r]",
+   "unit": "mm",
+   "source": "Hooke; ν = 0,3 aus EN 1999-1-1",
+   "example": "u(a) = 50 / 70000·[(1 − 0,3)·50,32 − 0,3·(-10)] = 0,0273 mm,  u(b) = 0,02492 mm",
+   "example_result": 0.0273014674148,
+   "example_case": "Druckbehälter, Hohlkugel; a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1100
+  },
+  {
+   "id": "P-NA",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Ausnutzung",
+   "formula": "u = σ_v,max / σ_zul",
+   "unit": "–",
+   "source": null,
+   "example": "99,8 / 155 (maßgebend r = a)",
+   "example_result": 0.643865277161,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1110
+  },
+  {
+   "id": "P-NZ",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Zulässige Spannung",
+   "formula": "σ_zul = min(R_p / S_F, R_m / S_B)",
+   "unit": "MPa",
+   "source": "wie C-SZUL; spröde: nur R_m / S_B",
+   "example": "min(R_p / S_F = 260 / 1,5 = 173,3; R_m / S_B = 310 / 2 = 155)",
+   "example_result": 155,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1120
+  },
+  {
+   "id": "P-TR",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Vergleichsspannung nach Tresca (nur Kennwert)",
+   "formula": "σ_T = σ_max − σ_min der Hauptspannungen σ_r, σ_θ, σ_z an der maßgebenden Stelle",
+   "unit": "MPa",
+   "source": "Schubspannungshypothese, Konzept V2-A P3",
+   "example": "r = a: max(-10; 105,2; 47,62) − min(-10; 105,2; 47,62) = 115,2 MPa (zum Vergleich, Nachweis mit GEH)",
+   "example_result": 115.238095238,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1130
+  },
+  {
+   "id": "P-ZY-B",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Erforderliche Wandstärke, Außenradius b fest",
+   "formula": "t = b·(1 − √(1 − √3·p/σ_zul))",
+   "unit": "mm",
+   "source": "aus σ_v(a) = √3·p·b²/(b² − a²) = σ_zul",
+   "example": "55·(1 − √(1 − √3·10 / 200))",
+   "example_result": 2.43549376856,
+   "example_case": "Bemessen Wandstärke: Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); Außendurchmesser 110 mm fest; p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.3, S_B 1.5",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1140
+  },
+  {
+   "id": "P-ZY-BI",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Erforderliche Wandstärke, Innenradius a fest",
+   "formula": "t = a·(1/√(1 − √3·p/σ_zul) − 1)",
+   "unit": "mm",
+   "source": "aus σ_v(a) = √3·p·b²/(b² − a²) = σ_zul",
+   "example": "50·(1/√(1 − √3·10 / 200) − 1)",
+   "example_result": 2.31667140355,
+   "example_case": "Bemessen Wandstärke: Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); Innendurchmesser 100 mm fest; p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.3, S_B 1.5",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1150
+  },
+  {
+   "id": "P-ZY-KS",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Kesselformel (Vergleich, dünnwandig)",
+   "formula": "σ_θ = p·D_m/(2t),  σ_z = p·D_m/(4t) (geschlossen),  σ_r ≈ −p/2,  D_m = a + b,  p = p_i − p_a, nur wenn D_m/t ≥ 20",
+   "unit": "MPa",
+   "source": "Gross/Hauger TM 2, Kap. 6 (dünnwandig)",
+   "example": "D_m = 105 mm, D_m/t = 21;  σ_θ = 10·105 / (2·5) = 105 MPa,  σ_z = 52,5 MPa;  Abweichung zu Lamé σ_θ(a): -0,226 %",
+   "example_result": 105,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1160
+  },
+  {
+   "id": "P-ZY-SR",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Radialspannung",
+   "formula": "σ_r(r) = (p_i·a² − p_a·b²)/(b² − a²) − (p_i − p_a)·a²·b²/((b² − a²)·r²)",
+   "unit": "MPa",
+   "source": "Gross/Hauger TM 2, Kap. 6 (Lamé 1852); Roark Tab. 13.5",
+   "example": "A = (10·50² − 0·55²) / (55² − 50²) = 47,62 MPa,  B = (10 − 0)·50²·55² / (55² − 50²) = 1,44·10⁵ MPa·mm²;  σ_r(a) = A − B/a² = -10 MPa,  σ_r(b) = 0 MPa",
+   "example_result": -10,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1170
+  },
+  {
+   "id": "P-ZY-ST",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Umfangsspannung",
+   "formula": "σ_θ(r) = (p_i·a² − p_a·b²)/(b² − a²) + (p_i − p_a)·a²·b²/((b² − a²)·r²)",
+   "unit": "MPa",
+   "source": "Gross/Hauger TM 2, Kap. 6 (Lamé 1852); Roark Tab. 13.5",
+   "example": "σ_θ(a) = A + B/a² = 47,62 + 1,44·10⁵ / 50² = 105,2 MPa,  σ_θ(b) = 95,24 MPa",
+   "example_result": 105.238095238,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1180
+  },
+  {
+   "id": "P-ZY-SV",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Vergleichsspannung (GEH)",
+   "formula": "σ_v = √(½·[(σ_θ − σ_r)² + (σ_r − σ_z)² + (σ_z − σ_θ)²]), bei r = a und r = b, größerer Wert maßgebend",
+   "unit": "MPa",
+   "source": "Gestaltänderungsenergiehypothese",
+   "example": "r = a: √(½·[(105,2 − (-10))² + ((-10) − 47,62)² + (47,62 − 105,2)²]) = 99,8 MPa;  r = b: 82,48 MPa",
+   "example_result": 99.7991179599,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1190
+  },
+  {
+   "id": "P-ZY-SZ",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Axialspannung",
+   "formula": "geschlossen: σ_z = (p_i·a² − p_a·b²)/(b² − a²), konstant über r;  offen: σ_z = 0",
+   "unit": "MPa",
+   "source": "Gleichgewicht am Schnitt, Gross/Hauger TM 2, Kap. 6",
+   "example": "geschlossen: σ_z = A = 47,62 MPa",
+   "example_result": 47.619047619,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1200
+  },
+  {
+   "id": "P-ZY-U",
+   "area": "Druckbehälter",
+   "module": "festigkeit",
+   "quantity": "Radiale Verschiebung (Aufweitung)",
+   "formula": "u(r) = r/E·[σ_θ − ν·(σ_r + σ_z)]",
+   "unit": "mm",
+   "source": "Hooke; ν = 0,3 aus EN 1999-1-1",
+   "example": "u(a) = 50 / 70000·[105,2 − 0,3·((-10) + 47,62)] = 0,06711 mm,  u(b) = 0,06361 mm",
+   "example_result": 0.0671088435374,
+   "example_case": "Druckbehälter, Zylinder, geschlossen (Boden trägt die Axialkraft); a 50 mm, b 55 mm (t 5 mm); p_i 10 MPa, p_a 0 MPa; EN AW-6082 (W038); S_F 1.5, S_B 2",
+   "status": "freigegeben",
+   "approved_at": "2026-10-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1210
+  },
+  {
    "id": "Q-DH-A",
    "area": "Querschnitte",
    "module": "gemeinsam",
@@ -1736,7 +2076,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1020
+   "sort": 1220
   },
   {
    "id": "Q-DH-ai",
@@ -1753,7 +2093,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1030
+   "sort": 1230
   },
   {
    "id": "Q-DH-I",
@@ -1770,7 +2110,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1040
+   "sort": 1240
   },
   {
    "id": "Q-DH-K",
@@ -1787,7 +2127,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1050
+   "sort": 1250
   },
   {
    "id": "Q-DH-W",
@@ -1804,7 +2144,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1060
+   "sort": 1260
   },
   {
    "id": "Q-DH-WT",
@@ -1821,7 +2161,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1070
+   "sort": 1270
   },
   {
    "id": "Q-DV-A",
@@ -1838,7 +2178,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1080
+   "sort": 1280
   },
   {
    "id": "Q-DV-e",
@@ -1855,7 +2195,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1090
+   "sort": 1290
   },
   {
    "id": "Q-DV-I",
@@ -1872,7 +2212,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1100
+   "sort": 1300
   },
   {
    "id": "Q-DV-K",
@@ -1889,7 +2229,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1110
+   "sort": 1310
   },
   {
    "id": "Q-DV-W",
@@ -1906,7 +2246,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1120
+   "sort": 1320
   },
   {
    "id": "Q-DV-WT",
@@ -1923,7 +2263,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1130
+   "sort": 1330
   },
   {
    "id": "Q-i",
@@ -1940,7 +2280,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1140
+   "sort": 1340
   },
   {
    "id": "Q-m",
@@ -1957,7 +2297,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1150
+   "sort": 1350
   },
   {
    "id": "Q-RE-A",
@@ -1974,7 +2314,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1160
+   "sort": 1360
   },
   {
    "id": "Q-RE-I",
@@ -1991,7 +2331,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1170
+   "sort": 1370
   },
   {
    "id": "Q-RE-K",
@@ -2008,7 +2348,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1180
+   "sort": 1380
   },
   {
    "id": "Q-RE-W",
@@ -2025,7 +2365,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1190
+   "sort": 1390
   },
   {
    "id": "Q-RE-WT",
@@ -2042,7 +2382,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1200
+   "sort": 1400
   },
   {
    "id": "Q-RH-A",
@@ -2059,7 +2399,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1210
+   "sort": 1410
   },
   {
    "id": "Q-RH-d",
@@ -2076,7 +2416,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1220
+   "sort": 1420
   },
   {
    "id": "Q-RH-I",
@@ -2093,7 +2433,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1230
+   "sort": 1430
   },
   {
    "id": "Q-RH-K",
@@ -2110,7 +2450,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1240
+   "sort": 1440
   },
   {
    "id": "Q-RH-W",
@@ -2127,7 +2467,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1250
+   "sort": 1450
   },
   {
    "id": "Q-RH-WT",
@@ -2144,7 +2484,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1260
+   "sort": 1460
   },
   {
    "id": "Q-RR-A",
@@ -2161,7 +2501,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1270
+   "sort": 1470
   },
   {
    "id": "Q-RR-AM",
@@ -2178,7 +2518,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1280
+   "sort": 1480
   },
   {
    "id": "Q-RR-I",
@@ -2195,7 +2535,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1290
+   "sort": 1490
   },
   {
    "id": "Q-RR-K",
@@ -2212,7 +2552,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1300
+   "sort": 1500
   },
   {
    "id": "Q-RR-W",
@@ -2229,7 +2569,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1310
+   "sort": 1510
   },
   {
    "id": "Q-RR-WT",
@@ -2246,7 +2586,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1320
+   "sort": 1520
   },
   {
    "id": "Q-RV-A",
@@ -2263,7 +2603,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1330
+   "sort": 1530
   },
   {
    "id": "Q-RV-I",
@@ -2280,7 +2620,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1340
+   "sort": 1540
   },
   {
    "id": "Q-RV-K",
@@ -2297,7 +2637,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1350
+   "sort": 1550
   },
   {
    "id": "Q-RV-W",
@@ -2314,7 +2654,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1360
+   "sort": 1560
   },
   {
    "id": "Q-RV-WT",
@@ -2331,7 +2671,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1370
+   "sort": 1570
   },
   {
    "id": "T-PHI1",
@@ -2348,7 +2688,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1380
+   "sort": 1580
   },
   {
    "id": "T-PHI2",
@@ -2365,7 +2705,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1390
+   "sort": 1590
   },
   {
    "id": "T-TA",
@@ -2382,7 +2722,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1400
+   "sort": 1600
   },
   {
    "id": "T-TAU",
@@ -2399,7 +2739,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1410
+   "sort": 1610
   },
   {
    "id": "W-BB",
@@ -2416,7 +2756,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1420
+   "sort": 1620
   },
   {
    "id": "W-E",
@@ -2433,7 +2773,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1430
+   "sort": 1630
   },
   {
    "id": "W-G",
@@ -2450,7 +2790,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 1440
+   "sort": 1640
   },
   {
    "id": "W-G-DB",
@@ -2467,7 +2807,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1450
+   "sort": 1650
   },
   {
    "id": "W-RHO",
@@ -2484,7 +2824,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1460
+   "sort": 1660
   },
   {
    "id": "W-RM",
@@ -2501,7 +2841,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1470
+   "sort": 1670
   },
   {
    "id": "W-RP",
@@ -2518,7 +2858,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1480
+   "sort": 1680
   },
   {
    "id": "Z-DL",
@@ -2535,7 +2875,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1490
+   "sort": 1690
   },
   {
    "id": "Z-DL2",
@@ -2552,7 +2892,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1500
+   "sort": 1700
   },
   {
    "id": "Z-NMAX",
@@ -2569,7 +2909,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1510
+   "sort": 1710
   },
   {
    "id": "Z-QG",
@@ -2586,7 +2926,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1520
+   "sort": 1720
   },
   {
    "id": "Z-SIG",
@@ -2603,7 +2943,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1530
+   "sort": 1730
   },
   {
    "id": "Z-SIG2",
@@ -2620,7 +2960,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1540
+   "sort": 1740
   }
  ]
 }

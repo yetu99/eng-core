@@ -138,5 +138,5 @@ describe("Ashby Rechenweg und Empfehlung", () => {
 
 describe("Formatierung", () => {
   it("deutsche Zahlen", () => { expect(fmt(2773.4)).toBe("2773"); expect(fmt(277264)).toBe("2,773·10⁵"); expect(fmt(0.35224)).toBe("0,3522"); });
-  it("Indizes", () => { expect(sym("φ_B^e")).toBe("φ<sub>B</sub><sup>e</sup>"); });
+  it("Indizes", () => { expect(sym("φ_B^e")).toBe("φ<sub>B</sub><sup>e</sup>"); expect(sym("σ_θ(a)")).toBe("σ<sub>θ</sub>(a)"); expect(sym("σ_v,max")).toBe("σ<sub>v,max</sub>"); });
 });

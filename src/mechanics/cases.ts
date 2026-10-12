@@ -1,5 +1,7 @@
-/** Kataloge der Belastungsarten und Lastfälle (Blatt 1). */
-export type Kind = "zug" | "druck" | "biegung" | "torsion";
+/** Kataloge der Belastungsarten und Lastfälle (Blatt 1). PB = Druckbehälter (eng-core 0.6.0). */
+import { PRESSURE_CASES } from "./pressure";
+
+export type Kind = "zug" | "druck" | "biegung" | "torsion" | "PB";
 export type Support = "fix" | "pin" | "roller" | "free";
 
 export interface BendingCase { label: string; short: string; supports: readonly [Support, Support]; load: "F" | "q" | "F2" | "list"; euler: 1 | 2 | 3 | 4; ref: string }
@@ -39,12 +41,13 @@ export const KINDS: Readonly<Record<Kind, { label: string; cases: Readonly<Recor
   druck: { label: "Druck / Knicken", cases: BUCKLING_CASES, def: "K2" },
   biegung: { label: "Biegung", cases: BENDING_CASES, def: "EQ" },
   torsion: { label: "Torsion", cases: TORSION_CASES, def: "T1" },
+  PB: { label: "Druckbehälter", cases: PRESSURE_CASES, def: "ZG" },
 };
 
 /** Knicklängenbeiwert β je Eulerfall. Fall 3 mit dem exakten Wert 0,699. */
 export const EULER_BETA: Readonly<Record<1 | 2 | 3 | 4, number>> = { 1: 2, 2: 1, 3: 0.699, 4: 0.5 };
 
-export const OUTLOOK_V2: readonly string[] = ["Kerbwirkung", "Ermüdung", "Durchlaufträger", "Offene Profile (I, U, L)", "Biegedrillknicken", "Schiefe Biegung", "Kontaktspannung (Hertz)", "Druckbehälter", "Schraubenverbindung", "Eigenfrequenz"];
+export const OUTLOOK_V2: readonly string[] = ["Kerbwirkung", "Ermüdung", "Durchlaufträger", "Offene Profile (I, U, L)", "Biegedrillknicken", "Schiefe Biegung", "Kontaktspannung (Hertz)", "Schraubenverbindung", "Eigenfrequenz"];
 
 export function isBendingCase(id: string): id is BendingCaseId { return id in BENDING_CASES; }
 export function isBucklingCase(id: string): id is BucklingCaseId { return id in BUCKLING_CASES; }
