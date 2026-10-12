@@ -498,10 +498,13 @@
     "formel": "λ_T = π·√(2E / R_p)"
   },
   "K-LK": {
-    "status": "offen",
-    "kommentar": "das ist die allgemine knicklänge wenn du beta schreibst, was ja auch korrekt ist, als lass in der benennung einfach nur eulerfall 1 weg? Dann ist es absolut korrekt",
-    "formel": "L_k = β·L",
-    "antwort": "Benennung jetzt nur „Knicklänge“, der Eulerfall steht im Beispiel (β = … (Eulerfall n))."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "das ist die allgemine knicklänge wenn du beta schreibst, was ja auch korrekt ist, als lass in der benennung einfach nur eulerfall 1 weg? Dann ist es absolut korrekt",
+    "antwort": "Benennung jetzt nur „Knicklänge“, der Eulerfall steht im Beispiel (β = … (Eulerfall n)).",
+    "formel": "L_k = β·L"
   },
   "K-SKE": {
     "status": "freigegeben",
@@ -762,36 +765,47 @@
     "formel": "m = ρ·A·L"
   },
   "T-PHI1": {
-    "status": "abgelehnt",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
-    "formel": "φ = T·L / (G·Iₜ)",
-    "antwort": "Torsionsmoment heißt jetzt M_t, Winkel indiziert als φ_Ende."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
+    "antwort": "Torsionsmoment heißt jetzt M_t, Winkel indiziert als φ_Ende.",
+    "formel": "φ_Ende = M_t·L / (G·Iₜ)"
   },
   "T-PHI2": {
-    "status": "abgelehnt",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "Ich glaube für den Verdrehwinkel in der Mitte ist der Faktor im Nenner 2 antelle von 4? Und ich hätte gerne das Torsionsmoment nicht T sondern M_t genannt. Und klare Indizierung von phi, zb phi_mitte?",
-    "formel": "φ = T·L / (4·G·Iₜ)",
-    "antwort": "Faktor 4 ist richtig: jede Hälfte trägt M_t,A = M_t/2 über die Länge L/2, also φ_Mitte = (M_t/2)·(L/2)/(G·Iₜ) = M_t·L/(4·G·Iₜ). Faktor 2 gälte, wenn das volle M_t über L/2 wirkte. Die Formel zeigt jetzt beide Schritte, Gegenrechnung (Verträglichkeit) bestätigt. M_t und φ_Mitte umbenannt."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "Ich glaube für den Verdrehwinkel in der Mitte ist der Faktor im Nenner 2 antelle von 4? Und ich hätte gerne das Torsionsmoment nicht T sondern M_t genannt. Und klare Indizierung von phi, zb phi_mitte?",
+    "antwort": "Faktor 4 ist richtig: jede Hälfte trägt M_t,A = M_t/2 über die Länge L/2, also φ_Mitte = (M_t/2)·(L/2)/(G·Iₜ) = M_t·L/(4·G·Iₜ). Faktor 2 gälte, wenn das volle M_t über L/2 wirkte. Die Formel zeigt jetzt beide Schritte, Gegenrechnung (Verträglichkeit) bestätigt. M_t und φ_Mitte umbenannt.",
+    "formel": "φ_Mitte = M_t,A·(L/2) / (G·Iₜ) = M_t·L / (4·G·Iₜ)"
   },
   "T-TA": {
-    "status": "abgelehnt",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
-    "formel": "T_A = T_B = T / 2",
-    "antwort": "Torsionsmoment heißt jetzt M_t, Einspannmomente M_t,A und M_t,B."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
+    "antwort": "Torsionsmoment heißt jetzt M_t, Einspannmomente M_t,A und M_t,B.",
+    "formel": "M_t,A = M_t,B = M_t / 2"
   },
   "T-TAU": {
-    "status": "abgelehnt",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
-    "formel": "τ_t = T / Wₜ",
-    "antwort": "M_t,max eingeführt: einseitig M_t, beidseitig M_t,A."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt",
+    "antwort": "M_t,max eingeführt: einseitig M_t, beidseitig M_t,A.",
+    "formel": "τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A)"
+  },
+  "W-BB": {
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "formel": "σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)"
   },
   "W-E": {
     "status": "freigegeben",
@@ -820,20 +834,22 @@
     "formel": "ρ (Werkstoffdatenbank)"
   },
   "W-RM": {
-    "status": "abgelehnt",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin.",
-    "formel": "R_m = unterer Wert aus ≥ 310 MPa",
-    "antwort": "Wie W-RP. Biegefestigkeit spröder Werkstoffe hat jetzt eine eigene ID (W-BB)."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin.",
+    "antwort": "Wie W-RP. Biegefestigkeit spröder Werkstoffe hat jetzt eine eigene ID (W-BB).",
+    "formel": "R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)"
   },
   "W-RP": {
-    "status": "abgelehnt",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin.",
-    "formel": "R_p = unterer Wert aus ≥ 260 MPa",
-    "antwort": "Formel ist jetzt allgemein (Auslegungswert aus der Datenbankzeile des gewählten Werkstoffs). Der konkrete Bezug (Werkstoff, Datenbankzeile, Werttyp, Bedingung) steht im Beispiel, nicht mehr in der Formel."
+    "status": "freigegeben",
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin.",
+    "antwort": "Formel ist jetzt allgemein (Auslegungswert aus der Datenbankzeile des gewählten Werkstoffs). Der konkrete Bezug (Werkstoff, Datenbankzeile, Werttyp, Bedingung) steht im Beispiel, nicht mehr in der Formel.",
+    "formel": "R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert)"
   },
   "Z-DL": {
     "status": "freigegeben",
@@ -843,11 +859,12 @@
   },
   "Z-DL2": {
     "status": "freigegeben",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "mit eigengewicht, bitte klare Indizierung",
-    "formel": "ΔL = F·L/(E·A) + q_G·L²/(2·E·A)",
-    "antwort": "Aufgeteilt in ΔL_F (Last) und ΔL_G (Eigengewicht)."
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "mit eigengewicht, bitte klare Indizierung",
+    "antwort": "Aufgeteilt in ΔL_F (Last) und ΔL_G (Eigengewicht).",
+    "formel": "ΔL = ΔL_F + ΔL_G = F·L/(E·A) + q_G·L²/(2·E·A)"
   },
   "Z-NMAX": {
     "status": "freigegeben",
@@ -869,10 +886,11 @@
   },
   "Z-SIG2": {
     "status": "freigegeben",
-    "datum": "2026-10-08",
-    "durch": "Seti",
-    "kommentar": "mit eigengewicht, bitte klare Indizierung",
-    "formel": "σ_N = N_max / A",
-    "antwort": "Indiziert als σ_N,max (an der Einspannung, mit Eigengewicht)."
+    "datum": "2026-10-10",
+    "durch": "S. Frotscher",
+    "kommentar": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
+    "erledigt": "mit eigengewicht, bitte klare Indizierung",
+    "antwort": "Indiziert als σ_N,max (an der Einspannung, mit Eigengewicht).",
+    "formel": "σ_N,max = N_max / A"
   }
 }

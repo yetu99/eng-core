@@ -12,7 +12,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": null,
-  "sort_order": 1
+  "sort_order": 1,
+  "kb_kind": "symbol",
+  "kb_target": "E"
  },
  {
   "id": "P-G",
@@ -27,7 +29,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 2
+  "sort_order": 2,
+  "kb_kind": "symbol",
+  "kb_target": "G"
  },
  {
   "id": "P-NU",
@@ -42,7 +46,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 3
+  "sort_order": 3,
+  "kb_kind": "symbol",
+  "kb_target": "mu"
  },
  {
   "id": "P-RE",
@@ -57,7 +63,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "nicht für spröde Werkstoffe",
-  "sort_order": 4
+  "sort_order": 4,
+  "kb_kind": "entry",
+  "kb_target": "streckgrenze-dehngrenze"
  },
  {
   "id": "P-RM",
@@ -72,7 +80,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "Richtung und Bedingung beachten",
-  "sort_order": 5
+  "sort_order": 5,
+  "kb_kind": "entry",
+  "kb_target": "zugversuch"
  },
  {
   "id": "P-A",
@@ -87,7 +97,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 6
+  "sort_order": 6,
+  "kb_kind": "entry",
+  "kb_target": "zugversuch"
  },
  {
   "id": "P-H",
@@ -102,7 +114,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": "Skala steht in der Bedingung",
-  "sort_order": 7
+  "sort_order": 7,
+  "kb_kind": "entry",
+  "kb_target": "haerte-vickers"
  },
  {
   "id": "P-SH",
@@ -117,7 +131,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 8
+  "sort_order": 8,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-KV",
@@ -132,7 +148,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": "Prüftemperatur in Bedingung",
-  "sort_order": 9
+  "sort_order": 9,
+  "kb_kind": "entry",
+  "kb_target": "kerbschlagbiegeversuch"
  },
  {
   "id": "P-ACN",
@@ -147,7 +165,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 10
+  "sort_order": 10,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-BB",
@@ -162,7 +182,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "Hauptfestigkeitswert für Keramik und Holz",
-  "sort_order": 11
+  "sort_order": 11,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-DB",
@@ -177,7 +199,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 12
+  "sort_order": 12,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-KIC",
@@ -192,7 +216,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": null,
-  "sort_order": 13
+  "sort_order": 13,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-RHO",
@@ -207,7 +233,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": null,
-  "sort_order": 14
+  "sort_order": 14,
+  "kb_kind": "symbol",
+  "kb_target": "rho"
  },
  {
   "id": "P-LAM",
@@ -222,7 +250,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "Temperatur in Bedingung",
-  "sort_order": 15
+  "sort_order": 15,
+  "kb_kind": "entry",
+  "kb_target": "waermeleitfaehigkeit"
  },
  {
   "id": "P-CP",
@@ -237,7 +267,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 16
+  "sort_order": 16,
+  "kb_kind": "symbol",
+  "kb_target": "c"
  },
  {
   "id": "P-ALPHA",
@@ -252,7 +284,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "Temperaturbereich in Bedingung",
-  "sort_order": 17
+  "sort_order": 17,
+  "kb_kind": "symbol",
+  "kb_target": "alphal"
  },
  {
   "id": "P-TM",
@@ -267,7 +301,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 18
+  "sort_order": 18,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-TG",
@@ -282,7 +318,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 19
+  "sort_order": 19,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-HDT",
@@ -297,7 +335,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": "1,8 MPa",
-  "sort_order": 20
+  "sort_order": 20,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-TMAX",
@@ -312,7 +352,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": "oft Herstellerangabe",
-  "sort_order": 21
+  "sort_order": 21,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-TMIN",
@@ -327,7 +369,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 22
+  "sort_order": 22,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-REL",
@@ -342,7 +386,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 23
+  "sort_order": 23,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-SIG",
@@ -357,7 +403,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": "100 % IACS ≙ 58 MS/m",
-  "sort_order": 24
+  "sort_order": 24,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-WA",
@@ -372,7 +420,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": "Bedingung angeben",
-  "sort_order": 25
+  "sort_order": 25,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-PREIS",
@@ -387,7 +437,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "derzeit Schätzung (Q-EST)",
-  "sort_order": 26
+  "sort_order": 26,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-CO2",
@@ -402,7 +454,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "nur mit Quelle, sonst leer",
-  "sort_order": 27
+  "sort_order": 27,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-EE",
@@ -417,7 +471,9 @@
   "filterable": false,
   "ashby_axis": true,
   "hint": "nur mit Quelle, sonst leer",
-  "sort_order": 28
+  "sort_order": 28,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-REC",
@@ -432,7 +488,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 29
+  "sort_order": 29,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-TW",
@@ -447,7 +505,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": "gelistet / gelistet mit Einschränkungen / produktspezifisch / offen",
-  "sort_order": 30
+  "sort_order": 30,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-B-ATM",
@@ -462,7 +522,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 31
+  "sort_order": 31,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-B-SW",
@@ -477,7 +539,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 32
+  "sort_order": 32,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-B-MW",
@@ -492,7 +556,9 @@
   "filterable": true,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 33
+  "sort_order": 33,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-B-SAE",
@@ -507,7 +573,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 34
+  "sort_order": 34,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-B-LAU",
@@ -522,7 +590,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 35
+  "sort_order": 35,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "P-B-UV",
@@ -537,7 +607,9 @@
   "filterable": false,
   "ashby_axis": false,
   "hint": null,
-  "sort_order": 36
+  "sort_order": 36,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "D-ER",
@@ -552,7 +624,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "App: E[GPa]·1000/ρ[kg/m³]",
-  "sort_order": 37
+  "sort_order": 37,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "D-SR",
@@ -567,7 +641,9 @@
   "filterable": true,
   "ashby_axis": true,
   "hint": "App: σ[MPa]·1000/ρ; σ = Rp, sonst Rm, bei Keramik/Holz σbB",
-  "sort_order": 38
+  "sort_order": 38,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "D-E12",
@@ -582,7 +658,9 @@
   "filterable": false,
   "ashby_axis": true,
   "hint": "Ashby-Leitlinie",
-  "sort_order": 39
+  "sort_order": 39,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "D-E13",
@@ -597,7 +675,9 @@
   "filterable": false,
   "ashby_axis": true,
   "hint": "Ashby-Leitlinie",
-  "sort_order": 40
+  "sort_order": 40,
+  "kb_kind": null,
+  "kb_target": null
  },
  {
   "id": "D-S23",
@@ -612,6 +692,8 @@
   "filterable": false,
   "ashby_axis": true,
   "hint": "Ashby-Leitlinie",
-  "sort_order": 41
+  "sort_order": 41,
+  "kb_kind": null,
+  "kb_target": null
  }
 ]

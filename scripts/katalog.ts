@@ -13,7 +13,7 @@ export interface CatalogEntry {
   /** Beispiel aus dem ersten Rechenlauf, in dem die Formel vorkommt. */
   exSubst: string; exValue: number; exCase: string;
 }
-export interface FormulaStatus { status: "freigegeben" | "abgelehnt" | "offen"; datum?: string; durch?: string; kommentar?: string; /** Antwort bzw. Umsetzung durch den Kern-Verantwortlichen */ antwort?: string; /** Formeltext zum Zeitpunkt der Prüfung. */ formel?: string }
+export interface FormulaStatus { status: "freigegeben" | "abgelehnt" | "offen"; datum?: string; durch?: string; kommentar?: string; /** Antwort bzw. Umsetzung durch den Kern-Verantwortlichen */ antwort?: string; /** Formeltext zum Zeitpunkt der Prüfung. */ formel?: string; /** Einwand einer Vorrunde, mit der Freigabe erledigt. */ erledigt?: string }
 export type StatusMap = Record<string, FormulaStatus>;
 
 export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)" };

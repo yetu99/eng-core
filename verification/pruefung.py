@@ -119,4 +119,12 @@ if '--write-golden' in sys.argv:
     golden = [dict(id=c['id'], case=c, expect={k: v for k, v in ref[c['id']][0].items()}, tol=ref[c['id']][1]) for c in cases]
     json.dump(golden, open(os.path.join(os.path.dirname(HERE), 'test', 'golden.json'), 'w'), indent=1, ensure_ascii=False)
     print('golden.json geschrieben')
+# Ergebnis für den Prüfstatus (src/pruefstatus.json, PDF-Fußzeile): --write-ergebnis schreibt, --check-ergebnis vergleicht
+ERG = os.path.join(HERE, 'ergebnis.json'); erg = dict(passed=len(rows) - fails, total=len(rows))
+if '--write-ergebnis' in sys.argv:
+    open(ERG, 'w').write(json.dumps(erg, indent=1) + '\n'); print('verification/ergebnis.json geschrieben')
+if '--check-ergebnis' in sys.argv:
+    old = json.load(open(ERG)) if os.path.exists(ERG) else None
+    if old != erg:
+        print(f'verification/ergebnis.json veraltet: {old} ≠ {erg}. python3 verification/pruefung.py --write-ergebnis ausführen'); sys.exit(1)
 sys.exit(1 if fails else 0)

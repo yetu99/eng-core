@@ -5701,36 +5701,6 @@
  },
  {
   "material_id": "W058",
-  "process": "Spritzgießen",
-  "rating": 3,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W058",
-  "process": "Extrudieren",
-  "rating": 3,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W058",
-  "process": "Thermoformen",
-  "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W058",
   "process": "Zerspanen",
   "rating": 1,
   "not_applicable": false,
@@ -5770,7 +5740,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W059",
+  "material_id": "W058",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -5780,7 +5750,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W059",
+  "material_id": "W058",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -5790,7 +5760,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W059",
+  "material_id": "W058",
   "process": "Thermoformen",
   "rating": 2,
   "not_applicable": false,
@@ -5840,7 +5810,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W060",
+  "material_id": "W059",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -5850,7 +5820,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W060",
+  "material_id": "W059",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -5860,7 +5830,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W060",
+  "material_id": "W059",
   "process": "Thermoformen",
   "rating": 2,
   "not_applicable": false,
@@ -5910,9 +5880,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W061",
+  "material_id": "W060",
   "process": "Spritzgießen",
-  "rating": 1,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -5920,7 +5890,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W061",
+  "material_id": "W060",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -5930,9 +5900,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W061",
+  "material_id": "W060",
   "process": "Thermoformen",
-  "rating": 1,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -5980,9 +5950,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W062",
+  "material_id": "W061",
   "process": "Spritzgießen",
-  "rating": 2,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -5990,7 +5960,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W062",
+  "material_id": "W061",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -6000,9 +5970,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W062",
+  "material_id": "W061",
   "process": "Thermoformen",
-  "rating": 3,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6050,9 +6020,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W063",
+  "material_id": "W062",
   "process": "Spritzgießen",
-  "rating": 3,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6060,7 +6030,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W063",
+  "material_id": "W062",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -6070,7 +6040,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W063",
+  "material_id": "W062",
   "process": "Thermoformen",
   "rating": 3,
   "not_applicable": false,
@@ -6120,9 +6090,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W064",
+  "material_id": "W063",
   "process": "Spritzgießen",
-  "rating": 2,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6130,7 +6100,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W064",
+  "material_id": "W063",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -6140,7 +6110,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W064",
+  "material_id": "W063",
   "process": "Thermoformen",
   "rating": 3,
   "not_applicable": false,
@@ -6190,9 +6160,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W065",
+  "material_id": "W064",
   "process": "Spritzgießen",
-  "rating": 3,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6200,7 +6170,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W065",
+  "material_id": "W064",
   "process": "Extrudieren",
   "rating": 3,
   "not_applicable": false,
@@ -6210,7 +6180,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W065",
+  "material_id": "W064",
   "process": "Thermoformen",
   "rating": 3,
   "not_applicable": false,
@@ -6260,7 +6230,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W066",
+  "material_id": "W065",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -6270,9 +6240,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W066",
+  "material_id": "W065",
   "process": "Extrudieren",
-  "rating": 2,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6280,9 +6250,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W066",
+  "material_id": "W065",
   "process": "Thermoformen",
-  "rating": 1,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6330,7 +6300,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W067",
+  "material_id": "W066",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -6340,7 +6310,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W067",
+  "material_id": "W066",
   "process": "Extrudieren",
   "rating": 2,
   "not_applicable": false,
@@ -6350,7 +6320,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W067",
+  "material_id": "W066",
   "process": "Thermoformen",
   "rating": 1,
   "not_applicable": false,
@@ -6393,6 +6363,76 @@
   "material_id": "W067",
   "process": "Additive Fertigung",
   "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W067",
+  "process": "Thermoformen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Zerspanen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Schweißen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Kleben",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W068",
+  "process": "Additive Fertigung",
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6430,76 +6470,6 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W068",
-  "process": "Zerspanen",
-  "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W068",
-  "process": "Schweißen",
-  "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W068",
-  "process": "Kleben",
-  "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W068",
-  "process": "Additive Fertigung",
-  "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W069",
-  "process": "Spritzgießen",
-  "rating": 3,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W069",
-  "process": "Extrudieren",
-  "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W069",
-  "process": "Thermoformen",
-  "rating": 0,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
   "material_id": "W069",
   "process": "Zerspanen",
   "rating": 3,
@@ -6540,7 +6510,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W070",
+  "material_id": "W069",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -6550,9 +6520,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W070",
+  "material_id": "W069",
   "process": "Extrudieren",
-  "rating": 3,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6560,9 +6530,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W070",
+  "material_id": "W069",
   "process": "Thermoformen",
-  "rating": 3,
+  "rating": 0,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6610,19 +6580,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W071",
+  "material_id": "W070",
   "process": "Spritzgießen",
-  "rating": 0,
-  "not_applicable": false,
-  "note": "Nicht schmelzverarbeitbar, Pressen und Sintern",
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W071",
-  "process": "Extrudieren",
-  "rating": 1,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6630,9 +6590,19 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W071",
+  "material_id": "W070",
+  "process": "Extrudieren",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W070",
   "process": "Thermoformen",
-  "rating": 0,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6680,19 +6650,19 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W072",
+  "material_id": "W071",
   "process": "Spritzgießen",
-  "rating": 3,
+  "rating": 0,
   "not_applicable": false,
-  "note": null,
+  "note": "Nicht schmelzverarbeitbar, Pressen und Sintern",
   "source_id": "Q-EXP",
   "confidence": 1,
   "status": "Entwurf"
  },
  {
-  "material_id": "W072",
+  "material_id": "W071",
   "process": "Extrudieren",
-  "rating": 3,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6700,9 +6670,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W072",
+  "material_id": "W071",
   "process": "Thermoformen",
-  "rating": 2,
+  "rating": 0,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6750,7 +6720,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W073",
+  "material_id": "W072",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -6760,9 +6730,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W073",
+  "material_id": "W072",
   "process": "Extrudieren",
-  "rating": 2,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6770,9 +6740,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W073",
+  "material_id": "W072",
   "process": "Thermoformen",
-  "rating": 1,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6820,7 +6790,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W074",
+  "material_id": "W073",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -6830,9 +6800,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W074",
+  "material_id": "W073",
   "process": "Extrudieren",
-  "rating": 0,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6840,9 +6810,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W074",
+  "material_id": "W073",
   "process": "Thermoformen",
-  "rating": 0,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6890,7 +6860,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W075",
+  "material_id": "W074",
   "process": "Spritzgießen",
   "rating": 3,
   "not_applicable": false,
@@ -6900,9 +6870,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W075",
+  "material_id": "W074",
   "process": "Extrudieren",
-  "rating": 2,
+  "rating": 0,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6910,9 +6880,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W075",
+  "material_id": "W074",
   "process": "Thermoformen",
-  "rating": 2,
+  "rating": 0,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6953,6 +6923,76 @@
   "material_id": "W075",
   "process": "Additive Fertigung",
   "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Spritzgießen",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Extrudieren",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W075",
+  "process": "Thermoformen",
+  "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Schweißen",
+  "rating": 0,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W076",
+  "process": "Additive Fertigung",
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -6990,9 +7030,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W076",
+  "material_id": "W077",
   "process": "Zerspanen",
-  "rating": 1,
+  "rating": 0,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7000,7 +7040,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W076",
+  "material_id": "W077",
   "process": "Schweißen",
   "rating": 0,
   "not_applicable": false,
@@ -7010,9 +7050,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W076",
+  "material_id": "W077",
   "process": "Kleben",
-  "rating": 3,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7020,9 +7060,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W076",
+  "material_id": "W077",
   "process": "Additive Fertigung",
-  "rating": 1,
+  "rating": 0,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7060,7 +7100,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W077",
+  "material_id": "W078",
   "process": "Zerspanen",
   "rating": 0,
   "not_applicable": false,
@@ -7070,7 +7110,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W077",
+  "material_id": "W078",
   "process": "Schweißen",
   "rating": 0,
   "not_applicable": false,
@@ -7080,7 +7120,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W077",
+  "material_id": "W078",
   "process": "Kleben",
   "rating": 1,
   "not_applicable": false,
@@ -7090,7 +7130,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W077",
+  "material_id": "W078",
   "process": "Additive Fertigung",
   "rating": 0,
   "not_applicable": false,
@@ -7130,7 +7170,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W078",
+  "material_id": "W079",
   "process": "Zerspanen",
   "rating": 0,
   "not_applicable": false,
@@ -7140,7 +7180,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W078",
+  "material_id": "W079",
   "process": "Schweißen",
   "rating": 0,
   "not_applicable": false,
@@ -7150,7 +7190,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W078",
+  "material_id": "W079",
   "process": "Kleben",
   "rating": 1,
   "not_applicable": false,
@@ -7160,7 +7200,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W078",
+  "material_id": "W079",
   "process": "Additive Fertigung",
   "rating": 0,
   "not_applicable": false,
@@ -7200,7 +7240,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W079",
+  "material_id": "W080",
   "process": "Zerspanen",
   "rating": 0,
   "not_applicable": false,
@@ -7210,7 +7250,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W079",
+  "material_id": "W080",
   "process": "Schweißen",
   "rating": 0,
   "not_applicable": false,
@@ -7220,9 +7260,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W079",
+  "material_id": "W080",
   "process": "Kleben",
-  "rating": 1,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7230,9 +7270,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W079",
+  "material_id": "W080",
   "process": "Additive Fertigung",
-  "rating": 0,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7270,9 +7310,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W080",
+  "material_id": "W081",
   "process": "Zerspanen",
-  "rating": 0,
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7280,9 +7320,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W080",
+  "material_id": "W081",
   "process": "Schweißen",
-  "rating": 0,
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7290,7 +7330,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W080",
+  "material_id": "W081",
   "process": "Kleben",
   "rating": 2,
   "not_applicable": false,
@@ -7300,9 +7340,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W080",
+  "material_id": "W081",
   "process": "Additive Fertigung",
-  "rating": 1,
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7340,7 +7380,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W081",
+  "material_id": "W082",
   "process": "Zerspanen",
   "rating": 1,
   "not_applicable": false,
@@ -7350,8 +7390,8 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W081",
-  "process": "Schweißen",
+  "material_id": "W082",
+  "process": "Löten",
   "rating": 2,
   "not_applicable": false,
   "note": null,
@@ -7360,19 +7400,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W081",
+  "material_id": "W082",
   "process": "Kleben",
   "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W081",
-  "process": "Additive Fertigung",
-  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7390,7 +7420,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W082",
+  "material_id": "W083",
   "process": "Zerspanen",
   "rating": 1,
   "not_applicable": false,
@@ -7400,9 +7430,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W082",
-  "process": "Kleben",
-  "rating": 2,
+  "material_id": "W083",
+  "process": "Löten",
+  "rating": 1,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7410,8 +7440,8 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W082",
-  "process": "Löten",
+  "material_id": "W083",
+  "process": "Kleben",
   "rating": 2,
   "not_applicable": false,
   "note": null,
@@ -7430,7 +7460,7 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W083",
+  "material_id": "W084",
   "process": "Zerspanen",
   "rating": 1,
   "not_applicable": false,
@@ -7440,38 +7470,8 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W083",
-  "process": "Kleben",
-  "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W083",
+  "material_id": "W084",
   "process": "Löten",
-  "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W084",
-  "process": "Sintern",
-  "rating": 3,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W084",
-  "process": "Zerspanen",
   "rating": 1,
   "not_applicable": false,
   "note": null,
@@ -7491,16 +7491,6 @@
  },
  {
   "material_id": "W084",
-  "process": "Löten",
-  "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W085",
   "process": "Sintern",
   "rating": 3,
   "not_applicable": false,
@@ -7521,6 +7511,16 @@
  },
  {
   "material_id": "W085",
+  "process": "Löten",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W085",
   "process": "Kleben",
   "rating": 2,
   "not_applicable": false,
@@ -7531,19 +7531,9 @@
  },
  {
   "material_id": "W085",
-  "process": "Löten",
-  "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W086",
   "process": "Sintern",
-  "rating": null,
-  "not_applicable": true,
+  "rating": 3,
+  "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
   "confidence": 1,
@@ -7553,16 +7543,6 @@
   "material_id": "W086",
   "process": "Zerspanen",
   "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W086",
-  "process": "Kleben",
-  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7580,7 +7560,17 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W087",
+  "material_id": "W086",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W086",
   "process": "Sintern",
   "rating": null,
   "not_applicable": true,
@@ -7593,16 +7583,6 @@
   "material_id": "W087",
   "process": "Zerspanen",
   "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W087",
-  "process": "Kleben",
-  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7620,7 +7600,17 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W088",
+  "material_id": "W087",
+  "process": "Kleben",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W087",
   "process": "Sintern",
   "rating": null,
   "not_applicable": true,
@@ -7641,6 +7631,16 @@
  },
  {
   "material_id": "W088",
+  "process": "Löten",
+  "rating": null,
+  "not_applicable": true,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W088",
   "process": "Kleben",
   "rating": 2,
   "not_applicable": false,
@@ -7651,19 +7651,9 @@
  },
  {
   "material_id": "W088",
-  "process": "Löten",
+  "process": "Sintern",
   "rating": null,
   "not_applicable": true,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W089",
-  "process": "Sintern",
-  "rating": 3,
-  "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
   "confidence": 1,
@@ -7681,6 +7671,16 @@
  },
  {
   "material_id": "W089",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": "Hartmetallträger wird auf Werkzeug gelötet",
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W089",
   "process": "Kleben",
   "rating": 1,
   "not_applicable": false,
@@ -7691,16 +7691,6 @@
  },
  {
   "material_id": "W089",
-  "process": "Löten",
-  "rating": 3,
-  "not_applicable": false,
-  "note": "Hartmetallträger wird auf Werkzeug gelötet",
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W090",
   "process": "Sintern",
   "rating": 3,
   "not_applicable": false,
@@ -7721,6 +7711,16 @@
  },
  {
   "material_id": "W090",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W090",
   "process": "Kleben",
   "rating": 1,
   "not_applicable": false,
@@ -7731,17 +7731,7 @@
  },
  {
   "material_id": "W090",
-  "process": "Löten",
-  "rating": 3,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W091",
-  "process": "Laminieren / Infusion",
+  "process": "Sintern",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -7771,8 +7761,8 @@
  },
  {
   "material_id": "W091",
-  "process": "Trennen / Sägen",
-  "rating": 2,
+  "process": "Laminieren / Infusion",
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7780,9 +7770,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W092",
-  "process": "Laminieren / Infusion",
-  "rating": 3,
+  "material_id": "W091",
+  "process": "Trennen / Sägen",
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7811,8 +7801,8 @@
  },
  {
   "material_id": "W092",
-  "process": "Trennen / Sägen",
-  "rating": 2,
+  "process": "Laminieren / Infusion",
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7820,9 +7810,9 @@
   "status": "Entwurf"
  },
  {
-  "material_id": "W093",
-  "process": "Laminieren / Infusion",
-  "rating": 3,
+  "material_id": "W092",
+  "process": "Trennen / Sägen",
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7851,8 +7841,38 @@
  },
  {
   "material_id": "W093",
+  "process": "Laminieren / Infusion",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W093",
   "process": "Trennen / Sägen",
   "rating": 2,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W094",
+  "process": "Zerspanen",
+  "rating": 1,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W094",
+  "process": "Kleben",
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7871,38 +7891,8 @@
  },
  {
   "material_id": "W094",
-  "process": "Zerspanen",
-  "rating": 1,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W094",
-  "process": "Kleben",
-  "rating": 3,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W094",
   "process": "Trennen / Sägen",
   "rating": 2,
-  "not_applicable": false,
-  "note": null,
-  "source_id": "Q-EXP",
-  "confidence": 1,
-  "status": "Entwurf"
- },
- {
-  "material_id": "W095",
-  "process": "Sintern",
-  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -7921,6 +7911,16 @@
  },
  {
   "material_id": "W095",
+  "process": "Löten",
+  "rating": 3,
+  "not_applicable": false,
+  "note": null,
+  "source_id": "Q-EXP",
+  "confidence": 1,
+  "status": "Entwurf"
+ },
+ {
+  "material_id": "W095",
   "process": "Kleben",
   "rating": 1,
   "not_applicable": false,
@@ -7931,7 +7931,7 @@
  },
  {
   "material_id": "W095",
-  "process": "Löten",
+  "process": "Sintern",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -7961,7 +7961,7 @@
  },
  {
   "material_id": "W096",
-  "process": "Trennen / Sägen",
+  "process": "Oberflächenbehandlung",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -7971,7 +7971,7 @@
  },
  {
   "material_id": "W096",
-  "process": "Oberflächenbehandlung",
+  "process": "Trennen / Sägen",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -8001,8 +8001,8 @@
  },
  {
   "material_id": "W097",
-  "process": "Trennen / Sägen",
-  "rating": 2,
+  "process": "Oberflächenbehandlung",
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -8011,8 +8011,8 @@
  },
  {
   "material_id": "W097",
-  "process": "Oberflächenbehandlung",
-  "rating": 3,
+  "process": "Trennen / Sägen",
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -8041,7 +8041,7 @@
  },
  {
   "material_id": "W098",
-  "process": "Trennen / Sägen",
+  "process": "Oberflächenbehandlung",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -8051,7 +8051,7 @@
  },
  {
   "material_id": "W098",
-  "process": "Oberflächenbehandlung",
+  "process": "Trennen / Sägen",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -8081,7 +8081,7 @@
  },
  {
   "material_id": "W099",
-  "process": "Trennen / Sägen",
+  "process": "Oberflächenbehandlung",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -8091,7 +8091,7 @@
  },
  {
   "material_id": "W099",
-  "process": "Oberflächenbehandlung",
+  "process": "Trennen / Sägen",
   "rating": 3,
   "not_applicable": false,
   "note": null,
@@ -8121,8 +8121,8 @@
  },
  {
   "material_id": "W100",
-  "process": "Trennen / Sägen",
-  "rating": 3,
+  "process": "Oberflächenbehandlung",
+  "rating": 2,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",
@@ -8131,8 +8131,8 @@
  },
  {
   "material_id": "W100",
-  "process": "Oberflächenbehandlung",
-  "rating": 2,
+  "process": "Trennen / Sägen",
+  "rating": 3,
   "not_applicable": false,
   "note": null,
   "source_id": "Q-EXP",

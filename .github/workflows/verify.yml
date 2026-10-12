@@ -16,11 +16,11 @@ jobs:
         run: npx tsc --noEmit
       - name: Tests (golden.json, Grenzfälle, Auslegungswerte, Bemessen, Ashby)
         run: npx vitest run
-      - name: Formelkatalog aktuell
-        run: npx tsx scripts/formelkatalog.ts --check
+      - name: Formelkatalog und Prüfstatus aktuell
+        run: npx tsx scripts/formelkatalog.ts --check && npx tsx scripts/katalog-publish.ts --check
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install -r verification/requirements.txt
       - name: Unabhängige Gegenrechnung (Python)
-        run: python3 verification/pruefung.py
+        run: python3 verification/pruefung.py --check-ergebnis

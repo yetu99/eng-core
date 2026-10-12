@@ -6,10 +6,12 @@ Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für 
 
 | Ordner | Inhalt |
 |---|---|
-| `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung, Torsion, Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte |
+| `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung, Torsion, Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte; dazu Prüfstatus für Berichte (`report.ts`, `pruefstatus.json`) und Werkstoff-Detailansicht (`materialDetail.ts`) |
 | `data/` | Versionierter Abzug der Werkstoffdaten aus Supabase (Tabellen `wa_*`, identisch mit dem Werkstoffatlas), Datenstand in `data/snapshot.json` |
 | `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby |
-| `verification/` | `pruefung.py`: unabhängige Python-Gegenrechnung (numerische Integration, Finite Differenzen, Reihenlösungen) |
+| `verification/` | `pruefung.py`: unabhängige Python-Gegenrechnung (numerische Integration, Finite Differenzen, Reihenlösungen), `ergebnis.json` (letztes Ergebnis), `abnahme.json` (Stufen P5/P6, von Hand gepflegt) |
+| `publish/` | `katalog.json`: Formelkatalog für den Spiegel in Supabase (`fk_*`), erzeugt mit `npm run katalog:publish` |
+| `supabase/` | Migrationen der Tabellen `fk_*` und der Funktion `fk_publish_github` (Projekt Kompendium) |
 | `scripts/` | `katalog.ts` (Formelkatalog als Daten), `formelkatalog.ts` (erzeugt FORMELKATALOG.md), `formelfreigabe.py` (Freigabe-Excel Export/Import), `sync-to-app.mjs` (kopiert den Kern in eine App) |
 | `freigabe/` | Ablage für die Freigabe-Excel (nicht versioniert) |
 | `FORMELKATALOG.md` | alle Formeln mit ID, Quelle und Freigabestatus (aus `formelstatus.json`, nie von Hand bearbeiten) |
@@ -23,8 +25,11 @@ npm ci
 npx tsc --noEmit
 npx vitest run
 pip install -r verification/requirements.txt
-python3 verification/pruefung.py
+python3 verification/pruefung.py --check-ergebnis
+npx tsx scripts/formelkatalog.ts --check && npx tsx scripts/katalog-publish.ts --check
 ```
+
+`npm run pruefstatus` schreibt nach einer Änderung `verification/ergebnis.json`, `FORMELKATALOG.md`, `src/pruefstatus.json` und `publish/katalog.json` neu.
 
 Bei jedem Push läuft dasselbe automatisch auf GitHub (`.github/workflows/verify.yml`).
 
@@ -59,6 +64,18 @@ Die Freigabe läuft über eine Excel-Datei. `formelstatus.json` wird nur vom Imp
 5. Committen: `formelstatus.json` und `FORMELKATALOG.md`. Die Excel selbst wird nicht versioniert (`freigabe/*.xlsx` steht in `.gitignore`).
 
 Eine Freigabe speichert den geprüften Formeltext. Ändert sich die Formel später, zeigt der Katalog „geändert, neu prüfen“ und der nächste Export setzt die Zeile auf offen.
+
+## Prüfstatus in Berichten
+
+`reportMeta()`, `traceApproval(steps)`, `reportFooter(meta, usage)` und `reportVerdict(meta, usage)` liefern Versionen, Freigabestand der im Blatt verwendeten Formeln, Ergebnis der Gegenrechnung und Abnahmestand (P5, P6) für Fußzeile und Prüfvermerk. Quelle ist `src/pruefstatus.json`, erzeugt aus `formelstatus.json`, `verification/ergebnis.json` und `verification/abnahme.json`. Solange P6 offen ist, lautet der Vermerk nie „abgenommen“.
+
+## Formelkatalog in Supabase
+
+Spiegel für andere Tools (Kompendium, Werkstoffatlas, neue Fachtools), Master bleibt dieses Repo. Tabellen `fk_releases`, `fk_formulas`, `fk_formula_versions`, `fk_formula_links`, Sichten `fk_v_formulas`, `fk_v_current_release` (lesbar mit dem Publishable Key, schreibbar nur über `fk_publish`).
+
+1. `npm run katalog:publish` schreibt `publish/katalog.json` und gibt die MD5-Summe aus.
+2. Committen und pushen.
+3. Über das Supabase-MCP: `select * from public.fk_publish_github('<commit>', '<md5>');` Die Datenbank lädt die Datei genau dieses Commits von GitHub, prüft die MD5-Summe und übernimmt sie (idempotent; Formeln ohne Kern-Eintrag werden `retired`, nie gelöscht; Text- oder Statusänderungen landen in `fk_formula_versions`).
 
 ## Änderungen am Kern
 

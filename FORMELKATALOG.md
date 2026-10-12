@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.4.2
+# Formelkatalog eng-core 0.4.3
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 144 Formeln, davon 134 freigegeben, 0 abgelehnt, 8 neu zu prüfen, 2 Entwurf.
+Stand: 144 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -119,7 +119,7 @@ Stand: 144 Formeln, davon 134 freigegeben, 0 abgelehnt, 8 neu zu prüfen, 2 Entw
 | K-FK | Knicklast | F_k = σ_k·A | N |  | freigegeben (2026-10-08, Seti) |
 | K-LAM | Schlankheitsgrad | λ = L_k / i | – |  | freigegeben (2026-10-08, Seti) |
 | K-LAMT | Übergangsschlankheit Johnson/Euler | λ_T = π·√(2E / R_p) | – | Johnson-Parabel tangiert Euler bei σ = R_p/2 | freigegeben (2026-10-08, Seti) |
-| K-LK | Knicklänge | L_k = β·L | mm | Eulerfall gewählt | Entwurf |
+| K-LK | Knicklänge | L_k = β·L | mm | Eulerfall gewählt | freigegeben (2026-10-10, S. Frotscher) |
 | K-SKE | Knickspannung (Euler) | σ_k = π²·E / λ² | MPa | Ashby App. A.5 | freigegeben (2026-10-08, Seti) |
 | K-SKJ | Knickspannung (unelastisch, Johnson) | σ_k = R_p − R_p²·λ² / (4π²E) | MPa | Johnson-Parabel | freigegeben (2026-10-08, Seti) |
 
@@ -178,47 +178,33 @@ Stand: 144 Formeln, davon 134 freigegeben, 0 abgelehnt, 8 neu zu prüfen, 2 Entw
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
-| T-PHI1 | Verdrehwinkel am freien Ende | φ_Ende = M_t·L / (G·Iₜ) | ° | Ashby App. A.6 | geändert, neu prüfen |
-| T-PHI2 | Verdrehwinkel in Feldmitte | φ_Mitte = M_t,A·(L/2) / (G·Iₜ) = M_t·L / (4·G·Iₜ) | ° | Ashby App. A.6 | geändert, neu prüfen |
-| T-TA | Einspannmoment je Seite | M_t,A = M_t,B = M_t / 2 | N·mm | Verträglichkeit, gleiche Steifigkeit beider Hälften | geändert, neu prüfen |
-| T-TAU | Torsionsspannung | τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A) | MPa | Ashby App. A.6 | geändert, neu prüfen |
+| T-PHI1 | Verdrehwinkel am freien Ende | φ_Ende = M_t·L / (G·Iₜ) | ° | Ashby App. A.6 | freigegeben (2026-10-10, S. Frotscher) |
+| T-PHI2 | Verdrehwinkel in Feldmitte | φ_Mitte = M_t,A·(L/2) / (G·Iₜ) = M_t·L / (4·G·Iₜ) | ° | Ashby App. A.6 | freigegeben (2026-10-10, S. Frotscher) |
+| T-TA | Einspannmoment je Seite | M_t,A = M_t,B = M_t / 2 | N·mm | Verträglichkeit, gleiche Steifigkeit beider Hälften | freigegeben (2026-10-10, S. Frotscher) |
+| T-TAU | Torsionsspannung | τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A) | MPa | Ashby App. A.6 | freigegeben (2026-10-10, S. Frotscher) |
 
 ## Werkstoff und Auslegungswerte
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
-| W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | Entwurf |
+| W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
 | W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.0.1 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
 | W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.0.1 | freigegeben (2026-10-08, Seti) |
-| W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | geändert, neu prüfen |
-| W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | geändert, neu prüfen |
+| W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
+| W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 
 ## Zug und Druck
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | Z-DL | Längenänderung | ΔL = F_N·L / (E·A) | mm |  | freigegeben (2026-10-08, Seti) |
-| Z-DL2 | Längenänderung mit Eigengewicht | ΔL = ΔL_F + ΔL_G = F·L/(E·A) + q_G·L²/(2·E·A) | mm | Integration σ(x)/E | geändert, neu prüfen |
+| Z-DL2 | Längenänderung mit Eigengewicht | ΔL = ΔL_F + ΔL_G = F·L/(E·A) + q_G·L²/(2·E·A) | mm | Integration σ(x)/E | freigegeben (2026-10-10, S. Frotscher) |
 | Z-NMAX | Größte Normalkraft (Einspannung) | N_max = F + q_G·L | N |  | freigegeben (2026-10-08, Seti) |
 | Z-QG | Eigengewicht je Länge | q_G = ρ·g·A | N/mm |  | freigegeben (2026-10-08, Seti) |
 | Z-SIG | Zugspannung | σ_N = F_N / A | MPa |  | freigegeben (2026-10-08, Seti) |
-| Z-SIG2 | Größte Zugspannung mit Eigengewicht (Einspannung) | σ_N,max = N_max / A | MPa |  | geändert, neu prüfen |
-
-## Einwände und Verbesserungen
-
-| ID | Status | Datum | Prüfer | Kommentar | Antwort |
-|---|---|---|---|---|---|
-| K-LK | Entwurf |  |  | das ist die allgemine knicklänge wenn du beta schreibst, was ja auch korrekt ist, als lass in der benennung einfach nur eulerfall 1 weg? Dann ist es absolut korrekt | Benennung jetzt nur „Knicklänge“, der Eulerfall steht im Beispiel (β = … (Eulerfall n)). |
-| T-PHI1 | geändert, neu prüfen | 2026-10-08 | Seti | Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt | Torsionsmoment heißt jetzt M_t, Winkel indiziert als φ_Ende. |
-| T-PHI2 | geändert, neu prüfen | 2026-10-08 | Seti | Ich glaube für den Verdrehwinkel in der Mitte ist der Faktor im Nenner 2 antelle von 4? Und ich hätte gerne das Torsionsmoment nicht T sondern M_t genannt. Und klare Indizierung von phi, zb phi_mitte? | Faktor 4 ist richtig: jede Hälfte trägt M_t,A = M_t/2 über die Länge L/2, also φ_Mitte = (M_t/2)·(L/2)/(G·Iₜ) = M_t·L/(4·G·Iₜ). Faktor 2 gälte, wenn das volle M_t über L/2 wirkte. Die Formel zeigt jetzt beide Schritte, Gegenrechnung (Verträglichkeit) bestätigt. M_t und φ_Mitte umbenannt. |
-| T-TA | geändert, neu prüfen | 2026-10-08 | Seti | Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt | Torsionsmoment heißt jetzt M_t, Einspannmomente M_t,A und M_t,B. |
-| T-TAU | geändert, neu prüfen | 2026-10-08 | Seti | Ansich  korrekt, jedoch hätte ich gerne das Torsionsmoment nicht T sondern M_t genannt | M_t,max eingeführt: einseitig M_t, beidseitig M_t,A. |
-| W-RM | geändert, neu prüfen | 2026-10-08 | Seti | ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin. | Wie W-RP. Biegefestigkeit spröder Werkstoffe hat jetzt eine eigene ID (W-BB). |
-| W-RP | geändert, neu prüfen | 2026-10-08 | Seti | ansich richtig, ich will den unteren wert, aber so wie es da steht würde immer R_m >= 310MPa und R_p>=260MPa, da muss der Richtige Bezug hin. | Formel ist jetzt allgemein (Auslegungswert aus der Datenbankzeile des gewählten Werkstoffs). Der konkrete Bezug (Werkstoff, Datenbankzeile, Werttyp, Bedingung) steht im Beispiel, nicht mehr in der Formel. |
-| Z-DL2 | geändert, neu prüfen | 2026-10-08 | Seti | mit eigengewicht, bitte klare Indizierung | Aufgeteilt in ΔL_F (Last) und ΔL_G (Eigengewicht). |
-| Z-SIG2 | geändert, neu prüfen | 2026-10-08 | Seti | mit eigengewicht, bitte klare Indizierung | Indiziert als σ_N,max (an der Einspannung, mit Eigengewicht). |
+| Z-SIG2 | Größte Zugspannung mit Eigengewicht (Einspannung) | σ_N,max = N_max / A | MPa |  | freigegeben (2026-10-10, S. Frotscher) |
 
 ## Gültigkeit und Annahmen
 

@@ -7,13 +7,17 @@ Formelfreigabe über Excel.
       gleiche Gruppierung wie FORMELKATALOG.md, mit nachrechenbarem Beispiel). Bereits vorhandene
       Freigaben aus formelstatus.json werden vorbefüllt.
 
-  python3 scripts/formelfreigabe.py import DATEI.xlsx [--dry-run]
+  python3 scripts/formelfreigabe.py import DATEI.xlsx [--dry-run] [--ergaenze-datum TT.MM.JJJJ --ergaenze-pruefer NAME]
       Liest die ausgefüllte Excel, prüft die Einträge und schreibt formelstatus.json.
       Danach wird FORMELKATALOG.md neu erzeugt. Abgelehnte Formeln mit Kommentar werden aufgelistet.
+      --ergaenze-*: nur für Zeilen »freigegeben« ohne Datum bzw. Prüfer, wenn der Prüfer die Freigabe
+      außerhalb der Excel bestätigt hat. Jede ergänzte Zeile bekommt einen Vermerk im Kommentar.
 
 Regeln beim Import:
   - Die Excel ist vollständig maßgeblich: was dort "offen" ist, ist danach offen.
   - "freigegeben" braucht Datum und Prüfer, sonst wird der Eintrag nicht übernommen.
+  - Ein Kommentar aus einer früheren Runde, der bei einer Freigabe unverändert in der Zeile steht, wird als
+    "erledigt" gespeichert (Verlauf), nicht als offener Kommentar.
   - "abgelehnt" sollte einen Kommentar haben (Warnung, wird trotzdem übernommen).
   - Hat sich eine Formel seit dem Export geändert, wird ihre Zeile nicht übernommen (neu exportieren).
   - Eine Freigabe speichert den Formeltext. Ändert sich die Formel später im Kern, zeigt der Katalog
@@ -299,7 +303,7 @@ def write_guide(ws, cat: dict) -> None:
 
 # --------------------------------------------------------------------------------------------- Import
 
-def import_xlsx(path: Path, dry_run: bool) -> int:
+def import_xlsx(path: Path, dry_run: bool, fill_datum: str | None = None, fill_durch: str | None = None) -> int:
     cat = load_catalog()
     by_id = {e["id"]: e for e in cat["entries"]}
     wb = load_workbook(path, data_only=True)
@@ -346,6 +350,11 @@ def import_xlsx(path: Path, dry_run: bool) -> int:
         if stamp is not None and stamp != e["formula"]:
             warn.append(f"{fid}: Formel hat sich seit dem Export geändert ({stamp!r} → {e['formula']!r}), Zeile nicht übernommen, bitte neu exportieren")
             continue
+        filled = []
+        if stat == "freigegeben" and not datum and fill_datum:
+            datum = fill_datum; filled.append("Datum")
+        if stat == "freigegeben" and not durch and fill_durch:
+            durch = fill_durch; filled.append("Prüfer")
         if stat == "freigegeben" and (not datum or not durch):
             warn.append(f"{fid}: freigegeben ohne Datum oder Prüfer, Zeile nicht übernommen")
             continue
@@ -353,6 +362,14 @@ def import_xlsx(path: Path, dry_run: bool) -> int:
             warn.append(f"{fid}: abgelehnt ohne Kommentar")
         if stat == "offen" and not kommentar:
             continue
+        prev = cat["status"].get(fid, {})
+        erledigt = None
+        if stat == "freigegeben" and kommentar and kommentar == prev.get("kommentar"):
+            erledigt, kommentar = kommentar, None  # Einwand der Vorrunde, mit dieser Freigabe erledigt
+        if filled:
+            vermerk = f"{' und '.join(filled)} beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)"
+            kommentar = f"{kommentar} · {vermerk}" if kommentar else vermerk
+            warn.append(f"{fid}: {vermerk}")
         rec: dict = {"status": stat}
         if datum:
             rec["datum"] = datum
@@ -360,7 +377,8 @@ def import_xlsx(path: Path, dry_run: bool) -> int:
             rec["durch"] = durch
         if kommentar:
             rec["kommentar"] = kommentar
-        prev = cat["status"].get(fid, {})
+        if erledigt:
+            rec["erledigt"] = erledigt
         if prev.get("antwort"):
             rec["antwort"] = prev["antwort"]  # Antwort des Kern-Verantwortlichen bleibt erhalten
         rec["formel"] = e["formula"]
@@ -404,13 +422,15 @@ def main() -> None:
     im = sub.add_parser("import", help="Ausgefüllte Excel nach formelstatus.json übernehmen")
     im.add_argument("xlsx", type=Path)
     im.add_argument("--dry-run", action="store_true")
+    im.add_argument("--ergaenze-datum", default=None, help="Datum für freigegebene Zeilen ohne Datum (TT.MM.JJJJ)")
+    im.add_argument("--ergaenze-pruefer", default=None, help="Prüfer für freigegebene Zeilen ohne Prüfer")
     a = ap.parse_args()
     if a.cmd == "export":
         ver = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
         name = f"Formelfreigabe_eng-core_{ver}{'_offen' if a.offen else ''}.xlsx"
         export((a.out or ROOT / "freigabe" / name).resolve(), a.offen)
     else:
-        sys.exit(import_xlsx(a.xlsx.resolve(), a.dry_run))
+        sys.exit(import_xlsx(a.xlsx.resolve(), a.dry_run, parse_date(a.ergaenze_datum), a.ergaenze_pruefer))
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@
  * eng-core: Rechenkern der Ingenieur-Werkbank.
  * Single Point of Truth für alle Formeln. Änderungen nur über das Repo eng-core mit Tests und Gegenrechnung.
  */
-export const CORE_VERSION = "0.4.2";
+export { CORE_VERSION } from "./version";
 export { DATA_VERSION, DATA_RELEASED_AT, DATA_TITLE } from "./dataVersion";
 
 export * from "./format";
@@ -18,3 +18,5 @@ export * from "./ashby/select";
 export * from "./ashby/conflicts";
 export * from "./ashby/trace";
 export * from "./ashby/recommend";
+export * from "./report";
+export { materialDetail, valueText, ATLAS_PATH, type MaterialDetail, type DetailValue, type DetailGroup, type DetailProcess, type DetailData } from "./materialDetail";
