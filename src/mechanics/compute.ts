@@ -186,16 +186,16 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
     };
     add("belastung", step("B-LL-R", "Lagerkraft links (Randwertproblem)", "A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System", `${sp.label}: ${bcTxt[ll.support]}; Lasten: ${listTxt}`, sol.A, "N", "Gross/Hauger TM 2, Kap. 4.5 und 4.6"));
     add("belastung", step("B-LL-B", "Lagerkraft rechts", "B = Σ F_i + Σ R_q − A", `${fmt(sol.sumF)} − ${fmt(sol.A)}`, sol.B, "N", "Gleichgewicht ΣF_z = 0"));
-    if (ll.support !== "GG") add("belastung", step("B-LL-CA", "Einspannmoment links", "M_A = M(0⁻), Uhrzeigersinn positiv", `aus dem Randwertproblem`, sol.CA, "N·mm"));
-    if (ll.support === "EE") add("belastung", step("B-LL-CB", "Einspannmoment rechts", "M_B = −M(L⁺), Uhrzeigersinn positiv", `aus dem Randwertproblem`, sol.CB, "N·mm"));
-    add("belastung", step("B-LL-GG", "Gleichgewichtskontrolle", "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A + M_B − B·L| / (F_ref·L))", `ΣF = ${fmt(sol.sumF)} N, ΣM_0 = ${fmt(sol.sumM0)} N·mm, A + B = ${fmt(sol.A + sol.B)} N`, Math.max(Math.abs(sol.resF), Math.abs(sol.resM)), "–", "Kontrolle, Sollwert 0"));
-    add("belastung", step("B-LL-QX", "Größte Querkraft", "|Q|_max über Segmentränder und Nullstellen von q(x)", `Q(${fmt(sol.Qext.x)}) = ${fmt(sol.Qext.value)} N`, Qabs, "N", "Extremwertsuche"));
-    add("belastung", step("B-LL-MX", "Größtes Biegemoment", "|M|_max über Segmentränder und Nullstellen von Q(x)", `bei x_M = ${fmt(sol.Mext.x)} mm: M = ${fmt(sol.Mext.value)} N·mm`, Mabs, "N·mm", "Extremwertsuche, Bisektion 80 Schritte"));
+    if (ll.support !== "GG") add("belastung", step("B-LL-CA", "Einspannmoment links (Schnittmoment an der Einspannung)", "M_A = M(0⁻), Vorzeichen wie Momentenlinie (Zugseite unten positiv)", `M_A aus dem Randwertproblem (B-LL-R)`, sol.MA, "N·mm", "Roark Tab. 8.1, gleiche Vorzeichenregel"));
+    if (ll.support === "EE") add("belastung", step("B-LL-CB", "Einspannmoment rechts (Schnittmoment an der Einspannung)", "M_B = M(L⁺), Vorzeichen wie Momentenlinie (Zugseite unten positiv)", `M(L⁺) = M_A + A·L + Σ Lastterme(L) = ${fmt(sol.MB)}`, sol.MB, "N·mm", "Roark Tab. 8.1, gleiche Vorzeichenregel"));
+    add("belastung", step("B-LL-GG", "Gleichgewichtskontrolle", "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A − M_B − B·L| / (F_ref·L)),  ΣM_0 = Moment der Lasten um x = 0 im Uhrzeigersinn", `ΣF = ${fmt(sol.sumF)} N, ΣM_0 = ${fmt(sol.sumM0)} N·mm, A + B = ${fmt(sol.A + sol.B)} N`, Math.max(Math.abs(sol.resF), Math.abs(sol.resM)), "–", "Kontrolle, Sollwert 0"));
+    add("belastung", step("B-LL-QX", "Größte Querkraft", "|Q|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von q(x)", `Q(${fmt(sol.Qext.x)}) = ${fmt(sol.Qext.value)} N`, Qabs, "N", "Extremwertsuche"));
+    add("belastung", step("B-LL-MX", "Größtes Biegemoment", "|M|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von Q(x)", `bei x_M = ${fmt(sol.Mext.x)} mm: M = ${fmt(sol.Mext.value)} N·mm`, Mabs, "N·mm", "Extremwertsuche, Bisektion 80 Schritte"));
     add("belastung", step("B-LL-M", "Biegemoment an der Stelle x_M", fM, `${sM} (Streckenlasten als Teilresultierende · Hebelarm)`, sol.Mext.value, "N·mm", "Gross/Hauger TM 2, Kap. 4.5"));
     add("belastung", step("B-SIG", "Biegespannung", "σ_b = M_max / W", `${fmt(Mabs)} / ${fmt(sec.W)}`, sigmaB, "MPa"));
     add("belastung", step("B-TAUQ", "Schubspannung aus Querkraft (Näherung)", "τ_Q = κ·Q_max / A", `${fmt(sec.kappa)}·${fmt(Qabs)} / ${fmt(sec.A)}`, tauQ, "MPa", "κ je Querschnitt"));
     add("belastung", step("B-LL-W", "Biegelinie an der Stelle x_f", fw, sw, sol.wext.value, "mm", "Gross/Hauger TM 2, Kap. 4.5"));
-    add("belastung", step("B-LL-FX", "Größte Durchbiegung", "f = max |w(x)| über Segmentränder und Nullstellen von φ(x)", `bei x_f = ${fmt(sol.wext.x)} mm`, wabs, "mm", "Extremwertsuche, Bisektion 80 Schritte"));
+    add("belastung", step("B-LL-FX", "Größte Durchbiegung", "f = max |w(x)| über alle Lastangriffspunkte, Balkenenden und Nullstellen von φ(x)", `bei x_f = ${fmt(sol.wext.x)} mm`, wabs, "mm", "Extremwertsuche, Bisektion 80 Schritte"));
     add("nachweis", step("N-FZUL", "Zulässige Durchbiegung", `f_zul = L / ${fmt(inp.fDiv)}`, `${fmt(L)} / ${fmt(inp.fDiv)}`, res.fzul, "mm", "Vorgabe"));
     const tiny = 1e-9 * Math.max(1, Math.abs(sol.sumF));
     if (sol.A < -tiny) res.warnings.push(`Lager A zieht (A = ${fmt(sol.A / 1000, 4)} kN), Verankerung prüfen`);
@@ -295,10 +295,10 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
     kp("xf", "Ort der größten Durchbiegung", "x_f", s.wext.x, "mm", true);
     kp("Mmax", "Größtes Biegemoment", "M_max", Math.abs(s.Mext.value) / 1000, "N·m", true);
     kp("xM", "Ort des größten Moments", "x_M", s.Mext.x, "mm", true);
-    kp("A", "Lagerkraft links", "A", s.A / 1000, "kN", true);
-    if (s.support !== "KR") kp("B", "Lagerkraft rechts", "B", s.B / 1000, "kN", true);
-    if (s.support !== "GG") kp("MA", "Einspannmoment links", "M_A", s.CA / 1000, "N·m", true);
-    if (s.support === "EE") kp("MB", "Einspannmoment rechts", "M_B", s.CB / 1000, "N·m", true);
+    kp("RA", "Lagerkraft links", "A", s.A / 1000, "kN", true);
+    if (s.support !== "KR") kp("RB", "Lagerkraft rechts", "B", s.B / 1000, "kN", true);
+    if (s.support !== "GG") kp("MA", "Einspannmoment links", "M_A", s.MA / 1000, "N·m", true);
+    if (s.support === "EE") kp("MB", "Einspannmoment rechts", "M_B", s.MB / 1000, "N·m", true);
   }
   if (res.axial) kp("dL", "Längenänderung", "ΔL", res.axial.dL, "mm", true);
   if (res.tors) kp("theta", res.tors.twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", res.tors.twoSided ? "φ_Mitte" : "φ_Ende", res.tors.theta, "°", true);
@@ -316,7 +316,7 @@ export function dimsLabel(secType: SecType, dims: Dims): string {
 function mTermsText(sol: BeamSolution, x: number): string {
   const t: string[] = [];
   const sgn = (v: number, body: string) => `${v < 0 ? "−" : "+"} ${body.replace(/^-/, "")}`;
-  if (sol.support !== "GG") t.push(`${fmt(sol.CA)}`);
+  if (sol.support !== "GG") t.push(`${fmt(sol.MA)}`);
   t.push(t.length ? sgn(sol.A, `${fmt(Math.abs(sol.A))}·${fmt(x)}`) : `${fmt(sol.A)}·${fmt(x)}`);
   for (const l of sol.loads) {
     if (l.kind === "F" && x >= l.x) t.push(sgn(-l.F, `${fmt(Math.abs(l.F))}·(${fmt(x)} − ${fmt(l.x)})`));

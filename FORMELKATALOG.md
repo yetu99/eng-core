@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.5.0
+# Formelkatalog eng-core 0.5.1
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 154 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 10 Entwurf.
+Stand: 154 Formeln, davon 148 freigegeben, 0 abgelehnt, 6 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -66,16 +66,16 @@ Stand: 154 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 10 Ent
 | B-F-EQ | Größte Durchbiegung | f = 5·q·L⁴ / (384·E·I) | mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2e | freigegeben (2026-10-08, Seti) |
 | B-F-KE | Größte Durchbiegung | f = F·L³ / (3·E·I) | mm | Ashby App. A.3; Roark Tab. 8.1 Fall 1a | freigegeben (2026-10-08, Seti) |
 | B-F-KQ | Größte Durchbiegung | f = q·L⁴ / (8·E·I) | mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2a | freigegeben (2026-10-08, Seti) |
-| B-LL-B | Lagerkraft rechts | B = Σ F_i + Σ R_q − A | N | Gleichgewicht ΣF_z = 0 | Entwurf |
-| B-LL-CA | Einspannmoment links | M_A = M(0⁻), Uhrzeigersinn positiv | N·mm |  | Entwurf |
-| B-LL-CB | Einspannmoment rechts | M_B = −M(L⁺), Uhrzeigersinn positiv | N·mm |  | Entwurf |
-| B-LL-FX | Größte Durchbiegung | f = max \|w(x)\| über Segmentränder und Nullstellen von φ(x) | mm | Extremwertsuche, Bisektion 80 Schritte | Entwurf |
-| B-LL-GG | Gleichgewichtskontrolle | r = max(\|A + B − ΣF\| / F_ref, \|ΣM_0 + M_A + M_B − B·L\| / (F_ref·L)) | – | Kontrolle, Sollwert 0 | Entwurf |
-| B-LL-M | Biegemoment an der Stelle x_M | M(x) = M_A + A·x − Σ F_i·⟨x − a_i⟩ + Σ M_j·⟨x − b_j⟩⁰ − Σ [q₁·⟨x − x₁⟩²/2 + k·⟨x − x₁⟩³/6 − q₂·⟨x − x₂⟩²/2 − k·⟨x − x₂⟩³/6],  k = (q₂ − q₁)/(x₂ − x₁) | N·mm | Gross/Hauger TM 2, Kap. 4.5 | Entwurf |
-| B-LL-MX | Größtes Biegemoment | \|M\|_max über Segmentränder und Nullstellen von Q(x) | N·mm | Extremwertsuche, Bisektion 80 Schritte | Entwurf |
-| B-LL-QX | Größte Querkraft | \|Q\|_max über Segmentränder und Nullstellen von q(x) | N | Extremwertsuche | Entwurf |
-| B-LL-R | Lagerkraft links (Randwertproblem) | A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System | N | Gross/Hauger TM 2, Kap. 4.5 und 4.6 | Entwurf |
-| B-LL-W | Biegelinie an der Stelle x_f | E·I·w(x) = −∬M dx dx + C₁·x + C₂ | mm | Gross/Hauger TM 2, Kap. 4.5 | Entwurf |
+| B-LL-B | Lagerkraft rechts | B = Σ F_i + Σ R_q − A | N | Gleichgewicht ΣF_z = 0 | freigegeben (2026-10-12, Seti) |
+| B-LL-CA | Einspannmoment links (Schnittmoment an der Einspannung) | M_A = M(0⁻), Vorzeichen wie Momentenlinie (Zugseite unten positiv) | N·mm | Roark Tab. 8.1, gleiche Vorzeichenregel | geändert, neu prüfen |
+| B-LL-CB | Einspannmoment rechts (Schnittmoment an der Einspannung) | M_B = M(L⁺), Vorzeichen wie Momentenlinie (Zugseite unten positiv) | N·mm | Roark Tab. 8.1, gleiche Vorzeichenregel | geändert, neu prüfen |
+| B-LL-FX | Größte Durchbiegung | f = max \|w(x)\| über alle Lastangriffspunkte, Balkenenden und Nullstellen von φ(x) | mm | Extremwertsuche, Bisektion 80 Schritte | geändert, neu prüfen |
+| B-LL-GG | Gleichgewichtskontrolle | r = max(\|A + B − ΣF\| / F_ref, \|ΣM_0 + M_A − M_B − B·L\| / (F_ref·L)),  ΣM_0 = Moment der Lasten um x = 0 im Uhrzeigersinn | – | Kontrolle, Sollwert 0 | geändert, neu prüfen |
+| B-LL-M | Biegemoment an der Stelle x_M | M(x) = M_A + A·x − Σ F_i·⟨x − a_i⟩ + Σ M_j·⟨x − b_j⟩⁰ − Σ [q₁·⟨x − x₁⟩²/2 + k·⟨x − x₁⟩³/6 − q₂·⟨x − x₂⟩²/2 − k·⟨x − x₂⟩³/6],  k = (q₂ − q₁)/(x₂ − x₁) | N·mm | Gross/Hauger TM 2, Kap. 4.5 | freigegeben (2026-10-12, Seti) |
+| B-LL-MX | Größtes Biegemoment | \|M\|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von Q(x) | N·mm | Extremwertsuche, Bisektion 80 Schritte | geändert, neu prüfen |
+| B-LL-QX | Größte Querkraft | \|Q\|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von q(x) | N | Extremwertsuche | geändert, neu prüfen |
+| B-LL-R | Lagerkraft links (Randwertproblem) | A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System | N | Gross/Hauger TM 2, Kap. 4.5 und 4.6 | freigegeben (2026-10-12, Seti) |
+| B-LL-W | Biegelinie an der Stelle x_f | E·I·w(x) = −∬M dx dx + C₁·x + C₂ | mm | Gross/Hauger TM 2, Kap. 4.5 | freigegeben (2026-10-12, Seti) |
 | B-M-BQ | Größtes Biegemoment | M_max = q·L²/12 (Einspannung) | N·mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2d | freigegeben (2026-10-08, Seti) |
 | B-M-E4 | Größtes Biegemoment | M_max = F·a | N·mm | Roark Tab. 8.1 Fall 1e, Superposition | freigegeben (2026-10-08, Seti) |
 | B-M-EE | Größtes Biegemoment | M_max = F·L/4 | N·mm | Ashby App. A.3; Roark Tab. 8.1 Fall 1e | freigegeben (2026-10-08, Seti) |
@@ -215,6 +215,14 @@ Stand: 154 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 10 Ent
 | Z-QG | Eigengewicht je Länge | q_G = ρ·g·A | N/mm |  | freigegeben (2026-10-08, Seti) |
 | Z-SIG | Zugspannung | σ_N = F_N / A | MPa |  | freigegeben (2026-10-08, Seti) |
 | Z-SIG2 | Größte Zugspannung mit Eigengewicht (Einspannung) | σ_N,max = N_max / A | MPa |  | freigegeben (2026-10-10, S. Frotscher) |
+
+## Einwände und Verbesserungen
+
+| ID | Status | Datum | Prüfer | Kommentar | Antwort |
+|---|---|---|---|---|---|
+| B-LL-CA | geändert, neu prüfen | 2026-10-12 | Seti | Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung. | Umgesetzt (nach Freigabe 12.10.2026): Einspannmomente einheitlich als Schnittmomente an der Einspannstelle mit dem Vorzeichen der Momentenlinie (Zugseite unten positiv), M_A = M(0⁻), M_B = M(L⁺). Beispiel F 3 kN bei 400 mm, beidseitig eingespannt: M_A = −533,3 N·m, M_B = −266,7 N·m, beide negativ wie Roark Tab. 8.1 Fall 1d. Der frühere Ausweis von M_B als Reaktionsmoment im Uhrzeigersinn (+266,7 N·m) ist entfallen, Skizze und Kennwerte zeigen dieselben Werte. Test „Vorzeichen“ in test/loadlist.test.ts. Formeltext geändert, bitte neu prüfen. |
+| B-LL-CB | geändert, neu prüfen | 2026-10-12 | Seti | Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung. | Wie B-LL-CA: M_B = M(L⁺) jetzt mit dem Vorzeichen der Momentenlinie, kein Minuszeichen mehr in der Definition. Bitte neu prüfen. |
+| B-LL-QX | geändert, neu prüfen | 2026-10-12 | Seti | Ergänzen Sie die Bedingung für \|Q\|_max unbedingt um die Angriffspunkte von Einzellasten bzw. definieren Sie die Segmentgrenzen so feingranular, dass jede Einzellast auf einer Segmentgrenze liegt | Umgesetzt: jede Einzellast, jedes Einzelmoment sowie Anfang und Ende jeder Streckenlast ist eine Segmentgrenze, Q wird an jeder Grenze links und rechts ausgewertet. Formeltext präzisiert (ebenso B-LL-MX, B-LL-FX), neuer Test „Querkraft-Extremwert am Angriffspunkt einer Einzellast“. Bitte neu prüfen. |
 
 ## Gültigkeit und Annahmen
 

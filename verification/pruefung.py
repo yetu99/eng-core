@@ -159,7 +159,8 @@ def ll_reference(support, loads_in, Lb=L, EIb=EI):
         w = np.zeros(n + 1); w[1] = -h * h * Mg[0] / (2 * EIb)
         for i in range(1, n): w[i + 1] = 2 * w[i] - w[i - 1] - h * h * Mg[i] / EIb
     k = int(np.argmax(np.abs(w)))
-    return dict(A=A, B=B, CA=CA, CB=CB, M=abs(Mm), xM=xM, w=abs(w[k]), xf=xs[k], wL=w[-1], phiL=(3 * w[-1] - 4 * w[-2] + w[-3]) / (2 * h), sumF=F)
+    # Einspannmomente als Schnittmomente (Vorzeichen der Momentenlinie): M_A = M(0⁻) = C_A, M_B = M(L⁺) = −C_B
+    return dict(A=A, B=B, MA=CA, MB=-CB, M=abs(Mm), xM=xM, w=abs(w[k]), xf=xs[k], wL=w[-1], phiL=(3 * w[-1] - 4 * w[-2] + w[-3]) / (2 * h), sumF=F)
 def ll_case(id_, support, loads, vals, tol, selfWeight=False):
     cases.append(dict(id=id_, type='calc', inp={**base, 'sub': 'LL', 'loadList': dict(support=support, loads=loads, selfWeight=selfWeight)})); ref[id_] = (vals, tol)
 LLC = {
@@ -179,8 +180,8 @@ for k, (sup, lo) in LLC.items():
     r = ll_reference(sup, lo); LL_REF[k] = r
     vals = dict(A=r['A'], M=r['M'], w=r['w'])
     if sup != 'KR': vals['B'] = r['B']
-    if sup != 'GG': vals['CA'] = r['CA']
-    if sup == 'EE': vals['CB'] = r['CB']
+    if sup != 'GG': vals['MA'] = r['MA']
+    if sup == 'EE': vals['MB'] = r['MB']
     ll_case(f'LL {k} FD', sup, lo, vals, 2e-3)
     ll_case(f'LL {k} Gleichgewicht', sup, lo, dict(res=0.0), 1e-9)
     if sup in ('EG', 'EE') and abs(r['wL']) > 1e-4 * r['w']: print(f'WARNUNG Verträglichkeit {k}: w(L) = {r["wL"]:.3g}')
@@ -188,8 +189,8 @@ for k, (sup, lo) in LLC.items():
 Fp, a7, b7 = 3000.0, 400.0, 800.0
 ll_case('LL T7 Roark 1e', *LLC['T7'], dict(A=Fp * b7 / L, M=Fp * a7 * b7 / L, w=Fp * a7 * (L**2 - a7**2)**1.5 / (9 * math.sqrt(3) * EI * L), xf=L - math.sqrt((L**2 - a7**2) / 3)), 1e-6)
 ll_case('LL T8 Roark 3a', *LLC['T8'], dict(M=200e3, w=200e3 * L**2 / (2 * EI)), 1e-9)
-ll_case('LL T9 Roark 2c', *LLC['T9'], dict(A=5 * 2.0 * L / 8, CA=-2.0 * L**2 / 8, w=0.0054165 * 2.0 * L**4 / EI), 1e-4)
-ll_case('LL T10 Roark 1d', *LLC['T10'], dict(A=Fp * b7**2 * (3 * a7 + b7) / L**3, CA=-Fp * a7 * b7**2 / L**2, CB=Fp * a7**2 * b7 / L**2), 1e-9)
+ll_case('LL T9 Roark 2c', *LLC['T9'], dict(A=5 * 2.0 * L / 8, MA=-2.0 * L**2 / 8, w=0.0054165 * 2.0 * L**4 / EI), 1e-4)
+ll_case('LL T10 Roark 1d', *LLC['T10'], dict(A=Fp * b7**2 * (3 * a7 + b7) / L**3, MA=-Fp * a7 * b7**2 / L**2, MB=-Fp * a7**2 * b7 / L**2), 1e-9)   # Roark: beide Einspannmomente negativ
 ll_case('LL T11 Roark 2e', *LLC['T11'], dict(A=2.0 * L / 6, M=2.0 * L**2 / (9 * math.sqrt(3)), xM=L / math.sqrt(3), w=0.0065222 * 2.0 * L**4 / EI), 1e-4)
 # heutige Fälle als Lastliste: gleiche Referenz wie oben (Finite Differenzen fd_beam)
 for c, sup, lo, F_, q_ in [('KE', 'KR', [dict(kind='F', x=1200, F=2)], 2, 0), ('KQ', 'KR', [dict(kind='q', x1=0, x2=1200, q1=2, q2=2)], 0, 2),

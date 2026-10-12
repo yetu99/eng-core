@@ -10,9 +10,13 @@
  *   vollständig über rekursive Trennung durch die Nullstellen der nächsten Ableitung und Bisektion mit fester Schrittzahl.
  *
  * Einheiten intern: x, L in mm; F in N; q in N/mm (= kN/m); M in N·mm. Eingaben der Liste: F kN, q kN/m, M N·m.
- * Vorzeichen: x ab linkem Ende, Lasten nach unten positiv, Einzelmoment im Uhrzeigersinn positiv,
- * w nach unten positiv, M positiv bei gezogener Unterseite, A und B nach oben positiv.
- * Lasten bei x = 0 und x = L gehören zum Balken; Randbedingungen gelten bei 0⁻ und L⁺.
+ * Vorzeichen (eine Konvention für alle Größen, Gross/Hauger TM 2, z nach unten):
+ *   Eingabe:   x ab linkem Ende; F und q nach unten positiv; eingeprägtes Einzelmoment im Uhrzeigersinn positiv.
+ *   Ergebnis:  w und φ = w′ (w nach unten positiv); Schnittmoment M positiv bei gezogener Unterseite;
+ *              Querkraft Q = dM/dx (am positiven Schnittufer nach unten positiv); Lagerkräfte A, B nach oben positiv;
+ *              Einspannmomente M_A, M_B sind die Schnittmomente an der Einspannstelle mit demselben Vorzeichen wie
+ *              die Momentenlinie (wie Roark Tab. 8.1: beide negativ bei Lasten nach unten).
+ *   Lasten bei x = 0 und x = L gehören zum Balken; Einspannstellen und Randbedingungen liegen bei 0⁻ und L⁺.
  */
 import { fmt } from "../format";
 
@@ -153,10 +157,8 @@ export interface BeamSolution {
   loads: LoadSI[];
   /** Lagerkräfte nach oben positiv (N) */
   A: number; B: number;
-  /** Schnittmomente an den Enden M(0⁺), M(L⁻) in N·mm */
+  /** Einspannmomente als Schnittmomente an der Einspannstelle, M_A = M(0⁻), M_B = M(L⁺) in N·mm (Vorzeichen der Momentenlinie, 0 bei Gelenk oder freiem Ende) */
   MA: number; MB: number;
-  /** Reaktionsmomente der Einspannungen im Uhrzeigersinn (N·mm), 0 bei Gelenk oder freiem Ende */
-  CA: number; CB: number;
   C1: number; C2: number;
   segments: Segment[];
   Q: (x: number) => number; M: (x: number) => number; phi: (x: number) => number; w: (x: number) => number;
@@ -251,10 +253,9 @@ export function solveBeam(support: LoadListSupport, loads: readonly LoadSI[], L:
   const wext = { value: wext0.value / EI, x: wext0.x };
 
   // Lagerkräfte und Reaktionsmomente, Gleichgewicht
-  const fixL = support !== "GG";
   const B = support === "KR" ? 0 : -Q(L, "+");
-  const CA = fixL ? MA0 : 0;
-  const CB = support === "EE" ? -M(L, "+") : 0;
+  const MA = support === "GG" ? 0 : M(0, "-");
+  const MB = support === "EE" ? M(L, "+") : 0;
   let sumF = 0, sumM0 = 0;
   for (const l of loads) {
     if (l.kind === "F") { sumF += l.F; sumM0 += l.F * l.x; }
@@ -264,10 +265,11 @@ export function solveBeam(support: LoadListSupport, loads: readonly LoadSI[], L:
   const refF = Math.max(1, ...loads.map((l) => (l.kind === "F" ? Math.abs(l.F) : l.kind === "q" ? Math.max(Math.abs(l.q1), Math.abs(l.q2)) * (l.x2 - l.x1) : 0)), Math.abs(A), Math.abs(B));
   const refM = Math.max(refF * L, ...loads.map((l) => (l.kind === "M" ? Math.abs(l.M) : 0)));
   const resF = (A + B - sumF) / refF;
-  const resM = (sumM0 + CA + CB - B * L) / refM;
+  // ΣM um x = 0 im Uhrzeigersinn: Lasten + Einspannmoment links − Einspannmoment rechts − B·L = 0
+  const resM = (sumM0 + MA - MB - B * L) / refM;
 
   return {
-    support, L, EI, loads: [...loads], A, B, MA: M(0, "+"), MB: M(L, "-"), CA, CB, C1, C2, segments,
+    support, L, EI, loads: [...loads], A, B, MA, MB, C1, C2, segments,
     Q: (x) => Q(x, "+"), M: (x) => M(x, "+"), phi: (x) => EIphi(x) / EI, w: (x) => EIw(x) / EI,
     Mext, Qext, wext, sumF, sumM0, resF, resM,
   };

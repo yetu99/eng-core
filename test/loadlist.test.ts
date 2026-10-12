@@ -76,7 +76,55 @@ describe("Lastliste: Plausibilität", () => {
   });
   it("Moment am freien Ende: Sprung und Vorzeichen", () => {
     const ll = run({ support: "KR", loads: [{ kind: "M", x: 1200, M: 200 }], selfWeight: false }).bend!.ll!;
-    expect(ll.M(600)).toBeCloseTo(-200000, 6); expect(ll.CA).toBeCloseTo(-200000, 6); expect(ll.wext.x).toBe(1200);
+    expect(ll.M(600)).toBeCloseTo(-200000, 6); expect(ll.MA).toBeCloseTo(-200000, 6); expect(ll.wext.x).toBe(1200);
+  });
+});
+
+describe("Lastliste: Vorzeichen (Freigabe 12.10.2026, Hinweise zu B-LL-CA, B-LL-CB, B-LL-M, B-LL-QX, B-LL-W)", () => {
+  it("beidseitig eingespannt: M_A und M_B haben das Vorzeichen der Momentenlinie (beide negativ wie Roark 1d)", () => {
+    const ll = run({ support: "EE", loads: [{ kind: "F", x: 400, F: 3 }], selfWeight: false }).bend!.ll!;
+    expect(ll.MA).toBeCloseTo(-3000 * 400 * 800 ** 2 / 1200 ** 2, 6);
+    expect(ll.MB).toBeCloseTo(-3000 * 400 ** 2 * 800 / 1200 ** 2, 6);
+    expect(ll.MA).toBeCloseTo(ll.M(1e-9), 3); expect(ll.MB).toBeCloseTo(ll.M(1200 - 1e-9), 3);
+    expect(ll.M(400)).toBeGreaterThan(0);
+  });
+  it("Lasten nach oben kehren alle Vorzeichen um (M, Q, w, A, B, M_A, M_B)", () => {
+    for (const sup of ["KR", "GG", "EG", "EE"] as const) {
+      const lo: Load[] = [{ kind: "F", x: 350, F: 2 }, { kind: "q", x1: 100, x2: 900, q1: 1, q2: 3 }, { kind: "M", x: 700, M: 80 }];
+      const up = lo.map((l): Load => (l.kind === "F" ? { ...l, F: -l.F } : l.kind === "M" ? { ...l, M: -l.M } : { ...l, q1: -l.q1, q2: -l.q2 }));
+      const a = run({ support: sup, loads: lo, selfWeight: false }).bend!.ll!, b = run({ support: sup, loads: up, selfWeight: false }).bend!.ll!;
+      for (const [x, y] of [[a.A, b.A], [a.B, b.B], [a.MA, b.MA], [a.MB, b.MB], [a.M(500), b.M(500)], [a.Q(500), b.Q(500)], [a.w(500), b.w(500)]] as const) expect(x).toBeCloseTo(-y, 6);
+    }
+  });
+  it("w nach unten positiv, E·I·w″ = −M: Last nach unten ergibt w > 0 und M > 0 in Feldmitte", () => {
+    const ll = run({ support: "GG", loads: [{ kind: "F", x: 600, F: 1 }], selfWeight: false }).bend!.ll!;
+    expect(ll.w(600)).toBeGreaterThan(0); expect(ll.M(600)).toBeGreaterThan(0);
+    const h = 1e-2, curv = (ll.w(300 + h) - 2 * ll.w(300) + ll.w(300 - h)) / (h * h);
+    expect(curv * ll.EI / -ll.M(300)).toBeCloseTo(1, 4);
+  });
+  it("Q = dM/dx, Q am positiven Schnittufer nach unten positiv: Q(0⁺) = A", () => {
+    const ll = run({ support: "GG", loads: [{ kind: "q", x1: 0, x2: 1200, q1: 2, q2: 2 }], selfWeight: false }).bend!.ll!;
+    expect(ll.Q(0)).toBeCloseTo(ll.A, 9);
+    const h = 1e-3; expect((ll.M(300 + h) - ll.M(300 - h)) / (2 * h)).toBeCloseTo(ll.Q(300), 4);
+  });
+  it("Streckenlast wird nach x₂ abgeschaltet: rechts von x₂ ist M = Resultierende · Hebelarm, Q = −R (Trapez, Dreieck, Vorzeichenwechsel)", () => {
+    for (const [q1, q2] of [[1, 1], [0, 2], [3, 0.5], [-1, 1], [2, -2]] as const) {
+      const ll = run({ support: "KR", loads: [{ kind: "q", x1: 200, x2: 700, q1, q2 }], selfWeight: false }).bend!.ll!;
+      const R = (q1 + q2) / 2 * 500;
+      // Krag: rechts von x₂ liegt keine Last mehr, also müssen M und Q dort exakt verschwinden
+      expect(Math.abs(ll.M(900))).toBeLessThan(1e-6 * Math.max(1, Math.abs(R) * 500));
+      expect(Math.abs(ll.Q(900))).toBeLessThan(1e-9 * Math.max(1, Math.abs(R)));
+      // Lagerkraft = Resultierende, Einspannmoment = −(Moment der Last um x = 0)
+      expect(ll.A).toBeCloseTo(R, 9);
+      expect(ll.MA - (-(ll.sumM0))).toBeCloseTo(0, 6);
+    }
+  });
+  it("Querkraft-Extremwert liegt am Angriffspunkt einer Einzellast (beidseitig geprüft)", () => {
+    const ll = run({ support: "GG", loads: [{ kind: "F", x: 200, F: 5 }, { kind: "F", x: 1000, F: 1 }], selfWeight: false }).bend!.ll!;
+    // Q links von 200: A = 5·1000/1200 + 1·200/1200; rechts von 200: A − 5
+    expect(ll.Qext.value).toBeCloseTo(ll.A, 9); expect([0, 200]).toContain(ll.Qext.x);
+    const ll2 = run({ support: "GG", loads: [{ kind: "F", x: 1000, F: 5 }], selfWeight: false }).bend!.ll!;
+    expect(Math.abs(ll2.Qext.value)).toBeCloseTo(5000 * 1000 / 1200, 9); expect([1000, 1200]).toContain(ll2.Qext.x);
   });
 });
 

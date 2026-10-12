@@ -299,6 +299,79 @@
     "durch": "Seti",
     "formel": "f = q·L⁴ / (8·E·I)"
   },
+  "B-LL-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "B = Σ F_i + Σ R_q − A"
+  },
+  "B-LL-CA": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
+    "formel": "M_A = M(0⁻), Uhrzeigersinn positiv",
+    "antwort": "Umgesetzt (nach Freigabe 12.10.2026): Einspannmomente einheitlich als Schnittmomente an der Einspannstelle mit dem Vorzeichen der Momentenlinie (Zugseite unten positiv), M_A = M(0⁻), M_B = M(L⁺). Beispiel F 3 kN bei 400 mm, beidseitig eingespannt: M_A = −533,3 N·m, M_B = −266,7 N·m, beide negativ wie Roark Tab. 8.1 Fall 1d. Der frühere Ausweis von M_B als Reaktionsmoment im Uhrzeigersinn (+266,7 N·m) ist entfallen, Skizze und Kennwerte zeigen dieselben Werte. Test „Vorzeichen“ in test/loadlist.test.ts. Formeltext geändert, bitte neu prüfen."
+  },
+  "B-LL-CB": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Die Plausibilität hängt hier vollständig von der im Programm verwendeten Schnittgrößen- und Vorzeichenkonvention ab. Das negative Vorzeichen bei MB​=−M(L+) deutet darauf hin, dass das äußere Einspannmoment dem inneren Schnittmoment am Rand entgegengesetzt definiert ist. Solange dies intern im Algorithmus konsequent so durchgezogen wird, ist es in Ordnung.",
+    "formel": "M_B = −M(L⁺), Uhrzeigersinn positiv",
+    "antwort": "Wie B-LL-CA: M_B = M(L⁺) jetzt mit dem Vorzeichen der Momentenlinie, kein Minuszeichen mehr in der Definition. Bitte neu prüfen."
+  },
+  "B-LL-FX": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "f = max |w(x)| über Segmentränder und Nullstellen von φ(x)",
+    "antwort": "Wortlaut präzisiert wie B-LL-QX, Verfahren und Werte unverändert. Bitte neu prüfen."
+  },
+  "B-LL-GG": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A + M_B − B·L| / (F_ref·L))",
+    "antwort": "Folgeänderung zu B-LL-CA/CB: Momentengleichgewicht mit Schnittmomenten geschrieben (ΣM_0 + M_A − M_B − B·L = 0), Werte unverändert. Bitte neu prüfen."
+  },
+  "B-LL-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Die Integration von Streckenlasten über Macaulay-Klammern (mit dem Anstieg k=(q2​−q1​)/(x2​−x1​)) ist mathematisch richtig, allerdings in der Implementierung extrem fehleranfällig bei den Vorzeichen. Stellen Sie sicher, dass die Terme für x2​ (das Ende der Streckenlast) konsistent subtrahiert werden, damit die Last nach x2​ korrekt „abgeschaltet“ wird.",
+    "formel": "M(x) = M_A + A·x − Σ F_i·⟨x − a_i⟩ + Σ M_j·⟨x − b_j⟩⁰ − Σ [q₁·⟨x − x₁⟩²/2 + k·⟨x − x₁⟩³/6 − q₂·⟨x − x₂⟩²/2 − k·⟨x − x₂⟩³/6],  k = (q₂ − q₁)/(x₂ − x₁)",
+    "antwort": "Geprüft: der x₂-Term schaltet die Last ab. Rechts von x₂ heben sich die quadratischen und kubischen Anteile exakt auf, M wird linear (Resultierende mal Hebelarm). Neuer Test „Streckenlast wird nach x₂ abgeschaltet“ (konstant, Dreieck, Trapez, Vorzeichenwechsel): M und Q verschwinden rechts der Last am Kragträger auf 10⁻⁶ genau. Zusätzlich unabhängig gegengerechnet ohne Föppl-Klammern (pruefung.py, T11, T16, T17)."
+  },
+  "B-LL-MX": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "|M|_max über Segmentränder und Nullstellen von Q(x)",
+    "antwort": "Wortlaut präzisiert wie B-LL-QX (Lastangriffspunkte beidseitig), Verfahren und Werte unverändert. Bitte neu prüfen."
+  },
+  "B-LL-QX": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Ergänzen Sie die Bedingung für |Q|_max unbedingt um die Angriffspunkte von Einzellasten bzw. definieren Sie die Segmentgrenzen so feingranular, dass jede Einzellast auf einer Segmentgrenze liegt",
+    "formel": "|Q|_max über Segmentränder und Nullstellen von q(x)",
+    "antwort": "Umgesetzt: jede Einzellast, jedes Einzelmoment sowie Anfang und Ende jeder Streckenlast ist eine Segmentgrenze, Q wird an jeder Grenze links und rechts ausgewertet. Formeltext präzisiert (ebenso B-LL-MX, B-LL-FX), neuer Test „Querkraft-Extremwert am Angriffspunkt einer Einzellast“. Bitte neu prüfen."
+  },
+  "B-LL-R": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "formel": "A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System"
+  },
+  "B-LL-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-12",
+    "durch": "Seti",
+    "kommentar": "Das Minuszeichen vor dem Doppelintegral ist formal korrekt, sofern eine positive Durchbiegung w nach unten definiert ist und das innere Biegemoment M(x) nach der üblichen technischen Vorzeichenkonvention (positive Durchbiegung bei Zugfasern unten / EIw′′=−M) angesetzt wird.",
+    "formel": "E·I·w(x) = −∬M dx dx + C₁·x + C₂",
+    "antwort": "Bestätigt: w nach unten positiv, M positiv bei Zug unten, E·I·w″ = −M (Gross/Hauger). Konvention zentral im Kern dokumentiert (mechanics/loadlist.ts) und in Blatt 1 unter Annahmen; Test prüft E·I·w″/(−M) = 1 numerisch."
+  },
   "B-M-BQ": {
     "status": "freigegeben",
     "datum": "2026-10-08",
