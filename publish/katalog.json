@@ -1,7 +1,7 @@
 {
- "core": "0.4.3",
+ "core": "0.5.0",
  "data": "WDB 1.0.1",
- "formulas": 144,
+ "formulas": 154,
  "approved": 144,
  "items": [
   {
@@ -855,6 +855,176 @@
    "sort": 500
   },
   {
+   "id": "B-LL-B",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Lagerkraft rechts",
+   "formula": "B = Σ F_i + Σ R_q − A",
+   "unit": "N",
+   "source": "Gleichgewicht ΣF_z = 0",
+   "example": "4100 − 1900",
+   "example_result": 2200,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 510
+  },
+  {
+   "id": "B-LL-CA",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Einspannmoment links",
+   "formula": "M_A = M(0⁻), Uhrzeigersinn positiv",
+   "unit": "N·mm",
+   "source": null,
+   "example": "aus dem Randwertproblem",
+   "example_result": -533333.333333,
+   "example_case": "Lastliste (Beidseitig eingespannt: F 3 kN bei 400 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 520
+  },
+  {
+   "id": "B-LL-CB",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Einspannmoment rechts",
+   "formula": "M_B = −M(L⁺), Uhrzeigersinn positiv",
+   "unit": "N·mm",
+   "source": null,
+   "example": "aus dem Randwertproblem",
+   "example_result": 266666.666667,
+   "example_case": "Lastliste (Beidseitig eingespannt: F 3 kN bei 400 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 530
+  },
+  {
+   "id": "B-LL-FX",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Größte Durchbiegung",
+   "formula": "f = max |w(x)| über Segmentränder und Nullstellen von φ(x)",
+   "unit": "mm",
+   "source": "Extremwertsuche, Bisektion 80 Schritte",
+   "example": "bei x_f = 588,7 mm",
+   "example_result": 4.54232298609,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 540
+  },
+  {
+   "id": "B-LL-GG",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Gleichgewichtskontrolle",
+   "formula": "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A + M_B − B·L| / (F_ref·L))",
+   "unit": "–",
+   "source": "Kontrolle, Sollwert 0",
+   "example": "ΣF = 4100 N, ΣM_0 = 2,64·10⁶ N·mm, A + B = 4100 N",
+   "example_result": 0,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 550
+  },
+  {
+   "id": "B-LL-M",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Biegemoment an der Stelle x_M",
+   "formula": "M(x) = M_A + A·x − Σ F_i·⟨x − a_i⟩ + Σ M_j·⟨x − b_j⟩⁰ − Σ [q₁·⟨x − x₁⟩²/2 + k·⟨x − x₁⟩³/6 − q₂·⟨x − x₂⟩²/2 − k·⟨x − x₂⟩³/6],  k = (q₂ − q₁)/(x₂ − x₁)",
+   "unit": "N·mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.5",
+   "example": "M(300) = 1900·300 − 2000·(300 − 300) = 5,7·10⁵ (Streckenlasten als Teilresultierende · Hebelarm)",
+   "example_result": 570000,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 560
+  },
+  {
+   "id": "B-LL-MX",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Größtes Biegemoment",
+   "formula": "|M|_max über Segmentränder und Nullstellen von Q(x)",
+   "unit": "N·mm",
+   "source": "Extremwertsuche, Bisektion 80 Schritte",
+   "example": "bei x_M = 300 mm: M = 5,7·10⁵ N·mm",
+   "example_result": 570000,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 570
+  },
+  {
+   "id": "B-LL-QX",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Größte Querkraft",
+   "formula": "|Q|_max über Segmentränder und Nullstellen von q(x)",
+   "unit": "N",
+   "source": "Extremwertsuche",
+   "example": "Q(1200) = -2200 N",
+   "example_result": 2200,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 580
+  },
+  {
+   "id": "B-LL-R",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Lagerkraft links (Randwertproblem)",
+   "formula": "A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System",
+   "unit": "N",
+   "source": "Gross/Hauger TM 2, Kap. 4.5 und 4.6",
+   "example": "Gelenkig gelagert (Fest- und Loslager): w(0) = 0, M(0⁻) = 0, w(L) = 0, M(L⁺) = 0; Lasten: F_1 = 2 kN bei x = 300 mm; F_2 = 1,5 kN bei x = 900 mm; q_1 = 1 kN/m von 600 bis 1200 mm; M_1 = 150 N·m bei x = 1000 mm",
+   "example_result": 1900,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 590
+  },
+  {
+   "id": "B-LL-W",
+   "area": "Biegung",
+   "module": "festigkeit",
+   "quantity": "Biegelinie an der Stelle x_f",
+   "formula": "E·I·w(x) = −∬M dx dx + C₁·x + C₂",
+   "unit": "mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.5",
+   "example": "E·I = 1,941·10¹⁰ N·mm², C₁ = 2,459·10⁸, C₂ = 0; w(588,7) = 4,542 mm",
+   "example_result": 4.54232298609,
+   "example_case": "Lastliste (Gelenkig gelagert (Fest- und Loslager): F 2 kN bei 300 mm, F 1.5 kN bei 900 mm, q 1…1 kN/m auf 600…1200 mm, M 150 N·m bei 1000 mm); EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "offen",
+   "approved_at": null,
+   "approved_by": null,
+   "comment": null,
+   "sort": 600
+  },
+  {
    "id": "B-M-BQ",
    "area": "Biegung",
    "module": "festigkeit",
@@ -869,7 +1039,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 510
+   "sort": 610
   },
   {
    "id": "B-M-E4",
@@ -886,7 +1056,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 520
+   "sort": 620
   },
   {
    "id": "B-M-EE",
@@ -903,7 +1073,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 530
+   "sort": 630
   },
   {
    "id": "B-M-EQ",
@@ -920,7 +1090,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 540
+   "sort": 640
   },
   {
    "id": "B-M-KE",
@@ -937,7 +1107,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 550
+   "sort": 650
   },
   {
    "id": "B-M-KQ",
@@ -954,7 +1124,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 560
+   "sort": 660
   },
   {
    "id": "B-SIG",
@@ -971,7 +1141,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 570
+   "sort": 670
   },
   {
    "id": "B-TAUQ",
@@ -988,7 +1158,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 580
+   "sort": 680
   },
   {
    "id": "C-A0",
@@ -1005,7 +1175,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 590
+   "sort": 690
   },
   {
    "id": "C-C",
@@ -1022,7 +1192,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 600
+   "sort": 700
   },
   {
    "id": "C-FZUL",
@@ -1039,7 +1209,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 610
+   "sort": 710
   },
   {
    "id": "C-I0",
@@ -1056,7 +1226,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 620
+   "sort": 720
   },
   {
    "id": "C-M",
@@ -1073,7 +1243,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 630
+   "sort": 730
   },
   {
    "id": "C-MF",
@@ -1090,7 +1260,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 640
+   "sort": 740
   },
   {
    "id": "C-MMAX",
@@ -1107,7 +1277,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 650
+   "sort": 750
   },
   {
    "id": "C-MST",
@@ -1124,7 +1294,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 660
+   "sort": 760
   },
   {
    "id": "C-SF",
@@ -1141,7 +1311,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 670
+   "sort": 770
   },
   {
    "id": "C-SST",
@@ -1158,7 +1328,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 680
+   "sort": 780
   },
   {
    "id": "C-SZUL",
@@ -1175,7 +1345,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 690
+   "sort": 790
   },
   {
    "id": "C-W0",
@@ -1192,7 +1362,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 700
+   "sort": 800
   },
   {
    "id": "C-WK",
@@ -1209,7 +1379,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 710
+   "sort": 810
   },
   {
    "id": "C-Z",
@@ -1226,7 +1396,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 720
+   "sort": 820
   },
   {
    "id": "D-BIS",
@@ -1243,7 +1413,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 730
+   "sort": 830
   },
   {
    "id": "D-ERF",
@@ -1260,7 +1430,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 740
+   "sort": 840
   },
   {
    "id": "D-GEW",
@@ -1277,7 +1447,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 750
+   "sort": 850
   },
   {
    "id": "D-U",
@@ -1294,7 +1464,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 760
+   "sort": 860
   },
   {
    "id": "F-BE",
@@ -1311,7 +1481,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 770
+   "sort": 870
   },
   {
    "id": "F-BF",
@@ -1328,7 +1498,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 780
+   "sort": 880
   },
   {
    "id": "F-TE",
@@ -1345,7 +1515,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 790
+   "sort": 890
   },
   {
    "id": "F-TF",
@@ -1362,7 +1532,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 800
+   "sort": 900
   },
   {
    "id": "K-FK",
@@ -1379,7 +1549,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 810
+   "sort": 910
   },
   {
    "id": "K-LAM",
@@ -1396,7 +1566,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 820
+   "sort": 920
   },
   {
    "id": "K-LAMT",
@@ -1413,7 +1583,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 830
+   "sort": 930
   },
   {
    "id": "K-LK",
@@ -1430,7 +1600,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 840
+   "sort": 940
   },
   {
    "id": "K-SKE",
@@ -1447,7 +1617,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 850
+   "sort": 950
   },
   {
    "id": "K-SKJ",
@@ -1464,7 +1634,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 860
+   "sort": 960
   },
   {
    "id": "N-FZUL",
@@ -1481,7 +1651,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 870
+   "sort": 970
   },
   {
    "id": "N-SB",
@@ -1498,7 +1668,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 880
+   "sort": 980
   },
   {
    "id": "N-SF",
@@ -1515,7 +1685,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 890
+   "sort": 990
   },
   {
    "id": "N-SK",
@@ -1532,7 +1702,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 900
+   "sort": 1000
   },
   {
    "id": "N-SV",
@@ -1549,7 +1719,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 910
+   "sort": 1010
   },
   {
    "id": "Q-DH-A",
@@ -1566,7 +1736,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 920
+   "sort": 1020
   },
   {
    "id": "Q-DH-ai",
@@ -1583,7 +1753,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 930
+   "sort": 1030
   },
   {
    "id": "Q-DH-I",
@@ -1600,7 +1770,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 940
+   "sort": 1040
   },
   {
    "id": "Q-DH-K",
@@ -1617,7 +1787,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 950
+   "sort": 1050
   },
   {
    "id": "Q-DH-W",
@@ -1634,7 +1804,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 960
+   "sort": 1060
   },
   {
    "id": "Q-DH-WT",
@@ -1651,7 +1821,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 970
+   "sort": 1070
   },
   {
    "id": "Q-DV-A",
@@ -1668,7 +1838,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 980
+   "sort": 1080
   },
   {
    "id": "Q-DV-e",
@@ -1685,7 +1855,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 990
+   "sort": 1090
   },
   {
    "id": "Q-DV-I",
@@ -1702,7 +1872,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1000
+   "sort": 1100
   },
   {
    "id": "Q-DV-K",
@@ -1719,7 +1889,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1010
+   "sort": 1110
   },
   {
    "id": "Q-DV-W",
@@ -1736,7 +1906,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1020
+   "sort": 1120
   },
   {
    "id": "Q-DV-WT",
@@ -1753,7 +1923,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1030
+   "sort": 1130
   },
   {
    "id": "Q-i",
@@ -1770,7 +1940,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1040
+   "sort": 1140
   },
   {
    "id": "Q-m",
@@ -1787,7 +1957,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1050
+   "sort": 1150
   },
   {
    "id": "Q-RE-A",
@@ -1804,7 +1974,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1060
+   "sort": 1160
   },
   {
    "id": "Q-RE-I",
@@ -1821,7 +1991,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1070
+   "sort": 1170
   },
   {
    "id": "Q-RE-K",
@@ -1838,7 +2008,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1080
+   "sort": 1180
   },
   {
    "id": "Q-RE-W",
@@ -1855,7 +2025,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1090
+   "sort": 1190
   },
   {
    "id": "Q-RE-WT",
@@ -1872,7 +2042,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1100
+   "sort": 1200
   },
   {
    "id": "Q-RH-A",
@@ -1889,7 +2059,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1110
+   "sort": 1210
   },
   {
    "id": "Q-RH-d",
@@ -1906,7 +2076,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1120
+   "sort": 1220
   },
   {
    "id": "Q-RH-I",
@@ -1923,7 +2093,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1130
+   "sort": 1230
   },
   {
    "id": "Q-RH-K",
@@ -1940,7 +2110,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1140
+   "sort": 1240
   },
   {
    "id": "Q-RH-W",
@@ -1957,7 +2127,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1150
+   "sort": 1250
   },
   {
    "id": "Q-RH-WT",
@@ -1974,7 +2144,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1160
+   "sort": 1260
   },
   {
    "id": "Q-RR-A",
@@ -1991,7 +2161,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1170
+   "sort": 1270
   },
   {
    "id": "Q-RR-AM",
@@ -2008,7 +2178,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1180
+   "sort": 1280
   },
   {
    "id": "Q-RR-I",
@@ -2025,7 +2195,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1190
+   "sort": 1290
   },
   {
    "id": "Q-RR-K",
@@ -2042,7 +2212,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1200
+   "sort": 1300
   },
   {
    "id": "Q-RR-W",
@@ -2059,7 +2229,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1210
+   "sort": 1310
   },
   {
    "id": "Q-RR-WT",
@@ -2076,7 +2246,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1220
+   "sort": 1320
   },
   {
    "id": "Q-RV-A",
@@ -2093,7 +2263,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1230
+   "sort": 1330
   },
   {
    "id": "Q-RV-I",
@@ -2110,7 +2280,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1240
+   "sort": 1340
   },
   {
    "id": "Q-RV-K",
@@ -2127,7 +2297,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1250
+   "sort": 1350
   },
   {
    "id": "Q-RV-W",
@@ -2144,7 +2314,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1260
+   "sort": 1360
   },
   {
    "id": "Q-RV-WT",
@@ -2161,7 +2331,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1270
+   "sort": 1370
   },
   {
    "id": "T-PHI1",
@@ -2178,7 +2348,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1280
+   "sort": 1380
   },
   {
    "id": "T-PHI2",
@@ -2195,7 +2365,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1290
+   "sort": 1390
   },
   {
    "id": "T-TA",
@@ -2212,7 +2382,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1300
+   "sort": 1400
   },
   {
    "id": "T-TAU",
@@ -2229,7 +2399,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1310
+   "sort": 1410
   },
   {
    "id": "W-BB",
@@ -2246,7 +2416,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1320
+   "sort": 1420
   },
   {
    "id": "W-E",
@@ -2263,7 +2433,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1330
+   "sort": 1430
   },
   {
    "id": "W-G",
@@ -2280,7 +2450,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 1340
+   "sort": 1440
   },
   {
    "id": "W-G-DB",
@@ -2297,7 +2467,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1350
+   "sort": 1450
   },
   {
    "id": "W-RHO",
@@ -2314,7 +2484,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1360
+   "sort": 1460
   },
   {
    "id": "W-RM",
@@ -2331,7 +2501,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1370
+   "sort": 1470
   },
   {
    "id": "W-RP",
@@ -2348,7 +2518,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1380
+   "sort": 1480
   },
   {
    "id": "Z-DL",
@@ -2365,7 +2535,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1390
+   "sort": 1490
   },
   {
    "id": "Z-DL2",
@@ -2382,7 +2552,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1400
+   "sort": 1500
   },
   {
    "id": "Z-NMAX",
@@ -2399,7 +2569,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1410
+   "sort": 1510
   },
   {
    "id": "Z-QG",
@@ -2416,7 +2586,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1420
+   "sort": 1520
   },
   {
    "id": "Z-SIG",
@@ -2433,7 +2603,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1430
+   "sort": 1530
   },
   {
    "id": "Z-SIG2",
@@ -2450,7 +2620,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1440
+   "sort": 1540
   }
  ]
 }

@@ -6,9 +6,9 @@ Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für 
 
 | Ordner | Inhalt |
 |---|---|
-| `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung, Torsion, Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte; dazu Prüfstatus für Berichte (`report.ts`, `pruefstatus.json`) und Werkstoff-Detailansicht (`materialDetail.ts`) |
+| `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung (sechs Standardfälle und Lastliste `mechanics/loadlist.ts`), Torsion, Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte; dazu Prüfstatus für Berichte (`report.ts`, `pruefstatus.json`) und Werkstoff-Detailansicht (`materialDetail.ts`) |
 | `data/` | Versionierter Abzug der Werkstoffdaten aus Supabase (Tabellen `wa_*`, identisch mit dem Werkstoffatlas), Datenstand in `data/snapshot.json` |
-| `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby |
+| `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby, Lastliste (`loadlist.test.ts`: Spezialfälle, Spiegelung, Superposition, Randbedingungen, Eingabeprüfung) |
 | `verification/` | `pruefung.py`: unabhängige Python-Gegenrechnung (numerische Integration, Finite Differenzen, Reihenlösungen), `ergebnis.json` (letztes Ergebnis), `abnahme.json` (Stufen P5/P6, von Hand gepflegt) |
 | `publish/` | `katalog.json`: Formelkatalog für den Spiegel in Supabase (`fk_*`), erzeugt mit `npm run katalog:publish` |
 | `supabase/` | Migrationen der Tabellen `fk_*` und der Funktion `fk_publish_github` (Projekt Kompendium) |
@@ -17,6 +17,8 @@ Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für 
 | `FORMELKATALOG.md` | alle Formeln mit ID, Quelle und Freigabestatus (aus `formelstatus.json`, nie von Hand bearbeiten) |
 
 Einheiten intern: N, mm, MPa, kg/m³. Eingaben: F und N in kN, q in kN/m, T in N·m.
+
+**Lastliste (ab 0.5.0).** Biegebalken mit Lagern an den Enden (Krag, gelenkig, eingespannt/gelenkig, beidseitig eingespannt) und bis zu 20 Einzelkräften, Trapez-Streckenlasten und Einzelmomenten (`StrengthInput.sub = "LL"`, `StrengthInput.loadList`). Lösung exakt mit Föppl-Klammern und 4 × 4-Randwertsystem, Extremwerte über vollständige Nullstellensuche je Segment. x ab linkem Ende, Lasten nach unten positiv, Momente im Uhrzeigersinn positiv, Positionen in mm, F in kN, q in kN/m, M in N·m. Gegenrechnung in `pruefung.py` unabhängig über Kraftgrößenverfahren, Gleichgewicht am rechten Teilsystem, Finite Differenzen und Roark Tab. 8.1.
 
 ## Prüfen
 

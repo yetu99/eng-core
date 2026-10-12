@@ -11,6 +11,7 @@ export * from "./sections";
 export * from "./materials";
 export * from "./mechanics/cases";
 export * from "./mechanics/beam";
+export * from "./mechanics/loadlist";
 export { computeStrength, dimsLabel, InputError, G_ACC, type StrengthInput, type StrengthResult, type Check, type Kpi } from "./mechanics/compute";
 export * from "./mechanics/design";
 export * from "./ashby/catalog";

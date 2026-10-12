@@ -5,7 +5,7 @@
  * Aufruf als CLI: npx tsx scripts/katalog.ts --json  → Katalog als JSON auf stdout
  */
 import { readFileSync, existsSync } from "node:fs";
-import { computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
+import { LOADLIST_SUPPORTS, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
 
 export interface CatalogEntry {
@@ -23,7 +23,8 @@ const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materi
 function caseText(inp: StrengthInput): string {
   const mat = repo.byId(inp.materialId);
   const load = inp.mode === "combined" ? `Überlagert (${caseLabel("combined", inp.kind, inp.sub)}, N ${inp.N} kN, T ${inp.T} N·m)` : `${caseLabel("single", inp.kind, inp.sub)}`;
-  return `${load}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; ${dimsLabel(inp.secType, inp.dims)}; L ${inp.L} mm; F ${inp.F} kN; q ${inp.q} kN/m`;
+  const ll = inp.sub === "LL" && inp.loadList ? ` (${LOADLIST_SUPPORTS[inp.loadList.support].label}: ${inp.loadList.loads.map((l) => l.kind === "F" ? `F ${l.F} kN bei ${l.x} mm` : l.kind === "M" ? `M ${l.M} N·m bei ${l.x} mm` : `q ${l.q1}…${l.q2} kN/m auf ${l.x1}…${l.x2} mm`).join(", ")}${inp.loadList.selfWeight ? ", mit Eigengewicht" : ""})` : "";
+  return `${load}${ll}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; ${dimsLabel(inp.secType, inp.dims)}; L ${inp.L} mm${ll ? "" : `; F ${inp.F} kN; q ${inp.q} kN/m`}`;
 }
 
 export function collectCatalog(): CatalogEntry[] {
@@ -33,7 +34,11 @@ export function collectCatalog(): CatalogEntry[] {
     ...Object.keys(BUCKLING_CASES).map((sub) => ({ kind: "druck" as const, sub, F: 20, L: 300 })),
     ...Object.keys(BENDING_CASES).map((sub) => ({ kind: "biegung" as const, sub })),
     ...Object.keys(TORSION_CASES).map((sub) => ({ kind: "torsion" as const, sub })),
-    { mode: "combined", sub: "EQ", N: -10, T: 150 }, { materialId: "W001" }, { materialId: "W096", secType: "rechteck_voll", dims: { b: 60, h: 120 } }, { materialId: "W060" },
+    { mode: "combined", sub: "EQ", N: -10, T: 150 }, { materialId: "W001" },
+    // Lastliste (0.5.0): gemischter Fall gelenkig, beidseitig eingespannt, Krag mit Moment, Eigengewicht
+    { sub: "LL", loadList: { support: "GG", loads: [{ kind: "F", x: 300, F: 2 }, { kind: "F", x: 900, F: 1.5 }, { kind: "q", x1: 600, x2: 1200, q1: 1, q2: 1 }, { kind: "M", x: 1000, M: 150 }], selfWeight: false } },
+    { sub: "LL", loadList: { support: "EE", loads: [{ kind: "F", x: 400, F: 3 }], selfWeight: false } },
+    { sub: "LL", loadList: { support: "KR", loads: [{ kind: "M", x: 1200, M: 200 }], selfWeight: true } }, { materialId: "W096", secType: "rechteck_voll", dims: { b: 60, h: 120 } }, { materialId: "W060" },
   ];
   for (const t of Object.keys(SECTIONS) as SecType[]) { const dims = Object.fromEntries(SECTIONS[t].fields.map(([k, , v]) => [k, v])); runs.push({ secType: t, dims }); }
   const seen = new Map<string, CatalogEntry>();

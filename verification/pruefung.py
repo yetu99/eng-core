@@ -103,6 +103,110 @@ for fn, con, obj, mode, val in [
     id_ = f'Index {fn} {con} {obj} {mode}'; cases.append(dict(id=id_, type='ashby', materialId='W038', fn=fn, con=con, obj=obj, shapeMode=mode, phiUser=None))
     ref[id_] = (dict(idx=val), 1e-9)
 
+
+# ---------------- Lastliste (eng-core 0.5.0) ----------------
+# Unabhängig vom Kern (Föppl-Klammern, 4×4-System): Kraftgrößenverfahren am links eingespannten Grundsystem
+# (Arbeitssatz, numerische Integration mit scipy.quad), Momente aus dem Gleichgewicht am RECHTEN Teilsystem,
+# Biegelinie mit Finiten Differenzen (w'' = −M/EI, h = 0,1 mm). Literaturwerte Roark Tab. 8.1 zusätzlich.
+from scipy.linalg import solve_banded
+def ll_si(loads):
+    out = []
+    for l in loads:
+        if l['kind'] == 'F': out.append(('F', l['x'], l['F'] * 1000.0))
+        elif l['kind'] == 'M': out.append(('M', l['x'], l['M'] * 1000.0))
+        else: out.append(('q', l['x1'], l['x2'], float(l['q1']), float(l['q2'])))
+    return out
+def q_at(l, s): return l[3] + (l[4] - l[3]) * (s - l[1]) / (l[2] - l[1])
+def m_right(x, loads, B, CB, Lb):
+    """Schnittmoment bei x aus dem Gleichgewicht des rechten Teils [x, L] (Lasten bei x zählen nach links)."""
+    m = B * (Lb - x) - CB
+    for l in loads:
+        if l[0] == 'F' and l[1] > x: m -= l[2] * (l[1] - x)
+        elif l[0] == 'M' and l[1] > x: m -= l[2]
+        elif l[0] == 'q' and l[2] > x:
+            a = max(x, l[1]); m -= quad(lambda t: q_at(l, t) * (t - x), a, l[2], epsabs=1e-12, epsrel=1e-13)[0]
+    return m
+def ll_sums(loads):
+    F = sum(l[2] for l in loads if l[0] == 'F') + sum(quad(lambda t: q_at(l, t), l[1], l[2])[0] for l in loads if l[0] == 'q')
+    M0 = sum(l[2] * l[1] for l in loads if l[0] == 'F') + sum(l[2] for l in loads if l[0] == 'M') + sum(quad(lambda t: q_at(l, t) * t, l[1], l[2])[0] for l in loads if l[0] == 'q')
+    return F, M0
+def ll_reference(support, loads_in, Lb=L, EIb=EI):
+    loads = ll_si(loads_in); F, M0 = ll_sums(loads)
+    pts = sorted({0.0, Lb, *[l[1] for l in loads], *[l[2] for l in loads if l[0] == 'q']})
+    integ = lambda f: sum(quad(f, a, b, epsabs=1e-9, epsrel=1e-12, limit=200)[0] for a, b in zip(pts[:-1], pts[1:]) if b > a)
+    if support == 'KR': B, CB = 0.0, 0.0
+    elif support == 'GG': B, CB = M0 / Lb, 0.0                       # ΣM um A = 0
+    elif support == 'EG':                                              # Unbekannte B, Verträglichkeit w(L) = 0
+        m1 = lambda x: Lb - x; M0f = lambda x: m_right(x, loads, 0.0, 0.0, Lb)
+        B = -integ(lambda x: M0f(x) * m1(x)) / integ(lambda x: m1(x)**2); CB = 0.0
+    else:                                                              # EE: B, C_B aus w(L) = 0, φ(L) = 0
+        m1 = lambda x: Lb - x; m2 = lambda x: -1.0; M0f = lambda x: m_right(x, loads, 0.0, 0.0, Lb)
+        K = np.array([[integ(lambda x: m1(x) * m1(x)), integ(lambda x: m1(x) * m2(x))], [integ(lambda x: m2(x) * m1(x)), integ(lambda x: m2(x) * m2(x))]])
+        r = -np.array([integ(lambda x: M0f(x) * m1(x)), integ(lambda x: M0f(x) * m2(x))]); B, CB = np.linalg.solve(K, r)
+    A = F - B; CA = 0.0 if support == 'GG' else B * Lb - M0 - CB
+    # Momentenlinie auf feinem Gitter (beide Seiten der Lastorte), Biegelinie mit Finiten Differenzen
+    n = 12000; xs = np.linspace(0, Lb, n + 1); h = xs[1] - xs[0]
+    Mg = np.array([m_right(x, loads, B, CB, Lb) for x in xs])
+    jumps = [l[1] for l in loads if l[0] in ('F', 'M')]
+    for l in loads:                                                    # Momentensprung: Mittelwert beider Seiten am Knoten (2. Ordnung)
+        if l[0] == 'M' and 0 < l[1] < Lb: i = int(round(l[1] / h)); Mg[i] = (m_right(l[1] - 1e-9, loads, B, CB, Lb) + Mg[i]) / 2
+    cand = [(x, m_right(x, loads, B, CB, Lb)) for x in xs] + [(x, m_right(x - 1e-9, loads, B, CB, Lb)) for x in jumps if x > 0]
+    xM, Mm = max(cand, key=lambda t: abs(t[1]))
+    if support == 'GG':                                                # w0 = wn = 0, tridiagonal
+        ab = np.zeros((3, n - 1)); ab[0, 1:] = 1; ab[1, :] = -2; ab[2, :-1] = 1
+        wi = solve_banded((1, 1), ab, -h * h * Mg[1:-1] / EIb); w = np.concatenate([[0], wi, [0]])
+    else:                                                              # eingespannt links: w0 = 0, w'(0) = 0 (Geisterknoten), vorwärts
+        w = np.zeros(n + 1); w[1] = -h * h * Mg[0] / (2 * EIb)
+        for i in range(1, n): w[i + 1] = 2 * w[i] - w[i - 1] - h * h * Mg[i] / EIb
+    k = int(np.argmax(np.abs(w)))
+    return dict(A=A, B=B, CA=CA, CB=CB, M=abs(Mm), xM=xM, w=abs(w[k]), xf=xs[k], wL=w[-1], phiL=(3 * w[-1] - 4 * w[-2] + w[-3]) / (2 * h), sumF=F)
+def ll_case(id_, support, loads, vals, tol, selfWeight=False):
+    cases.append(dict(id=id_, type='calc', inp={**base, 'sub': 'LL', 'loadList': dict(support=support, loads=loads, selfWeight=selfWeight)})); ref[id_] = (vals, tol)
+LLC = {
+  'T7': ('GG', [dict(kind='F', x=400, F=3)]),
+  'T8': ('KR', [dict(kind='M', x=1200, M=200)]),
+  'T9': ('EG', [dict(kind='q', x1=0, x2=1200, q1=2, q2=2)]),
+  'T10': ('EE', [dict(kind='F', x=400, F=3)]),
+  'T11': ('GG', [dict(kind='q', x1=0, x2=1200, q1=0, q2=2)]),
+  'T12': ('GG', [dict(kind='F', x=300, F=2), dict(kind='F', x=900, F=1.5), dict(kind='q', x1=600, x2=1200, q1=1, q2=1), dict(kind='M', x=1000, M=150)]),
+  'T13': ('KR', [dict(kind='F', x=600, F=2), dict(kind='F', x=1200, F=-1)]),
+  'T14': ('GG', [dict(kind='M', x=300, M=200)]),
+  'T16': ('EE', [dict(kind='q', x1=200, x2=900, q1=3, q2=0.5), dict(kind='M', x=700, M=-120)]),
+  'T17': ('EG', [dict(kind='F', x=0, F=5), dict(kind='F', x=1200, F=4), dict(kind='q', x1=100, x2=500, q1=-1, q2=1)]),
+}
+LL_REF = {}
+for k, (sup, lo) in LLC.items():
+    r = ll_reference(sup, lo); LL_REF[k] = r
+    vals = dict(A=r['A'], M=r['M'], w=r['w'])
+    if sup != 'KR': vals['B'] = r['B']
+    if sup != 'GG': vals['CA'] = r['CA']
+    if sup == 'EE': vals['CB'] = r['CB']
+    ll_case(f'LL {k} FD', sup, lo, vals, 2e-3)
+    ll_case(f'LL {k} Gleichgewicht', sup, lo, dict(res=0.0), 1e-9)
+    if sup in ('EG', 'EE') and abs(r['wL']) > 1e-4 * r['w']: print(f'WARNUNG Verträglichkeit {k}: w(L) = {r["wL"]:.3g}')
+# Literatur Roark Tab. 8.1 (geschlossene Formeln, unabhängig vom Kern)
+Fp, a7, b7 = 3000.0, 400.0, 800.0
+ll_case('LL T7 Roark 1e', *LLC['T7'], dict(A=Fp * b7 / L, M=Fp * a7 * b7 / L, w=Fp * a7 * (L**2 - a7**2)**1.5 / (9 * math.sqrt(3) * EI * L), xf=L - math.sqrt((L**2 - a7**2) / 3)), 1e-6)
+ll_case('LL T8 Roark 3a', *LLC['T8'], dict(M=200e3, w=200e3 * L**2 / (2 * EI)), 1e-9)
+ll_case('LL T9 Roark 2c', *LLC['T9'], dict(A=5 * 2.0 * L / 8, CA=-2.0 * L**2 / 8, w=0.0054165 * 2.0 * L**4 / EI), 1e-4)
+ll_case('LL T10 Roark 1d', *LLC['T10'], dict(A=Fp * b7**2 * (3 * a7 + b7) / L**3, CA=-Fp * a7 * b7**2 / L**2, CB=Fp * a7**2 * b7 / L**2), 1e-9)
+ll_case('LL T11 Roark 2e', *LLC['T11'], dict(A=2.0 * L / 6, M=2.0 * L**2 / (9 * math.sqrt(3)), xM=L / math.sqrt(3), w=0.0065222 * 2.0 * L**4 / EI), 1e-4)
+# heutige Fälle als Lastliste: gleiche Referenz wie oben (Finite Differenzen fd_beam)
+for c, sup, lo, F_, q_ in [('KE', 'KR', [dict(kind='F', x=1200, F=2)], 2, 0), ('KQ', 'KR', [dict(kind='q', x1=0, x2=1200, q1=2, q2=2)], 0, 2),
+                           ('EE', 'GG', [dict(kind='F', x=600, F=2)], 2, 0), ('EQ', 'GG', [dict(kind='q', x1=0, x2=1200, q1=2, q2=2)], 0, 2),
+                           ('E4', 'GG', [dict(kind='F', x=300, F=2), dict(kind='F', x=900, F=2)], 2, 0), ('BQ', 'EE', [dict(kind='q', x1=0, x2=1200, q1=2, q2=2)], 0, 2)]:
+    Mref, wref = fd_beam(c, F=F_ * 1000, q=q_); ll_case(f'LL wie {c}', sup, lo, dict(M=Mref, w=wref), 2e-3)
+# Eigengewicht: EQ mit q + q_G (q_G = ρ·g·A, A per Integration oben)
+qG = RHO_AL * 9.81 * A2 * 1e-9; Mref, wref = fd_beam('EQ', F=0, q=2.0 + qG)
+ll_case('LL T15 Eigengewicht', 'GG', [dict(kind='q', x1=0, x2=1200, q1=2, q2=2)], dict(M=Mref, w=wref), 2e-3, selfWeight=True)
+# Schritt 6 mit Lastliste T12: Masse aus Steifigkeit und Festigkeit mit M_max und w_k aus der Referenz
+r12 = LL_REF['T12']; wk12 = r12['w'] * EI; M12 = r12['M']
+for mid, Emod, rho, Rp_, Rm_, price in [('W038', 70000.0, 2700.0, 260.0, 310.0, 4.5)]:
+    szul = min(Rp_ / 1.5, Rm_ / 2.0); sSt = (wk12 / (Emod * fzul * I0)) ** 0.25; sF = (M12 / (szul * W0)) ** (1 / 3)
+    mSt = rho * A0 * sSt**2 * L * 1e-9; mF = rho * A0 * sF**2 * L * 1e-9
+    b12 = {**basis, 'caseId': 'LL', 'loadList': dict(support='GG', loads=LLC['T12'][1], selfWeight=False)}
+    id_ = f'Konflikt LL T12 {mid}'; cases.append(dict(id=id_, type='conflict', materialId=mid, basis=b12, alpha=5)); ref[id_] = (dict(mStiff=mSt, mStrength=mF), 2e-3)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 rows, fails = [], 0

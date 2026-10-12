@@ -2,7 +2,7 @@
 export type Kind = "zug" | "druck" | "biegung" | "torsion";
 export type Support = "fix" | "pin" | "roller" | "free";
 
-export interface BendingCase { label: string; short: string; supports: readonly [Support, Support]; load: "F" | "q" | "F2"; euler: 1 | 2 | 3 | 4; ref: string }
+export interface BendingCase { label: string; short: string; supports: readonly [Support, Support]; load: "F" | "q" | "F2" | "list"; euler: 1 | 2 | 3 | 4; ref: string }
 export interface SimpleCase { label: string; short: string }
 export interface BucklingCase extends SimpleCase { beta: number; top: Support; bot: Support }
 
@@ -51,6 +51,7 @@ export function isBucklingCase(id: string): id is BucklingCaseId { return id in 
 
 /** Bezeichnung eines Lastfalls für Überschriften und Bildunterschriften. */
 export function caseLabel(mode: "single" | "combined", kind: Kind, sub: string): string {
+  if (sub === "LL" && (mode === "combined" || kind === "biegung")) return "Lastliste";
   if (mode === "combined") return sub === "none" ? "Ohne Querlast" : isBendingCase(sub) ? BENDING_CASES[sub].label : "–";
   return KINDS[kind].cases[sub]?.label ?? "–";
 }

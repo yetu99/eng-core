@@ -12,6 +12,7 @@ import { step, type CalcStep, type Trace, type TraceGroup } from "../trace";
 import { defaultNu, strengthDesign, DV_SYMBOL, type DvChoice, type Material, type Repo, type StrengthDesign } from "../materials";
 import { BENDING_CASES, BUCKLING_CASES, EULER_BETA, isBendingCase, isBucklingCase, type BendingCase, type Kind } from "./cases";
 import { beamFns, bendingMax, type BeamFns, type BeamMax } from "./beam";
+import { isLoadListCase, normalizeLoads, solveBeam, loadText, LOADLIST_SUPPORTS, type LoadList, type LoadSI, type BeamSolution } from "./loadlist";
 
 export const G_ACC = 9.81; // m/s²
 
@@ -39,6 +40,8 @@ export interface StrengthInput {
   SFreq: number; SBreq: number; SKreq: number;
   dvChoice: { RE: DvChoice; RM: DvChoice };
   dvManual: { RE: number | null; RM: number | null };
+  /** Lastliste, wirksam bei sub = "LL" (Einzelfall Biegung und Überlagert) */
+  loadList?: LoadList | undefined;
 }
 
 export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung"; label: string; S: number | null; req: number; u: number | null; text: string }
@@ -56,7 +59,9 @@ export interface StrengthResult {
   strength: StrengthDesign | null;
   mass: number;
   L: number;
-  bend: (BeamMax & { fns: BeamFns; EI: number; case: BendingCase }) | null;
+  bend: (BeamMax & { fns: BeamFns; EI: number; case: BendingCase; ll: BeamSolution | null }) | null;
+  /** Fehler je Zeile der Lastliste (Index in der Eingabe) */
+  loadErrors: Array<{ index: number; message: string }>;
   fzul: number | null;
   axial: { N: number; qG: number; Nmax: number; dL: number; N_x: (x: number) => number; u_x: (x: number) => number } | null;
   buck: { eulerCase: 1 | 2 | 3 | 4; beta: number; Lk: number; lambda: number; lambdaT: number | null; sigmaK: number; Fk: number; model: "Euler" | "Johnson"; SK: number; Rp: number | null; E: number; sigmaD: number } | null;
@@ -86,7 +91,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const res: StrengthResult = {
     input: inp, material: mat, section: sec, errors: [...sec.errors], warnings: [...sec.notes], kind, caseId: "none",
     E: NaN, G: NaN, nu: NaN, strength: null, mass: NaN, L: inp.L, bend: null, fzul: null, axial: null, buck: null, tors: null,
-    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G,
+    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [],
   };
   if (!(inp.L > 0)) res.errors.push("Länge L muss größer als 0 sein");
   if (mat.E === null || mat.rho === null) res.errors.push(`${mat.name}: E-Modul oder Dichte nicht belegt`);
@@ -107,17 +112,18 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const F = inp.F * 1000, q = inp.q, a = inp.a, L = inp.L;
   if (inp.mode === "combined") {
     caseId = inp.sub; N = inp.N * 1000; Tm = inp.T * 1e3;
-    eulerCase = isBendingCase(caseId) ? BENDING_CASES[caseId].euler : 2;
+    eulerCase = isBendingCase(caseId) ? BENDING_CASES[caseId].euler : isLoadListCase(caseId) && inp.loadList ? LOADLIST_SUPPORTS[inp.loadList.support].euler : 2;
   } else if (inp.kind === "biegung") caseId = inp.sub;
   else if (inp.kind === "zug") N = F;
   else if (inp.kind === "druck") { N = -F; if (!isBucklingCase(inp.sub)) res.errors.push(`Unbekannter Eulerfall ${inp.sub}`); else eulerCase = (Number(inp.sub.slice(1)) as 1 | 2 | 3 | 4); }
   else Tm = inp.T * 1e3;
-  if ((inp.mode === "combined" || inp.kind === "biegung") && caseId !== "none" && !isBendingCase(caseId)) res.errors.push(`Unbekannter Lastfall ${caseId}`);
+  if ((inp.mode === "combined" || inp.kind === "biegung") && caseId !== "none" && !isBendingCase(caseId) && !isLoadListCase(caseId)) res.errors.push(`Unbekannter Lastfall ${caseId}`);
+  if (isLoadListCase(caseId) && !inp.loadList) res.errors.push("Lastliste fehlt");
   if (inp.kind === "biegung" && inp.mode === "single" && caseId === "none") res.errors.push("Biegung ohne Lastfall");
   if (res.errors.length) return res;
   res.caseId = caseId;
 
-  const bending = isBendingCase(caseId);
+  const bending = isBendingCase(caseId) || isLoadListCase(caseId);
   const S = strengthDesign(repo, mat, bending, inp.dvChoice, inp.dvManual);
   res.strength = S; res.E = E; res.G = Gm; res.nu = nu;
   const Rp = S.Rp?.v ?? null, Rm = S.Rm?.v ?? null;
@@ -136,13 +142,66 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
     const EI = E * sec.I;
     const mx = bendingMax(caseId, L, F, q, a, EI);
     const bc: BendingCase = BENDING_CASES[caseId];
-    res.bend = { ...mx, fns: beamFns(caseId, L, F, q, a), EI, case: bc };
+    res.bend = { ...mx, fns: beamFns(caseId, L, F, q, a), EI, case: bc, ll: null };
     sigmaB = mx.M / sec.W; tauQ = sec.kappa * mx.Q / sec.A; res.fzul = L / inp.fDiv;
     add("belastung", step(`B-M-${caseId}`, "Größtes Biegemoment", mx.fM, mx.sM, mx.M, "N·mm", bc.ref));
     add("belastung", step("B-SIG", "Biegespannung", "σ_b = M_max / W", `${fmt(mx.M)} / ${fmt(sec.W)}`, sigmaB, "MPa"));
     add("belastung", step("B-TAUQ", "Schubspannung aus Querkraft (Näherung)", "τ_Q = κ·Q_max / A", `${fmt(sec.kappa)}·${fmt(mx.Q)} / ${fmt(sec.A)}`, tauQ, "MPa", "κ je Querschnitt"));
     add("belastung", step(`B-F-${caseId}`, "Größte Durchbiegung", mx.fw, mx.sw, mx.w, "mm", bc.ref));
     add("nachweis", step("N-FZUL", "Zulässige Durchbiegung", `f_zul = L / ${fmt(inp.fDiv)}`, `${fmt(L)} / ${fmt(inp.fDiv)}`, res.fzul, "mm", "Vorgabe"));
+  } else if (isLoadListCase(caseId) && inp.loadList) {
+    const ll = inp.loadList;
+    const norm = normalizeLoads(ll.loads, L);
+    if (norm.errors.length) {
+      res.loadErrors = norm.errors;
+      for (const e of norm.errors) res.errors.push(`Last ${e.index + 1}: ${e.message}`);
+      return res;
+    }
+    const loads: LoadSI[] = [...norm.loads];
+    if (ll.selfWeight) {
+      const qG = rho * G_ACC * sec.A * 1e-9; // N/mm
+      add("belastung", step("Z-QG", "Eigengewicht je Länge", "q_G = ρ·g·A", `${fmt(rho)}·${G_ACC}·${fmt(sec.A)}·10⁻⁹`, qG, "N/mm"));
+      loads.push({ kind: "q", no: "q_G", x1: 0, x2: L, q1: qG, q2: qG, R: qG * L, xc: L / 2 });
+    }
+    const EI = E * sec.I;
+    const sol = solveBeam(ll.support, loads, L, EI);
+    const sp = LOADLIST_SUPPORTS[ll.support];
+    const bc: BendingCase = { label: `Lastliste, ${sp.label}`, short: `Lastliste · ${sp.short}`, supports: sp.supports, load: "list", euler: sp.euler, ref: sp.ref };
+    const Mabs = Math.abs(sol.Mext.value), Qabs = Math.abs(sol.Qext.value), wabs = Math.abs(sol.wext.value);
+    const fM = "M(x) = M_A + A·x − Σ F_i·⟨x − a_i⟩ + Σ M_j·⟨x − b_j⟩⁰ − Σ [q₁·⟨x − x₁⟩²/2 + k·⟨x − x₁⟩³/6 − q₂·⟨x − x₂⟩²/2 − k·⟨x − x₂⟩³/6],  k = (q₂ − q₁)/(x₂ − x₁)";
+    const fw = "E·I·w(x) = −∬M dx dx + C₁·x + C₂";
+    const sM = mTermsText(sol, sol.Mext.x);
+    const sw = `E·I = ${fmt(EI)} N·mm², C₁ = ${fmt(sol.C1)}, C₂ = ${fmt(sol.C2)}; w(${fmt(sol.wext.x)}) = ${fmt(sol.wext.value)} mm`;
+    res.bend = {
+      M: Mabs, Q: Qabs, w: wabs, xM: sol.Mext.x, fM, sM, fw, sw,
+      fns: { Q: sol.Q, M: sol.M, w: (x, EI2) => sol.w(x) * sol.EI / EI2 }, EI, case: bc, ll: sol,
+    };
+    sigmaB = Mabs / sec.W; tauQ = sec.kappa * Qabs / sec.A; res.fzul = L / inp.fDiv;
+    const listTxt = loads.map(loadText).join("; ") || "keine Lasten";
+    const bcTxt: Record<typeof ll.support, string> = {
+      KR: "w(0) = 0, φ(0) = 0, M(L⁺) = 0, Q(L⁺) = 0",
+      GG: "w(0) = 0, M(0⁻) = 0, w(L) = 0, M(L⁺) = 0",
+      EG: "w(0) = 0, φ(0) = 0, w(L) = 0, M(L⁺) = 0",
+      EE: "w(0) = 0, φ(0) = 0, w(L) = 0, φ(L) = 0",
+    };
+    add("belastung", step("B-LL-R", "Lagerkraft links (Randwertproblem)", "A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System", `${sp.label}: ${bcTxt[ll.support]}; Lasten: ${listTxt}`, sol.A, "N", "Gross/Hauger TM 2, Kap. 4.5 und 4.6"));
+    add("belastung", step("B-LL-B", "Lagerkraft rechts", "B = Σ F_i + Σ R_q − A", `${fmt(sol.sumF)} − ${fmt(sol.A)}`, sol.B, "N", "Gleichgewicht ΣF_z = 0"));
+    if (ll.support !== "GG") add("belastung", step("B-LL-CA", "Einspannmoment links", "M_A = M(0⁻), Uhrzeigersinn positiv", `aus dem Randwertproblem`, sol.CA, "N·mm"));
+    if (ll.support === "EE") add("belastung", step("B-LL-CB", "Einspannmoment rechts", "M_B = −M(L⁺), Uhrzeigersinn positiv", `aus dem Randwertproblem`, sol.CB, "N·mm"));
+    add("belastung", step("B-LL-GG", "Gleichgewichtskontrolle", "r = max(|A + B − ΣF| / F_ref, |ΣM_0 + M_A + M_B − B·L| / (F_ref·L))", `ΣF = ${fmt(sol.sumF)} N, ΣM_0 = ${fmt(sol.sumM0)} N·mm, A + B = ${fmt(sol.A + sol.B)} N`, Math.max(Math.abs(sol.resF), Math.abs(sol.resM)), "–", "Kontrolle, Sollwert 0"));
+    add("belastung", step("B-LL-QX", "Größte Querkraft", "|Q|_max über Segmentränder und Nullstellen von q(x)", `Q(${fmt(sol.Qext.x)}) = ${fmt(sol.Qext.value)} N`, Qabs, "N", "Extremwertsuche"));
+    add("belastung", step("B-LL-MX", "Größtes Biegemoment", "|M|_max über Segmentränder und Nullstellen von Q(x)", `bei x_M = ${fmt(sol.Mext.x)} mm: M = ${fmt(sol.Mext.value)} N·mm`, Mabs, "N·mm", "Extremwertsuche, Bisektion 80 Schritte"));
+    add("belastung", step("B-LL-M", "Biegemoment an der Stelle x_M", fM, `${sM} (Streckenlasten als Teilresultierende · Hebelarm)`, sol.Mext.value, "N·mm", "Gross/Hauger TM 2, Kap. 4.5"));
+    add("belastung", step("B-SIG", "Biegespannung", "σ_b = M_max / W", `${fmt(Mabs)} / ${fmt(sec.W)}`, sigmaB, "MPa"));
+    add("belastung", step("B-TAUQ", "Schubspannung aus Querkraft (Näherung)", "τ_Q = κ·Q_max / A", `${fmt(sec.kappa)}·${fmt(Qabs)} / ${fmt(sec.A)}`, tauQ, "MPa", "κ je Querschnitt"));
+    add("belastung", step("B-LL-W", "Biegelinie an der Stelle x_f", fw, sw, sol.wext.value, "mm", "Gross/Hauger TM 2, Kap. 4.5"));
+    add("belastung", step("B-LL-FX", "Größte Durchbiegung", "f = max |w(x)| über Segmentränder und Nullstellen von φ(x)", `bei x_f = ${fmt(sol.wext.x)} mm`, wabs, "mm", "Extremwertsuche, Bisektion 80 Schritte"));
+    add("nachweis", step("N-FZUL", "Zulässige Durchbiegung", `f_zul = L / ${fmt(inp.fDiv)}`, `${fmt(L)} / ${fmt(inp.fDiv)}`, res.fzul, "mm", "Vorgabe"));
+    const tiny = 1e-9 * Math.max(1, Math.abs(sol.sumF));
+    if (sol.A < -tiny) res.warnings.push(`Lager A zieht (A = ${fmt(sol.A / 1000, 4)} kN), Verankerung prüfen`);
+    if (ll.support !== "KR" && sol.B < -tiny) res.warnings.push(`Lager B zieht (B = ${fmt(sol.B / 1000, 4)} kN), Verankerung prüfen`);
+    if (loads.length === 0 || (Mabs === 0 && Qabs === 0)) res.warnings.push("Lastliste ohne Querlast");
+    if (Math.max(Math.abs(sol.resF), Math.abs(sol.resM)) > 1e-9) res.warnings.push("Gleichgewichtskontrolle: Rest über 10⁻⁹");
   }
   // Längskraft
   if (N !== 0) {
@@ -231,6 +290,16 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   if (res.tors) kp("tauT", "Torsionsspannung", "τ_t", tauT, "MPa", true);
   kp("sigmaV", "Vergleichsspannung", "σ_v", sv, "MPa", true, true);
   if (res.bend) kp("f", "Durchbiegung", "f", res.bend.w, "mm", true);
+  if (res.bend?.ll) {
+    const s = res.bend.ll;
+    kp("xf", "Ort der größten Durchbiegung", "x_f", s.wext.x, "mm", true);
+    kp("Mmax", "Größtes Biegemoment", "M_max", Math.abs(s.Mext.value) / 1000, "N·m", true);
+    kp("xM", "Ort des größten Moments", "x_M", s.Mext.x, "mm", true);
+    kp("A", "Lagerkraft links", "A", s.A / 1000, "kN", true);
+    if (s.support !== "KR") kp("B", "Lagerkraft rechts", "B", s.B / 1000, "kN", true);
+    if (s.support !== "GG") kp("MA", "Einspannmoment links", "M_A", s.CA / 1000, "N·m", true);
+    if (s.support === "EE") kp("MB", "Einspannmoment rechts", "M_B", s.CB / 1000, "N·m", true);
+  }
   if (res.axial) kp("dL", "Längenänderung", "ΔL", res.axial.dL, "mm", true);
   if (res.tors) kp("theta", res.tors.twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", res.tors.twoSided ? "φ_Mitte" : "φ_Ende", res.tors.theta, "°", true);
   if (res.buck) kp("Fk", "Knicklast", "F_k", res.buck.Fk / 1000, "kN", true);
@@ -241,6 +310,24 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
 /** Bezeichnung der Querschnittsmaße für Überschriften. */
 export function dimsLabel(secType: SecType, dims: Dims): string {
   return `${SECTIONS[secType].label} ${SECTIONS[secType].fields.map(([k]) => fmt(dims[k] ?? NaN)).join(" × ")} mm`;
+}
+
+/** Föppl-Summe der Momentenlinie an der Stelle x mit eingesetzten Zahlen (Rechenweg). Streckenlasten als Teilresultierende mal Hebelarm. */
+function mTermsText(sol: BeamSolution, x: number): string {
+  const t: string[] = [];
+  const sgn = (v: number, body: string) => `${v < 0 ? "−" : "+"} ${body.replace(/^-/, "")}`;
+  if (sol.support !== "GG") t.push(`${fmt(sol.CA)}`);
+  t.push(t.length ? sgn(sol.A, `${fmt(Math.abs(sol.A))}·${fmt(x)}`) : `${fmt(sol.A)}·${fmt(x)}`);
+  for (const l of sol.loads) {
+    if (l.kind === "F" && x >= l.x) t.push(sgn(-l.F, `${fmt(Math.abs(l.F))}·(${fmt(x)} − ${fmt(l.x)})`));
+    else if (l.kind === "M" && x >= l.x) t.push(sgn(l.M, fmt(Math.abs(l.M))));
+    else if (l.kind === "q" && x > l.x1) {
+      const u = Math.min(x, l.x2) - l.x1, qx = l.q1 + (l.q2 - l.q1) * u / (l.x2 - l.x1);
+      const R = (l.q1 + qx) / 2 * u, xc = l.q1 + qx !== 0 ? l.x1 + u * (l.q1 + 2 * qx) / (3 * (l.q1 + qx)) : l.x1 + u / 2;
+      t.push(sgn(-R, `${fmt(Math.abs(R))}·(${fmt(x)} − ${fmt(xc)})`));
+    }
+  }
+  return `M(${fmt(x)}) = ${t.join(" ")} = ${fmt(sol.M(x))}`;
 }
 
 export { BUCKLING_CASES };

@@ -1,14 +1,14 @@
 {
- "core": "0.4.3",
- "formulas": 144,
+ "core": "0.5.0",
+ "formulas": 154,
  "approved": 144,
  "rejected": 0,
  "stale": 0,
- "draft": 0,
+ "draft": 10,
  "lastApproval": "2026-10-10",
  "verification": {
-  "passed": 58,
-  "total": 58
+  "passed": 146,
+  "total": 146
  },
  "acceptance": {
   "P5": {
@@ -71,6 +71,16 @@
   "B-F-EQ": "freigegeben",
   "B-F-KE": "freigegeben",
   "B-F-KQ": "freigegeben",
+  "B-LL-B": "entwurf",
+  "B-LL-CA": "entwurf",
+  "B-LL-CB": "entwurf",
+  "B-LL-FX": "entwurf",
+  "B-LL-GG": "entwurf",
+  "B-LL-M": "entwurf",
+  "B-LL-MX": "entwurf",
+  "B-LL-QX": "entwurf",
+  "B-LL-R": "entwurf",
+  "B-LL-W": "entwurf",
   "B-M-BQ": "freigegeben",
   "B-M-E4": "freigegeben",
   "B-M-EE": "freigegeben",

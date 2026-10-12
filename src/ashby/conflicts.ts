@@ -14,10 +14,11 @@ import { sectionProps, type Dims, type SecType } from "../sections";
 import { strengthDesign, type Material, type Repo } from "../materials";
 import { isBendingCase, BENDING_CASES, type BendingCaseId } from "../mechanics/cases";
 import { bendingMax } from "../mechanics/beam";
+import { isLoadListCase, normalizeLoads, solveBeam, LOADLIST_SUPPORTS, type LoadList } from "../mechanics/loadlist";
 import { fmt } from "../format";
 import { step, type CalcStep } from "../trace";
 
-export interface ConflictBasis { secType: SecType; dims: Dims; caseId: string; L: number; F: number; q: number; a: number; fDiv: number; SFreq: number; SBreq: number }
+export interface ConflictBasis { secType: SecType; dims: Dims; caseId: string; L: number; F: number; q: number; a: number; fDiv: number; SFreq: number; SBreq: number; loadList?: LoadList | undefined }
 export interface ConflictRow {
   m: Material;
   /** Skalierungsfaktoren des Profils aus Steifigkeit und Festigkeit */
@@ -38,7 +39,7 @@ export interface ConflictRow {
   trace: CalcStep[];
 }
 export interface ConflictResult {
-  caseId: BendingCaseId; fzul: number;
+  caseId: BendingCaseId | "LL"; fzul: number;
   /** true, wenn der Lastfall aus Blatt 1 kein Biegefall war und ersatzweise EQ verwendet wird */
   caseSubstituted: boolean;
   /** Rechenweg der gemeinsamen Grundlage (f_zul, M_max, Durchbiegungsbeiwert, Profil) */
@@ -52,15 +53,27 @@ const REF_B = "Ashby (1999) Kap. 9.6, Austauschkonstante";
 /** @param alpha Austauschkonstante in €/kg */
 export function multiConstraint(repo: Repo, candidates: Material[], basis: ConflictBasis, alpha: number): ConflictResult {
   const sec0 = sectionProps(basis.secType, basis.dims);
-  const caseSubstituted = !isBendingCase(basis.caseId);
-  const caseId: BendingCaseId = isBendingCase(basis.caseId) ? basis.caseId : "EQ";
   const L = basis.L;
-  const mx = bendingMax(caseId, L, basis.F * 1000, basis.q, basis.a, 1); // mx.w = f·E·I in N·mm³, mx.M in N·mm
+  // Lastliste: M_max und w_k = f·E·I aus dem Randwertproblem mit E·I = 1 (linear in 1/EI), Eigengewicht hier ohne (werkstoffabhängig)
+  const llNorm = isLoadListCase(basis.caseId) && basis.loadList ? normalizeLoads(basis.loadList.loads, L) : null;
+  const useLL = llNorm !== null && llNorm.errors.length === 0 && basis.loadList !== undefined;
+  const caseSubstituted = !isBendingCase(basis.caseId) && !useLL;
+  const caseId: BendingCaseId | "LL" = useLL ? "LL" : isBendingCase(basis.caseId) ? basis.caseId : "EQ";
+  let mx: { M: number; w: number; fM: string; sM: string; sw: string }, ref: string;
+  if (useLL && basis.loadList && llNorm) {
+    const sol = solveBeam(basis.loadList.support, llNorm.loads, L, 1);
+    mx = { M: Math.abs(sol.Mext.value), w: Math.abs(sol.wext.value), fM: "Lastliste, siehe B-LL-MX", sM: `|M| bei x = ${fmt(sol.Mext.x)} mm`, sw: `Lastliste, siehe B-LL-FX: |E·I·w| bei x = ${fmt(sol.wext.x)} mm${basis.loadList.selfWeight ? "; Eigengewicht hier nicht berücksichtigt" : ""}` };
+    ref = LOADLIST_SUPPORTS[basis.loadList.support].ref;
+  } else {
+    const c = caseId === "LL" ? "EQ" : caseId;
+    mx = bendingMax(c, L, basis.F * 1000, basis.q, basis.a, 1); // mx.w = f·E·I in N·mm³, mx.M in N·mm
+    ref = BENDING_CASES[c].ref;
+  }
   const fzul = L / basis.fDiv;
   const basisTrace: CalcStep[] = [
     step("C-FZUL", "Zulässige Durchbiegung", "f_zul = L / n", `${fmt(L)} / ${fmt(basis.fDiv)}`, fzul, "mm"),
-    step("C-MMAX", "Größtes Biegemoment (Lastfall Blatt 1)", "M_max nach Lastfall, siehe B-M-…", `${mx.fM}: ${mx.sM}`, mx.M, "N·mm", BENDING_CASES[caseId].ref),
-    step("C-WK", "Durchbiegungsbeiwert (Durchbiegung mal E·I)", "w_k = f·E·I nach Lastfall, siehe B-F-…", `${mx.sw} (mit E·I = 1)`, mx.w, "N·mm³", BENDING_CASES[caseId].ref),
+    step("C-MMAX", "Größtes Biegemoment (Lastfall Blatt 1)", "M_max nach Lastfall, siehe B-M-…", `${mx.fM}: ${mx.sM}`, mx.M, "N·mm", ref),
+    step("C-WK", "Durchbiegungsbeiwert (Durchbiegung mal E·I)", "w_k = f·E·I nach Lastfall, siehe B-F-…", `${mx.sw} (mit E·I = 1)`, mx.w, "N·mm³", ref),
     step("C-A0", "Ausgangsprofil Blatt 1: Fläche", "A₀ (siehe Q-…)", `${fmt(sec0.A)}`, sec0.A, "mm²"),
     step("C-I0", "Ausgangsprofil Blatt 1: Flächenträgheitsmoment", "I₀ (siehe Q-…)", `${fmt(sec0.I)}`, sec0.I, "mm⁴"),
     step("C-W0", "Ausgangsprofil Blatt 1: Widerstandsmoment", "W₀ (siehe Q-…)", `${fmt(sec0.W)}`, sec0.W, "mm³"),

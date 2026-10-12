@@ -14,7 +14,12 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   }
   if (c.type === "calc") {
     const r = computeStrength(repo, c.inp);
-    return { M: r.bend?.M ?? null, w: r.bend?.w ?? null, sv: r.sigmaV, dL: r.axial?.dL ?? null, sk: r.buck?.sigmaK ?? null, lamT: r.buck?.lambdaT ?? null, theta: r.tors?.theta ?? null, tau: r.tauT, util: r.util };
+    const ll = r.bend?.ll ?? null;
+    return {
+      M: r.bend?.M ?? null, w: r.bend?.w ?? null, sv: r.sigmaV, dL: r.axial?.dL ?? null, sk: r.buck?.sigmaK ?? null, lamT: r.buck?.lambdaT ?? null, theta: r.tors?.theta ?? null, tau: r.tauT, util: r.util,
+      Q: r.bend?.Q ?? null, A: ll?.A ?? null, B: ll?.B ?? null, CA: ll?.CA ?? null, CB: ll?.CB ?? null, xM: ll?.Mext.x ?? null, xf: ll?.wext.x ?? null,
+      res: ll ? Math.max(Math.abs(ll.resF), Math.abs(ll.resM)) : null,
+    };
   }
   if (c.type === "conflict") {
     const m = repo.byId(c.materialId);

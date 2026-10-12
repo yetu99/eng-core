@@ -716,5 +716,1855 @@
    "idx": 46.58325879540846
   },
   "tol": 1e-09
+ },
+ {
+  "id": "LL T7 FD",
+  "case": {
+   "id": "LL T7 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 2000.0,
+   "M": 800000.0,
+   "w": 4.786517707318875,
+   "B": 1000.0
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T7 Gleichgewicht",
+  "case": {
+   "id": "LL T7 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T8 FD",
+  "case": {
+   "id": "LL T8 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "M",
+       "x": 1200,
+       "M": 200
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 0.0,
+   "M": 200000.0,
+   "w": 7.419426541723197,
+   "CA": -200000.0
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T8 Gleichgewicht",
+  "case": {
+   "id": "LL T8 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "M",
+       "x": 1200,
+       "M": 200
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T9 FD",
+  "case": {
+   "id": "LL T9 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 1500.0000000000002,
+   "M": 360000.00000000023,
+   "w": 1.157314131515181,
+   "B": 899.9999999999998,
+   "CA": -360000.00000000023
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T9 Gleichgewicht",
+  "case": {
+   "id": "LL T9 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T10 FD",
+  "case": {
+   "id": "LL T10 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EE",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 2222.222222222222,
+   "M": 533333.3333333333,
+   "w": 1.0767422409113312,
+   "B": 777.7777777777778,
+   "CA": -533333.3333333333,
+   "CB": 266666.6666666667
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T10 Gleichgewicht",
+  "case": {
+   "id": "LL T10 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EE",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T11 FD",
+  "case": {
+   "id": "LL T11 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 0,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 399.9999999999999,
+   "M": 184752.08590222226,
+   "w": 1.3936569712837392,
+   "B": 800.0000000000001
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T11 Gleichgewicht",
+  "case": {
+   "id": "LL T11 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 0,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T12 FD",
+  "case": {
+   "id": "LL T12 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 300,
+       "F": 2
+      },
+      {
+       "kind": "F",
+       "x": 900,
+       "F": 1.5
+      },
+      {
+       "kind": "q",
+       "x1": 600,
+       "x2": 1200,
+       "q1": 1,
+       "q2": 1
+      },
+      {
+       "kind": "M",
+       "x": 1000,
+       "M": 150
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 1900.0,
+   "M": 570000.0,
+   "w": 4.542323022002681,
+   "B": 2200.0
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T12 Gleichgewicht",
+  "case": {
+   "id": "LL T12 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 300,
+       "F": 2
+      },
+      {
+       "kind": "F",
+       "x": 900,
+       "F": 1.5
+      },
+      {
+       "kind": "q",
+       "x1": 600,
+       "x2": 1200,
+       "q1": 1,
+       "q2": 1
+      },
+      {
+       "kind": "M",
+       "x": 1000,
+       "M": 150
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T13 FD",
+  "case": {
+   "id": "LL T13 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 600,
+       "F": 2
+      },
+      {
+       "kind": "F",
+       "x": 1200,
+       "F": -1
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 1000.0,
+   "M": 600000.0,
+   "w": 11.129139810070827,
+   "CA": 0.0
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T13 Gleichgewicht",
+  "case": {
+   "id": "LL T13 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 600,
+       "F": 2
+      },
+      {
+       "kind": "F",
+       "x": 1200,
+       "F": -1
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T14 FD",
+  "case": {
+   "id": "LL T14 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "M",
+       "x": 300,
+       "M": 200
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": -166.66666666666666,
+   "M": 150000.0,
+   "w": 0.6971596650511057,
+   "B": 166.66666666666666
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T14 Gleichgewicht",
+  "case": {
+   "id": "LL T14 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "M",
+       "x": 300,
+       "M": 200
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T16 FD",
+  "case": {
+   "id": "LL T16 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EE",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 200,
+       "x2": 900,
+       "q1": 3,
+       "q2": 0.5
+      },
+      {
+       "kind": "M",
+       "x": 700,
+       "M": -120
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 944.0682870370368,
+   "M": 224652.77777777775,
+   "w": 0.49050525921143395,
+   "B": 280.93171296296316,
+   "CA": -224652.77777777772,
+   "CB": 110104.16666666677
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T16 Gleichgewicht",
+  "case": {
+   "id": "LL T16 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EE",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 200,
+       "x2": 900,
+       "q1": 3,
+       "q2": 0.5
+      },
+      {
+       "kind": "M",
+       "x": 700,
+       "M": -120
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T17 FD",
+  "case": {
+   "id": "LL T17 FD",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 0,
+       "F": 5
+      },
+      {
+       "kind": "F",
+       "x": 1200,
+       "F": 4
+      },
+      {
+       "kind": "q",
+       "x1": 100,
+       "x2": 500,
+       "q1": -1,
+       "q2": 1
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 4985.60185185185,
+   "M": 10934.988425925065,
+   "w": 0.04661051578723374,
+   "B": 4014.398148148149,
+   "CA": -9388.888888888061
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T17 Gleichgewicht",
+  "case": {
+   "id": "LL T17 Gleichgewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 0,
+       "F": 5
+      },
+      {
+       "kind": "F",
+       "x": 1200,
+       "F": 4
+      },
+      {
+       "kind": "q",
+       "x1": 100,
+       "x2": 500,
+       "q1": -1,
+       "q2": 1
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "res": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T7 Roark 1e",
+  "case": {
+   "id": "LL T7 Roark 1e",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 2000.0,
+   "M": 800000.0,
+   "w": 4.7865176512919865,
+   "xf": 546.8027352578191
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "LL T8 Roark 3a",
+  "case": {
+   "id": "LL T8 Roark 3a",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "M",
+       "x": 1200,
+       "M": 200
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 200000.0,
+   "w": 7.419426540075925
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T9 Roark 2c",
+  "case": {
+   "id": "LL T9 Roark 2c",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 1500.0,
+   "CA": -360000.0,
+   "w": 1.157394927004452
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "LL T10 Roark 1d",
+  "case": {
+   "id": "LL T10 Roark 1d",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EE",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 2222.222222222222,
+   "CA": -533333.3333333334,
+   "CB": 266666.6666666667
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "LL T11 Roark 2e",
+  "case": {
+   "id": "LL T11 Roark 2e",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 0,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "A": 400.0,
+   "M": 184752.08614068027,
+   "xM": 692.820323027551,
+   "w": 1.3936603328548762
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "LL wie KE",
+  "case": {
+   "id": "LL wie KE",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 1200,
+       "F": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 2400000.0,
+   "w": 59.35540974441764
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL wie KQ",
+  "case": {
+   "id": "LL wie KQ",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "KR",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 1440000.0,
+   "w": 26.709935544273335
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL wie EE",
+  "case": {
+   "id": "LL wie EE",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 600,
+       "F": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 600000.0,
+   "w": 3.7097126259905244
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL wie EQ",
+  "case": {
+   "id": "LL wie EQ",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 360000.0,
+   "w": 2.7822841796715396
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL wie E4",
+  "case": {
+   "id": "LL wie E4",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 300,
+       "F": 2
+      },
+      {
+       "kind": "F",
+       "x": 900,
+       "F": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 600000.0,
+   "w": 5.100855102254593
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL wie BQ",
+  "case": {
+   "id": "LL wie BQ",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "EE",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 240000.0,
+   "w": 0.5564848145008214
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "LL T15 Eigengewicht",
+  "case": {
+   "id": "LL T15 Eigengewicht",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "q",
+       "x1": 0,
+       "x2": 1200,
+       "q1": 2,
+       "q2": 2
+      }
+     ],
+     "selfWeight": true
+    }
+   }
+  },
+  "expect": {
+   "M": 363355.0822213023,
+   "w": 2.808214157965506
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "Konflikt LL T12 W038",
+  "case": {
+   "id": "Konflikt LL T12 W038",
+   "type": "conflict",
+   "materialId": "W038",
+   "basis": {
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "caseId": "LL",
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 300,
+       "F": 2
+      },
+      {
+       "kind": "F",
+       "x": 900,
+       "F": 1.5
+      },
+      {
+       "kind": "q",
+       "x1": 600,
+       "x2": 1200,
+       "q1": 1,
+       "q2": 1
+      },
+      {
+       "kind": "M",
+       "x": 1000,
+       "M": 150
+      }
+     ],
+     "selfWeight": false
+    }
+   },
+   "alpha": 5
+  },
+  "expect": {
+   "mStiff": 2.429695857482681,
+   "mStrength": 1.233454406455997
+  },
+  "tol": 0.002
  }
 ]

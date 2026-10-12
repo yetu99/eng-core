@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.4.3
+# Formelkatalog eng-core 0.5.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 144 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 154 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 10 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -66,6 +66,16 @@ Stand: 144 Formeln, davon 144 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | B-F-EQ | Größte Durchbiegung | f = 5·q·L⁴ / (384·E·I) | mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2e | freigegeben (2026-10-08, Seti) |
 | B-F-KE | Größte Durchbiegung | f = F·L³ / (3·E·I) | mm | Ashby App. A.3; Roark Tab. 8.1 Fall 1a | freigegeben (2026-10-08, Seti) |
 | B-F-KQ | Größte Durchbiegung | f = q·L⁴ / (8·E·I) | mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2a | freigegeben (2026-10-08, Seti) |
+| B-LL-B | Lagerkraft rechts | B = Σ F_i + Σ R_q − A | N | Gleichgewicht ΣF_z = 0 | Entwurf |
+| B-LL-CA | Einspannmoment links | M_A = M(0⁻), Uhrzeigersinn positiv | N·mm |  | Entwurf |
+| B-LL-CB | Einspannmoment rechts | M_B = −M(L⁺), Uhrzeigersinn positiv | N·mm |  | Entwurf |
+| B-LL-FX | Größte Durchbiegung | f = max \|w(x)\| über Segmentränder und Nullstellen von φ(x) | mm | Extremwertsuche, Bisektion 80 Schritte | Entwurf |
+| B-LL-GG | Gleichgewichtskontrolle | r = max(\|A + B − ΣF\| / F_ref, \|ΣM_0 + M_A + M_B − B·L\| / (F_ref·L)) | – | Kontrolle, Sollwert 0 | Entwurf |
+| B-LL-M | Biegemoment an der Stelle x_M | M(x) = M_A + A·x − Σ F_i·⟨x − a_i⟩ + Σ M_j·⟨x − b_j⟩⁰ − Σ [q₁·⟨x − x₁⟩²/2 + k·⟨x − x₁⟩³/6 − q₂·⟨x − x₂⟩²/2 − k·⟨x − x₂⟩³/6],  k = (q₂ − q₁)/(x₂ − x₁) | N·mm | Gross/Hauger TM 2, Kap. 4.5 | Entwurf |
+| B-LL-MX | Größtes Biegemoment | \|M\|_max über Segmentränder und Nullstellen von Q(x) | N·mm | Extremwertsuche, Bisektion 80 Schritte | Entwurf |
+| B-LL-QX | Größte Querkraft | \|Q\|_max über Segmentränder und Nullstellen von q(x) | N | Extremwertsuche | Entwurf |
+| B-LL-R | Lagerkraft links (Randwertproblem) | A, M_A, C₁, C₂ aus 4 Randbedingungen der Lagerung, lineares 4×4-System | N | Gross/Hauger TM 2, Kap. 4.5 und 4.6 | Entwurf |
+| B-LL-W | Biegelinie an der Stelle x_f | E·I·w(x) = −∬M dx dx + C₁·x + C₂ | mm | Gross/Hauger TM 2, Kap. 4.5 | Entwurf |
 | B-M-BQ | Größtes Biegemoment | M_max = q·L²/12 (Einspannung) | N·mm | Ashby App. A.3; Roark Tab. 8.1 Fall 2d | freigegeben (2026-10-08, Seti) |
 | B-M-E4 | Größtes Biegemoment | M_max = F·a | N·mm | Roark Tab. 8.1 Fall 1e, Superposition | freigegeben (2026-10-08, Seti) |
 | B-M-EE | Größtes Biegemoment | M_max = F·L/4 | N·mm | Ashby App. A.3; Roark Tab. 8.1 Fall 1e | freigegeben (2026-10-08, Seti) |
