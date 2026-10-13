@@ -3860,5 +3860,2017 @@
    "designOk": 0.0
   },
   "tol": 0
+ },
+ {
+  "id": "V KR Blevins Tab. 8.1",
+  "case": {
+   "id": "V KR Blevins Tab. 8.1",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 1.875104,
+   "betaL2": 4.694091,
+   "betaL3": 7.854757
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V KR Wurzeln brentq",
+  "case": {
+   "id": "V KR Wurzeln brentq",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 1.8751040687119611,
+   "betaL2": 4.694091132974175,
+   "betaL3": 7.854757438237613,
+   "f1": 39.27567347069076,
+   "f2": 246.13644415591784,
+   "f3": 689.1891707829328
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "V KR FE",
+  "case": {
+   "id": "V KR FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 39.27479800251723,
+   "f2": 246.13630078524395,
+   "node2_1": 940.1334591226873,
+   "f3": 689.1891506652696,
+   "node3_1": 604.2574485919741,
+   "node3_2": 1041.2131101469395
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "V KR FE Form",
+  "case": {
+   "id": "V KR FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 1200.0,
+   "p3_1": 0.13648294073021633,
+   "p7_1": 0.5908763016506143,
+   "xMax2": 1200.0,
+   "p3_2": 0.5261329076875627,
+   "p7_2": 0.3170517945796351,
+   "xMax3": 1200.0,
+   "p3_3": 0.7562393613642824,
+   "p7_3": -0.6574259247885189
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "V KR Rayleigh FE",
+  "case": {
+   "id": "V KR Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 39.43289967869025
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V GG Blevins Tab. 8.1",
+  "case": {
+   "id": "V GG Blevins Tab. 8.1",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 3.141592653589793,
+   "betaL2": 6.283185307179586,
+   "betaL3": 9.42477796076938
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V GG Wurzeln brentq",
+  "case": {
+   "id": "V GG Wurzeln brentq",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 3.141592653589793,
+   "betaL2": 6.283185307179586,
+   "betaL3": 9.42477796076938,
+   "f1": 110.24848589677318,
+   "f2": 440.9939435870927,
+   "f3": 992.2363730709586
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "V GG FE",
+  "case": {
+   "id": "V GG FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 110.24845446083579,
+   "f2": 440.99395279735455,
+   "node2_1": 600.0000090312591,
+   "f3": 992.2363661529836,
+   "node3_1": 400.00000005922305,
+   "node3_2": 800.0000001432134
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "V GG FE Form",
+  "case": {
+   "id": "V GG FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 600.0,
+   "p3_1": 0.80901695042133,
+   "p7_1": 0.8090170324792676,
+   "xMax2": 300.0,
+   "p3_2": 0.951056522382716,
+   "p7_2": -0.951056460299096,
+   "xMax3": 200.01,
+   "p3_3": 0.30901699624854834,
+   "p7_3": 0.30901699279589045
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "V GG Rayleigh FE",
+  "case": {
+   "id": "V GG Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 110.32728592785797
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V EG Blevins Tab. 8.1",
+  "case": {
+   "id": "V EG Blevins Tab. 8.1",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 3.926602,
+   "betaL2": 7.068583,
+   "betaL3": 10.210176
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V EG Wurzeln brentq",
+  "case": {
+   "id": "V EG Wurzeln brentq",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 3.9266023120479185,
+   "betaL2": 7.068582745628732,
+   "betaL3": 10.210176122813031,
+   "f1": 172.22917621241277,
+   "f2": 558.1328453690746,
+   "f3": 1164.499631975858
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "V EG FE",
+  "case": {
+   "id": "V EG FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 172.22917163035638,
+   "f2": 558.1328693865681,
+   "node2_1": 668.9951636089994,
+   "f3": 1164.499644708478,
+   "node3_1": 463.15358649229063,
+   "node3_2": 830.6985598029707
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "V EG FE Form",
+  "case": {
+   "id": "V EG FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 697.02,
+   "p3_1": 0.5622218393710632,
+   "p7_1": 0.904422858231079,
+   "xMax2": 387.75,
+   "p3_2": 0.9885592148262418,
+   "p7_2": -0.7926614700001301,
+   "xMax3": 268.44,
+   "p3_3": 0.7419446224184063,
+   "p7_3": 0.07388450268106814
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "V EG Rayleigh FE",
+  "case": {
+   "id": "V EG Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 172.5967489327195
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V EE Blevins Tab. 8.1",
+  "case": {
+   "id": "V EE Blevins Tab. 8.1",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 4.730041,
+   "betaL2": 7.853205,
+   "betaL3": 10.995608
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V EE Wurzeln brentq",
+  "case": {
+   "id": "V EE Wurzeln brentq",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 4.730040744862704,
+   "betaL2": 7.853204624095838,
+   "betaL3": 10.995607838001671,
+   "f1": 249.92094363101478,
+   "f2": 688.9167048496512,
+   "f3": 1350.5521939895193
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "V EE FE",
+  "case": {
+   "id": "V EE FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 249.92093784880524,
+   "f2": 688.9167204436981,
+   "node2_1": 600.0000013452388,
+   "f3": 1350.5521965488028,
+   "node3_1": 430.1374441866943,
+   "node3_2": 769.8625557516913
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "V EE FE Form",
+  "case": {
+   "id": "V EE FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 600.0,
+   "p3_1": 0.6901126766873464,
+   "p7_1": 0.6901126905828325,
+   "xMax2": 348.51,
+   "p3_2": 0.9975338122894956,
+   "p7_2": -0.9975338032060794,
+   "xMax3": 249.29999999999998,
+   "p3_3": 0.5742864234925247,
+   "p7_3": 0.5742864235163768
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "V EE Rayleigh FE",
+  "case": {
+   "id": "V EE Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 250.7772621770893
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "F1 KR Konzept",
+  "case": {
+   "id": "F1 KR Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "betaL1": 1.875104,
+   "f1": 39.28,
+   "f2": 246.14
+  },
+  "tol": 0.0002
+ },
+ {
+  "id": "F2 GG Konzept",
+  "case": {
+   "id": "F2 GG Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 110.25
+  },
+  "tol": 0.0002
+ },
+ {
+  "id": "F3 EG Konzept",
+  "case": {
+   "id": "F3 EG Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 172.23,
+   "f2": 558.13
+  },
+  "tol": 0.0002
+ },
+ {
+  "id": "F4 EE Konzept",
+  "case": {
+   "id": "F4 EE Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 249.92,
+   "f2": 688.92
+  },
+  "tol": 0.0002
+ },
+ {
+  "id": "F5 KR Zusatzmasse",
+  "case": {
+   "id": "F5 KR Zusatzmasse",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 1.9000352368911069,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 27.77209504679402,
+   "f2": 174.04474875979346
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "F5 Konzept",
+  "case": {
+   "id": "F5 Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 1.9000352368911069,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 27.77
+  },
+  "tol": 0.0002
+ },
+ {
+  "id": "F5 KR Zusatzmasse FE",
+  "case": {
+   "id": "F5 KR Zusatzmasse FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 1.9000352368911069,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 27.772538590595094,
+   "f2": 174.04481693753186,
+   "node2_1": 940.1334476357068,
+   "f3": 487.3303143091984,
+   "node3_1": 604.2574436679192,
+   "node3_2": 1041.213109476411
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "F5 KR Zusatzmasse FE Form",
+  "case": {
+   "id": "F5 KR Zusatzmasse FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 1.9000352368911069,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 1200.0,
+   "p3_1": 0.13648297661379416,
+   "p7_1": 0.5908763347548663,
+   "xMax2": 1200.0,
+   "p3_2": 0.5261329051825564,
+   "p7_2": 0.3170517462517635,
+   "xMax3": 1200.0,
+   "p3_3": 0.7562393451126705,
+   "p7_3": -0.6574259280183232
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "F5 KR Zusatzmasse Rayleigh FE",
+  "case": {
+   "id": "F5 KR Zusatzmasse Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 1.9000352368911069,
+     "fmin": 30.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 27.883270764650703
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "F6 Bemessen formtreu",
+  "case": {
+   "id": "F6 Bemessen formtreu",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 80.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": true
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 1.0,
+   "s": 2.0368842321621683,
+   "f1Raw": 80.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "F6b Bemessen mit Zusatzmasse (Bisektion)",
+  "case": {
+   "id": "F6b Bemessen mit Zusatzmasse (Bisektion)",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 5.0,
+     "fmin": 80.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": true
+  },
+  "expect": {
+   "designOk": 1.0,
+   "closedForm": 0.0,
+   "s": 2.444564444826344,
+   "f1Raw": 80.0
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "F6c Bemessen Konzept",
+  "case": {
+   "id": "F6c Bemessen Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "KR",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": 80.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": true
+  },
+  "expect": {
+   "s": 2.0368
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "F7 Resonanzabstand",
+  "case": {
+   "id": "F7 Resonanzabstand",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": null,
+     "ferr": 100.0,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "delta": 9.295806480615926,
+   "uRes": 2.151507783827577,
+   "util": 2.151507783827577
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "F7 Konzept",
+  "case": {
+   "id": "F7 Konzept",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "GG",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 60,
+     "t": 4
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 0.0,
+     "fmin": null,
+     "ferr": 100.0,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "delta": 9.3
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "V EE Stahl Rechteck FE",
+  "case": {
+   "id": "V EE Stahl Rechteck FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 800,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 3.0,
+     "fmin": 100.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 273.3505671241867,
+   "f2": 753.501327874987,
+   "node2_1": 400.0000022592051,
+   "f3": 1477.1638320575046,
+   "node3_1": 286.7582968096419,
+   "node3_2": 513.2417039805782
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "V EE Stahl Rechteck FE Form",
+  "case": {
+   "id": "V EE Stahl Rechteck FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 800,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 3.0,
+     "fmin": 100.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 400.0,
+   "p3_1": 0.6901126646311619,
+   "p7_1": 0.6901126966908966,
+   "xMax2": 232.34,
+   "p3_2": 0.9975338129090248,
+   "p7_2": -0.9975337917082147,
+   "xMax3": 166.20000000000002,
+   "p3_3": 0.5742864308794233,
+   "p7_3": 0.5742864217157032
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "V EE Stahl Rechteck Rayleigh FE",
+  "case": {
+   "id": "V EE Stahl Rechteck Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EE",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 800,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 3.0,
+     "fmin": 100.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 274.28714050034586
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "V EG Stahl Rechteck FE",
+  "case": {
+   "id": "V EG Stahl Rechteck FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 800,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 3.0,
+     "fmin": 100.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "f1": 188.37541220970013,
+   "f2": 610.4566988607671,
+   "node2_1": 445.99677756657314,
+   "f3": 1273.6691938916983,
+   "node3_1": 308.76905897370654,
+   "node3_2": 553.7990405292596
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "V EG Stahl Rechteck FE Form",
+  "case": {
+   "id": "V EG Stahl Rechteck FE Form",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 800,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 3.0,
+     "fmin": 100.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "xMax1": 464.68,
+   "p3_1": 0.5622218286055803,
+   "p7_1": 0.9044228598599564,
+   "xMax2": 258.5,
+   "p3_2": 0.988559211734197,
+   "p7_2": -0.7926614675135916,
+   "xMax3": 178.96,
+   "p3_3": 0.741944629863345,
+   "p7_3": 0.07388449415743313
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "V EG Stahl Rechteck Rayleigh FE",
+  "case": {
+   "id": "V EG Stahl Rechteck Rayleigh FE",
+   "type": "vibration",
+   "inp": {
+    "mode": "single",
+    "kind": "FQ",
+    "sub": "EG",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 800,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "vibration": {
+     "mz": 3.0,
+     "fmin": 100.0,
+     "ferr": null,
+     "dmin": 20.0
+    }
+   },
+   "design": false
+  },
+  "expect": {
+   "fR": 188.777357045317
+  },
+  "tol": 1e-06
  }
 ]

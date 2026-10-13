@@ -165,3 +165,12 @@ export function sectionProps(type: SecType, dims: Dims): SectionProps {
 function empty(errors: string[]): SectionProps {
   return { A: NaN, I: NaN, Imin: NaN, e: NaN, W: NaN, K: NaN, Wt: NaN, i: NaN, kappa: NaN, phiBe: NaN, phiBf: NaN, phiTe: NaN, phiTf: NaN, trace: [], errors, notes: [] };
 }
+
+/** Höhe des Querschnitts in Lastrichtung (senkrecht) in mm, für die Schlankheit L/h (Eigenfrequenz, Hinweis Timoshenko). */
+export function sectionHeight(type: SecType, dims: Dims): number {
+  switch (type) {
+    case "rund_voll": case "rund_hohl": return need(dims, "D");
+    case "rechteck_voll": case "rechteck_hohl": return need(dims, "h");
+    case "dreieck_voll": case "dreieck_hohl": return need(dims, "a") * SQ3 / 2;
+  }
+}

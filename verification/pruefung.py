@@ -319,11 +319,109 @@ pb_design('D7f Bemessen mit Außendruck (Bisektion)', 'ZG', 'ZY', True, 'inner',
 cases.append(dict(id='D8 Bemessen ohne Lösung', type='pressure', design=True, inp=pb_inp('ZG', 110.0, 1.0, 120.0, 0, dim='outer', SF=1.3, SB=1.5))); ref['D8 Bemessen ohne Lösung'] = (dict(designOk=0.0), 0)
 cases.append(dict(id='D8b Bemessen ohne Lösung Kugel', type='pressure', design=True, inp=pb_inp('KU', 100.0, 1.0, 140.0, 0, dim='inner', SF=1.3, SB=1.5))); ref['D8b Bemessen ohne Lösung Kugel'] = (dict(designOk=0.0), 0)
 
+# ---------------- Eigenfrequenz (eng-core 0.6.1) ----------------
+# Unabhängig vom Kern (Wurzeln der Frequenzgleichung, geschlossene Eigenformen): Finite Elemente mit
+# Euler-Bernoulli-Balkenelementen (kubische Hermite-Ansatzfunktionen, konsistente Massenmatrix), 200 Elemente,
+# verallgemeinertes Eigenwertproblem K·x = ω²·M·x mit scipy.linalg.eigh. Einheiten N, mm, t, s.
+# Eigenform aus dem FE-Vektor mit Hermite-Interpolation (w und w′ je Knoten), normiert auf max |w| = 1, erste Halbwelle positiv.
+# Zusätzlich: Literaturwerte Blevins Tab. 8.1 (β_nL), eigene Wurzeln mit brentq, Rayleigh-Quotient aus der statischen
+# FE-Lösung unter Eigengewicht (uᵀ·K·u / uᵀ·M·u, obere Schranke).
+from scipy.linalg import eigh
+NE_FE = 200
+FIXED = {'KR': ('w0', 't0'), 'GG': ('w0', 'wN'), 'EG': ('w0', 't0', 'wN'), 'EE': ('w0', 't0', 'wN', 'tN')}
+def fe_matrices(L_, EI_, m_, ne=NE_FE):
+    h = L_ / ne; nd = 2 * (ne + 1); K = np.zeros((nd, nd)); M = np.zeros((nd, nd)); F = np.zeros(nd)
+    ke = EI_ / h**3 * np.array([[12, 6 * h, -12, 6 * h], [6 * h, 4 * h * h, -6 * h, 2 * h * h], [-12, -6 * h, 12, -6 * h], [6 * h, 2 * h * h, -6 * h, 4 * h * h]])
+    me = m_ * h / 420 * np.array([[156, 22 * h, 54, -13 * h], [22 * h, 4 * h * h, 13 * h, -3 * h * h], [54, 13 * h, 156, -22 * h], [-13 * h, -3 * h * h, -22 * h, 4 * h * h]])
+    fe = np.array([h / 2, h * h / 12, h / 2, -h * h / 12])   # konsistente Knotenlasten für q = 1
+    for e in range(ne):
+        d = slice(2 * e, 2 * e + 4); K[d, d] += ke; M[d, d] += me; F[d] += fe
+    return K, M, F, h
+def fe_free(sup, ne=NE_FE):
+    fx = {'w0': 0, 't0': 1, 'wN': 2 * ne, 'tN': 2 * ne + 1}
+    bad = {fx[k] for k in FIXED[sup]}; return [i for i in range(2 * (ne + 1)) if i not in bad]
+def hermite_w(vec, h, xs):
+    """w(x) aus Knotenwerten (w, w′) mit Hermite-Polynomen, xs als Array."""
+    e = np.minimum((xs / h).astype(int), len(vec) // 2 - 2); xi = xs / h - e
+    w0, t0, w1, t1 = vec[2 * e], vec[2 * e + 1], vec[2 * e + 2], vec[2 * e + 3]
+    return (1 - 3 * xi**2 + 2 * xi**3) * w0 + h * (xi - 2 * xi**2 + xi**3) * t0 + (3 * xi**2 - 2 * xi**3) * w1 + h * (-xi**2 + xi**3) * t1
+def fe_modes(sup, L_, EI_, m_, nm=3):
+    K, M, F, h = fe_matrices(L_, EI_, m_); fr = fe_free(sup)
+    lam, V = eigh(K[np.ix_(fr, fr)], M[np.ix_(fr, fr)], subset_by_index=[0, nm - 1])
+    xs = np.linspace(0, L_, 200 * NE_FE + 1); out = []
+    for j in range(nm):
+        vec = np.zeros(K.shape[0]); vec[fr] = V[:, j]; w = hermite_w(vec, h, xs)
+        k0 = int(np.argmax(np.abs(w) > 1e-6 * np.abs(w).max())); w = w * np.sign(w[k0]) / np.abs(w).max()   # erste Halbwelle positiv, max |w| = 1
+        sc = np.where(np.sign(w[1:-1]) * np.sign(w[2:]) < 0)[0] + 1                        # innere Vorzeichenwechsel
+        nodes = [xs[i] - w[i] * (xs[i + 1] - xs[i]) / (w[i + 1] - w[i]) for i in sc if 0.01 * L_ < xs[i] < 0.99 * L_]
+        aw = np.abs(w); loc = [i for i in range(len(aw)) if (i == 0 or aw[i] >= aw[i - 1]) and (i == len(aw) - 1 or aw[i] >= aw[i + 1])]
+        k = next(i for i in loc if aw[i] >= aw.max() * (1 - 1e-6))   # erster größter Ausschlag von links (gleich große Ausschläge)
+        out.append(dict(f=math.sqrt(lam[j]) / (2 * math.pi), nodes=nodes, xMax=xs[k], p3=np.interp(0.3 * L_, xs, w), p7=np.interp(0.7 * L_, xs, w)))
+    # Rayleigh: statische FE-Lösung unter q = m′·g, Quotient uᵀKu / uᵀMu
+    q = m_ * 9810.0; u = np.zeros(K.shape[0]); u[fr] = np.linalg.solve(K[np.ix_(fr, fr)], q * F[fr])
+    fR = math.sqrt(u @ K @ u / (u @ M @ u)) / (2 * math.pi)
+    return out, fR
+BLEVINS = {'KR': (1.875104, 4.694091, 7.854757), 'GG': (math.pi, 2 * math.pi, 3 * math.pi), 'EG': (3.926602, 7.068583, 10.210176), 'EE': (4.730041, 7.853205, 10.995608)}
+EQ_PY = {'KR': lambda x: math.cos(x) * math.cosh(x) + 1, 'GG': lambda x: math.sin(x), 'EG': lambda x: math.tan(x) - math.tanh(x), 'EE': lambda x: math.cos(x) * math.cosh(x) - 1}
+def roots_py(sup):
+    """Eigene Wurzeln der ungeteilten Frequenzgleichung (brentq), Klammern aus den Literaturwerten ± 0,1."""
+    return [brentq(EQ_PY[sup], b - 0.1, b + 0.1, xtol=1e-15, rtol=4 * np.finfo(float).eps) for b in BLEVINS[sup]]
+def fq_inp(sup, mz=0.0, fmin=None, ferr=None, dmin=20.0, **over):
+    return {**base, 'kind': 'FQ', 'sub': sup, 'vibration': dict(mz=mz, fmin=fmin, ferr=ferr, dmin=dmin), **over}
+def fq_case(id_, inp, vals, tol, design=False):
+    cases.append(dict(id=id_, type='vibration', inp=inp, design=design)); ref[id_] = (vals, tol)
+FQ_RQ = []
+def fq_fe(id_, sup, L_, EI_, m_, inp):
+    modes, fR = fe_modes(sup, L_, EI_, m_); vals = {}
+    for j, md in enumerate(modes, 1):
+        vals[f'f{j}'] = md['f']; vals[f'xMax{j}'] = md['xMax']; vals[f'p3_{j}'] = md['p3']; vals[f'p7_{j}'] = md['p7']
+        for i, x in enumerate(md['nodes']): vals[f'node{j}_{i + 1}'] = x
+        if len(md['nodes']) != j - 1: print(f'WARNUNG Knotenzahl {id_} Form {j}: {len(md["nodes"])}')
+    fq_case(id_ + ' FE', inp, {k: v for k, v in vals.items() if not k.startswith('xMax') and not k.startswith('p')}, 1e-3)   # f_n und Knoten, Toleranz 0,1 %
+    fq_case(id_ + ' FE Form', inp, {k: v for k, v in vals.items() if k.startswith('xMax') or k.startswith('p')}, 1e-4)   # Eigenform, Ort des größten Ausschlags
+    fq_case(id_ + ' Rayleigh FE', inp, dict(fR=fR), 1e-6)
+    FQ_RQ.append(id_ + ' Rayleigh FE')
+EIF = E_AL * Ii; mF = RHO_AL * 1e-12 * A2                    # F1 bis F7: EN AW-6082, Rund hohl 60 × 4, L = 1200 mm
+def f_py(bl, EI_=EIF, m_=mF, L_=L): return bl**2 / L_**2 * math.sqrt(EI_ / m_) / (2 * math.pi)
+for sup in ('KR', 'GG', 'EG', 'EE'):
+    fq_case(f'V {sup} Blevins Tab. 8.1', fq_inp(sup, fmin=30.0), {f'betaL{j}': b for j, b in enumerate(BLEVINS[sup], 1)}, 1e-6)
+    rp = roots_py(sup); fq_case(f'V {sup} Wurzeln brentq', fq_inp(sup, fmin=30.0), {f'betaL{j}': b for j, b in enumerate(rp, 1)} | {f'f{j}': f_py(b) for j, b in enumerate(rp, 1)}, 1e-12)
+    fq_fe(f'V {sup}', sup, L, EIF, mF, fq_inp(sup, fmin=30.0))
+# Prüffälle des Konzepts (von Hand, 4 bis 5 Stellen)
+fq_case('F1 KR Konzept', fq_inp('KR', fmin=30.0), dict(betaL1=1.875104, f1=39.28, f2=246.14), 2e-4)
+fq_case('F2 GG Konzept', fq_inp('GG', fmin=30.0), dict(f1=110.25), 2e-4)
+fq_case('F3 EG Konzept', fq_inp('EG', fmin=30.0), dict(f1=172.23, f2=558.13), 2e-4)
+fq_case('F4 EE Konzept', fq_inp('EE', fmin=30.0), dict(f1=249.92, f2=688.92), 2e-4)
+# F5: Zusatzmasse m_z = ρ·A (Masse verdoppelt) → f₁ / √2
+mzF5 = RHO_AL * A2 * 1e-6
+fq_case('F5 KR Zusatzmasse', fq_inp('KR', mz=mzF5, fmin=30.0), dict(f1=f_py(roots_py('KR')[0]) / math.sqrt(2), f2=f_py(roots_py('KR')[1]) / math.sqrt(2)), 1e-9)
+fq_case('F5 Konzept', fq_inp('KR', mz=mzF5, fmin=30.0), dict(f1=27.77), 2e-4)
+fq_fe('F5 KR Zusatzmasse', 'KR', L, EIF, 2 * mF, fq_inp('KR', mz=mzF5, fmin=30.0))
+# F6: Bemessen formtreu, KR, f_min = 80 Hz: s = f_min / f₁, f₁(s) = 80 Hz (m_z = 0 geschlossen, m_z = 5 kg/m Bisektion)
+f1KR = f_py(roots_py('KR')[0])
+fq_case('F6 Bemessen formtreu', fq_inp('KR', fmin=80.0), dict(designOk=1.0, closedForm=1.0, s=80.0 / f1KR, f1Raw=80.0), 1e-9, design=True)
+def f1_scaled(s_, mz_):   # eigene Skalierung: I ∝ s⁴, A ∝ s², m′ = ρ·A·s²·10⁻¹² + m_z·10⁻⁶
+    return roots_py('KR')[0]**2 / L**2 * math.sqrt(E_AL * Ii * s_**4 / (RHO_AL * 1e-12 * A2 * s_**2 + mz_ * 1e-6)) / (2 * math.pi)
+s6b = brentq(lambda s_: f1_scaled(s_, 5.0) - 80.0, 0.5, 10, xtol=1e-15)
+fq_case('F6b Bemessen mit Zusatzmasse (Bisektion)', fq_inp('KR', mz=5.0, fmin=80.0), dict(designOk=1.0, closedForm=0.0, s=s6b, f1Raw=80.0), 1e-6, design=True)
+fq_case('F6c Bemessen Konzept', fq_inp('KR', fmin=80.0), dict(s=2.0368), 1e-4, design=True)
+# F7: Resonanzabstand GG, f_err = 100 Hz: Δ = |f_err − f₁| / f₁ = 9,3 % < 20 % → nicht erfüllt (u = Δ_min / Δ > 1)
+f1GG = f_py(math.pi); d7 = abs(100.0 - f1GG) / f1GG * 100
+fq_case('F7 Resonanzabstand', fq_inp('GG', ferr=100.0), dict(delta=d7, uRes=20.0 / d7, util=20.0 / d7), 1e-9)
+fq_case('F7 Konzept', fq_inp('GG', ferr=100.0), dict(delta=9.3), 2e-3)
+# weiterer Fall: Stahl W001 (E 210 GPa, ρ 7850), Rechteck voll 20 × 40, L = 800 mm, EE mit m_z = 3 kg/m (I_min < I: Hinweis)
+I8 = 20 * 40**3 / 12; A8 = 800.0
+fq_fe('V EE Stahl Rechteck', 'EE', 800.0, 210000.0 * I8, 7850.0 * 1e-12 * A8 + 3e-6, fq_inp('EE', mz=3.0, fmin=100.0, materialId='W001', secType='rechteck_voll', dims={'b': 20, 'h': 40}, L=800))
+fq_fe('V EG Stahl Rechteck', 'EG', 800.0, 210000.0 * I8, 7850.0 * 1e-12 * A8 + 3e-6, fq_inp('EG', mz=3.0, fmin=100.0, materialId='W001', secType='rechteck_voll', dims={'b': 20, 'h': 40}, L=800))
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)
 for id_, shape, closed, dim, r0, pi, pa, tl in DES:
     rid = id_ + ' Rückeinsetzen'; out[rid] = dict(u=util_py(shape, closed, dim, r0, out[id_]['tErf'], pi, pa)); ref[rid] = (dict(u=1.0), tl)
+# Rayleigh obere Schranke: f_R ≥ f₁ und f_R / f₁ ≤ 1,02 (Kernwerte), als Kennzahl 1 = erfüllt
+for id_ in FQ_RQ:
+    o = out[id_]; rid = id_.replace('Rayleigh FE', 'Rayleigh Schranke'); out[rid] = dict(rqOk=float(o['fR'] >= o['f1'] * (1 - 1e-12) and o['fR'] / o['f1'] <= 1.02)); ref[rid] = (dict(rqOk=1.0), 0)
 rows, fails = [], 0
 for id_, (vals, tol) in ref.items():
     for k, v in vals.items():

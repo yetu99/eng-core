@@ -22,6 +22,7 @@ export type DesignResult =
 
 /** @param dimKey "formtreu" (alle Maße proportional) oder Schlüssel eines einzelnen Maßes */
 export function designSize(repo: Repo, inp: StrengthInput, dimKey: string): DesignResult {
+  if (inp.mode === "single" && inp.kind === "FQ") return designFrequency(repo, inp, dimKey);
   const base: Dims = { ...inp.dims };
   const proportional = dimKey === "formtreu";
   if (!proportional && !(dimKey in base)) return { ok: false, message: `Unbekanntes Maß ${dimKey}`, trace: [] };
@@ -73,4 +74,48 @@ export function designPressureStrength(repo: Repo, inp: StrengthInput): Pressure
   const result = computeStrength(repo, { ...inp, pressure: { ...inp.pressure, t: d.tGew } });
   const T = [...d.steps, step("D-U", "Ausnutzung mit gewählten Maßen", "u = max(S_erf / S)", result.governing ? `maßgebend: ${result.governing}` : "", result.util * 100, "%")];
   return { ok: true, tErf: d.tErf, tGew: d.tGew, closedForm: d.closedForm, result, trace: T };
+}
+
+/**
+ * Bemessen Eigenfrequenz (kind = "FQ", Konzept V2-A U9, V-B): kleinster formtreuer Faktor s mit f₁(s) = f_min.
+ * Ohne Zusatzmasse geschlossen: E·I ∝ s⁴, m′ ∝ s², also f₁ ∝ s und s = f_min / f₁(1).
+ * Mit Zusatzmasse (m_z > 0) kein Potenzgesetz: Bisektion im log-Raum auf [0,02; 50], 60 Schritte (f₁ steigt mit s).
+ * Danach Aufrunden auf das Fertigungsraster wie Blatt 1 und Nachrechnung. Nur formtreu: bei einem einzelnen Maß
+ * ist f₁ nicht monoton (z. B. sinkt f₁ beim Rohr mit wachsender Wandstärke). Der Resonanzabstand wird nur nachgerechnet.
+ */
+function designFrequency(repo: Repo, inp: StrengthInput, dimKey: string): DesignResult {
+  const T: CalcStep[] = [];
+  if (dimKey !== "formtreu") return { ok: false, trace: T, message: "Eigenfrequenz: nur formtreu bemessen (f₁ ist bei einem einzelnen Maß nicht monoton)" };
+  const v = inp.vibration;
+  if (!v || v.fmin === null) return { ok: false, trace: T, message: "Bemessen Eigenfrequenz braucht eine Mindestfrequenz f_min" };
+  const fmin = v.fmin;
+  const base: Dims = { ...inp.dims };
+  const dimsAt = (s: number): Dims => Object.fromEntries(Object.entries(base).map(([k, x]) => [k, x * s]));
+  const f1At = (s: number): number => { const r = computeStrength(repo, { ...inp, dims: dimsAt(s) }); return r.errors.length || !r.vibration ? NaN : (r.vibration.modes[0]?.f ?? NaN); };
+  const f0 = f1At(1);
+  if (!Number.isFinite(f0)) { const r = computeStrength(repo, inp); return { ok: false, trace: T, message: r.errors.join("; ") || "Eigenfrequenz nicht berechenbar" }; }
+  let s: number;
+  if (v.mz === 0) {
+    s = fmin / f0;
+    T.push(step("V-B", "Formtreuer Faktor für f₁ = f_min", "s = f_min / f₁ (formtreu, m_z = 0: E·I ∝ s⁴, m′ ∝ s², f₁ ∝ s);  mit m_z > 0: f₁(s) = f_min, Bisektion im log-Raum, 60 Schritte",
+      `${fmt(fmin)} / ${fmt(f0)} = ${fmt(s, 6)}`, s, "–", "Konzept V2-A U9, wie D-BIS"));
+  } else {
+    let lo = Math.log(DESIGN_RANGE[0]), hi = Math.log(DESIGN_RANGE[1]);
+    if (!(f1At(Math.exp(hi)) >= fmin)) return { ok: false, trace: T, message: "Keine Lösung bis zum 50-fachen Ausgangsmaß (Zusatzmasse zu groß)" };
+    if (f1At(Math.exp(lo)) >= fmin) hi = lo;
+    else for (let i = 0; i < DESIGN_STEPS; i++) { const m = (lo + hi) / 2; if (f1At(Math.exp(m)) < fmin) lo = m; else hi = m; }
+    s = Math.exp(hi);
+    T.push(step("V-B", "Formtreuer Faktor für f₁ = f_min", "s = f_min / f₁ (formtreu, m_z = 0: E·I ∝ s⁴, m′ ∝ s², f₁ ∝ s);  mit m_z > 0: f₁(s) = f_min, Bisektion im log-Raum, 60 Schritte",
+      `m_z = ${fmt(v.mz)} kg/m > 0: s ∈ [${fmt(DESIGN_RANGE[0])}; ${fmt(DESIGN_RANGE[1])}], ${DESIGN_STEPS} Schritte, f₁(s) = ${fmt(f1At(s), 6)} Hz`, s, "–", "Konzept V2-A U9, deterministisch, feste Schrittzahl"));
+  }
+  const raw = dimsAt(s);
+  const grid = (k: string) => (k === "t" ? 0.5 : 1);
+  const dims: Dims = Object.fromEntries(Object.entries(raw).map(([k, x]) => [k, Math.ceil(x / grid(k) - 1e-9) * grid(k)]));
+  const result = computeStrength(repo, { ...inp, dims });
+  for (const [k, x] of Object.entries(raw)) T.push(step(`D-ERF-${k}`, `Erforderliches Maß ${k}`, `${k}_erf = ${k}₀·s`, `${fmt(base[k] ?? NaN)}·${fmt(s)}`, x, "mm"));
+  for (const [k, x] of Object.entries(dims)) T.push(step(`D-GEW-${k}`, `Gewähltes Maß ${k}`, `${k} aufgerundet auf ${grid(k) === 1 ? "1" : "0,5"} mm`, `${fmt(raw[k] ?? NaN)} → ${fmt(x)}`, x, "mm", "Fertigungsraster"));
+  T.push(step("D-U", "Ausnutzung mit gewählten Maßen", "u = max(S_erf / S)", result.governing ? `maßgebend: ${result.governing}` : "", result.util * 100, "%"));
+  const f1 = result.vibration?.modes[0]?.f ?? NaN;
+  if (f1 < fmin * (1 - 1e-12)) result.warnings.push(`Rundung auf das Fertigungsraster senkt f₁ auf ${fmt(f1)} Hz < f_min, Maße von Hand anpassen`);
+  return { ok: true, s, raw, dims, result, trace: T };
 }

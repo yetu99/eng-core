@@ -1,8 +1,8 @@
 {
- "core": "0.6.0",
+ "core": "0.6.1",
  "data": "WDB 1.0.1",
- "formulas": 174,
- "approved": 174,
+ "formulas": 192,
+ "approved": 192,
  "items": [
   {
    "id": "A-IX-BA-F-K",
@@ -2742,6 +2742,312 @@
    "sort": 1610
   },
   {
+   "id": "V-B",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Formtreuer Faktor für f₁ = f_min",
+   "formula": "s = f_min / f₁ (formtreu, m_z = 0: E·I ∝ s⁴, m′ ∝ s², f₁ ∝ s);  mit m_z > 0: f₁(s) = f_min, Bisektion im log-Raum, 60 Schritte",
+   "unit": "–",
+   "source": "Konzept V2-A U9, wie D-BIS",
+   "example": "80 / 39,28 = 2,03688",
+   "example_result": 2.03688423216,
+   "example_case": "Bemessen formtreu: Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 80 Hz; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1620
+  },
+  {
+   "id": "V-BL",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Wurzeln der Frequenzgleichung",
+   "formula": "β_nL = n-te positive Wurzel der Frequenzgleichung, n = 1, 2, 3;  Einklammerung aus den Vorzeichen an k·π (KR: ((n − 1)π; nπ), GG: ((n − ½)π; (n + ½)π), EG und EE: (nπ; (n + 1)π)), Bisektion 80 Schritte, ohne Startwert",
+   "unit": "–",
+   "source": "deterministisch wie Nullstellensuche Lastliste; Literatur Blevins Tab. 8.1",
+   "example": "β₁L = 1,875104 in (0; 3,1416);  β₂L = 4,694091 in (3,1416; 6,2832);  β₃L = 7,854757 in (6,2832; 9,4248)",
+   "example_result": 1.87510406871,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1630
+  },
+  {
+   "id": "V-CK-EE",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Frequenzgleichung (beidseitig eingespannt)",
+   "formula": "cos(βL)·cosh(βL) − 1 = 0",
+   "unit": "–",
+   "source": "Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0)",
+   "example": "aus det = 0 der Randbedingungen φ(0) = 0, φ′(0) = 0, φ(L) = 0, φ′(L) = 0;  Kontrolle mit β_nL (V-BL), beschränkte Form cos(βL) − 1/cosh(βL): n = 1: -2,7·10⁻¹⁶;  n = 2: -4,1·10⁻¹⁶;  n = 3: 3,9·10⁻¹⁶",
+   "example_result": 4.14598910758e-16,
+   "example_case": "Eigenfrequenz, Beidseitig eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1640
+  },
+  {
+   "id": "V-CK-EG",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Frequenzgleichung (links eingespannt, rechts gelenkig)",
+   "formula": "tan(βL) = tanh(βL)",
+   "unit": "–",
+   "source": "Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0)",
+   "example": "aus det = 0 der Randbedingungen φ(0) = 0, φ′(0) = 0, φ(L) = 0, φ″(L) = 0;  Kontrolle mit β_nL (V-BL), beschränkte Form sin(βL) − cos(βL)·tanh(βL): n = 1: -2,2·10⁻¹⁶;  n = 2: -1,1·10⁻¹⁵;  n = 3: -1,2·10⁻¹⁵",
+   "example_result": 1.22124532709e-15,
+   "example_case": "Eigenfrequenz, Links eingespannt, rechts gelenkig; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1650
+  },
+  {
+   "id": "V-CK-GG",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Frequenzgleichung (gelenkig gelagert)",
+   "formula": "sin(βL) = 0",
+   "unit": "–",
+   "source": "Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0)",
+   "example": "aus det = 0 der Randbedingungen φ(0) = 0, φ″(0) = 0, φ(L) = 0, φ″(L) = 0;  Kontrolle mit β_nL (V-BL), beschränkte Form sin(βL): n = 1: 1,2·10⁻¹⁶;  n = 2: -2,4·10⁻¹⁶;  n = 3: 3,7·10⁻¹⁶",
+   "example_result": 3.67394039744e-16,
+   "example_case": "Eigenfrequenz, Gelenkig gelagert (Fest- und Loslager); m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1660
+  },
+  {
+   "id": "V-CK-KR",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Frequenzgleichung (Kragträger, links eingespannt)",
+   "formula": "cos(βL)·cosh(βL) + 1 = 0",
+   "unit": "–",
+   "source": "Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0)",
+   "example": "aus det = 0 der Randbedingungen φ(0) = 0, φ′(0) = 0, φ″(L) = 0, φ‴(L) = 0;  Kontrolle mit β_nL (V-BL), beschränkte Form cos(βL) + 1/cosh(βL): n = 1: -1,7·10⁻¹⁶;  n = 2: -4,4·10⁻¹⁶;  n = 3: -6,8·10⁻¹⁷",
+   "example_result": 4.37150315946e-16,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1670
+  },
+  {
+   "id": "V-EI",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Biegesteifigkeit",
+   "formula": "E·I",
+   "unit": "N·mm²",
+   "source": null,
+   "example": "70000 MPa · 2,773·10⁵ mm⁴",
+   "example_result": 19408508086.5,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1680
+  },
+  {
+   "id": "V-EW",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Eigenwertgleichung (Ansatz)",
+   "formula": "E·I·w′′′′ + m′·ẅ = 0,  w(x, t) = φ(x)·cos(ωt),  φ(x) = C₁·sin βx + C₂·cos βx + C₃·sinh βx + C₄·cosh βx,  β⁴ = m′·ω²/(E·I)",
+   "unit": "1/mm",
+   "source": "Gross/Hauger TM 4, Kap. 4; Blevins Tab. 8.1",
+   "example": "Kragträger, links eingespannt: φ(0) = 0, φ′(0) = 0, φ″(L) = 0, φ‴(L) = 0;  β₁ = β₁L / L = 1,875104 / 1200 = 0,001563 1/mm",
+   "example_result": 0.00156258672393,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1690
+  },
+  {
+   "id": "V-FN",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Eigenfrequenz",
+   "formula": "f_n = ω_n / (2π)",
+   "unit": "Hz",
+   "source": null,
+   "example": "f₁ = 246,8 / (2π) = 39,28 Hz;  f₂ = 1547 / (2π) = 246,1 Hz;  f₃ = 4330 / (2π) = 689,2 Hz",
+   "example_result": 39.2756734707,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1700
+  },
+  {
+   "id": "V-MB",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Massenbelegung",
+   "formula": "m′ = ρ·A + m_z;  Rechnung in t/mm: ρ[kg/m³]·10⁻¹²·A[mm²] + m_z[kg/m]·10⁻⁶ (1 kg/m³ = 10⁻¹² t/mm³, 1 kg/m = 10⁻⁶ t/mm);  Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ + m_z[kg/m] (1 mm² = 10⁻⁶ m²)",
+   "unit": "t/mm",
+   "source": "Einheitensystem N, mm, t, s (Konzept V2-A P7)",
+   "example": "t/mm: 2700·10⁻¹²·703,7 + 0·10⁻⁶ = 1,9·10⁻⁶ t/mm;  kg/m: 2700·703,7·10⁻⁶ + 0 = 1,9 kg/m",
+   "example_result": 0.00000190003523689,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
+   "sort": 1710
+  },
+  {
+   "id": "V-NR",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Resonanzabstand",
+   "formula": "Δ = |f_err − f₁| / f₁ ≥ Δ_min",
+   "unit": "%",
+   "source": "Konstruktionsregel",
+   "example": "|100 − 39,28| / 39,28 = 155 % ≥ Δ_min = 20 %",
+   "example_result": 154.61052902,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1720
+  },
+  {
+   "id": "V-NZ",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Nachweis Mindestfrequenz",
+   "formula": "u = f_min / f₁",
+   "unit": "–",
+   "source": "Nachweis f₁ ≥ f_min",
+   "example": "30 / 39,28",
+   "example_result": 0.763831587061,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1730
+  },
+  {
+   "id": "V-OM",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Kreisfrequenz",
+   "formula": "ω_n = (β_nL)² / L²·√(E·I / m′)",
+   "unit": "1/s",
+   "source": "Blevins Tab. 8.1",
+   "example": "ω₁ = 1,875104² / 1200²·√(1,941·10¹⁰ / 1,9·10⁻⁶) = 246,8 1/s;  ω₂ = 4,694091² / 1200²·√(1,941·10¹⁰ / 1,9·10⁻⁶) = 1547 1/s;  ω₃ = 7,854757² / 1200²·√(1,941·10¹⁰ / 1,9·10⁻⁶) = 4330 1/s",
+   "example_result": 246.776334481,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1740
+  },
+  {
+   "id": "V-PH-EE",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Eigenform (beidseitig eingespannt), Ort des größten Ausschlags",
+   "formula": "φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx),  σ = (cosh βL − cos βL)/(sinh βL − sin βL);  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)",
+   "unit": "mm",
+   "source": "Blevins Tab. 8.1",
+   "example": "σ₁ = 0,9825022;  σ₂ = 1,000777;  σ₃ = 0,9999665;  Knoten Form 2: x = 600 mm;  Form 3: x = 430,1 und 769,9 mm;  größter Ausschlag Form 1 bei x = 600 mm",
+   "example_result": 600,
+   "example_case": "Eigenfrequenz, Beidseitig eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1750
+  },
+  {
+   "id": "V-PH-EG",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Eigenform (links eingespannt, rechts gelenkig), Ort des größten Ausschlags",
+   "formula": "φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx) (erfüllt φ(0) = φ′(0) = 0),  σ = (cosh βL − cos βL)/(sinh βL − sin βL) aus φ(L) = 0, gleichwertig σ = (cosh βL + cos βL)/(sinh βL + sin βL) aus φ″(L) = 0 wegen tan βL = tanh βL;  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)",
+   "unit": "mm",
+   "source": "Blevins Tab. 8.1",
+   "example": "σ₁ = 1,000777312 (Kontrolle aus φ″(L) = 0: 1,000777312);  σ₂ = 1,00000145 (Kontrolle aus φ″(L) = 0: 1,00000145);  σ₃ = 1,000000003 (Kontrolle aus φ″(L) = 0: 1,000000003);  Knoten Form 2: x = 669 mm;  Form 3: x = 463,2 und 830,7 mm;  größter Ausschlag Form 1 bei x = 697 mm",
+   "example_result": 697.023417177,
+   "example_case": "Eigenfrequenz, Links eingespannt, rechts gelenkig; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1760
+  },
+  {
+   "id": "V-PH-GG",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Eigenform (gelenkig gelagert), Ort des größten Ausschlags",
+   "formula": "φ_n(x) = sin(nπ·x/L);  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)",
+   "unit": "mm",
+   "source": "Blevins Tab. 8.1",
+   "example": "Sinusform;  Knoten Form 2: x = 600 mm;  Form 3: x = 400 und 800 mm;  größter Ausschlag Form 1 bei x = 600 mm",
+   "example_result": 600,
+   "example_case": "Eigenfrequenz, Gelenkig gelagert (Fest- und Loslager); m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1770
+  },
+  {
+   "id": "V-PH-KR",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Eigenform (Kragträger, links eingespannt), Ort des größten Ausschlags",
+   "formula": "φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx),  σ = (sinh βL − sin βL)/(cosh βL + cos βL);  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)",
+   "unit": "mm",
+   "source": "Blevins Tab. 8.1",
+   "example": "σ₁ = 0,7340955;  σ₂ = 1,018467;  σ₃ = 0,9992245;  Knoten Form 2: x = 940,1 mm;  Form 3: x = 604,3 und 1041 mm;  größter Ausschlag Form 1 bei x = 1200 mm",
+   "example_result": 1200,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1780
+  },
+  {
+   "id": "V-RQ",
+   "area": "Eigenfrequenz",
+   "module": "festigkeit",
+   "quantity": "Rayleigh-Kontrolle (Plausibilität)",
+   "formula": "f_R = 1/(2π)·√(g·∫m′·w dx / ∫m′·w² dx),  w = Biegelinie unter Eigengewicht q = m′·g (Lastliste), m′ konstant;  obere Schranke: f_R ≥ f₁",
+   "unit": "Hz",
+   "source": "Rayleigh 1877; Sollwert 1 ≤ f_R / f₁ ≤ 1,02",
+   "example": "q = 1,9·10⁻⁶·9810 = 0,01864 N/mm;  ∫w dx = 119,5 mm²,  ∫w² dx = 19,09 mm³;  f_R = 1/(2π)·√(9810·119,5 / 19,09) = 39,43 Hz;  f_R / f₁ = 1,004",
+   "example_result": 39.4329001897,
+   "example_case": "Eigenfrequenz, Kragträger, links eingespannt; m_z 0 kg/m; f_min 30 Hz; f_err 100 Hz, Δ_min 20 %; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-13",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1790
+  },
+  {
    "id": "W-BB",
    "area": "Werkstoff und Auslegungswerte",
    "module": "gemeinsam",
@@ -2756,7 +3062,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1620
+   "sort": 1800
   },
   {
    "id": "W-E",
@@ -2773,7 +3079,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1630
+   "sort": 1810
   },
   {
    "id": "W-G",
@@ -2790,7 +3096,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 1640
+   "sort": 1820
   },
   {
    "id": "W-G-DB",
@@ -2807,7 +3113,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1650
+   "sort": 1830
   },
   {
    "id": "W-RHO",
@@ -2824,7 +3130,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1660
+   "sort": 1840
   },
   {
    "id": "W-RM",
@@ -2841,7 +3147,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1670
+   "sort": 1850
   },
   {
    "id": "W-RP",
@@ -2858,7 +3164,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1680
+   "sort": 1860
   },
   {
    "id": "Z-DL",
@@ -2875,7 +3181,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1690
+   "sort": 1870
   },
   {
    "id": "Z-DL2",
@@ -2892,7 +3198,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1700
+   "sort": 1880
   },
   {
    "id": "Z-NMAX",
@@ -2909,7 +3215,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1710
+   "sort": 1890
   },
   {
    "id": "Z-QG",
@@ -2926,7 +3232,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1720
+   "sort": 1900
   },
   {
    "id": "Z-SIG",
@@ -2943,7 +3249,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1730
+   "sort": 1910
   },
   {
    "id": "Z-SIG2",
@@ -2960,7 +3266,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1740
+   "sort": 1920
   }
  ]
 }

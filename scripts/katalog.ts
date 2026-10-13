@@ -5,7 +5,7 @@
  * Aufruf als CLI: npx tsx scripts/katalog.ts --json  → Katalog als JSON auf stdout
  */
 import { readFileSync, existsSync } from "node:fs";
-import { LOADLIST_SUPPORTS, PRESSURE_CASES, isPressureCase, pressureText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
+import { LOADLIST_SUPPORTS, PRESSURE_CASES, VIBRATION_CASES, isPressureCase, isVibrationCase, pressureText, vibrationText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
 
 export interface CatalogEntry {
@@ -16,13 +16,14 @@ export interface CatalogEntry {
 export interface FormulaStatus { status: "freigegeben" | "abgelehnt" | "offen"; datum?: string; durch?: string; kommentar?: string; /** Antwort bzw. Umsetzung durch den Kern-Verantwortlichen */ antwort?: string; /** Formeltext zum Zeitpunkt der Prüfung. */ formel?: string; /** Einwand einer Vorrunde, mit der Freigabe erledigt. */ erledigt?: string }
 export type StatusMap = Record<string, FormulaStatus>;
 
-export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)", P: "Druckbehälter" };
+export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)", P: "Druckbehälter", V: "Eigenfrequenz" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
 function caseText(inp: StrengthInput): string {
   const mat = repo.byId(inp.materialId);
   if (inp.mode === "single" && inp.kind === "PB" && inp.pressure && isPressureCase(inp.sub)) return `Druckbehälter, ${pressureText(inp.sub, inp.pressure)}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; S_F ${inp.SFreq}, S_B ${inp.SBreq}`;
+  if (inp.mode === "single" && inp.kind === "FQ" && inp.vibration && isVibrationCase(inp.sub)) return `${vibrationText(inp.sub, inp.vibration)}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; ${dimsLabel(inp.secType, inp.dims)}; L ${inp.L} mm`;
   const load = inp.mode === "combined" ? `Überlagert (${caseLabel("combined", inp.kind, inp.sub)}, N ${inp.N} kN, T ${inp.T} N·m)` : `${caseLabel("single", inp.kind, inp.sub)}`;
   const ll = inp.sub === "LL" && inp.loadList ? ` (${LOADLIST_SUPPORTS[inp.loadList.support].label}: ${inp.loadList.loads.map((l) => l.kind === "F" ? `F ${l.F} kN bei ${l.x} mm` : l.kind === "M" ? `M ${l.M} N·m bei ${l.x} mm` : `q ${l.q1}…${l.q2} kN/m auf ${l.x1}…${l.x2} mm`).join(", ")}${inp.loadList.selfWeight ? ", mit Eigengewicht" : ""})` : "";
   return `${load}${ll}; ${mat ? `${mat.name} (${inp.materialId})` : inp.materialId}; ${dimsLabel(inp.secType, inp.dims)}; L ${inp.L} mm${ll ? "" : `; F ${inp.F} kN; q ${inp.q} kN/m`}`;
@@ -64,6 +65,16 @@ export function collectCatalog(): CatalogEntry[] {
     const inp = pb(sub, 10, pa, dim, d0, 1, dz); const r = designPressureStrength(repo, inp);
     const txt = `Bemessen Wandstärke: Druckbehälter, ${PRESSURE_CASES[sub].label}; ${dim === "outer" ? "Außendurchmesser" : "Innendurchmesser"} ${d0} mm fest; p_i 10 MPa, p_a ${pa} MPa; EN AW-6082 (W038); S_F ${dz.SFreq}, S_B ${dz.SBreq}`;
     r.trace.forEach((s) => take(s, txt));
+  }
+
+  // Eigenfrequenz (0.6.1): Beispiele wie Prüffälle F1 bis F7 (EN AW-6082, Rund hohl 60 × 4, L = 1200 mm)
+  for (const sub of Object.keys(VIBRATION_CASES)) {
+    const inp: StrengthInput = { ...base, kind: "FQ", sub, vibration: { mz: 0, fmin: 30, ferr: 100, dmin: 20 } };
+    const r = computeStrength(repo, inp); Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, caseText(inp))));
+  }
+  for (const mz of [0, 5]) {
+    const inp: StrengthInput = { ...base, kind: "FQ", sub: "KR", vibration: { mz, fmin: 80, ferr: null, dmin: 20 } };
+    const d = designSize(repo, inp, "formtreu"); d.trace.forEach((s) => take(s, `Bemessen formtreu: ${caseText(inp)}`));
   }
 
   // Blatt 2: alle Materialindizes, Achsenwerte, Form und Rangliste am Beispiel EN AW-6082

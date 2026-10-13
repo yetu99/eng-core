@@ -1003,6 +1003,118 @@
     "antwort": "M_t,max eingeführt: einseitig M_t, beidseitig M_t,A.",
     "formel": "τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A)"
   },
+  "V-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "s = f_min / f₁ (formtreu, m_z = 0: E·I ∝ s⁴, m′ ∝ s², f₁ ∝ s);  mit m_z > 0: f₁(s) = f_min, Bisektion im log-Raum, 60 Schritte"
+  },
+  "V-BL": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "β_nL = n-te positive Wurzel der Frequenzgleichung, n = 1, 2, 3;  Einklammerung aus den Vorzeichen an k·π (KR: ((n − 1)π; nπ), GG: ((n − ½)π; (n + ½)π), EG und EE: (nπ; (n + 1)π)), Bisektion 80 Schritte, ohne Startwert"
+  },
+  "V-CK-EE": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "cos(βL)·cosh(βL) − 1 = 0"
+  },
+  "V-CK-EG": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "tan(βL) = tanh(βL)"
+  },
+  "V-CK-GG": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "sin(βL) = 0"
+  },
+  "V-CK-KR": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "cos(βL)·cosh(βL) + 1 = 0"
+  },
+  "V-EI": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "E·I"
+  },
+  "V-EW": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "E·I·w′′′′ + m′·ẅ = 0,  w(x, t) = φ(x)·cos(ωt),  φ(x) = C₁·sin βx + C₂·cos βx + C₃·sinh βx + C₄·cosh βx,  β⁴ = m′·ω²/(E·I)"
+  },
+  "V-FN": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "f_n = ω_n / (2π)"
+  },
+  "V-MB": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "kommentar": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
+    "antwort": "Rechenweg ist richtig, Text präzisiert. Die Rechnung läuft im System N, mm, t, s und braucht m′ in t/mm, nicht in kg/m: ρ[kg/m³]·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.",
+    "formel": "m′ = ρ·A + m_z;  Rechnung in t/mm: ρ[kg/m³]·10⁻¹²·A[mm²] + m_z[kg/m]·10⁻⁶ (1 kg/m³ = 10⁻¹² t/mm³, 1 kg/m = 10⁻⁶ t/mm);  Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ + m_z[kg/m] (1 mm² = 10⁻⁶ m²)"
+  },
+  "V-NR": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "Δ = |f_err − f₁| / f₁ ≥ Δ_min"
+  },
+  "V-NZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "u = f_min / f₁"
+  },
+  "V-OM": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "ω_n = (β_nL)² / L²·√(E·I / m′)"
+  },
+  "V-PH-EE": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx),  σ = (cosh βL − cos βL)/(sinh βL − sin βL);  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)"
+  },
+  "V-PH-EG": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "erledigt": "Da ein links eingespannter und rechts gelenkig gelagerter Balken (EG) völlig andere Randbedingungen hat als ein beidseitig eingespannter Balken (EE), ist diese Formel (sowie die Definition von σσ) hier falsch kopiert worden und muss für den Fall „eingespannt – gelenkig“ angepasst werden.",
+    "antwort": "Formel ist richtig, Text präzisiert. Der Ansatz cosh βx − cos βx − σ·(sinh βx − sin βx) erfüllt die beiden Bedingungen der Einspannung links (φ(0) = φ′(0) = 0) und gilt daher für EG und EE. σ = (cosh βL − cos βL)/(sinh βL − sin βL) folgt aus φ(L) = 0, das bei EG (gelenkig) und EE (eingespannt) gleich ist. Die vierte Bedingung unterscheidet die Fälle (EG φ″(L) = 0, EE φ′(L) = 0) und liefert die Frequenzgleichung, also andere βL (EG 3,9266 statt EE 4,7300). Aus φ″(L) = 0 folgt σ = (cosh βL + cos βL)/(sinh βL + sin βL); beide Ausdrücke sind gleich genau dann, wenn tan βL = tanh βL (V-CK-EG), Differenz an den Wurzeln 2·10⁻¹⁶. So steht es auch bei Blevins Tab. 8.1 (clamped-pinned). Gleiche σ-Werte wie EE entstehen, weil EG-Form n die halbe antisymmetrische EE-Form 2n ist (βL_EG,1 = 7,8532/2). Neu: Test der Randbedingungen bei x = L je Lagerung (φ″(L) = 0 bei EG und GG, φ′(L) = 0 bei EE, φ″ = φ‴ = 0 bei KR) und Kontrollwert σ aus φ″(L) = 0 im Rechenweg; FE-Gegenrechnung stimmt mit Form, Knoten und Ort des Maximums überein.",
+    "formel": "φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx) (erfüllt φ(0) = φ′(0) = 0),  σ = (cosh βL − cos βL)/(sinh βL − sin βL) aus φ(L) = 0, gleichwertig σ = (cosh βL + cos βL)/(sinh βL + sin βL) aus φ″(L) = 0 wegen tan βL = tanh βL;  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)"
+  },
+  "V-PH-GG": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "φ_n(x) = sin(nπ·x/L);  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)"
+  },
+  "V-PH-KR": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx),  σ = (sinh βL − sin βL)/(cosh βL + cos βL);  normiert auf max |φ| = 1, erste Halbwelle positiv (nach unten)"
+  },
+  "V-RQ": {
+    "status": "freigegeben",
+    "datum": "2026-10-13",
+    "durch": "Seti",
+    "formel": "f_R = 1/(2π)·√(g·∫m′·w dx / ∫m′·w² dx),  w = Biegelinie unter Eigengewicht q = m′·g (Lastliste), m′ konstant;  obere Schranke: f_R ≥ f₁"
+  },
   "W-BB": {
     "status": "freigegeben",
     "datum": "2026-10-10",

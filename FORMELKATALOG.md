@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.6.0
+# Formelkatalog eng-core 0.6.1
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 174 Formeln, davon 174 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 192 Formeln, davon 192 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -218,6 +218,29 @@ Stand: 174 Formeln, davon 174 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | T-TA | Einspannmoment je Seite | M_t,A = M_t,B = M_t / 2 | N·mm | Verträglichkeit, gleiche Steifigkeit beider Hälften | freigegeben (2026-10-10, S. Frotscher) |
 | T-TAU | Torsionsspannung | τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A) | MPa | Ashby App. A.6 | freigegeben (2026-10-10, S. Frotscher) |
 
+## Eigenfrequenz
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| V-B | Formtreuer Faktor für f₁ = f_min | s = f_min / f₁ (formtreu, m_z = 0: E·I ∝ s⁴, m′ ∝ s², f₁ ∝ s);  mit m_z > 0: f₁(s) = f_min, Bisektion im log-Raum, 60 Schritte | – | Konzept V2-A U9, wie D-BIS | freigegeben (2026-10-13, Seti) |
+| V-BL | Wurzeln der Frequenzgleichung | β_nL = n-te positive Wurzel der Frequenzgleichung, n = 1, 2, 3;  Einklammerung aus den Vorzeichen an k·π (KR: ((n − 1)π; nπ), GG: ((n − ½)π; (n + ½)π), EG und EE: (nπ; (n + 1)π)), Bisektion 80 Schritte, ohne Startwert | – | deterministisch wie Nullstellensuche Lastliste; Literatur Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-CK-EE | Frequenzgleichung (beidseitig eingespannt) | cos(βL)·cosh(βL) − 1 = 0 | – | Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0) | freigegeben (2026-10-13, Seti) |
+| V-CK-EG | Frequenzgleichung (links eingespannt, rechts gelenkig) | tan(βL) = tanh(βL) | – | Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0) | freigegeben (2026-10-13, Seti) |
+| V-CK-GG | Frequenzgleichung (gelenkig gelagert) | sin(βL) = 0 | – | Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0) | freigegeben (2026-10-13, Seti) |
+| V-CK-KR | Frequenzgleichung (Kragträger, links eingespannt) | cos(βL)·cosh(βL) + 1 = 0 | – | Blevins Tab. 8.1; Gross/Hauger TM 4, Kap. 4 (Kontrolle, Sollwert 0) | freigegeben (2026-10-13, Seti) |
+| V-EI | Biegesteifigkeit | E·I | N·mm² |  | freigegeben (2026-10-13, Seti) |
+| V-EW | Eigenwertgleichung (Ansatz) | E·I·w′′′′ + m′·ẅ = 0,  w(x, t) = φ(x)·cos(ωt),  φ(x) = C₁·sin βx + C₂·cos βx + C₃·sinh βx + C₄·cosh βx,  β⁴ = m′·ω²/(E·I) | 1/mm | Gross/Hauger TM 4, Kap. 4; Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-FN | Eigenfrequenz | f_n = ω_n / (2π) | Hz |  | freigegeben (2026-10-13, Seti) |
+| V-MB | Massenbelegung | m′ = ρ·A + m_z;  Rechnung in t/mm: ρ[kg/m³]·10⁻¹²·A[mm²] + m_z[kg/m]·10⁻⁶ (1 kg/m³ = 10⁻¹² t/mm³, 1 kg/m = 10⁻⁶ t/mm);  Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ + m_z[kg/m] (1 mm² = 10⁻⁶ m²) | t/mm | Einheitensystem N, mm, t, s (Konzept V2-A P7) | freigegeben (2026-10-13, Seti) |
+| V-NR | Resonanzabstand | Δ = \|f_err − f₁\| / f₁ ≥ Δ_min | % | Konstruktionsregel | freigegeben (2026-10-13, Seti) |
+| V-NZ | Nachweis Mindestfrequenz | u = f_min / f₁ | – | Nachweis f₁ ≥ f_min | freigegeben (2026-10-13, Seti) |
+| V-OM | Kreisfrequenz | ω_n = (β_nL)² / L²·√(E·I / m′) | 1/s | Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-PH-EE | Eigenform (beidseitig eingespannt), Ort des größten Ausschlags | φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx),  σ = (cosh βL − cos βL)/(sinh βL − sin βL);  normiert auf max \|φ\| = 1, erste Halbwelle positiv (nach unten) | mm | Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-PH-EG | Eigenform (links eingespannt, rechts gelenkig), Ort des größten Ausschlags | φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx) (erfüllt φ(0) = φ′(0) = 0),  σ = (cosh βL − cos βL)/(sinh βL − sin βL) aus φ(L) = 0, gleichwertig σ = (cosh βL + cos βL)/(sinh βL + sin βL) aus φ″(L) = 0 wegen tan βL = tanh βL;  normiert auf max \|φ\| = 1, erste Halbwelle positiv (nach unten) | mm | Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-PH-GG | Eigenform (gelenkig gelagert), Ort des größten Ausschlags | φ_n(x) = sin(nπ·x/L);  normiert auf max \|φ\| = 1, erste Halbwelle positiv (nach unten) | mm | Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-PH-KR | Eigenform (Kragträger, links eingespannt), Ort des größten Ausschlags | φ(x) = cosh βx − cos βx − σ·(sinh βx − sin βx),  σ = (sinh βL − sin βL)/(cosh βL + cos βL);  normiert auf max \|φ\| = 1, erste Halbwelle positiv (nach unten) | mm | Blevins Tab. 8.1 | freigegeben (2026-10-13, Seti) |
+| V-RQ | Rayleigh-Kontrolle (Plausibilität) | f_R = 1/(2π)·√(g·∫m′·w dx / ∫m′·w² dx),  w = Biegelinie unter Eigengewicht q = m′·g (Lastliste), m′ konstant;  obere Schranke: f_R ≥ f₁ | Hz | Rayleigh 1877; Sollwert 1 ≤ f_R / f₁ ≤ 1,02 | freigegeben (2026-10-13, Seti) |
+
 ## Werkstoff und Auslegungswerte
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -250,3 +273,4 @@ Stand: 174 Formeln, davon 174 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 - Auslegungswert standardmäßig unterer Wert der Datenbankzeile; Normhöchstwerte liefern keinen Auslegungswert.
 - Bemessen: Bisektion im log-Raum, 60 Schritte, Raster 1 mm (Wandstärke 0,5 mm).
 - Druckbehälter: Lamé (Zylinder, Kugel), rotationssymmetrisch, ungestörte Wand weit vom Boden, isotherm; keine Böden, Stutzen, Beulen, Wärmespannungen, plastischen Reserven, kein Normnachweis (EN 13445, AD 2000). Bemessen geschlossen bei p_a = 0, sonst Bisektion, Raster 0,5 mm.
+- Eigenfrequenz: Euler-Bernoulli-Balken, E·I und m′ = ρ·A + m_z konstant, Lagerungen KR, GG, EG, EE, starre Lager, keine Axialkraft, keine Dämpfung, Schwingung in der Lastebene; Hinweis bei L/h < 10 (Timoshenko). Wurzeln deterministisch (Einklammerung, Bisektion 80 Schritte), Einheiten N, mm, t, s. Bemessen nur formtreu.

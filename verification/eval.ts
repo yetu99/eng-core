@@ -1,10 +1,11 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
-import { computeStrength, designPressureStrength, sectionProps, multiConstraint, buildIndex, points, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
+import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
   | { id: string; type: "section"; sec: SecType; dims: Record<string, number> }
   | { id: string; type: "calc"; inp: StrengthInput }
   | { id: string; type: "pressure"; inp: StrengthInput; design?: boolean }
+  | { id: string; type: "vibration"; inp: StrengthInput; design?: boolean }
   | { id: string; type: "conflict"; materialId: string; basis: ConflictBasis; alpha: number }
   | { id: string; type: "ashby"; materialId: string; fn: FunctionName; con: string; obj: ObjectiveName; shapeMode: ShapeMode; phiUser: PhiSet | null };
 
@@ -35,6 +36,22 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
       srB: p.outer.sr, stB: p.outer.st, svB: p.outer.sv, uB: p.outer.u, srM: M.sr, stM: M.st, svMax: p.svMax, util: r.util, sigmaZul: p.sigmaZul,
       Fax: p.input.shape === "ZY" ? p.inner.sz * Math.PI * (p.b * p.b - p.a * p.a) : null, tresca: (p.rGov === "a" ? p.inner : p.outer).tresca, kSt: p.kessel?.st ?? null, kSz: p.kessel?.sz ?? null, kDev: p.kessel?.dev ?? null,
     };
+  }
+  if (c.type === "vibration") {
+    if (c.design) {
+      const d = designSize(repo, c.inp, "formtreu");
+      if (!d.ok) return { designOk: 0 };
+      const raw = computeStrength(repo, { ...c.inp, dims: d.raw });
+      return { designOk: 1, s: d.s, closedForm: c.inp.vibration?.mz === 0 ? 1 : 0, f1Raw: raw.vibration?.modes[0]?.f ?? null, f1Gew: d.result.vibration?.modes[0]?.f ?? null, util: d.result.util };
+    }
+    const r = computeStrength(repo, c.inp), v = r.vibration;
+    if (!v || !v.modes.length) return { errors: r.errors.length };
+    const o: Record<string, number | null> = { errors: r.errors.length, fR: v.rayleigh?.fR ?? null, ratio: v.rayleighRatio, uMin: v.uMin, delta: v.delta, uRes: v.uRes, util: r.util, m: v.m, EI: v.EI };
+    for (const md of v.modes) {
+      Object.assign(o, { [`betaL${md.n}`]: md.betaL, [`f${md.n}`]: md.f, [`omega${md.n}`]: md.omega, [`xMax${md.n}`]: md.xMax, [`p3_${md.n}`]: md.phi(0.3 * v.L), [`p7_${md.n}`]: md.phi(0.7 * v.L) });
+      md.nodes.forEach((x, i) => { o[`node${md.n}_${i + 1}`] = x; });
+    }
+    return o;
   }
   if (c.type === "conflict") {
     const m = repo.byId(c.materialId);

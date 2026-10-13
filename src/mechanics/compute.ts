@@ -7,13 +7,14 @@
  */
 import { fmt } from "../format";
 import { DATA_VERSION } from "../dataVersion";
-import { sectionProps, SECTIONS, type Dims, type SecType, type SectionProps } from "../sections";
+import { sectionProps, sectionHeight, SECTIONS, type Dims, type SecType, type SectionProps } from "../sections";
 import { step, type CalcStep, type Trace, type TraceGroup } from "../trace";
 import { defaultNu, strengthDesign, DV_SYMBOL, type DvChoice, type Material, type Repo, type StrengthDesign } from "../materials";
 import { BENDING_CASES, BUCKLING_CASES, EULER_BETA, isBendingCase, isBucklingCase, type BendingCase, type Kind } from "./cases";
 import { beamFns, bendingMax, type BeamFns, type BeamMax } from "./beam";
 import { isLoadListCase, normalizeLoads, solveBeam, loadText, LOADLIST_SUPPORTS, type LoadList, type LoadSI, type BeamSolution } from "./loadlist";
 import { computePressure, isPressureCase, PRESSURE_CASES, type PressureLoad, type PressureMaterial, type PressureResult } from "./pressure";
+import { computeVibration, isVibrationCase, type VibrationLoad, type VibrationResult } from "./vibration";
 
 export const G_ACC = 9.81; // m/s²
 
@@ -45,10 +46,31 @@ export interface StrengthInput {
   loadList?: LoadList | undefined;
   /** Druckbehälter: Maße und Drücke, wirksam bei kind = "PB" (Lastfall ZG, ZO, KU) */
   pressure?: PressureLoad | undefined;
+  /** Eigenfrequenz: Zusatzmasse und Anforderungen, wirksam bei kind = "FQ" (Lastfall = Lagerung KR, GG, EG, EE) */
+  vibration?: VibrationLoad | undefined;
 }
 
-export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung"; label: string; S: number | null; req: number; u: number | null; text: string }
-export interface Kpi { key: string; label: string; sym: string; value: number; unit: string; result: boolean; main?: boolean }
+export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung" | "frequenz" | "resonanz"; label: string; S: number | null; req: number; u: number | null; text: string }
+/**
+ * Kennwert für Anzeige. main = hervorgehobener Leitwert; primary = Hauptkennwert (Blatt 1 offen, Leitstand), sonst
+ * „weitere Kennwerte“ (eingeklappt, im Druck offen). Reines Darstellungsmerkmal, keine Formel.
+ */
+export interface Kpi { key: string; label: string; sym: string; value: number; unit: string; result: boolean; main?: boolean; primary?: boolean }
+
+/** Hauptkennwerte je Belastungsart (abgestimmt mit Seti 13.10.2026). */
+export const PRIMARY_KPIS: Readonly<Record<Kind | "combined", readonly string[]>> = {
+  zug: ["m", "sigmaV", "dL"],
+  druck: ["m", "sigmaV", "Fk"],
+  biegung: ["m", "sigmaB", "sigmaV", "f"],
+  torsion: ["m", "sigmaV", "theta"],
+  combined: ["m", "sigmaV", "f", "Fk"],
+  PB: ["sigmaV", "stA", "sigmaZul", "uA"],
+  FQ: ["m", "f1", "f2", "f3", "delta"],
+};
+function markPrimary(kind: Kind | "combined", K: Kpi[]): Kpi[] {
+  const set = PRIMARY_KPIS[kind];
+  return K.map((k) => (set.includes(k.key) ? { ...k, primary: true } : k));
+}
 
 export interface StrengthResult {
   input: StrengthInput;
@@ -80,6 +102,8 @@ export interface StrengthResult {
   trace: Trace;
   /** Druckbehälter (kind = "PB"), sonst null */
   pressure: PressureResult | null;
+  /** Eigenfrequenz (kind = "FQ"), sonst null */
+  vibration: VibrationResult | null;
 }
 
 export class InputError extends Error {}
@@ -96,9 +120,10 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const res: StrengthResult = {
     input: inp, material: mat, section: sec, errors: [...sec.errors], warnings: [...sec.notes], kind, caseId: "none",
     E: NaN, G: NaN, nu: NaN, strength: null, mass: NaN, L: inp.L, bend: null, fzul: null, axial: null, buck: null, tors: null,
-    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [], pressure: null,
+    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [], pressure: null, vibration: null,
   };
   if (inp.mode === "single" && inp.kind === "PB") return pressureStrength(repo, inp, res);
+  if (inp.mode === "single" && inp.kind === "FQ") return vibrationStrength(repo, inp, res);
   if (!(inp.L > 0)) res.errors.push("Länge L muss größer als 0 sein");
   if (mat.E === null || mat.rho === null) res.errors.push(`${mat.name}: E-Modul oder Dichte nicht belegt`);
   if (res.errors.length) return res;
@@ -309,7 +334,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   if (res.axial) kp("dL", "Längenänderung", "ΔL", res.axial.dL, "mm", true);
   if (res.tors) kp("theta", res.tors.twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", res.tors.twoSided ? "φ_Mitte" : "φ_Ende", res.tors.theta, "°", true);
   if (res.buck) kp("Fk", "Knicklast", "F_k", res.buck.Fk / 1000, "kN", true);
-  res.kpis = K;
+  res.kpis = markPrimary(res.kind, K);
   return res;
 }
 
@@ -380,7 +405,67 @@ function pressureStrength(repo: Repo, inp: StrengthInput, res: StrengthResult): 
   if (Number.isFinite(pr.sigmaZul)) kp("sigmaZul", "Zulässige Spannung", "σ_zul", pr.sigmaZul, "MPa", true);
   kp("uA", "Aufweitung innen", "u(a)", P.u, "mm", true); kp("uB", "Aufweitung außen", "u(b)", Q.u, "mm", true);
   if (pr.kessel) kp("kessel", "Kesselformel (Vergleich)", zy ? "σ_θ,K" : "σ_t,K", pr.kessel.st, "MPa", true);
-  res.kpis = K;
+  res.kpis = markPrimary(res.kind, K);
+  return res;
+}
+
+/** Querschnittsschritte, die für die Eigenfrequenz gebraucht werden (Fläche, Flächenträgheitsmoment, Zwischenmaße). */
+const FQ_SECTION_STEP = /^Q-[A-Z]{2}-(A|I|d|ai)$/;
+
+/**
+ * Belastungsart Eigenfrequenz (FQ): Biegeeigenfrequenzen f₁ bis f₃ mit E·I und A aus Blatt 1, Lagerung = Lastfall
+ * (Konzept V2-A P5, P6). Nachweise f₁ ≥ f_min und Resonanzabstand, keine Spannungsnachweise.
+ */
+function vibrationStrength(repo: Repo, inp: StrengthInput, res: StrengthResult): StrengthResult {
+  const mat = res.material, sec = res.section, G = res.trace;
+  const add = (g: TraceGroup, s: CalcStep) => { (G[g] ??= []).push(s); };
+  for (const k of Object.keys(G) as TraceGroup[]) delete G[k];   // Formfaktoren und Torsionswerte gelten hier nicht
+  res.warnings = []; res.kind = "FQ";
+  if (!isVibrationCase(inp.sub)) res.errors.push(`Unbekannte Lagerung ${inp.sub}`);
+  if (!inp.vibration) res.errors.push("Eigenfrequenz: Zusatzmasse und Anforderungen fehlen");
+  if (mat.E === null || mat.rho === null) res.errors.push(`${mat.name}: E-Modul oder Dichte nicht belegt`);
+  if (res.errors.length || !inp.vibration || !isVibrationCase(inp.sub)) return res;
+  res.caseId = inp.sub;
+  const Egpa = mat.E as number, rho = mat.rho as number, E = Egpa * 1000;
+  const rowNu = repo.row(mat.id, "P-NU"), rowG = repo.row(mat.id, "P-G");
+  res.E = E; res.nu = rowNu?.value ?? defaultNu(mat.cls); res.G = rowG?.value ? rowG.value * 1000 : E / (2 * (1 + res.nu));
+  add("werkstoff", step("W-E", "E-Modul", "E (Werkstoffdatenbank, Standardvariante)", `${fmt(Egpa)} GPa`, E, "MPa", DATA_VERSION));
+  add("werkstoff", step("W-RHO", "Dichte", "ρ (Werkstoffdatenbank)", `${fmt(rho)} kg/m³`, rho, "kg/m³", DATA_VERSION));
+  if (mat.cls === "Polymer") res.warnings.push("Polymer: Werte gelten für 23 °C und Kurzzeitbelastung");
+  sec.trace.filter((s) => FQ_SECTION_STEP.test(s.id)).forEach((s) => add("querschnitt", s));
+  res.mass = rho * sec.A * 1e-9 * inp.L;
+  add("querschnitt", step("Q-m", "Masse", "m = ρ·A·L", `${fmt(rho)} kg/m³ · ${fmt(sec.A)} mm² · ${fmt(inp.L)} mm`, res.mass, "kg"));
+
+  const vr = computeVibration(inp.sub, { A: sec.A, I: sec.I, Imin: sec.Imin, h: sectionHeight(inp.secType, inp.dims) }, { E, rho }, inp.L, inp.vibration);
+  res.vibration = vr;
+  res.errors.push(...vr.errors);
+  if (vr.errors.length) return res;
+  res.warnings.push(...vr.warnings);
+  vr.steps.belastung.forEach((s) => add("belastung", s));
+  vr.steps.nachweis.forEach((s) => add("nachweis", s));
+
+  const v = inp.vibration, f1 = vr.modes[0]!.f;
+  const checks: Check[] = [];
+  if (v.fmin !== null) checks.push({ key: "frequenz", label: "Mindestfrequenz", S: f1 / v.fmin, req: 1, u: vr.uMin, text: `f₁ = ${fmt(f1)} Hz ${f1 >= v.fmin ? "≥" : "<"} f_min = ${fmt(v.fmin)} Hz` });
+  if (v.ferr !== null && vr.delta !== null) checks.push({ key: "resonanz", label: "Resonanzabstand", S: vr.delta, req: v.dmin, u: vr.uRes, text: `Δ = |f_err − f₁| / f₁ = ${fmt(vr.delta, 3)} % ${vr.delta >= v.dmin ? "≥" : "<"} Δ_min = ${fmt(v.dmin)} %` });
+  res.checks = checks;
+  const valid = checks.filter((c) => c.u !== null);
+  res.util = valid.length ? Math.max(...valid.map((c) => c.u as number)) : Infinity;
+  res.governing = valid.length ? [...valid].sort((x, y) => (y.u as number) - (x.u as number))[0]?.label ?? null : null;
+  res.incomplete = checks.length ? [] : ["Frequenz"];
+  if (!checks.length) res.warnings.push("Keine Anforderung: f_min oder f_err angeben, sonst nur Frequenzlage");
+
+  const K: Kpi[] = [];
+  const kp = (key: string, label: string, s: string, value: number, unit: string, result = false, main = false) => K.push(main ? { key, label, sym: s, value, unit, result, main } : { key, label, sym: s, value, unit, result });
+  kp("A", "Fläche", "A", sec.A, "mm²"); kp("I", "Flächenträgheitsmoment", "I", sec.I, "mm⁴"); kp("m", "Masse", "m", res.mass, "kg");
+  kp("EI", "Biegesteifigkeit", "E·I", vr.EI, "N·mm²"); kp("mz", "Massenbelegung", "m′", vr.mKgM, "kg/m");
+  vr.modes.forEach((md, i) => kp(`f${md.n}`, `Eigenfrequenz ${md.n}`, `f_${md.n}`, md.f, "Hz", true, i === 0));
+  kp("omega1", "Kreisfrequenz 1", "ω_1", vr.modes[0]!.omega, "1/s", true);
+  kp("betaL1", "Eigenwert 1", "β₁L", vr.modes[0]!.betaL, "–", true);
+  if (vr.delta !== null) kp("delta", "Resonanzabstand", "Δ", vr.delta, "%", true);
+  kp("fR", "Rayleigh-Kontrolle", "f_R", vr.rayleigh!.fR, "Hz", true);
+  kp("slender", "Schlankheit", "L/h", vr.slender, "–", true);
+  res.kpis = markPrimary(res.kind, K);
   return res;
 }
 

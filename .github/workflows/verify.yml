@@ -14,7 +14,7 @@ jobs:
       - run: npm ci
       - name: Typprüfung
         run: npx tsc --noEmit
-      - name: Tests (golden.json, Grenzfälle, Auslegungswerte, Bemessen, Ashby)
+      - name: Tests (golden.json, Grenzfälle, Auslegungswerte, Bemessen, Ashby, Lastliste, Druckbehälter, Eigenfrequenz)
         run: npx vitest run
       - name: Formelkatalog und Prüfstatus aktuell
         run: npx tsx scripts/formelkatalog.ts --check && npx tsx scripts/katalog-publish.ts --check
