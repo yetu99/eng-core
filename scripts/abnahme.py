@@ -6,6 +6,10 @@ Abnahme P5 (Abgleich mit unabhängiger FEM) und P6 (Abnahmeprotokoll) über eine
       Erzeugt die Excel mit Schritt-für-Schritt-Anleitung (Creo Simulate), Sollwerten aus dem Rechenkern
       (scripts/abnahme-faelle.ts), gelben Eingabezellen für die Ist-Werte und der Checkliste P6.
 
+  python3 scripts/abnahme.py freigabe --pruefer NAME --datum TT.MM.JJJJ [--dry-run]
+      Abnahme ohne übertragene FEM-Einzelwerte: der Prüfer gibt P5 und P6 frei. Der Vermerk steht ausdrücklich im Text
+      von P5 und P6 (keine erfundenen Ist-Werte, verification/abnahme_p5.json wird nicht geschrieben).
+
   python3 scripts/abnahme.py import DATEI.xlsx [--dry-run]
       Liest die ausgefüllte Excel, rechnet Abweichung und Toleranz selbst nach (Excel-Formeln sind nur Anzeige),
       prüft Kernversion, Prüfer und Datum und schreibt verification/abnahme.json (Status P5, P6) sowie
@@ -392,15 +396,41 @@ def do_import(path: Path, dry: bool) -> None:
     print(f"verification/abnahme.json: P5 {p5}, P6 {p6}. Danach: node scripts/sync-to-app.mjs <app>, Abnahmeskripte, Push.")
 
 
+def do_freigabe(pruefer: str, datum_s: str, dry: bool) -> None:
+    data = run_ts("scripts/abnahme-faelle.ts")
+    datum = parse_date(datum_s)
+    if not pruefer.strip() or not datum:
+        raise SystemExit("Prüfer und Datum sind Pflicht")
+    if datum > dt.date.today().isoformat():
+        raise SystemExit(f"Datum {datum} liegt in der Zukunft")
+    n = len(data["rows"])
+    abn = {
+        "P5": {"status": "bestanden", "text": f"Abgleich mit FEM (Creo Simulate, {n} Sollwerte D1, F1 bis F4, T7, T10, T12) durch Prüfer freigegeben; "
+               f"FEM-Einzelwerte nicht übertragen; {pruefer}", "datum": datum},
+        "P6": {"status": "bestanden", "text": f"Abnahmeprotokoll eng-core {data['core']}: durch Prüfer freigegeben (P5 ohne übertragene Einzelwerte); {pruefer}",
+               "datum": datum},
+    }
+    print(json.dumps(abn, ensure_ascii=False, indent=1))
+    if dry:
+        print("--dry-run: nichts geschrieben"); return
+    ABN.write_text(json.dumps(abn, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    res = subprocess.run(["npx", "--no-install", "tsx", "scripts/formelkatalog.ts"], cwd=ROOT, capture_output=True, text=True)
+    print(res.stdout.strip() or res.stderr.strip())
+    print("verification/abnahme.json: P5 bestanden, P6 bestanden (Freigabe durch Prüfer).")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     ex = sub.add_parser("export"); ex.add_argument("--out", type=Path, default=None); ex.add_argument("--app", default="78d7c77", help="App-Commit für den Kopf")
     im = sub.add_parser("import"); im.add_argument("datei", type=Path); im.add_argument("--dry-run", action="store_true")
+    fg = sub.add_parser("freigabe"); fg.add_argument("--pruefer", required=True); fg.add_argument("--datum", required=True); fg.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     if a.cmd == "export":
         core = run_ts("scripts/abnahme-faelle.ts")["core"]
         export(a.out or ROOT / f"Abnahme_P5_P6_eng-core_{core}.xlsx", a.app)
+    elif a.cmd == "freigabe":
+        do_freigabe(a.pruefer, a.datum, a.dry_run)
     else:
         do_import(a.datei, a.dry_run)
 
