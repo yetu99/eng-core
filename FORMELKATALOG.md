@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.6.1
+# Formelkatalog eng-core 0.7.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 192 Formeln, davon 192 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 241 Formeln, davon 241 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -185,6 +185,31 @@ Stand: 192 Formeln, davon 192 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | Q-DV-W | Widerstandsmoment Biegung (Spitze) | W = I/e = a³/32 | mm³ |  | freigegeben (2026-10-08, Seti) |
 | Q-DV-WT | Widerstandsmoment Torsion | Wₜ = a³/20 | mm³ | Roark Tab. 10.1 Fall 7 | freigegeben (2026-10-08, Seti) |
 | Q-i | Trägheitsradius (min.) | i = √(I_min / A) | mm |  | freigegeben (2026-10-08, Seti) |
+| Q-IP-A | Fläche | A = 2·b·t_f + (h − 2t_f)·t_w | mm² | scharfkantig, ohne Ausrundungen | freigegeben (2026-10-15, seti) |
+| Q-IP-IY | Flächenträgheitsmoment um y (stark) | I_y = [b·h³ − (b − t_w)·(h − 2t_f)³] / 12 | mm⁴ | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
+| Q-IP-IZ | Flächenträgheitsmoment um z (schwach) | I_z = [2·t_f·b³ + (h − 2t_f)·t_w³] / 12 | mm⁴ | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
+| Q-IP-K | Torsionsträgheitsmoment (dünnwandig offen) | Iₜ = [2·(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [2·b·t_f³ + (h − 2t_f)·t_w³] / 3 | mm⁴ | Gross/Hauger TM 2, Kap. 5.4; überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (Gegenrechnung Prandtl) | freigegeben (2026-10-18, Seti) |
+| Q-IP-KA | Faktor Querkraftschub (Jourawski) | κ = A·S / (I_y·b),  τ_Q = κ·Q / A | – | Jourawski, exakt für die Rechteckzerlegung | freigegeben (2026-10-15, seti) |
+| Q-IP-KAZ | Faktor Querkraftschub (Jourawski) | κ = A·S / (I_z·b),  τ_Q = κ·Q / A | – | Jourawski, exakt für die Rechteckzerlegung | freigegeben (2026-10-15, seti) |
+| Q-IP-S | Statisches Moment an der Stelle größter Schubspannung | S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung) | mm³ | Gross/Hauger TM 2, Kap. 4.6 | freigegeben (2026-10-15, seti) |
+| Q-IP-SZ | Statisches Moment an der Stelle größter Schubspannung | S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung) | mm³ | Gross/Hauger TM 2, Kap. 4.6 | freigegeben (2026-10-15, seti) |
+| Q-IP-W | Widerstandsmoment Biegung (maßgebender Rand) | W = I_y / (h/2) | mm³ |  | freigegeben (2026-10-15, seti) |
+| Q-IP-WT | Widerstandsmoment Torsion | Wₜ = Iₜ / t_max | mm³ | Gross/Hauger TM 2, Kap. 5.4 | freigegeben (2026-10-15, seti) |
+| Q-IP-WZ | Widerstandsmoment Biegung um z (Lage schwach) | W = I_z / (b/2) | mm³ |  | freigegeben (2026-10-15, seti) |
+| Q-LP-A | Fläche | A = t·(h + b − t) | mm² | scharfkantig, ohne Ausrundungen | freigegeben (2026-10-15, seti) |
+| Q-LP-AL | Winkel der Hauptachse 1 gegen y | α = ½·atan2(−2·I_yz, I_y − I_z), gegen den Uhrzeigersinn positiv | ° | Mohrscher Trägheitskreis | freigegeben (2026-10-15, seti) |
+| Q-LP-I1 | Größtes Hauptträgheitsmoment | I₁ = (I_y + I_z)/2 + √[((I_y − I_z)/2)² + I_yz²] | mm⁴ | Mohrscher Trägheitskreis | freigegeben (2026-10-15, seti) |
+| Q-LP-I2 | Kleinstes Hauptträgheitsmoment | I₂ = (I_y + I_z)/2 − √[((I_y − I_z)/2)² + I_yz²] | mm⁴ | Mohrscher Trägheitskreis | freigegeben (2026-10-15, seti) |
+| Q-LP-IY | Flächenträgheitsmoment um y (waagerechte Schwerachse, Biegeachse; ∫(z − z_s)² dA, senkrechter Schenkel h liefert h³) | I_y = [t·h³ + (b − t)·t³] / 3 − A·z_s² | mm⁴ | Steinerscher Satz | freigegeben (2026-10-18, Seti) |
+| Q-LP-IYZ | Deviationsmoment | I_yz = [t²·h² + t²·(b² − t²)] / 4 − A·y_s·z_s | mm⁴ | Steinerscher Satz, I_yz = ∫(y − y_s)(z − z_s) dA | freigegeben (2026-10-15, seti) |
+| Q-LP-IZ | Flächenträgheitsmoment um z (senkrechte Schwerachse; ∫(y − y_s)² dA, waagerechter Schenkel b liefert b³) | I_z = [h·t³ + t·(b³ − t³)] / 3 − A·y_s² | mm⁴ | Steinerscher Satz | freigegeben (2026-10-15, seti) |
+| Q-LP-K | Torsionsträgheitsmoment (dünnwandig offen) | Iₜ = [(h − t/2) + (b − t/2)]·t³ / 3 | mm⁴ | Gross/Hauger TM 2, Kap. 5.4 | freigegeben (2026-10-15, seti) |
+| Q-LP-KA | Faktor Querkraftschub (Jourawski) | κ = A·S / (I_y·b),  τ_Q = κ·Q / A | – | Jourawski, exakt für die Rechteckzerlegung | freigegeben (2026-10-15, seti) |
+| Q-LP-S | Statisches Moment an der Stelle größter Schubspannung | S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung) | mm³ | Gross/Hauger TM 2, Kap. 4.6 | freigegeben (2026-10-15, seti) |
+| Q-LP-W | Widerstandsmoment Biegung (maßgebender Rand) | W = I_y / max(e_o, e_u) | mm³ |  | freigegeben (2026-10-15, seti) |
+| Q-LP-WT | Widerstandsmoment Torsion | Wₜ = Iₜ / t_max | mm³ | Gross/Hauger TM 2, Kap. 5.4 | freigegeben (2026-10-15, seti) |
+| Q-LP-YS | Schwerpunktabstand von der Außenkante des senkrechten Schenkels | y_s = [h·t² + (b² − t²)·t] / (2A) | mm | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
+| Q-LP-ZS | Schwerpunktabstand von der Unterkante | z_s = [b·t² + (h² − t²)·t] / (2A) | mm | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
 | Q-m | Masse | m = ρ·A·L | kg |  | freigegeben (2026-10-08, Seti) |
 | Q-RE-A | Fläche | A = b·h | mm² |  | freigegeben (2026-10-08, Seti) |
 | Q-RE-I | Flächenträgheitsmoment (Biegeachse horizontal) | I = b·h³/12 | mm⁴ | Ashby App. A.2 | freigegeben (2026-10-08, Seti) |
@@ -208,6 +233,30 @@ Stand: 192 Formeln, davon 192 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | Q-RV-K | Torsionsträgheitsmoment | Iₜ = Iₚ = π·D⁴/32 | mm⁴ | Ashby App. A.6 | freigegeben (2026-10-08, Seti) |
 | Q-RV-W | Widerstandsmoment Biegung | W = I / (D/2) | mm³ |  | freigegeben (2026-10-08, Seti) |
 | Q-RV-WT | Widerstandsmoment Torsion | Wₜ = Iₚ / (D/2) | mm³ |  | freigegeben (2026-10-08, Seti) |
+| Q-SIGO | Randspannung oben (Betrag) | \|σ_o\| = \|M_max\|·e_o / I | MPa |  | freigegeben (2026-10-18, Seti) |
+| Q-SIGU | Randspannung unten (Betrag) | \|σ_u\| = \|M_max\|·e_u / I | MPa |  | freigegeben (2026-10-18, Seti) |
+| Q-TP-A | Fläche | A = b·t_f + (h − t_f)·t_w | mm² | scharfkantig, ohne Ausrundungen | freigegeben (2026-10-15, seti) |
+| Q-TP-IY | Flächenträgheitsmoment um y (waagerechte Schwerachse) | I_y = [t_w·(h − t_f)³ + b·(h³ − (h − t_f)³)] / 3 − A·z_s² | mm⁴ | Steinerscher Satz | freigegeben (2026-10-15, seti) |
+| Q-TP-IZ | Flächenträgheitsmoment um z (Symmetrieachse) | I_z = [t_f·b³ + (h − t_f)·t_w³] / 12 | mm⁴ | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
+| Q-TP-K | Torsionsträgheitsmoment (dünnwandig offen) | Iₜ = [(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [b·t_f³ + (h − t_f)·t_w³] / 3 | mm⁴ | Gross/Hauger TM 2, Kap. 5.4; überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (Gegenrechnung Prandtl) | freigegeben (2026-10-18, Seti) |
+| Q-TP-KA | Faktor Querkraftschub (Jourawski) | κ = A·S / (I_y·b),  τ_Q = κ·Q / A | – | Jourawski, exakt für die Rechteckzerlegung | freigegeben (2026-10-15, seti) |
+| Q-TP-S | Statisches Moment an der Stelle größter Schubspannung | S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung) | mm³ | Gross/Hauger TM 2, Kap. 4.6 | freigegeben (2026-10-15, seti) |
+| Q-TP-W | Widerstandsmoment Biegung (maßgebender Rand) | W = I_y / max(e_o, e_u) | mm³ |  | freigegeben (2026-10-15, seti) |
+| Q-TP-WT | Widerstandsmoment Torsion | Wₜ = Iₜ / t_max | mm³ | Gross/Hauger TM 2, Kap. 5.4 | freigegeben (2026-10-15, seti) |
+| Q-TP-ZS | Schwerpunktabstand von der Unterkante | z_s = [t_w·(h − t_f)²/2 + b·t_f·(h − t_f/2)] / A | mm | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
+| Q-UP-A | Fläche | A = 2·b·t_f + (h − 2t_f)·t_w | mm² | scharfkantig, ohne Ausrundungen | freigegeben (2026-10-15, seti) |
+| Q-UP-EM | Schubmittelpunkt (Abstand von der Stegmitte, nach außen) | e_M = b'²·h'²·t_f / (4·I_y),  b' = b − t_w/2, h' = h − t_f | mm | Gross/Hauger TM 2, Kap. 4.6 (dünnwandig) | freigegeben (2026-10-15, seti) |
+| Q-UP-IY | Flächenträgheitsmoment um y (stark) | I_y = [b·h³ − (b − t_w)·(h − 2t_f)³] / 12 | mm⁴ | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
+| Q-UP-IZ | Flächenträgheitsmoment um z (senkrechte Schwerachse parallel zum Steg, schwach; Symmetrieachse ist y) | I_z = [h·t_w³ + 2·t_f·(b³ − t_w³)] / 3 − A·y_s² | mm⁴ | Steinerscher Satz | freigegeben (2026-10-18, Seti) |
+| Q-UP-K | Torsionsträgheitsmoment (dünnwandig offen) | Iₜ = [2·(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [2·b·t_f³ + (h − 2t_f)·t_w³] / 3 | mm⁴ | Gross/Hauger TM 2, Kap. 5.4; überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (Gegenrechnung Prandtl) | freigegeben (2026-10-18, Seti) |
+| Q-UP-KA | Faktor Querkraftschub (Jourawski) | κ = A·S / (I_y·b),  τ_Q = κ·Q / A | – | Jourawski, exakt für die Rechteckzerlegung | freigegeben (2026-10-15, seti) |
+| Q-UP-KAZ | Faktor Querkraftschub (Jourawski) | κ = A·S / (I_z·b),  τ_Q = κ·Q / A | – | Jourawski, exakt für die Rechteckzerlegung | freigegeben (2026-10-15, seti) |
+| Q-UP-S | Statisches Moment an der Stelle größter Schubspannung | S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung) | mm³ | Gross/Hauger TM 2, Kap. 4.6 | freigegeben (2026-10-15, seti) |
+| Q-UP-SZ | Statisches Moment an der Stelle größter Schubspannung | S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung) | mm³ | Gross/Hauger TM 2, Kap. 4.6 | freigegeben (2026-10-15, seti) |
+| Q-UP-W | Widerstandsmoment Biegung (maßgebender Rand) | W = I_y / (h/2) | mm³ |  | freigegeben (2026-10-15, seti) |
+| Q-UP-WT | Widerstandsmoment Torsion | Wₜ = Iₜ / t_max | mm³ | Gross/Hauger TM 2, Kap. 5.4 | freigegeben (2026-10-15, seti) |
+| Q-UP-WZ | Widerstandsmoment Biegung um z (Lage schwach) | W = I_z / max(e_o, e_u) | mm³ |  | freigegeben (2026-10-15, seti) |
+| Q-UP-YS | Schwerpunktabstand von der Stegaußenkante | y_s = [t_w²·h + 2·t_f·(b² − t_w²)] / (2A) | mm | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
 
 ## Torsion
 

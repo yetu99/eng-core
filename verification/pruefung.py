@@ -414,6 +414,154 @@ I8 = 20 * 40**3 / 12; A8 = 800.0
 fq_fe('V EE Stahl Rechteck', 'EE', 800.0, 210000.0 * I8, 7850.0 * 1e-12 * A8 + 3e-6, fq_inp('EE', mz=3.0, fmin=100.0, materialId='W001', secType='rechteck_voll', dims={'b': 20, 'h': 40}, L=800))
 fq_fe('V EG Stahl Rechteck', 'EG', 800.0, 210000.0 * I8, 7850.0 * 1e-12 * A8 + 3e-6, fq_inp('EG', mz=3.0, fmin=100.0, materialId='W001', secType='rechteck_voll', dims={'b': 20, 'h': 40}, L=800))
 
+# ---------------- Offene Profile (eng-core 0.7.0) ----------------
+# Unabhängig vom Kern (geschlossene Formeln und Rechteckzerlegung mit Steiner): Umrisspolygon je Profil mit dem
+# Gaußschen Integralsatz (A, Schwerpunkt, I_y, I_z, I_yz, Hauptachsen), Querkraftschub aus der Breitenfunktion b(z)
+# des Polygons mit numerischer Integration S(z) = ∫ b(ζ)(ζ − z_s) dζ und Suche des Maximums von S/b auf einem feinen
+# Raster, Iₜ als exakte St.-Venant-Lösung derselben scharfkantigen Geometrie: Prandtlsche Spannungsfunktion
+# ∇²Φ = −2, Φ = 0 am Rand, Finite Differenzen (Zellmitten, h = 0,5 und 0,25 mm, Richardson-Extrapolation), Iₜ = 2∫Φ dA.
+# Toleranz Iₜ 3,5 % (⅓·Σ s·t³ überlappungsfrei, Knotenfläche dem dünneren Teil, Freigaberunde 1 vom 15.10.2026; Bandbreite −2,7 % bis +3,0 %, L-Profil unverändert), sonst 10⁻⁹ bzw. 10⁻⁶.
+def op_outline(kind, d):
+    h, b = d['h'], d['b']
+    if kind in ('i_profil', 'i_profil_z'):
+        tw, tf = d['tw'], d['tf']
+        P = [(-b/2, -h/2), (b/2, -h/2), (b/2, -h/2+tf), (tw/2, -h/2+tf), (tw/2, h/2-tf), (b/2, h/2-tf), (b/2, h/2), (-b/2, h/2), (-b/2, h/2-tf), (-tw/2, h/2-tf), (-tw/2, -h/2+tf), (-b/2, -h/2+tf)]
+    elif kind in ('u_profil', 'u_profil_z'):
+        tw, tf = d['tw'], d['tf']
+        P = [(0, -h/2), (b, -h/2), (b, -h/2+tf), (tw, -h/2+tf), (tw, h/2-tf), (b, h/2-tf), (b, h/2), (0, h/2)]
+    elif kind == 'l_profil':
+        t = d['t']; P = [(0, 0), (b, 0), (b, t), (t, t), (t, h), (0, h)]
+    else:
+        tw, tf = d['tw'], d['tf']
+        P = [(-tw/2, 0), (tw/2, 0), (tw/2, h-tf), (b/2, h-tf), (b/2, h), (-b/2, h), (-b/2, h-tf), (-tw/2, h-tf)]
+    if kind == 'i_profil_z': P = [(z, y) for y, z in P]
+    if kind == 'u_profil_z': P = [(z, -y) for y, z in P]
+    return P
+def poly_props(P):
+    y, z = np.array(P, float).T; y1, z1 = np.roll(y, -1), np.roll(z, -1); cr = y * z1 - y1 * z
+    A = cr.sum() / 2; s = np.sign(A); A = abs(A); cr = cr * s
+    ys = ((y + y1) * cr).sum() / (6 * A); zs = ((z + z1) * cr).sum() / (6 * A)
+    Iyy = ((z**2 + z * z1 + z1**2) * cr).sum() / 12 - A * zs**2           # um waagerechte Schwerachse
+    Izz = ((y**2 + y * y1 + y1**2) * cr).sum() / 12 - A * ys**2
+    Iyz = ((y * z1 + 2 * y * z + 2 * y1 * z1 + y1 * z) * cr).sum() / 24 - A * ys * zs
+    m, r = (Iyy + Izz) / 2, math.hypot((Iyy - Izz) / 2, Iyz)
+    return dict(A=A, ys=ys, zs=zs, Iy=Iyy, Iz=Izz, Iyz=Iyz, I1=m + r, I2=m - r, alpha=math.degrees(0.5 * math.atan2(-2 * Iyz, Iyy - Izz)),
+                eo=z.max() - zs, eu=zs - z.min())
+def poly_width(P, zq):
+    """Summe der Schnittlängen einer waagerechten Linie z = zq mit dem Polygon (gerade-ungerade Regel)."""
+    xs = []
+    for (y0, z0), (y1, z1) in zip(P, P[1:] + P[:1]):
+        if (z0 <= zq < z1) or (z1 <= zq < z0): xs.append(y0 + (zq - z0) * (y1 - y0) / (z1 - z0))
+    xs.sort(); return sum(xs[i + 1] - xs[i] for i in range(0, len(xs) - 1, 2))
+def poly_kappa(P):
+    import warnings; from scipy.integrate import IntegrationWarning; warnings.simplefilter('ignore', IntegrationWarning)   # stückweise konstante Breite: quad meldet Rundung an Sprüngen
+    pp = poly_props(P); zs, A, I = pp['zs'], pp['A'], pp['Iy']
+    zk = sorted({z for _, z in P}); zmin, zmax = zk[0], zk[-1]
+    def S(z):
+        pts = [z] + [q for q in zk if q > z]
+        return sum(quad(lambda t: poly_width(P, t) * (t - zs), a, c, epsabs=1e-10, epsrel=1e-13)[0] for a, c in zip(pts[:-1], pts[1:]) if c > a)
+    eps = 1e-7 * (zmax - zmin); best = 0.0
+    cand = list(np.linspace(zmin + eps, zmax - eps, 801)) + [zs] + [q + s * eps for q in zk[1:-1] for s in (-1, 1)]
+    for z in cand:
+        bz = poly_width(P, z)
+        if bz > 0: best = max(best, S(z) / bz)
+    return A * best / I
+def prandtl_It(P, hg):
+    """Exakte St.-Venant-Torsion (Prandtl), Finite Differenzen auf Zellmitten, Φ = 0 am Rand (Spiegelzelle)."""
+    from scipy.sparse import csr_matrix
+    y, z = np.array(P, float).T; y0, y1, z0, z1 = y.min(), y.max(), z.min(), z.max()
+    nx, ny = int(round((y1 - y0) / hg)), int(round((z1 - z0) / hg))
+    Y = y0 + (np.arange(nx) + 0.5) * hg; Z = z0 + (np.arange(ny) + 0.5) * hg
+    YY, ZZ = np.meshgrid(Y, Z); ins = np.zeros_like(YY, bool)
+    for (ya, za), (yb, zb) in zip(P, P[1:] + P[:1]):       # Strahltest gerade-ungerade
+        cond = ((za <= ZZ) & (ZZ < zb)) | ((zb <= ZZ) & (ZZ < za))
+        with np.errstate(divide='ignore', invalid='ignore'):
+            yc = ya + (ZZ - za) * (yb - ya) / (zb - za)
+        ins ^= cond & (YY < yc)
+    idx = -np.ones(ins.shape, int); idx[ins] = np.arange(ins.sum()); N = int(ins.sum())
+    rows, cols, vals = [], [], []
+    jj, ii = np.nonzero(ins)
+    diag = np.zeros(N)
+    for dj, di in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+        j2, i2 = jj + dj, ii + di
+        ok = (j2 >= 0) & (j2 < ny) & (i2 >= 0) & (i2 < nx)
+        nb = np.full(len(jj), -1); nb[ok] = idx[j2[ok], i2[ok]]
+        inside = nb >= 0
+        rows += list(idx[jj[inside], ii[inside]]); cols += list(nb[inside]); vals += [-1.0] * int(inside.sum())
+        diag += np.where(inside, 1.0, 2.0)
+    k = np.arange(N); rows += list(k); cols += list(k); vals += list(diag)
+    M = csr_matrix((vals, (rows, cols)), shape=(N, N))
+    phi = spsolve(M, np.full(N, 2.0 * hg * hg))
+    return 2.0 * phi.sum() * hg * hg
+def op_case(id_, kind, d, vals, tol):
+    cases.append(dict(id=id_, type='section', sec=kind, dims=d)); ref[id_] = ({k: (0.0 if abs(v) < 1e-9 else v) for k, v in vals.items()}, tol)
+
+OP = [('O-T1 I 200×100×5,6×8,5', 'i_profil', dict(h=200, b=100, tw=5.6, tf=8.5)),
+      ('O-T1b I schwach', 'i_profil_z', dict(h=200, b=100, tw=5.6, tf=8.5)),
+      ('O-T2 I 200×100×6×8,5', 'i_profil', dict(h=200, b=100, tw=6, tf=8.5)),
+      ('O-T3 U 160×65×7,5×10,5', 'u_profil', dict(h=160, b=65, tw=7.5, tf=10.5)),
+      ('O-T3b U schwach', 'u_profil_z', dict(h=160, b=65, tw=7.5, tf=10.5)),
+      ('O-T4 L 60×60×6', 'l_profil', dict(h=60, b=60, t=6)),
+      ('O-T4b L 80×40×8 ungleichschenklig', 'l_profil', dict(h=80, b=40, t=8)),
+      ('O-T5 T 60×60×7×7', 't_profil', dict(h=60, b=60, tw=7, tf=7)),
+      ('O-T5b T 100×80×6×10', 't_profil', dict(h=100, b=80, tw=6, tf=10)),
+      ('O-T6 I 300×300×11×19', 'i_profil', dict(h=300, b=300, tw=11, tf=19))]
+OP_RES = {}
+for id_, kind, d in OP:
+    P = op_outline(kind, d); pp = poly_props(P); weak = kind.endswith('_z')
+    Ib = pp['Iy']                       # gedrehte Umrisse: Biegung immer um die waagerechte Schwerachse
+    e = max(pp['eo'], pp['eu'])
+    vals = dict(A=pp['A'], I=Ib, W=Ib / e, e=e)
+    if not weak:
+        vals.update(Iy=pp['Iy'], Iz=pp['Iz'], ys=pp['ys'], zs=pp['zs'], eo=pp['eo'], eu=pp['eu'])
+        if kind == 'l_profil': vals.update(Iyz=pp['Iyz'], I1=pp['I1'], I2=pp['I2'], alpha=pp['alpha'], Imin=pp['I2'])
+        else: vals.update(Imin=min(pp['Iy'], pp['Iz']))
+    op_case(id_ + ' Polygon', kind, d, vals, 1e-9)
+    op_case(id_ + ' Jourawski', kind, d, dict(kappa=poly_kappa(P)), 1e-6)
+    OP_RES[id_] = (kind, d, pp)
+# Iₜ gegen die exakte Lösung (Prandtl, Richardson aus h = 0,5 und 0,25 mm); Wₜ = Iₜ/t_max folgt mit
+for id_, kind, d in OP:
+    if kind.endswith('_z') or id_.startswith('O-T1 '): continue      # gleiche Iₜ wie Lage stark; 5,6 mm liegt nicht auf dem Raster
+    P = op_outline(kind, d); a1, a2 = prandtl_It(P, 0.5), prandtl_It(P, 0.25); It = a2 + (a2 - a1) / 3
+    op_case(id_ + ' Iₜ Prandtl', kind, d, dict(K=It), 3.5e-2)
+# weitere Geometrien für Iₜ (beide Zweige t_w ≤ t_f und t_w > t_f)
+for id_, kind, d in [('O-T11 U 100×50×6×8,5', 'u_profil', dict(h=100, b=50, tw=6, tf=8.5)), ('O-T11 U 200×80×10×10', 'u_profil', dict(h=200, b=80, tw=10, tf=10)),
+                     ('O-T11 T 80×100×8×8', 't_profil', dict(h=80, b=100, tw=8, tf=8)), ('O-T11 T 120×60×10×6 (t_w > t_f)', 't_profil', dict(h=120, b=60, tw=10, tf=6)),
+                     ('O-T11 I 100×100×6×10', 'i_profil', dict(h=100, b=100, tw=6, tf=10)), ('O-T11 I 400×180×8,5×13,5', 'i_profil', dict(h=400, b=180, tw=8.5, tf=13.5)),
+                     ('O-T11 I 200×100×12×8 (t_w > t_f)', 'i_profil', dict(h=200, b=100, tw=12, tf=8)), ('O-T11 U 120×60×9×6 (t_w > t_f)', 'u_profil', dict(h=120, b=60, tw=9, tf=6))]:
+    P = op_outline(kind, d); a1, a2 = prandtl_It(P, 0.5), prandtl_It(P, 0.25)
+    op_case(id_ + ' Iₜ Prandtl', kind, d, dict(K=a2 + (a2 - a1) / 3), 3.5e-2)
+# Schubmittelpunkt U (dünnwandig, eigene Herleitung über den Schubfluss im Flansch: e_M = t_f·b'²·h'²/(4·I_y'), I_y' der Mittellinie mit Stegbeitrag ohne Rundung): Kern nutzt I_y des Vollquerschnitts, Toleranz 3 %
+h_, b_, tw_, tf_ = 160, 65, 7.5, 10.5; bp_, hp_ = b_ - tw_ / 2, h_ - tf_
+Iy_mid = tw_ * hp_**3 / 12 + 2 * bp_ * tf_ * (hp_ / 2)**2
+op_case('O-T3 U Schubmittelpunkt', 'u_profil', dict(h=h_, b=b_, tw=tw_, tf=tf_), dict(eM=tf_ * bp_**2 * hp_**2 / (4 * Iy_mid)), 3e-2)
+# Grenzfälle: Profil entartet zum Rechteck b × h (bzw. t × h), geschlossene Rechteckformeln
+for id_, kind, d, bb, hh in [('O-T7 I mit t_w = b', 'i_profil', dict(h=120, b=40, tw=40, tf=10), 40, 120), ('O-T7 T mit t_w = b', 't_profil', dict(h=120, b=40, tw=40, tf=10), 40, 120),
+                              ('O-T7 U mit b = t_w', 'u_profil', dict(h=120, b=40, tw=40, tf=10), 40, 120), ('O-T7 L mit b = t', 'l_profil', dict(h=120, b=40, t=40), 40, 120),
+                              ('O-T7 I mit 2t_f = h', 'i_profil', dict(h=120, b=40, tw=10, tf=60), 40, 120)]:
+    op_case(id_, kind, d, dict(A=bb * hh, I=bb * hh**3 / 12, W=bb * hh**2 / 6, kappa=1.5), 1e-12)
+# Ungültige Geometrie: Fehler statt Werte
+op_case('O-T7 ungültig 2t_f > h', 'i_profil', dict(h=20, b=40, tw=5, tf=11), dict(errors=1), 0)
+# Einbindung Blatt 1: Lastliste T7 (GG, F = 3 kN bei 400) mit I-Profil O-T1, EN AW-6082. Roark 8.1 Fall 1e:
+# M_max = F·a·b/L, f = F·a·(L² − a²)^1,5 / (9√3·L·E·I) (a = 400 ≤ b = 800), σ_v = σ_b = M/W (Polygon)
+_, _, ppI = OP_RES['O-T1 I 200×100×5,6×8,5']; WI = ppI['Iy'] / 100
+Mt7 = 3000 * 400 * 800 / 1200; ft7 = 3000 * 400 * (1200**2 - 400**2)**1.5 / (9 * math.sqrt(3) * 1200 * E_AL * ppI['Iy'])
+cases.append(dict(id='O-T8 Lastliste T7 I-Profil', type='calc', inp={**base, 'sub': 'LL', 'secType': 'i_profil', 'dims': dict(h=200, b=100, tw=5.6, tf=8.5), 'loadList': dict(support='GG', loads=[dict(kind='F', x=400, F=3)], selfWeight=False)}))
+ref['O-T8 Lastliste T7 I-Profil'] = (dict(M=Mt7, w=ft7, sv=Mt7 / WI), 1e-6)
+# Randspannungen T-Profil O-T5 unter EQ (q = 2 kN/m, L = 1200): M = q·L²/8, |σ_o| = M·e_o/I, |σ_u| = M·e_u/I (Polygon)
+_, _, ppT = OP_RES['O-T5 T 60×60×7×7']; MT = 2.0 * 1200**2 / 8
+cases.append(dict(id='O-T12 Randspannungen T-Profil', type='calc', inp={**base, 'secType': 't_profil', 'dims': dict(h=60, b=60, tw=7, tf=7)}))
+ref['O-T12 Randspannungen T-Profil'] = (dict(sigO=MT * ppT['eo'] / ppT['Iy'], sigU=MT * ppT['eu'] / ppT['Iy'], sv=MT * ppT['eu'] / ppT['Iy']), 1e-9)
+# Knicken Eulerfall 2 (β = 1) mit L-Profil O-T4: i = √(I₂/A), Euler bzw. Johnson mit R_p = 260 MPa
+_, _, ppL = OP_RES['O-T4 L 60×60×6']; lamL = 1200 / math.sqrt(ppL['I2'] / ppL['A']); lamTL = math.pi * math.sqrt(2 * E_AL / 260.0)
+skL = math.pi**2 * E_AL / lamL**2 if lamL >= lamTL else 260.0 - 260.0**2 * lamL**2 / (4 * math.pi**2 * E_AL)
+cases.append(dict(id='O-T9 Knicken L-Profil', type='calc', inp={**base, 'kind': 'druck', 'sub': 'K2', 'F': 5, 'secType': 'l_profil', 'dims': dict(h=60, b=60, t=6)}))
+ref['O-T9 Knicken L-Profil'] = (dict(sk=skL), 1e-9)
+# Torsion einseitig mit I-Profil O-T2: Iₜ exakt (Prandtl), τ = T·t_max/Iₜ, φ = T·L/(G·Iₜ), Toleranz 5 %
+PI2 = op_outline('i_profil', dict(h=200, b=100, tw=6, tf=8.5)); a1, a2 = prandtl_It(PI2, 0.5), prandtl_It(PI2, 0.25); ItI = a2 + (a2 - a1) / 3
+cases.append(dict(id='O-T10 Torsion I-Profil', type='calc', inp={**base, 'kind': 'torsion', 'sub': 'T1', 'T': 50, 'secType': 'i_profil', 'dims': dict(h=200, b=100, tw=6, tf=8.5)}))
+ref['O-T10 Torsion I-Profil'] = (dict(tau=50e3 * 8.5 / ItI, theta=math.degrees(50e3 * 1200 / (G_AL * ItI))), 5e-2)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

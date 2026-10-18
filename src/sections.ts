@@ -4,24 +4,39 @@
  */
 import { fmt } from "./format";
 import { step, type CalcStep } from "./trace";
+import { openSection, openSectionErrors, openSectionHeight, type OpenSecType } from "./openSections";
 
-export type SecType = "rund_voll" | "rund_hohl" | "rechteck_voll" | "rechteck_hohl" | "dreieck_voll" | "dreieck_hohl";
+export type ClosedSecType = "rund_voll" | "rund_hohl" | "rechteck_voll" | "rechteck_hohl" | "dreieck_voll" | "dreieck_hohl";
+export type SecType = ClosedSecType | OpenSecType;
+export type { OpenSecType };
 export type Dims = Record<string, number>;
 
 export interface SectionDef {
   label: string;
   /** [Schlüssel, Bezeichnung, Standardwert in mm] */
   fields: ReadonlyArray<readonly [string, string, number]>;
+  /** Kachelgruppe in der Oberfläche (ab 0.7.0) */
+  group: "geschlossen" | "offen";
+  /** Lage „schwach“ eines Profils (I, U): Grundtyp der Kachel; die Oberfläche zeigt eine Kachel mit Schalter stark | schwach */
+  weakOf?: SecType;
 }
 
 export const SECTIONS: Readonly<Record<SecType, SectionDef>> = {
-  rund_voll: { label: "Rund voll", fields: [["D", "Durchmesser D", 40]] },
-  rund_hohl: { label: "Rund hohl", fields: [["D", "Außen-Ø D", 60], ["t", "Wandstärke t", 4]] },
-  rechteck_voll: { label: "Rechteck voll", fields: [["b", "Breite b", 30], ["h", "Höhe h", 60]] },
-  rechteck_hohl: { label: "Rechteck hohl", fields: [["b", "Breite b", 40], ["h", "Höhe h", 80], ["t", "Wandstärke t", 4]] },
-  dreieck_voll: { label: "Dreieck voll", fields: [["a", "Seitenlänge a", 60]] },
-  dreieck_hohl: { label: "Dreieck hohl", fields: [["a", "Seitenlänge a", 90], ["t", "Wandstärke t", 5]] },
+  rund_voll: { label: "Rund voll", group: "geschlossen", fields: [["D", "Durchmesser D", 40]] },
+  rund_hohl: { label: "Rund hohl", group: "geschlossen", fields: [["D", "Außen-Ø D", 60], ["t", "Wandstärke t", 4]] },
+  rechteck_voll: { label: "Rechteck voll", group: "geschlossen", fields: [["b", "Breite b", 30], ["h", "Höhe h", 60]] },
+  rechteck_hohl: { label: "Rechteck hohl", group: "geschlossen", fields: [["b", "Breite b", 40], ["h", "Höhe h", 80], ["t", "Wandstärke t", 4]] },
+  dreieck_voll: { label: "Dreieck voll", group: "geschlossen", fields: [["a", "Seitenlänge a", 60]] },
+  dreieck_hohl: { label: "Dreieck hohl", group: "geschlossen", fields: [["a", "Seitenlänge a", 90], ["t", "Wandstärke t", 5]] },
+  i_profil: { label: "I-Profil", group: "offen", fields: [["h", "Höhe h", 200], ["b", "Breite b", 100], ["tw", "Stegdicke t_w", 5.6], ["tf", "Flanschdicke t_f", 8.5]] },
+  i_profil_z: { label: "I-Profil (schwach)", group: "offen", weakOf: "i_profil", fields: [["h", "Höhe h", 200], ["b", "Breite b", 100], ["tw", "Stegdicke t_w", 5.6], ["tf", "Flanschdicke t_f", 8.5]] },
+  u_profil: { label: "U-Profil", group: "offen", fields: [["h", "Höhe h", 160], ["b", "Breite b", 65], ["tw", "Stegdicke t_w", 7.5], ["tf", "Flanschdicke t_f", 10.5]] },
+  u_profil_z: { label: "U-Profil (schwach)", group: "offen", weakOf: "u_profil", fields: [["h", "Höhe h", 160], ["b", "Breite b", 65], ["tw", "Stegdicke t_w", 7.5], ["tf", "Flanschdicke t_f", 10.5]] },
+  l_profil: { label: "L-Profil", group: "offen", fields: [["h", "Schenkel senkrecht h", 60], ["b", "Schenkel waagerecht b", 60], ["t", "Schenkeldicke t", 6]] },
+  t_profil: { label: "T-Profil", group: "offen", fields: [["h", "Höhe h", 60], ["b", "Breite b", 60], ["tw", "Stegdicke t_w", 7], ["tf", "Flanschdicke t_f", 7]] },
 };
+
+export function isOpenSection(t: SecType): t is OpenSecType { return SECTIONS[t].group === "offen"; }
 
 export interface SectionProps {
   A: number;
@@ -45,6 +60,8 @@ export interface SectionProps {
   phiBf: number;
   phiTe: number;
   phiTf: number;
+  /** nur offene Profile (0.7.0): Flächenmomente um die Schwerachsen, Hauptträgheitsmomente, Hauptachsenwinkel in °, Schwerpunkt ab Eingabeursprung, Randabstände, Schubmittelpunkt (U) */
+  open?: { Iy: number; Iz: number; Iyz: number; I1: number; I2: number; alpha: number; ys: number; zs: number; eo: number; eu: number; eM: number | null; zTau: number };
   trace: CalcStep[];
   errors: string[];
   notes: string[];
@@ -67,6 +84,15 @@ export function sectionProps(type: SecType, dims: Dims): SectionProps {
     if (!(v > 0)) errors.push(`${label} muss größer als 0 sein`);
   }
   if (errors.length) return empty(errors);
+  if (isOpenSection(type)) {
+    const ge = openSectionErrors(type, dims);
+    if (ge.length) return empty(ge);
+    const o = openSection(type, dims, T, notes);
+    ({ A, I, Imin, e, W, K, Wt, kappa } = o);
+    const res = finish(T, A, I, Imin, e, W, K, Wt, kappa, errors, notes);
+    res.open = { Iy: o.Iy, Iz: o.Iz, Iyz: o.Iyz, I1: o.I1, I2: o.I2, alpha: o.alpha, ys: o.ys, zs: o.zs, eo: o.eo, eu: o.eu, eM: o.eM, zTau: o.zTau };
+    return res;
+  }
 
   switch (type) {
     case "rund_voll": {
@@ -152,6 +178,11 @@ export function sectionProps(type: SecType, dims: Dims): SectionProps {
       break;
     }
   }
+  return finish(T, A, I, Imin, e, W, K, Wt, kappa, errors, notes);
+}
+
+/** Trägheitsradius und Formfaktoren (gemeinsam für alle Querschnitte). */
+function finish(T: CalcStep[], A: number, I: number, Imin: number, e: number, W: number, K: number, Wt: number, kappa: number, errors: string[], notes: string[]): SectionProps {
   const i = Math.sqrt(Imin / A);
   const phiBe = 4 * PI * I / (A * A), phiBf = 4 * SQPI * W / A ** 1.5, phiTe = 2 * PI * K / (A * A), phiTf = 2 * SQPI * Wt / A ** 1.5;
   T.push(step("Q-i", "Trägheitsradius (min.)", "i = √(I_min / A)", `√(${fmt(Imin)} / ${fmt(A)})`, i, "mm"));
@@ -172,5 +203,6 @@ export function sectionHeight(type: SecType, dims: Dims): number {
     case "rund_voll": case "rund_hohl": return need(dims, "D");
     case "rechteck_voll": case "rechteck_hohl": return need(dims, "h");
     case "dreieck_voll": case "dreieck_hohl": return need(dims, "a") * SQ3 / 2;
+    default: return openSectionHeight(type, dims);
   }
 }

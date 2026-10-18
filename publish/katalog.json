@@ -1,8 +1,8 @@
 {
- "core": "0.6.1",
+ "core": "0.7.0",
  "data": "WDB 1.0.1",
- "formulas": 192,
- "approved": 192,
+ "formulas": 241,
+ "approved": 241,
  "items": [
   {
    "id": "A-IX-BA-F-K",
@@ -2283,6 +2283,431 @@
    "sort": 1340
   },
   {
+   "id": "Q-IP-A",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Fläche",
+   "formula": "A = 2·b·t_f + (h − 2t_f)·t_w",
+   "unit": "mm²",
+   "source": "scharfkantig, ohne Ausrundungen",
+   "example": "2·100·8,5 + (200 − 2·8,5)·5,6",
+   "example_result": 2724.8,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1350
+  },
+  {
+   "id": "Q-IP-IY",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um y (stark)",
+   "formula": "I_y = [b·h³ − (b − t_w)·(h − 2t_f)³] / 12",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[100·200³ − 94,4·183³] / 12",
+   "example_result": 18455902.2667,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1360
+  },
+  {
+   "id": "Q-IP-IZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um z (schwach)",
+   "formula": "I_z = [2·t_f·b³ + (h − 2t_f)·t_w³] / 12",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[2·8,5·100³ + 183·5,6³] / 12",
+   "example_result": 1419344.81067,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1370
+  },
+  {
+   "id": "Q-IP-K",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Torsionsträgheitsmoment (dünnwandig offen)",
+   "formula": "Iₜ = [2·(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [2·b·t_f³ + (h − 2t_f)·t_w³] / 3",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 5.4; überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (Gegenrechnung Prandtl)",
+   "example": "t_w ≤ t_f: [2·94,4·8,5³ + 200·5,6³] / 3",
+   "example_result": 50356.6666667,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1380
+  },
+  {
+   "id": "Q-IP-KA",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Faktor Querkraftschub (Jourawski)",
+   "formula": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A",
+   "unit": "–",
+   "source": "Jourawski, exakt für die Rechteckzerlegung",
+   "example": "2725·1,048·10⁵ / (1,846·10⁷·5,6)",
+   "example_result": 2.76373296769,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1390
+  },
+  {
+   "id": "Q-IP-KAZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Faktor Querkraftschub (Jourawski)",
+   "formula": "κ = A·S / (I_z·b),  τ_Q = κ·Q / A",
+   "unit": "–",
+   "source": "Jourawski, exakt für die Rechteckzerlegung",
+   "example": "2725·21180 / (1,419·10⁶·17)",
+   "example_result": 2.39217331721,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil (schwach) 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1400
+  },
+  {
+   "id": "Q-IP-S",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Statisches Moment an der Stelle größter Schubspannung",
+   "formula": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 4.6",
+   "example": "Schnitt bei z − z_s = 0 mm, Breite b = 5,6 mm",
+   "example_result": 104829.8,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1410
+  },
+  {
+   "id": "Q-IP-SZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Statisches Moment an der Stelle größter Schubspannung",
+   "formula": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 4.6",
+   "example": "Schnitt bei z − z_s = -2,8 mm, Breite b = 17 mm",
+   "example_result": 21183.36,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil (schwach) 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1420
+  },
+  {
+   "id": "Q-IP-W",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Biegung (maßgebender Rand)",
+   "formula": "W = I_y / (h/2)",
+   "unit": "mm³",
+   "source": null,
+   "example": "1,846·10⁷ / 100",
+   "example_result": 184559.022667,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1430
+  },
+  {
+   "id": "Q-IP-WT",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Torsion",
+   "formula": "Wₜ = Iₜ / t_max",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 5.4",
+   "example": "50360 / 8,5",
+   "example_result": 5924.31372549,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1440
+  },
+  {
+   "id": "Q-IP-WZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Biegung um z (Lage schwach)",
+   "formula": "W = I_z / (b/2)",
+   "unit": "mm³",
+   "source": null,
+   "example": "1,419·10⁶ / 50",
+   "example_result": 28386.8962133,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); I-Profil (schwach) 200 × 100 × 5,6 × 8,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1450
+  },
+  {
+   "id": "Q-LP-A",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Fläche",
+   "formula": "A = t·(h + b − t)",
+   "unit": "mm²",
+   "source": "scharfkantig, ohne Ausrundungen",
+   "example": "6·(60 + 60 − 6)",
+   "example_result": 684,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1460
+  },
+  {
+   "id": "Q-LP-AL",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Winkel der Hauptachse 1 gegen y",
+   "formula": "α = ½·atan2(−2·I_yz, I_y − I_z), gegen den Uhrzeigersinn positiv",
+   "unit": "°",
+   "source": "Mohrscher Trägheitskreis",
+   "example": "½·atan2(2,763·10⁵, 0)",
+   "example_result": 45,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1470
+  },
+  {
+   "id": "Q-LP-I1",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Größtes Hauptträgheitsmoment",
+   "formula": "I₁ = (I_y + I_z)/2 + √[((I_y − I_z)/2)² + I_yz²]",
+   "unit": "mm⁴",
+   "source": "Mohrscher Trägheitskreis",
+   "example": "2,333·10⁵ + √[(0)² + (-1,381·10⁵)²]",
+   "example_result": 371412,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1480
+  },
+  {
+   "id": "Q-LP-I2",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Kleinstes Hauptträgheitsmoment",
+   "formula": "I₂ = (I_y + I_z)/2 − √[((I_y − I_z)/2)² + I_yz²]",
+   "unit": "mm⁴",
+   "source": "Mohrscher Trägheitskreis",
+   "example": "2,333·10⁵ − √[(0)² + (-1,381·10⁵)²]",
+   "example_result": 95159.3684211,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1490
+  },
+  {
+   "id": "Q-LP-IY",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um y (waagerechte Schwerachse, Biegeachse; ∫(z − z_s)² dA, senkrechter Schenkel h liefert h³)",
+   "formula": "I_y = [t·h³ + (b − t)·t³] / 3 − A·z_s²",
+   "unit": "mm⁴",
+   "source": "Steinerscher Satz",
+   "example": "[6·60³ + 54·6³] / 3 − 684·17,21²",
+   "example_result": 233285.684211,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1500
+  },
+  {
+   "id": "Q-LP-IYZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Deviationsmoment",
+   "formula": "I_yz = [t²·h² + t²·(b² − t²)] / 4 − A·y_s·z_s",
+   "unit": "mm⁴",
+   "source": "Steinerscher Satz, I_yz = ∫(y − y_s)(z − z_s) dA",
+   "example": "[6²·60² + 6²·(60² − 6²)] / 4 − 684·17,21·17,21",
+   "example_result": -138126.315789,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1510
+  },
+  {
+   "id": "Q-LP-IZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um z (senkrechte Schwerachse; ∫(y − y_s)² dA, waagerechter Schenkel b liefert b³)",
+   "formula": "I_z = [h·t³ + t·(b³ − t³)] / 3 − A·y_s²",
+   "unit": "mm⁴",
+   "source": "Steinerscher Satz",
+   "example": "[60·6³ + 6·(60³ − 6³)] / 3 − 684·17,21²",
+   "example_result": 233285.684211,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1520
+  },
+  {
+   "id": "Q-LP-K",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Torsionsträgheitsmoment (dünnwandig offen)",
+   "formula": "Iₜ = [(h − t/2) + (b − t/2)]·t³ / 3",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 5.4",
+   "example": "[57 + 57]·6³ / 3",
+   "example_result": 8208,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1530
+  },
+  {
+   "id": "Q-LP-KA",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Faktor Querkraftschub (Jourawski)",
+   "formula": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A",
+   "unit": "–",
+   "source": "Jourawski, exakt für die Rechteckzerlegung",
+   "example": "684·5493 / (2,333·10⁵·6)",
+   "example_result": 2.68418167199,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1540
+  },
+  {
+   "id": "Q-LP-S",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Statisches Moment an der Stelle größter Schubspannung",
+   "formula": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 4.6",
+   "example": "Schnitt bei z − z_s = 0 mm, Breite b = 6 mm",
+   "example_result": 5492.81717452,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1550
+  },
+  {
+   "id": "Q-LP-W",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Biegung (maßgebender Rand)",
+   "formula": "W = I_y / max(e_o, e_u)",
+   "unit": "mm³",
+   "source": null,
+   "example": "2,333·10⁵ / max(42,79; 17,21)",
+   "example_result": 5451.94095941,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1560
+  },
+  {
+   "id": "Q-LP-WT",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Torsion",
+   "formula": "Wₜ = Iₜ / t_max",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 5.4",
+   "example": "8208 / 6",
+   "example_result": 1368,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1570
+  },
+  {
+   "id": "Q-LP-YS",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Schwerpunktabstand von der Außenkante des senkrechten Schenkels",
+   "formula": "y_s = [h·t² + (b² − t²)·t] / (2A)",
+   "unit": "mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[60·6² + (60² − 6²)·6] / (2·684)",
+   "example_result": 17.2105263158,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1580
+  },
+  {
+   "id": "Q-LP-ZS",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Schwerpunktabstand von der Unterkante",
+   "formula": "z_s = [b·t² + (h² − t²)·t] / (2A)",
+   "unit": "mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[60·6² + (60² − 6²)·6] / (2·684)",
+   "example_result": 17.2105263158,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); L-Profil 60 × 60 × 6 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1590
+  },
+  {
    "id": "Q-m",
    "area": "Querschnitte",
    "module": "gemeinsam",
@@ -2297,7 +2722,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1350
+   "sort": 1600
   },
   {
    "id": "Q-RE-A",
@@ -2314,7 +2739,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1360
+   "sort": 1610
   },
   {
    "id": "Q-RE-I",
@@ -2331,7 +2756,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1370
+   "sort": 1620
   },
   {
    "id": "Q-RE-K",
@@ -2348,7 +2773,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1380
+   "sort": 1630
   },
   {
    "id": "Q-RE-W",
@@ -2365,7 +2790,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1390
+   "sort": 1640
   },
   {
    "id": "Q-RE-WT",
@@ -2382,7 +2807,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1400
+   "sort": 1650
   },
   {
    "id": "Q-RH-A",
@@ -2399,7 +2824,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1410
+   "sort": 1660
   },
   {
    "id": "Q-RH-d",
@@ -2416,7 +2841,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1420
+   "sort": 1670
   },
   {
    "id": "Q-RH-I",
@@ -2433,7 +2858,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1430
+   "sort": 1680
   },
   {
    "id": "Q-RH-K",
@@ -2450,7 +2875,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1440
+   "sort": 1690
   },
   {
    "id": "Q-RH-W",
@@ -2467,7 +2892,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1450
+   "sort": 1700
   },
   {
    "id": "Q-RH-WT",
@@ -2484,7 +2909,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1460
+   "sort": 1710
   },
   {
    "id": "Q-RR-A",
@@ -2501,7 +2926,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1470
+   "sort": 1720
   },
   {
    "id": "Q-RR-AM",
@@ -2518,7 +2943,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1480
+   "sort": 1730
   },
   {
    "id": "Q-RR-I",
@@ -2535,7 +2960,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1490
+   "sort": 1740
   },
   {
    "id": "Q-RR-K",
@@ -2552,7 +2977,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1500
+   "sort": 1750
   },
   {
    "id": "Q-RR-W",
@@ -2569,7 +2994,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1510
+   "sort": 1760
   },
   {
    "id": "Q-RR-WT",
@@ -2586,7 +3011,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1520
+   "sort": 1770
   },
   {
    "id": "Q-RV-A",
@@ -2603,7 +3028,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1530
+   "sort": 1780
   },
   {
    "id": "Q-RV-I",
@@ -2620,7 +3045,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1540
+   "sort": 1790
   },
   {
    "id": "Q-RV-K",
@@ -2637,7 +3062,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1550
+   "sort": 1800
   },
   {
    "id": "Q-RV-W",
@@ -2654,7 +3079,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1560
+   "sort": 1810
   },
   {
    "id": "Q-RV-WT",
@@ -2671,7 +3096,415 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1570
+   "sort": 1820
+  },
+  {
+   "id": "Q-SIGO",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Randspannung oben (Betrag)",
+   "formula": "|σ_o| = |M_max|·e_o / I",
+   "unit": "MPa",
+   "source": null,
+   "example": "3,6·10⁵·20,05 / 9,74·10⁵",
+   "example_result": 7.41059820157,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil (schwach) 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1830
+  },
+  {
+   "id": "Q-SIGU",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Randspannung unten (Betrag)",
+   "formula": "|σ_u| = |M_max|·e_u / I",
+   "unit": "MPa",
+   "source": null,
+   "example": "3,6·10⁵·44,95 / 9,74·10⁵",
+   "example_result": 16.613038462,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil (schwach) 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1840
+  },
+  {
+   "id": "Q-TP-A",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Fläche",
+   "formula": "A = b·t_f + (h − t_f)·t_w",
+   "unit": "mm²",
+   "source": "scharfkantig, ohne Ausrundungen",
+   "example": "60·7 + (60 − 7)·7",
+   "example_result": 791,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1850
+  },
+  {
+   "id": "Q-TP-IY",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um y (waagerechte Schwerachse)",
+   "formula": "I_y = [t_w·(h − t_f)³ + b·(h³ − (h − t_f)³)] / 3 − A·z_s²",
+   "unit": "mm⁴",
+   "source": "Steinerscher Satz",
+   "example": "[7·53³ + 60·(60³ − 53³)] / 3 − 791·42,43²",
+   "example_result": 265851.952065,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1860
+  },
+  {
+   "id": "Q-TP-IZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um z (Symmetrieachse)",
+   "formula": "I_z = [t_f·b³ + (h − t_f)·t_w³] / 12",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[7·60³ + 53·7³] / 12",
+   "example_result": 127514.916667,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1870
+  },
+  {
+   "id": "Q-TP-K",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Torsionsträgheitsmoment (dünnwandig offen)",
+   "formula": "Iₜ = [(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [b·t_f³ + (h − t_f)·t_w³] / 3",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 5.4; überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (Gegenrechnung Prandtl)",
+   "example": "t_w ≤ t_f: [53·7³ + 60·7³] / 3",
+   "example_result": 12919.6666667,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1880
+  },
+  {
+   "id": "Q-TP-KA",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Faktor Querkraftschub (Jourawski)",
+   "formula": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A",
+   "unit": "–",
+   "source": "Jourawski, exakt für die Rechteckzerlegung",
+   "example": "791·6301 / (2,659·10⁵·7)",
+   "example_result": 2.67815922272,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1890
+  },
+  {
+   "id": "Q-TP-S",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Statisches Moment an der Stelle größter Schubspannung",
+   "formula": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 4.6",
+   "example": "Schnitt bei z − z_s = 0 mm, Breite b = 7 mm",
+   "example_result": 6300.83059558,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1900
+  },
+  {
+   "id": "Q-TP-W",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Biegung (maßgebender Rand)",
+   "formula": "W = I_y / max(e_o, e_u)",
+   "unit": "mm³",
+   "source": null,
+   "example": "2,659·10⁵ / max(17,57; 42,43)",
+   "example_result": 6265.777575,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1910
+  },
+  {
+   "id": "Q-TP-WT",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Torsion",
+   "formula": "Wₜ = Iₜ / t_max",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 5.4",
+   "example": "12920 / 7",
+   "example_result": 1845.66666667,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1920
+  },
+  {
+   "id": "Q-TP-ZS",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Schwerpunktabstand von der Unterkante",
+   "formula": "z_s = [t_w·(h − t_f)²/2 + b·t_f·(h − t_f/2)] / A",
+   "unit": "mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[7·53²/2 + 60·7·56,5] / 791",
+   "example_result": 42.4292035398,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); T-Profil 60 × 60 × 7 × 7 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1930
+  },
+  {
+   "id": "Q-UP-A",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Fläche",
+   "formula": "A = 2·b·t_f + (h − 2t_f)·t_w",
+   "unit": "mm²",
+   "source": "scharfkantig, ohne Ausrundungen",
+   "example": "2·65·10,5 + (160 − 2·10,5)·7,5",
+   "example_result": 2407.5,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1940
+  },
+  {
+   "id": "Q-UP-EM",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Schubmittelpunkt (Abstand von der Stegmitte, nach außen)",
+   "formula": "e_M = b'²·h'²·t_f / (4·I_y),  b' = b − t_w/2, h' = h − t_f",
+   "unit": "mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.6 (dünnwandig)",
+   "example": "61,25²·149,5²·10,5 / (4·9,318·10⁶)",
+   "example_result": 23.6209656632,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1950
+  },
+  {
+   "id": "Q-UP-IY",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um y (stark)",
+   "formula": "I_y = [b·h³ − (b − t_w)·(h − 2t_f)³] / 12",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[65·160³ − 57,5·139³] / 12",
+   "example_result": 9318075.625,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1960
+  },
+  {
+   "id": "Q-UP-IZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Flächenträgheitsmoment um z (senkrechte Schwerachse parallel zum Steg, schwach; Symmetrieachse ist y)",
+   "formula": "I_z = [h·t_w³ + 2·t_f·(b³ − t_w³)] / 3 − A·y_s²",
+   "unit": "mm⁴",
+   "source": "Steinerscher Satz",
+   "example": "[160·7,5³ + 2·10,5·(65³ − 7,5³)] / 3 − 2408·20,05²",
+   "example_result": 974040.705315,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1970
+  },
+  {
+   "id": "Q-UP-K",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Torsionsträgheitsmoment (dünnwandig offen)",
+   "formula": "Iₜ = [2·(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [2·b·t_f³ + (h − 2t_f)·t_w³] / 3",
+   "unit": "mm⁴",
+   "source": "Gross/Hauger TM 2, Kap. 5.4; überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (Gegenrechnung Prandtl)",
+   "example": "t_w ≤ t_f: [2·57,5·10,5³ + 160·7,5³] / 3",
+   "example_result": 66875.625,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-18",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1980
+  },
+  {
+   "id": "Q-UP-KA",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Faktor Querkraftschub (Jourawski)",
+   "formula": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A",
+   "unit": "–",
+   "source": "Jourawski, exakt für die Rechteckzerlegung",
+   "example": "2408·69130 / (9,318·10⁶·7,5)",
+   "example_result": 2.38148210055,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 1990
+  },
+  {
+   "id": "Q-UP-KAZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Faktor Querkraftschub (Jourawski)",
+   "formula": "κ = A·S / (I_z·b),  τ_Q = κ·Q / A",
+   "unit": "–",
+   "source": "Jourawski, exakt für die Rechteckzerlegung",
+   "example": "2408·21210 / (9,74·10⁵·21)",
+   "example_result": 2.49693102821,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil (schwach) 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2000
+  },
+  {
+   "id": "Q-UP-S",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Statisches Moment an der Stelle größter Schubspannung",
+   "formula": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 4.6",
+   "example": "Schnitt bei z − z_s = 0 mm, Breite b = 7,5 mm",
+   "example_result": 69130.3125,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2010
+  },
+  {
+   "id": "Q-UP-SZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Statisches Moment an der Stelle größter Schubspannung",
+   "formula": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 4.6",
+   "example": "Schnitt bei z − z_s = 0 mm, Breite b = 21 mm",
+   "example_result": 21214.6881232,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil (schwach) 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2020
+  },
+  {
+   "id": "Q-UP-W",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Biegung (maßgebender Rand)",
+   "formula": "W = I_y / (h/2)",
+   "unit": "mm³",
+   "source": null,
+   "example": "9,318·10⁶ / 80",
+   "example_result": 116475.945313,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2030
+  },
+  {
+   "id": "Q-UP-WT",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Torsion",
+   "formula": "Wₜ = Iₜ / t_max",
+   "unit": "mm³",
+   "source": "Gross/Hauger TM 2, Kap. 5.4",
+   "example": "66880 / 10,5",
+   "example_result": 6369.10714286,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2040
+  },
+  {
+   "id": "Q-UP-WZ",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Widerstandsmoment Biegung um z (Lage schwach)",
+   "formula": "W = I_z / max(e_o, e_u)",
+   "unit": "mm³",
+   "source": null,
+   "example": "9,74·10⁵ / max(20,05; 44,95)",
+   "example_result": 21669.7265117,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil (schwach) 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2050
+  },
+  {
+   "id": "Q-UP-YS",
+   "area": "Querschnitte",
+   "module": "gemeinsam",
+   "quantity": "Schwerpunktabstand von der Stegaußenkante",
+   "formula": "y_s = [t_w²·h + 2·t_f·(b² − t_w²)] / (2A)",
+   "unit": "mm",
+   "source": "Gross/Hauger TM 2, Kap. 4.2",
+   "example": "[7,5²·160 + 2·10,5·(65² − 7,5²)] / (2·2408)",
+   "example_result": 20.050623053,
+   "example_case": "2-Punkt-Lagerung, Streckenlast; EN AW-6082 (W038); U-Profil 160 × 65 × 7,5 × 10,5 mm; L 1200 mm; F 2 kN; q 2 kN/m",
+   "status": "freigegeben",
+   "approved_at": "2026-10-15",
+   "approved_by": "seti",
+   "comment": null,
+   "sort": 2060
   },
   {
    "id": "T-PHI1",
@@ -2688,7 +3521,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1580
+   "sort": 2070
   },
   {
    "id": "T-PHI2",
@@ -2705,7 +3538,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1590
+   "sort": 2080
   },
   {
    "id": "T-TA",
@@ -2722,7 +3555,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1600
+   "sort": 2090
   },
   {
    "id": "T-TAU",
@@ -2739,7 +3572,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1610
+   "sort": 2100
   },
   {
    "id": "V-B",
@@ -2756,7 +3589,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1620
+   "sort": 2110
   },
   {
    "id": "V-BL",
@@ -2773,7 +3606,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1630
+   "sort": 2120
   },
   {
    "id": "V-CK-EE",
@@ -2790,7 +3623,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1640
+   "sort": 2130
   },
   {
    "id": "V-CK-EG",
@@ -2807,7 +3640,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1650
+   "sort": 2140
   },
   {
    "id": "V-CK-GG",
@@ -2824,7 +3657,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1660
+   "sort": 2150
   },
   {
    "id": "V-CK-KR",
@@ -2841,7 +3674,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1670
+   "sort": 2160
   },
   {
    "id": "V-EI",
@@ -2858,7 +3691,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1680
+   "sort": 2170
   },
   {
    "id": "V-EW",
@@ -2875,7 +3708,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1690
+   "sort": 2180
   },
   {
    "id": "V-FN",
@@ -2892,7 +3725,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1700
+   "sort": 2190
   },
   {
    "id": "V-MB",
@@ -2909,7 +3742,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 1710
+   "sort": 2200
   },
   {
    "id": "V-NR",
@@ -2926,7 +3759,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1720
+   "sort": 2210
   },
   {
    "id": "V-NZ",
@@ -2943,7 +3776,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1730
+   "sort": 2220
   },
   {
    "id": "V-OM",
@@ -2960,7 +3793,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1740
+   "sort": 2230
   },
   {
    "id": "V-PH-EE",
@@ -2977,7 +3810,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1750
+   "sort": 2240
   },
   {
    "id": "V-PH-EG",
@@ -2994,7 +3827,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1760
+   "sort": 2250
   },
   {
    "id": "V-PH-GG",
@@ -3011,7 +3844,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1770
+   "sort": 2260
   },
   {
    "id": "V-PH-KR",
@@ -3028,7 +3861,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1780
+   "sort": 2270
   },
   {
    "id": "V-RQ",
@@ -3045,7 +3878,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1790
+   "sort": 2280
   },
   {
    "id": "W-BB",
@@ -3062,7 +3895,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1800
+   "sort": 2290
   },
   {
    "id": "W-E",
@@ -3079,7 +3912,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1810
+   "sort": 2300
   },
   {
    "id": "W-G",
@@ -3096,7 +3929,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 1820
+   "sort": 2310
   },
   {
    "id": "W-G-DB",
@@ -3113,7 +3946,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1830
+   "sort": 2320
   },
   {
    "id": "W-RHO",
@@ -3130,7 +3963,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1840
+   "sort": 2330
   },
   {
    "id": "W-RM",
@@ -3147,7 +3980,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1850
+   "sort": 2340
   },
   {
    "id": "W-RP",
@@ -3164,7 +3997,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1860
+   "sort": 2350
   },
   {
    "id": "Z-DL",
@@ -3181,7 +4014,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1870
+   "sort": 2360
   },
   {
    "id": "Z-DL2",
@@ -3198,7 +4031,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1880
+   "sort": 2370
   },
   {
    "id": "Z-NMAX",
@@ -3215,7 +4048,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1890
+   "sort": 2380
   },
   {
    "id": "Z-QG",
@@ -3232,7 +4065,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1900
+   "sort": 2390
   },
   {
    "id": "Z-SIG",
@@ -3249,7 +4082,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1910
+   "sort": 2400
   },
   {
    "id": "Z-SIG2",
@@ -3266,7 +4099,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1920
+   "sort": 2410
   }
  ]
 }

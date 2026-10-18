@@ -12,7 +12,11 @@ export type Case =
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "section") {
     const s = sectionProps(c.sec, c.dims);
-    return { A: s.A, I: s.I, W: s.W, K: s.K, Wt: s.Wt, phiBe: s.phiBe, phiTe: s.phiTe, phiBf: s.phiBf, phiTf: s.phiTf };
+    const o = s.open;
+    return {
+      A: s.A, I: s.I, W: s.W, K: s.K, Wt: s.Wt, phiBe: s.phiBe, phiTe: s.phiTe, phiBf: s.phiBf, phiTf: s.phiTf, Imin: s.Imin, kappa: s.kappa, e: s.e, errors: s.errors.length,
+      ...(o ? { Iy: o.Iy, Iz: o.Iz, Iyz: o.Iyz, I1: o.I1, I2: o.I2, alpha: o.alpha, ys: o.ys, zs: o.zs, eo: o.eo, eu: o.eu, eM: o.eM } : {}),
+    };
   }
   if (c.type === "calc") {
     const r = computeStrength(repo, c.inp);
@@ -21,6 +25,7 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
       M: r.bend?.M ?? null, w: r.bend?.w ?? null, sv: r.sigmaV, dL: r.axial?.dL ?? null, sk: r.buck?.sigmaK ?? null, lamT: r.buck?.lambdaT ?? null, theta: r.tors?.theta ?? null, tau: r.tauT, util: r.util,
       Q: r.bend?.Q ?? null, A: ll?.A ?? null, B: ll?.B ?? null, MA: ll?.MA ?? null, MB: ll?.MB ?? null, xM: ll?.Mext.x ?? null, xf: ll?.wext.x ?? null,
       res: ll ? Math.max(Math.abs(ll.resF), Math.abs(ll.resM)) : null,
+      sigO: r.kpis.find((k) => k.key === "sigO")?.value ?? null, sigU: r.kpis.find((k) => k.key === "sigU")?.value ?? null,
     };
   }
   if (c.type === "pressure") {

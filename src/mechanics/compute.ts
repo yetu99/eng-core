@@ -7,7 +7,7 @@
  */
 import { fmt } from "../format";
 import { DATA_VERSION } from "../dataVersion";
-import { sectionProps, sectionHeight, SECTIONS, type Dims, type SecType, type SectionProps } from "../sections";
+import { sectionProps, sectionHeight, isOpenSection, SECTIONS, type Dims, type SecType, type SectionProps } from "../sections";
 import { step, type CalcStep, type Trace, type TraceGroup } from "../trace";
 import { defaultNu, strengthDesign, DV_SYMBOL, type DvChoice, type Material, type Repo, type StrengthDesign } from "../materials";
 import { BENDING_CASES, BUCKLING_CASES, EULER_BETA, isBendingCase, isBucklingCase, type BendingCase, type Kind } from "./cases";
@@ -55,7 +55,7 @@ export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung" 
  * Kennwert für Anzeige. main = hervorgehobener Leitwert; primary = Hauptkennwert (Blatt 1 offen, Leitstand), sonst
  * „weitere Kennwerte“ (eingeklappt, im Druck offen). Reines Darstellungsmerkmal, keine Formel.
  */
-export interface Kpi { key: string; label: string; sym: string; value: number; unit: string; result: boolean; main?: boolean; primary?: boolean }
+export interface Kpi { key: string; label: string; sym: string; value: number; unit: string; result: boolean; main?: boolean; primary?: boolean; /** weiterer Querschnittswert (offene Profile, ab 0.7.0): in der Oberfläche eingeklappt */ extra?: boolean }
 
 /** Hauptkennwerte je Belastungsart (abgestimmt mit Seti 13.10.2026). */
 export const PRIMARY_KPIS: Readonly<Record<Kind | "combined", readonly string[]>> = {
@@ -168,6 +168,15 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   add("querschnitt", step("Q-m", "Masse", "m = ρ·A·L", `${fmt(rho)} kg/m³ · ${fmt(sec.A)} mm² · ${fmt(L)} mm`, res.mass, "kg"));
 
   let sigmaB = 0, tauQ = 0, sigN = 0, tauT = 0;
+  // Offene Profile mit ungleichen Randabständen (T, L, U schwach): Spannung an beiden Rändern (Konzept O6)
+  let sigO: number | null = null, sigU: number | null = null;
+  const edgeStresses = (Mabs: number) => {
+    const o = sec.open;
+    if (!o || Math.abs(o.eo - o.eu) <= 1e-9 * Math.max(o.eo, o.eu)) return;
+    sigO = Mabs * o.eo / sec.I; sigU = Mabs * o.eu / sec.I;
+    add("belastung", step("Q-SIGO", "Randspannung oben (Betrag)", "|σ_o| = |M_max|·e_o / I", `${fmt(Mabs)}·${fmt(o.eo)} / ${fmt(sec.I)}`, sigO, "MPa"));
+    add("belastung", step("Q-SIGU", "Randspannung unten (Betrag)", "|σ_u| = |M_max|·e_u / I", `${fmt(Mabs)}·${fmt(o.eu)} / ${fmt(sec.I)}`, sigU, "MPa"));
+  };
   // Biegung
   if (bending && isBendingCase(caseId)) {
     const EI = E * sec.I;
@@ -177,6 +186,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
     sigmaB = mx.M / sec.W; tauQ = sec.kappa * mx.Q / sec.A; res.fzul = L / inp.fDiv;
     add("belastung", step(`B-M-${caseId}`, "Größtes Biegemoment", mx.fM, mx.sM, mx.M, "N·mm", bc.ref));
     add("belastung", step("B-SIG", "Biegespannung", "σ_b = M_max / W", `${fmt(mx.M)} / ${fmt(sec.W)}`, sigmaB, "MPa"));
+    edgeStresses(Math.abs(mx.M));
     add("belastung", step("B-TAUQ", "Schubspannung aus Querkraft (Näherung)", "τ_Q = κ·Q_max / A", `${fmt(sec.kappa)}·${fmt(mx.Q)} / ${fmt(sec.A)}`, tauQ, "MPa", "κ je Querschnitt"));
     add("belastung", step(`B-F-${caseId}`, "Größte Durchbiegung", mx.fw, mx.sw, mx.w, "mm", bc.ref));
     add("nachweis", step("N-FZUL", "Zulässige Durchbiegung", `f_zul = L / ${fmt(inp.fDiv)}`, `${fmt(L)} / ${fmt(inp.fDiv)}`, res.fzul, "mm", "Vorgabe"));
@@ -224,6 +234,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
     add("belastung", step("B-LL-MX", "Größtes Biegemoment", "|M|_max über alle Lastangriffspunkte (links und rechts davon), Balkenenden und Nullstellen von Q(x)", `bei x_M = ${fmt(sol.Mext.x)} mm: M = ${fmt(sol.Mext.value)} N·mm`, Mabs, "N·mm", "Extremwertsuche, Bisektion 80 Schritte"));
     add("belastung", step("B-LL-M", "Biegemoment an der Stelle x_M", fM, `${sM} (Streckenlasten als Teilresultierende · Hebelarm)`, sol.Mext.value, "N·mm", "Gross/Hauger TM 2, Kap. 4.5"));
     add("belastung", step("B-SIG", "Biegespannung", "σ_b = M_max / W", `${fmt(Mabs)} / ${fmt(sec.W)}`, sigmaB, "MPa"));
+    edgeStresses(Mabs);
     add("belastung", step("B-TAUQ", "Schubspannung aus Querkraft (Näherung)", "τ_Q = κ·Q_max / A", `${fmt(sec.kappa)}·${fmt(Qabs)} / ${fmt(sec.A)}`, tauQ, "MPa", "κ je Querschnitt"));
     add("belastung", step("B-LL-W", "Biegelinie an der Stelle x_f", fw, sw, sol.wext.value, "mm", "Gross/Hauger TM 2, Kap. 4.5"));
     add("belastung", step("B-LL-FX", "Größte Durchbiegung", "f = max |w(x)| über alle Lastangriffspunkte, Balkenenden und Nullstellen von φ(x)", `bei x_f = ${fmt(sol.wext.x)} mm`, wabs, "mm", "Extremwertsuche, Bisektion 80 Schritte"));
@@ -287,6 +298,12 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
     add("belastung", step("T-TAU", "Torsionsspannung", "τ_t = M_t,max / Wₜ  (einseitig M_t, beidseitig M_t,A)", `${fmt(Teff)} / ${fmt(sec.Wt)}`, tauT, "MPa", "Ashby App. A.6"));
     add("belastung", step(twoSided ? "T-PHI2" : "T-PHI1", twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", twoSided ? "φ_Mitte = M_t,A·(L/2) / (G·Iₜ) = M_t·L / (4·G·Iₜ)" : "φ_Ende = M_t·L / (G·Iₜ)", `${fmt(Tm)}·${fmt(L)} / (${twoSided ? "4·" : ""}${fmt(Gm)}·${fmt(sec.K)})`, theta, "°", "Ashby App. A.6"));
   }
+  // Offene Profile (0.7.0): Hinweise Biegedrillknicken, Schubmittelpunkt, Wölbkrafttorsion (Konzept O7, O9)
+  if (isOpenSection(inp.secType)) {
+    if (res.bend) res.warnings.push("Offenes Profil: Biegedrillknicken nicht geprüft, seitliche Halterung des Druckgurts angenommen");
+    if (res.bend && inp.secType === "u_profil" && sec.open?.eM) res.warnings.push(`U-Profil: Schubmittelpunkt ${fmt(sec.open.eM, 3)} mm außerhalb der Stegmitte. Geht die Last nicht durch ihn, entsteht zusätzliche Torsion (nicht erfasst)`);
+    if (res.tors) res.warnings.push("Offenes Profil unter Torsion: Iₜ klein, St.-Venant ohne Wölbbehinderung. Bei behinderter Verwölbung zusätzliche Normalspannungen σ_ω (nicht erfasst). Für Torsion geschlossenes Profil wählen");
+  }
   const sigma = Math.abs(sigmaB) + Math.abs(sigN);
   const sv = Math.sqrt(sigma * sigma + 3 * tauT * tauT);
   add("nachweis", step("N-SV", "Vergleichsspannung (GEH, Randfaser)", "σ_v = √(σ² + 3τ_t²),  σ = |σ_b| + |σ_N|", `√(${fmt(sigma)}² + 3·${fmt(tauT)}²)`, sv, "MPa", "Gestaltänderungsenergiehypothese"));
@@ -321,6 +338,18 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   if (res.tors) kp("tauT", "Torsionsspannung", "τ_t", tauT, "MPa", true);
   kp("sigmaV", "Vergleichsspannung", "σ_v", sv, "MPa", true, true);
   if (res.bend) kp("f", "Durchbiegung", "f", res.bend.w, "mm", true);
+  if (sigO !== null && sigU !== null) { kp("sigO", "Randspannung oben", "|σ_o|", sigO, "MPa", true); kp("sigU", "Randspannung unten", "|σ_u|", sigU, "MPa", true); }
+  if (sec.open) {
+    const n0 = K.length;
+    const o = sec.open, weak = inp.secType === "i_profil_z" || inp.secType === "u_profil_z";
+    kp("Iquer", "Flächenträgheitsmoment quer zur Lastebene", weak ? "I_y" : "I_z", weak ? o.Iy : o.Iz, "mm⁴");
+    if (!res.tors) { kp("K", "Torsionsträgheitsmoment", "Iₜ", sec.K, "mm⁴"); kp("Wt", "Torsionswiderstand", "Wₜ", sec.Wt, "mm³"); }
+    kp("kappa", "Faktor Querkraftschub", "κ", sec.kappa, "–");
+    kp("eo", "Randabstand oben", "e_o", o.eo, "mm"); kp("eu", "Randabstand unten", "e_u", o.eu, "mm");
+    if (inp.secType === "l_profil") { kp("I1", "Hauptträgheitsmoment 1", "I₁", o.I1, "mm⁴"); kp("I2", "Hauptträgheitsmoment 2", "I₂", o.I2, "mm⁴"); kp("alpha", "Winkel Hauptachse 1", "α", o.alpha, "°"); }
+    if (o.eM !== null) kp("eM", "Schubmittelpunkt ab Stegmitte", "e_M", o.eM, "mm");
+    for (let i = n0; i < K.length; i++) K[i] = { ...K[i]!, extra: true };
+  }
   if (res.bend?.ll) {
     const s = res.bend.ll;
     kp("xf", "Ort der größten Durchbiegung", "x_f", s.wext.x, "mm", true);

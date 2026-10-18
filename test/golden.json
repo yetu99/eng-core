@@ -5872,5 +5872,1046 @@
    "fR": 188.777357045317
   },
   "tol": 1e-06
+ },
+ {
+  "id": "O-T1 I 200×100×5,6×8,5 Polygon",
+  "case": {
+   "id": "O-T1 I 200×100×5,6×8,5 Polygon",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 5.6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "A": 2724.7999999999997,
+   "I": 18455902.26666667,
+   "W": 184559.0226666667,
+   "e": 100.0,
+   "Iy": 18455902.26666667,
+   "Iz": 1419344.8106666664,
+   "ys": 0.0,
+   "zs": 0.0,
+   "eo": 100.0,
+   "eu": 100.0,
+   "Imin": 1419344.8106666664
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T1 I 200×100×5,6×8,5 Jourawski",
+  "case": {
+   "id": "O-T1 I 200×100×5,6×8,5 Jourawski",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 5.6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "kappa": 2.763732967690318
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T1b I schwach Polygon",
+  "case": {
+   "id": "O-T1b I schwach Polygon",
+   "type": "section",
+   "sec": "i_profil_z",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 5.6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "A": 2724.7999999999997,
+   "I": 1419344.8106666664,
+   "W": 28386.896213333326,
+   "e": 50.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T1b I schwach Jourawski",
+  "case": {
+   "id": "O-T1b I schwach Jourawski",
+   "type": "section",
+   "sec": "i_profil_z",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 5.6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "kappa": 2.392173263458569
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T2 I 200×100×6×8,5 Polygon",
+  "case": {
+   "id": "O-T2 I 200×100×6×8,5 Polygon",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "A": 2798.0,
+   "I": 18660185.166666668,
+   "W": 186601.85166666668,
+   "e": 100.0,
+   "Iy": 18660185.166666668,
+   "Iz": 1419960.6666666667,
+   "ys": 0.0,
+   "zs": 0.0,
+   "eo": 100.0,
+   "eu": 100.0,
+   "Imin": 1419960.6666666667
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T2 I 200×100×6×8,5 Jourawski",
+  "case": {
+   "id": "O-T2 I 200×100×6×8,5 Jourawski",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "kappa": 2.6616285676193403
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T3 U 160×65×7,5×10,5 Polygon",
+  "case": {
+   "id": "O-T3 U 160×65×7,5×10,5 Polygon",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 160,
+    "b": 65,
+    "tw": 7.5,
+    "tf": 10.5
+   }
+  },
+  "expect": {
+   "A": 2407.5,
+   "I": 9318075.625,
+   "W": 116475.9453125,
+   "e": 80.0,
+   "Iy": 9318075.625,
+   "Iz": 974040.7053154206,
+   "ys": 20.0506230529595,
+   "zs": 0.0,
+   "eo": 80.0,
+   "eu": 80.0,
+   "Imin": 974040.7053154206
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T3 U 160×65×7,5×10,5 Jourawski",
+  "case": {
+   "id": "O-T3 U 160×65×7,5×10,5 Jourawski",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 160,
+    "b": 65,
+    "tw": 7.5,
+    "tf": 10.5
+   }
+  },
+  "expect": {
+   "kappa": 2.3814821005490607
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T3b U schwach Polygon",
+  "case": {
+   "id": "O-T3b U schwach Polygon",
+   "type": "section",
+   "sec": "u_profil_z",
+   "dims": {
+    "h": 160,
+    "b": 65,
+    "tw": 7.5,
+    "tf": 10.5
+   }
+  },
+  "expect": {
+   "A": 2407.5,
+   "I": 974040.7053154206,
+   "W": 21669.726511738718,
+   "e": 44.9493769470405
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T3b U schwach Jourawski",
+  "case": {
+   "id": "O-T3b U schwach Jourawski",
+   "type": "section",
+   "sec": "u_profil_z",
+   "dims": {
+    "h": 160,
+    "b": 65,
+    "tw": 7.5,
+    "tf": 10.5
+   }
+  },
+  "expect": {
+   "kappa": 2.4969310282106805
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T4 L 60×60×6 Polygon",
+  "case": {
+   "id": "O-T4 L 60×60×6 Polygon",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 60,
+    "b": 60,
+    "t": 6
+   }
+  },
+  "expect": {
+   "A": 684.0,
+   "I": 233285.68421052632,
+   "W": 5451.940959409594,
+   "e": 42.78947368421053,
+   "Iy": 233285.68421052632,
+   "Iz": 233285.68421052632,
+   "ys": 17.210526315789473,
+   "zs": 17.210526315789473,
+   "eo": 42.78947368421053,
+   "eu": 17.210526315789473,
+   "Iyz": -138126.31578947368,
+   "I1": 371412.0,
+   "I2": 95159.36842105264,
+   "alpha": 45.0,
+   "Imin": 95159.36842105264
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T4 L 60×60×6 Jourawski",
+  "case": {
+   "id": "O-T4 L 60×60×6 Jourawski",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 60,
+    "b": 60,
+    "t": 6
+   }
+  },
+  "expect": {
+   "kappa": 2.684181671986551
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T4b L 80×40×8 ungleichschenklig Polygon",
+  "case": {
+   "id": "O-T4b L 80×40×8 ungleichschenklig Polygon",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 80,
+    "b": 40,
+    "t": 8
+   }
+  },
+  "expect": {
+   "A": 896.0,
+   "I": 579681.5238095239,
+   "W": 11527.757575757578,
+   "e": 50.285714285714285,
+   "Iy": 579681.5238095239,
+   "Iz": 98401.52380952382,
+   "ys": 9.714285714285714,
+   "zs": 29.714285714285715,
+   "eo": 50.285714285714285,
+   "eu": 29.714285714285715,
+   "Iyz": -131657.14285714287,
+   "I1": 613342.8414609456,
+   "I2": 64740.20615810214,
+   "alpha": 14.341809370144738,
+   "Imin": 64740.20615810214
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T4b L 80×40×8 ungleichschenklig Jourawski",
+  "case": {
+   "id": "O-T4b L 80×40×8 ungleichschenklig Jourawski",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 80,
+    "b": 40,
+    "t": 8
+   }
+  },
+  "expect": {
+   "kappa": 1.9542395693135932
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T5 T 60×60×7×7 Polygon",
+  "case": {
+   "id": "O-T5 T 60×60×7×7 Polygon",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 60,
+    "b": 60,
+    "tw": 7,
+    "tf": 7
+   }
+  },
+  "expect": {
+   "A": 791.0,
+   "I": 265851.95206489693,
+   "W": 6265.777574999135,
+   "e": 42.42920353982301,
+   "Iy": 265851.95206489693,
+   "Iz": 127514.91666666667,
+   "ys": 0.0,
+   "zs": 42.42920353982301,
+   "eo": 17.570796460176993,
+   "eu": 42.42920353982301,
+   "Imin": 127514.91666666667
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T5 T 60×60×7×7 Jourawski",
+  "case": {
+   "id": "O-T5 T 60×60×7×7 Jourawski",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 60,
+    "b": 60,
+    "tw": 7,
+    "tf": 7
+   }
+  },
+  "expect": {
+   "kappa": 2.678159222720624
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T5b T 100×80×6×10 Polygon",
+  "case": {
+   "id": "O-T5b T 100×80×6×10 Polygon",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 100,
+    "b": 80,
+    "tw": 6,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "A": 1340.0,
+   "I": 1177136.8159203967,
+   "W": 15726.453971419058,
+   "e": 74.85074626865672,
+   "Iy": 1177136.8159203967,
+   "Iz": 428286.6666666667,
+   "ys": 0.0,
+   "zs": 74.85074626865672,
+   "eo": 25.14925373134328,
+   "eu": 74.85074626865672,
+   "Imin": 428286.6666666667
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T5b T 100×80×6×10 Jourawski",
+  "case": {
+   "id": "O-T5b T 100×80×6×10 Jourawski",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 100,
+    "b": 80,
+    "tw": 6,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "kappa": 3.1888943363291937
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T6 I 300×300×11×19 Polygon",
+  "case": {
+   "id": "O-T6 I 300×300×11×19 Polygon",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 300,
+    "b": 300,
+    "tw": 11,
+    "tf": 19
+   }
+  },
+  "expect": {
+   "A": 14282.0,
+   "I": 241867800.66666666,
+   "W": 1612452.0044444443,
+   "e": 150.0,
+   "Iy": 241867800.66666666,
+   "Iz": 85529060.16666667,
+   "ys": 0.0,
+   "zs": 0.0,
+   "eo": 150.0,
+   "eu": 150.0,
+   "Imin": 85529060.16666667
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T6 I 300×300×11×19 Jourawski",
+  "case": {
+   "id": "O-T6 I 300×300×11×19 Jourawski",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 300,
+    "b": 300,
+    "tw": 11,
+    "tf": 19
+   }
+  },
+  "expect": {
+   "kappa": 4.805688132020989
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T2 I 200×100×6×8,5 Iₜ Prandtl",
+  "case": {
+   "id": "O-T2 I 200×100×6×8,5 Iₜ Prandtl",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "K": 53326.92984647501
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T3 U 160×65×7,5×10,5 Iₜ Prandtl",
+  "case": {
+   "id": "O-T3 U 160×65×7,5×10,5 Iₜ Prandtl",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 160,
+    "b": 65,
+    "tw": 7.5,
+    "tf": 10.5
+   }
+  },
+  "expect": {
+   "K": 66284.11056556662
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T4 L 60×60×6 Iₜ Prandtl",
+  "case": {
+   "id": "O-T4 L 60×60×6 Iₜ Prandtl",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 60,
+    "b": 60,
+    "t": 6
+   }
+  },
+  "expect": {
+   "K": 8031.419742531502
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T4b L 80×40×8 ungleichschenklig Iₜ Prandtl",
+  "case": {
+   "id": "O-T4b L 80×40×8 ungleichschenklig Iₜ Prandtl",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 80,
+    "b": 40,
+    "t": 8
+   }
+  },
+  "expect": {
+   "K": 18554.805873479807
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T5 T 60×60×7×7 Iₜ Prandtl",
+  "case": {
+   "id": "O-T5 T 60×60×7×7 Iₜ Prandtl",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 60,
+    "b": 60,
+    "tw": 7,
+    "tf": 7
+   }
+  },
+  "expect": {
+   "K": 12870.140021711772
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T5b T 100×80×6×10 Iₜ Prandtl",
+  "case": {
+   "id": "O-T5b T 100×80×6×10 Iₜ Prandtl",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 100,
+    "b": 80,
+    "tw": 6,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "K": 31836.226442147603
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T6 I 300×300×11×19 Iₜ Prandtl",
+  "case": {
+   "id": "O-T6 I 300×300×11×19 Iₜ Prandtl",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 300,
+    "b": 300,
+    "tw": 11,
+    "tf": 19
+   }
+  },
+  "expect": {
+   "K": 1455411.458836703
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 U 100×50×6×8,5 Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 U 100×50×6×8,5 Iₜ Prandtl",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 100,
+    "b": 50,
+    "tw": 6,
+    "tf": 8.5
+   }
+  },
+  "expect": {
+   "K": 24952.080412505802
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 U 200×80×10×10 Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 U 200×80×10×10 Iₜ Prandtl",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 200,
+    "b": 80,
+    "tw": 10,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "K": 112695.73800681568
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 T 80×100×8×8 Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 T 80×100×8×8 Iₜ Prandtl",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 80,
+    "b": 100,
+    "tw": 8,
+    "tf": 8
+   }
+  },
+  "expect": {
+   "K": 29268.47211838955
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 T 120×60×10×6 (t_w > t_f) Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 T 120×60×10×6 (t_w > t_f) Iₜ Prandtl",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 120,
+    "b": 60,
+    "tw": 10,
+    "tf": 6
+   }
+  },
+  "expect": {
+   "K": 42073.46485958953
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 I 100×100×6×10 Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 I 100×100×6×10 Iₜ Prandtl",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 100,
+    "b": 100,
+    "tw": 6,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "K": 70078.05601794606
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 I 400×180×8,5×13,5 Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 I 400×180×8,5×13,5 Iₜ Prandtl",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 400,
+    "b": 180,
+    "tw": 8.5,
+    "tf": 13.5
+   }
+  },
+  "expect": {
+   "K": 364491.1112482062
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 I 200×100×12×8 (t_w > t_f) Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 I 200×100×12×8 (t_w > t_f) Iₜ Prandtl",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 200,
+    "b": 100,
+    "tw": 12,
+    "tf": 8
+   }
+  },
+  "expect": {
+   "K": 144006.7622898875
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T11 U 120×60×9×6 (t_w > t_f) Iₜ Prandtl",
+  "case": {
+   "id": "O-T11 U 120×60×9×6 (t_w > t_f) Iₜ Prandtl",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 120,
+    "b": 60,
+    "tw": 9,
+    "tf": 6
+   }
+  },
+  "expect": {
+   "K": 35595.13906896193
+  },
+  "tol": 0.035
+ },
+ {
+  "id": "O-T3 U Schubmittelpunkt",
+  "case": {
+   "id": "O-T3 U Schubmittelpunkt",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 160,
+    "b": 65,
+    "tw": 7.5,
+    "tf": 10.5
+   }
+  },
+  "expect": {
+   "eM": 23.72976280120482
+  },
+  "tol": 0.03
+ },
+ {
+  "id": "O-T7 I mit t_w = b",
+  "case": {
+   "id": "O-T7 I mit t_w = b",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 120,
+    "b": 40,
+    "tw": 40,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "A": 4800,
+   "I": 5760000.0,
+   "W": 96000.0,
+   "kappa": 1.5
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "O-T7 T mit t_w = b",
+  "case": {
+   "id": "O-T7 T mit t_w = b",
+   "type": "section",
+   "sec": "t_profil",
+   "dims": {
+    "h": 120,
+    "b": 40,
+    "tw": 40,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "A": 4800,
+   "I": 5760000.0,
+   "W": 96000.0,
+   "kappa": 1.5
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "O-T7 U mit b = t_w",
+  "case": {
+   "id": "O-T7 U mit b = t_w",
+   "type": "section",
+   "sec": "u_profil",
+   "dims": {
+    "h": 120,
+    "b": 40,
+    "tw": 40,
+    "tf": 10
+   }
+  },
+  "expect": {
+   "A": 4800,
+   "I": 5760000.0,
+   "W": 96000.0,
+   "kappa": 1.5
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "O-T7 L mit b = t",
+  "case": {
+   "id": "O-T7 L mit b = t",
+   "type": "section",
+   "sec": "l_profil",
+   "dims": {
+    "h": 120,
+    "b": 40,
+    "t": 40
+   }
+  },
+  "expect": {
+   "A": 4800,
+   "I": 5760000.0,
+   "W": 96000.0,
+   "kappa": 1.5
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "O-T7 I mit 2t_f = h",
+  "case": {
+   "id": "O-T7 I mit 2t_f = h",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 120,
+    "b": 40,
+    "tw": 10,
+    "tf": 60
+   }
+  },
+  "expect": {
+   "A": 4800,
+   "I": 5760000.0,
+   "W": 96000.0,
+   "kappa": 1.5
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "O-T7 ungültig 2t_f > h",
+  "case": {
+   "id": "O-T7 ungültig 2t_f > h",
+   "type": "section",
+   "sec": "i_profil",
+   "dims": {
+    "h": 20,
+    "b": 40,
+    "tw": 5,
+    "tf": 11
+   }
+  },
+  "expect": {
+   "errors": 1
+  },
+  "tol": 0
+ },
+ {
+  "id": "O-T8 Lastliste T7 I-Profil",
+  "case": {
+   "id": "O-T8 Lastliste T7 I-Profil",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "LL",
+    "materialId": "W038",
+    "secType": "i_profil",
+    "dims": {
+     "h": 200,
+     "b": 100,
+     "tw": 5.6,
+     "tf": 8.5
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "loadList": {
+     "support": "GG",
+     "loads": [
+      {
+       "kind": "F",
+       "x": 400,
+       "F": 3
+      }
+     ],
+     "selfWeight": false
+    }
+   }
+  },
+  "expect": {
+   "M": 800000.0,
+   "w": 0.07190821296145614,
+   "sv": 4.334656677527414
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "O-T12 Randspannungen T-Profil",
+  "case": {
+   "id": "O-T12 Randspannungen T-Profil",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "EQ",
+    "materialId": "W038",
+    "secType": "t_profil",
+    "dims": {
+     "h": 60,
+     "b": 60,
+     "tw": 7,
+     "tf": 7
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "sigO": 23.79326793176831,
+   "sigU": 57.45496000950045,
+   "sv": 57.45496000950045
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T9 Knicken L-Profil",
+  "case": {
+   "id": "O-T9 Knicken L-Profil",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "druck",
+    "sub": "K2",
+    "materialId": "W038",
+    "secType": "l_profil",
+    "dims": {
+     "h": 60,
+     "b": 60,
+     "t": 6
+    },
+    "L": 1200,
+    "F": 5,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "sk": 66.7468450456174
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "O-T10 Torsion I-Profil",
+  "case": {
+   "id": "O-T10 Torsion I-Profil",
+   "type": "calc",
+   "inp": {
+    "mode": "single",
+    "kind": "torsion",
+    "sub": "T1",
+    "materialId": "W038",
+    "secType": "i_profil",
+    "dims": {
+     "h": 200,
+     "b": 100,
+     "tw": 6,
+     "tf": 8.5
+    },
+    "L": 1200,
+    "F": 2,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 50,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    }
+   }
+  },
+  "expect": {
+   "tau": 7.969706885874532,
+   "theta": 2.441874697951664
+  },
+  "tol": 0.05
  }
 ]

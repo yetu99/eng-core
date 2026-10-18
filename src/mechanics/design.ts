@@ -43,7 +43,7 @@ export function designSize(repo: Repo, inp: StrengthInput, dimKey: string): Desi
   else for (let i = 0; i < DESIGN_STEPS; i++) { const m = (lo + hi) / 2; if (util(Math.exp(m)) > 1) lo = m; else hi = m; }
   const s = Math.exp(hi);
   const raw = dimsAt(s);
-  const grid = (k: string) => (k === "t" ? 0.5 : 1);
+  const grid = (k: string) => (k === "t" || k === "tw" || k === "tf" ? 0.5 : 1);
   const varies = (k: string) => proportional || k === dimKey;
   const dims: Dims = Object.fromEntries(Object.entries(raw).map(([k, v]) => [k, varies(k) ? Math.ceil(v / grid(k) - 1e-9) * grid(k) : v]));
   const result = computeStrength(repo, { ...inp, dims });
@@ -109,7 +109,7 @@ function designFrequency(repo: Repo, inp: StrengthInput, dimKey: string): Design
       `m_z = ${fmt(v.mz)} kg/m > 0: s ∈ [${fmt(DESIGN_RANGE[0])}; ${fmt(DESIGN_RANGE[1])}], ${DESIGN_STEPS} Schritte, f₁(s) = ${fmt(f1At(s), 6)} Hz`, s, "–", "Konzept V2-A U9, deterministisch, feste Schrittzahl"));
   }
   const raw = dimsAt(s);
-  const grid = (k: string) => (k === "t" ? 0.5 : 1);
+  const grid = (k: string) => (k === "t" || k === "tw" || k === "tf" ? 0.5 : 1);
   const dims: Dims = Object.fromEntries(Object.entries(raw).map(([k, x]) => [k, Math.ceil(x / grid(k) - 1e-9) * grid(k)]));
   const result = computeStrength(repo, { ...inp, dims });
   for (const [k, x] of Object.entries(raw)) T.push(step(`D-ERF-${k}`, `Erforderliches Maß ${k}`, `${k}_erf = ${k}₀·s`, `${fmt(base[k] ?? NaN)}·${fmt(s)}`, x, "mm"));

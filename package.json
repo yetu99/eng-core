@@ -1,6 +1,6 @@
 {
   "name": "@yetu/eng-core",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "description": "Deterministischer Rechenkern der Ingenieur-Werkbank (Festigkeit, Ashby-Werkstoffauswahl). Single Point of Truth für Formeln.",

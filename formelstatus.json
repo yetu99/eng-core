@@ -823,6 +823,160 @@
     "durch": "Seti",
     "formel": "e = a/√3"
   },
+  "Q-IP-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "A = 2·b·t_f + (h − 2t_f)·t_w"
+  },
+  "Q-IP-IY": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_y = [b·h³ − (b − t_w)·(h − 2t_f)³] / 12"
+  },
+  "Q-IP-IZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_z = [2·t_f·b³ + (h − 2t_f)·t_w³] / 12"
+  },
+  "Q-IP-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "erledigt": "Die Steglänge bei einem I-Profil beträgt (h−2tf)(h−2tf​) (da die Flansche oben und unten jeweils die Dicke tftf​einnehmen und abgezogen werden müssen) und nicht (h−tf)(h−tf​). Die Verwendung von (h−tf)(h−tf​) überschätzt den Torsionsbeitrag des Stegs.",
+    "antwort": "Einwand berechtigt: (h − t_f) zählt die Knotenflächen doppelt und überschätzt Iₜ. Umgesetzt (0.7.0, Runde 2): überlappungsfreie Zerlegung, Knotenfläche dem dünneren Teil (t_w ≤ t_f: Steg h durchlaufend, Flansche b − t_w; sonst Flansche b, Steg h − 2t_f). Gegen die exakte St.-Venant-Lösung (Prandtl, Finite Differenzen): bisher +2,6 bis +4,4 %, mit (h − 2t_f) bei t_w < t_f +1,5 bis +3,4 %, jetzt −0,8 bis +0,4 % (t_w > t_f: −2,7 %, sichere Seite). Gleiche Regel für Q-UP-K und Q-TP-K.",
+    "formel": "Iₜ = [2·(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [2·b·t_f³ + (h − 2t_f)·t_w³] / 3"
+  },
+  "Q-IP-KA": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A"
+  },
+  "Q-IP-KAZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "κ = A·S / (I_z·b),  τ_Q = κ·Q / A"
+  },
+  "Q-IP-S": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)"
+  },
+  "Q-IP-SZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)"
+  },
+  "Q-IP-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "W = I_y / (h/2)"
+  },
+  "Q-IP-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "Wₜ = Iₜ / t_max"
+  },
+  "Q-IP-WZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "W = I_z / (b/2)"
+  },
+  "Q-LP-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "A = t·(h + b − t)"
+  },
+  "Q-LP-AL": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "α = ½·atan2(−2·I_yz, I_y − I_z), gegen den Uhrzeigersinn positiv"
+  },
+  "Q-LP-I1": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I₁ = (I_y + I_z)/2 + √[((I_y − I_z)/2)² + I_yz²]"
+  },
+  "Q-LP-I2": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I₂ = (I_y + I_z)/2 − √[((I_y − I_z)/2)² + I_yz²]"
+  },
+  "Q-LP-IY": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "erledigt": "Bei unsymmetrischen Profilen wie dem L-Profil hängen IyIy​ und IzIz​ stark von der korrekten Zuordnung der Schenkellängen hh und bb sowie den Steg- bzw. Schenkeldicken ab. In Zeile Q-LP-IZ tauchen Terme mit h3h3 auf, obwohl die zz-Achse dem horizontalen Schenkel zugeordnet ist (wo analog zu b3b3 gerechnet werden muss). Hier liegt ein klassischer Copy-Paste- oder Vorzeichenfehler aus der IyIy​-Formel vor.",
+    "antwort": "Formel richtig, keine Änderung. y ist die waagerechte Biegeachse, I_y = ∫(z − z_s)² dA: senkrechter Schenkel (t × h) liefert t·h³/3, waagerechter Schenkel ((b − t) × t) liefert (b − t)·t³/3. Q-LP-IZ = ∫(y − y_s)² dA enthält h·t³ (nicht h³) und t·(b³ − t³). Belege: Polygon-Integration auf 10⁻⁹ für L 60×60×6 und L 80×40×8, Spiegeltest h ↔ b vertauscht I_y und I_z exakt. Titel um den Achsbezug ergänzt.",
+    "formel": "I_y = [t·h³ + (b − t)·t³] / 3 − A·z_s²"
+  },
+  "Q-LP-IYZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_yz = [t²·h² + t²·(b² − t²)] / 4 − A·y_s·z_s"
+  },
+  "Q-LP-IZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_z = [h·t³ + t·(b³ − t³)] / 3 − A·y_s²"
+  },
+  "Q-LP-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "Iₜ = [(h − t/2) + (b − t/2)]·t³ / 3"
+  },
+  "Q-LP-KA": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A"
+  },
+  "Q-LP-S": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)"
+  },
+  "Q-LP-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "W = I_y / max(e_o, e_u)"
+  },
+  "Q-LP-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "Wₜ = Iₜ / t_max"
+  },
+  "Q-LP-YS": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "y_s = [h·t² + (b² − t²)·t] / (2A)"
+  },
+  "Q-LP-ZS": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "z_s = [b·t² + (h² − t²)·t] / (2A)"
+  },
   "Q-RE-A": {
     "status": "freigegeben",
     "datum": "2026-10-08",
@@ -954,6 +1108,154 @@
     "datum": "2026-10-08",
     "durch": "Seti",
     "formel": "Wₜ = Iₚ / (D/2)"
+  },
+  "Q-SIGO": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "formel": "|σ_o| = |M_max|·e_o / I"
+  },
+  "Q-SIGU": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "formel": "|σ_u| = |M_max|·e_u / I"
+  },
+  "Q-TP-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "A = b·t_f + (h − t_f)·t_w"
+  },
+  "Q-TP-IY": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_y = [t_w·(h − t_f)³ + b·(h³ − (h − t_f)³)] / 3 − A·z_s²"
+  },
+  "Q-TP-IZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_z = [t_f·b³ + (h − t_f)·t_w³] / 12"
+  },
+  "Q-TP-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "antwort": "Formel geändert nach Einwand Q-IP-K (überlappungsfrei, Knotenfläche dem dünneren Teil): bisher +2,6 bis +5,3 %, jetzt +0,1 bis +0,6 % gegen Prandtl. Neu prüfen.",
+    "formel": "Iₜ = [(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [b·t_f³ + (h − t_f)·t_w³] / 3"
+  },
+  "Q-TP-KA": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A"
+  },
+  "Q-TP-S": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)"
+  },
+  "Q-TP-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "W = I_y / max(e_o, e_u)"
+  },
+  "Q-TP-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "Wₜ = Iₜ / t_max"
+  },
+  "Q-TP-ZS": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "z_s = [t_w·(h − t_f)²/2 + b·t_f·(h − t_f/2)] / A"
+  },
+  "Q-UP-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "A = 2·b·t_f + (h − 2t_f)·t_w"
+  },
+  "Q-UP-EM": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "e_M = b'²·h'²·t_f / (4·I_y),  b' = b − t_w/2, h' = h − t_f"
+  },
+  "Q-UP-IY": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "I_y = [b·h³ − (b − t_w)·(h − 2t_f)³] / 12"
+  },
+  "Q-UP-IZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "erledigt": "Die zz-Achse ist beim U-Profil die Symmetrieachse. Ein Steiner-Anteil (wie −A⋅ys2−A⋅ys2​) bezüglich einer Querachse ysys​ ist hier dimensions- und vorzeichenmäßig falsch zugeordnet, da Verschiebungen in Richtung der zz-Symmetrieachse betrachtet werden müssen. Zudem ist die Indizierung der Abmessungen in dieser Zeile inkonsistent.",
+    "antwort": "Formel richtig, keine Änderung. Achsen wie EN 10365 (y-y stark, z-z schwach): Steg senkrecht, Symmetrieachse ist die waagerechte y-Achse. z ist die senkrechte Schwerachse parallel zum Steg; der Schwerpunkt liegt y_s von der Stegaußenkante entfernt, daher Steiner −A·y_s². Indizes: Steg (t_w × h) liefert h·t_w³/3, je Flansch (b − t_w) × t_f ab y = t_w liefert t_f·(b³ − t_w³)/3. Beleg: Polygon-Integration auf 10⁻⁹ (I_z = 974 041 mm⁴ für U 160×65×7,5×10,5). Titel ergänzt.",
+    "formel": "I_z = [h·t_w³ + 2·t_f·(b³ − t_w³)] / 3 − A·y_s²"
+  },
+  "Q-UP-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-18",
+    "durch": "Seti",
+    "antwort": "Formel geändert nach Einwand Q-IP-K (überlappungsfrei, Knotenfläche dem dünneren Teil): bisher +3,0 bis +3,5 %, jetzt +0,6 bis +1,1 % (t_w > t_f: −2,0 %) gegen Prandtl. Neu prüfen.",
+    "formel": "Iₜ = [2·(b − t_w)·t_f³ + h·t_w³] / 3 für t_w ≤ t_f, sonst [2·b·t_f³ + (h − 2t_f)·t_w³] / 3"
+  },
+  "Q-UP-KA": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "κ = A·S / (I_y·b),  τ_Q = κ·Q / A"
+  },
+  "Q-UP-KAZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "κ = A·S / (I_z·b),  τ_Q = κ·Q / A"
+  },
+  "Q-UP-S": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)"
+  },
+  "Q-UP-SZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "S = ∫ (z − z_s) dA über die Fläche oberhalb der Schnittlinie (Schwerachse oder Querschnittssprung)"
+  },
+  "Q-UP-W": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "W = I_y / (h/2)"
+  },
+  "Q-UP-WT": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "Wₜ = Iₜ / t_max"
+  },
+  "Q-UP-WZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "W = I_z / max(e_o, e_u)"
+  },
+  "Q-UP-YS": {
+    "status": "freigegeben",
+    "datum": "2026-10-15",
+    "durch": "seti",
+    "formel": "y_s = [t_w²·h + 2·t_f·(b² − t_w²)] / (2A)"
   },
   "Q-i": {
     "status": "freigegeben",
