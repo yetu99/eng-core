@@ -5,7 +5,7 @@
  * Aufruf als CLI: npx tsx scripts/katalog.ts --json  → Katalog als JSON auf stdout
  */
 import { readFileSync, existsSync } from "node:fs";
-import { LOADLIST_SUPPORTS, PRESSURE_CASES, VIBRATION_CASES, isPressureCase, isVibrationCase, pressureText, vibrationText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexKeys, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
+import { LOADLIST_SUPPORTS, PRESSURE_CASES, VIBRATION_CASES, isPressureCase, isVibrationCase, pressureText, vibrationText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexSpecs, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
 
 export interface CatalogEntry {
@@ -81,15 +81,18 @@ export function collectCatalog(): CatalogEntry[] {
   const classes = Object.fromEntries(MAT_CLASSES.map((c) => [c, true])) as Record<MatClass, boolean>;
   const sec0 = sectionProps(base.secType, base.dims);
   const phiUser = { Be: sec0.phiBe, Bf: sec0.phiBf, Te: sec0.phiTe, Tf: sec0.phiTf };
-  for (const [fn, con, obj] of allIndexKeys()) {
-    const ix = buildIndex(fn, con, obj); if (!ix) continue;
-    const label = `${fn}, ${con}, Ziel ${obj}`;
+  for (const { fn, con, obj, free } of allIndexSpecs()) {
+    const ix = buildIndex(fn, con, obj, free); if (!ix) continue;
+    const label = ix.product ? `${fn}, ${ix.product.task}` : `${fn}${free === "Querschnitt" ? "" : ` nur ${free} frei`}, ${con}, Ziel ${obj}`;
     indexTrace(ix).forEach((s) => take(s, label));
     for (const shapeMode of ["none", "max", "modul1"] as ShapeMode[]) {
       const st: AshbyState = { index: ix, classes, limits: { Emin: null, rhoMax: null, sfMin: null, priceMax: null }, shapeMode, phiUser };
       const withShape = shapeMode !== "none";
-      const p = ranking(repo, st, withShape).find((q) => q.m.id === "W038") ?? points(repo, st, withShape).find((q) => q.m.id === "W038");
-      if (p) pointTrace(ix, st, p, withShape).forEach((s) => take(s, `${label}; EN AW-6082 (W038); Form ${shapeMode === "none" ? "ohne" : shapeMode === "max" ? "φ_max Tab. 7.3" : `Profil Blatt 1 ${dimsLabel(base.secType, base.dims)}`}`));
+      // Beispielwerkstoff EN AW-6082; ist er nicht bewertbar (z. B. K_IC fehlt), der Werkstoff auf Rang 1
+      const r = ranking(repo, st, withShape);
+      const p = r.find((q) => q.m.id === "W038") ?? points(repo, st, withShape).find((q) => q.m.id === "W038") ?? r[0];
+      if (p) pointTrace(ix, st, p, withShape).forEach((s) => take(s, `${label}; ${p.m.name} (${p.m.id}); Form ${shapeMode === "none" ? "ohne" : shapeMode === "max" ? "φ_max Tab. 7.3" : `Profil Blatt 1 ${dimsLabel(base.secType, base.dims)}`}`));
+      if (!ix.shape) break; // ohne Formwirkung genügt ein Lauf
     }
   }
   // Schritt 6: duktil, duktil ohne R_p-Auslegungswert, spröde

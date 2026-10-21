@@ -38,6 +38,8 @@ export interface Material {
   elastomer: boolean;
   /** repräsentative Werte, null = nicht belegt */
   E: number | null; rho: number | null; Rp: number | null; Rm: number | null; BB: number | null; price: number | null;
+  /** thermische und Bruchkennwerte (0.8.0): λ in W/(m·K), α in 10⁻⁶/K, c_p in J/(kg·K), K_IC in MPa·m^0,5, G in GPa */
+  lam: number | null; alpha: number | null; cp: number | null; kic: number | null; G: number | null;
 }
 
 export interface Repo {
@@ -77,6 +79,7 @@ export function createRepo(data: MaterialData): Repo {
       elastomer: (m.subclass ?? "").toLowerCase().includes("elastomer"),
       E: repNum(row(m.id, "P-E")), rho: repNum(row(m.id, "P-RHO")), Rp: repNum(row(m.id, "P-RE")),
       Rm: repNum(row(m.id, "P-RM")), BB: repNum(row(m.id, "P-BB")), price: repNum(row(m.id, "P-PREIS")),
+      lam: repNum(row(m.id, "P-LAM")), alpha: repNum(row(m.id, "P-ALPHA")), cp: repNum(row(m.id, "P-CP")), kic: repNum(row(m.id, "P-KIC")), G: repNum(row(m.id, "P-G")),
     };
   });
   const map = new Map(materials.map((m) => [m.id, m]));

@@ -6913,5 +6913,1303 @@
    "theta": 2.441874697951664
   },
   "tol": 0.05
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Steifigkeit Masse W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Steifigkeit Masse W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0007571875099061311
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Steifigkeit Masse W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Steifigkeit Masse W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.001526401962892058
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Höhe Steifigkeit Masse",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Höhe Steifigkeit Masse",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "free": "Höhe"
+  },
+  "expect": {
+   "n": 100,
+   "nCov": 100,
+   "slog": -691.9794345401074,
+   "max": 0.006354228830198043,
+   "min": 9.354798510931044e-05,
+   "rankW001": 62,
+   "rankW038": 24,
+   "slope": 3.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Steifigkeit Masse W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Steifigkeit Masse W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0267515923566879
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Steifigkeit Masse W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Steifigkeit Masse W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.025925925925925925
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Breite Steifigkeit Masse",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Breite Steifigkeit Masse",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Masse",
+   "free": "Breite"
+  },
+  "expect": {
+   "n": 100,
+   "nCov": 100,
+   "slog": -455.03137524946357,
+   "max": 0.18924485125858123,
+   "min": 3.0551463537525766e-06,
+   "rankW001": 25,
+   "rankW038": 40,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Festigkeit Masse W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Festigkeit Masse W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0019528292632810052
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Festigkeit Masse W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Festigkeit Masse W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0059720427765174436
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Höhe Festigkeit Masse",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Höhe Festigkeit Masse",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "free": "Höhe"
+  },
+  "expect": {
+   "n": 93,
+   "nCov": 93,
+   "slog": -513.9090728267705,
+   "max": 0.024206145913796356,
+   "min": 0.0007095577652469333,
+   "rankW001": 76,
+   "rankW038": 27,
+   "slope": 2.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Festigkeit Masse W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Festigkeit Masse W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.029936305732484077
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Festigkeit Masse W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Festigkeit Masse W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0962962962962963
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Breite Festigkeit Masse",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Breite Festigkeit Masse",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Masse",
+   "free": "Breite"
+  },
+  "expect": {
+   "n": 93,
+   "nCov": 93,
+   "slog": -279.508138763121,
+   "max": 0.9375,
+   "min": 0.0012083333333333334,
+   "rankW001": 72,
+   "rankW038": 20,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Steifigkeit Kosten W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Steifigkeit Kosten W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0007571875099061311
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Steifigkeit Kosten W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Steifigkeit Kosten W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0003392004361982351
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Höhe Steifigkeit Kosten",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Höhe Steifigkeit Kosten",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "free": "Höhe"
+  },
+  "expect": {
+   "n": 98,
+   "nCov": 98,
+   "slog": -865.7231297031061,
+   "max": 0.013219899009126646,
+   "min": 1.700872456532917e-06,
+   "rankW001": 8,
+   "rankW038": 27,
+   "slope": 3.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Steifigkeit Kosten W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Steifigkeit Kosten W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0267515923566879
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Steifigkeit Kosten W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Steifigkeit Kosten W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.005761316872427984
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Breite Steifigkeit Kosten",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Breite Steifigkeit Kosten",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Kosten",
+   "free": "Breite"
+  },
+  "expect": {
+   "n": 98,
+   "nCov": 98,
+   "slog": -637.5917920174014,
+   "max": 0.1330781931857921,
+   "min": 6.255302926298697e-08,
+   "rankW001": 3,
+   "rankW038": 31,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Festigkeit Kosten W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Festigkeit Kosten W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Kosten",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0019528292632810052
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Festigkeit Kosten W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Festigkeit Kosten W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Kosten",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.0013271206170038764
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Höhe Festigkeit Kosten",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Höhe Festigkeit Kosten",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Kosten",
+   "free": "Höhe"
+  },
+  "expect": {
+   "n": 91,
+   "nCov": 91,
+   "slog": -675.4964552029445,
+   "max": 0.009460587709147714,
+   "min": 3.173134158758017e-05,
+   "rankW001": 12,
+   "rankW038": 26,
+   "slope": 2.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Festigkeit Kosten W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Festigkeit Kosten W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Kosten",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.029936305732484077
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Festigkeit Kosten W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Festigkeit Kosten W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Kosten",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.02139917695473251
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Breite Festigkeit Kosten",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Breite Festigkeit Kosten",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Kosten",
+   "free": "Breite"
+  },
+  "expect": {
+   "n": 91,
+   "nCov": 91,
+   "slog": -448.3390696225935,
+   "max": 0.10191082802547771,
+   "min": 0.00011352549889135255,
+   "rankW001": 14,
+   "rankW038": 17,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Steifigkeit Bauraum W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Steifigkeit Bauraum W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 5.943921952763129
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Steifigkeit Bauraum W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Steifigkeit Bauraum W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 4.121285299808556
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Höhe Steifigkeit Bauraum",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Höhe Steifigkeit Bauraum",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "free": "Höhe"
+  },
+  "expect": {
+   "n": 100,
+   "nCov": 100,
+   "slog": 118.47402964532188,
+   "max": 9.386460059516399,
+   "min": 0.1533338389137694,
+   "rankW001": 12,
+   "rankW038": 60,
+   "slope": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Steifigkeit Bauraum W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Steifigkeit Bauraum W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 210.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Steifigkeit Bauraum W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Steifigkeit Bauraum W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 70.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Breite Steifigkeit Bauraum",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Breite Steifigkeit Bauraum",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Steifigkeit",
+   "obj": "Bauraum",
+   "free": "Breite"
+  },
+  "expect": {
+   "n": 100,
+   "nCov": 100,
+   "slog": 355.42208893596563,
+   "max": 827.0,
+   "min": 0.00360507269742804,
+   "rankW001": 12,
+   "rankW038": 60,
+   "slope": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Festigkeit Bauraum W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Festigkeit Bauraum W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Bauraum",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 15.329709716755891
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Höhe Festigkeit Bauraum W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Höhe Festigkeit Bauraum W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Bauraum",
+   "free": "Höhe",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 16.1245154965971
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Höhe Festigkeit Bauraum",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Höhe Festigkeit Bauraum",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Bauraum",
+   "free": "Höhe"
+  },
+  "expect": {
+   "n": 93,
+   "nCov": 93,
+   "slog": 234.40093406364954,
+   "max": 48.85693400122443,
+   "min": 1.70293863659264,
+   "rankW001": 45,
+   "rankW038": 34,
+   "slope": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Festigkeit Bauraum W001",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Festigkeit Bauraum W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Bauraum",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 235.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Balken nur Breite Festigkeit Bauraum W038",
+  "case": {
+   "id": "Index 0.8 Balken nur Breite Festigkeit Bauraum W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Bauraum",
+   "free": "Breite",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 260.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Balken nur Breite Festigkeit Bauraum",
+  "case": {
+   "id": "Indexsatz 0.8 Balken nur Breite Festigkeit Bauraum",
+   "type": "ashbyset",
+   "fn": "Balken",
+   "con": "Festigkeit",
+   "obj": "Bauraum",
+   "free": "Breite"
+  },
+  "expect": {
+   "n": 93,
+   "nCov": 93,
+   "slog": 468.8018681272991,
+   "max": 2387.0,
+   "min": 2.9,
+   "rankW001": 45,
+   "rankW038": 34,
+   "slope": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Gelenk Biegung ohne Versagen Leistung W001",
+  "case": {
+   "id": "Index 0.8 Gelenk Biegung ohne Versagen Leistung W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Gelenk",
+   "con": "Biegung ohne Versagen",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 1.119047619047619
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Gelenk Biegung ohne Versagen Leistung W038",
+  "case": {
+   "id": "Index 0.8 Gelenk Biegung ohne Versagen Leistung W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Gelenk",
+   "con": "Biegung ohne Versagen",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 3.7142857142857144
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Gelenk Biegung ohne Versagen Leistung",
+  "case": {
+   "id": "Indexsatz 0.8 Gelenk Biegung ohne Versagen Leistung",
+   "type": "ashbyset",
+   "fn": "Gelenk",
+   "con": "Biegung ohne Versagen",
+   "obj": "Leistung",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 93,
+   "nCov": 93,
+   "slog": 150.8392413097179,
+   "max": 3333.02733373467,
+   "min": 0.09079874804479532,
+   "rankW001": 85,
+   "rankW038": 41,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Druckbehälter Fließen vor Bruch Leistung W082",
+  "case": {
+   "id": "Index 0.8 Druckbehälter Fließen vor Bruch Leistung W082",
+   "type": "ashby",
+   "materialId": "W082",
+   "fn": "Druckbehälter",
+   "con": "Fließen vor Bruch",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.015833333333333335
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Druckbehälter Fließen vor Bruch Leistung",
+  "case": {
+   "id": "Indexsatz 0.8 Druckbehälter Fließen vor Bruch Leistung",
+   "type": "ashbyset",
+   "fn": "Druckbehälter",
+   "con": "Fließen vor Bruch",
+   "obj": "Leistung",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 5,
+   "nCov": 5,
+   "slog": -23.342357028751373,
+   "max": 0.015833333333333335,
+   "min": 0.005613741097612065,
+   "rankW001": 0,
+   "rankW038": 0,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Druckbehälter Leck vor Bruch Leistung W082",
+  "case": {
+   "id": "Index 0.8 Druckbehälter Leck vor Bruch Leistung W082",
+   "type": "ashby",
+   "materialId": "W082",
+   "fn": "Druckbehälter",
+   "con": "Leck vor Bruch",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.07520833333333334
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Druckbehälter Leck vor Bruch Leistung",
+  "case": {
+   "id": "Indexsatz 0.8 Druckbehälter Leck vor Bruch Leistung",
+   "type": "ashbyset",
+   "fn": "Druckbehälter",
+   "con": "Leck vor Bruch",
+   "obj": "Leistung",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 5,
+   "nCov": 5,
+   "slog": -13.397164351769044,
+   "max": 0.12972972972972974,
+   "min": 0.0338,
+   "rankW001": 0,
+   "rankW038": 0,
+   "slope": 0.5
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmedämmung Wärmestrom Dicke vorgegeben W001",
+  "case": {
+   "id": "Index 0.8 Wärmedämmung Wärmestrom Dicke vorgegeben W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Wärmedämmung",
+   "con": "Wärmestrom",
+   "obj": "Dicke vorgegeben",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.01874976562792965
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmedämmung Wärmestrom Dicke vorgegeben W038",
+  "case": {
+   "id": "Index 0.8 Wärmedämmung Wärmestrom Dicke vorgegeben W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Wärmedämmung",
+   "con": "Wärmestrom",
+   "obj": "Dicke vorgegeben",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.005128205128205128
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Wärmedämmung Wärmestrom Dicke vorgegeben",
+  "case": {
+   "id": "Indexsatz 0.8 Wärmedämmung Wärmestrom Dicke vorgegeben",
+   "type": "ashbyset",
+   "fn": "Wärmedämmung",
+   "con": "Wärmestrom",
+   "obj": "Dicke vorgegeben",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 79,
+   "nCov": 79,
+   "slog": -216.12606679918449,
+   "max": 8.333333333333334,
+   "min": 0.0025380710659898475,
+   "rankW001": 49,
+   "rankW038": 74,
+   "slope": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmedämmung Wärmestrom Kosten W001",
+  "case": {
+   "id": "Index 0.8 Wärmedämmung Wärmestrom Kosten W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Wärmedämmung",
+   "con": "Wärmestrom",
+   "obj": "Kosten",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 2.3885051755324393e-06
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmedämmung Wärmestrom Kosten W038",
+  "case": {
+   "id": "Index 0.8 Wärmedämmung Wärmestrom Kosten W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Wärmedämmung",
+   "con": "Wärmestrom",
+   "obj": "Kosten",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 4.2207449614857024e-07
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Wärmedämmung Wärmestrom Kosten",
+  "case": {
+   "id": "Indexsatz 0.8 Wärmedämmung Wärmestrom Kosten",
+   "type": "ashbyset",
+   "fn": "Wärmedämmung",
+   "con": "Wärmestrom",
+   "obj": "Kosten",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 78,
+   "nCov": 78,
+   "slog": -997.2635719495478,
+   "max": 0.016563146997929608,
+   "min": 7.675230304879336e-09,
+   "rankW001": 19,
+   "rankW038": 55,
+   "slope": -1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmedämmung Zyklus Energie W001",
+  "case": {
+   "id": "Index 0.8 Wärmedämmung Zyklus Energie W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Wärmedämmung",
+   "con": "Zyklus",
+   "obj": "Energie",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 7.369442113377445e-05
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmedämmung Zyklus Energie W038",
+  "case": {
+   "id": "Index 0.8 Wärmedämmung Zyklus Energie W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Wärmedämmung",
+   "con": "Zyklus",
+   "obj": "Energie",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 4.6041218342485824e-05
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Wärmedämmung Zyklus Energie",
+  "case": {
+   "id": "Indexsatz 0.8 Wärmedämmung Zyklus Energie",
+   "type": "ashbyset",
+   "fn": "Wärmedämmung",
+   "con": "Zyklus",
+   "obj": "Energie",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 53,
+   "nCov": 53,
+   "slog": -478.71300106373144,
+   "max": 0.0036780617896031227,
+   "min": 2.713516753559583e-05,
+   "rankW001": 34,
+   "rankW038": 49,
+   "slope": -1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmespeicher Energie Kosten W001",
+  "case": {
+   "id": "Index 0.8 Wärmespeicher Energie Kosten W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Wärmespeicher",
+   "con": "Energie",
+   "obj": "Kosten",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 439.80176
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmespeicher Energie Kosten W038",
+  "case": {
+   "id": "Index 0.8 Wärmespeicher Energie Kosten W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Wärmespeicher",
+   "con": "Energie",
+   "obj": "Kosten",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 199.11111111111111
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Wärmespeicher Energie Kosten",
+  "case": {
+   "id": "Indexsatz 0.8 Wärmespeicher Energie Kosten",
+   "type": "ashbyset",
+   "fn": "Wärmespeicher",
+   "con": "Energie",
+   "obj": "Kosten",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 53,
+   "nCov": 53,
+   "slog": 255.52919762504422,
+   "max": 9000.0,
+   "min": 3.25,
+   "rankW001": 5,
+   "rankW038": 21,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Präzisionsteil Verzerrung Leistung W001",
+  "case": {
+   "id": "Index 0.8 Präzisionsteil Verzerrung Leistung W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Präzisionsteil",
+   "con": "Verzerrung",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 4.444500000000001
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Präzisionsteil Verzerrung Leistung W038",
+  "case": {
+   "id": "Index 0.8 Präzisionsteil Verzerrung Leistung W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Präzisionsteil",
+   "con": "Verzerrung",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 8.333333333333334
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Präzisionsteil Verzerrung Leistung",
+  "case": {
+   "id": "Indexsatz 0.8 Präzisionsteil Verzerrung Leistung",
+   "type": "ashbyset",
+   "fn": "Präzisionsteil",
+   "con": "Verzerrung",
+   "obj": "Leistung",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 71,
+   "nCov": 71,
+   "slog": 2.6940186340234926,
+   "max": 60.357142857142854,
+   "min": 0.001375,
+   "rankW001": 18,
+   "rankW038": 9,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Thermoschock Temperatursprung Leistung W001",
+  "case": {
+   "id": "Index 0.8 Thermoschock Temperatursprung Leistung W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Thermoschock",
+   "con": "Temperatursprung",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.09325396825396826
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Thermoschock Temperatursprung Leistung W038",
+  "case": {
+   "id": "Index 0.8 Thermoschock Temperatursprung Leistung W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Thermoschock",
+   "con": "Temperatursprung",
+   "obj": "Leistung",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 0.15873015873015872
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Thermoschock Temperatursprung Leistung",
+  "case": {
+   "id": "Indexsatz 0.8 Thermoschock Temperatursprung Leistung",
+   "type": "ashbyset",
+   "fn": "Thermoschock",
+   "con": "Temperatursprung",
+   "obj": "Leistung",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 69,
+   "nCov": 69,
+   "slog": -124.91077090453597,
+   "max": 1.0666666666666667,
+   "min": 0.009079874804479532,
+   "rankW001": 52,
+   "rankW038": 32,
+   "slope": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmetauscherwand Druck je Fläche W001",
+  "case": {
+   "id": "Index 0.8 Wärmetauscherwand Druck je Fläche W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Wärmetauscherwand",
+   "con": "Druck",
+   "obj": "je Fläche",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 12533.490000000002
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmetauscherwand Druck je Fläche W038",
+  "case": {
+   "id": "Index 0.8 Wärmetauscherwand Druck je Fläche W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Wärmetauscherwand",
+   "con": "Druck",
+   "obj": "je Fläche",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 50700.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Wärmetauscherwand Druck je Fläche",
+  "case": {
+   "id": "Indexsatz 0.8 Wärmetauscherwand Druck je Fläche",
+   "type": "ashbyset",
+   "fn": "Wärmetauscherwand",
+   "con": "Druck",
+   "obj": "je Fläche",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 72,
+   "nCov": 72,
+   "slog": 570.2850968333132,
+   "max": 605104.5,
+   "min": 1.2870000000000001,
+   "rankW001": 35,
+   "rankW038": 6,
+   "slope": -1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmetauscherwand Druck Masse W001",
+  "case": {
+   "id": "Index 0.8 Wärmetauscherwand Druck Masse W001",
+   "type": "ashby",
+   "materialId": "W001",
+   "fn": "Wärmetauscherwand",
+   "con": "Druck",
+   "obj": "Masse",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 375.2063885350319
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Index 0.8 Wärmetauscherwand Druck Masse W038",
+  "case": {
+   "id": "Index 0.8 Wärmetauscherwand Druck Masse W038",
+   "type": "ashby",
+   "materialId": "W038",
+   "fn": "Wärmetauscherwand",
+   "con": "Druck",
+   "obj": "Masse",
+   "free": "Querschnitt",
+   "shapeMode": "none",
+   "phiUser": null
+  },
+  "expect": {
+   "idx": 4882.222222222223
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "Indexsatz 0.8 Wärmetauscherwand Druck Masse",
+  "case": {
+   "id": "Indexsatz 0.8 Wärmetauscherwand Druck Masse",
+   "type": "ashbyset",
+   "fn": "Wärmetauscherwand",
+   "con": "Druck",
+   "obj": "Masse",
+   "free": "Querschnitt"
+  },
+  "expect": {
+   "n": 72,
+   "nCov": 72,
+   "slog": 352.3266088409951,
+   "max": 330522.7554919908,
+   "min": 0.006838058866666667,
+   "rankW001": 41,
+   "rankW038": 8,
+   "slope": 1.0
+  },
+  "tol": 1e-09
  }
 ]

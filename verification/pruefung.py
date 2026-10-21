@@ -562,6 +562,60 @@ PI2 = op_outline('i_profil', dict(h=200, b=100, tw=6, tf=8.5)); a1, a2 = prandtl
 cases.append(dict(id='O-T10 Torsion I-Profil', type='calc', inp={**base, 'kind': 'torsion', 'sub': 'T1', 'T': 50, 'secType': 'i_profil', 'dims': dict(h=200, b=100, tw=6, tf=8.5)}))
 ref['O-T10 Torsion I-Profil'] = (dict(tau=50e3 * 8.5 / ItI, theta=math.degrees(50e3 * 1200 / (G_AL * ItI))), 5e-2)
 
+# ---------------- Ashby weitere Materialindizes (eng-core 0.8.0) ----------------
+# Unabhängig vom Kern: eigener Leser des Datenabzugs (data/*.json, Standardvariante, erste Zeile nach sort_key,
+# num = value, sonst Mitte, sonst min oder max) und Indizes als explizite Formeln nach Ashby (1999) Anhang B,
+# Gl. 5.12/5.13, Tab. 5.7, Fallstudien 6.10, 6.15, 6.18, 6.20. Kein Termkatalog aus dem Kern.
+_D = os.path.join(os.path.dirname(HERE), 'data')
+_ld = lambda f: json.load(open(os.path.join(_D, f), encoding='utf8'))
+_dv = {v['material_id']: v['id'] for v in _ld('variants.json') if v['is_default']}
+_rows = {}
+for _r in sorted(_ld('propertyValues.json'), key=lambda r: r['sort_key']): _rows.setdefault((_r['variant_id'], _r['property_id']), _r)
+def _num(r):
+    if r is None: return None
+    if r['value'] is not None: return r['value']
+    if r['value_min'] is not None and r['value_max'] is not None: return (r['value_min'] + r['value_max']) / 2
+    return r['value_min'] if r['value_min'] is not None else r['value_max']
+MATS = {}
+for _m in _ld('materials.json'):
+    g = lambda pid: _num(_rows.get((_dv[_m['id']], pid)))
+    Rp, Rm, BB = g('P-RE'), g('P-RM'), g('P-BB')
+    MATS[_m['id']] = dict(E=g('P-E'), rho=g('P-RHO'), cm=g('P-PREIS'), lam=g('P-LAM'), alpha=g('P-ALPHA'), cp=g('P-CP'), kic=g('P-KIC'),
+                         sf=Rp if Rp is not None else Rm if Rm is not None else BB)
+def _need(m, *ks): return all(m[k] is not None and m[k] > 0 for k in ks)
+# Index: (Funktion, Randbedingung, Ziel, freie Variable) → (benötigte Kennwerte, Formel, Steigung im log-log-Diagramm)
+X_OBJ = {'Masse': (('rho',), lambda m: m['rho']), 'Kosten': (('cm', 'rho'), lambda m: m['cm'] * m['rho']), 'Bauraum': (('rho',), lambda m: 1.0)}
+NEW_IX = {}
+for obj, (xk, xf) in X_OBJ.items():
+    k = 0 if obj == 'Bauraum' else 1
+    for free, con, yk, n in [('Höhe', 'Steifigkeit', 'E', 1 / 3), ('Breite', 'Steifigkeit', 'E', 1.0), ('Höhe', 'Festigkeit', 'sf', 0.5), ('Breite', 'Festigkeit', 'sf', 1.0)]:
+        NEW_IX[('Balken', con, obj, free)] = ((yk,) + xk, (lambda yk, n, xf: lambda m: m[yk]**n / xf(m))(yk, n, xf), k / n)
+NEW_IX[('Gelenk', 'Biegung ohne Versagen', 'Leistung', 'Querschnitt')] = (('sf', 'E'), lambda m: m['sf'] / m['E'], 1.0)
+NEW_IX[('Druckbehälter', 'Fließen vor Bruch', 'Leistung', 'Querschnitt')] = (('kic', 'sf'), lambda m: m['kic'] / m['sf'], 1.0)
+NEW_IX[('Druckbehälter', 'Leck vor Bruch', 'Leistung', 'Querschnitt')] = (('kic', 'sf'), lambda m: m['kic']**2 / m['sf'], 0.5)
+NEW_IX[('Wärmedämmung', 'Wärmestrom', 'Dicke vorgegeben', 'Querschnitt')] = (('lam', 'rho'), lambda m: 1 / m['lam'], 0.0)   # ρ nur Orientierungsachse
+NEW_IX[('Wärmedämmung', 'Wärmestrom', 'Kosten', 'Querschnitt')] = (('lam', 'cm', 'rho'), lambda m: 1 / (m['lam'] * m['cm'] * m['rho']), -1.0)
+NEW_IX[('Wärmedämmung', 'Zyklus', 'Energie', 'Querschnitt')] = (('lam', 'rho', 'cp'), lambda m: 1 / math.sqrt(m['lam'] * m['rho'] * m['cp']), -1.0)
+NEW_IX[('Wärmespeicher', 'Energie', 'Kosten', 'Querschnitt')] = (('cp', 'cm'), lambda m: m['cp'] / m['cm'], 1.0)
+NEW_IX[('Präzisionsteil', 'Verzerrung', 'Leistung', 'Querschnitt')] = (('lam', 'alpha'), lambda m: m['lam'] / m['alpha'], 1.0)
+NEW_IX[('Thermoschock', 'Temperatursprung', 'Leistung', 'Querschnitt')] = (('sf', 'E', 'alpha'), lambda m: m['sf'] / (m['E'] * m['alpha']), 1.0)
+NEW_IX[('Wärmetauscherwand', 'Druck', 'je Fläche', 'Querschnitt')] = (('lam', 'sf'), lambda m: m['lam'] * m['sf'], -1.0)
+# je Masse: Rohrwand t = Δp·r/σ_f, Q/m = λ·ΔT/(ρ·t²) ∝ λ·σ_f²/ρ (Korrektur 21.10.2026, Ashby Tab. B6 druckt λ·σ_f/ρ ohne Herleitung)
+NEW_IX[('Wärmetauscherwand', 'Druck', 'Masse', 'Querschnitt')] = (('lam', 'sf', 'rho'), lambda m: m['lam'] * m['sf']**2 / m['rho'], 1.0)
+assert len(NEW_IX) == 23
+for (fn, con, obj, free), (need, f, slope) in NEW_IX.items():
+    tag = f'{fn}{"" if free == "Querschnitt" else " nur " + free} {con} {obj}'
+    # P4: Einzelwerte S235JR, EN AW-6082; Druckbehälter mit Al2O3 (W082), weil K_IC bei Metallen fehlt
+    for mid in (['W082'] if fn == 'Druckbehälter' else ['W001', 'W038']):
+        m = MATS[mid]
+        if not _need(m, *need): continue
+        id_ = f'Index 0.8 {tag} {mid}'; cases.append(dict(id=id_, type='ashby', materialId=mid, fn=fn, con=con, obj=obj, free=free, shapeMode='none', phiUser=None)); ref[id_] = (dict(idx=f(m)), 1e-9)
+    # P5 und Rangfolge: alle 100 Werkstoffe
+    vals = sorted(((f(m), mid) for mid, m in MATS.items() if _need(m, *need)), key=lambda t: (-t[0], t[1]))
+    rk = {mid: i + 1 for i, (_, mid) in enumerate(vals)}
+    id_ = f'Indexsatz 0.8 {tag}'; cases.append(dict(id=id_, type='ashbyset', fn=fn, con=con, obj=obj, free=free))
+    ref[id_] = (dict(n=len(vals), nCov=len(vals), slog=sum(math.log(v) for v, _ in vals), max=vals[0][0], min=vals[-1][0], rankW001=rk.get('W001', 0), rankW038=rk.get('W038', 0), slope=slope), 1e-9)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

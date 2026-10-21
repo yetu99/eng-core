@@ -1,5 +1,5 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
-import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
+import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
   | { id: string; type: "section"; sec: SecType; dims: Record<string, number> }
@@ -7,7 +7,8 @@ export type Case =
   | { id: string; type: "pressure"; inp: StrengthInput; design?: boolean }
   | { id: string; type: "vibration"; inp: StrengthInput; design?: boolean }
   | { id: string; type: "conflict"; materialId: string; basis: ConflictBasis; alpha: number }
-  | { id: string; type: "ashby"; materialId: string; fn: FunctionName; con: string; obj: ObjectiveName; shapeMode: ShapeMode; phiUser: PhiSet | null };
+  | { id: string; type: "ashby"; materialId: string; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar; shapeMode: ShapeMode; phiUser: PhiSet | null }
+  | { id: string; type: "ashbyset"; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar };
 
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "section") {
@@ -63,9 +64,16 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
     const row = m ? multiConstraint(repo, [m], c.basis, c.alpha).rows[0] : undefined;
     return { mStiff: row?.mStiff ?? null, mStrength: row?.mStrength ?? null, mass: row?.mass ?? null, sigmaZul: row?.sigmaZul ?? null, cost: row?.cost ?? null, Z: row?.Z ?? null };
   }
-  const index = buildIndex(c.fn, c.con, c.obj);
+  const index = buildIndex(c.fn, c.con, c.obj, c.free ?? "Querschnitt");
   if (!index) return { idx: null };
   const classes = Object.fromEntries(MAT_CLASSES.map((k) => [k, true])) as Record<MatClass, boolean>;
+  if (c.type === "ashbyset") {
+    // alle 100 Werkstoffe: Bewertbarkeit, Summe ln M (empfindlich auf jeden Einzelwert), Extremwerte, Rang fester Werkstoffe
+    const st = { index, classes, limits: { Emin: null, rhoMax: null, sfMin: null, priceMax: null }, shapeMode: "none" as const, phiUser: null };
+    const pts = points(repo, st, false), r = ranking(repo, st, false), cov = coverage(repo, st);
+    const rk = (id: string) => r.find((q) => q.m.id === id)?.rank ?? 0;
+    return { n: pts.length, nCov: cov.n, slog: pts.reduce((s, p) => s + Math.log(p.idx), 0), max: r[0]?.idx ?? null, min: r[r.length - 1]?.idx ?? null, rankW001: rk("W001"), rankW038: rk("W038"), slope: index.slope };
+  }
   const p = points(repo, { index, classes, limits: { Emin: null, rhoMax: null, sfMin: null, priceMax: null }, shapeMode: c.shapeMode, phiUser: c.phiUser }, c.shapeMode !== "none").find((q) => q.m.id === c.materialId);
   return { idx: p?.idx ?? null, x: p?.x ?? null, y: p?.y ?? null };
 }

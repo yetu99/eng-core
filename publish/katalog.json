@@ -1,9 +1,43 @@
 {
- "core": "0.7.0",
+ "core": "0.8.0",
  "data": "WDB 1.0.1",
- "formulas": 241,
- "approved": 241,
+ "formulas": 273,
+ "approved": 273,
  "items": [
+  {
+   "id": "A-GR-X",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Achsgruppe Abszisse",
+   "formula": "Achsgruppe = Π p_i^e_i (Kennwerte der Achse, Exponent meist 1)",
+   "unit": "€/kg·kg/m³",
+   "source": null,
+   "example": "C_m·ρ = 4,5 · 2700",
+   "example_result": 12150,
+   "example_case": "Wärmedämmung, billig, Wärmestrom vorgegeben; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 10
+  },
+  {
+   "id": "A-GR-Y",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Achsgruppe Ordinate",
+   "formula": "Achsgruppe = Π p_i^e_i (Kennwerte der Achse, Exponent meist 1)",
+   "unit": "W/(m·K)·MPa²",
+   "source": null,
+   "example": "λ·σ_f² = 195 · 260^2",
+   "example_result": 13182000,
+   "example_case": "Wärmetauscherwand, Wärmestrom je Masse, Druck Δp; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 20
+  },
   {
    "id": "A-IX-BA-F-K",
    "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
@@ -19,7 +53,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 10
+   "sort": 30
   },
   {
    "id": "A-IX-BA-F-M",
@@ -36,7 +70,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 20
+   "sort": 40
   },
   {
    "id": "A-IX-BA-F-V",
@@ -53,7 +87,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 30
+   "sort": 50
   },
   {
    "id": "A-IX-BA-S-K",
@@ -70,7 +104,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 40
+   "sort": 60
   },
   {
    "id": "A-IX-BA-S-M",
@@ -87,7 +121,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 50
+   "sort": 70
   },
   {
    "id": "A-IX-BA-S-V",
@@ -104,7 +138,245 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 60
+   "sort": 80
+  },
+  {
+   "id": "A-IX-BAB-F-K",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Breite frei, Festigkeit, Kosten minimieren",
+   "formula": "M = σ_f / (C_m·ρ)",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "M_f = b·h²·σ_f / 6,  Höhe h fest · Steigung der Indexlinie k/n = 1/1",
+   "example_result": 1,
+   "example_case": "Balken nur Breite frei, Festigkeit, Ziel Kosten",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 90
+  },
+  {
+   "id": "A-IX-BAB-F-M",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Breite frei, Festigkeit, Masse minimieren",
+   "formula": "M = σ_f / ρ",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "M_f = b·h²·σ_f / 6,  Höhe h fest · Steigung der Indexlinie k/n = 1/1",
+   "example_result": 1,
+   "example_case": "Balken nur Breite frei, Festigkeit, Ziel Masse",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 100
+  },
+  {
+   "id": "A-IX-BAB-F-V",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Breite frei, Festigkeit, Bauraum minimieren",
+   "formula": "M = σ_f",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "M_f = b·h²·σ_f / 6,  Höhe h fest · Steigung der Indexlinie k/n = 0/1",
+   "example_result": 0,
+   "example_case": "Balken nur Breite frei, Festigkeit, Ziel Bauraum",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 110
+  },
+  {
+   "id": "A-IX-BAB-S-K",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Breite frei, Steifigkeit, Kosten minimieren",
+   "formula": "M = E / (C_m·ρ)",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "S = C₁·E·b·h³ / (12·L³),  Höhe h fest · Steigung der Indexlinie k/n = 1/1",
+   "example_result": 1,
+   "example_case": "Balken nur Breite frei, Steifigkeit, Ziel Kosten",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 120
+  },
+  {
+   "id": "A-IX-BAB-S-M",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Breite frei, Steifigkeit, Masse minimieren",
+   "formula": "M = E / ρ",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "S = C₁·E·b·h³ / (12·L³),  Höhe h fest · Steigung der Indexlinie k/n = 1/1",
+   "example_result": 1,
+   "example_case": "Balken nur Breite frei, Steifigkeit, Ziel Masse",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 130
+  },
+  {
+   "id": "A-IX-BAB-S-V",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Breite frei, Steifigkeit, Bauraum minimieren",
+   "formula": "M = E",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "S = C₁·E·b·h³ / (12·L³),  Höhe h fest · Steigung der Indexlinie k/n = 0/1",
+   "example_result": 0,
+   "example_case": "Balken nur Breite frei, Steifigkeit, Ziel Bauraum",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 140
+  },
+  {
+   "id": "A-IX-BAH-F-K",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Höhe frei, Festigkeit, Kosten minimieren",
+   "formula": "M = σ_f^½ / (C_m·ρ)",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "M_f = b·h²·σ_f / 6,  Breite b fest · Steigung der Indexlinie k/n = 1/0,5",
+   "example_result": 2,
+   "example_case": "Balken nur Höhe frei, Festigkeit, Ziel Kosten",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 150
+  },
+  {
+   "id": "A-IX-BAH-F-M",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Höhe frei, Festigkeit, Masse minimieren",
+   "formula": "M = σ_f^½ / ρ",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "M_f = b·h²·σ_f / 6,  Breite b fest · Steigung der Indexlinie k/n = 1/0,5",
+   "example_result": 2,
+   "example_case": "Balken nur Höhe frei, Festigkeit, Ziel Masse",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 160
+  },
+  {
+   "id": "A-IX-BAH-F-V",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Höhe frei, Festigkeit, Bauraum minimieren",
+   "formula": "M = σ_f^½",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "M_f = b·h²·σ_f / 6,  Breite b fest · Steigung der Indexlinie k/n = 0/0,5",
+   "example_result": 0,
+   "example_case": "Balken nur Höhe frei, Festigkeit, Ziel Bauraum",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 170
+  },
+  {
+   "id": "A-IX-BAH-S-K",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Höhe frei, Steifigkeit, Kosten minimieren",
+   "formula": "M = E^⅓ / (C_m·ρ)",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "S = C₁·E·b·h³ / (12·L³),  Breite b fest · Steigung der Indexlinie k/n = 1/0,333",
+   "example_result": 3,
+   "example_case": "Balken nur Höhe frei, Steifigkeit, Ziel Kosten",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 180
+  },
+  {
+   "id": "A-IX-BAH-S-M",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Höhe frei, Steifigkeit, Masse minimieren",
+   "formula": "M = E^⅓ / ρ",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "S = C₁·E·b·h³ / (12·L³),  Breite b fest · Steigung der Indexlinie k/n = 1/0,333",
+   "example_result": 3,
+   "example_case": "Balken nur Höhe frei, Steifigkeit, Ziel Masse",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 190
+  },
+  {
+   "id": "A-IX-BAH-S-V",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Balken nur Höhe frei, Steifigkeit, Bauraum minimieren",
+   "formula": "M = E^⅓",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2",
+   "example": "S = C₁·E·b·h³ / (12·L³),  Breite b fest · Steigung der Indexlinie k/n = 0/0,333",
+   "example_result": 0,
+   "example_case": "Balken nur Höhe frei, Steifigkeit, Ziel Bauraum",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 200
+  },
+  {
+   "id": "A-IX-DB-L-L",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Druckbehälter, Leck vor Bruch",
+   "formula": "M = K_IC² / σ_f",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Fallstudie 6.15, S. 134 (M₂); Anhang B, Tab. B5, S. 411",
+   "example": "Riss durch die Wand bleibt stabil: σ = C·K_IC / √(π·t/2), t ≥ p·R / (2σ_f) mit σ = σ_f: C²·π·p·R / 4 = K_IC² / σ_f  (Ashby Gl. 6.47 bis 6.49) · Steigung der Indexlinie −b/a = 1/2",
+   "example_result": 0.5,
+   "example_case": "Druckbehälter, Leck vor Bruch",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 210
+  },
+  {
+   "id": "A-IX-DB-Y-L",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Druckbehälter, Fließen vor Bruch",
+   "formula": "M = K_IC / σ_f",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Fallstudie 6.15, S. 134; Anhang B, Tab. B5, S. 411",
+   "example": "σ = σ_f bei Risswachstum: π·a_c ≤ C²·(K_IC / σ_f)²  (Ashby Gl. 6.46) · Steigung der Indexlinie −b/a = 1/1",
+   "example_result": 1,
+   "example_case": "Druckbehälter, Fließen vor Bruch",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 220
   },
   {
    "id": "A-IX-FE-E-K",
@@ -121,7 +393,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 70
+   "sort": 230
   },
   {
    "id": "A-IX-FE-E-M",
@@ -138,7 +410,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 80
+   "sort": 240
   },
   {
    "id": "A-IX-FE-E-V",
@@ -155,7 +427,24 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 90
+   "sort": 250
+  },
+  {
+   "id": "A-IX-GE-F-L",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Gelenk, Biegung ohne Versagen, Biegeradius minimieren",
+   "formula": "M = σ_f / E",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Fallstudie 6.10, S. 117; Anhang B, Tab. B3",
+   "example": "R ≥ (t/2)·E / σ_f  (Ashby Gl. 6.30) · Steigung der Indexlinie k/n = 1/1",
+   "example_result": 1,
+   "example_case": "Gelenk, Biegung ohne Versagen, Ziel Leistung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 260
   },
   {
    "id": "A-IX-PL-F-K",
@@ -172,7 +461,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 100
+   "sort": 270
   },
   {
    "id": "A-IX-PL-F-M",
@@ -189,7 +478,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 110
+   "sort": 280
   },
   {
    "id": "A-IX-PL-F-V",
@@ -206,7 +495,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 120
+   "sort": 290
   },
   {
    "id": "A-IX-PL-S-K",
@@ -223,7 +512,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 130
+   "sort": 300
   },
   {
    "id": "A-IX-PL-S-M",
@@ -240,7 +529,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 140
+   "sort": 310
   },
   {
    "id": "A-IX-PL-S-V",
@@ -257,7 +546,24 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 150
+   "sort": 320
+  },
+  {
+   "id": "A-IX-PT-V-L",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Präzisionsteil, thermische Verzerrung minimal",
+   "formula": "M = λ / α",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Anhang B, Tab. B6, S. 411; Fallstudie 6.20, S. 152",
+   "example": "dε/dx = (α / λ)·q  (Ashby Gl. 6.69) · Steigung der Indexlinie −b/a = 1/1",
+   "example_result": 1,
+   "example_case": "Präzisionsteil, thermische Verzerrung minimal",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 330
   },
   {
    "id": "A-IX-ST-K-K",
@@ -274,7 +580,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 160
+   "sort": 340
   },
   {
    "id": "A-IX-ST-K-M",
@@ -291,7 +597,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 170
+   "sort": 350
   },
   {
    "id": "A-IX-ST-K-V",
@@ -308,7 +614,75 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 180
+   "sort": 360
+  },
+  {
+   "id": "A-IX-TS-T-L",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Thermoschock, größter Temperatursprung ohne Bruch",
+   "formula": "M = σ_f / (E·α)",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Anhang B, Tab. B6, S. 411",
+   "example": "ΔT = σ_f / (E·α)  (Ashby Kap. 4; Faktor (1 − ν) bei zweiachsiger Behinderung als werkstoffnahe Konstante vernachlässigt) · Steigung der Indexlinie −b/a = 1/1",
+   "example_result": 1,
+   "example_case": "Thermoschock, größter Temperatursprung ohne Bruch",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 370
+  },
+  {
+   "id": "A-IX-WD-Q-D",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Wärmedämmung, Wärmestrom minimal, Dicke fest",
+   "formula": "M = 1 / λ",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Anhang B, Tab. B6, S. 411",
+   "example": "q = λ·ΔT / t mit t fest: q ∝ λ · Steigung der Indexlinie −b/a = 0/-1",
+   "example_result": 0,
+   "example_case": "Wärmedämmung, Wärmestrom minimal, Dicke fest",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 380
+  },
+  {
+   "id": "A-IX-WD-Q-K",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Wärmedämmung, billig, Wärmestrom vorgegeben",
+   "formula": "M = 1 / (λ·C_m·ρ)",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Tab. 5.7, S. 78",
+   "example": "q = λ·ΔT / t vorgegeben: t ∝ λ, C = t·A·ρ·C_m ∝ λ·C_m·ρ · Steigung der Indexlinie −b/a = 1/-1",
+   "example_result": -1,
+   "example_case": "Wärmedämmung, billig, Wärmestrom vorgegeben",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 390
+  },
+  {
+   "id": "A-IX-WD-Z-E",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Wärmedämmung, Ofenwand: Energie im Zyklus minimal",
+   "formula": "M = 1 / (λ·ρ·c_p)^½",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Anhang B, Tab. B6, S. 411; Fallstudie 6.18",
+   "example": "Q = Leitungsverlust + gespeicherte Wärme, Wanddicke optimal: Q ∝ √(λ·ρ·c_p) · Steigung der Indexlinie −b/a = 0,5/-0,5",
+   "example_result": -1,
+   "example_case": "Wärmedämmung, Ofenwand: Energie im Zyklus minimal",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 400
   },
   {
    "id": "A-IX-WE-F-K",
@@ -325,7 +699,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 190
+   "sort": 410
   },
   {
    "id": "A-IX-WE-F-M",
@@ -342,7 +716,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 200
+   "sort": 420
   },
   {
    "id": "A-IX-WE-F-V",
@@ -359,7 +733,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 210
+   "sort": 430
   },
   {
    "id": "A-IX-WE-S-K",
@@ -376,7 +750,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 220
+   "sort": 440
   },
   {
    "id": "A-IX-WE-S-M",
@@ -393,7 +767,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 230
+   "sort": 450
   },
   {
    "id": "A-IX-WE-S-V",
@@ -410,7 +784,58 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 240
+   "sort": 460
+  },
+  {
+   "id": "A-IX-WS-E-K",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Wärmespeicher, Energie je Werkstoffkosten",
+   "formula": "M = c_p / C_m",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Anhang B, Tab. B6, S. 411",
+   "example": "Q / C = c_p·ΔT / C_m · Steigung der Indexlinie −b/a = 1/1",
+   "example_result": 1,
+   "example_case": "Wärmespeicher, Energie je Werkstoffkosten",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 470
+  },
+  {
+   "id": "A-IX-WT-P-A",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Wärmetauscherwand, Wärmestrom je Fläche, Druck Δp",
+   "formula": "M = λ·σ_f",
+   "unit": "Steigung",
+   "source": "Ashby (1999) Anhang B, Tab. B6, S. 411",
+   "example": "Rohrwand, Membranspannung: q = λ·ΔT / t,  t = Δp·r / σ_f: q ∝ λ·σ_f (ebene Wand auf Biegung gäbe λ·σ_f^½, nicht umgesetzt) · Steigung der Indexlinie −b/a = -1/1",
+   "example_result": -1,
+   "example_case": "Wärmetauscherwand, Wärmestrom je Fläche, Druck Δp",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 480
+  },
+  {
+   "id": "A-IX-WT-P-M",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Materialindex Wärmetauscherwand, Wärmestrom je Masse, Druck Δp",
+   "formula": "M = λ·σ_f² / ρ",
+   "unit": "Steigung",
+   "source": "Eigene Herleitung wie Tab. B6 Zeile 1 (Ashby nennt λ·σ_f / ρ ohne Herleitung; mit t ∝ 1/σ_f folgt σ_f²)",
+   "example": "Rohrwand, Membranspannung: t = Δp·r / σ_f, Q / m = q / (ρ·t) = λ·ΔT / (ρ·t²) ∝ λ·σ_f² / ρ · Steigung der Indexlinie −b/a = 1/1",
+   "example_result": 1,
+   "example_case": "Wärmetauscherwand, Wärmestrom je Masse, Druck Δp",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 490
   },
   {
    "id": "A-IX-ZS-F-K",
@@ -427,7 +852,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 250
+   "sort": 500
   },
   {
    "id": "A-IX-ZS-F-M",
@@ -444,7 +869,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 260
+   "sort": 510
   },
   {
    "id": "A-IX-ZS-F-V",
@@ -461,7 +886,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 270
+   "sort": 520
   },
   {
    "id": "A-IX-ZS-S-K",
@@ -478,7 +903,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 280
+   "sort": 530
   },
   {
    "id": "A-IX-ZS-S-M",
@@ -495,7 +920,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 290
+   "sort": 540
   },
   {
    "id": "A-IX-ZS-S-V",
@@ -512,7 +937,109 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 300
+   "sort": 550
+  },
+  {
+   "id": "A-K-ALPHA",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Wärmeausdehnungskoeffizient (Datenbank, repräsentativ)",
+   "formula": "α aus Datenbank",
+   "unit": "10⁻⁶/K",
+   "source": null,
+   "example": "EN AW-6082",
+   "example_result": 23.4,
+   "example_case": "Präzisionsteil, thermische Verzerrung minimal; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 560
+  },
+  {
+   "id": "A-K-CM",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Preis je kg (Datenbank, Richtwert)",
+   "formula": "C_m aus Datenbank",
+   "unit": "€/kg",
+   "source": null,
+   "example": "EN AW-6082",
+   "example_result": 4.5,
+   "example_case": "Wärmedämmung, billig, Wärmestrom vorgegeben; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 570
+  },
+  {
+   "id": "A-K-CP",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Spezifische Wärmekapazität (Datenbank, repräsentativ)",
+   "formula": "c_p aus Datenbank",
+   "unit": "J/(kg·K)",
+   "source": null,
+   "example": "EN AW-6082",
+   "example_result": 896,
+   "example_case": "Wärmedämmung, Ofenwand: Energie im Zyklus minimal; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 580
+  },
+  {
+   "id": "A-K-KIC",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Bruchzähigkeit (Datenbank, repräsentativ)",
+   "formula": "K_IC aus Datenbank",
+   "unit": "MPa·m^0,5",
+   "source": null,
+   "example": "Al2O3 99,7 %",
+   "example_result": 4.75,
+   "example_case": "Druckbehälter, Fließen vor Bruch; Al2O3 99,7 % (W082); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 590
+  },
+  {
+   "id": "A-K-LAM",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Wärmeleitfähigkeit (Datenbank, repräsentativ)",
+   "formula": "λ aus Datenbank",
+   "unit": "W/(m·K)",
+   "source": null,
+   "example": "EN AW-6082",
+   "example_result": 195,
+   "example_case": "Wärmedämmung, Wärmestrom minimal, Dicke fest; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 600
+  },
+  {
+   "id": "A-K-RHO",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Dichte (Datenbank, repräsentativ)",
+   "formula": "ρ aus Datenbank",
+   "unit": "kg/m³",
+   "source": null,
+   "example": "EN AW-6082",
+   "example_result": 2700,
+   "example_case": "Wärmedämmung, Wärmestrom minimal, Dicke fest; EN AW-6082 (W038); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 610
   },
   {
    "id": "A-M",
@@ -529,7 +1056,24 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 310
+   "sort": 620
+  },
+  {
+   "id": "A-MP",
+   "area": "Werkstoffauswahl (Ashby Kap. 5 bis 7)",
+   "module": "ashby",
+   "quantity": "Indexwert (Produkt von Potenzen)",
+   "formula": "M = Y^a · X^b (Y, X Achsgruppen)",
+   "unit": "–",
+   "source": "Indexwerte nur innerhalb einer Auswahl vergleichbar",
+   "example": "4,75 / 300",
+   "example_result": 0.0158333333333,
+   "example_case": "Druckbehälter, Fließen vor Bruch; Al2O3 99,7 % (W082); Form ohne",
+   "status": "freigegeben",
+   "approved_at": "2026-10-21",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 630
   },
   {
    "id": "A-PHI-MAX",
@@ -546,7 +1090,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 320
+   "sort": 640
   },
   {
    "id": "A-PHI-USER",
@@ -563,7 +1107,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 330
+   "sort": 650
   },
   {
    "id": "A-REL",
@@ -580,7 +1124,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 340
+   "sort": 660
   },
   {
    "id": "A-SHIFT-0",
@@ -597,7 +1141,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 350
+   "sort": 670
   },
   {
    "id": "A-SHIFT-X",
@@ -614,7 +1158,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 360
+   "sort": 680
   },
   {
    "id": "A-SHIFT-Y",
@@ -631,7 +1175,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 370
+   "sort": 690
   },
   {
    "id": "A-X-CRHO",
@@ -648,7 +1192,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 380
+   "sort": 700
   },
   {
    "id": "A-X-E",
@@ -665,7 +1209,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 390
+   "sort": 710
   },
   {
    "id": "A-X-ECRHO",
@@ -682,7 +1226,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 400
+   "sort": 720
   },
   {
    "id": "A-X-ERHO",
@@ -699,7 +1243,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 410
+   "sort": 730
   },
   {
    "id": "A-X-RHO",
@@ -716,7 +1260,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 420
+   "sort": 740
   },
   {
    "id": "A-Y-E",
@@ -733,7 +1277,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 430
+   "sort": 750
   },
   {
    "id": "A-Y-SF",
@@ -750,7 +1294,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 440
+   "sort": 760
   },
   {
    "id": "B-F-BQ",
@@ -767,7 +1311,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 450
+   "sort": 770
   },
   {
    "id": "B-F-E4",
@@ -784,7 +1328,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 460
+   "sort": 780
   },
   {
    "id": "B-F-EE",
@@ -801,7 +1345,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 470
+   "sort": 790
   },
   {
    "id": "B-F-EQ",
@@ -818,7 +1362,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 480
+   "sort": 800
   },
   {
    "id": "B-F-KE",
@@ -835,7 +1379,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 490
+   "sort": 810
   },
   {
    "id": "B-F-KQ",
@@ -852,7 +1396,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 500
+   "sort": 820
   },
   {
    "id": "B-LL-B",
@@ -869,7 +1413,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 510
+   "sort": 830
   },
   {
    "id": "B-LL-CA",
@@ -886,7 +1430,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 520
+   "sort": 840
   },
   {
    "id": "B-LL-CB",
@@ -903,7 +1447,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 530
+   "sort": 850
   },
   {
    "id": "B-LL-FX",
@@ -920,7 +1464,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 540
+   "sort": 860
   },
   {
    "id": "B-LL-GG",
@@ -937,7 +1481,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 550
+   "sort": 870
   },
   {
    "id": "B-LL-M",
@@ -954,7 +1498,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Die Integration von Streckenlasten über Macaulay-Klammern (mit dem Anstieg k=(q2​−q1​)/(x2​−x1​)) ist mathematisch richtig, allerdings in der Implementierung extrem fehleranfällig bei den Vorzeichen. Stellen Sie sicher, dass die Terme für x2​ (das Ende der Streckenlast) konsistent subtrahiert werden, damit die Last nach x2​ korrekt „abgeschaltet“ wird.",
-   "sort": 560
+   "sort": 880
   },
   {
    "id": "B-LL-MX",
@@ -971,7 +1515,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 570
+   "sort": 890
   },
   {
    "id": "B-LL-QX",
@@ -988,7 +1532,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 580
+   "sort": 900
   },
   {
    "id": "B-LL-R",
@@ -1005,7 +1549,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 590
+   "sort": 910
   },
   {
    "id": "B-LL-W",
@@ -1022,7 +1566,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Das Minuszeichen vor dem Doppelintegral ist formal korrekt, sofern eine positive Durchbiegung w nach unten definiert ist und das innere Biegemoment M(x) nach der üblichen technischen Vorzeichenkonvention (positive Durchbiegung bei Zugfasern unten / EIw′′=−M) angesetzt wird.",
-   "sort": 600
+   "sort": 920
   },
   {
    "id": "B-M-BQ",
@@ -1039,7 +1583,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 610
+   "sort": 930
   },
   {
    "id": "B-M-E4",
@@ -1056,7 +1600,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 620
+   "sort": 940
   },
   {
    "id": "B-M-EE",
@@ -1073,7 +1617,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 630
+   "sort": 950
   },
   {
    "id": "B-M-EQ",
@@ -1090,7 +1634,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 640
+   "sort": 960
   },
   {
    "id": "B-M-KE",
@@ -1107,7 +1651,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 650
+   "sort": 970
   },
   {
    "id": "B-M-KQ",
@@ -1124,7 +1668,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 660
+   "sort": 980
   },
   {
    "id": "B-SIG",
@@ -1141,7 +1685,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 670
+   "sort": 990
   },
   {
    "id": "B-TAUQ",
@@ -1158,7 +1702,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 680
+   "sort": 1000
   },
   {
    "id": "C-A0",
@@ -1175,7 +1719,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 690
+   "sort": 1010
   },
   {
    "id": "C-C",
@@ -1192,7 +1736,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 700
+   "sort": 1020
   },
   {
    "id": "C-FZUL",
@@ -1209,7 +1753,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 710
+   "sort": 1030
   },
   {
    "id": "C-I0",
@@ -1226,7 +1770,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 720
+   "sort": 1040
   },
   {
    "id": "C-M",
@@ -1243,7 +1787,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 730
+   "sort": 1050
   },
   {
    "id": "C-MF",
@@ -1260,7 +1804,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 740
+   "sort": 1060
   },
   {
    "id": "C-MMAX",
@@ -1277,7 +1821,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 750
+   "sort": 1070
   },
   {
    "id": "C-MST",
@@ -1294,7 +1838,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 760
+   "sort": 1080
   },
   {
    "id": "C-SF",
@@ -1311,7 +1855,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 770
+   "sort": 1090
   },
   {
    "id": "C-SST",
@@ -1328,7 +1872,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 780
+   "sort": 1100
   },
   {
    "id": "C-SZUL",
@@ -1345,7 +1889,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 790
+   "sort": 1110
   },
   {
    "id": "C-W0",
@@ -1362,7 +1906,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 800
+   "sort": 1120
   },
   {
    "id": "C-WK",
@@ -1379,7 +1923,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 810
+   "sort": 1130
   },
   {
    "id": "C-Z",
@@ -1396,7 +1940,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 820
+   "sort": 1140
   },
   {
    "id": "D-BIS",
@@ -1413,7 +1957,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 830
+   "sort": 1150
   },
   {
    "id": "D-ERF",
@@ -1430,7 +1974,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 840
+   "sort": 1160
   },
   {
    "id": "D-GEW",
@@ -1447,7 +1991,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 850
+   "sort": 1170
   },
   {
    "id": "D-U",
@@ -1464,7 +2008,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 860
+   "sort": 1180
   },
   {
    "id": "F-BE",
@@ -1481,7 +2025,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 870
+   "sort": 1190
   },
   {
    "id": "F-BF",
@@ -1498,7 +2042,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 880
+   "sort": 1200
   },
   {
    "id": "F-TE",
@@ -1515,7 +2059,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 890
+   "sort": 1210
   },
   {
    "id": "F-TF",
@@ -1532,7 +2076,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 900
+   "sort": 1220
   },
   {
    "id": "K-FK",
@@ -1549,7 +2093,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 910
+   "sort": 1230
   },
   {
    "id": "K-LAM",
@@ -1566,7 +2110,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 920
+   "sort": 1240
   },
   {
    "id": "K-LAMT",
@@ -1583,7 +2127,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 930
+   "sort": 1250
   },
   {
    "id": "K-LK",
@@ -1600,7 +2144,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 940
+   "sort": 1260
   },
   {
    "id": "K-SKE",
@@ -1617,7 +2161,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 950
+   "sort": 1270
   },
   {
    "id": "K-SKJ",
@@ -1634,7 +2178,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 960
+   "sort": 1280
   },
   {
    "id": "N-FZUL",
@@ -1651,7 +2195,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 970
+   "sort": 1290
   },
   {
    "id": "N-SB",
@@ -1668,7 +2212,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 980
+   "sort": 1300
   },
   {
    "id": "N-SF",
@@ -1685,7 +2229,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 990
+   "sort": 1310
   },
   {
    "id": "N-SK",
@@ -1702,7 +2246,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1000
+   "sort": 1320
   },
   {
    "id": "N-SV",
@@ -1719,7 +2263,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1010
+   "sort": 1330
   },
   {
    "id": "P-BIS",
@@ -1736,7 +2280,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1020
+   "sort": 1340
   },
   {
    "id": "P-GEO",
@@ -1753,7 +2297,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1030
+   "sort": 1350
   },
   {
    "id": "P-KU-B",
@@ -1770,7 +2314,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1040
+   "sort": 1360
   },
   {
    "id": "P-KU-BI",
@@ -1787,7 +2331,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1050
+   "sort": 1370
   },
   {
    "id": "P-KU-KS",
@@ -1804,7 +2348,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1060
+   "sort": 1380
   },
   {
    "id": "P-KU-SR",
@@ -1821,7 +2365,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1070
+   "sort": 1390
   },
   {
    "id": "P-KU-ST",
@@ -1838,7 +2382,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1080
+   "sort": 1400
   },
   {
    "id": "P-KU-SV",
@@ -1855,7 +2399,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1090
+   "sort": 1410
   },
   {
    "id": "P-KU-U",
@@ -1872,7 +2416,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1100
+   "sort": 1420
   },
   {
    "id": "P-NA",
@@ -1889,7 +2433,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1110
+   "sort": 1430
   },
   {
    "id": "P-NZ",
@@ -1906,7 +2450,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1120
+   "sort": 1440
   },
   {
    "id": "P-TR",
@@ -1923,7 +2467,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1130
+   "sort": 1450
   },
   {
    "id": "P-ZY-B",
@@ -1940,7 +2484,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1140
+   "sort": 1460
   },
   {
    "id": "P-ZY-BI",
@@ -1957,7 +2501,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1150
+   "sort": 1470
   },
   {
    "id": "P-ZY-KS",
@@ -1974,7 +2518,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1160
+   "sort": 1480
   },
   {
    "id": "P-ZY-SR",
@@ -1991,7 +2535,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1170
+   "sort": 1490
   },
   {
    "id": "P-ZY-ST",
@@ -2008,7 +2552,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1180
+   "sort": 1500
   },
   {
    "id": "P-ZY-SV",
@@ -2025,7 +2569,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1190
+   "sort": 1510
   },
   {
    "id": "P-ZY-SZ",
@@ -2042,7 +2586,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1200
+   "sort": 1520
   },
   {
    "id": "P-ZY-U",
@@ -2059,7 +2603,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1210
+   "sort": 1530
   },
   {
    "id": "Q-DH-A",
@@ -2076,7 +2620,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1220
+   "sort": 1540
   },
   {
    "id": "Q-DH-ai",
@@ -2093,7 +2637,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1230
+   "sort": 1550
   },
   {
    "id": "Q-DH-I",
@@ -2110,7 +2654,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1240
+   "sort": 1560
   },
   {
    "id": "Q-DH-K",
@@ -2127,7 +2671,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1250
+   "sort": 1570
   },
   {
    "id": "Q-DH-W",
@@ -2144,7 +2688,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1260
+   "sort": 1580
   },
   {
    "id": "Q-DH-WT",
@@ -2161,7 +2705,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1270
+   "sort": 1590
   },
   {
    "id": "Q-DV-A",
@@ -2178,7 +2722,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1280
+   "sort": 1600
   },
   {
    "id": "Q-DV-e",
@@ -2195,7 +2739,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1290
+   "sort": 1610
   },
   {
    "id": "Q-DV-I",
@@ -2212,7 +2756,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1300
+   "sort": 1620
   },
   {
    "id": "Q-DV-K",
@@ -2229,7 +2773,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1310
+   "sort": 1630
   },
   {
    "id": "Q-DV-W",
@@ -2246,7 +2790,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1320
+   "sort": 1640
   },
   {
    "id": "Q-DV-WT",
@@ -2263,7 +2807,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1330
+   "sort": 1650
   },
   {
    "id": "Q-i",
@@ -2280,7 +2824,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1340
+   "sort": 1660
   },
   {
    "id": "Q-IP-A",
@@ -2297,7 +2841,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1350
+   "sort": 1670
   },
   {
    "id": "Q-IP-IY",
@@ -2314,7 +2858,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1360
+   "sort": 1680
   },
   {
    "id": "Q-IP-IZ",
@@ -2331,7 +2875,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1370
+   "sort": 1690
   },
   {
    "id": "Q-IP-K",
@@ -2348,7 +2892,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1380
+   "sort": 1700
   },
   {
    "id": "Q-IP-KA",
@@ -2365,7 +2909,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1390
+   "sort": 1710
   },
   {
    "id": "Q-IP-KAZ",
@@ -2382,7 +2926,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1400
+   "sort": 1720
   },
   {
    "id": "Q-IP-S",
@@ -2399,7 +2943,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1410
+   "sort": 1730
   },
   {
    "id": "Q-IP-SZ",
@@ -2416,7 +2960,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1420
+   "sort": 1740
   },
   {
    "id": "Q-IP-W",
@@ -2433,7 +2977,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1430
+   "sort": 1750
   },
   {
    "id": "Q-IP-WT",
@@ -2450,7 +2994,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1440
+   "sort": 1760
   },
   {
    "id": "Q-IP-WZ",
@@ -2467,7 +3011,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1450
+   "sort": 1770
   },
   {
    "id": "Q-LP-A",
@@ -2484,7 +3028,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1460
+   "sort": 1780
   },
   {
    "id": "Q-LP-AL",
@@ -2501,7 +3045,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1470
+   "sort": 1790
   },
   {
    "id": "Q-LP-I1",
@@ -2518,7 +3062,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1480
+   "sort": 1800
   },
   {
    "id": "Q-LP-I2",
@@ -2535,7 +3079,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1490
+   "sort": 1810
   },
   {
    "id": "Q-LP-IY",
@@ -2552,7 +3096,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1500
+   "sort": 1820
   },
   {
    "id": "Q-LP-IYZ",
@@ -2569,7 +3113,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1510
+   "sort": 1830
   },
   {
    "id": "Q-LP-IZ",
@@ -2586,7 +3130,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1520
+   "sort": 1840
   },
   {
    "id": "Q-LP-K",
@@ -2603,7 +3147,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1530
+   "sort": 1850
   },
   {
    "id": "Q-LP-KA",
@@ -2620,7 +3164,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1540
+   "sort": 1860
   },
   {
    "id": "Q-LP-S",
@@ -2637,7 +3181,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1550
+   "sort": 1870
   },
   {
    "id": "Q-LP-W",
@@ -2654,7 +3198,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1560
+   "sort": 1880
   },
   {
    "id": "Q-LP-WT",
@@ -2671,7 +3215,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1570
+   "sort": 1890
   },
   {
    "id": "Q-LP-YS",
@@ -2688,7 +3232,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1580
+   "sort": 1900
   },
   {
    "id": "Q-LP-ZS",
@@ -2705,7 +3249,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1590
+   "sort": 1910
   },
   {
    "id": "Q-m",
@@ -2722,7 +3266,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1600
+   "sort": 1920
   },
   {
    "id": "Q-RE-A",
@@ -2739,7 +3283,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1610
+   "sort": 1930
   },
   {
    "id": "Q-RE-I",
@@ -2756,7 +3300,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1620
+   "sort": 1940
   },
   {
    "id": "Q-RE-K",
@@ -2773,7 +3317,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1630
+   "sort": 1950
   },
   {
    "id": "Q-RE-W",
@@ -2790,7 +3334,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1640
+   "sort": 1960
   },
   {
    "id": "Q-RE-WT",
@@ -2807,7 +3351,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1650
+   "sort": 1970
   },
   {
    "id": "Q-RH-A",
@@ -2824,7 +3368,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1660
+   "sort": 1980
   },
   {
    "id": "Q-RH-d",
@@ -2841,7 +3385,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1670
+   "sort": 1990
   },
   {
    "id": "Q-RH-I",
@@ -2858,7 +3402,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1680
+   "sort": 2000
   },
   {
    "id": "Q-RH-K",
@@ -2875,7 +3419,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1690
+   "sort": 2010
   },
   {
    "id": "Q-RH-W",
@@ -2892,7 +3436,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1700
+   "sort": 2020
   },
   {
    "id": "Q-RH-WT",
@@ -2909,7 +3453,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1710
+   "sort": 2030
   },
   {
    "id": "Q-RR-A",
@@ -2926,7 +3470,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1720
+   "sort": 2040
   },
   {
    "id": "Q-RR-AM",
@@ -2943,7 +3487,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1730
+   "sort": 2050
   },
   {
    "id": "Q-RR-I",
@@ -2960,7 +3504,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1740
+   "sort": 2060
   },
   {
    "id": "Q-RR-K",
@@ -2977,7 +3521,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1750
+   "sort": 2070
   },
   {
    "id": "Q-RR-W",
@@ -2994,7 +3538,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1760
+   "sort": 2080
   },
   {
    "id": "Q-RR-WT",
@@ -3011,7 +3555,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1770
+   "sort": 2090
   },
   {
    "id": "Q-RV-A",
@@ -3028,7 +3572,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1780
+   "sort": 2100
   },
   {
    "id": "Q-RV-I",
@@ -3045,7 +3589,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1790
+   "sort": 2110
   },
   {
    "id": "Q-RV-K",
@@ -3062,7 +3606,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1800
+   "sort": 2120
   },
   {
    "id": "Q-RV-W",
@@ -3079,7 +3623,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1810
+   "sort": 2130
   },
   {
    "id": "Q-RV-WT",
@@ -3096,7 +3640,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1820
+   "sort": 2140
   },
   {
    "id": "Q-SIGO",
@@ -3113,7 +3657,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1830
+   "sort": 2150
   },
   {
    "id": "Q-SIGU",
@@ -3130,7 +3674,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1840
+   "sort": 2160
   },
   {
    "id": "Q-TP-A",
@@ -3147,7 +3691,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1850
+   "sort": 2170
   },
   {
    "id": "Q-TP-IY",
@@ -3164,7 +3708,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1860
+   "sort": 2180
   },
   {
    "id": "Q-TP-IZ",
@@ -3181,7 +3725,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1870
+   "sort": 2190
   },
   {
    "id": "Q-TP-K",
@@ -3198,7 +3742,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1880
+   "sort": 2200
   },
   {
    "id": "Q-TP-KA",
@@ -3215,7 +3759,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1890
+   "sort": 2210
   },
   {
    "id": "Q-TP-S",
@@ -3232,7 +3776,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1900
+   "sort": 2220
   },
   {
    "id": "Q-TP-W",
@@ -3249,7 +3793,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1910
+   "sort": 2230
   },
   {
    "id": "Q-TP-WT",
@@ -3266,7 +3810,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1920
+   "sort": 2240
   },
   {
    "id": "Q-TP-ZS",
@@ -3283,7 +3827,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1930
+   "sort": 2250
   },
   {
    "id": "Q-UP-A",
@@ -3300,7 +3844,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1940
+   "sort": 2260
   },
   {
    "id": "Q-UP-EM",
@@ -3317,7 +3861,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1950
+   "sort": 2270
   },
   {
    "id": "Q-UP-IY",
@@ -3334,7 +3878,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1960
+   "sort": 2280
   },
   {
    "id": "Q-UP-IZ",
@@ -3351,7 +3895,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1970
+   "sort": 2290
   },
   {
    "id": "Q-UP-K",
@@ -3368,7 +3912,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1980
+   "sort": 2300
   },
   {
    "id": "Q-UP-KA",
@@ -3385,7 +3929,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1990
+   "sort": 2310
   },
   {
    "id": "Q-UP-KAZ",
@@ -3402,7 +3946,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2000
+   "sort": 2320
   },
   {
    "id": "Q-UP-S",
@@ -3419,7 +3963,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2010
+   "sort": 2330
   },
   {
    "id": "Q-UP-SZ",
@@ -3436,7 +3980,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2020
+   "sort": 2340
   },
   {
    "id": "Q-UP-W",
@@ -3453,7 +3997,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2030
+   "sort": 2350
   },
   {
    "id": "Q-UP-WT",
@@ -3470,7 +4014,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2040
+   "sort": 2360
   },
   {
    "id": "Q-UP-WZ",
@@ -3487,7 +4031,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2050
+   "sort": 2370
   },
   {
    "id": "Q-UP-YS",
@@ -3504,7 +4048,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2060
+   "sort": 2380
   },
   {
    "id": "T-PHI1",
@@ -3521,7 +4065,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2070
+   "sort": 2390
   },
   {
    "id": "T-PHI2",
@@ -3538,7 +4082,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2080
+   "sort": 2400
   },
   {
    "id": "T-TA",
@@ -3555,7 +4099,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2090
+   "sort": 2410
   },
   {
    "id": "T-TAU",
@@ -3572,7 +4116,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2100
+   "sort": 2420
   },
   {
    "id": "V-B",
@@ -3589,7 +4133,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2110
+   "sort": 2430
   },
   {
    "id": "V-BL",
@@ -3606,7 +4150,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2120
+   "sort": 2440
   },
   {
    "id": "V-CK-EE",
@@ -3623,7 +4167,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2130
+   "sort": 2450
   },
   {
    "id": "V-CK-EG",
@@ -3640,7 +4184,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2140
+   "sort": 2460
   },
   {
    "id": "V-CK-GG",
@@ -3657,7 +4201,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2150
+   "sort": 2470
   },
   {
    "id": "V-CK-KR",
@@ -3674,7 +4218,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2160
+   "sort": 2480
   },
   {
    "id": "V-EI",
@@ -3691,7 +4235,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2170
+   "sort": 2490
   },
   {
    "id": "V-EW",
@@ -3708,7 +4252,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2180
+   "sort": 2500
   },
   {
    "id": "V-FN",
@@ -3725,7 +4269,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2190
+   "sort": 2510
   },
   {
    "id": "V-MB",
@@ -3742,7 +4286,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 2200
+   "sort": 2520
   },
   {
    "id": "V-NR",
@@ -3759,7 +4303,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2210
+   "sort": 2530
   },
   {
    "id": "V-NZ",
@@ -3776,7 +4320,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2220
+   "sort": 2540
   },
   {
    "id": "V-OM",
@@ -3793,7 +4337,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2230
+   "sort": 2550
   },
   {
    "id": "V-PH-EE",
@@ -3810,7 +4354,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2240
+   "sort": 2560
   },
   {
    "id": "V-PH-EG",
@@ -3827,7 +4371,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2250
+   "sort": 2570
   },
   {
    "id": "V-PH-GG",
@@ -3844,7 +4388,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2260
+   "sort": 2580
   },
   {
    "id": "V-PH-KR",
@@ -3861,7 +4405,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2270
+   "sort": 2590
   },
   {
    "id": "V-RQ",
@@ -3878,7 +4422,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2280
+   "sort": 2600
   },
   {
    "id": "W-BB",
@@ -3895,7 +4439,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2290
+   "sort": 2610
   },
   {
    "id": "W-E",
@@ -3912,7 +4456,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2300
+   "sort": 2620
   },
   {
    "id": "W-G",
@@ -3929,7 +4473,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 2310
+   "sort": 2630
   },
   {
    "id": "W-G-DB",
@@ -3946,7 +4490,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2320
+   "sort": 2640
   },
   {
    "id": "W-RHO",
@@ -3963,7 +4507,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2330
+   "sort": 2650
   },
   {
    "id": "W-RM",
@@ -3980,7 +4524,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2340
+   "sort": 2660
   },
   {
    "id": "W-RP",
@@ -3997,7 +4541,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2350
+   "sort": 2670
   },
   {
    "id": "Z-DL",
@@ -4014,7 +4558,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2360
+   "sort": 2680
   },
   {
    "id": "Z-DL2",
@@ -4031,7 +4575,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2370
+   "sort": 2690
   },
   {
    "id": "Z-NMAX",
@@ -4048,7 +4592,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2380
+   "sort": 2700
   },
   {
    "id": "Z-QG",
@@ -4065,7 +4609,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2390
+   "sort": 2710
   },
   {
    "id": "Z-SIG",
@@ -4082,7 +4626,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2400
+   "sort": 2720
   },
   {
    "id": "Z-SIG2",
@@ -4099,7 +4643,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2410
+   "sort": 2730
   }
  ]
 }

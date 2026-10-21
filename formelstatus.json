@@ -1,4 +1,20 @@
 {
+  "A-GR-X": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Runde 1 abgelehnt (Sammelablehnung)",
+    "antwort": "Formel geändert 21.10.2026 (Runde 1 abgelehnt): Exponent je Kennwert ergänzt, Wert unverändert (alle Exponenten 1).",
+    "formel": "Achsgruppe = Π p_i^e_i (Kennwerte der Achse, Exponent meist 1)"
+  },
+  "A-GR-Y": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Runde 1 abgelehnt (Sammelablehnung)",
+    "antwort": "Formel geändert 21.10.2026 (Runde 1 abgelehnt): Exponent je Kennwert ergänzt (σ_f² beim Wärmetauscher je Masse).",
+    "formel": "Achsgruppe = Π p_i^e_i (Kennwerte der Achse, Exponent meist 1)"
+  },
   "A-IX-BA-F-K": {
     "status": "freigegeben",
     "datum": "2026-10-08",
@@ -35,6 +51,118 @@
     "durch": "Seti",
     "formel": "M = E^½"
   },
+  "A-IX-BAB-F-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig für nur Breite frei (I ∝ b, W ∝ b)",
+    "antwort": "Bestätigt (Ashby Gl. 5.13, Tab. B1, B2), keine Änderung.",
+    "formel": "M = σ_f / (C_m·ρ)"
+  },
+  "A-IX-BAB-F-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig für nur Breite frei (I ∝ b, W ∝ b)",
+    "antwort": "Bestätigt (Ashby Gl. 5.13, Tab. B1, B2), keine Änderung.",
+    "formel": "M = σ_f / ρ"
+  },
+  "A-IX-BAB-F-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig für nur Breite frei (I ∝ b, W ∝ b)",
+    "antwort": "Bestätigt (Ashby Gl. 5.13, Tab. B1, B2), keine Änderung.",
+    "formel": "M = σ_f"
+  },
+  "A-IX-BAB-S-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig für nur Breite frei (I ∝ b, W ∝ b)",
+    "antwort": "Bestätigt (Ashby Gl. 5.13, Tab. B1, B2), keine Änderung.",
+    "formel": "M = E / (C_m·ρ)"
+  },
+  "A-IX-BAB-S-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig für nur Breite frei (I ∝ b, W ∝ b)",
+    "antwort": "Bestätigt (Ashby Gl. 5.13, Tab. B1, B2), keine Änderung.",
+    "formel": "M = E / ρ"
+  },
+  "A-IX-BAB-S-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig für nur Breite frei (I ∝ b, W ∝ b)",
+    "antwort": "Bestätigt (Ashby Gl. 5.13, Tab. B1, B2), keine Änderung.",
+    "formel": "M = E"
+  },
+  "A-IX-BAH-F-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Exponenten ⅓ und ½ fraglich, gälten klassisch für quadratische Querschnitte",
+    "antwort": "Bleibt. Ashby Gl. 5.12 (S. 75) und Tab. B1, B2: nur Höhe frei, Breite fest: I ∝ h³, W ∝ h², m ∝ h, daraus E^⅓/ρ bzw. σ_f^½/ρ. Der quadratische Querschnitt gibt E^½/ρ und σ_f^⅔/ρ (A-IX-BA-…). Der Prüfer bestätigt die Zuordnung am Ende selbst.",
+    "formel": "M = σ_f^½ / (C_m·ρ)"
+  },
+  "A-IX-BAH-F-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Exponenten ⅓ und ½ fraglich, gälten klassisch für quadratische Querschnitte",
+    "antwort": "Bleibt. Ashby Gl. 5.12 (S. 75) und Tab. B1, B2: nur Höhe frei, Breite fest: I ∝ h³, W ∝ h², m ∝ h, daraus E^⅓/ρ bzw. σ_f^½/ρ. Der quadratische Querschnitt gibt E^½/ρ und σ_f^⅔/ρ (A-IX-BA-…). Der Prüfer bestätigt die Zuordnung am Ende selbst.",
+    "formel": "M = σ_f^½ / ρ"
+  },
+  "A-IX-BAH-F-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Exponenten ⅓ und ½ fraglich, gälten klassisch für quadratische Querschnitte",
+    "antwort": "Bleibt. Ashby Gl. 5.12 (S. 75) und Tab. B1, B2: nur Höhe frei, Breite fest: I ∝ h³, W ∝ h², m ∝ h, daraus E^⅓/ρ bzw. σ_f^½/ρ. Der quadratische Querschnitt gibt E^½/ρ und σ_f^⅔/ρ (A-IX-BA-…). Der Prüfer bestätigt die Zuordnung am Ende selbst.",
+    "formel": "M = σ_f^½"
+  },
+  "A-IX-BAH-S-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Exponenten ⅓ und ½ fraglich, gälten klassisch für quadratische Querschnitte",
+    "antwort": "Bleibt. Ashby Gl. 5.12 (S. 75) und Tab. B1, B2: nur Höhe frei, Breite fest: I ∝ h³, W ∝ h², m ∝ h, daraus E^⅓/ρ bzw. σ_f^½/ρ. Der quadratische Querschnitt gibt E^½/ρ und σ_f^⅔/ρ (A-IX-BA-…). Der Prüfer bestätigt die Zuordnung am Ende selbst.",
+    "formel": "M = E^⅓ / (C_m·ρ)"
+  },
+  "A-IX-BAH-S-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Exponenten ⅓ und ½ fraglich, gälten klassisch für quadratische Querschnitte",
+    "antwort": "Bleibt. Ashby Gl. 5.12 (S. 75) und Tab. B1, B2: nur Höhe frei, Breite fest: I ∝ h³, W ∝ h², m ∝ h, daraus E^⅓/ρ bzw. σ_f^½/ρ. Der quadratische Querschnitt gibt E^½/ρ und σ_f^⅔/ρ (A-IX-BA-…). Der Prüfer bestätigt die Zuordnung am Ende selbst.",
+    "formel": "M = E^⅓ / ρ"
+  },
+  "A-IX-BAH-S-V": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Exponenten ⅓ und ½ fraglich, gälten klassisch für quadratische Querschnitte",
+    "antwort": "Bleibt. Ashby Gl. 5.12 (S. 75) und Tab. B1, B2: nur Höhe frei, Breite fest: I ∝ h³, W ∝ h², m ∝ h, daraus E^⅓/ρ bzw. σ_f^½/ρ. Der quadratische Querschnitt gibt E^½/ρ und σ_f^⅔/ρ (A-IX-BA-…). Der Prüfer bestätigt die Zuordnung am Ende selbst.",
+    "formel": "M = E^⅓"
+  },
+  "A-IX-DB-L-L": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): falsch, Leck vor Bruch sei K_IC/σ_f oder (K_IC/σ_f)²",
+    "antwort": "Bleibt K_IC²/σ_f. Ashby Fallstudie 6.15, S. 134, Gl. 6.47 bis 6.49: Riss durch die Wand stabil bei σ = σ_f, t = p·R/(2σ_f) ergibt C²·π·p·R/4 = K_IC²/σ_f, also M₂ = K_IC²/σ_f (größter Druck mit Leck statt Bruch). K_IC/σ_f ist M₁ (Fließen vor Bruch, A-IX-DB-Y-L), (K_IC/σ_f)² ordnet identisch wie M₁. Herleitungstext präzisiert.",
+    "formel": "M = K_IC² / σ_f"
+  },
+  "A-IX-DB-Y-L": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Bestätigt: Ashby Gl. 6.46, M₁ = K_IC/σ_f. Herleitungstext präzisiert (π·a_c ≤ C²·(K_IC/σ_f)²).",
+    "formel": "M = K_IC / σ_f"
+  },
   "A-IX-FE-E-K": {
     "status": "freigegeben",
     "datum": "2026-10-08",
@@ -52,6 +180,14 @@
     "datum": "2026-10-08",
     "durch": "Seti",
     "formel": "M = σ_f² / E"
+  },
+  "A-IX-GE-F-L": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "M = σ_f / E"
   },
   "A-IX-PL-F-K": {
     "status": "freigegeben",
@@ -89,6 +225,14 @@
     "durch": "Seti",
     "formel": "M = E^⅓"
   },
+  "A-IX-PT-V-L": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "M = λ / α"
+  },
   "A-IX-ST-K-K": {
     "status": "freigegeben",
     "datum": "2026-10-08",
@@ -106,6 +250,38 @@
     "datum": "2026-10-08",
     "durch": "Seti",
     "formel": "M = E^½"
+  },
+  "A-IX-TS-T-L": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): korrekt, bei zweiachsiger Behinderung Faktor (1 − ν) ergänzbar",
+    "antwort": "Bleibt σ_f/(E·α) wie Tab. B6. (1 − ν) als vernachlässigte, werkstoffnahe Konstante im Text vermerkt (ν nur bei 28 von 100 Werkstoffen belegt).",
+    "formel": "M = σ_f / (E·α)"
+  },
+  "A-IX-WD-Q-D": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "M = 1 / λ"
+  },
+  "A-IX-WD-Q-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "M = 1 / (λ·C_m·ρ)"
+  },
+  "A-IX-WD-Z-E": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): richtig (Effusivität √(λ·ρ·c_p) minimieren)",
+    "antwort": "Bestätigt, keine Änderung.",
+    "formel": "M = 1 / (λ·ρ·c_p)^½"
   },
   "A-IX-WE-F-K": {
     "status": "freigegeben",
@@ -143,6 +319,30 @@
     "durch": "Seti",
     "formel": "M = E^½"
   },
+  "A-IX-WS-E-K": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "M = c_p / C_m"
+  },
+  "A-IX-WT-P-A": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): unvollständig, je nach Lastfall λ·σ_f (Membran) oder λ·σ_f^½ (Biegung)",
+    "antwort": "Bleibt λ·σ_f (Ashby Tab. B6) für die Rohrwand mit Membranspannung t = Δp·r/σ_f; Annahme steht jetzt im Herleitungstext. Ebene Wand auf Biegung (λ·σ_f^½) bei Bedarf als eigene Aufgabe.",
+    "formel": "M = λ·σ_f"
+  },
+  "A-IX-WT-P-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Runde 1 abgelehnt (Sammelablehnung)",
+    "antwort": "Formel geändert 21.10.2026 (Runde 1 abgelehnt): λ·σ_f/ρ → λ·σ_f²/ρ. Rohrwand t = Δp·r/σ_f, Q/m = λ·ΔT/(ρ·t²) ∝ λ·σ_f²/ρ. Ashby Tab. B6 druckt λ·σ_f/ρ ohne Herleitung; mit t ∝ 1/σ_f geht σ_f quadratisch ein. Bitte kritisch prüfen.",
+    "formel": "M = λ·σ_f² / ρ"
+  },
   "A-IX-ZS-F-K": {
     "status": "freigegeben",
     "datum": "2026-10-08",
@@ -179,11 +379,67 @@
     "durch": "Seti",
     "formel": "M = E"
   },
+  "A-K-ALPHA": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "α aus Datenbank"
+  },
+  "A-K-CM": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "C_m aus Datenbank"
+  },
+  "A-K-CP": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "c_p aus Datenbank"
+  },
+  "A-K-KIC": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "K_IC aus Datenbank"
+  },
+  "A-K-LAM": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "λ aus Datenbank"
+  },
+  "A-K-RHO": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Prüfer (Chat): Dichte als lateinisches p statt ρ geführt",
+    "antwort": "Im Kern und in der Excel steht ρ (U+03C1); das p entstand in der Anzeige des Prüfwerkzeugs. Neuer Test schließt lateinisches p in allen A-Formeln aus.",
+    "formel": "ρ aus Datenbank"
+  },
   "A-M": {
     "status": "freigegeben",
     "datum": "2026-10-08",
     "durch": "Seti",
     "formel": "M = y^n / x^k"
+  },
+  "A-MP": {
+    "status": "freigegeben",
+    "datum": "2026-10-21",
+    "durch": "Seti",
+    "erledigt": "Sammelablehnung zur kritischen Prüfung (Chat 21.10.2026), kein Einzelbefund",
+    "antwort": "Keine Änderung nötig, bitte in Runde 2 prüfen.",
+    "formel": "M = Y^a · X^b (Y, X Achsgruppen)"
   },
   "A-PHI-MAX": {
     "status": "freigegeben",

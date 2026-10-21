@@ -1,47 +1,79 @@
-# Formelkatalog eng-core 0.7.0
+# Formelkatalog eng-core 0.8.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 241 Formeln, davon 241 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 273 Formeln, davon 273 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
+| A-GR-X | Achsgruppe Abszisse | Achsgruppe = Π p_i^e_i (Kennwerte der Achse, Exponent meist 1) | €/kg·kg/m³ |  | freigegeben (2026-10-21, Seti) |
+| A-GR-Y | Achsgruppe Ordinate | Achsgruppe = Π p_i^e_i (Kennwerte der Achse, Exponent meist 1) | W/(m·K)·MPa² |  | freigegeben (2026-10-21, Seti) |
 | A-IX-BA-F-K | Materialindex Balken, Festigkeit, Kosten minimieren | M = σ_f^⅔ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-BA-F-M | Materialindex Balken, Festigkeit, Masse minimieren | M = σ_f^⅔ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-BA-F-V | Materialindex Balken, Festigkeit, Bauraum minimieren | M = σ_f^⅔ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-BA-S-K | Materialindex Balken, Steifigkeit, Kosten minimieren | M = E^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-BA-S-M | Materialindex Balken, Steifigkeit, Masse minimieren | M = E^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-BA-S-V | Materialindex Balken, Steifigkeit, Bauraum minimieren | M = E^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
+| A-IX-BAB-F-K | Materialindex Balken nur Breite frei, Festigkeit, Kosten minimieren | M = σ_f / (C_m·ρ) | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAB-F-M | Materialindex Balken nur Breite frei, Festigkeit, Masse minimieren | M = σ_f / ρ | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAB-F-V | Materialindex Balken nur Breite frei, Festigkeit, Bauraum minimieren | M = σ_f | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAB-S-K | Materialindex Balken nur Breite frei, Steifigkeit, Kosten minimieren | M = E / (C_m·ρ) | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAB-S-M | Materialindex Balken nur Breite frei, Steifigkeit, Masse minimieren | M = E / ρ | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAB-S-V | Materialindex Balken nur Breite frei, Steifigkeit, Bauraum minimieren | M = E | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAH-F-K | Materialindex Balken nur Höhe frei, Festigkeit, Kosten minimieren | M = σ_f^½ / (C_m·ρ) | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAH-F-M | Materialindex Balken nur Höhe frei, Festigkeit, Masse minimieren | M = σ_f^½ / ρ | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAH-F-V | Materialindex Balken nur Höhe frei, Festigkeit, Bauraum minimieren | M = σ_f^½ | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAH-S-K | Materialindex Balken nur Höhe frei, Steifigkeit, Kosten minimieren | M = E^⅓ / (C_m·ρ) | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAH-S-M | Materialindex Balken nur Höhe frei, Steifigkeit, Masse minimieren | M = E^⅓ / ρ | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-BAH-S-V | Materialindex Balken nur Höhe frei, Steifigkeit, Bauraum minimieren | M = E^⅓ | Steigung | Ashby (1999) Gl. 5.12, 5.13; Anhang B, Tab. B1 und B2 | freigegeben (2026-10-21, Seti) |
+| A-IX-DB-L-L | Materialindex Druckbehälter, Leck vor Bruch | M = K_IC² / σ_f | Steigung | Ashby (1999) Fallstudie 6.15, S. 134 (M₂); Anhang B, Tab. B5, S. 411 | freigegeben (2026-10-21, Seti) |
+| A-IX-DB-Y-L | Materialindex Druckbehälter, Fließen vor Bruch | M = K_IC / σ_f | Steigung | Ashby (1999) Fallstudie 6.15, S. 134; Anhang B, Tab. B5, S. 411 | freigegeben (2026-10-21, Seti) |
 | A-IX-FE-E-K | Materialindex Feder, Energie speichern, Kosten minimieren | M = σ_f² / (E·C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-FE-E-M | Materialindex Feder, Energie speichern, Masse minimieren | M = σ_f² / (E·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-FE-E-V | Materialindex Feder, Energie speichern, Bauraum minimieren | M = σ_f² / E | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
+| A-IX-GE-F-L | Materialindex Gelenk, Biegung ohne Versagen, Biegeradius minimieren | M = σ_f / E | Steigung | Ashby (1999) Fallstudie 6.10, S. 117; Anhang B, Tab. B3 | freigegeben (2026-10-21, Seti) |
 | A-IX-PL-F-K | Materialindex Platte, Festigkeit, Kosten minimieren | M = σ_f^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-PL-F-M | Materialindex Platte, Festigkeit, Masse minimieren | M = σ_f^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-PL-F-V | Materialindex Platte, Festigkeit, Bauraum minimieren | M = σ_f^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-PL-S-K | Materialindex Platte, Steifigkeit, Kosten minimieren | M = E^⅓ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-PL-S-M | Materialindex Platte, Steifigkeit, Masse minimieren | M = E^⅓ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-PL-S-V | Materialindex Platte, Steifigkeit, Bauraum minimieren | M = E^⅓ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
+| A-IX-PT-V-L | Materialindex Präzisionsteil, thermische Verzerrung minimal | M = λ / α | Steigung | Ashby (1999) Anhang B, Tab. B6, S. 411; Fallstudie 6.20, S. 152 | freigegeben (2026-10-21, Seti) |
 | A-IX-ST-K-K | Materialindex Stütze, Knicken, Kosten minimieren | M = E^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ST-K-M | Materialindex Stütze, Knicken, Masse minimieren | M = E^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ST-K-V | Materialindex Stütze, Knicken, Bauraum minimieren | M = E^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
+| A-IX-TS-T-L | Materialindex Thermoschock, größter Temperatursprung ohne Bruch | M = σ_f / (E·α) | Steigung | Ashby (1999) Anhang B, Tab. B6, S. 411 | freigegeben (2026-10-21, Seti) |
+| A-IX-WD-Q-D | Materialindex Wärmedämmung, Wärmestrom minimal, Dicke fest | M = 1 / λ | Steigung | Ashby (1999) Anhang B, Tab. B6, S. 411 | freigegeben (2026-10-21, Seti) |
+| A-IX-WD-Q-K | Materialindex Wärmedämmung, billig, Wärmestrom vorgegeben | M = 1 / (λ·C_m·ρ) | Steigung | Ashby (1999) Tab. 5.7, S. 78 | freigegeben (2026-10-21, Seti) |
+| A-IX-WD-Z-E | Materialindex Wärmedämmung, Ofenwand: Energie im Zyklus minimal | M = 1 / (λ·ρ·c_p)^½ | Steigung | Ashby (1999) Anhang B, Tab. B6, S. 411; Fallstudie 6.18 | freigegeben (2026-10-21, Seti) |
 | A-IX-WE-F-K | Materialindex Welle, Festigkeit, Kosten minimieren | M = σ_f^⅔ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-WE-F-M | Materialindex Welle, Festigkeit, Masse minimieren | M = σ_f^⅔ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-WE-F-V | Materialindex Welle, Festigkeit, Bauraum minimieren | M = σ_f^⅔ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-WE-S-K | Materialindex Welle, Steifigkeit, Kosten minimieren | M = E^½ / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-WE-S-M | Materialindex Welle, Steifigkeit, Masse minimieren | M = E^½ / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-WE-S-V | Materialindex Welle, Steifigkeit, Bauraum minimieren | M = E^½ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
+| A-IX-WS-E-K | Materialindex Wärmespeicher, Energie je Werkstoffkosten | M = c_p / C_m | Steigung | Ashby (1999) Anhang B, Tab. B6, S. 411 | freigegeben (2026-10-21, Seti) |
+| A-IX-WT-P-A | Materialindex Wärmetauscherwand, Wärmestrom je Fläche, Druck Δp | M = λ·σ_f | Steigung | Ashby (1999) Anhang B, Tab. B6, S. 411 | freigegeben (2026-10-21, Seti) |
+| A-IX-WT-P-M | Materialindex Wärmetauscherwand, Wärmestrom je Masse, Druck Δp | M = λ·σ_f² / ρ | Steigung | Eigene Herleitung wie Tab. B6 Zeile 1 (Ashby nennt λ·σ_f / ρ ohne Herleitung; mit t ∝ 1/σ_f folgt σ_f²) | freigegeben (2026-10-21, Seti) |
 | A-IX-ZS-F-K | Materialindex Zugstab, Festigkeit, Kosten minimieren | M = σ_f / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ZS-F-M | Materialindex Zugstab, Festigkeit, Masse minimieren | M = σ_f / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ZS-F-V | Materialindex Zugstab, Festigkeit, Bauraum minimieren | M = σ_f | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ZS-S-K | Materialindex Zugstab, Steifigkeit, Kosten minimieren | M = E / (C_m·ρ) | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ZS-S-M | Materialindex Zugstab, Steifigkeit, Masse minimieren | M = E / ρ | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
 | A-IX-ZS-S-V | Materialindex Zugstab, Steifigkeit, Bauraum minimieren | M = E | Steigung | Ashby (1999) Kap. 5 bis 6, Herleitung über Zielfunktion und Randbedingung | freigegeben (2026-10-08, Seti) |
+| A-K-ALPHA | Wärmeausdehnungskoeffizient (Datenbank, repräsentativ) | α aus Datenbank | 10⁻⁶/K |  | freigegeben (2026-10-21, Seti) |
+| A-K-CM | Preis je kg (Datenbank, Richtwert) | C_m aus Datenbank | €/kg |  | freigegeben (2026-10-21, Seti) |
+| A-K-CP | Spezifische Wärmekapazität (Datenbank, repräsentativ) | c_p aus Datenbank | J/(kg·K) |  | freigegeben (2026-10-21, Seti) |
+| A-K-KIC | Bruchzähigkeit (Datenbank, repräsentativ) | K_IC aus Datenbank | MPa·m^0,5 |  | freigegeben (2026-10-21, Seti) |
+| A-K-LAM | Wärmeleitfähigkeit (Datenbank, repräsentativ) | λ aus Datenbank | W/(m·K) |  | freigegeben (2026-10-21, Seti) |
+| A-K-RHO | Dichte (Datenbank, repräsentativ) | ρ aus Datenbank | kg/m³ |  | freigegeben (2026-10-21, Seti) |
 | A-M | Indexwert | M = y^n / x^k | – | Indexwerte nur innerhalb einer Auswahl vergleichbar | freigegeben (2026-10-08, Seti) |
+| A-MP | Indexwert (Produkt von Potenzen) | M = Y^a · X^b (Y, X Achsgruppen) | – | Indexwerte nur innerhalb einer Auswahl vergleichbar | freigegeben (2026-10-21, Seti) |
 | A-PHI-MAX | Formfaktor, obere Grenze je Werkstoffklasse | φ = φ_max (Tab. 7.3, Zeile nach Werkstoffgruppe, Spalte nach Belastung und Versagensart) | – | Ashby (1999) Tab. 7.3; Mg, Ti, Cu, Zn wie Al-Legierungen; Keramik φ = 1 | freigegeben (2026-10-08, Seti) |
 | A-PHI-USER | Formfaktor aus Blatt 1 (gleiches Profil für alle) | φ = Formfaktor des Profils aus Blatt 1 (Belastung und Versagensart wie Index) | – | siehe F-BE, F-BF, F-TE, F-TF | freigegeben (2026-10-08, Seti) |
 | A-REL | Relative Güte (Masse, Kosten oder Bauraum bezogen auf Rang 1) | rel = M₁ / M | – |  | freigegeben (2026-10-08, Seti) |
