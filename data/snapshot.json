@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "WDB 1.0.1",
-  "released_at": "2026-10-10T21:04:22.813672+00:00",
-  "title": "Reihenfolge der Fertigungsverfahren"
+  "version": "WDB 1.0.2",
+  "released_at": "2026-10-22T08:46:40.162906+00:00",
+  "title": "Kennwertlücken geschlossen (λ, α, c_p, K_IC, Festigkeit, Preis, G, ν)"
  },
  "source": "Supabase Kompendium, Tabellen wa_* (eng-core scripts/pull-data.mjs)",
  "files": {
@@ -19,12 +19,12 @@
    "sha256": "b48bd2364cd6947f1f731e2ecb4f2632595a3cb8624fb3e1ce23874382d1cc94"
   },
   "propertyValues": {
-   "rows": 1787,
-   "sha256": "53df2c924c2d345930f6ee78a877ea7e0a9fcb1ec64553dae17075a87e5a268e"
+   "rows": 2009,
+   "sha256": "49cf75afe7c81f23ebec25420b1c3f2b9e0cd2e9f7f803012847a76c441d66c5"
   },
   "sources": {
-   "rows": 137,
-   "sha256": "1e86a62adc3d9e8a5fc10077238ca1f0ab4fba7b68ef06051c78e76280464cf3"
+   "rows": 220,
+   "sha256": "6b587a48d9df2dc939ea7236efe2c6d9acd4f179286cd823d1edf29f4ed803da"
   },
   "processes": {
    "rows": 16,

@@ -134,10 +134,15 @@ describe("Bewertbarkeit (Konzept Abschnitt 5)", () => {
       for (const m of c.missing) { expect(m.props.length).toBeGreaterThan(0); for (const p of m.props) expect(requiredProps(x.index)).toContain(p); }
     }
   });
-  it("Klassenhinweis: Wärmespeicher, Polymere unter der Hälfte bewertbar", () => {
+  it("Klassenhinweis: Wärmespeicher (WDB 1.0.2), nur Verbundwerkstoffe unter der Hälfte bewertbar", () => {
+    // bis WDB 1.0.1 waren hier die Polymere unter der Hälfte (c_p 2 von 24); seit WDB 1.0.2 sind es 21 von 24
     const c = coverage(repo, st("Wärmespeicher", "Energie", "Kosten"));
-    expect(c.byClass.find((k) => k.cls === "Polymer")?.low).toBe(true);
+    expect(c.byClass.find((k) => k.cls === "Verbundwerkstoff")?.low).toBe(true);
+    expect(c.byClass.find((k) => k.cls === "Polymer")?.low).toBe(false);
     expect(c.byClass.find((k) => k.cls === "Metall")?.low).toBe(false);
+  });
+  it("Klassenhinweis datenunabhängig: low genau dann, wenn n < N/2", () => {
+    for (const s of allIndexSpecs()) for (const k of coverage(repo, st(s.fn, s.con, s.obj, s.free)).byClass) expect(k.low).toBe(k.n < k.N / 2);
   });
   it("nur gewählte Klassen zählen", () => {
     const c = coverage(repo, st("Präzisionsteil", "Verzerrung", "Leistung", "Querschnitt", { ...ALL, Metall: false }));
