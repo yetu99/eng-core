@@ -784,6 +784,474 @@
     "durch": "Seti",
     "formel": "u = max(S_erf / S)"
   },
+  "E-AK-AB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 1 + 1/√(0,62·r/t + 2·5,8·(r/d)·(1 + 2r/d)² + 0,2·(r/t)^3·d/D)  (Absatz, Biegung)"
+  },
+  "E-AK-AT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 1 + 1/√(3,4·r/t + 2·19·(r/d)·(1 + 2r/d)² + 1·(r/t)^2·d/D)  (Absatz, Torsion)"
+  },
+  "E-AK-AZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 1 + 1/√(0,62·r/t + 2·3,5·(r/d)·(1 + 2r/d)²)  (Absatz, Zug/Druck)"
+  },
+  "E-AK-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k manuell (Quelle angeben)"
+  },
+  "E-AK-NB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 1 + 1/√(0,2·r/t + 2·2,75·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Biegung)"
+  },
+  "E-AK-NT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 1 + 1/√(0,7·r/t + 2·10,3·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Torsion)"
+  },
+  "E-AK-NZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 1 + 1/√(0,22·r/t + 2·1,37·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Zug/Druck)"
+  },
+  "E-AK-QB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 3 + 1,4·(d_B/d) − 2,8·√(d_B/d)  (Querbohrung, Biegung)"
+  },
+  "E-AK-QT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 2,023 − 1,125·√(d_B/d)  (Querbohrung, Torsion)"
+  },
+  "E-AK-QZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "α_k = 3 − d_B/d  (Querbohrung, Zug/Druck)"
+  },
+  "E-AM": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_a = |σ_n|·(1 − R)/2,  σ_m = |σ_n|·(1 + R)/2  (Oberlast aus Blatt 1, Mittelspannung als Betrag)"
+  },
+  "E-BETA": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "β_k = α_k / n"
+  },
+  "E-BETA-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "β_k manuell (z. B. Passfeder Roloff TB 3-9)"
+  },
+  "E-DEFF": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "d_eff nach Querschnittsform und Werkstoffart (Roloff TB 3-10c)"
+  },
+  "E-GA-F": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_GA ≤ R_p − σ_m (Schub: f_τ·R_p − τ_m; spröde: R_m)"
+  },
+  "E-GA1": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_GA = σ_GW − ψ·σ_mv  (Überlastungsfall 1, σ_m konstant)"
+  },
+  "E-GA2": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_GA = σ_GW / (1 + ψ·σ_mv/σ_a)  (Überlastungsfall 2, κ konstant)"
+  },
+  "E-GA3": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_GA = (σ_GW − ψ·σ_u) / (1 + ψ)  mit  σ_u = σ_mv − σ_a  (Überlastungsfall 3, Unterspannung σ_u konstant)"
+  },
+  "E-GS-AT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 1,15/r  (Absatz, Torsion)"
+  },
+  "E-GS-AZB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 2,3·(1 + φ)/r  (Absatz, Zug/Druck und Biegung)"
+  },
+  "E-GS-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ manuell"
+  },
+  "E-GS-NT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 1/r  (Umlaufnut, Torsion)"
+  },
+  "E-GS-NZB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 2·(1 + φ)/r  (Umlaufnut, Zug/Druck und Biegung)"
+  },
+  "E-GS-QB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 2,3/r + 2/d  (Querbohrung)"
+  },
+  "E-GS-QT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 1,15/r + 2/d  (Querbohrung)"
+  },
+  "E-GS-QZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "G′ = 2,3/r  (Querbohrung)"
+  },
+  "E-GW": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_GW = σ_W / K_D"
+  },
+  "E-KD": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_D = (β_k/K_g + 1/K_R − 1)/K_V,  K_V = 1"
+  },
+  "E-KG": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_g = 1 − 0,2·lg(d/7,5 mm)/lg 20 für 7,5 ≤ d < 150 mm; 0,8 ab 150 mm; 1 unter 7,5 mm; Zug/Druck K_g = 1"
+  },
+  "E-KR": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_R,σ = 1 − a_R·lg(R_z/µm)·lg(2·R_m/R_m,N,min), höchstens 1"
+  },
+  "E-KRT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_R,τ = 1 − f_τ·(1 − K_R,σ)"
+  },
+  "E-KSP": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_max,K = α_k·|σ_n|"
+  },
+  "E-KT-1": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1 (keine Kurve in TB 3-10 für diesen Werkstoff, Annahme)"
+  },
+  "E-KT-B1": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1 für d ≤ 100 mm; 1 − 0,23·lg(d/100 mm) für d < 300 mm; 0,89 bis 500 mm (Baustahl, Zugfestigkeit)"
+  },
+  "E-KT-B2": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1 für d ≤ 32 mm; 1 − 0,26·lg(d/32 mm) für d < 300 mm; 0,75 bis 500 mm (Baustahl, Streckgrenze)"
+  },
+  "E-KT-B3": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1 für d ≤ 16 mm; 1 − 0,26·lg(d/16 mm) für d < 300 mm; 0,67 bis 500 mm (Vergütungsstahl, Zugfestigkeit)"
+  },
+  "E-KT-B4": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1 für d ≤ 16 mm; 1 − 0,34·lg(d/16 mm) für d < 300 mm; 0,57 bis 500 mm (Vergütungsstahl, Streckgrenze)"
+  },
+  "E-KT-B5": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1 für d ≤ 16 mm; 1 − 0,41·lg(d/16 mm) für d < 150 mm; 0,6 bis 500 mm (Einsatzstahl, Zugfestigkeit und Streckgrenze)"
+  },
+  "E-KT-G": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = (1 − 0,7686·a_d·lg(d/7,5 mm)) / (1 − 0,7686·a_d·lg(d_eff,N/7,5 mm)) für d > d_eff,N, sonst 1 (Gusswerkstoffe)"
+  },
+  "E-KT-GJL": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t = 1,207·(d/7,5 mm)^−0,1922 (GJL, Zugfestigkeit)"
+  },
+  "E-KT-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "K_t manuell (gilt für R_m und R_p)"
+  },
+  "E-MV": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_mv = √((σ_zdm + σ_bm)² + 3·τ_tm²)"
+  },
+  "E-MVT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "τ_mv = f_τ·σ_mv"
+  },
+  "E-N-0": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "n = 1 (kein Spannungsgefälle bekannt, konservativ)"
+  },
+  "E-N-1": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "n = 1 + G′·mm·10^−(a_G − 0,5 + R_m/b_G)  (G′ ≤ 0,1 mm⁻¹)"
+  },
+  "E-N-2": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "n = 1 + √(G′·mm)·10^−(a_G + R_m/b_G)  (0,1 < G′ ≤ 1 mm⁻¹)"
+  },
+  "E-N-3": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "n = 1 + ⁴√(G′·mm)·10^−(a_G + R_m/b_G)  (G′ > 1 mm⁻¹)"
+  },
+  "E-NS-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_n = 32·M_b·d / (π·(d⁴ − d_i⁴))"
+  },
+  "E-NS-QB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_n = M_b / W_b,n  mit  W_b,n = π·d³/32 − d_B·d²/6"
+  },
+  "E-NS-QT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "τ_n = T / W_t,n  mit  W_t,n = π·d³/16 − d_B·d²/6"
+  },
+  "E-NS-QZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_n = F_N / A_n  mit  A_n = π·d²/4 − d_B·d"
+  },
+  "E-NS-T": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "τ_n = 16·T·d / (π·(d⁴ − d_i⁴))"
+  },
+  "E-NS-X": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_n = F_N/A, M_b/W bzw. T/Wₜ (Querschnittswerte Blatt 1)"
+  },
+  "E-NS-Z": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_n = 4·F_N / (π·(d² − d_i²))"
+  },
+  "E-NZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "N mit S_Z(N) = 1, Bisektion auf lg N zwischen 10³ und 10⁶ (Typ I) bzw. 10⁸ (Typ II)"
+  },
+  "E-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "φ = 1/(√(8·(D − d)/r) + 2) für (D − d)/d ≤ 0,5, sonst φ = 0"
+  },
+  "E-PSI": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "ψ_σ = a_M·R_m + b_M"
+  },
+  "E-PSI-DB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "ψ_σ = 2·σ_zdW/σ_zSch − 1"
+  },
+  "E-PSIT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "ψ_τ = f_τ·ψ_σ"
+  },
+  "E-RM": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "R_m = K_t·R_mN"
+  },
+  "E-RP": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "R_p = K_t·R_pN"
+  },
+  "E-SD": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "S = σ_GA / σ_a"
+  },
+  "E-SDERF": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "S_D,erf = 1,5 (Walz- und Schmiedewerkstoff), 2,1 (Guss), 1,9 (Guss zerstörungsfrei geprüft) oder Eingabe"
+  },
+  "E-SDV": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "S_D = 1/√((1/S_zd + 1/S_b)² + (1/S_t)²)  mit  S_i = σ_iGA/σ_ia  (= 1/√((σ_zda/σ_zdGA + σ_ba/σ_bGA)² + (τ_ta/τ_tGA)²); Normalspannungen phasengleich, Maximum an derselben Stelle)"
+  },
+  "E-SZ": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "S_Z = 1/√((1/S_Z,zd + 1/S_Z,b)² + (1/S_Z,t)²)  mit  S_Z,i = σ_iAK/σ_ia  (= 1/√((σ_zda/σ_zdAK + σ_ba/σ_bAK)² + (τ_ta/τ_tAK)²))"
+  },
+  "E-W-DB": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_WN = Kennwert der Standardvariante (P-SZDW, P-SBW, P-TTW; Bereich: unterer Wert)"
+  },
+  "E-W-EST-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_bWN ≈ 0,5·R_mN"
+  },
+  "E-W-EST-T": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "τ_tWN ≈ 0,3·R_mN"
+  },
+  "E-W-EST-Z": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_zdWN ≈ 0,4·R_mN"
+  },
+  "E-W-ESTG-B": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_bWN = σ_zdWN = f_Wσ·R_mN (ohne Biegeanteil, dann K_g = 1)"
+  },
+  "E-W-ESTG-T": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "τ_tWN = f_Wτ·f_Wσ·R_mN (dann K_g = 1)"
+  },
+  "E-W-ESTG-Z": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_zdWN = f_Wσ·R_mN (f_Wσ nach Werkstoffgruppe)"
+  },
+  "E-W-KT": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_W = K_t·σ_WN"
+  },
+  "E-W-M": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_WN manuell"
+  },
+  "E-W-P50": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_WN = min(Datenbankwert mit P < 97,5 % oder ohne Angabe, Abschätzung mit P_ü = 97,5 %)"
+  },
+  "E-WL1": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D, sonst σ_GA;  N_D = 10⁶, k_σ = 5, k_τ = 8 (Typ I)"
+  },
+  "E-WL2": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D; σ_GA·(N_D/N)^(1/k_II) bis 10⁸, danach konstant;  N_D = 10⁶, k_σ = 5, k_τ = 8, k_II,σ = 15, k_II,τ = 25 (Typ II)"
+  },
+  "E-X-SG": {
+    "status": "freigegeben",
+    "datum": "2026-10-26",
+    "durch": "Seti",
+    "formel": "N(x_K), M_b(x_K), T(x_K) aus dem Blatt-1-Lastfall"
+  },
   "F-BE": {
     "status": "freigegeben",
     "datum": "2026-10-08",

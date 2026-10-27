@@ -2858,5 +2858,31 @@
   "viewed": "ja",
   "local_file": null,
   "kb_source_id": null
+ },
+ {
+  "id": "Q219",
+  "kind": "Fachbuch",
+  "short_name": "Roloff/Matek 27 (2025)",
+  "title": "Roloff/Matek Maschinenelemente, Normung, Berechnung, Gestaltung, 27. Aufl. (Lehrbuch mit Tabellenbuch)",
+  "publisher": "Springer Vieweg, Wiesbaden 2025, ISBN 978-3-658-46492-9 (eBook)",
+  "url": "https://doi.org/10.1007/978-3-658-46492-9",
+  "access": "kostenpflichtig",
+  "note": "eingesehen 26.10.2026 (lokale Datei)",
+  "viewed": "ja",
+  "local_file": "Spura, Fleischer, Wittel, Jannasch - Roloff-Matek Maschinenelemente mit Tabellen (Springer Vieweg, 27. Aufl. 2025).pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q220",
+  "kind": "Handbuch",
+  "short_name": "Dubbel 26, Bd. 1 (2020)",
+  "title": "Dubbel Taschenbuch für den Maschinenbau 1: Grundlagen und Tabellen, 26. Aufl.",
+  "publisher": "Springer Vieweg, Berlin 2020, ISBN 978-3-662-59711-8 (eBook)",
+  "url": "https://doi.org/10.1007/978-3-662-59711-8",
+  "access": "kostenpflichtig",
+  "note": "eingesehen 26.10.2026 (lokale Datei)",
+  "viewed": "ja",
+  "local_file": "Bender, Göhlich (Hrsg.) - Dubbel Band 1 Grundlagen und Tabellen (Springer Vieweg, 26. Aufl. 2020).pdf",
+  "kb_source_id": null
  }
 ]

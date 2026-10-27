@@ -8211,5 +8211,1907 @@
    "slope": 1.0
   },
   "tol": 1e-09
+ },
+ {
+  "id": "E-P2 Roloff Bsp. 3.4 (Python)",
+  "case": {
+   "id": "E-P2 Roloff Bsp. 3.4 (Python)",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W001",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 60
+    },
+    "L": 1000,
+    "F": 1.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 1700,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "manual",
+     "RM": "manual"
+    },
+    "dvManual": {
+     "RE": 335,
+     "RM": 570
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 70,
+      "r": 2
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 1
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": 80,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": 290,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.9329717026866986,
+   "Kt": 1.0,
+   "Rm": 570.0,
+   "dEff": 80,
+   "smv": 69.42660164570715,
+   "SDreq": 1.5,
+   "sa_b": 61.30412622798932,
+   "sm_b": 0.0,
+   "alpha_b": 2.196158412019168,
+   "G_b": 1.2881455171774243,
+   "n_b": 1.2071954053513294,
+   "beta_b": 1.8192236337911023,
+   "Kg_b": 0.8611730721041445,
+   "KR_b": 0.9200132931306252,
+   "KD_b": 2.1994356130703707,
+   "WN_b": 290,
+   "GW_b": 131.85200706792477,
+   "psi_b": 0.0995,
+   "GA_b": 118.49914125663682,
+   "S_b": 1.9329717026866986
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P2 Roloff Bsp. 3.4 (Buchwerte)",
+  "case": {
+   "id": "E-P2 Roloff Bsp. 3.4 (Buchwerte)",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W001",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 60
+    },
+    "L": 1000,
+    "F": 1.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 1700,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "manual",
+     "RM": "manual"
+    },
+    "dvManual": {
+     "RE": 335,
+     "RM": 570
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 70,
+      "r": 2
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 1
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": 80,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": 290,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "alpha_b": 2.196,
+   "G_b": 1.288,
+   "n_b": 1.207,
+   "beta_b": 1.82,
+   "Kg_b": 0.861,
+   "KR_b": 0.92,
+   "KD_b": 2.2,
+   "GW_b": 131.85,
+   "smv": 69.43,
+   "GA_b": 118.5,
+   "sa_b": 61.3,
+   "SD": 1.93
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "E-P3 Roloff Bsp. 3.3c (Python)",
+  "case": {
+   "id": "E-P3 Roloff Bsp. 3.3c (Python)",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "torsion",
+    "sub": "T1",
+    "materialId": "W001",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 25
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 160,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "manual",
+     "RM": "manual"
+    },
+    "dvManual": {
+     "RE": 295,
+     "RM": 470
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "beta",
+      "beta": {
+       "t": 1.36
+      }
+     },
+     "xK": null,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 12.5,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": 145
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 3.494448890333194,
+   "Kt": 1.0,
+   "Rm": 470.0,
+   "dEff": 25,
+   "smv": 45.164863112953206,
+   "SDreq": 1.5,
+   "sa_t": 26.075945876176135,
+   "sm_t": 26.075945876176135,
+   "beta_t": 1.36,
+   "Kg_t": 0.9196208009003688,
+   "KR_t": 0.9480632203566381,
+   "KD_t": 1.5336523991526652,
+   "WN_t": 145,
+   "GW_t": 94.54554374909969,
+   "psi_t": 0.03741,
+   "GA_t": 91.12106013139213,
+   "S_t": 3.494448890333194
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P3 Roloff Bsp. 3.3c (Buchwerte)",
+  "case": {
+   "id": "E-P3 Roloff Bsp. 3.3c (Buchwerte)",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "torsion",
+    "sub": "T1",
+    "materialId": "W001",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 25
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 160,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "manual",
+     "RM": "manual"
+    },
+    "dvManual": {
+     "RE": 295,
+     "RM": 470
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "beta",
+      "beta": {
+       "t": 1.36
+      }
+     },
+     "xK": null,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 12.5,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": 145
+     }
+    }
+   }
+  },
+  "expect": {
+   "KR_t": 0.95,
+   "Kg_t": 0.92,
+   "KD_t": 1.53,
+   "GW_t": 94.5,
+   "psi_t": 0.0374,
+   "GA_t": 91.1,
+   "sa_t": 26.1,
+   "SD": 3.49
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "E-P6 42CrMo4 Absatz wechselnd",
+  "case": {
+   "id": "E-P6 42CrMo4 Absatz wechselnd",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 3.0155356500559045,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_b": 93.25484946790743,
+   "sm_b": 0.0,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 281.21332311107176,
+   "S_b": 3.0155356500559045,
+   "Nlife": -1
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P7 42CrMo4 schwellend Fall 2",
+  "case": {
+   "id": "E-P7 42CrMo4 schwellend Fall 2",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.6,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": 0,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 2.4174644422558615,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 93.25484946790743,
+   "SDreq": 1.5,
+   "sa_b": 93.25484946790743,
+   "sm_b": 93.25484946790743,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 225.44028265658918,
+   "S_b": 2.4174644422558615,
+   "Nlife": -1
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P8a 42CrMo4 T ruhend Fall 2",
+  "case": {
+   "id": "E-P8a 42CrMo4 T ruhend Fall 2",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 400,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 1
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 2.345500365490358,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 107.68142488706877,
+   "SDreq": 1.5,
+   "sa_b": 93.25484946790743,
+   "sm_b": 0.0,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 218.7292835107252,
+   "S_b": 2.345500365490358,
+   "Nlife": -1
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P8b 42CrMo4 T ruhend Fall 1",
+  "case": {
+   "id": "E-P8b 42CrMo4 T ruhend Fall 1",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 400,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 1
+     },
+     "overload": 1,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 2.72986727224456,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 107.68142488706877,
+   "SDreq": 1.5,
+   "sa_b": 93.25484946790743,
+   "sm_b": 0.0,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 254.5733615405335,
+   "S_b": 2.72986727224456,
+   "Nlife": -1
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P8c 42CrMo4 T ruhend Fall 3",
+  "case": {
+   "id": "E-P8c 42CrMo4 T ruhend Fall 3",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 400,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": 0,
+      "t": 1
+     },
+     "overload": 3,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 4.534139318768275,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 117.34311229479961,
+   "SDreq": 1.5,
+   "sa_b": 46.62742473395372,
+   "sm_b": 46.62742473395372,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 211.4152398191279,
+   "S_b": 4.534139318768275,
+   "Nlife": -1
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P9 42CrMo4 Biegung und Torsion wechselnd",
+  "case": {
+   "id": "E-P9 42CrMo4 Biegung und Torsion wechselnd",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 200,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": -1
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 2.7486533432726716,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_b": 93.25484946790743,
+   "sm_b": 0.0,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 281.21332311107176,
+   "S_b": 3.0155356500559045,
+   "sa_t": 31.08494982263581,
+   "sm_t": 0.0,
+   "alpha_t": 1.3285177547606373,
+   "G_t": 0.3833333333333333,
+   "n_t": 1.083979522617069,
+   "beta_t": 1.2255930366222931,
+   "Kg_t": 0.9031400172128022,
+   "KR_t": 0.9290387442921874,
+   "KD_t": 1.433416842682257,
+   "WN_t": 330.0,
+   "GW_t": 207.7330564673445,
+   "psi_t": 0.1434897219006589,
+   "GA_t": 207.7330564673445,
+   "S_t": 6.682753475640967
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P10 42CrMo4 Zeitfestigkeit N = 10⁵",
+  "case": {
+   "id": "E-P10 42CrMo4 Zeitfestigkeit N = 10⁵",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W008",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.9,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 38,
+      "r": 3
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": 100000.0,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.0051785500186348,
+   "SZ": 1.5931006411324673,
+   "Kt": 0.9023274603701698,
+   "Rm": 992.5602064071867,
+   "dEff": 38,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_b": 279.7645484037223,
+   "sm_b": 0.0,
+   "alpha_b": 1.6562541673690196,
+   "G_b": 0.8944444444444444,
+   "n_b": 1.1282808397396584,
+   "beta_b": 1.4679449557533804,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.877653007400323,
+   "KD_b": 1.7647816174327415,
+   "WN_b": 550.0,
+   "GW_b": 281.21332311107176,
+   "psi_b": 0.24739607224251534,
+   "GA_b": 281.21332311107176,
+   "S_b": 1.0051785500186348,
+   "AK_b": 445.6930814281052,
+   "Nlife": -1
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P11 EN AW-6082 Nut hohl, Typ II",
+  "case": {
+   "id": "E-P11 EN AW-6082 Nut hohl, Typ II",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W038",
+    "secType": "rund_hohl",
+    "dims": {
+     "D": 40,
+     "t": 8
+    },
+    "L": 1000,
+    "F": 0.15,
+    "q": 0,
+    "a": 300,
+    "N": 5,
+    "T": 100,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "nut",
+      "t": 2,
+      "r": 1
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": -1
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": 10000000.0,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 0.8560791728437951,
+   "SZ": 0.7391589172027602,
+   "Kt": 1.0,
+   "Rm": 310.0,
+   "dEff": 8.0,
+   "smv": 4.420970641441537,
+   "SDreq": 1.5,
+   "sa_zd": 4.420970641441537,
+   "sm_zd": 4.420970641441537,
+   "alpha_zd": 3.2656999187416957,
+   "G_zd": 2.2612038749637415,
+   "n_zd": 1.4719315888353064,
+   "beta_zd": 2.218649252120299,
+   "Kg_zd": 1.0,
+   "KR_zd": 0.8824339426605818,
+   "KD_zd": 2.351878553097719,
+   "WN_zd": 93.0,
+   "GW_zd": 39.54285814525046,
+   "psi_zd": 0.27,
+   "GA_zd": 31.136108775787765,
+   "S_zd": 7.0428218825799025,
+   "AK_zd": 26.705312795073112,
+   "sa_b": 40.80895976715266,
+   "sm_b": 0.0,
+   "alpha_b": 2.923700865475012,
+   "G_b": 2.2612038749637415,
+   "n_b": 1.4719315888353064,
+   "beta_b": 1.9863021404333372,
+   "Kg_b": 1.0,
+   "KR_b": 0.8824339426605818,
+   "KD_b": 2.119531441410757,
+   "WN_b": 93.0,
+   "GW_b": 43.877622281507335,
+   "psi_b": 0.27,
+   "GA_b": 42.630675036684316,
+   "S_b": 1.0446400810000054,
+   "AK_b": 36.564155133125354,
+   "sa_t": 13.602986589050884,
+   "sm_t": 0.0,
+   "alpha_t": 2.006274265921104,
+   "G_t": 1.0,
+   "n_t": 1.384852327702601,
+   "beta_t": 1.4487279443357042,
+   "Kg_t": 1.0,
+   "KR_t": 0.9318116867431374,
+   "KD_t": 1.5219061564433396,
+   "WN_t": 53.94,
+   "GW_t": 35.44239555877516,
+   "psi_t": 0.1566,
+   "GA_t": 34.426166118506366,
+   "S_t": 2.530779979318378,
+   "AK_t": 31.397036657544973
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P11b EN AW-6082 Nut, Lebensdauer Typ II",
+  "case": {
+   "id": "E-P11b EN AW-6082 Nut, Lebensdauer Typ II",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W038",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 40
+    },
+    "L": 1000,
+    "F": 0.25,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "nut",
+      "t": 2,
+      "r": 1
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 0.8039156314422437,
+   "Kt": 1.0,
+   "Rm": 310.0,
+   "dEff": 40,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_b": 54.579884462241196,
+   "sm_b": 0.0,
+   "alpha_b": 2.923700865475012,
+   "G_b": 2.2612038749637415,
+   "n_b": 1.4719315888353064,
+   "beta_b": 1.9863021404333372,
+   "Kg_b": 1.0,
+   "KR_b": 0.8824339426605818,
+   "KD_b": 2.119531441410757,
+   "WN_b": 93.0,
+   "GW_b": 43.877622281507335,
+   "psi_b": 0.27,
+   "GA_b": 43.877622281507335,
+   "S_b": 0.8039156314422437,
+   "Nlife": 335778.09906804765
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P4 S235JR Querbohrung",
+  "case": {
+   "id": "E-P4 S235JR Querbohrung",
+   "type": "fatigue",
+   "inp": {
+    "mode": "combined",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W001",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 30
+    },
+    "L": 1000,
+    "F": 0.1,
+    "q": 0,
+    "a": 300,
+    "N": 10,
+    "T": 150,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "bohrung",
+      "dB": 6
+     },
+     "xK": 0,
+     "R": {
+      "zd": -1,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": 200000.0,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.0386559786320262,
+   "SZ": 1.4214191683002237,
+   "Kt": 1.0,
+   "Rm": 360.0,
+   "dEff": 30,
+   "smv": 29.513950278678944,
+   "SDreq": 1.5,
+   "sa_zd": 18.98043384117584,
+   "sm_zd": 0.0,
+   "alpha_zd": 2.8,
+   "G_zd": 0.7666666666666666,
+   "n_zd": 1.2036901168488436,
+   "beta_zd": 2.3261801030070406,
+   "Kg_zd": 1.0,
+   "KR_zd": 0.9551090738122728,
+   "KD_zd": 2.3731809403130324,
+   "WN_zd": 144.0,
+   "GW_zd": 60.67805347408774,
+   "psi_zd": 0.025999999999999995,
+   "GA_zd": 58.32021697976786,
+   "S_zd": 3.07264931180071,
+   "AK_zd": 80.4661332298397,
+   "sa_b": 57.11939571120205,
+   "sm_b": 0.0,
+   "alpha_b": 2.0278019326001178,
+   "G_b": 0.8333333333333333,
+   "n_b": 1.2123616268197686,
+   "beta_b": 1.6726048463933887,
+   "Kg_b": 0.9074487147360963,
+   "KR_b": 0.9551090738122728,
+   "KD_b": 1.890195741031008,
+   "WN_b": 180.0,
+   "GW_b": 95.22823276589277,
+   "psi_b": 0.025999999999999995,
+   "GA_b": 93.96586125817734,
+   "S_b": 1.6450780000067313,
+   "AK_b": 129.64748594265652,
+   "sa_t": 17.03988713824452,
+   "sm_t": 17.03988713824452,
+   "alpha_t": 1.5198847050625475,
+   "G_t": 0.44999999999999996,
+   "n_t": 1.1560532879967316,
+   "beta_t": 1.3147185522012412,
+   "Kg_t": 0.9074487147360963,
+   "KR_t": 0.9739632628111182,
+   "KD_t": 1.4755403246955865,
+   "WN_t": 108.0,
+   "GW_t": 73.19352659662562,
+   "psi_t": 0.015079999999999996,
+   "GA_t": 72.10124968280202,
+   "S_t": 4.231322020964396,
+   "AK_t": 88.16861986185414
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P12 GJS-400-15 Biegung (Regel E10)",
+  "case": {
+   "id": "E-P12 GJS-400-15 Biegung (Regel E10)",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W030",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 20
+    },
+    "L": 1000,
+    "F": 0.1,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "none"
+     },
+     "xK": null,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.2837724649833928,
+   "Kt": 1.0,
+   "Rm": 400.0,
+   "dEff": 20,
+   "smv": 0.0,
+   "SDreq": 2.1,
+   "sa_b": 127.32395447351627,
+   "sm_b": 0.0,
+   "beta_b": 1.0,
+   "Kg_b": 1.0,
+   "KR_b": 0.961499922858231,
+   "KD_b": 1.040041685107286,
+   "WN_b": 170.0,
+   "GW_b": 163.45498688589925,
+   "psi_b": 0.42978723404255326,
+   "GA_b": 163.45498688589925,
+   "S_b": 1.2837724649833926
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P12b GJS-400-15 Zug (ψ aus σ_zSch)",
+  "case": {
+   "id": "E-P12b GJS-400-15 Zug (ψ aus σ_zSch)",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "zug",
+    "sub": "Z1",
+    "materialId": "W030",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 20
+    },
+    "L": 1000,
+    "F": 20,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "none"
+     },
+     "xK": null,
+     "R": {
+      "zd": 0.2,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 3.8568858471611254,
+   "Kt": 1.0,
+   "Rm": 400.0,
+   "dEff": 20,
+   "smv": 38.19718634205488,
+   "SDreq": 2.1,
+   "sa_zd": 25.464790894703256,
+   "sm_zd": 38.19718634205488,
+   "beta_zd": 1.0,
+   "Kg_zd": 1.0,
+   "KR_zd": 0.961499922858231,
+   "KD_zd": 1.040041685107286,
+   "WN_zd": 168,
+   "GW_zd": 161.5319870401828,
+   "psi_zd": 0.42978723404255326,
+   "GA_zd": 98.21479160269847,
+   "S_zd": 3.856885847161125
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P13 GJL-250 Absatz",
+  "case": {
+   "id": "E-P13 GJL-250 Absatz",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W029",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 60
+    },
+    "L": 1000,
+    "F": 1.0,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 90,
+      "r": 5
+     },
+     "xK": 0,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": true,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.236194774573462,
+   "Kt": 0.7486669035283661,
+   "Rm": 187.16672588209153,
+   "dEff": 90,
+   "smv": 0.0,
+   "SDreq": 1.9,
+   "sa_b": 47.1570201753764,
+   "sm_b": 0.0,
+   "alpha_b": 1.8091542689039604,
+   "G_b": 0.511522124680153,
+   "n_b": 1.7013626098034247,
+   "beta_b": 1.0633560761706111,
+   "Kg_b": 1.0,
+   "KR_b": 0.9725062674740967,
+   "KD_b": 1.0916270842303462,
+   "WN_b": 85.0,
+   "GW_b": 58.29526192525563,
+   "psi_b": 0.5,
+   "GA_b": 58.29526192525563,
+   "S_b": 1.236194774573462
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P14 16MnCr5 Torsion, G′ ≤ 0,1",
+  "case": {
+   "id": "E-P14 16MnCr5 Torsion, G′ ≤ 0,1",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "torsion",
+    "sub": "T1",
+    "materialId": "W011",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 60
+    },
+    "L": 1000,
+    "F": 0.3,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 1500,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "absatz",
+      "D": 90,
+      "r": 15
+     },
+     "xK": null,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": -1
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": 120,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 2.8763580062441063,
+   "Kt": 0.641224882009403,
+   "Rm": 461.68191504677014,
+   "dEff": 120,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_t": 35.3677651315323,
+   "sm_t": 0.0,
+   "alpha_t": 1.1982564022879194,
+   "G_t": 0.07666666666666666,
+   "n_t": 1.0517146130460044,
+   "beta_t": 1.1393360778904618,
+   "Kg_t": 0.8611730721041445,
+   "KR_t": 0.9629435938124484,
+   "KD_t": 1.3614871916275613,
+   "WN_t": 216.0,
+   "GW_t": 101.73035439904407,
+   "psi_t": 0.035721428754494335,
+   "GA_t": 101.73035439904407,
+   "S_t": 2.8763580062441063
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P15a Rechteck α_k manuell mit G′",
+  "case": {
+   "id": "E-P15a Rechteck α_k manuell mit G′",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "EQ",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 1200,
+    "F": 0.3,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "alpha",
+      "alpha": {
+       "b": 1.8
+      },
+      "G": {
+       "b": 0.5
+      }
+     },
+     "xK": 600,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.4920769411499617,
+   "Kt": 1.0,
+   "Rm": 360.0,
+   "dEff": 20,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_b": 67.5,
+   "sm_b": 0.0,
+   "alpha_b": 1.8,
+   "n_b": 1.1644946088092956,
+   "beta_b": 1.5457349363261659,
+   "Kg_b": 0.8882425877406096,
+   "KR_b": 0.9551090738122728,
+   "KD_b": 1.7872179330185443,
+   "WN_b": 180.0,
+   "GW_b": 100.71519352762242,
+   "psi_b": 0.025999999999999995,
+   "GA_b": 100.71519352762242,
+   "S_b": 1.4920769411499617
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P15b Rechteck α_k manuell ohne G′",
+  "case": {
+   "id": "E-P15b Rechteck α_k manuell ohne G′",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "EQ",
+    "materialId": "W001",
+    "secType": "rechteck_voll",
+    "dims": {
+     "b": 20,
+     "h": 40
+    },
+    "L": 1200,
+    "F": 0.3,
+    "q": 2,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "alpha",
+      "alpha": {
+       "b": 1.8
+      }
+     },
+     "xK": 600,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.286086214673785,
+   "Kt": 1.0,
+   "Rm": 360.0,
+   "dEff": 20,
+   "smv": 0.0,
+   "SDreq": 1.5,
+   "sa_b": 67.5,
+   "sm_b": 0.0,
+   "alpha_b": 1.8,
+   "n_b": 1.0,
+   "beta_b": 1.8,
+   "Kg_b": 0.8882425877406096,
+   "KR_b": 0.9551090738122728,
+   "KD_b": 2.0734742634210295,
+   "WN_b": 180.0,
+   "GW_b": 86.8108194904805,
+   "psi_b": 0.025999999999999995,
+   "GA_b": 86.8108194904805,
+   "S_b": 1.2860862146737853
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P16 GX5CrNiMo19-11-2 Zug R = 0,8",
+  "case": {
+   "id": "E-P16 GX5CrNiMo19-11-2 Zug R = 0,8",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "zug",
+    "sub": "Z1",
+    "materialId": "W032",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 20
+    },
+    "L": 1000,
+    "F": 50,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "none"
+     },
+     "xK": null,
+     "R": {
+      "zd": 0.8,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": 10000000.0,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 2.623892818282235,
+   "SZ": 2.250502108582775,
+   "Kt": 1.0,
+   "Rm": 440.0,
+   "dEff": 20,
+   "smv": 143.2394487827058,
+   "SDreq": 2.1,
+   "sa_zd": 15.915494309189532,
+   "sm_zd": 143.2394487827058,
+   "beta_zd": 1.0,
+   "Kg_zd": 1.0,
+   "KR_zd": 0.9452575332332418,
+   "KD_zd": 1.0579127537651165,
+   "WN_zd": 149.60000000000002,
+   "GW_zd": 141.410526971693,
+   "psi_zd": 0.20400000000000001,
+   "GA_zd": 41.76055121729419,
+   "S_zd": 2.623892818282235,
+   "AK_zd": 35.8178535019682
+  },
+  "tol": 1e-06
+ },
+ {
+  "id": "E-P17 AZ91D Datenbank",
+  "case": {
+   "id": "E-P17 AZ91D Datenbank",
+   "type": "fatigue",
+   "inp": {
+    "mode": "single",
+    "kind": "biegung",
+    "sub": "KE",
+    "materialId": "W056",
+    "secType": "rund_voll",
+    "dims": {
+     "D": 32
+    },
+    "L": 1000,
+    "F": 0.1,
+    "q": 0,
+    "a": 300,
+    "N": 0,
+    "T": 0,
+    "fDiv": 300,
+    "SFreq": 1.5,
+    "SBreq": 2,
+    "SKreq": 3,
+    "dvChoice": {
+     "RE": "lower",
+     "RM": "lower"
+    },
+    "dvManual": {
+     "RE": null,
+     "RM": null
+    },
+    "fatigue": {
+     "on": true,
+     "notch": {
+      "type": "none"
+     },
+     "xK": null,
+     "R": {
+      "zd": 0,
+      "b": -1,
+      "t": 0
+     },
+     "overload": 2,
+     "Rz": 6.3,
+     "dEff": null,
+     "Kt": null,
+     "N": null,
+     "SDreq": null,
+     "castTested": false,
+     "sigmaW": {
+      "zd": null,
+      "b": null,
+      "t": null
+     }
+    }
+   }
+  },
+  "expect": {
+   "SD": 1.3414584617291365,
+   "Kt": 1.0,
+   "Rm": 200.0,
+   "dEff": 32,
+   "smv": 0.0,
+   "SDreq": 2.1,
+   "sa_b": 31.08494982263581,
+   "sm_b": 0.0,
+   "beta_b": 1.0,
+   "Kg_b": 0.9031400172128022,
+   "KR_b": 0.9159047083832341,
+   "KD_b": 1.1990646632208257,
+   "WN_b": 50,
+   "GW_b": 41.69916897200043,
+   "psi_b": 0.16,
+   "GA_b": 41.69916897200043,
+   "S_b": 1.3414584617291365,
+   "Nlife": 81970661.39171006
+  },
+  "tol": 1e-06
  }
 ]

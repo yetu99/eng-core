@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "WDB 1.0.2",
-  "released_at": "2026-10-22T08:46:40.162906+00:00",
-  "title": "Kennwertlücken geschlossen (λ, α, c_p, K_IC, Festigkeit, Preis, G, ν)"
+  "version": "WDB 1.1",
+  "released_at": "2026-10-27T14:00:33.57072+00:00",
+  "title": "Schwingfestigkeit: Wechselfestigkeiten und Zugschwellfestigkeit"
  },
  "source": "Supabase Kompendium, Tabellen wa_* (eng-core scripts/pull-data.mjs)",
  "files": {
@@ -15,16 +15,16 @@
    "sha256": "01c74b17ad2c86a45def96e3313b6c7cb4e47ec2c7e353f1b033f2cb39509f63"
   },
   "properties": {
-   "rows": 41,
-   "sha256": "b48bd2364cd6947f1f731e2ecb4f2632595a3cb8624fb3e1ce23874382d1cc94"
+   "rows": 45,
+   "sha256": "66ae665e4f57499eca5bdafbc115b730d4904d402e6293d5cead030ccc93bb39"
   },
   "propertyValues": {
-   "rows": 2009,
-   "sha256": "49cf75afe7c81f23ebec25420b1c3f2b9e0cd2e9f7f803012847a76c441d66c5"
+   "rows": 2024,
+   "sha256": "b9730a6e17a011dca632b2a1bf0dab28c43974b3533c20c1dce1c3e6000517b6"
   },
   "sources": {
-   "rows": 220,
-   "sha256": "6b587a48d9df2dc939ea7236efe2c6d9acd4f179286cd823d1edf29f4ed803da"
+   "rows": 222,
+   "sha256": "417575c16a7071f5cb53018ce1e25229a58316219e26010e334ddc31e317b212"
   },
   "processes": {
    "rows": 16,

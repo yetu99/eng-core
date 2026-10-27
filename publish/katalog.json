@@ -1,8 +1,8 @@
 {
- "core": "0.8.1",
- "data": "WDB 1.0.2",
- "formulas": 273,
- "approved": 273,
+ "core": "0.9.0",
+ "data": "WDB 1.1",
+ "formulas": 351,
+ "approved": 351,
  "items": [
   {
    "id": "A-GR-X",
@@ -2011,6 +2011,1332 @@
    "sort": 1180
   },
   {
+   "id": "E-AK-AB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Biegung",
+   "formula": "α_k = 1 + 1/√(0,62·r/t + 2·5,8·(r/d)·(1 + 2r/d)² + 0,2·(r/t)^3·d/D)  (Absatz, Biegung)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6d, f",
+   "example": "D = 70, d = 60, t = 5, r = 2 mm",
+   "example_result": 2.19615841202,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1190
+  },
+  {
+   "id": "E-AK-AT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Torsion",
+   "formula": "α_k = 1 + 1/√(3,4·r/t + 2·19·(r/d)·(1 + 2r/d)² + 1·(r/t)^2·d/D)  (Absatz, Torsion)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6d, f",
+   "example": "D = 38, d = 32, t = 3, r = 3 mm",
+   "example_result": 1.32851775476,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1200
+  },
+  {
+   "id": "E-AK-AZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Zug/Druck",
+   "formula": "α_k = 1 + 1/√(0,62·r/t + 2·3,5·(r/d)·(1 + 2r/d)²)  (Absatz, Zug/Druck)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6d, f",
+   "example": "D = 38, d = 32, t = 3, r = 3 mm",
+   "example_result": 1.80440994816,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1210
+  },
+  {
+   "id": "E-AK-M",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl (manuell), Biegung",
+   "formula": "α_k manuell (Quelle angeben)",
+   "unit": "–",
+   "source": "Eingabe",
+   "example": "α_k = 1,8",
+   "example_result": 1.8,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rechteck 20 × 40, Gleichstreckenlast 2 kN/m, L 1200, Kerbstelle 600 mm, α_k 1,8 und G′ 0,5 1/mm manuell",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1220
+  },
+  {
+   "id": "E-AK-NB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Biegung",
+   "formula": "α_k = 1 + 1/√(0,2·r/t + 2·2,75·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Biegung)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6c",
+   "example": "D = 40, d = 36, t = 2, r = 1 mm",
+   "example_result": 2.92370086548,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1230
+  },
+  {
+   "id": "E-AK-NT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Torsion",
+   "formula": "α_k = 1 + 1/√(0,7·r/t + 2·10,3·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Torsion)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6c",
+   "example": "D = 40, d = 36, t = 2, r = 1 mm",
+   "example_result": 2.00627426592,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1240
+  },
+  {
+   "id": "E-AK-NZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Zug/Druck",
+   "formula": "α_k = 1 + 1/√(0,22·r/t + 2·1,37·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Zug/Druck)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6c",
+   "example": "D = 40, d = 36, t = 2, r = 1 mm",
+   "example_result": 3.26569991874,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1250
+  },
+  {
+   "id": "E-AK-QB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Biegung",
+   "formula": "α_k = 3 + 1,4·(d_B/d) − 2,8·√(d_B/d)  (Querbohrung, Biegung)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6e",
+   "example": "d_B/d = 6 / 30 = 0,2",
+   "example_result": 2.0278019326,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1260
+  },
+  {
+   "id": "E-AK-QT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Torsion",
+   "formula": "α_k = 2,023 − 1,125·√(d_B/d)  (Querbohrung, Torsion)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6e",
+   "example": "d_B/d = 6 / 30 = 0,2",
+   "example_result": 1.51988470506,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1270
+  },
+  {
+   "id": "E-AK-QZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Formzahl, Zug/Druck",
+   "formula": "α_k = 3 − d_B/d  (Querbohrung, Zug/Druck)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-6e",
+   "example": "d_B/d = 6 / 30 = 0,2",
+   "example_result": 2.8,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1280
+  },
+  {
+   "id": "E-AM",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Ausschlag und Mittelspannung, Biegung",
+   "formula": "σ_a = |σ_n|·(1 − R)/2,  σ_m = |σ_n|·(1 + R)/2  (Oberlast aus Blatt 1, Mittelspannung als Betrag)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Abschn. 3.2",
+   "example": "|σ_n| = 61,3 MPa, R = -1: σ_m = 0 MPa",
+   "example_result": 61.304126228,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1290
+  },
+  {
+   "id": "E-BETA",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Kerbwirkungszahl, Biegung",
+   "formula": "β_k = α_k / n",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Gl. 3.30",
+   "example": "2,196 / 1,207",
+   "example_result": 1.81922363379,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1300
+  },
+  {
+   "id": "E-BETA-M",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Kerbwirkungszahl (manuell), Torsion",
+   "formula": "β_k manuell (z. B. Passfeder Roloff TB 3-9)",
+   "unit": "–",
+   "source": "Eingabe",
+   "example": "β_k = 1,36",
+   "example_result": 1.36,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.3 c: E295 (R_m 470 manuell), d 25, Passfedernut β_kt 1,36, T 160 N·m schwellend, R_z 12,5 µm, τ_tWN 145 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1310
+  },
+  {
+   "id": "E-DEFF",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Maßgebender Durchmesser für den technologischen Größeneinfluss",
+   "formula": "d_eff nach Querschnittsform und Werkstoffart (Roloff TB 3-10c)",
+   "unit": "mm",
+   "source": "Roloff/Matek 27 TB 3-10c",
+   "example": "Eingabe",
+   "example_result": 80,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1320
+  },
+  {
+   "id": "E-GA-F",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Begrenzung durch Fließen, Zug/Druck",
+   "formula": "σ_GA ≤ R_p − σ_m (Schub: f_τ·R_p − τ_m; spröde: R_m)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Hinweis zu Gl. 3.65",
+   "example": "185 − 143,2",
+   "example_result": 41.7605512173,
+   "example_case": "Dauerfestigkeit: GX5CrNiMo19-11-2 (W032), Rund 20, Zug 50 kN, R = 0,8, N = 10⁷ (Begrenzung durch Fließen)",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1330
+  },
+  {
+   "id": "E-GA1",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Gestaltausschlagfestigkeit, Biegung",
+   "formula": "σ_GA = σ_GW − ψ·σ_mv  (Überlastungsfall 1, σ_m konstant)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.61 bis 3.66",
+   "example": "281,2 − 0,2474·107,7",
+   "example_result": 254.573361541,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz 38/32/3, M_b 300 N·m wechselnd, T 400 N·m ruhend, Überlastungsfall 1",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1340
+  },
+  {
+   "id": "E-GA2",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Gestaltausschlagfestigkeit, Biegung",
+   "formula": "σ_GA = σ_GW / (1 + ψ·σ_mv/σ_a)  (Überlastungsfall 2, κ konstant)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.61 bis 3.66",
+   "example": "131,9 / (1 + 0,0995·69,43/61,3)",
+   "example_result": 118.499141257,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1350
+  },
+  {
+   "id": "E-GA3",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Gestaltausschlagfestigkeit, Biegung",
+   "formula": "σ_GA = (σ_GW − ψ·σ_u) / (1 + ψ)  mit  σ_u = σ_mv − σ_a  (Überlastungsfall 3, Unterspannung σ_u konstant)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.61 bis 3.66",
+   "example": "σ_u = 117,3 − 46,63 = 70,72;  (281,2 − 0,2474·70,72) / (1 + 0,2474)",
+   "example_result": 211.415239819,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz 38/32/3, M_b 300 N·m schwellend, T 400 N·m ruhend, Überlastungsfall 3",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1360
+  },
+  {
+   "id": "E-GS-AT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Torsion",
+   "formula": "G′ = 1,15/r  (Absatz, Torsion)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "r = 3 mm",
+   "example_result": 0.383333333333,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1370
+  },
+  {
+   "id": "E-GS-AZB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Biegung",
+   "formula": "G′ = 2,3·(1 + φ)/r  (Absatz, Zug/Druck und Biegung)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "φ = 0,1201, r = 2 mm",
+   "example_result": 1.28814551718,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1380
+  },
+  {
+   "id": "E-GS-M",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle (manuell), Biegung",
+   "formula": "G′ manuell",
+   "unit": "1/mm",
+   "source": "Eingabe",
+   "example": "G′ = 0,5 1/mm",
+   "example_result": 0.5,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rechteck 20 × 40, Gleichstreckenlast 2 kN/m, L 1200, Kerbstelle 600 mm, α_k 1,8 und G′ 0,5 1/mm manuell",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1390
+  },
+  {
+   "id": "E-GS-NT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Torsion",
+   "formula": "G′ = 1/r  (Umlaufnut, Torsion)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "r = 1 mm",
+   "example_result": 1,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1400
+  },
+  {
+   "id": "E-GS-NZB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Zug/Druck",
+   "formula": "G′ = 2·(1 + φ)/r  (Umlaufnut, Zug/Druck und Biegung)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "φ = 0,1306, r = 1 mm",
+   "example_result": 2.26120387496,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1410
+  },
+  {
+   "id": "E-GS-QB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Biegung",
+   "formula": "G′ = 2,3/r + 2/d  (Querbohrung)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "r = 3, d = 30 mm",
+   "example_result": 0.833333333333,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1420
+  },
+  {
+   "id": "E-GS-QT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Torsion",
+   "formula": "G′ = 1,15/r + 2/d  (Querbohrung)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "r = 3, d = 30 mm",
+   "example_result": 0.45,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1430
+  },
+  {
+   "id": "E-GS-QZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bezogenes Spannungsgefälle, Zug/Druck",
+   "formula": "G′ = 2,3/r  (Querbohrung)",
+   "unit": "1/mm",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "r = 3, d = 30 mm",
+   "example_result": 0.766666666667,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1440
+  },
+  {
+   "id": "E-GW",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Gestaltwechselfestigkeit, Biegung",
+   "formula": "σ_GW = σ_W / K_D",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.53, 3.54",
+   "example": "290 / 2,199",
+   "example_result": 131.852007068,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1450
+  },
+  {
+   "id": "E-KD",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Konstruktionsfaktor, Biegung",
+   "formula": "K_D = (β_k/K_g + 1/K_R − 1)/K_V,  K_V = 1",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Gl. 3.45 bis 3.48",
+   "example": "(1,819/0,8612 + 1/0,92 − 1)/1",
+   "example_result": 2.19943561307,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1460
+  },
+  {
+   "id": "E-KG",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Geometrischer Größeneinfluss (Biegung, Torsion)",
+   "formula": "K_g = 1 − 0,2·lg(d/7,5 mm)/lg 20 für 7,5 ≤ d < 150 mm; 0,8 ab 150 mm; 1 unter 7,5 mm; Zug/Druck K_g = 1",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10d",
+   "example": "d = 60 mm",
+   "example_result": 0.861173072104,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1470
+  },
+  {
+   "id": "E-KR",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Einfluss der Oberflächenrauheit (Normalspannung)",
+   "formula": "K_R,σ = 1 − a_R·lg(R_z/µm)·lg(2·R_m/R_m,N,min), höchstens 1",
+   "unit": "–",
+   "source": "Steibler 2021 Anh. A11; für Stahl gleich Roloff/Matek 27 TB 3-11",
+   "example": "a_R = 0,22, R_z = 6,3 µm, R_m = 570 MPa, R_m,N,min = 400 MPa",
+   "example_result": 0.920013293131,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1480
+  },
+  {
+   "id": "E-KRT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Einfluss der Oberflächenrauheit (Schub)",
+   "formula": "K_R,τ = 1 − f_τ·(1 − K_R,σ)",
+   "unit": "–",
+   "source": "FKM-Form; Stahl wie 0,575·K_Oσ + 0,425",
+   "example": "1 − 0,58·(1 − 0,92)",
+   "example_result": 0.953607710016,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1490
+  },
+  {
+   "id": "E-KSP",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Kerbspannung unter Oberlast (Information), Biegung",
+   "formula": "σ_max,K = α_k·|σ_n|",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.26",
+   "example": "2,196·61,3",
+   "example_result": 134.633572507,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1500
+  },
+  {
+   "id": "E-KT-1",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Zugfestigkeit)",
+   "formula": "K_t = 1 (keine Kurve in TB 3-10 für diesen Werkstoff, Annahme)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "Aluminium bzw. Ersatzgruppe",
+   "example_result": 1,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1510
+  },
+  {
+   "id": "E-KT-B1",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Zugfestigkeit)",
+   "formula": "K_t = 1 für d ≤ 100 mm; 1 − 0,23·lg(d/100 mm) für d < 300 mm; 0,89 bis 500 mm (Baustahl, Zugfestigkeit)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "d_eff = 80 mm",
+   "example_result": 1,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1520
+  },
+  {
+   "id": "E-KT-B2",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Streckgrenze)",
+   "formula": "K_t = 1 für d ≤ 32 mm; 1 − 0,26·lg(d/32 mm) für d < 300 mm; 0,75 bis 500 mm (Baustahl, Streckgrenze)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "d_eff = 80 mm",
+   "example_result": 0.896535597745,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1530
+  },
+  {
+   "id": "E-KT-B3",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Zugfestigkeit)",
+   "formula": "K_t = 1 für d ≤ 16 mm; 1 − 0,26·lg(d/16 mm) für d < 300 mm; 0,67 bis 500 mm (Vergütungsstahl, Zugfestigkeit)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "d_eff = 38 mm",
+   "example_result": 0.90232746037,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1540
+  },
+  {
+   "id": "E-KT-B4",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Streckgrenze)",
+   "formula": "K_t = 1 für d ≤ 16 mm; 1 − 0,34·lg(d/16 mm) für d < 300 mm; 0,57 bis 500 mm (Vergütungsstahl, Streckgrenze)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "d_eff = 38 mm",
+   "example_result": 0.872274371253,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1550
+  },
+  {
+   "id": "E-KT-B5",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Zugfestigkeit)",
+   "formula": "K_t = 1 für d ≤ 16 mm; 1 − 0,41·lg(d/16 mm) für d < 150 mm; 0,6 bis 500 mm (Einsatzstahl, Zugfestigkeit und Streckgrenze)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "d_eff = 120 mm",
+   "example_result": 0.641224882009,
+   "example_case": "Dauerfestigkeit: 16MnCr5 (W011), Absatz D 90 / d 60 / r 15, T 1500 N·m wechselnd, d_eff 120 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1560
+  },
+  {
+   "id": "E-KT-G",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Zugfestigkeit)",
+   "formula": "K_t = (1 − 0,7686·a_d·lg(d/7,5 mm)) / (1 − 0,7686·a_d·lg(d_eff,N/7,5 mm)) für d > d_eff,N, sonst 1 (Gusswerkstoffe)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "GJS: a_d = 0,15, d_eff,N = 60 mm, d_eff = 20 mm",
+   "example_result": 1,
+   "example_case": "Dauerfestigkeit: EN-GJS-400-15 (W030), Rund 20 glatt, Zug 20 kN, R = 0,2 (Datenbank P = 50 %, ψ aus σ_zSch)",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1570
+  },
+  {
+   "id": "E-KT-GJL",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (Zugfestigkeit)",
+   "formula": "K_t = 1,207·(d/7,5 mm)^−0,1922 (GJL, Zugfestigkeit)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-10a, b",
+   "example": "d_eff = 90 mm",
+   "example_result": 0.748666903528,
+   "example_case": "Dauerfestigkeit: EN-GJL-250 (W029), Absatz D 90 / d 60 / r 5, M_b 1000 N·m wechselnd, Guss geprüft",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1580
+  },
+  {
+   "id": "E-KT-M",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Technologischer Größeneinfluss (manuell)",
+   "formula": "K_t manuell (gilt für R_m und R_p)",
+   "unit": "–",
+   "source": "Eingabe",
+   "example": "K_t = 1",
+   "example_result": 1,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz 38/32/3, K_t manuell 1, σ_bWN manuell 500 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1590
+  },
+  {
+   "id": "E-MV",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Vergleichsmittelspannung (GEH)",
+   "formula": "σ_mv = √((σ_zdm + σ_bm)² + 3·τ_tm²)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.55",
+   "example": "√((0 + 0)² + 3·40,08²)",
+   "example_result": 69.4266016457,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1600
+  },
+  {
+   "id": "E-MVT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Vergleichsmittelspannung Schub",
+   "formula": "τ_mv = f_τ·σ_mv",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.56, TB 3-2",
+   "example": "0,58·69,43",
+   "example_result": 40.2674289545,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1610
+  },
+  {
+   "id": "E-N-0",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Stützzahl ohne Spannungsgefälle, Biegung",
+   "formula": "n = 1 (kein Spannungsgefälle bekannt, konservativ)",
+   "unit": "–",
+   "source": null,
+   "example": "Annahme",
+   "example_result": 1,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rechteck 20 × 40, Gleichstreckenlast 2 kN/m, α_k 1,8 manuell ohne Spannungsgefälle",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1620
+  },
+  {
+   "id": "E-N-1",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Stützzahl, Torsion",
+   "formula": "n = 1 + G′·mm·10^−(a_G − 0,5 + R_m/b_G)  (G′ ≤ 0,1 mm⁻¹)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-7b; Steibler 2021 Anh. A8",
+   "example": "G′ = 0,07667 1/mm, R_m = 461,7 MPa, a_G = 0,5, b_G = 2700 MPa",
+   "example_result": 1.05171461305,
+   "example_case": "Dauerfestigkeit: 16MnCr5 (W011), Absatz D 90 / d 60 / r 15, T 1500 N·m wechselnd, d_eff 120 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1630
+  },
+  {
+   "id": "E-N-2",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Stützzahl, Zug/Druck",
+   "formula": "n = 1 + √(G′·mm)·10^−(a_G + R_m/b_G)  (0,1 < G′ ≤ 1 mm⁻¹)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-7b; Steibler 2021 Anh. A8",
+   "example": "G′ = 0,8944 1/mm, R_m = 992,6 MPa, a_G = 0,5, b_G = 2700 MPa",
+   "example_result": 1.12828083974,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1640
+  },
+  {
+   "id": "E-N-3",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Stützzahl, Biegung",
+   "formula": "n = 1 + ⁴√(G′·mm)·10^−(a_G + R_m/b_G)  (G′ > 1 mm⁻¹)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-7b; Steibler 2021 Anh. A8",
+   "example": "G′ = 1,288 1/mm, R_m = 570 MPa, a_G = 0,5, b_G = 2700 MPa",
+   "example_result": 1.20719540535,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1650
+  },
+  {
+   "id": "E-NS-B",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung im Kerbquerschnitt, Biegung",
+   "formula": "σ_n = 32·M_b·d / (π·(d⁴ − d_i⁴))",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-6c, d",
+   "example": "-1,3·10⁶ / 21210  (d = 60, d_i = 0 mm)",
+   "example_result": -61.304126228,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1660
+  },
+  {
+   "id": "E-NS-QB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung Querbohrung, Biegung",
+   "formula": "σ_n = M_b / W_b,n  mit  W_b,n = π·d³/32 − d_B·d²/6",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-6e",
+   "example": "W_b,n = 1751  (d = 30, d_B = 6 mm);  -1·10⁵ / 1751",
+   "example_result": -57.1193957112,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1670
+  },
+  {
+   "id": "E-NS-QT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung Querbohrung, Torsion",
+   "formula": "τ_n = T / W_t,n  mit  W_t,n = π·d³/16 − d_B·d²/6",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-6e",
+   "example": "W_t,n = 4401  (d = 30, d_B = 6 mm);  1,5·10⁵ / 4401",
+   "example_result": 34.0797742765,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1680
+  },
+  {
+   "id": "E-NS-QZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung Querbohrung, Zug/Druck",
+   "formula": "σ_n = F_N / A_n  mit  A_n = π·d²/4 − d_B·d",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-6e",
+   "example": "A_n = 526,9  (d = 30, d_B = 6 mm);  10000 / 526,9",
+   "example_result": 18.9804338412,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rund 30, Querbohrung 6 mm, N 10 kN, M_b 100 N·m wechselnd, T 150 N·m ruhend, N = 2·10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1690
+  },
+  {
+   "id": "E-NS-T",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung im Kerbquerschnitt, Torsion",
+   "formula": "τ_n = 16·T·d / (π·(d⁴ − d_i⁴))",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-6c, d",
+   "example": "1,7·10⁶ / 42410  (d = 60, d_i = 0 mm)",
+   "example_result": 40.0834671491,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1700
+  },
+  {
+   "id": "E-NS-X",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung (Querschnitt Blatt 1), Biegung",
+   "formula": "σ_n = F_N/A, M_b/W bzw. T/Wₜ (Querschnittswerte Blatt 1)",
+   "unit": "MPa",
+   "source": null,
+   "example": "3,6·10⁵ / 5333",
+   "example_result": 67.5,
+   "example_case": "Dauerfestigkeit: S235JR (W001), Rechteck 20 × 40, Gleichstreckenlast 2 kN/m, L 1200, Kerbstelle 600 mm, α_k 1,8 und G′ 0,5 1/mm manuell",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1710
+  },
+  {
+   "id": "E-NS-Z",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Nennspannung im Kerbquerschnitt, Zug/Druck",
+   "formula": "σ_n = 4·F_N / (π·(d² − d_i²))",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-6c, d",
+   "example": "20000 / 804,2  (d = 32, d_i = 0 mm)",
+   "example_result": 24.8679598581,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1720
+  },
+  {
+   "id": "E-NZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Rechnerische Lebensdauer (Sicherheit 1)",
+   "formula": "N mit S_Z(N) = 1, Bisektion auf lg N zwischen 10³ und 10⁶ (Typ I) bzw. 10⁸ (Typ II)",
+   "unit": "–",
+   "source": null,
+   "example": "S_D = 0,8561",
+   "example_result": 443157.247575,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1730
+  },
+  {
+   "id": "E-PHI",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Hilfsgröße für das Spannungsgefälle",
+   "formula": "φ = 1/(√(8·(D − d)/r) + 2) für (D − d)/d ≤ 0,5, sonst φ = 0",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-7a",
+   "example": "D = 70, d = 60, r = 2 mm",
+   "example_result": 0.120126536676,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1740
+  },
+  {
+   "id": "E-PSI",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Mittelspannungsempfindlichkeit",
+   "formula": "ψ_σ = a_M·R_m + b_M",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Gl. 3.59, TB 3-15; Steibler 2021 Anh. A14",
+   "example": "3,5·10⁻⁴·570 + (-0,1)",
+   "example_result": 0.0995,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1750
+  },
+  {
+   "id": "E-PSI-DB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Mittelspannungsempfindlichkeit aus der Schwellfestigkeit",
+   "formula": "ψ_σ = 2·σ_zdW/σ_zSch − 1",
+   "unit": "–",
+   "source": "EN 1563",
+   "example": "2·168/235 − 1",
+   "example_result": 0.429787234043,
+   "example_case": "Dauerfestigkeit: EN-GJS-400-15 (W030), Rund 20 glatt, Zug 20 kN, R = 0,2 (Datenbank P = 50 %, ψ aus σ_zSch)",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1760
+  },
+  {
+   "id": "E-PSIT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Mittelspannungsempfindlichkeit Schub",
+   "formula": "ψ_τ = f_τ·ψ_σ",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Gl. 3.60",
+   "example": "0,58·0,0995",
+   "example_result": 0.05771,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1770
+  },
+  {
+   "id": "E-RM",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Zugfestigkeit im Bauteil",
+   "formula": "R_m = K_t·R_mN",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.39",
+   "example": "1·570",
+   "example_result": 570,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1780
+  },
+  {
+   "id": "E-RP",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Streckgrenze im Bauteil",
+   "formula": "R_p = K_t·R_pN",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.40",
+   "example": "0,8965·335",
+   "example_result": 300.339425245,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1790
+  },
+  {
+   "id": "E-SD",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Sicherheit gegen Dauerbruch, Biegung",
+   "formula": "S = σ_GA / σ_a",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Abschn. 3.7",
+   "example": "118,5 / 61,3",
+   "example_result": 1.93297170269,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1800
+  },
+  {
+   "id": "E-SDERF",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Erforderliche Sicherheit gegen Dauerbruch",
+   "formula": "S_D,erf = 1,5 (Walz- und Schmiedewerkstoff), 2,1 (Guss), 1,9 (Guss zerstörungsfrei geprüft) oder Eingabe",
+   "unit": "–",
+   "source": "Roloff/Matek 27 TB 3-16a",
+   "example": "Walz- oder Schmiedewerkstoff",
+   "example_result": 1.5,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1810
+  },
+  {
+   "id": "E-SDV",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Sicherheit gegen Dauerbruch, zusammengesetzt",
+   "formula": "S_D = 1/√((1/S_zd + 1/S_b)² + (1/S_t)²)  mit  S_i = σ_iGA/σ_ia  (= 1/√((σ_zda/σ_zdGA + σ_ba/σ_bGA)² + (τ_ta/τ_tGA)²); Normalspannungen phasengleich, Maximum an derselben Stelle)",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Gl. 3.90",
+   "example": "S_zd = 183,1/12,43 = 14,72, S_b = 272,2/93,25 = 2,919, S_t = 201/31,08 = 6,467",
+   "example_result": 2.27981070787,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1820
+  },
+  {
+   "id": "E-SZ",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Sicherheit bei der geforderten Lastspielzahl",
+   "formula": "S_Z = 1/√((1/S_Z,zd + 1/S_Z,b)² + (1/S_Z,t)²)  mit  S_Z,i = σ_iAK/σ_ia  (= 1/√((σ_zda/σ_zdAK + σ_ba/σ_bAK)² + (τ_ta/τ_tAK)²))",
+   "unit": "–",
+   "source": "Roloff/Matek 27 Gl. 3.90 mit σ_AK",
+   "example": "N = 1·10⁵",
+   "example_result": 1.59310064113,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz 38/32/3, M_b 900 N·m wechselnd, N = 10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1830
+  },
+  {
+   "id": "E-W-DB",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit aus der Werkstoffdatenbank, Zug/Druck",
+   "formula": "σ_WN = Kennwert der Standardvariante (P-SZDW, P-SBW, P-TTW; Bereich: unterer Wert)",
+   "unit": "MPa",
+   "source": "EN 1563",
+   "example": "P-SZDW: 168 MPa (Zug-Druck; R = −1; N = 1·10^7; ungekerbt, ⌀ ≤ 25 mm; P = 50 %)",
+   "example_result": 168,
+   "example_case": "Dauerfestigkeit: EN-GJS-400-15 (W030), Rund 20 glatt, Zug 20 kN, R = 0,2 (Datenbank P = 50 %, ψ aus σ_zSch)",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1840
+  },
+  {
+   "id": "E-W-EST-B",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe, Abschätzung Stahl, Biegung",
+   "formula": "σ_bWN ≈ 0,5·R_mN",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Fußnote 13 (DIN 743)",
+   "example": "0,5·1100",
+   "example_result": 550,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1850
+  },
+  {
+   "id": "E-W-EST-T",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe, Abschätzung Stahl, Torsion",
+   "formula": "τ_tWN ≈ 0,3·R_mN",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Fußnote 13 (DIN 743)",
+   "example": "0,3·1100",
+   "example_result": 330,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1860
+  },
+  {
+   "id": "E-W-EST-Z",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe, Abschätzung Stahl, Zug/Druck",
+   "formula": "σ_zdWN ≈ 0,4·R_mN",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Fußnote 13 (DIN 743)",
+   "example": "0,4·1100",
+   "example_result": 440,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz D 38 / d 32 / r 3, N 20 kN schwellend, M_b 300 N·m wechselnd, T 200 N·m wechselnd",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1870
+  },
+  {
+   "id": "E-W-ESTG-B",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe, Abschätzung Aluminium-Knetlegierung, Biegung",
+   "formula": "σ_bWN = σ_zdWN = f_Wσ·R_mN (ohne Biegeanteil, dann K_g = 1)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-2, Gl. 3.34, 3.35",
+   "example": "0,3·310  (Aluminium-Knetlegierung: f_Wσ = 0,30, f_Wτ = 0,58)",
+   "example_result": 93,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1880
+  },
+  {
+   "id": "E-W-ESTG-T",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe, Abschätzung Aluminium-Knetlegierung, Torsion",
+   "formula": "τ_tWN = f_Wτ·f_Wσ·R_mN (dann K_g = 1)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-2, Gl. 3.34, 3.35",
+   "example": "0,58·0,3·310  (Aluminium-Knetlegierung: f_Wσ = 0,30, f_Wτ = 0,58)",
+   "example_result": 53.94,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1890
+  },
+  {
+   "id": "E-W-ESTG-Z",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe, Abschätzung Aluminium-Knetlegierung, Zug/Druck",
+   "formula": "σ_zdWN = f_Wσ·R_mN (f_Wσ nach Werkstoffgruppe)",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 TB 3-2, Gl. 3.34, 3.35",
+   "example": "0,3·310  (Aluminium-Knetlegierung: f_Wσ = 0,30, f_Wτ = 0,58)",
+   "example_result": 93,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1900
+  },
+  {
+   "id": "E-W-KT",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit im Bauteil, Biegung",
+   "formula": "σ_W = K_t·σ_WN",
+   "unit": "MPa",
+   "source": "Roloff/Matek 27 Gl. 3.41 bis 3.44",
+   "example": "1·290",
+   "example_result": 290,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1910
+  },
+  {
+   "id": "E-W-M",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit Normprobe (manuell), Biegung",
+   "formula": "σ_WN manuell",
+   "unit": "MPa",
+   "source": "Eingabe",
+   "example": "σ_bWN = 290 MPa",
+   "example_result": 290,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1920
+  },
+  {
+   "id": "E-W-P50",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Wechselfestigkeit, Vergleich Mittelwert und Abschätzung, Zug/Druck",
+   "formula": "σ_WN = min(Datenbankwert mit P < 97,5 % oder ohne Angabe, Abschätzung mit P_ü = 97,5 %)",
+   "unit": "MPa",
+   "source": "Konzept 0.9.0 E10",
+   "example": "min(168; 170)",
+   "example_result": 168,
+   "example_case": "Dauerfestigkeit: EN-GJS-400-15 (W030), Rund 20 glatt, Zug 20 kN, R = 0,2 (Datenbank P = 50 %, ψ aus σ_zSch)",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1930
+  },
+  {
+   "id": "E-WL1",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bauteil-Wöhlerlinie, Biegung",
+   "formula": "σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D, sonst σ_GA;  N_D = 10⁶, k_σ = 5, k_τ = 8 (Typ I)",
+   "unit": "MPa",
+   "source": "Steibler 2021 Anh. A6 (FKM Tab. 4.4.3); Roloff Bsp. 3.5",
+   "example": "σ_GA = 281,2 MPa, N = 1·10⁵",
+   "example_result": 445.693081428,
+   "example_case": "Dauerfestigkeit: 42CrMo4 (W008), Absatz 38/32/3, M_b 900 N·m wechselnd, N = 10⁵",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1940
+  },
+  {
+   "id": "E-WL2",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Bauteil-Wöhlerlinie, Zug/Druck",
+   "formula": "σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D; σ_GA·(N_D/N)^(1/k_II) bis 10⁸, danach konstant;  N_D = 10⁶, k_σ = 5, k_τ = 8, k_II,σ = 15, k_II,τ = 25 (Typ II)",
+   "unit": "MPa",
+   "source": "Steibler 2021 Anh. A6 (FKM Tab. 4.4.3); Roloff Bsp. 3.5",
+   "example": "σ_GA = 31,14 MPa, N = 1·10⁷",
+   "example_result": 26.7053127951,
+   "example_case": "Dauerfestigkeit: EN AW-6082 (W038), Rund hohl 40 × 8, Umlaufnut t 2 / r 1, N 5 kN, M_b 150 N·m, T 100 N·m wechselnd, N = 10⁷",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1950
+  },
+  {
+   "id": "E-X-SG",
+   "area": "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+   "module": "festigkeit",
+   "quantity": "Schnittgrößen an der Kerbstelle (Oberlast)",
+   "formula": "N(x_K), M_b(x_K), T(x_K) aus dem Blatt-1-Lastfall",
+   "unit": "mm",
+   "source": "Eingabe",
+   "example": "x_K = 0 mm: N = 0 N, M_b = -1,3·10⁶ N·mm, T = 1,7·10⁶ N·mm",
+   "example_result": 0,
+   "example_case": "Dauerfestigkeit: Roloff/Matek 27 Bsp. 3.4: Zapfen E335 (R_m 570, R_e 335 manuell), Absatz D 70 / d 60 / r 2, M_b 1300 N·m wechselnd, T 1700 N·m ruhend, R_z 6,3 µm, σ_bWN 290 MPa",
+   "status": "freigegeben",
+   "approved_at": "2026-10-26",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1960
+  },
+  {
    "id": "F-BE",
    "area": "Formfaktoren (Ashby Kap. 7.2)",
    "module": "gemeinsam",
@@ -2025,7 +3351,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1190
+   "sort": 1970
   },
   {
    "id": "F-BF",
@@ -2042,7 +3368,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1200
+   "sort": 1980
   },
   {
    "id": "F-TE",
@@ -2059,7 +3385,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1210
+   "sort": 1990
   },
   {
    "id": "F-TF",
@@ -2076,7 +3402,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1220
+   "sort": 2000
   },
   {
    "id": "K-FK",
@@ -2093,7 +3419,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1230
+   "sort": 2010
   },
   {
    "id": "K-LAM",
@@ -2110,7 +3436,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1240
+   "sort": 2020
   },
   {
    "id": "K-LAMT",
@@ -2127,7 +3453,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1250
+   "sort": 2030
   },
   {
    "id": "K-LK",
@@ -2144,7 +3470,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 1260
+   "sort": 2040
   },
   {
    "id": "K-SKE",
@@ -2161,7 +3487,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1270
+   "sort": 2050
   },
   {
    "id": "K-SKJ",
@@ -2178,7 +3504,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1280
+   "sort": 2060
   },
   {
    "id": "N-FZUL",
@@ -2195,7 +3521,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1290
+   "sort": 2070
   },
   {
    "id": "N-SB",
@@ -2212,7 +3538,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1300
+   "sort": 2080
   },
   {
    "id": "N-SF",
@@ -2229,7 +3555,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1310
+   "sort": 2090
   },
   {
    "id": "N-SK",
@@ -2246,7 +3572,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1320
+   "sort": 2100
   },
   {
    "id": "N-SV",
@@ -2263,7 +3589,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1330
+   "sort": 2110
   },
   {
    "id": "P-BIS",
@@ -2280,7 +3606,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1340
+   "sort": 2120
   },
   {
    "id": "P-GEO",
@@ -2297,7 +3623,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1350
+   "sort": 2130
   },
   {
    "id": "P-KU-B",
@@ -2314,7 +3640,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1360
+   "sort": 2140
   },
   {
    "id": "P-KU-BI",
@@ -2331,7 +3657,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 1370
+   "sort": 2150
   },
   {
    "id": "P-KU-KS",
@@ -2348,7 +3674,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1380
+   "sort": 2160
   },
   {
    "id": "P-KU-SR",
@@ -2365,7 +3691,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1390
+   "sort": 2170
   },
   {
    "id": "P-KU-ST",
@@ -2382,7 +3708,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1400
+   "sort": 2180
   },
   {
    "id": "P-KU-SV",
@@ -2399,7 +3725,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1410
+   "sort": 2190
   },
   {
    "id": "P-KU-U",
@@ -2416,7 +3742,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1420
+   "sort": 2200
   },
   {
    "id": "P-NA",
@@ -2433,7 +3759,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1430
+   "sort": 2210
   },
   {
    "id": "P-NZ",
@@ -2450,7 +3776,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1440
+   "sort": 2220
   },
   {
    "id": "P-TR",
@@ -2467,7 +3793,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1450
+   "sort": 2230
   },
   {
    "id": "P-ZY-B",
@@ -2484,7 +3810,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1460
+   "sort": 2240
   },
   {
    "id": "P-ZY-BI",
@@ -2501,7 +3827,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1470
+   "sort": 2250
   },
   {
    "id": "P-ZY-KS",
@@ -2518,7 +3844,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1480
+   "sort": 2260
   },
   {
    "id": "P-ZY-SR",
@@ -2535,7 +3861,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1490
+   "sort": 2270
   },
   {
    "id": "P-ZY-ST",
@@ -2552,7 +3878,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1500
+   "sort": 2280
   },
   {
    "id": "P-ZY-SV",
@@ -2569,7 +3895,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1510
+   "sort": 2290
   },
   {
    "id": "P-ZY-SZ",
@@ -2586,7 +3912,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1520
+   "sort": 2300
   },
   {
    "id": "P-ZY-U",
@@ -2603,7 +3929,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1530
+   "sort": 2310
   },
   {
    "id": "Q-DH-A",
@@ -2620,7 +3946,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1540
+   "sort": 2320
   },
   {
    "id": "Q-DH-ai",
@@ -2637,7 +3963,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1550
+   "sort": 2330
   },
   {
    "id": "Q-DH-I",
@@ -2654,7 +3980,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1560
+   "sort": 2340
   },
   {
    "id": "Q-DH-K",
@@ -2671,7 +3997,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1570
+   "sort": 2350
   },
   {
    "id": "Q-DH-W",
@@ -2688,7 +4014,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1580
+   "sort": 2360
   },
   {
    "id": "Q-DH-WT",
@@ -2705,7 +4031,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1590
+   "sort": 2370
   },
   {
    "id": "Q-DV-A",
@@ -2722,7 +4048,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1600
+   "sort": 2380
   },
   {
    "id": "Q-DV-e",
@@ -2739,7 +4065,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1610
+   "sort": 2390
   },
   {
    "id": "Q-DV-I",
@@ -2756,7 +4082,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1620
+   "sort": 2400
   },
   {
    "id": "Q-DV-K",
@@ -2773,7 +4099,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1630
+   "sort": 2410
   },
   {
    "id": "Q-DV-W",
@@ -2790,7 +4116,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1640
+   "sort": 2420
   },
   {
    "id": "Q-DV-WT",
@@ -2807,7 +4133,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1650
+   "sort": 2430
   },
   {
    "id": "Q-i",
@@ -2824,7 +4150,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1660
+   "sort": 2440
   },
   {
    "id": "Q-IP-A",
@@ -2841,7 +4167,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1670
+   "sort": 2450
   },
   {
    "id": "Q-IP-IY",
@@ -2858,7 +4184,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1680
+   "sort": 2460
   },
   {
    "id": "Q-IP-IZ",
@@ -2875,7 +4201,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1690
+   "sort": 2470
   },
   {
    "id": "Q-IP-K",
@@ -2892,7 +4218,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1700
+   "sort": 2480
   },
   {
    "id": "Q-IP-KA",
@@ -2909,7 +4235,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1710
+   "sort": 2490
   },
   {
    "id": "Q-IP-KAZ",
@@ -2926,7 +4252,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1720
+   "sort": 2500
   },
   {
    "id": "Q-IP-S",
@@ -2943,7 +4269,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1730
+   "sort": 2510
   },
   {
    "id": "Q-IP-SZ",
@@ -2960,7 +4286,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1740
+   "sort": 2520
   },
   {
    "id": "Q-IP-W",
@@ -2977,7 +4303,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1750
+   "sort": 2530
   },
   {
    "id": "Q-IP-WT",
@@ -2994,7 +4320,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1760
+   "sort": 2540
   },
   {
    "id": "Q-IP-WZ",
@@ -3011,7 +4337,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1770
+   "sort": 2550
   },
   {
    "id": "Q-LP-A",
@@ -3028,7 +4354,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1780
+   "sort": 2560
   },
   {
    "id": "Q-LP-AL",
@@ -3045,7 +4371,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1790
+   "sort": 2570
   },
   {
    "id": "Q-LP-I1",
@@ -3062,7 +4388,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1800
+   "sort": 2580
   },
   {
    "id": "Q-LP-I2",
@@ -3079,7 +4405,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1810
+   "sort": 2590
   },
   {
    "id": "Q-LP-IY",
@@ -3096,7 +4422,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1820
+   "sort": 2600
   },
   {
    "id": "Q-LP-IYZ",
@@ -3113,7 +4439,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1830
+   "sort": 2610
   },
   {
    "id": "Q-LP-IZ",
@@ -3130,7 +4456,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1840
+   "sort": 2620
   },
   {
    "id": "Q-LP-K",
@@ -3147,7 +4473,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1850
+   "sort": 2630
   },
   {
    "id": "Q-LP-KA",
@@ -3164,7 +4490,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1860
+   "sort": 2640
   },
   {
    "id": "Q-LP-S",
@@ -3181,7 +4507,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1870
+   "sort": 2650
   },
   {
    "id": "Q-LP-W",
@@ -3198,7 +4524,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1880
+   "sort": 2660
   },
   {
    "id": "Q-LP-WT",
@@ -3215,7 +4541,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1890
+   "sort": 2670
   },
   {
    "id": "Q-LP-YS",
@@ -3232,7 +4558,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1900
+   "sort": 2680
   },
   {
    "id": "Q-LP-ZS",
@@ -3249,7 +4575,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 1910
+   "sort": 2690
   },
   {
    "id": "Q-m",
@@ -3266,7 +4592,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1920
+   "sort": 2700
   },
   {
    "id": "Q-RE-A",
@@ -3283,7 +4609,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1930
+   "sort": 2710
   },
   {
    "id": "Q-RE-I",
@@ -3300,7 +4626,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1940
+   "sort": 2720
   },
   {
    "id": "Q-RE-K",
@@ -3317,7 +4643,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1950
+   "sort": 2730
   },
   {
    "id": "Q-RE-W",
@@ -3334,7 +4660,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1960
+   "sort": 2740
   },
   {
    "id": "Q-RE-WT",
@@ -3351,7 +4677,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1970
+   "sort": 2750
   },
   {
    "id": "Q-RH-A",
@@ -3368,7 +4694,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1980
+   "sort": 2760
   },
   {
    "id": "Q-RH-d",
@@ -3385,7 +4711,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1990
+   "sort": 2770
   },
   {
    "id": "Q-RH-I",
@@ -3402,7 +4728,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2000
+   "sort": 2780
   },
   {
    "id": "Q-RH-K",
@@ -3419,7 +4745,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2010
+   "sort": 2790
   },
   {
    "id": "Q-RH-W",
@@ -3436,7 +4762,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2020
+   "sort": 2800
   },
   {
    "id": "Q-RH-WT",
@@ -3453,7 +4779,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2030
+   "sort": 2810
   },
   {
    "id": "Q-RR-A",
@@ -3470,7 +4796,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2040
+   "sort": 2820
   },
   {
    "id": "Q-RR-AM",
@@ -3487,7 +4813,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2050
+   "sort": 2830
   },
   {
    "id": "Q-RR-I",
@@ -3504,7 +4830,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2060
+   "sort": 2840
   },
   {
    "id": "Q-RR-K",
@@ -3521,7 +4847,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2070
+   "sort": 2850
   },
   {
    "id": "Q-RR-W",
@@ -3538,7 +4864,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2080
+   "sort": 2860
   },
   {
    "id": "Q-RR-WT",
@@ -3555,7 +4881,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2090
+   "sort": 2870
   },
   {
    "id": "Q-RV-A",
@@ -3572,7 +4898,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2100
+   "sort": 2880
   },
   {
    "id": "Q-RV-I",
@@ -3589,7 +4915,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2110
+   "sort": 2890
   },
   {
    "id": "Q-RV-K",
@@ -3606,7 +4932,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2120
+   "sort": 2900
   },
   {
    "id": "Q-RV-W",
@@ -3623,7 +4949,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2130
+   "sort": 2910
   },
   {
    "id": "Q-RV-WT",
@@ -3640,7 +4966,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2140
+   "sort": 2920
   },
   {
    "id": "Q-SIGO",
@@ -3657,7 +4983,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2150
+   "sort": 2930
   },
   {
    "id": "Q-SIGU",
@@ -3674,7 +5000,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2160
+   "sort": 2940
   },
   {
    "id": "Q-TP-A",
@@ -3691,7 +5017,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2170
+   "sort": 2950
   },
   {
    "id": "Q-TP-IY",
@@ -3708,7 +5034,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2180
+   "sort": 2960
   },
   {
    "id": "Q-TP-IZ",
@@ -3725,7 +5051,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2190
+   "sort": 2970
   },
   {
    "id": "Q-TP-K",
@@ -3742,7 +5068,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2200
+   "sort": 2980
   },
   {
    "id": "Q-TP-KA",
@@ -3759,7 +5085,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2210
+   "sort": 2990
   },
   {
    "id": "Q-TP-S",
@@ -3776,7 +5102,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2220
+   "sort": 3000
   },
   {
    "id": "Q-TP-W",
@@ -3793,7 +5119,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2230
+   "sort": 3010
   },
   {
    "id": "Q-TP-WT",
@@ -3810,7 +5136,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2240
+   "sort": 3020
   },
   {
    "id": "Q-TP-ZS",
@@ -3827,7 +5153,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2250
+   "sort": 3030
   },
   {
    "id": "Q-UP-A",
@@ -3844,7 +5170,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2260
+   "sort": 3040
   },
   {
    "id": "Q-UP-EM",
@@ -3861,7 +5187,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2270
+   "sort": 3050
   },
   {
    "id": "Q-UP-IY",
@@ -3878,7 +5204,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2280
+   "sort": 3060
   },
   {
    "id": "Q-UP-IZ",
@@ -3895,7 +5221,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2290
+   "sort": 3070
   },
   {
    "id": "Q-UP-K",
@@ -3912,7 +5238,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2300
+   "sort": 3080
   },
   {
    "id": "Q-UP-KA",
@@ -3929,7 +5255,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2310
+   "sort": 3090
   },
   {
    "id": "Q-UP-KAZ",
@@ -3946,7 +5272,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2320
+   "sort": 3100
   },
   {
    "id": "Q-UP-S",
@@ -3963,7 +5289,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2330
+   "sort": 3110
   },
   {
    "id": "Q-UP-SZ",
@@ -3980,7 +5306,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2340
+   "sort": 3120
   },
   {
    "id": "Q-UP-W",
@@ -3997,7 +5323,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2350
+   "sort": 3130
   },
   {
    "id": "Q-UP-WT",
@@ -4014,7 +5340,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2360
+   "sort": 3140
   },
   {
    "id": "Q-UP-WZ",
@@ -4031,7 +5357,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2370
+   "sort": 3150
   },
   {
    "id": "Q-UP-YS",
@@ -4048,7 +5374,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2380
+   "sort": 3160
   },
   {
    "id": "T-PHI1",
@@ -4065,7 +5391,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2390
+   "sort": 3170
   },
   {
    "id": "T-PHI2",
@@ -4082,7 +5408,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2400
+   "sort": 3180
   },
   {
    "id": "T-TA",
@@ -4099,7 +5425,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2410
+   "sort": 3190
   },
   {
    "id": "T-TAU",
@@ -4116,7 +5442,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2420
+   "sort": 3200
   },
   {
    "id": "V-B",
@@ -4133,7 +5459,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2430
+   "sort": 3210
   },
   {
    "id": "V-BL",
@@ -4150,7 +5476,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2440
+   "sort": 3220
   },
   {
    "id": "V-CK-EE",
@@ -4167,7 +5493,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2450
+   "sort": 3230
   },
   {
    "id": "V-CK-EG",
@@ -4184,7 +5510,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2460
+   "sort": 3240
   },
   {
    "id": "V-CK-GG",
@@ -4201,7 +5527,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2470
+   "sort": 3250
   },
   {
    "id": "V-CK-KR",
@@ -4218,7 +5544,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2480
+   "sort": 3260
   },
   {
    "id": "V-EI",
@@ -4235,7 +5561,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2490
+   "sort": 3270
   },
   {
    "id": "V-EW",
@@ -4252,7 +5578,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2500
+   "sort": 3280
   },
   {
    "id": "V-FN",
@@ -4269,7 +5595,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2510
+   "sort": 3290
   },
   {
    "id": "V-MB",
@@ -4286,7 +5612,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 2520
+   "sort": 3300
   },
   {
    "id": "V-NR",
@@ -4303,7 +5629,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2530
+   "sort": 3310
   },
   {
    "id": "V-NZ",
@@ -4320,7 +5646,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2540
+   "sort": 3320
   },
   {
    "id": "V-OM",
@@ -4337,7 +5663,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2550
+   "sort": 3330
   },
   {
    "id": "V-PH-EE",
@@ -4354,7 +5680,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2560
+   "sort": 3340
   },
   {
    "id": "V-PH-EG",
@@ -4371,7 +5697,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2570
+   "sort": 3350
   },
   {
    "id": "V-PH-GG",
@@ -4388,7 +5714,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2580
+   "sort": 3360
   },
   {
    "id": "V-PH-KR",
@@ -4405,7 +5731,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2590
+   "sort": 3370
   },
   {
    "id": "V-RQ",
@@ -4422,7 +5748,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2600
+   "sort": 3380
   },
   {
    "id": "W-BB",
@@ -4439,7 +5765,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2610
+   "sort": 3390
   },
   {
    "id": "W-E",
@@ -4448,7 +5774,7 @@
    "quantity": "E-Modul",
    "formula": "E (Werkstoffdatenbank, Standardvariante)",
    "unit": "MPa",
-   "source": "WDB 1.0.2",
+   "source": "WDB 1.1",
    "example": "70 GPa",
    "example_result": 70000,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -4456,7 +5782,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2620
+   "sort": 3400
   },
   {
    "id": "W-G",
@@ -4473,7 +5799,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 2630
+   "sort": 3410
   },
   {
    "id": "W-G-DB",
@@ -4490,7 +5816,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2640
+   "sort": 3420
   },
   {
    "id": "W-RHO",
@@ -4499,7 +5825,7 @@
    "quantity": "Dichte",
    "formula": "ρ (Werkstoffdatenbank)",
    "unit": "kg/m³",
-   "source": "WDB 1.0.2",
+   "source": "WDB 1.1",
    "example": "2700 kg/m³",
    "example_result": 2700,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -4507,7 +5833,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2650
+   "sort": 3430
   },
   {
    "id": "W-RM",
@@ -4524,7 +5850,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2660
+   "sort": 3440
   },
   {
    "id": "W-RP",
@@ -4541,7 +5867,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2670
+   "sort": 3450
   },
   {
    "id": "Z-DL",
@@ -4558,7 +5884,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2680
+   "sort": 3460
   },
   {
    "id": "Z-DL2",
@@ -4575,7 +5901,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2690
+   "sort": 3470
   },
   {
    "id": "Z-NMAX",
@@ -4592,7 +5918,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2700
+   "sort": 3480
   },
   {
    "id": "Z-QG",
@@ -4609,7 +5935,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2710
+   "sort": 3490
   },
   {
    "id": "Z-SIG",
@@ -4626,7 +5952,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2720
+   "sort": 3500
   },
   {
    "id": "Z-SIG2",
@@ -4643,7 +5969,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2730
+   "sort": 3510
   }
  ]
 }

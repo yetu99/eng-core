@@ -6,6 +6,7 @@ export type Case =
   | { id: string; type: "calc"; inp: StrengthInput }
   | { id: string; type: "pressure"; inp: StrengthInput; design?: boolean }
   | { id: string; type: "vibration"; inp: StrengthInput; design?: boolean }
+  | { id: string; type: "fatigue"; inp: StrengthInput }
   | { id: string; type: "conflict"; materialId: string; basis: ConflictBasis; alpha: number }
   | { id: string; type: "ashby"; materialId: string; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar; shapeMode: ShapeMode; phiUser: PhiSet | null }
   | { id: string; type: "ashbyset"; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar };
@@ -56,6 +57,15 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
     for (const md of v.modes) {
       Object.assign(o, { [`betaL${md.n}`]: md.betaL, [`f${md.n}`]: md.f, [`omega${md.n}`]: md.omega, [`xMax${md.n}`]: md.xMax, [`p3_${md.n}`]: md.phi(0.3 * v.L), [`p7_${md.n}`]: md.phi(0.7 * v.L) });
       md.nodes.forEach((x, i) => { o[`node${md.n}_${i + 1}`] = x; });
+    }
+    return o;
+  }
+  if (c.type === "fatigue") {
+    const r = computeStrength(repo, c.inp), f = r.fatigue;
+    if (!f) return { fat: null };
+    const o: Record<string, number | null> = { errors: f.errors.length, SD: f.SD, SZ: f.SZ, Nlife: f.Nlife !== null && Number.isFinite(f.Nlife) ? f.Nlife : f.Nlife === null ? null : -1, Kt: f.Kt, Ktp: f.Ktp, Rm: f.Rm, Rp: f.Rp, dEff: f.dEff, smv: f.smv, SDreq: f.SDreq, util: r.util };
+    for (const k of f.comps) {
+      Object.assign(o, { [`sa_${k.c}`]: k.sa, [`sm_${k.c}`]: k.sm, [`alpha_${k.c}`]: k.alpha, [`G_${k.c}`]: k.G, [`n_${k.c}`]: k.n, [`beta_${k.c}`]: k.beta, [`Kg_${k.c}`]: k.Kg, [`KR_${k.c}`]: k.KR, [`KD_${k.c}`]: k.KD, [`WN_${k.c}`]: k.WN, [`GW_${k.c}`]: k.GW, [`psi_${k.c}`]: k.psi, [`GA_${k.c}`]: k.GA, [`S_${k.c}`]: k.S, [`AK_${k.c}`]: k.AK });
     }
     return o;
   }

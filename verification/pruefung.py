@@ -616,6 +616,13 @@ for (fn, con, obj, free), (need, f, slope) in NEW_IX.items():
     id_ = f'Indexsatz 0.8 {tag}'; cases.append(dict(id=id_, type='ashbyset', fn=fn, con=con, obj=obj, free=free))
     ref[id_] = (dict(n=len(vals), nCov=len(vals), slog=sum(math.log(v) for v, _ in vals), max=vals[0][0], min=vals[-1][0], rankW001=rk.get('W001', 0), rankW038=rk.get('W038', 0), slope=slope), 1e-9)
 
+# ---------------- Kerbwirkung und Ermüdung (eng-core 0.9.0) ----------------
+# Unabhängige Python-Umsetzung in verification/ermuedung.py (eigener Datenleser, eigene Schnittgrößen),
+# dazu Roloff/Matek 27 Beispiel 3.3 c und 3.4 mit den gedruckten Zahlen.
+sys.path.insert(0, HERE)
+import ermuedung
+ermuedung.add_cases(cases, ref, base)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

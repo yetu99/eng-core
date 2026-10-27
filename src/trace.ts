@@ -13,7 +13,7 @@ export interface CalcStep {
   ref?: string;
 }
 
-export type TraceGroup = "werkstoff" | "querschnitt" | "belastung" | "nachweis" | "formfaktor" | "bemessung";
+export type TraceGroup = "werkstoff" | "querschnitt" | "belastung" | "nachweis" | "formfaktor" | "bemessung" | "ermuedung";
 export type Trace = Partial<Record<TraceGroup, CalcStep[]>>;
 
 export function step(id: string, title: string, formula: string, subst: string, value: number, unit: string, ref?: string): CalcStep {

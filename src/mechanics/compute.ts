@@ -15,6 +15,7 @@ import { beamFns, bendingMax, type BeamFns, type BeamMax } from "./beam";
 import { isLoadListCase, normalizeLoads, solveBeam, loadText, LOADLIST_SUPPORTS, type LoadList, type LoadSI, type BeamSolution } from "./loadlist";
 import { computePressure, isPressureCase, PRESSURE_CASES, type PressureLoad, type PressureMaterial, type PressureResult } from "./pressure";
 import { computeVibration, isVibrationCase, type VibrationLoad, type VibrationResult } from "./vibration";
+import { computeFatigue, type FatigueInput, type FatigueResult } from "./fatigue";
 
 export const G_ACC = 9.81; // m/s²
 
@@ -48,9 +49,11 @@ export interface StrengthInput {
   pressure?: PressureLoad | undefined;
   /** Eigenfrequenz: Zusatzmasse und Anforderungen, wirksam bei kind = "FQ" (Lastfall = Lagerung KR, GG, EG, EE) */
   vibration?: VibrationLoad | undefined;
+  /** Zusatznachweis Dauerfestigkeit (0.9.0), wirksam bei Zug, Biegung, Torsion, Überlagert und fatigue.on = true */
+  fatigue?: FatigueInput | undefined;
 }
 
-export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung" | "frequenz" | "resonanz"; label: string; S: number | null; req: number; u: number | null; text: string }
+export interface Check { key: "fliessen" | "bruch" | "knicken" | "durchbiegung" | "frequenz" | "resonanz" | "dauerbruch" | "zeitfestigkeit"; label: string; S: number | null; req: number; u: number | null; text: string }
 /**
  * Kennwert für Anzeige. main = hervorgehobener Leitwert; primary = Hauptkennwert (Blatt 1 offen, Leitstand), sonst
  * „weitere Kennwerte“ (eingeklappt, im Druck offen). Reines Darstellungsmerkmal, keine Formel.
@@ -59,11 +62,11 @@ export interface Kpi { key: string; label: string; sym: string; value: number; u
 
 /** Hauptkennwerte je Belastungsart (abgestimmt mit Seti 13.10.2026). */
 export const PRIMARY_KPIS: Readonly<Record<Kind | "combined", readonly string[]>> = {
-  zug: ["m", "sigmaV", "dL"],
+  zug: ["m", "sigmaV", "dL", "SD"],
   druck: ["m", "sigmaV", "Fk"],
-  biegung: ["m", "sigmaB", "sigmaV", "f"],
-  torsion: ["m", "sigmaV", "theta"],
-  combined: ["m", "sigmaV", "f", "Fk"],
+  biegung: ["m", "sigmaB", "sigmaV", "f", "SD"],
+  torsion: ["m", "sigmaV", "theta", "SD"],
+  combined: ["m", "sigmaV", "f", "Fk", "SD"],
   PB: ["sigmaV", "stA", "sigmaZul", "uA"],
   FQ: ["m", "f1", "f2", "f3", "delta"],
 };
@@ -104,6 +107,8 @@ export interface StrengthResult {
   pressure: PressureResult | null;
   /** Eigenfrequenz (kind = "FQ"), sonst null */
   vibration: VibrationResult | null;
+  /** Zusatznachweis Dauerfestigkeit (0.9.0), null wenn aus */
+  fatigue: FatigueResult | null;
 }
 
 export class InputError extends Error {}
@@ -120,7 +125,7 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const res: StrengthResult = {
     input: inp, material: mat, section: sec, errors: [...sec.errors], warnings: [...sec.notes], kind, caseId: "none",
     E: NaN, G: NaN, nu: NaN, strength: null, mass: NaN, L: inp.L, bend: null, fzul: null, axial: null, buck: null, tors: null,
-    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [], pressure: null, vibration: null,
+    sigmaB: 0, sigmaN: 0, tauT: 0, tauQ: 0, sigmaV: 0, checks: [], util: Infinity, governing: null, incomplete: [], kpis: [], trace: G, loadErrors: [], pressure: null, vibration: null, fatigue: null,
   };
   if (inp.mode === "single" && inp.kind === "PB") return pressureStrength(repo, inp, res);
   if (inp.mode === "single" && inp.kind === "FQ") return vibrationStrength(repo, inp, res);
@@ -133,11 +138,16 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   const E = Egpa * 1000;
   const rowG = repo.row(mat.id, "P-G"), rowNu = repo.row(mat.id, "P-NU");
   const nu = rowNu?.value ?? defaultNu(mat.cls);
-  const Gm = rowG?.value ? rowG.value * 1000 : E / (2 * (1 + nu));
+  // 0.9.0 (E8): dynamisch gemessener Schubmodul wird für die statische Rechnung nicht verwendet; Abweichung > 15 % zur isotropen Beziehung als Hinweis
+  const gDyn = !!rowG?.value && /dynamisch/i.test(rowG.condition ?? "");
+  const useG = !!rowG?.value && !gDyn;
+  const Giso = E / (2 * (1 + nu));
+  const Gm = useG ? (rowG!.value as number) * 1000 : Giso;
+  if (useG && Math.abs(Gm - Giso) / Giso > 0.15) res.warnings.push(`Schubmodul der Datenbank ${fmt(Gm / 1000, 3)} GPa weicht um ${fmt(100 * (Gm - Giso) / Giso, 2)} % von E/(2(1 + ν)) = ${fmt(Giso / 1000, 3)} GPa ab (Quellen prüfen)`);
   add("werkstoff", step("W-E", "E-Modul", "E (Werkstoffdatenbank, Standardvariante)", `${fmt(Egpa)} GPa`, E, "MPa", DATA_VERSION));
   add("werkstoff", step("W-RHO", "Dichte", "ρ (Werkstoffdatenbank)", `${fmt(rho)} kg/m³`, rho, "kg/m³", DATA_VERSION));
-  if (rowG?.value) add("werkstoff", step("W-G-DB", "Schubmodul", "G (Werkstoffdatenbank)", `${fmt(rowG.value)} GPa`, Gm, "MPa", repo.sourceName(rowG.source_id)));
-  else add("werkstoff", step("W-G", "Schubmodul", "G = E / (2·(1 + ν))", `${fmt(E)} / (2·(1 + ${fmt(nu)}))`, Gm, "MPa", rowNu ? `ν aus ${repo.sourceName(rowNu.source_id)}` : "ν Klassen-Richtwert (Annahme)"));
+  if (useG) add("werkstoff", step("W-G-DB", "Schubmodul", "G (Werkstoffdatenbank)", `${fmt(rowG!.value as number)} GPa`, Gm, "MPa", repo.sourceName(rowG!.source_id)));
+  else add("werkstoff", step("W-G", "Schubmodul", "G = E / (2·(1 + ν))", `${fmt(E)} / (2·(1 + ${fmt(nu)}))`, Gm, "MPa", (rowNu ? `ν aus ${repo.sourceName(rowNu.source_id)}` : "ν Klassen-Richtwert (Annahme)") + (gDyn ? `; G der Datenbank dynamisch gemessen (${fmt(rowG!.value as number)} GPa), nicht verwendet` : "")));
 
   let caseId = "none", N = 0, Tm = 0, eulerCase: 1 | 2 | 3 | 4 | null = null;
   const F = inp.F * 1000, q = inp.q, a = inp.a, L = inp.L;
@@ -320,6 +330,25 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   else checks.push(mk("bruch", "Bruch", null, inp.SBreq, S.Rm?.warn || "R_m nicht belegt"));
   if (res.buck) checks.push(mk("knicken", "Knicken", res.buck.SK, inp.SKreq, `F_k / F = ${fmt(res.buck.Fk, 3)} / ${fmt(Math.abs(N), 3)} N`));
   if (res.bend && res.fzul) checks.push(mk("durchbiegung", "Durchbiegung", res.fzul / res.bend.w, 1, `f = ${fmt(res.bend.w, 3)} mm ≤ ${fmt(res.fzul, 3)} mm`));
+  // Zusatznachweis Dauerfestigkeit (0.9.0)
+  if (inp.fatigue?.on) {
+    if (kind === "druck") res.warnings.push("Dauerfestigkeit: für Druck/Knicken nicht vorgesehen");
+    else {
+      const fr = computeFatigue({
+        repo, mat, sec, secType: inp.secType, dims: inp.dims, L, kind: kind as "zug" | "biegung" | "torsion" | "combined",
+        Nx: res.axial ? res.axial.N_x : null, Mx: res.bend ? res.bend.fns.M : null, Tx: res.tors ? res.tors.T_x : null,
+        xM: res.bend ? (res.bend.ll ? res.bend.ll.Mext.x : res.bend.xM) : null,
+        RpN: Rp, dvRM: { choice: inp.dvChoice.RM, manual: inp.dvManual.RM },
+      }, inp.fatigue);
+      res.fatigue = fr;
+      fr.steps.forEach((s) => add("ermuedung", s));
+      fr.warnings.forEach((w) => res.warnings.push(`Dauerfestigkeit: ${w}`));
+      const zf = inp.fatigue.N !== null;
+      const S_ = fr.errors.length ? null : zf ? fr.SZ : fr.SD;
+      const label = zf ? `Zeitfestigkeit (N = ${fmt(inp.fatigue.N as number, 3)})` : "Dauerbruch";
+      checks.push(mk(zf ? "zeitfestigkeit" : "dauerbruch", label, S_, fr.SDreq, fr.errors.length ? fr.errors.join("; ") : `${zf ? "S_Z" : "S_D"} = ${fmt(S_ as number, 3)}`));
+    }
+  }
   res.checks = checks;
   const valid = checks.filter((c) => c.u !== null);
   res.util = valid.length ? Math.max(...valid.map((c) => c.u as number)) : Infinity;
@@ -363,6 +392,12 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
   if (res.axial) kp("dL", "Längenänderung", "ΔL", res.axial.dL, "mm", true);
   if (res.tors) kp("theta", res.tors.twoSided ? "Verdrehwinkel in Feldmitte" : "Verdrehwinkel am freien Ende", res.tors.twoSided ? "φ_Mitte" : "φ_Ende", res.tors.theta, "°", true);
   if (res.buck) kp("Fk", "Knicklast", "F_k", res.buck.Fk / 1000, "kN", true);
+  const fr = res.fatigue;
+  if (fr && fr.SD !== null && !fr.errors.length) {
+    kp("SD", "Sicherheit gegen Dauerbruch", "S_D", fr.SD, "–", true);
+    if (fr.SZ !== null) kp("SZ", "Sicherheit Zeitfestigkeit", "S_Z", fr.SZ, "–", true);
+    if (fr.Nlife !== null && Number.isFinite(fr.Nlife)) kp("Nlife", "Rechnerische Lebensdauer (S = 1)", "N", fr.Nlife, "–", true);
+  }
   res.kpis = markPrimary(res.kind, K);
   return res;
 }

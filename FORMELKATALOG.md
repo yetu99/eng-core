@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.8.1
+# Formelkatalog eng-core 0.9.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 273 Formeln, davon 273 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -144,6 +144,89 @@ Stand: 273 Formeln, davon 273 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | D-ERF | Erforderliches Maß D | D_erf = D₀·s | mm |  | freigegeben (2026-10-08, Seti) |
 | D-GEW | Gewähltes Maß D | D aufgerundet auf 1 mm | mm | Fertigungsraster | freigegeben (2026-10-08, Seti) |
 | D-U | Ausnutzung mit gewählten Maßen | u = max(S_erf / S) | % |  | freigegeben (2026-10-08, Seti) |
+
+## Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| E-AK-AB | Formzahl, Biegung | α_k = 1 + 1/√(0,62·r/t + 2·5,8·(r/d)·(1 + 2r/d)² + 0,2·(r/t)^3·d/D)  (Absatz, Biegung) | – | Roloff/Matek 27 TB 3-6d, f | freigegeben (2026-10-26, Seti) |
+| E-AK-AT | Formzahl, Torsion | α_k = 1 + 1/√(3,4·r/t + 2·19·(r/d)·(1 + 2r/d)² + 1·(r/t)^2·d/D)  (Absatz, Torsion) | – | Roloff/Matek 27 TB 3-6d, f | freigegeben (2026-10-26, Seti) |
+| E-AK-AZ | Formzahl, Zug/Druck | α_k = 1 + 1/√(0,62·r/t + 2·3,5·(r/d)·(1 + 2r/d)²)  (Absatz, Zug/Druck) | – | Roloff/Matek 27 TB 3-6d, f | freigegeben (2026-10-26, Seti) |
+| E-AK-M | Formzahl (manuell), Biegung | α_k manuell (Quelle angeben) | – | Eingabe | freigegeben (2026-10-26, Seti) |
+| E-AK-NB | Formzahl, Biegung | α_k = 1 + 1/√(0,2·r/t + 2·2,75·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Biegung) | – | Roloff/Matek 27 TB 3-6c | freigegeben (2026-10-26, Seti) |
+| E-AK-NT | Formzahl, Torsion | α_k = 1 + 1/√(0,7·r/t + 2·10,3·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Torsion) | – | Roloff/Matek 27 TB 3-6c | freigegeben (2026-10-26, Seti) |
+| E-AK-NZ | Formzahl, Zug/Druck | α_k = 1 + 1/√(0,22·r/t + 2·1,37·(r/d)·(1 + 2r/d)²)  (Umlaufnut, Zug/Druck) | – | Roloff/Matek 27 TB 3-6c | freigegeben (2026-10-26, Seti) |
+| E-AK-QB | Formzahl, Biegung | α_k = 3 + 1,4·(d_B/d) − 2,8·√(d_B/d)  (Querbohrung, Biegung) | – | Roloff/Matek 27 TB 3-6e | freigegeben (2026-10-26, Seti) |
+| E-AK-QT | Formzahl, Torsion | α_k = 2,023 − 1,125·√(d_B/d)  (Querbohrung, Torsion) | – | Roloff/Matek 27 TB 3-6e | freigegeben (2026-10-26, Seti) |
+| E-AK-QZ | Formzahl, Zug/Druck | α_k = 3 − d_B/d  (Querbohrung, Zug/Druck) | – | Roloff/Matek 27 TB 3-6e | freigegeben (2026-10-26, Seti) |
+| E-AM | Ausschlag und Mittelspannung, Biegung | σ_a = \|σ_n\|·(1 − R)/2,  σ_m = \|σ_n\|·(1 + R)/2  (Oberlast aus Blatt 1, Mittelspannung als Betrag) | MPa | Roloff/Matek 27 Abschn. 3.2 | freigegeben (2026-10-26, Seti) |
+| E-BETA | Kerbwirkungszahl, Biegung | β_k = α_k / n | – | Roloff/Matek 27 Gl. 3.30 | freigegeben (2026-10-26, Seti) |
+| E-BETA-M | Kerbwirkungszahl (manuell), Torsion | β_k manuell (z. B. Passfeder Roloff TB 3-9) | – | Eingabe | freigegeben (2026-10-26, Seti) |
+| E-DEFF | Maßgebender Durchmesser für den technologischen Größeneinfluss | d_eff nach Querschnittsform und Werkstoffart (Roloff TB 3-10c) | mm | Roloff/Matek 27 TB 3-10c | freigegeben (2026-10-26, Seti) |
+| E-GA-F | Begrenzung durch Fließen, Zug/Druck | σ_GA ≤ R_p − σ_m (Schub: f_τ·R_p − τ_m; spröde: R_m) | MPa | Roloff/Matek 27 Hinweis zu Gl. 3.65 | freigegeben (2026-10-26, Seti) |
+| E-GA1 | Gestaltausschlagfestigkeit, Biegung | σ_GA = σ_GW − ψ·σ_mv  (Überlastungsfall 1, σ_m konstant) | MPa | Roloff/Matek 27 Gl. 3.61 bis 3.66 | freigegeben (2026-10-26, Seti) |
+| E-GA2 | Gestaltausschlagfestigkeit, Biegung | σ_GA = σ_GW / (1 + ψ·σ_mv/σ_a)  (Überlastungsfall 2, κ konstant) | MPa | Roloff/Matek 27 Gl. 3.61 bis 3.66 | freigegeben (2026-10-26, Seti) |
+| E-GA3 | Gestaltausschlagfestigkeit, Biegung | σ_GA = (σ_GW − ψ·σ_u) / (1 + ψ)  mit  σ_u = σ_mv − σ_a  (Überlastungsfall 3, Unterspannung σ_u konstant) | MPa | Roloff/Matek 27 Gl. 3.61 bis 3.66 | freigegeben (2026-10-26, Seti) |
+| E-GS-AT | Bezogenes Spannungsgefälle, Torsion | G′ = 1,15/r  (Absatz, Torsion) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GS-AZB | Bezogenes Spannungsgefälle, Biegung | G′ = 2,3·(1 + φ)/r  (Absatz, Zug/Druck und Biegung) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GS-M | Bezogenes Spannungsgefälle (manuell), Biegung | G′ manuell | 1/mm | Eingabe | freigegeben (2026-10-26, Seti) |
+| E-GS-NT | Bezogenes Spannungsgefälle, Torsion | G′ = 1/r  (Umlaufnut, Torsion) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GS-NZB | Bezogenes Spannungsgefälle, Zug/Druck | G′ = 2·(1 + φ)/r  (Umlaufnut, Zug/Druck und Biegung) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GS-QB | Bezogenes Spannungsgefälle, Biegung | G′ = 2,3/r + 2/d  (Querbohrung) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GS-QT | Bezogenes Spannungsgefälle, Torsion | G′ = 1,15/r + 2/d  (Querbohrung) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GS-QZ | Bezogenes Spannungsgefälle, Zug/Druck | G′ = 2,3/r  (Querbohrung) | 1/mm | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-GW | Gestaltwechselfestigkeit, Biegung | σ_GW = σ_W / K_D | MPa | Roloff/Matek 27 Gl. 3.53, 3.54 | freigegeben (2026-10-26, Seti) |
+| E-KD | Konstruktionsfaktor, Biegung | K_D = (β_k/K_g + 1/K_R − 1)/K_V,  K_V = 1 | – | Roloff/Matek 27 Gl. 3.45 bis 3.48 | freigegeben (2026-10-26, Seti) |
+| E-KG | Geometrischer Größeneinfluss (Biegung, Torsion) | K_g = 1 − 0,2·lg(d/7,5 mm)/lg 20 für 7,5 ≤ d < 150 mm; 0,8 ab 150 mm; 1 unter 7,5 mm; Zug/Druck K_g = 1 | – | Roloff/Matek 27 TB 3-10d | freigegeben (2026-10-26, Seti) |
+| E-KR | Einfluss der Oberflächenrauheit (Normalspannung) | K_R,σ = 1 − a_R·lg(R_z/µm)·lg(2·R_m/R_m,N,min), höchstens 1 | – | Steibler 2021 Anh. A11; für Stahl gleich Roloff/Matek 27 TB 3-11 | freigegeben (2026-10-26, Seti) |
+| E-KRT | Einfluss der Oberflächenrauheit (Schub) | K_R,τ = 1 − f_τ·(1 − K_R,σ) | – | FKM-Form; Stahl wie 0,575·K_Oσ + 0,425 | freigegeben (2026-10-26, Seti) |
+| E-KSP | Kerbspannung unter Oberlast (Information), Biegung | σ_max,K = α_k·\|σ_n\| | MPa | Roloff/Matek 27 Gl. 3.26 | freigegeben (2026-10-26, Seti) |
+| E-KT-1 | Technologischer Größeneinfluss (Zugfestigkeit) | K_t = 1 (keine Kurve in TB 3-10 für diesen Werkstoff, Annahme) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-B1 | Technologischer Größeneinfluss (Zugfestigkeit) | K_t = 1 für d ≤ 100 mm; 1 − 0,23·lg(d/100 mm) für d < 300 mm; 0,89 bis 500 mm (Baustahl, Zugfestigkeit) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-B2 | Technologischer Größeneinfluss (Streckgrenze) | K_t = 1 für d ≤ 32 mm; 1 − 0,26·lg(d/32 mm) für d < 300 mm; 0,75 bis 500 mm (Baustahl, Streckgrenze) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-B3 | Technologischer Größeneinfluss (Zugfestigkeit) | K_t = 1 für d ≤ 16 mm; 1 − 0,26·lg(d/16 mm) für d < 300 mm; 0,67 bis 500 mm (Vergütungsstahl, Zugfestigkeit) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-B4 | Technologischer Größeneinfluss (Streckgrenze) | K_t = 1 für d ≤ 16 mm; 1 − 0,34·lg(d/16 mm) für d < 300 mm; 0,57 bis 500 mm (Vergütungsstahl, Streckgrenze) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-B5 | Technologischer Größeneinfluss (Zugfestigkeit) | K_t = 1 für d ≤ 16 mm; 1 − 0,41·lg(d/16 mm) für d < 150 mm; 0,6 bis 500 mm (Einsatzstahl, Zugfestigkeit und Streckgrenze) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-G | Technologischer Größeneinfluss (Zugfestigkeit) | K_t = (1 − 0,7686·a_d·lg(d/7,5 mm)) / (1 − 0,7686·a_d·lg(d_eff,N/7,5 mm)) für d > d_eff,N, sonst 1 (Gusswerkstoffe) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-GJL | Technologischer Größeneinfluss (Zugfestigkeit) | K_t = 1,207·(d/7,5 mm)^−0,1922 (GJL, Zugfestigkeit) | – | Roloff/Matek 27 TB 3-10a, b | freigegeben (2026-10-26, Seti) |
+| E-KT-M | Technologischer Größeneinfluss (manuell) | K_t manuell (gilt für R_m und R_p) | – | Eingabe | freigegeben (2026-10-26, Seti) |
+| E-MV | Vergleichsmittelspannung (GEH) | σ_mv = √((σ_zdm + σ_bm)² + 3·τ_tm²) | MPa | Roloff/Matek 27 Gl. 3.55 | freigegeben (2026-10-26, Seti) |
+| E-MVT | Vergleichsmittelspannung Schub | τ_mv = f_τ·σ_mv | MPa | Roloff/Matek 27 Gl. 3.56, TB 3-2 | freigegeben (2026-10-26, Seti) |
+| E-N-0 | Stützzahl ohne Spannungsgefälle, Biegung | n = 1 (kein Spannungsgefälle bekannt, konservativ) | – |  | freigegeben (2026-10-26, Seti) |
+| E-N-1 | Stützzahl, Torsion | n = 1 + G′·mm·10^−(a_G − 0,5 + R_m/b_G)  (G′ ≤ 0,1 mm⁻¹) | – | Roloff/Matek 27 TB 3-7b; Steibler 2021 Anh. A8 | freigegeben (2026-10-26, Seti) |
+| E-N-2 | Stützzahl, Zug/Druck | n = 1 + √(G′·mm)·10^−(a_G + R_m/b_G)  (0,1 < G′ ≤ 1 mm⁻¹) | – | Roloff/Matek 27 TB 3-7b; Steibler 2021 Anh. A8 | freigegeben (2026-10-26, Seti) |
+| E-N-3 | Stützzahl, Biegung | n = 1 + ⁴√(G′·mm)·10^−(a_G + R_m/b_G)  (G′ > 1 mm⁻¹) | – | Roloff/Matek 27 TB 3-7b; Steibler 2021 Anh. A8 | freigegeben (2026-10-26, Seti) |
+| E-NS-B | Nennspannung im Kerbquerschnitt, Biegung | σ_n = 32·M_b·d / (π·(d⁴ − d_i⁴)) | MPa | Roloff/Matek 27 TB 3-6c, d | freigegeben (2026-10-26, Seti) |
+| E-NS-QB | Nennspannung Querbohrung, Biegung | σ_n = M_b / W_b,n  mit  W_b,n = π·d³/32 − d_B·d²/6 | MPa | Roloff/Matek 27 TB 3-6e | freigegeben (2026-10-26, Seti) |
+| E-NS-QT | Nennspannung Querbohrung, Torsion | τ_n = T / W_t,n  mit  W_t,n = π·d³/16 − d_B·d²/6 | MPa | Roloff/Matek 27 TB 3-6e | freigegeben (2026-10-26, Seti) |
+| E-NS-QZ | Nennspannung Querbohrung, Zug/Druck | σ_n = F_N / A_n  mit  A_n = π·d²/4 − d_B·d | MPa | Roloff/Matek 27 TB 3-6e | freigegeben (2026-10-26, Seti) |
+| E-NS-T | Nennspannung im Kerbquerschnitt, Torsion | τ_n = 16·T·d / (π·(d⁴ − d_i⁴)) | MPa | Roloff/Matek 27 TB 3-6c, d | freigegeben (2026-10-26, Seti) |
+| E-NS-X | Nennspannung (Querschnitt Blatt 1), Biegung | σ_n = F_N/A, M_b/W bzw. T/Wₜ (Querschnittswerte Blatt 1) | MPa |  | freigegeben (2026-10-26, Seti) |
+| E-NS-Z | Nennspannung im Kerbquerschnitt, Zug/Druck | σ_n = 4·F_N / (π·(d² − d_i²)) | MPa | Roloff/Matek 27 TB 3-6c, d | freigegeben (2026-10-26, Seti) |
+| E-NZ | Rechnerische Lebensdauer (Sicherheit 1) | N mit S_Z(N) = 1, Bisektion auf lg N zwischen 10³ und 10⁶ (Typ I) bzw. 10⁸ (Typ II) | – |  | freigegeben (2026-10-26, Seti) |
+| E-PHI | Hilfsgröße für das Spannungsgefälle | φ = 1/(√(8·(D − d)/r) + 2) für (D − d)/d ≤ 0,5, sonst φ = 0 | – | Roloff/Matek 27 TB 3-7a | freigegeben (2026-10-26, Seti) |
+| E-PSI | Mittelspannungsempfindlichkeit | ψ_σ = a_M·R_m + b_M | – | Roloff/Matek 27 Gl. 3.59, TB 3-15; Steibler 2021 Anh. A14 | freigegeben (2026-10-26, Seti) |
+| E-PSI-DB | Mittelspannungsempfindlichkeit aus der Schwellfestigkeit | ψ_σ = 2·σ_zdW/σ_zSch − 1 | – | EN 1563 | freigegeben (2026-10-26, Seti) |
+| E-PSIT | Mittelspannungsempfindlichkeit Schub | ψ_τ = f_τ·ψ_σ | – | Roloff/Matek 27 Gl. 3.60 | freigegeben (2026-10-26, Seti) |
+| E-RM | Zugfestigkeit im Bauteil | R_m = K_t·R_mN | MPa | Roloff/Matek 27 Gl. 3.39 | freigegeben (2026-10-26, Seti) |
+| E-RP | Streckgrenze im Bauteil | R_p = K_t·R_pN | MPa | Roloff/Matek 27 Gl. 3.40 | freigegeben (2026-10-26, Seti) |
+| E-SD | Sicherheit gegen Dauerbruch, Biegung | S = σ_GA / σ_a | – | Roloff/Matek 27 Abschn. 3.7 | freigegeben (2026-10-26, Seti) |
+| E-SDERF | Erforderliche Sicherheit gegen Dauerbruch | S_D,erf = 1,5 (Walz- und Schmiedewerkstoff), 2,1 (Guss), 1,9 (Guss zerstörungsfrei geprüft) oder Eingabe | – | Roloff/Matek 27 TB 3-16a | freigegeben (2026-10-26, Seti) |
+| E-SDV | Sicherheit gegen Dauerbruch, zusammengesetzt | S_D = 1/√((1/S_zd + 1/S_b)² + (1/S_t)²)  mit  S_i = σ_iGA/σ_ia  (= 1/√((σ_zda/σ_zdGA + σ_ba/σ_bGA)² + (τ_ta/τ_tGA)²); Normalspannungen phasengleich, Maximum an derselben Stelle) | – | Roloff/Matek 27 Gl. 3.90 | freigegeben (2026-10-26, Seti) |
+| E-SZ | Sicherheit bei der geforderten Lastspielzahl | S_Z = 1/√((1/S_Z,zd + 1/S_Z,b)² + (1/S_Z,t)²)  mit  S_Z,i = σ_iAK/σ_ia  (= 1/√((σ_zda/σ_zdAK + σ_ba/σ_bAK)² + (τ_ta/τ_tAK)²)) | – | Roloff/Matek 27 Gl. 3.90 mit σ_AK | freigegeben (2026-10-26, Seti) |
+| E-W-DB | Wechselfestigkeit aus der Werkstoffdatenbank, Zug/Druck | σ_WN = Kennwert der Standardvariante (P-SZDW, P-SBW, P-TTW; Bereich: unterer Wert) | MPa | EN 1563 | freigegeben (2026-10-26, Seti) |
+| E-W-EST-B | Wechselfestigkeit Normprobe, Abschätzung Stahl, Biegung | σ_bWN ≈ 0,5·R_mN | MPa | Roloff/Matek 27 Fußnote 13 (DIN 743) | freigegeben (2026-10-26, Seti) |
+| E-W-EST-T | Wechselfestigkeit Normprobe, Abschätzung Stahl, Torsion | τ_tWN ≈ 0,3·R_mN | MPa | Roloff/Matek 27 Fußnote 13 (DIN 743) | freigegeben (2026-10-26, Seti) |
+| E-W-EST-Z | Wechselfestigkeit Normprobe, Abschätzung Stahl, Zug/Druck | σ_zdWN ≈ 0,4·R_mN | MPa | Roloff/Matek 27 Fußnote 13 (DIN 743) | freigegeben (2026-10-26, Seti) |
+| E-W-ESTG-B | Wechselfestigkeit Normprobe, Abschätzung Aluminium-Knetlegierung, Biegung | σ_bWN = σ_zdWN = f_Wσ·R_mN (ohne Biegeanteil, dann K_g = 1) | MPa | Roloff/Matek 27 TB 3-2, Gl. 3.34, 3.35 | freigegeben (2026-10-26, Seti) |
+| E-W-ESTG-T | Wechselfestigkeit Normprobe, Abschätzung Aluminium-Knetlegierung, Torsion | τ_tWN = f_Wτ·f_Wσ·R_mN (dann K_g = 1) | MPa | Roloff/Matek 27 TB 3-2, Gl. 3.34, 3.35 | freigegeben (2026-10-26, Seti) |
+| E-W-ESTG-Z | Wechselfestigkeit Normprobe, Abschätzung Aluminium-Knetlegierung, Zug/Druck | σ_zdWN = f_Wσ·R_mN (f_Wσ nach Werkstoffgruppe) | MPa | Roloff/Matek 27 TB 3-2, Gl. 3.34, 3.35 | freigegeben (2026-10-26, Seti) |
+| E-W-KT | Wechselfestigkeit im Bauteil, Biegung | σ_W = K_t·σ_WN | MPa | Roloff/Matek 27 Gl. 3.41 bis 3.44 | freigegeben (2026-10-26, Seti) |
+| E-W-M | Wechselfestigkeit Normprobe (manuell), Biegung | σ_WN manuell | MPa | Eingabe | freigegeben (2026-10-26, Seti) |
+| E-W-P50 | Wechselfestigkeit, Vergleich Mittelwert und Abschätzung, Zug/Druck | σ_WN = min(Datenbankwert mit P < 97,5 % oder ohne Angabe, Abschätzung mit P_ü = 97,5 %) | MPa | Konzept 0.9.0 E10 | freigegeben (2026-10-26, Seti) |
+| E-WL1 | Bauteil-Wöhlerlinie, Biegung | σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D, sonst σ_GA;  N_D = 10⁶, k_σ = 5, k_τ = 8 (Typ I) | MPa | Steibler 2021 Anh. A6 (FKM Tab. 4.4.3); Roloff Bsp. 3.5 | freigegeben (2026-10-26, Seti) |
+| E-WL2 | Bauteil-Wöhlerlinie, Zug/Druck | σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D; σ_GA·(N_D/N)^(1/k_II) bis 10⁸, danach konstant;  N_D = 10⁶, k_σ = 5, k_τ = 8, k_II,σ = 15, k_II,τ = 25 (Typ II) | MPa | Steibler 2021 Anh. A6 (FKM Tab. 4.4.3); Roloff Bsp. 3.5 | freigegeben (2026-10-26, Seti) |
+| E-X-SG | Schnittgrößen an der Kerbstelle (Oberlast) | N(x_K), M_b(x_K), T(x_K) aus dem Blatt-1-Lastfall | mm | Eingabe | freigegeben (2026-10-26, Seti) |
 
 ## Formfaktoren (Ashby Kap. 7.2)
 
@@ -327,10 +410,10 @@ Stand: 273 Formeln, davon 273 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.0.2 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.0.2 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 

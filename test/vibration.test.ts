@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeStrength, designSize, PRIMARY_KPIS, solveModes, betaL, freqResidual, rootBracket, rayleigh, modeProfile, vibrationErrors, caseLabel, KINDS, VIB_RAYLEIGH_MAX, type StrengthInput, type VibrationSupport, type VibrationLoad } from "../src/index";
+import { FATIGUE_DEFAULT, computeStrength, designSize, PRIMARY_KPIS, solveModes, betaL, freqResidual, rootBracket, rayleigh, modeProfile, vibrationErrors, caseLabel, KINDS, VIB_RAYLEIGH_MAX, type StrengthInput, type VibrationSupport, type VibrationLoad } from "../src/index";
 import { repo } from "../src/data";
 
 const SUP: VibrationSupport[] = ["KR", "GG", "EG", "EE"];
@@ -198,7 +198,12 @@ describe("Hauptkennwerte (Darstellung, alle Belastungsarten)", () => {
       const r = computeStrength(repo, { ...base, ...over, vibration: { ...vib, ferr: 100 } });
       expect(r.errors, k).toEqual([]);
       const keys = r.kpis.map((x) => x.key);
-      for (const p of PRIMARY_KPIS[k as keyof typeof PRIMARY_KPIS]) expect(keys, `${k} ${p}`).toContain(p);
+      // S_D nur mit eingeschaltetem Zusatznachweis Dauerfestigkeit (0.9.0)
+      for (const p of PRIMARY_KPIS[k as keyof typeof PRIMARY_KPIS]) if (p !== "SD") expect(keys, `${k} ${p}`).toContain(p);
+      if (PRIMARY_KPIS[k as keyof typeof PRIMARY_KPIS].includes("SD")) {
+        const rf = computeStrength(repo, { ...base, ...over, fatigue: { ...FATIGUE_DEFAULT } });
+        expect(rf.kpis.find((x) => x.key === "SD")?.primary, `${k} SD`).toBe(true);
+      }
       for (const x of r.kpis) expect(!!x.primary, `${k} ${x.key}`).toBe(PRIMARY_KPIS[k as keyof typeof PRIMARY_KPIS].includes(x.key));
     }
   });
