@@ -1,4 +1,4 @@
-# Formelkatalog eng-core 0.9.0
+# Formelkatalog eng-core 0.10.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
@@ -6,6 +6,16 @@ Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py expor
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
 Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+
+| Modul | Werkzeug | Präfixe | Formeln | freigegeben |
+|---|---|---|---|---|
+| gemeinsam | werkbank | Q, F, W | 96 | 96 |
+| festigkeit | werkbank | B, Z, K, T, N, D, P, V, E | 165 | 165 |
+| ashby | werkbank | A, C | 90 | 90 |
+| fluid | fachtools | RH, PU, FS | 0 | 0 |
+| verbindungen | fachtools | SV, PV | 0 | 0 |
+| dichtungen | fachtools | OR | 0 | 0 |
+| stabwerke | fachtools | FW | 0 | 0 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 

@@ -631,22 +631,32 @@ for id_, shape, closed, dim, r0, pi, pa, tl in DES:
 # Rayleigh obere Schranke: f_R ≥ f₁ und f_R / f₁ ≤ 1,02 (Kernwerte), als Kennzahl 1 = erfüllt
 for id_ in FQ_RQ:
     o = out[id_]; rid = id_.replace('Rayleigh FE', 'Rayleigh Schranke'); out[rid] = dict(rqOk=float(o['fR'] >= o['f1'] * (1 - 1e-12) and o['fR'] / o['f1'] <= 1.02)); ref[rid] = (dict(rqOk=1.0), 0)
+# Modul je Prüffall (ab 0.10.0, Register src/modules.json): ausdrücklich über case['module'], sonst über den Falltyp;
+# abgeleitete Prüfwerte (Rückeinsetzen, Rayleigh-Schranke) gehören zum Modul ihres Ausgangsfalls (Festigkeit).
+MODREG = json.load(open(os.path.join(os.path.dirname(HERE), 'src', 'modules.json'), encoding='utf-8'))['modules']
+TYPE_MODULE = {'section': 'gemeinsam', 'ashby': 'ashby', 'ashbyset': 'ashby', 'conflict': 'ashby'}
+CASE_MODULE = {c['id']: c.get('module') or TYPE_MODULE.get(c.get('type'), 'festigkeit') for c in cases}
+assert all(m in MODREG for m in CASE_MODULE.values()), 'Prüffall mit unbekanntem Modul'
+per_mod = {m: dict(passed=0, total=0) for m in MODREG}
 rows, fails = [], 0
 for id_, (vals, tol) in ref.items():
+    mod = CASE_MODULE.get(id_, 'festigkeit')
     for k, v in vals.items():
         got = out[id_][k]; dev = abs(got - v) / abs(v) if v else abs(got)
         ok = dev <= tol; fails += not ok
+        per_mod[mod]['total'] += 1; per_mod[mod]['passed'] += int(ok)
         rows.append(f"| {id_} | {k} | {v:.6g} | {got:.6g} | {dev*100:.4f} % | {tol*100:g} % | {'OK' if ok else 'ABWEICHUNG'} |")
 print('| Fall | Größe | Referenz (Python) | Rechenkern (JS) | Abweichung | Toleranz | Status |\n|---|---|---|---|---|---|---|')
 print('\n'.join(rows))
 print(f"\nJohnson/Euler am Übergang λ_T = {lT:.2f}: σ_J = {j:.3f}, σ_E = {e:.3f} MPa, Steigung J = {dj:.4f}, E = {de:.4f}")
 print(f"\nErgebnis: {len(rows) - fails} von {len(rows)} Prüfwerten innerhalb der Toleranz")
+print('Je Modul: ' + ', '.join(f"{m} {v['passed']}/{v['total']}" for m, v in per_mod.items() if v['total']))
 if '--write-golden' in sys.argv:
     golden = [dict(id=c['id'], case=c, expect={k: v for k, v in ref[c['id']][0].items()}, tol=ref[c['id']][1]) for c in cases]
     json.dump(golden, open(os.path.join(os.path.dirname(HERE), 'test', 'golden.json'), 'w'), indent=1, ensure_ascii=False)
     print('golden.json geschrieben')
 # Ergebnis für den Prüfstatus (src/pruefstatus.json, PDF-Fußzeile): --write-ergebnis schreibt, --check-ergebnis vergleicht
-ERG = os.path.join(HERE, 'ergebnis.json'); erg = dict(passed=len(rows) - fails, total=len(rows))
+ERG = os.path.join(HERE, 'ergebnis.json'); erg = dict(passed=len(rows) - fails, total=len(rows), modules={m: v for m, v in per_mod.items() if v['total']})
 if '--write-ergebnis' in sys.argv:
     open(ERG, 'w').write(json.dumps(erg, indent=1) + '\n'); print('verification/ergebnis.json geschrieben')
 if '--check-ergebnis' in sys.argv:

@@ -1,0 +1,18 @@
+{
+ "about": "Modulregister eng-core (ab 0.10.0). Ordnet Formel-ID-Präfixe, Quellpfade unter src/ und Werkzeuge einander zu. Gelesen von src/modules.ts, scripts/sync-to-app.mjs, scripts/katalog-publish.ts, scripts/formelfreigabe.py und verification/pruefung.py. Neues Präfix oder neuer Ordner nur hier eintragen.",
+ "base": ["index.ts", "version.ts", "dataVersion.ts", "fdVersion.ts", "format.ts", "trace.ts", "report.ts", "modules.ts", "modules.json", "pruefstatus.json", "json-modules.d.ts"],
+ "modules": {
+  "gemeinsam": { "title": "Gemeinsam: Querschnitte, Formfaktoren, Werkstoffe", "tool": "werkbank", "prefixes": ["Q", "F", "W"], "paths": ["sections.ts", "openSections.ts", "materials.ts", "materialDetail.ts", "data.ts"], "units": "N, mm, MPa, kg/m³", "fd": false },
+  "festigkeit": { "title": "Festigkeit: Grundbelastungen, Druckbehälter, Eigenfrequenz, Ermüdung, Bemessen", "tool": "werkbank", "prefixes": ["B", "Z", "K", "T", "N", "D", "P", "V", "E"], "paths": ["mechanics"], "units": "N, mm, MPa (Eigenfrequenz N, mm, t, s)", "fd": false },
+  "ashby": { "title": "Werkstoffauswahl nach Ashby", "tool": "werkbank", "prefixes": ["A", "C"], "paths": ["ashby"], "units": "Einheiten der Werkstoffdaten", "fd": false },
+  "fluid": { "title": "Rohrhydraulik und Fluidtechnik", "tool": "fachtools", "prefixes": ["RH", "PU", "FS"], "paths": ["fluid"], "units": "SI: m, kg, s, Pa, m³/s, K (Anzeige bar, m³/h, L/min, °C)", "fd": true },
+  "verbindungen": { "title": "Schraubenverbindung und Pressverband", "tool": "fachtools", "prefixes": ["SV", "PV"], "paths": ["joints"], "units": "N, mm, MPa", "fd": true },
+  "dichtungen": { "title": "O-Ring", "tool": "fachtools", "prefixes": ["OR"], "paths": ["seals"], "units": "N, mm, MPa", "fd": true },
+  "stabwerke": { "title": "Fachwerk mit Prinzip der virtuellen Verschiebung", "tool": "fachtools", "prefixes": ["FW"], "paths": ["structures"], "units": "N, mm, MPa", "fd": false }
+ },
+ "reserved": ["WL"],
+ "tools": {
+  "werkbank": { "title": "Ingenieur-Werkbank", "modules": ["gemeinsam", "festigkeit", "ashby"] },
+  "fachtools": { "title": "Ingenieur-Fachtools", "modules": ["gemeinsam", "fluid", "verbindungen", "dichtungen", "stabwerke"] }
+ }
+}

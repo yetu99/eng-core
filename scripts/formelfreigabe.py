@@ -2,10 +2,12 @@
 """
 Formelfreigabe über Excel.
 
-  python3 scripts/formelfreigabe.py export [--out DATEI.xlsx]
+  python3 scripts/formelfreigabe.py export [--out DATEI.xlsx] [--offen] [--modul MODUL[,MODUL] | --modul werkbank|fachtools]
       Erzeugt die Freigabe-Excel aus dem aktuellen Rechenkern (alle Formeln aus scripts/katalog.ts,
       gleiche Gruppierung wie FORMELKATALOG.md, mit nachrechenbarem Beispiel). Bereits vorhandene
-      Freigaben aus formelstatus.json werden vorbefüllt.
+      Freigaben aus formelstatus.json werden vorbefüllt. --modul (ab 0.10.0) beschränkt auf die Formeln der
+      genannten Module bzw. der Module eines Werkzeugs (src/modules.json); der Import übernimmt dann nur diese
+      Zeilen, alle anderen Formeln behalten ihren Status.
 
   python3 scripts/formelfreigabe.py import DATEI.xlsx [--dry-run] [--ergaenze-datum TT.MM.JJJJ --ergaenze-pruefer NAME]
       Liest die ausgefüllte Excel, prüft die Einträge und schreibt formelstatus.json.
@@ -114,15 +116,35 @@ def parse_date(v) -> str | None:
 
 # --------------------------------------------------------------------------------------------- Export
 
-def export(out: Path, only_open: bool = False) -> None:
+def resolve_modules(spec: str | None) -> list[str] | None:
+    """--modul: Modulnamen (Komma) oder ein Werkzeug aus src/modules.json."""
+    if not spec:
+        return None
+    reg = json.loads((ROOT / "src" / "modules.json").read_text(encoding="utf-8"))
+    if spec in reg["tools"]:
+        return list(reg["tools"][spec]["modules"])
+    mods = [m.strip() for m in spec.split(",") if m.strip()]
+    bad = [m for m in mods if m not in reg["modules"]]
+    if bad:
+        sys.exit(f"Modul unbekannt: {', '.join(bad)} (bekannt: {', '.join(reg['modules'])}; Werkzeuge: {', '.join(reg['tools'])})")
+    return mods
+
+
+def export(out: Path, only_open: bool = False, modules: list[str] | None = None) -> None:
     cat = load_catalog()
     entries, status = cat["entries"], cat["status"]
+    if modules is not None:
+        entries = [e for e in entries if e["module"] in modules]
+        cat = {**cat, "modules": modules}
     if only_open:
         # nur Formeln ohne gültige Freigabe: offen, abgelehnt oder seit der Freigabe geändert
         def approved(e: dict) -> bool:
             st = status.get(e["id"])
             return bool(st) and st.get("status") == "freigegeben" and st.get("formel") in (None, e["formula"])
         entries = [e for e in entries if not approved(e)]
+    if not entries:
+        scope = f"Module {', '.join(modules)}" if modules is not None else "Kern"
+        sys.exit(f"{scope}: keine Formeln{' ohne gültige Freigabe' if only_open else ''}, keine Excel erzeugt")
     wb = Workbook()
     ws = wb.active
     ws.title = SHEET
@@ -136,7 +158,7 @@ def export(out: Path, only_open: bool = False) -> None:
 
 def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
     today = dt.date.today().strftime("%d.%m.%Y")
-    ws["A1"] = f"Formelfreigabe eng-core {cat['coreVersion']}"
+    ws["A1"] = f"Formelfreigabe eng-core {cat['coreVersion']}" + (f" · Module {', '.join(cat['modules'])}" if cat.get("modules") else "")
     ws["A1"].font = F_TITLE
     ws["A2"] = f"Datenstand {cat['dataVersion']} · exportiert am {today} · nur gelbe Spalten ausfüllen, Anleitung im zweiten Blatt"
     ws["A2"].font = F_MUTED
@@ -419,6 +441,7 @@ def main() -> None:
     ex = sub.add_parser("export", help="Freigabe-Excel aus dem Rechenkern erzeugen")
     ex.add_argument("--out", type=Path, default=None)
     ex.add_argument("--offen", action="store_true", help="nur Formeln ohne gültige Freigabe exportieren")
+    ex.add_argument("--modul", default=None, help="nur diese Module (Komma) oder ein Werkzeug (werkbank, fachtools)")
     im = sub.add_parser("import", help="Ausgefüllte Excel nach formelstatus.json übernehmen")
     im.add_argument("xlsx", type=Path)
     im.add_argument("--dry-run", action="store_true")
@@ -427,8 +450,10 @@ def main() -> None:
     a = ap.parse_args()
     if a.cmd == "export":
         ver = json.loads((ROOT / "package.json").read_text(encoding="utf-8"))["version"]
-        name = f"Formelfreigabe_eng-core_{ver}{'_offen' if a.offen else ''}.xlsx"
-        export((a.out or ROOT / "freigabe" / name).resolve(), a.offen)
+        mods = resolve_modules(a.modul)
+        tag = f"_{a.modul.replace(',', '-')}" if mods is not None else ""
+        name = f"Formelfreigabe_eng-core_{ver}{tag}{'_offen' if a.offen else ''}.xlsx"
+        export((a.out or ROOT / "freigabe" / name).resolve(), a.offen, mods)
     else:
         sys.exit(import_xlsx(a.xlsx.resolve(), a.dry_run, parse_date(a.ergaenze_datum), a.ergaenze_pruefer))
 

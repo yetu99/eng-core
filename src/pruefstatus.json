@@ -1,5 +1,5 @@
 {
- "core": "0.9.0",
+ "core": "0.10.0",
  "formulas": 351,
  "approved": 351,
  "rejected": 0,
@@ -20,6 +20,93 @@
    "status": "bestanden",
    "text": "Abnahmeprotokoll eng-core 0.6.1: durch Prüfer freigegeben (P5 ohne übertragene Einzelwerte); Seti Frotscher",
    "datum": "2026-10-15"
+  }
+ },
+ "acceptanceTools": {},
+ "modules": {
+  "gemeinsam": {
+   "formulas": 96,
+   "approved": 96,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": "2026-10-18",
+   "verification": {
+    "passed": 173,
+    "total": 173
+   }
+  },
+  "festigkeit": {
+   "formulas": 165,
+   "approved": 165,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": "2026-10-26",
+   "verification": {
+    "passed": 928,
+    "total": 928
+   }
+  },
+  "ashby": {
+   "formulas": 90,
+   "approved": 90,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": "2026-10-21",
+   "verification": {
+    "passed": 247,
+    "total": 247
+   }
+  },
+  "fluid": {
+   "formulas": 0,
+   "approved": 0,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": null,
+   "verification": {
+    "passed": 0,
+    "total": 0
+   }
+  },
+  "verbindungen": {
+   "formulas": 0,
+   "approved": 0,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": null,
+   "verification": {
+    "passed": 0,
+    "total": 0
+   }
+  },
+  "dichtungen": {
+   "formulas": 0,
+   "approved": 0,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": null,
+   "verification": {
+    "passed": 0,
+    "total": 0
+   }
+  },
+  "stabwerke": {
+   "formulas": 0,
+   "approved": 0,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": null,
+   "verification": {
+    "passed": 0,
+    "total": 0
+   }
   }
  },
  "status": {

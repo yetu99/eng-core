@@ -4,6 +4,8 @@
  */
 export { CORE_VERSION } from "./version";
 export { DATA_VERSION, DATA_RELEASED_AT, DATA_TITLE } from "./dataVersion";
+export { FD_VERSION, FD_RELEASED_AT, FD_FILES } from "./fdVersion";
+export * from "./modules";
 
 export * from "./format";
 export * from "./trace";

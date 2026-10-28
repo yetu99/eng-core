@@ -1,17 +1,17 @@
 # eng-core
 
-Deterministischer Rechenkern der Ingenieur-Werkbank. Single Point of Truth für alle Formeln von Blatt 1 (Festigkeit) und Blatt 2 (Werkstoffauswahl nach Ashby).
+Deterministischer Rechenkern der Ingenieur-Werkbank und der Ingenieur-Fachtools. Single Point of Truth für alle Formeln der Werkbank (Festigkeit, Ermüdung, Eigenfrequenz, Werkstoffauswahl nach Ashby) und ab 0.11.0 der Fachtools (Rohrhydraulik, Pressverband, Schraube, O-Ring, Fachwerk).
 
 ## Inhalt
 
 | Ordner | Inhalt |
 |---|---|
 | `src/` | TypeScript, reine Funktionen: Querschnitte, Auslegungswerte, Zug, Druck/Knicken, Biegung (sechs Standardfälle und Lastliste `mechanics/loadlist.ts`), Torsion, Druckbehälter (`mechanics/pressure.ts`), Eigenfrequenz (`mechanics/vibration.ts`), Kerbwirkung und Ermüdung (`mechanics/fatigue.ts`), Überlagerung, Bemessen, Ashby-Indizes, Screening, Ranking, Form, Zielkonflikte; dazu Prüfstatus für Berichte (`report.ts`, `pruefstatus.json`) und Werkstoff-Detailansicht (`materialDetail.ts`) |
-| `data/` | Versionierter Abzug der Werkstoffdaten aus Supabase (Tabellen `wa_*`, identisch mit dem Werkstoffatlas), Datenstand in `data/snapshot.json` |
+| `data/` | Versionierter Abzug der Werkstoffdaten aus Supabase (Tabellen `wa_*`, identisch mit dem Werkstoffatlas), Datenstand in `data/snapshot.json`; Fachdaten (`fd_*`) in `data/fd/` mit eigenem `snapshot.json` |
 | `test/` | Vitest: `golden.json` aus der Gegenrechnung, Grenzfälle, Auslegungswerte, Bemessen, Ashby, Lastliste (`loadlist.test.ts`: Spezialfälle, Spiegelung, Superposition, Randbedingungen, Eingabeprüfung), Druckbehälter (`pressure.test.ts`: Randbedingungen, Gleichgewicht, Grenzfälle, Monotonie, Bemessen), Eigenfrequenz (`vibration.test.ts`: Einklammerung, Skalierung, Ordnung der Lagerungen, Eigenformen, Orthogonalität, Rayleigh, Bemessen), Ermüdung (`fatigue.test.ts`: Gültigkeitsgrenzen α_k, Stetigkeit n, Literaturbeispiele, Schalter aus, Datenregeln E8 und E10) |
 | `verification/` | `pruefung.py`: unabhängige Python-Gegenrechnung (numerische Integration, Finite Differenzen, Reihenlösungen), `ergebnis.json` (letztes Ergebnis), `abnahme.json` (Stufen P5/P6, von Hand gepflegt) |
 | `publish/` | `katalog.json`: Formelkatalog für den Spiegel in Supabase (`fk_*`), erzeugt mit `npm run katalog:publish` |
-| `supabase/` | Migrationen der Tabellen `fk_*` und der Funktion `fk_publish_github` (Projekt Kompendium) |
+| `supabase/` | Migrationen der Tabellen `fk_*` und der Funktion `fk_publish_github` (Projekt Kompendium); `fk_03_module.sql` (0.10.0) erweitert den Modul-Check um die Fachtools-Module und setzt Werkzeug-Verweise je Modul |
 | `scripts/` | `katalog.ts` (Formelkatalog als Daten), `formelkatalog.ts` (erzeugt FORMELKATALOG.md), `formelfreigabe.py` (Freigabe-Excel Export/Import), `sync-to-app.mjs` (kopiert den Kern in eine App) |
 | `freigabe/` | Ablage für die Freigabe-Excel (nicht versioniert) |
 | `FORMELKATALOG.md` | alle Formeln mit ID, Quelle und Freigabestatus (aus `formelstatus.json`, nie von Hand bearbeiten) |
@@ -33,6 +33,29 @@ Einheiten intern: N, mm, MPa, kg/m³. Eingaben: F und N in kN, q in kN/m, T in N
 **Kerbwirkung und Ermüdung (ab 0.9.0).** Zusatznachweis Dauerfestigkeit für Zug, Biegung, Torsion und Überlagerung, Eingabe `StrengthInput.fatigue` (Schalter `on`, Standard aus; `FATIGUE_DEFAULT`), Ergebnis `StrengthResult.fatigue`, Rechenweg-Gruppe `ermuedung`, IDs `E-*` (`src/mechanics/fatigue.ts`, `notch.ts`, `fatigueGroups.ts`). Nennspannungskonzept nach Roloff/Matek 27 Kap. 3.4 bis 3.7: Struktur DIN 743, Werkstoffgruppen FKM. α_k aus TB 3-6 (Absatz D/d, r/t; Nut; Querbohrung) oder von Hand, G′ aus TB 3-7a, Stützzahl n (FKM, drei Bereiche), β_k = α_k/n oder von Hand, K_t (TB 3-10a/b), K_g (TB 3-10d), K_R (FKM, für Stahl gleich DIN 743), K_D = (β_k/K_g + 1/K_R − 1)/K_V, Mittelspannung mit ψ = a_M·R_m + b_M und Überlastungsfall 1, 2 oder 3, Fließbegrenzung, S_D aus quadratischer Überlagerung von Normal- und Schubanteil, Mindestsicherheit nach TB 3-16a. Wechselfestigkeit: Datenbankwert mit P ≥ 97,5 % direkt; Wert ohne oder mit kleinerem P wird mit der Abschätzung verglichen, das Minimum zählt (E10); Abschätzung Stahl 0,4 / 0,5 / 0,3·R_mN (DIN 743, E11), Guss und Al nach FKM-Gruppe; Cu, Ti, Ni, AZ31B, Zn nur mit Eingabe. Zeitfestigkeit mit Wöhlerlinie Typ I (N_D = 10⁶, k = 5 bzw. 8) oder Typ II (Al, Guss: k_II bis 10⁸). Druck: Hinweis, kein Nachweis. G aus der Datenbank wird nur genutzt, wenn er statisch ist; Abweichung von E/(2(1+ν)) über 15 % ergibt eine Warnung. Gegenrechnung unabhängig in `verification/ermuedung.py` (eigene Gruppen, eigener Datenleser), Literaturfälle Roloff/Matek Bsp. 3.3c und 3.4 exakt (S_D 3,494 und 1,933). Diagrammdaten für Blatt 3 ohne eigene Formeln: `alphaKChart` (Kurvenschar α_k über r/t mit D/d als Parameter bzw. über d_B/d, nur mit `alphaK` gerechnet) und `woehlerChart` (σ_AK(N) mit derselben Wöhlerlinie wie E-WL1/E-WL2). `test/golden.json` wurde nur ergänzt; alte Einträge bleiben unverändert (andere numpy/scipy-Version erzeugt sonst Rundungsrauschen).
 
 **Abnahme P5 und P6.** `python3 scripts/abnahme.py export` erzeugt eine Excel mit Schritt-für-Schritt-Anleitung für den Abgleich mit FEM (Creo Simulate: D1, F1 bis F4, T7, T10, T12) und der Abnahme-Checkliste, Sollwerte aus `scripts/abnahme-faelle.ts`. `python3 scripts/abnahme.py import <datei.xlsx>` rechnet Abweichungen selbst nach und schreibt `verification/abnahme.json` (Status für Fußzeile und Prüfvermerk) und `verification/abnahme_p5.json` (alle Soll- und Ist-Werte). `python3 scripts/abnahme.py freigabe --pruefer NAME --datum TT.MM.JJJJ` gibt P5 und P6 ohne übertragene FEM-Einzelwerte frei; der Vermerk steht im Text beider Stufen. Die Excel selbst gehört nicht ins Repo.
+
+## Module und Werkzeuge (ab 0.10.0)
+
+Ein Kern, zwei Werkzeuge. `src/modules.json` ordnet jedes Formel-ID-Präfix genau einem Modul zu und jedes Modul einem Werkzeug. Die Skripte lesen dieselbe Datei; ein neues Präfix oder ein neuer Ordner wird nur dort eingetragen (eine nicht zugeordnete ID bricht `scripts/katalog.ts` ab).
+
+| Modul | Werkzeug | Präfixe | Ordner unter `src/` | Einheiten intern | Fachdaten |
+|---|---|---|---|---|---|
+| gemeinsam | Werkbank (auch Fachtools) | Q, F, W | `sections.ts`, `openSections.ts`, `materials.ts`, `materialDetail.ts`, `data.ts` | N, mm, MPa | nein |
+| festigkeit | Werkbank | B, Z, K, T, N, D, P, V, E | `mechanics/` | N, mm, MPa | nein |
+| ashby | Werkbank | A, C | `ashby/` | Werkstoffdaten | nein |
+| fluid | Fachtools | RH, PU, FS | `fluid/` | SI (m, kg, s, Pa, m³/s, K) | ja |
+| verbindungen | Fachtools | SV, PV | `joints/` | N, mm, MPa | ja |
+| dichtungen | Fachtools | OR | `seals/` | N, mm, MPa | ja |
+| stabwerke | Fachtools | FW | `structures/` | N, mm, MPa | nein |
+
+`WL` ist reserviert (Wälzlager als Linkkarte, keine Formeln). Module der Fachtools dürfen Formeln anderer Module aufrufen (Pressverband nutzt Lamé aus `mechanics/pressure.ts`); deren IDs behalten ihr Modul.
+
+- **Rechenweg-Gruppen**: `TRACE_GROUPS` je Modul, `TraceGroupOf<"fluid">`, `Trace<G>`; `TraceGroup` und `Trace` ohne Typargument bleiben die Gruppen der Werkbank Blatt 1. Überschriften für neue Oberflächen in `TRACE_GROUP_TITLES`.
+- **Prüfstatus je Modul**: `src/pruefstatus.json` enthält `modules` (Formeln, Freigaben, Gegenrechnung je Modul; Summe = Gesamtwerte) und `acceptanceTools` (Abnahme weiterer Werkzeuge aus `verification/abnahme.json`, Schlüssel `tools`). `reportMeta(tool, modules?)` zählt nur die Module des Werkzeugs: `reportMeta()` = Werkbank (unverändert), `reportMeta("Ingenieur-Fachtools")` = Fachtools mit Fachdaten-Stand in Fußzeile und Prüfvermerk.
+- **Gegenrechnung je Modul**: `verification/pruefung.py` ordnet jeden Prüffall über `case["module"]` zu (sonst über den Falltyp) und schreibt `verification/ergebnis.json` mit `modules`. Neue Module hängen ihre Fälle aus `verification/<modul>.py` ein und setzen `module`.
+- **Sync nach Modulen**: `node scripts/sync-to-app.mjs <app> --tool werkbank|fachtools` oder `--modules gemeinsam,fluid` kopiert die Basisdateien, die Ordner der Module und alles, was davon über relative Importe erreicht wird; `index.ts` wird auf die kopierten Dateien gekürzt, Dateien des letzten Syncs, die nicht mehr dazugehören, werden entfernt. Ohne Option wie bisher der ganze Kern. `--dry-run` zeigt die Liste.
+- **Freigabe je Modul**: `npm run freigabe:export -- --modul fluid` (auch `--modul werkbank|fachtools`, kombinierbar mit `--offen`) → `freigabe/Formelfreigabe_eng-core_<version>_<modul>.xlsx`. Der Import übernimmt nur die Zeilen der Excel; alle anderen Formeln behalten ihren Status.
+- **Fachdaten**: `npm run data:pull:fd` schreibt `data/fd/*.json` und `data/fd/snapshot.json` aus den Tabellen in `scripts/fd-tables.json` (wächst mit jedem Fachtool), Stand aus `fd_v_current_release`. Offline: `node scripts/pull-data.mjs --fd --from-file <export.json>` (Export `fd_export_snapshot.sql`). Im Kern: `FD_VERSION`, `FD_FILES` (`src/fdVersion.ts`), solange nichts freigegeben ist `null`.
 
 ## Prüfen
 

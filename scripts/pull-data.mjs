@@ -8,6 +8,12 @@
 //   node scripts/pull-data.mjs --check             nur prüfen, ob die Datenbank einen neueren Stand hat (Exit 1 = veraltet)
 //   node scripts/pull-data.mjs --from-file <json>  offline aus einem Export (tools/export_snapshot.sql) statt über das Netz
 //
+// Fachdaten (ab 0.10.0, Tabellen fd_*, Freigabe in fd_releases):
+//   node scripts/pull-data.mjs --fd                       Abzug nach data/fd/ (Tabellenliste scripts/fd-tables.json)
+//   node scripts/pull-data.mjs --fd --check               neuer Fachdaten-Stand? (Exit 1 = veraltet)
+//   node scripts/pull-data.mjs --fd --from-file <json>    offline aus fd_export_snapshot.sql ({release, tables})
+//   Zusatz: --fd-config <datei> (andere Tabellenliste, z. B. im Test), --out <ordner>
+//
 // Verbindung: WA_SUPABASE_URL / WA_SUPABASE_KEY (Umgebung) oder die öffentlichen Standardwerte unten.
 // Der Publishable Key ist öffentlich; Referenzdaten sind für ihn nur lesbar.
 import { createHash } from "node:crypto";
@@ -20,7 +26,8 @@ const root = new URL("..", import.meta.url).pathname;
 
 const args = process.argv.slice(2);
 const opt = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
-const outDir = resolve(opt("--out") ?? join(root, "data"));
+const fdMode = args.includes("--fd");
+const outDir = resolve(opt("--out") ?? join(root, fdMode ? "data/fd" : "data"));
 const fromFile = opt("--from-file");
 const checkOnly = args.includes("--check");
 
@@ -57,11 +64,11 @@ async function getAll(table, select) {
   }
 }
 
-async function currentRelease() {
-  const res = await fetch(`${URL_}/rest/v1/wa_v_current_release?select=version,released_at,title`, { headers: headers() });
-  if (!res.ok) throw new Error(`wa_v_current_release: HTTP ${res.status}`);
+async function currentRelease(view = "wa_v_current_release") {
+  const res = await fetch(`${URL_}/rest/v1/${view}?select=version,released_at,title`, { headers: headers() });
+  if (!res.ok) throw new Error(`${view}: HTTP ${res.status}`);
   const [r] = await res.json();
-  if (!r) throw new Error("keine Freigabe in wa_releases");
+  if (!r) throw new Error(`keine Freigabe in ${view.replace("_v_current_release", "_releases")}`);
   return r;
 }
 
@@ -97,7 +104,61 @@ function shape(data) {
 
 const dump = (x) => JSON.stringify(x, null, 1) + "\n";
 
+// ---------------------------------------------------------------- Fachdaten fd_*
+// Tabellenliste: [{ file, table, min, cols, sort }], file ohne Endung; sort = Spalten für die Reihenfolge (Zahlen numerisch,
+// Text nach Codepunkten, null zuletzt). Neue Tabellen kommen mit dem jeweiligen Fachtool in scripts/fd-tables.json.
+function fdTables() {
+  const f = resolve(opt("--fd-config") ?? join(root, "scripts/fd-tables.json"));
+  const list = JSON.parse(readFileSync(f, "utf8"));
+  for (const t of list) if (!/^fd_[a-z0-9_]+$/.test(t.table) || !t.file || !Array.isArray(t.cols) || !Array.isArray(t.sort)) throw new Error(`${f}: Eintrag ungültig: ${JSON.stringify(t)}`);
+  return list;
+}
+const cmpVal = (a, b) => (a === b ? 0 : a === null ? 1 : b === null ? -1 : typeof a === "number" && typeof b === "number" ? a - b : cmp(String(a), String(b)));
+
+async function mainFd() {
+  const tables = fdTables();
+  if (checkOnly) {
+    const rel = await currentRelease("fd_v_current_release");
+    const snapFile = join(outDir, "snapshot.json");
+    const have = existsSync(snapFile) ? JSON.parse(readFileSync(snapFile, "utf8")).release?.version ?? null : null;
+    if (have === rel.version) { console.log(`Fachdaten aktuell: ${have}`); return; }
+    console.log(`Neuer Fachdaten-Stand: ${rel.version} (${rel.title ?? ""}), lokal: ${have ?? "keiner"}. Aktualisieren mit: node scripts/pull-data.mjs --fd`);
+    process.exitCode = 1;
+    return;
+  }
+  let release, raw = {};
+  if (fromFile) {
+    const obj = loadFromFile(fromFile);
+    release = obj.release;
+    if (!release?.version) throw new Error(`${fromFile}: release.version fehlt`);
+    raw = obj.tables ?? {};
+  } else {
+    release = await currentRelease("fd_v_current_release");
+    for (const t of tables) raw[t.file] = await getAll(t.table, t.cols.join(","));
+    const after = await currentRelease("fd_v_current_release");
+    if (after.version !== release.version) throw new Error(`Fachdaten-Freigabe während des Abzugs geändert (${release.version} → ${after.version}), bitte erneut starten`);
+  }
+  const files = {}, blobs = {};
+  for (const t of tables) {
+    const rows = (raw[t.file] ?? []).map((r) => Object.fromEntries(t.cols.map((c) => [c, r[c] ?? null])));
+    if (rows.length < (t.min ?? 0)) throw new Error(`${t.file}: nur ${rows.length} Zeilen (erwartet mindestens ${t.min}), nichts geschrieben`);
+    rows.sort((a, b) => { for (const c of t.sort) { const d = cmpVal(a[c], b[c]); if (d) return d; } return 0; });
+    blobs[t.file] = dump(rows);
+    files[t.file] = { rows: rows.length, sha256: createHash("sha256").update(blobs[t.file]).digest("hex") };
+  }
+  const meta = {
+    release: { version: release.version, released_at: release.released_at ?? null, title: release.title ?? null },
+    source: "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
+    files,
+  };
+  mkdirSync(outDir, { recursive: true });
+  for (const [file, blob] of Object.entries(blobs)) writeFileSync(join(outDir, `${file}.json`), blob);
+  writeFileSync(join(outDir, "snapshot.json"), dump(meta));
+  console.log(`${meta.release.version}: ${Object.entries(files).map(([f, v]) => `${f} ${v.rows}`).join(", ") || "keine Tabellen"} → ${outDir}`);
+}
+
 async function main() {
+  if (fdMode) return mainFd();
   if (checkOnly) {
     const rel = await currentRelease();
     const snapFile = join(outDir, "snapshot.json");

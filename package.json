@@ -1,9 +1,9 @@
 {
   "name": "@yetu/eng-core",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "type": "module",
-  "description": "Deterministischer Rechenkern der Ingenieur-Werkbank (Festigkeit, Ashby-Werkstoffauswahl). Single Point of Truth für Formeln.",
+  "description": "Deterministischer Rechenkern der Ingenieur-Werkbank und der Ingenieur-Fachtools (Festigkeit, Ashby, ab 0.10.0 Modulregister für Fluid, Verbindungen, Dichtungen, Stabwerke). Single Point of Truth für Formeln.",
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -16,7 +16,9 @@
     "data:check": "node scripts/pull-data.mjs --check",
     "katalog": "tsx scripts/formelkatalog.ts",
     "freigabe:export": "python3 scripts/formelfreigabe.py export",
-    "freigabe:import": "python3 scripts/formelfreigabe.py import"
+    "freigabe:import": "python3 scripts/formelfreigabe.py import",
+    "data:pull:fd": "node scripts/pull-data.mjs --fd",
+    "data:check:fd": "node scripts/pull-data.mjs --fd --check"
   },
   "devDependencies": {
     "@types/node": "^22.16.5",

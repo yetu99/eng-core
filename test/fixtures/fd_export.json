@@ -1,0 +1,1 @@
+{"release":{"version":"fd 0.0-test","released_at":"2026-10-28T10:00:00+00:00","title":"Test"},"tables":{"roughness":[{"id":"R002","material":"Stahl","k_min_mm":0.04,"k_max_mm":0.1,"source_id":"Q219","extra":1},{"id":"R001","material":"PE","k_min_mm":0.0015,"k_max_mm":0.007,"source_id":"Q219"}]}}

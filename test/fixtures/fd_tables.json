@@ -1,0 +1,1 @@
+[{"file":"roughness","table":"fd_roughness","min":2,"cols":["id","material","k_min_mm","k_max_mm","source_id"],"sort":["id"]}]

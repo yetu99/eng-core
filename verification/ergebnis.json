@@ -1,4 +1,18 @@
 {
  "passed": 1348,
- "total": 1348
+ "total": 1348,
+ "modules": {
+  "gemeinsam": {
+   "passed": 173,
+   "total": 173
+  },
+  "festigkeit": {
+   "passed": 928,
+   "total": 928
+  },
+  "ashby": {
+   "passed": 247,
+   "total": 247
+  }
+ }
 }

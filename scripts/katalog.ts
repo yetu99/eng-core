@@ -7,16 +7,19 @@
 import { readFileSync, existsSync } from "node:fs";
 import { FATIGUE_DEFAULT, type FatigueInput, LOADLIST_SUPPORTS, PRESSURE_CASES, VIBRATION_CASES, isPressureCase, isVibrationCase, pressureText, vibrationText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexSpecs, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
+import { moduleOfId, type ModuleId } from "../src/modules";
 
 export interface CatalogEntry {
-  id: string; group: string; groupTitle: string; title: string; formula: string; unit: string; ref: string;
+  id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
   /** Beispiel aus dem ersten Rechenlauf, in dem die Formel vorkommt. */
   exSubst: string; exValue: number; exCase: string;
 }
 export interface FormulaStatus { status: "freigegeben" | "abgelehnt" | "offen"; datum?: string; durch?: string; kommentar?: string; /** Antwort bzw. Umsetzung durch den Kern-Verantwortlichen */ antwort?: string; /** Formeltext zum Zeitpunkt der Prüfung. */ formel?: string; /** Einwand einer Vorrunde, mit der Freigabe erledigt. */ erledigt?: string }
 export type StatusMap = Record<string, FormulaStatus>;
 
-export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)", P: "Druckbehälter", V: "Eigenfrequenz", E: "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)" };
+export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Formfaktoren (Ashby Kap. 7.2)", W: "Werkstoff und Auslegungswerte", B: "Biegung", Z: "Zug und Druck", K: "Knicken", T: "Torsion", N: "Nachweise", D: "Bemessen", A: "Werkstoffauswahl (Ashby Kap. 5 bis 7)", C: "Zielkonflikte (Ashby Kap. 9)", P: "Druckbehälter", V: "Eigenfrequenz", E: "Kerbwirkung und Ermüdung (Roloff/Matek Kap. 3, FKM)",
+  // Fachtools (ab 0.10.0 registriert, Formeln folgen mit den Modulen)
+  FS: "Fluid-Stoffwerte", RH: "Rohrhydraulik", PU: "Pumpe und Anlage", SV: "Schraubenverbindung", PV: "Pressverband", OR: "O-Ring", FW: "Fachwerk" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
@@ -48,7 +51,9 @@ export function collectCatalog(): CatalogEntry[] {
     const id = s.id.replace(/^D-(ERF|GEW)-.*/, "D-$1");
     if (seen.has(id)) return;
     const group = id.split("-")[0] ?? "";
-    seen.set(id, { id, group, groupTitle: GROUP_TITLE[group] ?? group, title: s.title, formula: s.formula, unit: s.unit, ref: s.ref ?? "", exSubst: s.subst, exValue: s.value, exCase: fall });
+    const module = moduleOfId(id);
+    if (module === null) throw new Error(`Formel-ID ${id}: Präfix ${group} ist in src/modules.json keinem Modul zugeordnet`);
+    seen.set(id, { id, group, groupTitle: GROUP_TITLE[group] ?? group, module, title: s.title, formula: s.formula, unit: s.unit, ref: s.ref ?? "", exSubst: s.subst, exValue: s.value, exCase: fall });
   };
   for (const r of runs) {
     const inp = { ...base, ...r }; const res = computeStrength(repo, inp); const fall = caseText(inp);

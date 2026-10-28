@@ -5,6 +5,7 @@
  *
  * Aufruf: npx tsx scripts/katalog-publish.ts [--check]
  *   schreibt publish/katalog.json (deterministisch, wird committet) und gibt den SQL-Aufruf aus.
+ * Modul je Formel aus src/modules.json (Präfix der ID), ab 0.10.0.
  * Einspielen nach dem Push (über das Supabase-MCP, eine Zeile):
  *   select * from public.fk_publish_github('<commit>', '<md5>');
  *   Die Datenbank lädt publish/katalog.json genau dieses Commits von GitHub, prüft die MD5-Summe und
@@ -16,7 +17,6 @@ import { CORE_VERSION } from "../src/index";
 import { DATA_VERSION } from "../src/data";
 import { collectCatalog, readStatus, effectiveStatus } from "./katalog";
 
-const MODULE: Record<string, string> = { Q: "gemeinsam", F: "gemeinsam", W: "gemeinsam", A: "ashby", C: "ashby" };
 const entries = collectCatalog();
 const status = readStatus();
 
@@ -26,7 +26,7 @@ const formulas = entries.map((e, i) => {
   const s = eff.stale ? "geaendert" : eff.label === "Entwurf" ? "offen" : eff.label;
   const ok = s === "freigegeben";
   return {
-    id: e.id, area: e.groupTitle, module: MODULE[e.group] ?? "festigkeit", quantity: e.title, formula: e.formula,
+    id: e.id, area: e.groupTitle, module: e.module, quantity: e.title, formula: e.formula,
     unit: e.unit || null, source: e.ref || null, example: e.exSubst || null,
     example_result: Number.isFinite(e.exValue) ? Number(e.exValue.toPrecision(12)) : null, example_case: e.exCase || null,
     status: s, approved_at: ok ? st?.datum ?? null : null, approved_by: ok ? st?.durch ?? null : null,
