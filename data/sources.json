@@ -2884,5 +2884,83 @@
   "viewed": "ja",
   "local_file": "Bender, Göhlich (Hrsg.) - Dubbel Band 1 Grundlagen und Tabellen (Springer Vieweg, 26. Aufl. 2020).pdf",
   "kb_source_id": null
+ },
+ {
+  "id": "Q221",
+  "kind": "Richtlinie",
+  "short_name": "IAPWS-IF97 (R7-97, 2012)",
+  "title": "Revised Release on the IAPWS Industrial Formulation 1997 for the Thermodynamic Properties of Water and Steam (IAPWS R7-97(2012))",
+  "publisher": "International Association for the Properties of Water and Steam, 2012",
+  "url": "https://www.iapws.org",
+  "access": "frei",
+  "note": "eingesehen 28.10.2026 (lokale Datei); Formeln im Kern eng-core (FS-IF-*), keine Tabellenwerte",
+  "viewed": "ja",
+  "local_file": "IAPWS - R7-97 IF97 Industrial Formulation (IAPWS, 2012).pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q222",
+  "kind": "Richtlinie",
+  "short_name": "IAPWS R12-08 Viskosität (2008)",
+  "title": "Release on the IAPWS Formulation 2008 for the Viscosity of Ordinary Water Substance (IAPWS R12-08)",
+  "publisher": "International Association for the Properties of Water and Steam, 2008",
+  "url": "https://www.iapws.org",
+  "access": "frei",
+  "note": "eingesehen 28.10.2026 (lokale Datei); Formeln im Kern eng-core (FS-MU-*)",
+  "viewed": "ja",
+  "local_file": "IAPWS - R12-08 Viscosity of Ordinary Water Substance (IAPWS, 2008).pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q223",
+  "kind": "Handbuch",
+  "short_name": "VDI-Wärmeatlas 12 (2019)",
+  "title": "VDI-Wärmeatlas, 12. Aufl., Teil L1 Strömungsdynamik und Druckverlust: Einphasige Strömungen",
+  "publisher": "Springer Vieweg, Berlin 2019, ISBN 978-3-662-52989-8 (eBook)",
+  "url": "https://doi.org/10.1007/978-3-662-52989-8",
+  "access": "kostenpflichtig",
+  "note": "eingesehen 28.10.2026 (lokale Datei); Herausgeber Stephan, Kabelac, Kind, Mewes, Schaber, Wetzel",
+  "viewed": "ja",
+  "local_file": "Stephan, Kabelac, Kind, Mewes, Schaber, Wetzel (Hrsg.) - VDI-Wärmeatlas (Springer Vieweg, 12. Aufl. 2019).pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q224",
+  "kind": "Norm",
+  "short_name": "DIN 8074",
+  "title": "Rohre aus Polyethylen (PE), PE 80, PE 100, Maße",
+  "publisher": "DIN 8074:2023-10",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen (KIT-Lizenz), Fundstelle je Wert",
+  "viewed": "ja",
+  "local_file": "DIN 8074_2023-10-00_ML_3442682.pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q225",
+  "kind": "Norm",
+  "short_name": "EN 10220",
+  "title": "Nahtlose und geschweißte Stahlrohre, Allgemeine Tabellen für Maße und längenbezogene Masse",
+  "publisher": "DIN EN 10220:2003-03",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen (KIT-Lizenz), Fundstelle je Wert",
+  "viewed": "ja",
+  "local_file": "DIN EN 10220_2003-03-00_DE_9284932.pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q226",
+  "kind": "Norm",
+  "short_name": "ISO 3448",
+  "title": "Industrielle flüssige Schmierstoffe, ISO-Viskositätsklassifikation",
+  "publisher": "DIN ISO 3448:2010-02",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen (KIT-Lizenz), Fundstelle je Wert",
+  "viewed": "ja",
+  "local_file": "DIN ISO 3448_2010-02-00_DE_1562009.pdf",
+  "kb_source_id": null
  }
 ]

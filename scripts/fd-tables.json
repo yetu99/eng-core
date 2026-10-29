@@ -1,1 +1,8 @@
-[]
+[
+ { "file": "fluids", "table": "fd_fluids", "min": 21, "cols": ["id", "name", "kind", "note", "sort_order", "source_id", "source_locator"], "sort": ["sort_order", "id"] },
+ { "file": "fluid_values", "table": "fd_fluid_values", "min": 32, "cols": ["id", "fluid_id", "t_c", "rho_kg_m3", "nu_mm2_s", "nu_min_mm2_s", "nu_max_mm2_s", "value_type", "confidence", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "roughness", "table": "fd_roughness", "min": 20, "cols": ["id", "pipe_kind", "state", "k_min_mm", "k_max_mm", "confidence", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "loss_coeff", "table": "fd_loss_coeff", "min": 87, "cols": ["id", "grp", "element", "param_name", "param_value", "dn_min", "dn_max", "zeta", "zeta_max", "ref_section", "confidence", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "pipe_sizes", "table": "fd_pipe_sizes", "min": 68, "cols": ["id", "norm", "material", "series", "d_a_mm", "walls_mm", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "velocity_guide", "table": "fd_velocity_guide", "min": 20, "cols": ["id", "system", "case", "v_min_m_s", "v_max_m_s", "remark", "source_id", "source_locator"], "sort": ["id"] }
+]

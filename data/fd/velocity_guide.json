@@ -1,0 +1,202 @@
+[
+ {
+  "id": "VR01",
+  "system": "Wasserleitung",
+  "case": "allgemein",
+  "v_min_m_s": 1,
+  "v_max_m_s": 3,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR02",
+  "system": "Wasserleitung",
+  "case": "Hauptleitung",
+  "v_min_m_s": 1,
+  "v_max_m_s": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR03",
+  "system": "Wasserleitung",
+  "case": "Nebenleitung",
+  "v_min_m_s": 0.5,
+  "v_max_m_s": 0.7,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR04",
+  "system": "Wasserleitung",
+  "case": "Fernleitung",
+  "v_min_m_s": 1.5,
+  "v_max_m_s": 3,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR05",
+  "system": "Wasserleitung",
+  "case": "Saugleitung von Pumpen",
+  "v_min_m_s": 0.5,
+  "v_max_m_s": 1,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR06",
+  "system": "Wasserleitung",
+  "case": "Druckleitung von Pumpen",
+  "v_min_m_s": 1.5,
+  "v_max_m_s": 3,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR07",
+  "system": "Wasserleitung",
+  "case": "Presswasserdruckleitung",
+  "v_min_m_s": 15,
+  "v_max_m_s": 20,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR08",
+  "system": "Wasserleitung",
+  "case": "Wasserturbinen",
+  "v_min_m_s": 2,
+  "v_max_m_s": 6,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR09",
+  "system": "Ölleitung",
+  "case": "viskose Flüssigkeiten allgemein",
+  "v_min_m_s": 1,
+  "v_max_m_s": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR10",
+  "system": "Ölleitung",
+  "case": "Schmierölleitung in Kraftmaschinen",
+  "v_min_m_s": 0.5,
+  "v_max_m_s": 1,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR11",
+  "system": "Ölleitung",
+  "case": "Brennstoffleitung in Kraftmaschinen",
+  "v_min_m_s": 20,
+  "v_max_m_s": 20,
+  "remark": "Einzelwert der Quelle",
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR12",
+  "system": "Ölhydraulik",
+  "case": "Saugleitung",
+  "v_min_m_s": 0.6,
+  "v_max_m_s": 1.3,
+  "remark": "TB 18-5 „(υ groß … klein)“; Lesart ν: hohe Viskosität 0,6 m/s, niedrige 1,3 m/s (Zeichen im Druck wie v, offener Punkt O-D4)",
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR13",
+  "system": "Ölhydraulik",
+  "case": "Druckleitung",
+  "v_min_m_s": 3,
+  "v_max_m_s": 6,
+  "remark": "TB 18-5 „(p klein … groß)“: niedriger Druck 3 m/s, hoher Druck 6 m/s",
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR14",
+  "system": "Ölhydraulik",
+  "case": "Rückleitung",
+  "v_min_m_s": 2,
+  "v_max_m_s": 4,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-5"
+ },
+ {
+  "id": "VR15",
+  "system": "Öl",
+  "case": "in Leitungen",
+  "v_min_m_s": 1,
+  "v_max_m_s": 2,
+  "remark": null,
+  "source_id": "Q223",
+  "source_locator": "L1.2 Tab. 2, S. 1359"
+ },
+ {
+  "id": "VR16",
+  "system": "Wasser",
+  "case": "in längeren Leitungen",
+  "v_min_m_s": 0.5,
+  "v_max_m_s": 1,
+  "remark": null,
+  "source_id": "Q223",
+  "source_locator": "L1.2 Tab. 2, S. 1359"
+ },
+ {
+  "id": "VR17",
+  "system": "Wasser",
+  "case": "in Wärmeübertrager-Rohren",
+  "v_min_m_s": 1,
+  "v_max_m_s": 3,
+  "remark": null,
+  "source_id": "Q223",
+  "source_locator": "L1.2 Tab. 2, S. 1359"
+ },
+ {
+  "id": "VR18",
+  "system": "Wasser",
+  "case": "nach Kolbenpumpen",
+  "v_min_m_s": 1,
+  "v_max_m_s": 2,
+  "remark": null,
+  "source_id": "Q223",
+  "source_locator": "L1.2 Tab. 2, S. 1359"
+ },
+ {
+  "id": "VR19",
+  "system": "Wasser",
+  "case": "nach Kreiselpumpen",
+  "v_min_m_s": 1.5,
+  "v_max_m_s": 3,
+  "remark": null,
+  "source_id": "Q223",
+  "source_locator": "L1.2 Tab. 2, S. 1359"
+ },
+ {
+  "id": "VR20",
+  "system": "Wasser",
+  "case": "vor Turbinen",
+  "v_min_m_s": 2,
+  "v_max_m_s": 7,
+  "remark": null,
+  "source_id": "Q223",
+  "source_locator": "L1.2 Tab. 2, S. 1359"
+ }
+]

@@ -1,0 +1,191 @@
+[
+ {
+  "id": "F01",
+  "name": "Wasser",
+  "kind": "Wasser (IAPWS im Kern)",
+  "note": "gerechnet wird mit IAPWS-IF97 und R12-08; Tabellenwerte nur Vergleich",
+  "sort_order": 10,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F02",
+  "name": "Erdöl roh (Persien)",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 20,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F03",
+  "name": "Spindelöl",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 30,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F04",
+  "name": "Dieselkraftstoff",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 40,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F05",
+  "name": "Heizöl",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 50,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F06",
+  "name": "Benzin",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 60,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F07",
+  "name": "MgCl2-Sole (20 %)",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 70,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F08",
+  "name": "Frigen 11",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 80,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F09",
+  "name": "Spiritus (90 %)",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 90,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F10",
+  "name": "Glyzerin",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 100,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F11",
+  "name": "Bier",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 110,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F12",
+  "name": "Milch",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 120,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F13",
+  "name": "Wein",
+  "kind": "Flüssigkeit",
+  "note": "nur Tabellentemperaturen, keine Interpolation (R3)",
+  "sort_order": 130,
+  "source_id": "Q219",
+  "source_locator": "TB 18-9"
+ },
+ {
+  "id": "F14",
+  "name": "Hydrauliköl ISO VG 10",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 140,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F15",
+  "name": "Hydrauliköl ISO VG 15",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 150,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F16",
+  "name": "Hydrauliköl ISO VG 22",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 160,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F17",
+  "name": "Hydrauliköl ISO VG 32",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 170,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F18",
+  "name": "Hydrauliköl ISO VG 46",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 180,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F19",
+  "name": "Hydrauliköl ISO VG 68",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 190,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F20",
+  "name": "Hydrauliköl ISO VG 100",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 200,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ },
+ {
+  "id": "F21",
+  "name": "Hydrauliköl ISO VG 150",
+  "kind": "Öl ISO VG",
+  "note": "nur ν bei 40 °C (Klassenmitte); Dichte von Hand",
+  "sort_order": 210,
+  "source_id": "Q226",
+  "source_locator": "Tab. 1"
+ }
+]

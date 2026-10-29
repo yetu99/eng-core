@@ -10113,5 +10113,2554 @@
    "Nlife": 81970661.39171006
   },
   "tol": 1e-06
+ },
+ {
+  "id": "RH-P1 IF97 Tab. 5 T 300 K p 3 MPa",
+  "case": {
+   "type": "water",
+   "T": 300,
+   "p": 3000000.0,
+   "id": "RH-P1 IF97 Tab. 5 T 300 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "v": 0.00100215168
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P1 IF97 Python T 300 K p 3 MPa",
+  "case": {
+   "type": "water",
+   "T": 300,
+   "p": 3000000.0,
+   "id": "RH-P1 IF97 Python T 300 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "v": 0.0010021516796866943,
+   "rho": 997.852940098482
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P1 IF97 Tab. 5 T 300 K p 80 MPa",
+  "case": {
+   "type": "water",
+   "T": 300,
+   "p": 80000000.0,
+   "id": "RH-P1 IF97 Tab. 5 T 300 K p 80 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "v": 0.000971180894
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P1 IF97 Python T 300 K p 80 MPa",
+  "case": {
+   "type": "water",
+   "T": 300,
+   "p": 80000000.0,
+   "id": "RH-P1 IF97 Python T 300 K p 80 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "v": 0.0009711808940216299,
+   "rho": 1029.6742925605045
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P1 IF97 Tab. 5 T 500 K p 3 MPa",
+  "case": {
+   "type": "water",
+   "T": 500,
+   "p": 3000000.0,
+   "id": "RH-P1 IF97 Tab. 5 T 500 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "v": 0.001202418
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P1 IF97 Python T 500 K p 3 MPa",
+  "case": {
+   "type": "water",
+   "T": 500,
+   "p": 3000000.0,
+   "id": "RH-P1 IF97 Python T 500 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "v": 0.001202418003378339,
+   "rho": 831.6575410467731
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P2 IF97 Tab. 35 T 300 K",
+  "case": {
+   "type": "psat",
+   "T": 300,
+   "id": "RH-P2 IF97 Tab. 35 T 300 K",
+   "module": "fluid"
+  },
+  "expect": {
+   "ps": 3536.5894099999996
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P2 IF97 Tab. 35 T 500 K",
+  "case": {
+   "type": "psat",
+   "T": 500,
+   "id": "RH-P2 IF97 Tab. 35 T 500 K",
+   "module": "fluid"
+  },
+  "expect": {
+   "ps": 2638897.76
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P2 IF97 Tab. 35 T 600 K",
+  "case": {
+   "type": "psat",
+   "T": 600,
+   "id": "RH-P2 IF97 Tab. 35 T 600 K",
+   "module": "fluid"
+  },
+  "expect": {
+   "ps": 12344314.600000001
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 298.15 K rho 998",
+  "case": {
+   "type": "visc",
+   "T": 298.15,
+   "rho": 998,
+   "id": "RH-P3 R12-08 Tab. 4 T 298.15 K rho 998",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 0.0008897350999999999
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 298.15 K rho 1200",
+  "case": {
+   "type": "visc",
+   "T": 298.15,
+   "rho": 1200,
+   "id": "RH-P3 R12-08 Tab. 4 T 298.15 K rho 1200",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 0.001437649467
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 373.15 K rho 1000",
+  "case": {
+   "type": "visc",
+   "T": 373.15,
+   "rho": 1000,
+   "id": "RH-P3 R12-08 Tab. 4 T 373.15 K rho 1000",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 0.000307883622
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 433.15 K rho 1",
+  "case": {
+   "type": "visc",
+   "T": 433.15,
+   "rho": 1,
+   "id": "RH-P3 R12-08 Tab. 4 T 433.15 K rho 1",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 1.4538323999999998e-05
+  },
+  "tol": 3.439185974944567e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 433.15 K rho 1000",
+  "case": {
+   "type": "visc",
+   "T": 433.15,
+   "rho": 1000,
+   "id": "RH-P3 R12-08 Tab. 4 T 433.15 K rho 1000",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 0.000217685358
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 873.15 K rho 1",
+  "case": {
+   "type": "visc",
+   "T": 873.15,
+   "rho": 1,
+   "id": "RH-P3 R12-08 Tab. 4 T 873.15 K rho 1",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 3.2619287e-05
+  },
+  "tol": 1.5328354663300887e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 873.15 K rho 100",
+  "case": {
+   "type": "visc",
+   "T": 873.15,
+   "rho": 100,
+   "id": "RH-P3 R12-08 Tab. 4 T 873.15 K rho 100",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 3.5802262e-05
+  },
+  "tol": 1.3965598039587554e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 873.15 K rho 600",
+  "case": {
+   "type": "visc",
+   "T": 873.15,
+   "rho": 600,
+   "id": "RH-P3 R12-08 Tab. 4 T 873.15 K rho 600",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 7.743019499999999e-05
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 1173.15 K rho 1",
+  "case": {
+   "type": "visc",
+   "T": 1173.15,
+   "rho": 1,
+   "id": "RH-P3 R12-08 Tab. 4 T 1173.15 K rho 1",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 4.4217245e-05
+  },
+  "tol": 1.1307805359650969e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 1173.15 K rho 100",
+  "case": {
+   "type": "visc",
+   "T": 1173.15,
+   "rho": 100,
+   "id": "RH-P3 R12-08 Tab. 4 T 1173.15 K rho 100",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 4.7640433e-05
+  },
+  "tol": 1.0495286640236875e-08
+ },
+ {
+  "id": "RH-P3 R12-08 Tab. 4 T 1173.15 K rho 400",
+  "case": {
+   "type": "visc",
+   "T": 1173.15,
+   "rho": 400,
+   "id": "RH-P3 R12-08 Tab. 4 T 1173.15 K rho 400",
+   "module": "fluid"
+  },
+  "expect": {
+   "mu": 6.415460799999999e-05
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 0 °C Dichte",
+  "case": {
+   "type": "water",
+   "T": 273.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 0 °C Dichte",
+   "module": "fluid"
+  },
+  "expect": {
+   "rho": 999.8
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 0 °C Viskosität",
+  "case": {
+   "type": "water",
+   "T": 273.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 0 °C Viskosität",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 1.792e-06
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 10 °C Dichte",
+  "case": {
+   "type": "water",
+   "T": 283.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 10 °C Dichte",
+   "module": "fluid"
+  },
+  "expect": {
+   "rho": 999.7
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 10 °C Viskosität",
+  "case": {
+   "type": "water",
+   "T": 283.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 10 °C Viskosität",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 1.307e-06
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 20 °C Dichte",
+  "case": {
+   "type": "water",
+   "T": 293.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 20 °C Dichte",
+   "module": "fluid"
+  },
+  "expect": {
+   "rho": 998.2
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 20 °C Viskosität",
+  "case": {
+   "type": "water",
+   "T": 293.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 20 °C Viskosität",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 1.004e-06
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 40 °C Dichte",
+  "case": {
+   "type": "water",
+   "T": 313.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 40 °C Dichte",
+   "module": "fluid"
+  },
+  "expect": {
+   "rho": 992.2
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 40 °C Viskosität",
+  "case": {
+   "type": "water",
+   "T": 313.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 40 °C Viskosität",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 6.58e-07
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 60 °C Dichte",
+  "case": {
+   "type": "water",
+   "T": 333.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 60 °C Dichte",
+   "module": "fluid"
+  },
+  "expect": {
+   "rho": 983.2
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 60 °C Viskosität",
+  "case": {
+   "type": "water",
+   "T": 333.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 60 °C Viskosität",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 4.7499999999999995e-07
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 100 °C Dichte",
+  "case": {
+   "type": "water",
+   "T": 373.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 100 °C Dichte",
+   "module": "fluid"
+  },
+  "expect": {
+   "rho": 958.4
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "RH-P4 TB 18-9 Wasser 100 °C Viskosität",
+  "case": {
+   "type": "water",
+   "T": 373.15,
+   "p": 100000.0,
+   "id": "RH-P4 TB 18-9 Wasser 100 °C Viskosität",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 2.95e-07
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P5 Roloff Bsp. 18.2 (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P5 Roloff Bsp. 18.2 (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 120156.68398791808,
+   "dpV": 22085.962897289955,
+   "dpR": 10371.75211196234,
+   "dpZ": 11714.210785327616,
+   "pA": 221481.68398791808,
+   "pMin": 101325.0,
+   "lam1": 0.018814984617914393,
+   "Re1": 262100.14620778945,
+   "v1": 1.1048052265410007,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P5 Roloff Bsp. 18.2 (Buchwerte)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P5 Roloff Bsp. 18.2 (Buchwerte)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 120062,
+   "dpGeo": 98070,
+   "P": 14293.095238095239
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "RH-P5 Roloff Bsp. 18.2 v und Re (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P5 Roloff Bsp. 18.2 v und Re (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 120156.68398791808,
+   "dpV": 22085.962897289955,
+   "dpR": 10371.75211196234,
+   "dpZ": 11714.210785327616,
+   "pA": 221481.68398791808,
+   "pMin": 101325.0,
+   "lam1": 0.018814984617914393,
+   "Re1": 262100.14620778945,
+   "v1": 1.1048052265410007,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P5 Roloff Bsp. 18.2 v und Re (Buchwerte)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P5 Roloff Bsp. 18.2 v und Re (Buchwerte)",
+   "module": "fluid"
+  },
+  "expect": {
+   "Re1": 260800,
+   "v1": 1.1
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P5 Roloff Bsp. 18.2 λ (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P5 Roloff Bsp. 18.2 λ (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 120156.68398791808,
+   "dpV": 22085.962897289955,
+   "dpR": 10371.75211196234,
+   "dpZ": 11714.210785327616,
+   "pA": 221481.68398791808,
+   "pMin": 101325.0,
+   "lam1": 0.018814984617914393,
+   "Re1": 262100.14620778945,
+   "v1": 1.1048052265410007,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P5 Roloff Bsp. 18.2 λ (Buchwerte)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P5 Roloff Bsp. 18.2 λ (Buchwerte)",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam1": 0.019
+  },
+  "tol": 0.015
+ },
+ {
+  "id": "RH-P6 Dubbel Abb. 17.16 (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.008,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 100000.0,
+     "z": 7,
+     "v0": true
+    },
+    "end": {
+     "p": 100000.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 0.5,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 35,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": -2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.05,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 13,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P6 Dubbel Abb. 17.16 (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 78238.80719242779,
+   "dpV": 96592.29239689857,
+   "dpR": 94498.32126829027,
+   "dpZ": 2093.9711286083143,
+   "pA": 178238.80719242783,
+   "pMin": 97643.65704091045,
+   "lam1": 0.019721240993877048,
+   "Re1": 127323.95447351628,
+   "v1": 1.5915494309189533,
+   "lam3": 0.019883824813923954,
+   "Re3": 169765.27263135507,
+   "v3": 2.829421210522584,
+   "lam5": 0.019883824813923954,
+   "Re5": 169765.27263135507,
+   "v5": 2.829421210522584,
+   "lam7": 0.019883824813923954,
+   "Re7": 169765.27263135507,
+   "v7": 2.829421210522584,
+   "lam9": 0.019721240993877048,
+   "Re9": 127323.95447351628,
+   "v9": 1.5915494309189533,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P6 Dubbel Abb. 17.16 (Buchwerte)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.008,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 100000.0,
+     "z": 7,
+     "v0": true
+    },
+    "end": {
+     "p": 100000.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 0.5,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 35,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": -2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.05,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 13,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P6 Dubbel Abb. 17.16 (Buchwerte)",
+   "module": "fluid"
+  },
+  "expect": {
+   "hv": 9.88,
+   "pAh": 18.21,
+   "Re1": 127200,
+   "Re3": 169800
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "RH-P6 Dubbel Abb. 17.16 λ (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.008,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 100000.0,
+     "z": 7,
+     "v0": true
+    },
+    "end": {
+     "p": 100000.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 0.5,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 35,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": -2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.05,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 13,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P6 Dubbel Abb. 17.16 λ (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 78238.80719242779,
+   "dpV": 96592.29239689857,
+   "dpR": 94498.32126829027,
+   "dpZ": 2093.9711286083143,
+   "pA": 178238.80719242783,
+   "pMin": 97643.65704091045,
+   "lam1": 0.019721240993877048,
+   "Re1": 127323.95447351628,
+   "v1": 1.5915494309189533,
+   "lam3": 0.019883824813923954,
+   "Re3": 169765.27263135507,
+   "v3": 2.829421210522584,
+   "lam5": 0.019883824813923954,
+   "Re5": 169765.27263135507,
+   "v5": 2.829421210522584,
+   "lam7": 0.019883824813923954,
+   "Re7": 169765.27263135507,
+   "v7": 2.829421210522584,
+   "lam9": 0.019721240993877048,
+   "Re9": 127323.95447351628,
+   "v9": 1.5915494309189533,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P6 Dubbel Abb. 17.16 λ (Buchwerte)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.008,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 100000.0,
+     "z": 7,
+     "v0": true
+    },
+    "end": {
+     "p": 100000.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 0.5,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 35,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": -2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.05,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 13,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.11,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 25,
+      "geom": {
+       "kind": "d",
+       "d": 0.06
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.08
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 4e-05
+      },
+      "dz": 0.0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P6 Dubbel Abb. 17.16 λ (Buchwerte)",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam1": 0.0197,
+   "lam3": 0.02
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "RH-P7 Hagen-Poiseuille Glyzerin",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "tabelle",
+      "valueId": "FV021"
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 8.333333333333334e-06,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 2,
+      "geom": {
+       "kind": "d",
+       "d": 0.01
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-06
+      },
+      "dz": 0.0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P7 Hagen-Poiseuille Glyzerin",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpV": 57951.07346543935
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-K6 Glyzerin laminar (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "tabelle",
+      "valueId": "FV021"
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 8.333333333333334e-06,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 2,
+      "geom": {
+       "kind": "d",
+       "d": 0.01
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-06
+      },
+      "dz": 0.0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-K6 Glyzerin laminar (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 57951.073465439345,
+   "dpV": 57951.073465439345,
+   "dpR": 57951.073465439345,
+   "dpZ": 0,
+   "pA": 159276.07346543935,
+   "pMin": 101325.0,
+   "lam0": 41.016633685268346,
+   "Re0": 1.5603425793323071,
+   "v0": 0.10610329539459688,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P8 Colebrook Re 4000 eps 0",
+  "case": {
+   "type": "colebrook",
+   "Re": 4000.0,
+   "eps": 0.0,
+   "id": "RH-P8 Colebrook Re 4000 eps 0",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.039907014055634904
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 4000 eps 1e-06",
+  "case": {
+   "type": "colebrook",
+   "Re": 4000.0,
+   "eps": 1e-06,
+   "id": "RH-P8 Colebrook Re 4000 eps 1e-06",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03990802670930212
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 4000 eps 0.0001",
+  "case": {
+   "type": "colebrook",
+   "Re": 4000.0,
+   "eps": 0.0001,
+   "id": "RH-P8 Colebrook Re 4000 eps 0.0001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.04000815820196251
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 4000 eps 0.001",
+  "case": {
+   "type": "colebrook",
+   "Re": 4000.0,
+   "eps": 0.001,
+   "id": "RH-P8 Colebrook Re 4000 eps 0.001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.04090771685029594
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 4000 eps 0.01",
+  "case": {
+   "type": "colebrook",
+   "Re": 4000.0,
+   "eps": 0.01,
+   "id": "RH-P8 Colebrook Re 4000 eps 0.01",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.0490596318651905
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 4000 eps 0.05",
+  "case": {
+   "type": "colebrook",
+   "Re": 4000.0,
+   "eps": 0.05,
+   "id": "RH-P8 Colebrook Re 4000 eps 0.05",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.0769039913263282
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 10000 eps 0",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 0.0,
+   "id": "RH-P8 Colebrook Re 10000 eps 0",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.030882950353487672
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 10000 eps 1e-06",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 1e-06,
+   "id": "RH-P8 Colebrook Re 10000 eps 1e-06",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03088449391976062
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 10000 eps 0.0001",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 0.0001,
+   "id": "RH-P8 Colebrook Re 10000 eps 0.0001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03103679778225583
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 10000 eps 0.001",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 0.001,
+   "id": "RH-P8 Colebrook Re 10000 eps 0.001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03237789005670989
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 10000 eps 0.01",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 0.01,
+   "id": "RH-P8 Colebrook Re 10000 eps 0.01",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.04309912738938967
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 10000 eps 0.05",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 0.05,
+   "id": "RH-P8 Colebrook Re 10000 eps 0.05",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.07371468225902218
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 100000 eps 0",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000.0,
+   "eps": 0.0,
+   "id": "RH-P8 Colebrook Re 100000 eps 0",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.017989773084273842
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 100000 eps 1e-06",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000.0,
+   "eps": 1e-06,
+   "id": "RH-P8 Colebrook Re 100000 eps 1e-06",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.017995178589031276
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 100000 eps 0.0001",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000.0,
+   "eps": 0.0001,
+   "id": "RH-P8 Colebrook Re 100000 eps 0.0001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.018512499481647092
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 100000 eps 0.001",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000.0,
+   "eps": 0.001,
+   "id": "RH-P8 Colebrook Re 100000 eps 0.001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.02216545996537981
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 100000 eps 0.01",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000.0,
+   "eps": 0.01,
+   "id": "RH-P8 Colebrook Re 100000 eps 0.01",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.038470002733361514
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 100000 eps 0.05",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000.0,
+   "eps": 0.05,
+   "id": "RH-P8 Colebrook Re 100000 eps 0.05",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.07169160654265755
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+06 eps 0",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 0.0,
+   "id": "RH-P8 Colebrook Re 1e+06 eps 0",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.011645040997991622
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+06 eps 1e-06",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 1e-06,
+   "id": "RH-P8 Colebrook Re 1e+06 eps 1e-06",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.011668093417720501
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+06 eps 0.0001",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 0.0001,
+   "id": "RH-P8 Colebrook Re 1e+06 eps 0.0001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.013437558049336376
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+06 eps 0.001",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 0.001,
+   "id": "RH-P8 Colebrook Re 1e+06 eps 0.001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.019931175126555064
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+06 eps 0.01",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 0.01,
+   "id": "RH-P8 Colebrook Re 1e+06 eps 0.01",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03793027405225593
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+06 eps 0.05",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 0.05,
+   "id": "RH-P8 Colebrook Re 1e+06 eps 0.05",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.07148413344620057
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+07 eps 0",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000000.0,
+   "eps": 0.0,
+   "id": "RH-P8 Colebrook Re 1e+07 eps 0",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.008102669430874914
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+07 eps 1e-06",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000000.0,
+   "eps": 1e-06,
+   "id": "RH-P8 Colebrook Re 1e+07 eps 1e-06",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.008212891247854263
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+07 eps 0.0001",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000000.0,
+   "eps": 0.0001,
+   "id": "RH-P8 Colebrook Re 1e+07 eps 0.0001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.012160323286045669
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+07 eps 0.001",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000000.0,
+   "eps": 0.001,
+   "id": "RH-P8 Colebrook Re 1e+07 eps 0.001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.019654222229617373
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+07 eps 0.01",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000000.0,
+   "eps": 0.01,
+   "id": "RH-P8 Colebrook Re 1e+07 eps 0.01",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.037875260125085054
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+07 eps 0.05",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000000.0,
+   "eps": 0.05,
+   "id": "RH-P8 Colebrook Re 1e+07 eps 0.05",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.07146333140598861
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+08 eps 0",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 0.0,
+   "id": "RH-P8 Colebrook Re 1e+08 eps 0",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.00594046635163676
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+08 eps 1e-06",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 1e-06,
+   "id": "RH-P8 Colebrook Re 1e+08 eps 1e-06",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.006431476909669136
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+08 eps 0.0001",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 0.0001,
+   "id": "RH-P8 Colebrook Re 1e+08 eps 0.0001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.011992946881127689
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+08 eps 0.001",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 0.001,
+   "id": "RH-P8 Colebrook Re 1e+08 eps 0.001",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.019625744817310938
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+08 eps 0.01",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 0.01,
+   "id": "RH-P8 Colebrook Re 1e+08 eps 0.01",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03786974792622209
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P8 Colebrook Re 1e+08 eps 0.05",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 0.05,
+   "id": "RH-P8 Colebrook Re 1e+08 eps 0.05",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.07146125065135943
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P9 glatt Prandtl-Kármán Re 1e6",
+  "case": {
+   "type": "colebrook",
+   "Re": 1000000.0,
+   "eps": 0.0,
+   "id": "RH-P9 glatt Prandtl-Kármán Re 1e6",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.011646540648628146
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "RH-P9 vollrau Gl. (9) eps 1e-3",
+  "case": {
+   "type": "colebrook",
+   "Re": 100000000.0,
+   "eps": 0.001,
+   "id": "RH-P9 vollrau Gl. (9) eps 1e-3",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.01961568941302011
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "RH-P9 Blasius Re 1e4",
+  "case": {
+   "type": "colebrook",
+   "Re": 10000.0,
+   "eps": 0.0,
+   "id": "RH-P9 Blasius Re 1e4",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam": 0.03164
+  },
+  "tol": 0.03
+ },
+ {
+  "id": "RH-K3 Spindelöl, Bogen, Erweiterung, Schieber (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "tabelle",
+      "valueId": "FV010"
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.0003333333333333333,
+    "g": 9.81,
+    "eta": 0.8,
+    "velocityGuideId": "VR09",
+    "start": {
+     "p": 701325.0,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 4,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS004",
+       "wall": 0.002
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG02",
+       "which": "max"
+      },
+      "dz": 0.5
+     },
+     {
+      "kind": "bogen",
+      "surface": "glatt",
+      "rd": 3,
+      "count": 2
+     },
+     {
+      "kind": "erweiterung"
+     },
+     {
+      "kind": "rohr",
+      "L": 6,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS005",
+       "wall": 0.002
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG02",
+       "which": "max"
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zeta",
+      "lossId": "LC069",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-K3 Spindelöl, Bogen, Erweiterung, Schieber (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": -584000.3692411337,
+   "dpV": 12317.879551590144,
+   "dpR": 11794.930251837544,
+   "dpZ": 522.9492997525995,
+   "pA": 117324.63075886629,
+   "pMin": 101325.0,
+   "lam0": 0.03913167809311446,
+   "Re0": 1635.5035898974475,
+   "v0": 1.4180666964428734,
+   "lam3": 0.05179857967238851,
+   "Re3": 1235.5551137653204,
+   "v3": 0.8093155767021749,
+   "dH": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P12 Borda-Carnot zwei Formen (Dubbel ζ₂ bezogen auf v₂)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "tabelle",
+      "valueId": "FV010"
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.0003333333333333333,
+    "g": 9.81,
+    "eta": 0.8,
+    "velocityGuideId": "VR09",
+    "start": {
+     "p": 701325.0,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 4,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS004",
+       "wall": 0.002
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG02",
+       "which": "max"
+      },
+      "dz": 0.5
+     },
+     {
+      "kind": "bogen",
+      "surface": "glatt",
+      "rd": 3,
+      "count": 2
+     },
+     {
+      "kind": "erweiterung"
+     },
+     {
+      "kind": "rohr",
+      "L": 6,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS005",
+       "wall": 0.002
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG02",
+       "which": "max"
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zeta",
+      "lossId": "LC069",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P12 Borda-Carnot zwei Formen (Dubbel ζ₂ bezogen auf v₂)",
+   "module": "fluid"
+  },
+  "expect": {
+   "zeta2": 0.18428340615350003
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P11 Aufgabe B ISO VG 46",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "tabelle",
+      "valueId": "FV029",
+      "rho": 870
+     },
+     "T": 313.15,
+     "p": 101325.0
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zeta",
+      "lossId": "LC040",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 15,
+      "geom": {
+       "kind": "d",
+       "d": 0.02
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0.0
+     },
+     {
+      "kind": "zeta",
+      "lossId": "LC031",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "B",
+    "dpAvail": 200000.0
+   },
+   "id": "RH-P11 Aufgabe B ISO VG 46",
+   "module": "fluid"
+  },
+  "expect": {
+   "Q": 0.0012618807368676532,
+   "backB": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P11 Aufgabe C PE SDR 11",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 293.15,
+     "p": 101325.0
+    },
+    "Q": 0.002777777777777778,
+    "g": 9.81,
+    "eta": 0.65,
+    "velocityGuideId": "VR02",
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zeta",
+      "lossId": "LC040",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 120,
+      "geom": {
+       "kind": "var"
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 7e-06
+      },
+      "dz": 6
+     },
+     {
+      "kind": "bogen",
+      "surface": "glatt",
+      "rd": 2,
+      "count": 4
+     },
+     {
+      "kind": "zeta",
+      "lossId": "LC031",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "C",
+    "dpAllow": 150000.0,
+    "select": {
+     "norm": "DIN 8074",
+     "series": "SDR 11",
+     "minWall": null
+    }
+   },
+   "id": "RH-P11 Aufgabe C PE SDR 11",
+   "module": "fluid"
+  },
+  "expect": {
+   "dMin": 0.04402946727254848,
+   "dGew": 0.0514,
+   "backC": 1.0,
+   "dpErf": 102055.28754626593
+  },
+  "tol": 1e-08
  }
 ]

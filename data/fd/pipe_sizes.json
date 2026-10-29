@@ -1,0 +1,1265 @@
+[
+ {
+  "id": "PS001",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 10.2,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS002",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 13.5,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS003",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 17.2,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS004",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 21.3,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS005",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 26.9,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS006",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 33.7,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS007",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 42.4,
+  "walls_mm": [
+   0.5,
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS008",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 48.3,
+  "walls_mm": [
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS009",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 60.3,
+  "walls_mm": [
+   0.6,
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS010",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 76.1,
+  "walls_mm": [
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS011",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 88.9,
+  "walls_mm": [
+   0.8,
+   1,
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS012",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 114.3,
+  "walls_mm": [
+   1.2,
+   1.4,
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS013",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 139.7,
+  "walls_mm": [
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS014",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 168.3,
+  "walls_mm": [
+   1.6,
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS015",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 219.1,
+  "walls_mm": [
+   1.8,
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS016",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 273,
+  "walls_mm": [
+   2,
+   2.3,
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS017",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 323.9,
+  "walls_mm": [
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS018",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 355.6,
+  "walls_mm": [
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS019",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 406.4,
+  "walls_mm": [
+   2.6,
+   2.9,
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS020",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 457,
+  "walls_mm": [
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS021",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 508,
+  "walls_mm": [
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS022",
+  "norm": "DIN EN 10220",
+  "material": "Stahl",
+  "series": "Reihe 1",
+  "d_a_mm": 610,
+  "walls_mm": [
+   3.2,
+   3.6,
+   4,
+   4.5,
+   5,
+   5.4,
+   5.6,
+   6.3,
+   7.1,
+   8,
+   8.8,
+   10,
+   11,
+   12.5,
+   14.2,
+   16,
+   17.5,
+   20
+  ],
+  "source_id": "Q225",
+  "source_locator": "Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)"
+ },
+ {
+  "id": "PS023",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 20,
+  "walls_mm": [
+   2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS024",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 25,
+  "walls_mm": [
+   2.3
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS025",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 32,
+  "walls_mm": [
+   3
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS026",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 40,
+  "walls_mm": [
+   3.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS027",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 50,
+  "walls_mm": [
+   4.6
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS028",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 63,
+  "walls_mm": [
+   5.8
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS029",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 75,
+  "walls_mm": [
+   6.8
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS030",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 90,
+  "walls_mm": [
+   8.2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS031",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 110,
+  "walls_mm": [
+   10
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS032",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 125,
+  "walls_mm": [
+   11.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS033",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 140,
+  "walls_mm": [
+   12.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS034",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 160,
+  "walls_mm": [
+   14.6
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS035",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 180,
+  "walls_mm": [
+   16.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS036",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 200,
+  "walls_mm": [
+   18.2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS037",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 225,
+  "walls_mm": [
+   20.5
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS038",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 250,
+  "walls_mm": [
+   22.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS039",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 280,
+  "walls_mm": [
+   25.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS040",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 315,
+  "walls_mm": [
+   28.6
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS041",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 355,
+  "walls_mm": [
+   32.2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS042",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 400,
+  "walls_mm": [
+   36.3
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS043",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 450,
+  "walls_mm": [
+   40.9
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS044",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 500,
+  "walls_mm": [
+   45.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS045",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 560,
+  "walls_mm": [
+   50.8
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS046",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 11",
+  "d_a_mm": 630,
+  "walls_mm": [
+   57.2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.2, S. 17"
+ },
+ {
+  "id": "PS047",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 32,
+  "walls_mm": [
+   2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS048",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 40,
+  "walls_mm": [
+   2.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS049",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 50,
+  "walls_mm": [
+   3
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS050",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 63,
+  "walls_mm": [
+   3.8
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS051",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 75,
+  "walls_mm": [
+   4.5
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS052",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 90,
+  "walls_mm": [
+   5.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS053",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 110,
+  "walls_mm": [
+   6.6
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS054",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 125,
+  "walls_mm": [
+   7.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS055",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 140,
+  "walls_mm": [
+   8.3
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS056",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 160,
+  "walls_mm": [
+   9.5
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS057",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 180,
+  "walls_mm": [
+   10.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS058",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 200,
+  "walls_mm": [
+   11.9
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS059",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 225,
+  "walls_mm": [
+   13.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS060",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 250,
+  "walls_mm": [
+   14.8
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS061",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 280,
+  "walls_mm": [
+   16.6
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS062",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 315,
+  "walls_mm": [
+   18.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS063",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 355,
+  "walls_mm": [
+   21.1
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS064",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 400,
+  "walls_mm": [
+   23.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS065",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 450,
+  "walls_mm": [
+   26.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS066",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 500,
+  "walls_mm": [
+   29.7
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS067",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 560,
+  "walls_mm": [
+   33.2
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ },
+ {
+  "id": "PS068",
+  "norm": "DIN 8074",
+  "material": "PE 100 / PE 80",
+  "series": "SDR 17",
+  "d_a_mm": 630,
+  "walls_mm": [
+   37.4
+  ],
+  "source_id": "Q224",
+  "source_locator": "Anhang A, Tab. A.1, S. 15 f."
+ }
+]

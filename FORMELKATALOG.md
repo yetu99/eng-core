@@ -1,18 +1,18 @@
-# Formelkatalog eng-core 0.10.0
+# Formelkatalog eng-core 0.11.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 393 Formeln, davon 393 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
 | gemeinsam | werkbank | Q, F, W | 96 | 96 |
 | festigkeit | werkbank | B, Z, K, T, N, D, P, V, E | 165 | 165 |
 | ashby | werkbank | A, C | 90 | 90 |
-| fluid | fachtools | RH, PU, FS | 0 | 0 |
+| fluid | fachtools | RH, PU, FS | 42 | 42 |
 | verbindungen | fachtools | SV, PV | 0 | 0 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
@@ -247,6 +247,23 @@ Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | F-TE | Formfaktor Torsion, elastisch | φ_T^e = 2π·Iₜ / A² | – | Ashby Gl. 7.8 | freigegeben (2026-10-08, Seti) |
 | F-TF | Formfaktor Torsion, Versagen | φ_T^f = 2√π·Wₜ / A^1,5 | – | Ashby Gl. 7.14 | freigegeben (2026-10-08, Seti) |
 
+## Fluid-Stoffwerte
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| FS-IF-GP | Ableitung der Gibbs-Funktion | γ_π = Σ −n_i·I_i·(7,1 − π)^(I_i−1)·(τ − 1,222)^J_i | 1 | IAPWS-IF97 (R7-97, 2012), Tab. 2 und 4 | freigegeben (2026-10-29, Seti) |
+| FS-IF-PI | Reduzierter Druck (IF97 Region 1) | π = p/16,53 MPa; τ = 1 386 K/T | 1 | IAPWS-IF97 (R7-97, 2012), Gl. (7) | freigegeben (2026-10-29, Seti) |
+| FS-IF-PS | Sättigungsdruck | p_s = 1 MPa·[2C/(−B + √(B² − 4AC))]⁴ | Pa | IAPWS-IF97 (R7-97, 2012), Gl. (30), Tab. 34 | freigegeben (2026-10-29, Seti) |
+| FS-IF-RHO | Dichte Wasser | ρ = p/(R·T·π·γ_π) | kg/m³ | IAPWS-IF97 (R7-97, 2012), Tab. 3, Gl. (1) | freigegeben (2026-10-29, Seti) |
+| FS-MAN-NU | Kinematische Viskosität (Eingabe) | ν = Eingabe | m²/s | Eingabe | freigegeben (2026-10-29, Seti) |
+| FS-MAN-RHO | Dichte (Eingabe) | ρ = Eingabe | kg/m³ | Eingabe | freigegeben (2026-10-29, Seti) |
+| FS-MU | Dynamische Viskosität Wasser | η = 1 µPa·s·μ̄_0·μ̄_1 (μ̄_2 = 1) | Pa·s | IAPWS R12-08, Gl. (10), Abschn. 3 | freigegeben (2026-10-29, Seti) |
+| FS-MU-0 | Viskosität Gasgrenze | μ̄_0 = 100·√T̄ / Σ H_i/T̄^i | 1 | IAPWS R12-08, Gl. (11), Tab. 1 | freigegeben (2026-10-29, Seti) |
+| FS-MU-1 | Viskosität Dichteeinfluss | μ̄_1 = exp[ρ̄·Σ_i (1/T̄ − 1)^i·Σ_j H_ij·(ρ̄ − 1)^j] | 1 | IAPWS R12-08, Gl. (12), Tab. 2 | freigegeben (2026-10-29, Seti) |
+| FS-NU | Kinematische Viskosität | ν = η/ρ | m²/s | Definition | freigegeben (2026-10-29, Seti) |
+| FS-TAB-NU | Kinematische Viskosität (Tabellenwert) | ν aus fd_fluid_values (mm²/s · 10⁻⁶) | m²/s | TB 18-9 (bei ca. 1 bar) (Q219) | freigegeben (2026-10-29, Seti) |
+| FS-TAB-RHO | Dichte (Tabellenwert) | ρ aus fd_fluid_values | kg/m³ | TB 18-9 (bei ca. 1 bar) (Q219) | freigegeben (2026-10-29, Seti) |
+
 ## Knicken
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -383,6 +400,41 @@ Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | Q-UP-WZ | Widerstandsmoment Biegung um z (Lage schwach) | W = I_z / max(e_o, e_u) | mm³ |  | freigegeben (2026-10-15, seti) |
 | Q-UP-YS | Schwerpunktabstand von der Stegaußenkante | y_s = [t_w²·h + 2·t_f·(b² − t_w²)] / (2A) | mm | Gross/Hauger TM 2, Kap. 4.2 | freigegeben (2026-10-15, seti) |
 
+## Rohrhydraulik
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| RH-A | Querschnitt | A = π·d²/4 | m² | Roloff 27 Gl. 18.3 | freigegeben (2026-10-29, Seti) |
+| RH-BE | Druck nach dem Element | p_2 = p_1 + ρ/2·(v_1² − v_2²) + ρ·g·(z_1 − z_2) − Δp_v | Pa | Dubbel 26 Bd. 1 Gl. (17.10) | freigegeben (2026-10-29, Seti) |
+| RH-D-BIS | Kleinster Innendurchmesser | d mit Δp_erf(d) = Δp_zul (Bisektion im log-Raum, 100 Schritte) | m | Verfahren (R7) | freigegeben (2026-10-29, Seti) |
+| RH-D-DN | Gewähltes Rohr | kleinstes Rohr mit d_i = d_a − 2·s ≥ d_min | m | Anhang A, Tab. A.2, S. 17 (Q224) | freigegeben (2026-10-29, Seti) |
+| RH-DI | Innendurchmesser | d_i = d_a − 2·s | m | DIN EN 10220 Reihe 1, Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm) | freigegeben (2026-10-29, Seti) |
+| RH-DP-ERF | Erforderliche Druckerhöhung | Δp_erf = (p_E − p_A) + Δp_geo + ρ/2·(v_E² − v_A²) + Δp_v | Pa | Dubbel 26 Bd. 1 Gl. (17.10) | freigegeben (2026-10-29, Seti) |
+| RH-DP-GEO | Höhendruck | Δp_geo = ρ·g·(z_E − z_A) | Pa | Roloff 27 Gl. 18.7 | freigegeben (2026-10-29, Seti) |
+| RH-DP-R | Reibungsdruckverlust | Δp_R = λ·(L/d)·ρ·v²/2 | Pa | Roloff 27 Gl. 18.5; VDI-WA L1.2 Gl. (1) | freigegeben (2026-10-29, Seti) |
+| RH-DP-V | Summe der Verluste | Δp_v = Σ Δp_R + Σ Δp_ζ | Pa | Roloff 27 Gl. 18.7 | freigegeben (2026-10-29, Seti) |
+| RH-DP-Z | Druckverlust | Δp_ζ = n·ζ·ρ·v_B²/2 | Pa | Roloff 27 Gl. 18.6 | freigegeben (2026-10-29, Seti) |
+| RH-EPS | relative Rauheit | ε = k/d | 1 | VDI-WA L1.2 Gl. (8) | freigegeben (2026-10-29, Seti) |
+| RH-H-E | Energiehöhe | H = p/(ρ·g) + v²/(2g) + z | m | Dubbel 26 Bd. 1 Gl. (17.10) | freigegeben (2026-10-29, Seti) |
+| RH-H-P | Druckhöhe | h_p = p/(ρ·g) | m | Dubbel 26 Bd. 1 S. 325 | freigegeben (2026-10-29, Seti) |
+| RH-HV | Verlusthöhe | h_v = Δp_v/(ρ·g) | m | Dubbel 26 Bd. 1 Gl. (17.11b) | freigegeben (2026-10-29, Seti) |
+| RH-K | Rauheit | k = k_min bzw. k_max aus fd_roughness | m | TB 18-6 (Q219) | freigegeben (2026-10-29, Seti) |
+| RH-L-CB | Rohrreibungszahl turbulent (Colebrook) | 1/√λ = −2·lg(2,51/(Re·√λ) + ε/3,71) | 1 | Roloff 27 Gl. 18.11; VDI-WA L1.2 Gl. (10) | freigegeben (2026-10-29, Seti) |
+| RH-L-EX | Rohrreibungszahl Näherung (Startwert) | λ_0 = 0,11·(ε + 68/Re)^0,25 | 1 | Roloff 27 S. 742 | freigegeben (2026-10-29, Seti) |
+| RH-L-LAM | Rohrreibungszahl laminar | λ = 64/Re | 1 | Roloff 27 Gl. 18.9; VDI-WA L1.2 Gl. (4) | freigegeben (2026-10-29, Seti) |
+| RH-N-KAV | Kavitationsgefahr (Abstand zum Dampfdruck) | p_abs,min/p_s ≥ 1 | 1 | IAPWS-IF97 Gl. (30) | freigegeben (2026-10-29, Seti) |
+| RH-N-RE | Strömungsbereich (größte Reynolds-Zahl im Strang) | Re_max = max Re_i; Re < 2 320 laminar; 2 320 ≤ Re < 4 000 Übergang; Re ≥ 4 000 turbulent | 1 | Roloff 27 S. 741; VDI-WA L1.2 | freigegeben (2026-10-29, Seti) |
+| RH-N-V | Geschwindigkeit gegen Richtwert | v_min ≤ v_max,Strang ≤ v_max | m/s | TB 18-5 (Q219) | freigegeben (2026-10-29, Seti) |
+| RH-P-HYD | Hydraulische Leistung | P_h = Δp_erf·V̇ | W | Roloff 27 S. 742 | freigegeben (2026-10-29, Seti) |
+| RH-P-W | Antriebsleistung | P = P_h/η | W | Roloff 27 S. 742 | freigegeben (2026-10-29, Seti) |
+| RH-Q-BIS | Volumenstrom bei verfügbarer Druckerhöhung | V̇ mit Δp_erf(V̇) = Δp_verf (Bisektion, 100 Schritte) | m³/s | Verfahren (R7) | freigegeben (2026-10-29, Seti) |
+| RH-RE | Reynolds-Zahl | Re = v·d/ν | 1 | Roloff 27 Gl. 18.8; VDI-WA L1.2 Gl. (2) | freigegeben (2026-10-29, Seti) |
+| RH-V | mittlere Geschwindigkeit | v = V̇/A | m/s | Roloff 27 Gl. 18.3 | freigegeben (2026-10-29, Seti) |
+| RH-Z-BC | plötzliche Erweiterung (Borda-Carnot) | ζ_1 = (1 − A_1/A_2)² | 1 | VDI-WA L1.3 Gl. (7); TB 18-7; Dubbel 26 Bd. 1 S. 324 | freigegeben (2026-10-29, Seti) |
+| RH-Z-IP | Widerstandszahl Bogen 90° (Interpolation über r/d) | ζ = ζ_a + (ζ_b − ζ_a)·(r/d − x_a)/(x_b − x_a) | 1 | TB 18-7 (Q219), linear zwischen Zeilen | freigegeben (2026-10-29, Seti) |
+| RH-Z-MAN | Widerstandszahl (Eingabe) | ζ = Eingabe | 1 | Eingabe | freigegeben (2026-10-29, Seti) |
+| RH-Z-TAB | Widerstandszahl | ζ aus fd_loss_coeff | 1 | TB 18-7 (Q219) | freigegeben (2026-10-29, Seti) |
+
 ## Torsion
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -420,10 +472,10 @@ Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.1 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.1 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 
@@ -448,3 +500,4 @@ Stand: 351 Formeln, davon 351 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 - Bemessen: Bisektion im log-Raum, 60 Schritte, Raster 1 mm (Wandstärke 0,5 mm).
 - Druckbehälter: Lamé (Zylinder, Kugel), rotationssymmetrisch, ungestörte Wand weit vom Boden, isotherm; keine Böden, Stutzen, Beulen, Wärmespannungen, plastischen Reserven, kein Normnachweis (EN 13445, AD 2000). Bemessen geschlossen bei p_a = 0, sonst Bisektion, Raster 0,5 mm.
 - Eigenfrequenz: Euler-Bernoulli-Balken, E·I und m′ = ρ·A + m_z konstant, Lagerungen KR, GG, EG, EE, starre Lager, keine Axialkraft, keine Dämpfung, Schwingung in der Lastebene; Hinweis bei L/h < 10 (Timoshenko). Wurzeln deterministisch (Einklammerung, Bisektion 80 Schritte), Einheiten N, mm, t, s. Bemessen nur formtreu.
+- Rohrhydraulik (Modul fluid, ab 0.11.0): inkompressibel, stationär, voll ausgebildet, Newton'sches Fluid, Reihenschaltung; SI-Einheiten (m, kg, s, Pa absolut, m³/s, K). Wasser nach IAPWS-IF97 Region 1 und 4 und R12-08 (μ̄₂ = 1, 0 bis 350 °C, p ≥ p_s); andere Fluide nur an Tabellentemperaturen (fd_fluid_values) oder von Hand. λ laminar 64/Re (Re < 2 320), sonst Colebrook (Newton ab Roloff-Näherung, |Δx| < 10⁻¹², Übergang 2 320 bis 4 000 mit Warnung, Re ≤ 10⁸, k/d ≤ 0,05). ζ aus TB 18-7 mit Bezugsquerschnitt, Bogen linear über r/d, plötzliche Erweiterung nach Borda-Carnot. Energiebilanz nach Dubbel Gl. (17.10); Aufgaben B und C mit Bisektion (100 Schritte). Nicht im Umfang: Gase, vermaschte Netze, Zweiphasen, Druckstoß, Pumpenkennlinie (RH b).

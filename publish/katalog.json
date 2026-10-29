@@ -1,8 +1,8 @@
 {
- "core": "0.10.0",
- "data": "WDB 1.1",
- "formulas": 351,
- "approved": 351,
+ "core": "0.11.0",
+ "data": "WDB 1.1.1",
+ "formulas": 393,
+ "approved": 393,
  "items": [
   {
    "id": "A-GR-X",
@@ -3405,6 +3405,210 @@
    "sort": 2000
   },
   {
+   "id": "FS-IF-GP",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Ableitung der Gibbs-Funktion",
+   "formula": "γ_π = Σ −n_i·I_i·(7,1 − π)^(I_i−1)·(τ − 1,222)^J_i",
+   "unit": "1",
+   "source": "IAPWS-IF97 (R7-97, 2012), Tab. 2 und 4",
+   "example": "34 Glieder nach Tab. 2 mit π = 0,00612976, τ = 4,89493",
+   "example_result": 0.12652890641,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2010
+  },
+  {
+   "id": "FS-IF-PI",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Reduzierter Druck (IF97 Region 1)",
+   "formula": "π = p/16,53 MPa; τ = 1 386 K/T",
+   "unit": "1",
+   "source": "IAPWS-IF97 (R7-97, 2012), Gl. (7)",
+   "example": "π = 0,101325/16,53 = 0,00612976; τ = 1 386/283,15 = 4,89493",
+   "example_result": 0.00612976406534,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2020
+  },
+  {
+   "id": "FS-IF-PS",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Sättigungsdruck",
+   "formula": "p_s = 1 MPa·[2C/(−B + √(B² − 4AC))]⁴",
+   "unit": "Pa",
+   "source": "IAPWS-IF97 (R7-97, 2012), Gl. (30), Tab. 34",
+   "example": "T = 283,15 K nach Gl. (29b), Tab. 34",
+   "example_result": 1228.18386934,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2030
+  },
+  {
+   "id": "FS-IF-RHO",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Dichte Wasser",
+   "formula": "ρ = p/(R·T·π·γ_π)",
+   "unit": "kg/m³",
+   "source": "IAPWS-IF97 (R7-97, 2012), Tab. 3, Gl. (1)",
+   "example": "ρ = 1,01325·10⁵/(461,526·283,15·0,00612976·0,126529)",
+   "example_result": 999.70154017,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2040
+  },
+  {
+   "id": "FS-MAN-NU",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Kinematische Viskosität (Eingabe)",
+   "formula": "ν = Eingabe",
+   "unit": "m²/s",
+   "source": "Eingabe",
+   "example": "ν = 1·10⁻⁶ m²/s",
+   "example_result": 0.000001,
+   "example_case": "RH-K2 Dubbel 26 Bd. 1 Abb. 17.16: 8 L/s, d 80/60/80 mm, k 0,04 mm, ν 10⁻⁶ m²/s, ρ 1 000 kg/m³ von Hand, Höhen 7 m und 5 m, Freistrahl",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2050
+  },
+  {
+   "id": "FS-MAN-RHO",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Dichte (Eingabe)",
+   "formula": "ρ = Eingabe",
+   "unit": "kg/m³",
+   "source": "Eingabe",
+   "example": "ρ = 1000 kg/m³",
+   "example_result": 1000,
+   "example_case": "RH-K2 Dubbel 26 Bd. 1 Abb. 17.16: 8 L/s, d 80/60/80 mm, k 0,04 mm, ν 10⁻⁶ m²/s, ρ 1 000 kg/m³ von Hand, Höhen 7 m und 5 m, Freistrahl",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2060
+  },
+  {
+   "id": "FS-MU",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Dynamische Viskosität Wasser",
+   "formula": "η = 1 µPa·s·μ̄_0·μ̄_1 (μ̄_2 = 1)",
+   "unit": "Pa·s",
+   "source": "IAPWS R12-08, Gl. (10), Abschn. 3",
+   "example": "η = 10⁻⁶·9,24232·141,296",
+   "example_result": 0.00130590142065,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2070
+  },
+  {
+   "id": "FS-MU-0",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Viskosität Gasgrenze",
+   "formula": "μ̄_0 = 100·√T̄ / Σ H_i/T̄^i",
+   "unit": "1",
+   "source": "IAPWS R12-08, Gl. (11), Tab. 1",
+   "example": "T̄ = 0,43757",
+   "example_result": 9.24232023105,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2080
+  },
+  {
+   "id": "FS-MU-1",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Viskosität Dichteeinfluss",
+   "formula": "μ̄_1 = exp[ρ̄·Σ_i (1/T̄ − 1)^i·Σ_j H_ij·(ρ̄ − 1)^j]",
+   "unit": "1",
+   "source": "IAPWS R12-08, Gl. (12), Tab. 2",
+   "example": "ρ̄ = 3,10466, T̄ = 0,43757",
+   "example_result": 141.29584217,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2090
+  },
+  {
+   "id": "FS-NU",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Kinematische Viskosität",
+   "formula": "ν = η/ρ",
+   "unit": "m²/s",
+   "source": "Definition",
+   "example": "ν = 0,0013059/999,702",
+   "example_result": 0.00000130629129613,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2100
+  },
+  {
+   "id": "FS-TAB-NU",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Kinematische Viskosität (Tabellenwert)",
+   "formula": "ν aus fd_fluid_values (mm²/s · 10⁻⁶)",
+   "unit": "m²/s",
+   "source": "TB 18-9 (bei ca. 1 bar) (Q219)",
+   "example": "FV010: ν = 15 mm²/s = 1,5·10⁻⁵ m²/s",
+   "example_result": 0.000015,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2110
+  },
+  {
+   "id": "FS-TAB-RHO",
+   "area": "Fluid-Stoffwerte",
+   "module": "fluid",
+   "quantity": "Dichte (Tabellenwert)",
+   "formula": "ρ aus fd_fluid_values",
+   "unit": "kg/m³",
+   "source": "TB 18-9 (bei ca. 1 bar) (Q219)",
+   "example": "FV010: ρ = 871 kg/m³ bei 20 °C",
+   "example_result": 871,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2120
+  },
+  {
    "id": "K-FK",
    "area": "Knicken",
    "module": "festigkeit",
@@ -3419,7 +3623,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2010
+   "sort": 2130
   },
   {
    "id": "K-LAM",
@@ -3436,7 +3640,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2020
+   "sort": 2140
   },
   {
    "id": "K-LAMT",
@@ -3453,7 +3657,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2030
+   "sort": 2150
   },
   {
    "id": "K-LK",
@@ -3470,7 +3674,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2040
+   "sort": 2160
   },
   {
    "id": "K-SKE",
@@ -3487,7 +3691,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2050
+   "sort": 2170
   },
   {
    "id": "K-SKJ",
@@ -3504,7 +3708,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2060
+   "sort": 2180
   },
   {
    "id": "N-FZUL",
@@ -3521,7 +3725,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2070
+   "sort": 2190
   },
   {
    "id": "N-SB",
@@ -3538,7 +3742,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2080
+   "sort": 2200
   },
   {
    "id": "N-SF",
@@ -3555,7 +3759,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2090
+   "sort": 2210
   },
   {
    "id": "N-SK",
@@ -3572,7 +3776,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2100
+   "sort": 2220
   },
   {
    "id": "N-SV",
@@ -3589,7 +3793,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2110
+   "sort": 2230
   },
   {
    "id": "P-BIS",
@@ -3606,7 +3810,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2120
+   "sort": 2240
   },
   {
    "id": "P-GEO",
@@ -3623,7 +3827,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2130
+   "sort": 2250
   },
   {
    "id": "P-KU-B",
@@ -3640,7 +3844,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2140
+   "sort": 2260
   },
   {
    "id": "P-KU-BI",
@@ -3657,7 +3861,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2150
+   "sort": 2270
   },
   {
    "id": "P-KU-KS",
@@ -3674,7 +3878,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2160
+   "sort": 2280
   },
   {
    "id": "P-KU-SR",
@@ -3691,7 +3895,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2170
+   "sort": 2290
   },
   {
    "id": "P-KU-ST",
@@ -3708,7 +3912,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2180
+   "sort": 2300
   },
   {
    "id": "P-KU-SV",
@@ -3725,7 +3929,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2190
+   "sort": 2310
   },
   {
    "id": "P-KU-U",
@@ -3742,7 +3946,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2200
+   "sort": 2320
   },
   {
    "id": "P-NA",
@@ -3759,7 +3963,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2210
+   "sort": 2330
   },
   {
    "id": "P-NZ",
@@ -3776,7 +3980,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2220
+   "sort": 2340
   },
   {
    "id": "P-TR",
@@ -3793,7 +3997,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2230
+   "sort": 2350
   },
   {
    "id": "P-ZY-B",
@@ -3810,7 +4014,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2240
+   "sort": 2360
   },
   {
    "id": "P-ZY-BI",
@@ -3827,7 +4031,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2250
+   "sort": 2370
   },
   {
    "id": "P-ZY-KS",
@@ -3844,7 +4048,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2260
+   "sort": 2380
   },
   {
    "id": "P-ZY-SR",
@@ -3861,7 +4065,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2270
+   "sort": 2390
   },
   {
    "id": "P-ZY-ST",
@@ -3878,7 +4082,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2280
+   "sort": 2400
   },
   {
    "id": "P-ZY-SV",
@@ -3895,7 +4099,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2290
+   "sort": 2410
   },
   {
    "id": "P-ZY-SZ",
@@ -3912,7 +4116,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2300
+   "sort": 2420
   },
   {
    "id": "P-ZY-U",
@@ -3929,7 +4133,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2310
+   "sort": 2430
   },
   {
    "id": "Q-DH-A",
@@ -3946,7 +4150,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2320
+   "sort": 2440
   },
   {
    "id": "Q-DH-ai",
@@ -3963,7 +4167,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2330
+   "sort": 2450
   },
   {
    "id": "Q-DH-I",
@@ -3980,7 +4184,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2340
+   "sort": 2460
   },
   {
    "id": "Q-DH-K",
@@ -3997,7 +4201,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2350
+   "sort": 2470
   },
   {
    "id": "Q-DH-W",
@@ -4014,7 +4218,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2360
+   "sort": 2480
   },
   {
    "id": "Q-DH-WT",
@@ -4031,7 +4235,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2370
+   "sort": 2490
   },
   {
    "id": "Q-DV-A",
@@ -4048,7 +4252,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2380
+   "sort": 2500
   },
   {
    "id": "Q-DV-e",
@@ -4065,7 +4269,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2390
+   "sort": 2510
   },
   {
    "id": "Q-DV-I",
@@ -4082,7 +4286,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2400
+   "sort": 2520
   },
   {
    "id": "Q-DV-K",
@@ -4099,7 +4303,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2410
+   "sort": 2530
   },
   {
    "id": "Q-DV-W",
@@ -4116,7 +4320,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2420
+   "sort": 2540
   },
   {
    "id": "Q-DV-WT",
@@ -4133,7 +4337,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2430
+   "sort": 2550
   },
   {
    "id": "Q-i",
@@ -4150,7 +4354,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2440
+   "sort": 2560
   },
   {
    "id": "Q-IP-A",
@@ -4167,7 +4371,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2450
+   "sort": 2570
   },
   {
    "id": "Q-IP-IY",
@@ -4184,7 +4388,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2460
+   "sort": 2580
   },
   {
    "id": "Q-IP-IZ",
@@ -4201,7 +4405,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2470
+   "sort": 2590
   },
   {
    "id": "Q-IP-K",
@@ -4218,7 +4422,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2480
+   "sort": 2600
   },
   {
    "id": "Q-IP-KA",
@@ -4235,7 +4439,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2490
+   "sort": 2610
   },
   {
    "id": "Q-IP-KAZ",
@@ -4252,7 +4456,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2500
+   "sort": 2620
   },
   {
    "id": "Q-IP-S",
@@ -4269,7 +4473,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2510
+   "sort": 2630
   },
   {
    "id": "Q-IP-SZ",
@@ -4286,7 +4490,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2520
+   "sort": 2640
   },
   {
    "id": "Q-IP-W",
@@ -4303,7 +4507,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2530
+   "sort": 2650
   },
   {
    "id": "Q-IP-WT",
@@ -4320,7 +4524,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2540
+   "sort": 2660
   },
   {
    "id": "Q-IP-WZ",
@@ -4337,7 +4541,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2550
+   "sort": 2670
   },
   {
    "id": "Q-LP-A",
@@ -4354,7 +4558,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2560
+   "sort": 2680
   },
   {
    "id": "Q-LP-AL",
@@ -4371,7 +4575,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2570
+   "sort": 2690
   },
   {
    "id": "Q-LP-I1",
@@ -4388,7 +4592,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2580
+   "sort": 2700
   },
   {
    "id": "Q-LP-I2",
@@ -4405,7 +4609,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2590
+   "sort": 2710
   },
   {
    "id": "Q-LP-IY",
@@ -4422,7 +4626,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2600
+   "sort": 2720
   },
   {
    "id": "Q-LP-IYZ",
@@ -4439,7 +4643,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2610
+   "sort": 2730
   },
   {
    "id": "Q-LP-IZ",
@@ -4456,7 +4660,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2620
+   "sort": 2740
   },
   {
    "id": "Q-LP-K",
@@ -4473,7 +4677,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2630
+   "sort": 2750
   },
   {
    "id": "Q-LP-KA",
@@ -4490,7 +4694,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2640
+   "sort": 2760
   },
   {
    "id": "Q-LP-S",
@@ -4507,7 +4711,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2650
+   "sort": 2770
   },
   {
    "id": "Q-LP-W",
@@ -4524,7 +4728,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2660
+   "sort": 2780
   },
   {
    "id": "Q-LP-WT",
@@ -4541,7 +4745,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2670
+   "sort": 2790
   },
   {
    "id": "Q-LP-YS",
@@ -4558,7 +4762,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2680
+   "sort": 2800
   },
   {
    "id": "Q-LP-ZS",
@@ -4575,7 +4779,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2690
+   "sort": 2810
   },
   {
    "id": "Q-m",
@@ -4592,7 +4796,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2700
+   "sort": 2820
   },
   {
    "id": "Q-RE-A",
@@ -4609,7 +4813,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2710
+   "sort": 2830
   },
   {
    "id": "Q-RE-I",
@@ -4626,7 +4830,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2720
+   "sort": 2840
   },
   {
    "id": "Q-RE-K",
@@ -4643,7 +4847,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2730
+   "sort": 2850
   },
   {
    "id": "Q-RE-W",
@@ -4660,7 +4864,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2740
+   "sort": 2860
   },
   {
    "id": "Q-RE-WT",
@@ -4677,7 +4881,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2750
+   "sort": 2870
   },
   {
    "id": "Q-RH-A",
@@ -4694,7 +4898,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2760
+   "sort": 2880
   },
   {
    "id": "Q-RH-d",
@@ -4711,7 +4915,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2770
+   "sort": 2890
   },
   {
    "id": "Q-RH-I",
@@ -4728,7 +4932,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2780
+   "sort": 2900
   },
   {
    "id": "Q-RH-K",
@@ -4745,7 +4949,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2790
+   "sort": 2910
   },
   {
    "id": "Q-RH-W",
@@ -4762,7 +4966,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2800
+   "sort": 2920
   },
   {
    "id": "Q-RH-WT",
@@ -4779,7 +4983,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2810
+   "sort": 2930
   },
   {
    "id": "Q-RR-A",
@@ -4796,7 +5000,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2820
+   "sort": 2940
   },
   {
    "id": "Q-RR-AM",
@@ -4813,7 +5017,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2830
+   "sort": 2950
   },
   {
    "id": "Q-RR-I",
@@ -4830,7 +5034,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2840
+   "sort": 2960
   },
   {
    "id": "Q-RR-K",
@@ -4847,7 +5051,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2850
+   "sort": 2970
   },
   {
    "id": "Q-RR-W",
@@ -4864,7 +5068,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2860
+   "sort": 2980
   },
   {
    "id": "Q-RR-WT",
@@ -4881,7 +5085,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2870
+   "sort": 2990
   },
   {
    "id": "Q-RV-A",
@@ -4898,7 +5102,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2880
+   "sort": 3000
   },
   {
    "id": "Q-RV-I",
@@ -4915,7 +5119,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2890
+   "sort": 3010
   },
   {
    "id": "Q-RV-K",
@@ -4932,7 +5136,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2900
+   "sort": 3020
   },
   {
    "id": "Q-RV-W",
@@ -4949,7 +5153,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2910
+   "sort": 3030
   },
   {
    "id": "Q-RV-WT",
@@ -4966,7 +5170,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2920
+   "sort": 3040
   },
   {
    "id": "Q-SIGO",
@@ -4983,7 +5187,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2930
+   "sort": 3050
   },
   {
    "id": "Q-SIGU",
@@ -5000,7 +5204,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2940
+   "sort": 3060
   },
   {
    "id": "Q-TP-A",
@@ -5017,7 +5221,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2950
+   "sort": 3070
   },
   {
    "id": "Q-TP-IY",
@@ -5034,7 +5238,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2960
+   "sort": 3080
   },
   {
    "id": "Q-TP-IZ",
@@ -5051,7 +5255,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2970
+   "sort": 3090
   },
   {
    "id": "Q-TP-K",
@@ -5068,7 +5272,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2980
+   "sort": 3100
   },
   {
    "id": "Q-TP-KA",
@@ -5085,7 +5289,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2990
+   "sort": 3110
   },
   {
    "id": "Q-TP-S",
@@ -5102,7 +5306,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3000
+   "sort": 3120
   },
   {
    "id": "Q-TP-W",
@@ -5119,7 +5323,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3010
+   "sort": 3130
   },
   {
    "id": "Q-TP-WT",
@@ -5136,7 +5340,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3020
+   "sort": 3140
   },
   {
    "id": "Q-TP-ZS",
@@ -5153,7 +5357,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3030
+   "sort": 3150
   },
   {
    "id": "Q-UP-A",
@@ -5170,7 +5374,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3040
+   "sort": 3160
   },
   {
    "id": "Q-UP-EM",
@@ -5187,7 +5391,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3050
+   "sort": 3170
   },
   {
    "id": "Q-UP-IY",
@@ -5204,7 +5408,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3060
+   "sort": 3180
   },
   {
    "id": "Q-UP-IZ",
@@ -5221,7 +5425,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3070
+   "sort": 3190
   },
   {
    "id": "Q-UP-K",
@@ -5238,7 +5442,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3080
+   "sort": 3200
   },
   {
    "id": "Q-UP-KA",
@@ -5255,7 +5459,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3090
+   "sort": 3210
   },
   {
    "id": "Q-UP-KAZ",
@@ -5272,7 +5476,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3100
+   "sort": 3220
   },
   {
    "id": "Q-UP-S",
@@ -5289,7 +5493,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3110
+   "sort": 3230
   },
   {
    "id": "Q-UP-SZ",
@@ -5306,7 +5510,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3120
+   "sort": 3240
   },
   {
    "id": "Q-UP-W",
@@ -5323,7 +5527,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3130
+   "sort": 3250
   },
   {
    "id": "Q-UP-WT",
@@ -5340,7 +5544,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3140
+   "sort": 3260
   },
   {
    "id": "Q-UP-WZ",
@@ -5357,7 +5561,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3150
+   "sort": 3270
   },
   {
    "id": "Q-UP-YS",
@@ -5374,7 +5578,517 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3160
+   "sort": 3280
+  },
+  {
+   "id": "RH-A",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Querschnitt",
+   "formula": "A = π·d²/4",
+   "unit": "m²",
+   "source": "Roloff 27 Gl. 18.3",
+   "example": "Druckleitung: A = π·0,3099²/4",
+   "example_result": 0.0754280766703,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3290
+  },
+  {
+   "id": "RH-BE",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Druck nach dem Element",
+   "formula": "p_2 = p_1 + ρ/2·(v_1² − v_2²) + ρ·g·(z_1 − z_2) − Δp_v",
+   "unit": "Pa",
+   "source": "Dubbel 26 Bd. 1 Gl. (17.10)",
+   "example": "Einlauf vorstehend: p = 2,21482·10⁵ + 999,702/2·(0² − 1,10481²) + 999,702·9,81·(0 − 0) − 1830,35",
+   "example_result": 219041.223408,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3300
+  },
+  {
+   "id": "RH-D-BIS",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Kleinster Innendurchmesser",
+   "formula": "d mit Δp_erf(d) = Δp_zul (Bisektion im log-Raum, 100 Schritte)",
+   "unit": "m",
+   "source": "Verfahren (R7)",
+   "example": "Δp_zul = 1,5·10⁵ Pa, Restfehler -1,16·10⁻¹⁰ Pa",
+   "example_result": 0.0440294672725,
+   "example_case": "RH-K5 Wasser 20 °C, 10 m³/h, PE SDR 11 (DIN 8074) gesucht, L 120 m, k 0,007 mm von Hand, Δz 6 m, Δp_zul 1,5 bar, Richtwert Hauptleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3310
+  },
+  {
+   "id": "RH-D-DN",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Gewähltes Rohr",
+   "formula": "kleinstes Rohr mit d_i = d_a − 2·s ≥ d_min",
+   "unit": "m",
+   "source": "Anhang A, Tab. A.2, S. 17 (Q224)",
+   "example": "DIN 8074 SDR 11 63 × 5,8 mm: d_i = 51,4 mm ≥ 44,0295 mm",
+   "example_result": 0.0514,
+   "example_case": "RH-K5 Wasser 20 °C, 10 m³/h, PE SDR 11 (DIN 8074) gesucht, L 120 m, k 0,007 mm von Hand, Δz 6 m, Δp_zul 1,5 bar, Richtwert Hauptleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3320
+  },
+  {
+   "id": "RH-DI",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Innendurchmesser",
+   "formula": "d_i = d_a − 2·s",
+   "unit": "m",
+   "source": "DIN EN 10220 Reihe 1, Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm)",
+   "example": "Rohr 1: d_i = 21,3 − 2·2 = 17,3 mm",
+   "example_result": 0.0173,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3330
+  },
+  {
+   "id": "RH-DP-ERF",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Erforderliche Druckerhöhung",
+   "formula": "Δp_erf = (p_E − p_A) + Δp_geo + ρ/2·(v_E² − v_A²) + Δp_v",
+   "unit": "Pa",
+   "source": "Dubbel 26 Bd. 1 Gl. (17.10)",
+   "example": "Δp_erf = (1,01325·10⁵ − 1,01325·10⁵) + 98070,7 + 999,702/2·(0² − 0²) + 22086",
+   "example_result": 120156.683988,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3340
+  },
+  {
+   "id": "RH-DP-GEO",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Höhendruck",
+   "formula": "Δp_geo = ρ·g·(z_E − z_A)",
+   "unit": "Pa",
+   "source": "Roloff 27 Gl. 18.7",
+   "example": "Δp_geo = 999,702·9,81·(10 − 0)",
+   "example_result": 98070.7210906,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3350
+  },
+  {
+   "id": "RH-DP-R",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Reibungsdruckverlust",
+   "formula": "Δp_R = λ·(L/d)·ρ·v²/2",
+   "unit": "Pa",
+   "source": "Roloff 27 Gl. 18.5; VDI-WA L1.2 Gl. (1)",
+   "example": "Druckleitung: Δp_R = 0,018815·(280/0,3099)·999,702·1,10481²/2",
+   "example_result": 10371.752112,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3360
+  },
+  {
+   "id": "RH-DP-V",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Summe der Verluste",
+   "formula": "Δp_v = Σ Δp_R + Σ Δp_ζ",
+   "unit": "Pa",
+   "source": "Roloff 27 Gl. 18.7",
+   "example": "Δp_v = 10371,8 + 11714,2",
+   "example_result": 22085.9628973,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3370
+  },
+  {
+   "id": "RH-DP-Z",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Druckverlust",
+   "formula": "Δp_ζ = n·ζ·ρ·v_B²/2",
+   "unit": "Pa",
+   "source": "Roloff 27 Gl. 18.6",
+   "example": "Einlauf vorstehend: Δp_ζ = 1·3·999,702·1,10481²/2",
+   "example_result": 1830.34543521,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3380
+  },
+  {
+   "id": "RH-EPS",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "relative Rauheit",
+   "formula": "ε = k/d",
+   "unit": "1",
+   "source": "VDI-WA L1.2 Gl. (8)",
+   "example": "Druckleitung: ε = 1,8·10⁻⁴/0,3099",
+   "example_result": 0.000580832526621,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3390
+  },
+  {
+   "id": "RH-H-E",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Energiehöhe",
+   "formula": "H = p/(ρ·g) + v²/(2g) + z",
+   "unit": "m",
+   "source": "Dubbel 26 Bd. 1 Gl. (17.10)",
+   "example": "Anfang: H = 22,5839 + 0²/(2·9,81) + 0",
+   "example_result": 22.583874323,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3400
+  },
+  {
+   "id": "RH-H-P",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Druckhöhe",
+   "formula": "h_p = p/(ρ·g)",
+   "unit": "m",
+   "source": "Dubbel 26 Bd. 1 S. 325",
+   "example": "Anfang: h_p = 2,21482·10⁵/(999,702·9,81)",
+   "example_result": 22.583874323,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3410
+  },
+  {
+   "id": "RH-HV",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Verlusthöhe",
+   "formula": "h_v = Δp_v/(ρ·g)",
+   "unit": "m",
+   "source": "Dubbel 26 Bd. 1 Gl. (17.11b)",
+   "example": "h_v = 22086/(999,702·9,81)",
+   "example_result": 2.25204450948,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3420
+  },
+  {
+   "id": "RH-K",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Rauheit",
+   "formula": "k = k_min bzw. k_max aus fd_roughness",
+   "unit": "m",
+   "source": "TB 18-6 (Q219)",
+   "example": "Druckleitung: k_max, RG10 neue Stahlrohre mit Überzug, zementiert: k = 0,18 mm",
+   "example_result": 0.00018,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3430
+  },
+  {
+   "id": "RH-L-CB",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Rohrreibungszahl turbulent (Colebrook)",
+   "formula": "1/√λ = −2·lg(2,51/(Re·√λ) + ε/3,71)",
+   "unit": "1",
+   "source": "Roloff 27 Gl. 18.11; VDI-WA L1.2 Gl. (10)",
+   "example": "Druckleitung: Newton ab λ_0, 3 Schritte, Restfehler 0",
+   "example_result": 0.0188149846179,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3440
+  },
+  {
+   "id": "RH-L-EX",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Rohrreibungszahl Näherung (Startwert)",
+   "formula": "λ_0 = 0,11·(ε + 68/Re)^0,25",
+   "unit": "1",
+   "source": "Roloff 27 S. 742",
+   "example": "Druckleitung: λ_0 = 0,11·(5,80833·10⁻⁴ + 68/2,621·10⁵)^0,25",
+   "example_result": 0.0187282884667,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3450
+  },
+  {
+   "id": "RH-L-LAM",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Rohrreibungszahl laminar",
+   "formula": "λ = 64/Re",
+   "unit": "1",
+   "source": "Roloff 27 Gl. 18.9; VDI-WA L1.2 Gl. (4)",
+   "example": "Rohr 1: λ = 64/1635,5",
+   "example_result": 0.0391316780931,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3460
+  },
+  {
+   "id": "RH-N-KAV",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Kavitationsgefahr (Abstand zum Dampfdruck)",
+   "formula": "p_abs,min/p_s ≥ 1",
+   "unit": "1",
+   "source": "IAPWS-IF97 Gl. (30)",
+   "example": "p_abs,min/p_s = 1,01325·10⁵ Pa/1228,18 Pa = 82,5 ≥ 1: keine Kavitation",
+   "example_result": 82.4998622189,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3470
+  },
+  {
+   "id": "RH-N-RE",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Strömungsbereich (größte Reynolds-Zahl im Strang)",
+   "formula": "Re_max = max Re_i; Re < 2 320 laminar; 2 320 ≤ Re < 4 000 Übergang; Re ≥ 4 000 turbulent",
+   "unit": "1",
+   "source": "Roloff 27 S. 741; VDI-WA L1.2",
+   "example": "Re_min = 2,621·10⁵, Re_max = 2,621·10⁵: turbulent",
+   "example_result": 262100.146208,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3480
+  },
+  {
+   "id": "RH-N-V",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Geschwindigkeit gegen Richtwert",
+   "formula": "v_min ≤ v_max,Strang ≤ v_max",
+   "unit": "m/s",
+   "source": "TB 18-5 (Q219)",
+   "example": "1 ≤ 1,41807 ≤ 2 m/s: ja",
+   "example_result": 1.41806669644,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3490
+  },
+  {
+   "id": "RH-P-HYD",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Hydraulische Leistung",
+   "formula": "P_h = Δp_erf·V̇",
+   "unit": "W",
+   "source": "Roloff 27 S. 742",
+   "example": "P_h = 1,20157·10⁵·0,0833333",
+   "example_result": 10013.056999,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3500
+  },
+  {
+   "id": "RH-P-W",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Antriebsleistung",
+   "formula": "P = P_h/η",
+   "unit": "W",
+   "source": "Roloff 27 S. 742",
+   "example": "P = 10013,1/0,7",
+   "example_result": 14304.3671414,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3510
+  },
+  {
+   "id": "RH-Q-BIS",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Volumenstrom bei verfügbarer Druckerhöhung",
+   "formula": "V̇ mit Δp_erf(V̇) = Δp_verf (Bisektion, 100 Schritte)",
+   "unit": "m³/s",
+   "source": "Verfahren (R7)",
+   "example": "Δp_verf = 2·10⁵ Pa, Restfehler -1,16·10⁻¹⁰ Pa",
+   "example_result": 0.00126188073687,
+   "example_case": "RH-K4 Hydrauliköl ISO VG 46 bei 40 °C (ρ 870 kg/m³ von Hand), verfügbare Druckerhöhung 2 bar, d 20 mm, L 15 m, k 0,01 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3520
+  },
+  {
+   "id": "RH-RE",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Reynolds-Zahl",
+   "formula": "Re = v·d/ν",
+   "unit": "1",
+   "source": "Roloff 27 Gl. 18.8; VDI-WA L1.2 Gl. (2)",
+   "example": "Druckleitung: Re = 1,10481·0,3099/1,30629·10⁻⁶",
+   "example_result": 262100.146208,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3530
+  },
+  {
+   "id": "RH-V",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "mittlere Geschwindigkeit",
+   "formula": "v = V̇/A",
+   "unit": "m/s",
+   "source": "Roloff 27 Gl. 18.3",
+   "example": "Druckleitung: v = 0,0833333/0,0754281",
+   "example_result": 1.10480522654,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3540
+  },
+  {
+   "id": "RH-Z-BC",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "plötzliche Erweiterung (Borda-Carnot)",
+   "formula": "ζ_1 = (1 − A_1/A_2)²",
+   "unit": "1",
+   "source": "VDI-WA L1.3 Gl. (7); TB 18-7; Dubbel 26 Bd. 1 S. 324",
+   "example": "Erweiterung 3: ζ_1 = (1 − 2,35062·10⁻⁴/4,11871·10⁻⁴)²",
+   "example_result": 0.184283406153,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3550
+  },
+  {
+   "id": "RH-Z-IP",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Widerstandszahl Bogen 90° (Interpolation über r/d)",
+   "formula": "ζ = ζ_a + (ζ_b − ζ_a)·(r/d − x_a)/(x_b − x_a)",
+   "unit": "1",
+   "source": "TB 18-7 (Q219), linear zwischen Zeilen",
+   "example": "Bogen 2 (glatt): LC014/LC015: ζ = 0,14 + (0,11 − 0,14)·(3 − 2)/(4 − 2)",
+   "example_result": 0.125,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3560
+  },
+  {
+   "id": "RH-Z-MAN",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Widerstandszahl (Eingabe)",
+   "formula": "ζ = Eingabe",
+   "unit": "1",
+   "source": "Eingabe",
+   "example": "Einlauf vorstehend: ζ_2 = 3",
+   "example_result": 3,
+   "example_case": "RH-K1 Roloff/Matek 27 Bsp. 18.2: Wasser 10 °C, 300 m³/h, d_i 309,9 mm, L 280 m, k 0,18 mm (zementiert), Σζ 19,2 von Hand, Δz 10 m, η 0,7",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3570
+  },
+  {
+   "id": "RH-Z-TAB",
+   "area": "Rohrhydraulik",
+   "module": "fluid",
+   "quantity": "Widerstandszahl",
+   "formula": "ζ aus fd_loss_coeff",
+   "unit": "1",
+   "source": "TB 18-7 (Q219)",
+   "example": "Element 5: LC069 Schieber, DN 20…25: ζ = 0,5",
+   "example_result": 0.5,
+   "example_case": "RH-K3 Spindelöl 20 °C (TB 18-9), 20 L/min, Stahlrohr EN 10220 21,3 × 2, Bogen glatt r/d 3, Erweiterung auf 26,9 × 2, Schieber DN 20…25, Richtwert Ölleitung",
+   "status": "freigegeben",
+   "approved_at": "2026-10-29",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3580
   },
   {
    "id": "T-PHI1",
@@ -5391,7 +6105,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3170
+   "sort": 3590
   },
   {
    "id": "T-PHI2",
@@ -5408,7 +6122,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3180
+   "sort": 3600
   },
   {
    "id": "T-TA",
@@ -5425,7 +6139,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3190
+   "sort": 3610
   },
   {
    "id": "T-TAU",
@@ -5442,7 +6156,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3200
+   "sort": 3620
   },
   {
    "id": "V-B",
@@ -5459,7 +6173,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3210
+   "sort": 3630
   },
   {
    "id": "V-BL",
@@ -5476,7 +6190,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3220
+   "sort": 3640
   },
   {
    "id": "V-CK-EE",
@@ -5493,7 +6207,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3230
+   "sort": 3650
   },
   {
    "id": "V-CK-EG",
@@ -5510,7 +6224,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3240
+   "sort": 3660
   },
   {
    "id": "V-CK-GG",
@@ -5527,7 +6241,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3250
+   "sort": 3670
   },
   {
    "id": "V-CK-KR",
@@ -5544,7 +6258,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3260
+   "sort": 3680
   },
   {
    "id": "V-EI",
@@ -5561,7 +6275,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3270
+   "sort": 3690
   },
   {
    "id": "V-EW",
@@ -5578,7 +6292,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3280
+   "sort": 3700
   },
   {
    "id": "V-FN",
@@ -5595,7 +6309,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3290
+   "sort": 3710
   },
   {
    "id": "V-MB",
@@ -5612,7 +6326,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 3300
+   "sort": 3720
   },
   {
    "id": "V-NR",
@@ -5629,7 +6343,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3310
+   "sort": 3730
   },
   {
    "id": "V-NZ",
@@ -5646,7 +6360,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3320
+   "sort": 3740
   },
   {
    "id": "V-OM",
@@ -5663,7 +6377,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3330
+   "sort": 3750
   },
   {
    "id": "V-PH-EE",
@@ -5680,7 +6394,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3340
+   "sort": 3760
   },
   {
    "id": "V-PH-EG",
@@ -5697,7 +6411,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3350
+   "sort": 3770
   },
   {
    "id": "V-PH-GG",
@@ -5714,7 +6428,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3360
+   "sort": 3780
   },
   {
    "id": "V-PH-KR",
@@ -5731,7 +6445,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3370
+   "sort": 3790
   },
   {
    "id": "V-RQ",
@@ -5748,7 +6462,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3380
+   "sort": 3800
   },
   {
    "id": "W-BB",
@@ -5765,7 +6479,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3390
+   "sort": 3810
   },
   {
    "id": "W-E",
@@ -5774,7 +6488,7 @@
    "quantity": "E-Modul",
    "formula": "E (Werkstoffdatenbank, Standardvariante)",
    "unit": "MPa",
-   "source": "WDB 1.1",
+   "source": "WDB 1.1.1",
    "example": "70 GPa",
    "example_result": 70000,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -5782,7 +6496,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3400
+   "sort": 3820
   },
   {
    "id": "W-G",
@@ -5799,7 +6513,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 3410
+   "sort": 3830
   },
   {
    "id": "W-G-DB",
@@ -5816,7 +6530,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3420
+   "sort": 3840
   },
   {
    "id": "W-RHO",
@@ -5825,7 +6539,7 @@
    "quantity": "Dichte",
    "formula": "ρ (Werkstoffdatenbank)",
    "unit": "kg/m³",
-   "source": "WDB 1.1",
+   "source": "WDB 1.1.1",
    "example": "2700 kg/m³",
    "example_result": 2700,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -5833,7 +6547,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3430
+   "sort": 3850
   },
   {
    "id": "W-RM",
@@ -5850,7 +6564,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3440
+   "sort": 3860
   },
   {
    "id": "W-RP",
@@ -5867,7 +6581,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3450
+   "sort": 3870
   },
   {
    "id": "Z-DL",
@@ -5884,7 +6598,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3460
+   "sort": 3880
   },
   {
    "id": "Z-DL2",
@@ -5901,7 +6615,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3470
+   "sort": 3890
   },
   {
    "id": "Z-NMAX",
@@ -5918,7 +6632,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3480
+   "sort": 3900
   },
   {
    "id": "Z-QG",
@@ -5935,7 +6649,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3490
+   "sort": 3910
   },
   {
    "id": "Z-SIG",
@@ -5952,7 +6666,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3500
+   "sort": 3920
   },
   {
    "id": "Z-SIG2",
@@ -5969,7 +6683,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3510
+   "sort": 3930
   }
  ]
 }

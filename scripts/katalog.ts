@@ -8,6 +8,8 @@ import { readFileSync, existsSync } from "node:fs";
 import { FATIGUE_DEFAULT, type FatigueInput, LOADLIST_SUPPORTS, PRESSURE_CASES, VIBRATION_CASES, isPressureCase, isVibrationCase, pressureText, vibrationText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexSpecs, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
 import { moduleOfId, type ModuleId } from "../src/modules";
+import { computeLine, fdRepo, FD_VERSION } from "../src/index";
+import { fluidFaelle } from "./fluid-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -130,6 +132,12 @@ export function collectCatalog(): CatalogEntry[] {
   const bText = `Schritt 6, Grundlage ${caseText(base)}; α 5 €/kg`;
   mc.basisTrace.forEach((s) => take(s, bText));
   mc.rows.forEach((r) => r.trace.forEach((s) => take(s, `${bText}; ${r.m.name} (${r.m.id})`)));
+  // Rohrhydraulik (0.11.0, Modul fluid): Beispielfälle aus scripts/fluid-faelle.ts, Literaturfälle zuerst
+  for (const f of fluidFaelle()) {
+    const r = computeLine(fdRepo, f.inp, f.task);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
+  }
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));
 }
 
@@ -146,5 +154,5 @@ export function effectiveStatus(e: CatalogEntry, st: FormulaStatus | undefined):
 }
 
 if (process.argv.includes("--json")) {
-  process.stdout.write(JSON.stringify({ coreVersion: CORE_VERSION, dataVersion: DATA_VERSION, entries: collectCatalog(), status: readStatus() }));
+  process.stdout.write(JSON.stringify({ coreVersion: CORE_VERSION, dataVersion: DATA_VERSION, fdVersion: FD_VERSION, entries: collectCatalog(), status: readStatus() }));
 }

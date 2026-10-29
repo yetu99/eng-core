@@ -1,5 +1,34 @@
 {
- "release": null,
+ "release": {
+  "version": "fd 1.0",
+  "released_at": "2026-10-29T11:32:15.291899+00:00",
+  "title": "Rohrhydraulik: Fluide, Rauheit, Widerstandszahlen, Rohrmaße, Geschwindigkeiten"
+ },
  "source": "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
- "files": {}
+ "files": {
+  "fluids": {
+   "rows": 21,
+   "sha256": "1c04b5fe0d530b593498f71d11f6887a820f14a58a5dbbd3da7d9aa32bd99d0f"
+  },
+  "fluid_values": {
+   "rows": 32,
+   "sha256": "5a0a7248e619919c7d2edaf28430a0758c4f69d7268d359960b7f625acbfef25"
+  },
+  "roughness": {
+   "rows": 20,
+   "sha256": "d9c1cdda3b076fe1e3ea7802cb720627f137dff899773188f69beff24399d907"
+  },
+  "loss_coeff": {
+   "rows": 87,
+   "sha256": "5029cb7061e12c124854deaa0e5480f648c78ceb3c757f2ea0992c2fc047a510"
+  },
+  "pipe_sizes": {
+   "rows": 68,
+   "sha256": "7d4463148956cff4c6f6f40a2ae3597c98903e1cfbb509535312123b91431249"
+  },
+  "velocity_guide": {
+   "rows": 20,
+   "sha256": "c1e68b2d1b59cdc790c21ee24fd83797f18e4205af807cd6e684280d0a627133"
+  }
+ }
 }

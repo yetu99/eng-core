@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "WDB 1.1",
-  "released_at": "2026-10-27T14:00:33.57072+00:00",
-  "title": "Schwingfestigkeit: Wechselfestigkeiten und Zugschwellfestigkeit"
+  "version": "WDB 1.1.1",
+  "released_at": "2026-10-29T11:32:15.291899+00:00",
+  "title": "Quellen Fachtools Rohrhydraulik"
  },
  "source": "Supabase Kompendium, Tabellen wa_* (eng-core scripts/pull-data.mjs)",
  "files": {
@@ -23,8 +23,8 @@
    "sha256": "b9730a6e17a011dca632b2a1bf0dab28c43974b3533c20c1dce1c3e6000517b6"
   },
   "sources": {
-   "rows": 222,
-   "sha256": "417575c16a7071f5cb53018ce1e25229a58316219e26010e334ddc31e317b212"
+   "rows": 228,
+   "sha256": "0f90b2df20083509049c3d6f620c2e8a77aa878224eefb55c1eb11d60cf70fe0"
   },
   "processes": {
    "rows": 16,

@@ -39,7 +39,7 @@ from pathlib import Path
 
 from openpyxl import Workbook, load_workbook
 from openpyxl.formatting.rule import FormulaRule
-from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+from openpyxl.styles import Alignment, Border, Font, PatternFill, Protection, Side
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
@@ -151,6 +151,9 @@ def export(out: Path, only_open: bool = False, modules: list[str] | None = None)
     write_sheet(ws, cat, entries, status)
     write_guide(wb.create_sheet("Anleitung"), cat)
     wb.active = 0
+    wb.properties.title = f"Formelfreigabe eng-core {cat['coreVersion']}" + (f" ({', '.join(cat['modules'])})" if cat.get("modules") else "")
+    wb.properties.subject = f"{len(entries)} Formeln, exportiert {dt.date.today().isoformat()}"
+    wb.properties.creator = "eng-core scripts/formelfreigabe.py"
     out.parent.mkdir(parents=True, exist_ok=True)
     wb.save(out)
     print(f"{out.relative_to(ROOT) if out.is_relative_to(ROOT) else out}: {len(entries)} Formeln exportiert")
@@ -160,7 +163,10 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
     today = dt.date.today().strftime("%d.%m.%Y")
     ws["A1"] = f"Formelfreigabe eng-core {cat['coreVersion']}" + (f" · Module {', '.join(cat['modules'])}" if cat.get("modules") else "")
     ws["A1"].font = F_TITLE
-    ws["A2"] = f"Datenstand {cat['dataVersion']} · exportiert am {today} · nur gelbe Spalten ausfüllen, Anleitung im zweiten Blatt"
+    reg = json.loads((ROOT / "src" / "modules.json").read_text(encoding="utf-8"))["modules"]
+    uses_fd = any(reg.get(e["module"], {}).get("fd") for e in entries)
+    fd = f" · Fachdaten {cat.get('fdVersion') or '–'}" if uses_fd else ""
+    ws["A2"] = f"Datenstand Werkstoffdaten {cat['dataVersion']}{fd} · exportiert am {today} · nur gelbe Spalten ausfüllen, Anleitung im zweiten Blatt"
     ws["A2"].font = F_MUTED
     head_row, first = 5, 6
 
@@ -211,6 +217,7 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
             c.alignment = WRAP if key in ("title", "formula", "exSubst", "ref", "exCase", "in_kommentar") else TOP
             if key in INPUT_KEYS:
                 c.fill = FILL_INPUT
+                c.protection = Protection(locked=False)
         ws.cell(row=r, column=C["in_datum"]).number_format = "DD.MM.YYYY"
         ws.cell(row=r, column=C["exValue"]).number_format = "General"
         r += 1
@@ -238,6 +245,12 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
     ws.page_setup.fitToHeight = 0
     ws.sheet_properties.pageSetUpPr.fitToPage = True
     ws.print_title_rows = f"{head_row}:{head_row}"
+    # Blattschutz ohne Kennwort: nur die gelben Eingabezellen sind änderbar; Filtern, Sortieren und Spaltenbreiten bleiben frei.
+    ws.protection.sheet = True
+    ws.protection.autoFilter = False
+    ws.protection.sort = False
+    ws.protection.formatColumns = False
+    ws.protection.formatRows = False
 
 
 def write_guide(ws, cat: dict) -> None:

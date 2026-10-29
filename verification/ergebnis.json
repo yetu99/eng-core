@@ -1,6 +1,6 @@
 {
- "passed": 1348,
- "total": 1348,
+ "passed": 1539,
+ "total": 1539,
  "modules": {
   "gemeinsam": {
    "passed": 173,
@@ -13,6 +13,10 @@
   "ashby": {
    "passed": 247,
    "total": 247
+  },
+  "fluid": {
+   "passed": 191,
+   "total": 191
   }
  }
 }

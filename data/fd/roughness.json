@@ -1,0 +1,222 @@
+[
+ {
+  "id": "RG01",
+  "pipe_kind": "neue gezogene und gepresste Rohre aus Cu, Cu-Legierungen, Al-Legierungen, Glas, Kunststoff",
+  "state": "technisch glatt (auch mit Metallüberzug)",
+  "k_min_mm": 0.001,
+  "k_max_mm": 0.002,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG02",
+  "pipe_kind": "nahtlose Stahlrohre",
+  "state": "neu, mit Walzhaut",
+  "k_min_mm": 0.02,
+  "k_max_mm": 0.06,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG03",
+  "pipe_kind": "nahtlose Stahlrohre",
+  "state": "gebeizt",
+  "k_min_mm": 0.03,
+  "k_max_mm": 0.04,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG04",
+  "pipe_kind": "nahtlose Stahlrohre",
+  "state": "gleichmäßige Rostnarben",
+  "k_min_mm": 0.15,
+  "k_max_mm": 0.15,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG05",
+  "pipe_kind": "nahtlose Stahlrohre",
+  "state": "mäßig verrostet und leicht verkrustet",
+  "k_min_mm": 0.15,
+  "k_max_mm": 0.4,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG06",
+  "pipe_kind": "nahtlose Stahlrohre",
+  "state": "starke Verkrustung",
+  "k_min_mm": 2,
+  "k_max_mm": 4,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG07",
+  "pipe_kind": "neue Stahlrohre mit Überzug",
+  "state": "Metallspritzüberzug",
+  "k_min_mm": 0.08,
+  "k_max_mm": 0.09,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG08",
+  "pipe_kind": "neue Stahlrohre mit Überzug",
+  "state": "verzinkt, handelsüblich",
+  "k_min_mm": 0.1,
+  "k_max_mm": 0.16,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG09",
+  "pipe_kind": "neue Stahlrohre mit Überzug",
+  "state": "bitumiert",
+  "k_min_mm": 0.01,
+  "k_max_mm": 0.05,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG10",
+  "pipe_kind": "neue Stahlrohre mit Überzug",
+  "state": "zementiert",
+  "k_min_mm": 0.18,
+  "k_max_mm": 0.18,
+  "confidence": 2,
+  "remark": "Einzelwert der Quelle („ca.“)",
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG11",
+  "pipe_kind": "neue geschweißte Stahlrohre",
+  "state": "mit Walzhaut",
+  "k_min_mm": 0.04,
+  "k_max_mm": 0.1,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG12",
+  "pipe_kind": "gusseiserne Rohre",
+  "state": "neu, typische Gusshaut",
+  "k_min_mm": 0.2,
+  "k_max_mm": 0.6,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG13",
+  "pipe_kind": "gusseiserne Rohre",
+  "state": "neu, bituminiert",
+  "k_min_mm": 0.1,
+  "k_max_mm": 0.1,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG14",
+  "pipe_kind": "gusseiserne Rohre",
+  "state": "gebraucht, angerostet",
+  "k_min_mm": 1,
+  "k_max_mm": 1.5,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG15",
+  "pipe_kind": "gusseiserne Rohre",
+  "state": "verkrustet",
+  "k_min_mm": 1.5,
+  "k_max_mm": 4,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG16",
+  "pipe_kind": "Stahlrohre nach mehrjährigem Betrieb",
+  "state": "Mittelwert für Erdgasleitungen",
+  "k_min_mm": 0.2,
+  "k_max_mm": 0.4,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG17",
+  "pipe_kind": "Stahlrohre nach mehrjährigem Betrieb",
+  "state": "Mittelwert für Ferngasleitungen",
+  "k_min_mm": 0.5,
+  "k_max_mm": 1,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG18",
+  "pipe_kind": "Stahlrohre nach mehrjährigem Betrieb",
+  "state": "Mittelwert für Wasserleitungen",
+  "k_min_mm": 0.4,
+  "k_max_mm": 1.2,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG19",
+  "pipe_kind": "Betonrohre, Holzrohre",
+  "state": "neu",
+  "k_min_mm": 0.2,
+  "k_max_mm": 1,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ },
+ {
+  "id": "RG20",
+  "pipe_kind": "Rohre aus Asbestzement",
+  "state": "neu, glatt",
+  "k_min_mm": 0.03,
+  "k_max_mm": 0.1,
+  "confidence": 2,
+  "remark": null,
+  "source_id": "Q219",
+  "source_locator": "TB 18-6"
+ }
+]

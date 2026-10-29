@@ -24,7 +24,7 @@ export const TRACE_GROUPS = {
   gemeinsam: ["werkstoff", "querschnitt", "formfaktor"],
   festigkeit: ["belastung", "nachweis", "bemessung", "ermuedung"],
   ashby: [],
-  fluid: ["stoffwerte", "geometrie", "reibung", "verluste", "energie", "pumpe", "messung", "druckstoss"],
+  fluid: ["stoffwerte", "geometrie", "reibung", "verluste", "energie", "pumpe", "messung", "druckstoss", "nachweis"],
   verbindungen: ["werkstoff", "passung", "fugendruck", "spannungen", "montage", "nachgiebigkeit", "vorspannung", "betrieb", "nachweis"],
   dichtungen: ["abmessungen", "verpressung", "nut", "extrusion", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],

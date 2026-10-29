@@ -623,6 +623,11 @@ sys.path.insert(0, HERE)
 import ermuedung
 ermuedung.add_cases(cases, ref, base)
 
+# ---------------------------------------------------------------- Rohrhydraulik (eng-core 0.11.0, Modul fluid)
+# Unabhängige Python-Umsetzung in verification/fluid.py (IAPWS, brentq, eigene Strangrechnung, eigener Fachdatenleser).
+import fluid
+fluid.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

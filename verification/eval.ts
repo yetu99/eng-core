@@ -1,4 +1,5 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
+import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -9,9 +10,44 @@ export type Case =
   | { id: string; type: "fatigue"; inp: StrengthInput }
   | { id: string; type: "conflict"; materialId: string; basis: ConflictBasis; alpha: number }
   | { id: string; type: "ashby"; materialId: string; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar; shapeMode: ShapeMode; phiUser: PhiSet | null }
-  | { id: string; type: "ashbyset"; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar };
+  | { id: string; type: "ashbyset"; fn: FunctionName; con: string; obj: ObjectiveName; free?: FreeVar }
+  | { id: string; type: "water"; T: number; p: number }
+  | { id: string; type: "psat"; T: number }
+  | { id: string; type: "visc"; T: number; rho: number }
+  | { id: string; type: "colebrook"; Re: number; eps: number }
+  | { id: string; type: "fluid"; inp: LineInput; task: LineTask };
+
+/** Rohrhydraulik (Modul fluid): Kennwerte eines Strangs für Gegenrechnung und Golden-Test. */
+function evalFluid(inp: LineInput, task: LineTask): Record<string, number | null> {
+  const r = computeLine(fdRepo, inp, task);
+  if (r.errors.length) return { errors: r.errors.length };
+  const rho = r.fluid.rho, g = inp.g;
+  const o: Record<string, number | null> = {
+    errors: 0, dpErf: r.dpErf, dpV: r.dpV, dpR: r.dpR, dpZ: r.dpZ, dpGeo: r.dpGeo, pA: r.pAErf, pMin: r.pMin, Q: r.Q, Ph: r.Ph, P: r.P,
+    hv: r.dpV / (rho * g), pAh: r.pAErf / (rho * g), dH: r.nodes[0]!.H - r.nodes[r.nodes.length - 1]!.H - r.dpV / (rho * g), pEnd: r.nodes[r.nodes.length - 1]!.p,
+  };
+  r.elements.forEach((e, i) => {
+    if (e.kind === "rohr") Object.assign(o, { [`lam${i}`]: e.lambda, [`Re${i}`]: e.Re, [`v${i}`]: e.v });
+    else o[`zeta${i}`] = e.zeta;
+  });
+  if (task.kind === "B") {
+    const a = computeLine(fdRepo, { ...inp, Q: r.Q }, { kind: "A" });
+    o["backB"] = a.dpErf / task.dpAvail;
+  }
+  if (task.kind === "C" && r.design) {
+    const elements = inp.elements.map((e) => (e.kind === "rohr" && e.geom.kind === "var" ? { ...e, geom: { kind: "d" as const, d: r.design!.dMin } } : e));
+    o["dMin"] = r.design.dMin; o["dGew"] = r.design.pipe?.d ?? null;
+    o["backC"] = computeLine(fdRepo, { ...inp, elements }, { kind: "A" }).dpErf / task.dpAllow;
+  }
+  return o;
+}
 
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
+  if (c.type === "water") { const rho = waterDensity(c.T, c.p); const eta = waterViscosity(c.T, rho); return { v: 1 / rho, rho, eta, nu: eta / rho }; }
+  if (c.type === "psat") return { ps: saturationPressure(c.T) };
+  if (c.type === "visc") return { mu: waterViscosity(c.T, c.rho) };
+  if (c.type === "colebrook") { const f = frictionFactor(c.Re, c.eps); return { lam: f.lambda, iterations: f.iterations, res: Math.abs(f.residual) }; }
+  if (c.type === "fluid") return evalFluid(c.inp, c.task);
   if (c.type === "section") {
     const s = sectionProps(c.sec, c.dims);
     const o = s.open;

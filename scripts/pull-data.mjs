@@ -105,7 +105,7 @@ function shape(data) {
 const dump = (x) => JSON.stringify(x, null, 1) + "\n";
 
 // ---------------------------------------------------------------- Fachdaten fd_*
-// Tabellenliste: [{ file, table, min, cols, sort }], file ohne Endung; sort = Spalten für die Reihenfolge (Zahlen numerisch,
+// Tabellenliste: [{ file, table, min, cols, sort }], file = Tabellenname ohne fd_ (wie fd_export) und ohne Endung; sort = Spalten für die Reihenfolge (Zahlen numerisch,
 // Text nach Codepunkten, null zuletzt). Neue Tabellen kommen mit dem jeweiligen Fachtool in scripts/fd-tables.json.
 function fdTables() {
   const f = resolve(opt("--fd-config") ?? join(root, "scripts/fd-tables.json"));
