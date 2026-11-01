@@ -6,6 +6,8 @@
 //   node scripts/sync-to-app.mjs <app> --tool werkbank|fachtools            Module des Werkzeugs (src/modules.json)
 //   node scripts/sync-to-app.mjs <app> --modules gemeinsam,fluid            nur diese Module
 //   Zusatz: --dry-run (nur anzeigen)
+//           --core-dir <name> (ab 0.12.0): Zielordner unter <app>/src statt core, z. B. engcore für Greifwerk, dessen
+//           src/core die eigene Fachlogik enthält. Muss eine Ebene unter src liegen (relative Importe ../data bleiben gültig).
 //
 // Mit --tool/--modules (ab 0.10.0): Basisdateien (modules.json "base") plus die Pfade der Module, ergänzt um alle
 // Dateien, die davon über relative Importe erreicht werden (Hülle, z. B. Lamé aus mechanics/pressure.ts für den
@@ -19,6 +21,8 @@ const args = process.argv.slice(2);
 const app = args[0];
 const opt = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : undefined; };
 const dry = args.includes("--dry-run");
+const coreDir = opt("--core-dir") ?? "core";
+if (!/^[A-Za-z0-9_-]+$/.test(coreDir) || coreDir === "data") { console.error(`--core-dir ${coreDir}: nur ein Ordnername direkt unter src (nicht data)`); process.exit(1); }
 if (!app || app.startsWith("--") || !existsSync(join(app, "package.json"))) { console.error("Pfad zur App fehlt oder ungültig"); process.exit(1); }
 const root = new URL("..", import.meta.url).pathname;
 const SRC = join(root, "src"), DATA = join(root, "data");
@@ -94,12 +98,14 @@ const writes = [];
 const copy = (buf, dst, rel) => { writes.push([dst, buf]); manifest.files[rel] = createHash("sha256").update(buf).digest("hex"); };
 for (const f of srcFiles) {
   const rel = posix(relative(SRC, f));
-  copy(rel === "index.ts" ? Buffer.from(indexText(), "utf8") : readFileSync(f), join(app, "src/core", rel), `core/${rel}`);
+  copy(rel === "index.ts" ? Buffer.from(indexText(), "utf8") : readFileSync(f), join(app, "src", coreDir, rel), `${coreDir}/${rel}`);
 }
 for (const f of dataFiles) { const rel = posix(relative(DATA, f)); copy(readFileSync(f), join(app, "src/data", rel), `data/${rel}`); }
 
 // Dateien des letzten Syncs, die nicht mehr dazugehören
-const oldManifest = join(app, "src/core/MANIFEST.json");
+const oldManifest = join(app, "src", coreDir, "MANIFEST.json");
+// Schutz: ein vorhandener Zielordner ohne MANIFEST.json gehört der App (z. B. Fachlogik in src/core) und wird nicht überschrieben
+if (!dry && existsSync(join(app, "src", coreDir)) && !existsSync(oldManifest)) { console.error(`${join(app, "src", coreDir)} existiert ohne MANIFEST.json (Inhalt der App). Abbruch; anderen Zielordner mit --core-dir wählen.`); process.exit(1); }
 const stale = existsSync(oldManifest) ? Object.keys(JSON.parse(readFileSync(oldManifest, "utf8")).files ?? {}).filter((k) => !(k in manifest.files)) : [];
 
 const snap = JSON.parse(readFileSync(join(DATA, "snapshot.json"), "utf8"));
@@ -113,7 +119,7 @@ if (dry) {
 }
 for (const [dst, buf] of writes) { mkdirSync(dirname(dst), { recursive: true }); writeFileSync(dst, buf); }
 for (const k of stale) { const p = join(app, "src", k); if (existsSync(p)) rmSync(p); }
-writeFileSync(join(app, "src/core/README.md"), `# src/core (eng-core ${pkg.version})\n\nNicht in dieser App bearbeiten. Quelle: Repo eng-core, eingespielt mit scripts/sync-to-app.mjs.\nPrüfsummen: MANIFEST.json. Formeln: FORMELKATALOG.md im Repo eng-core.\n${modText}`);
+writeFileSync(join(app, "src", coreDir, "README.md"), `# src/${coreDir} (eng-core ${pkg.version})\n\nNicht in dieser App bearbeiten. Quelle: Repo eng-core, eingespielt mit scripts/sync-to-app.mjs.\nPrüfsummen: MANIFEST.json. Formeln: FORMELKATALOG.md im Repo eng-core.\n${modText}`);
 writeFileSync(join(app, "src/data/README.md"), `# src/data (Werkstoffdaten ${snap.release.version})\n\nVersionierter Abzug aus Supabase (Tabellen wa_*), identisch mit dem Werkstoffatlas. Nicht in dieser App bearbeiten; neu erzeugen mit npm run data:pull im Repo eng-core.\n`);
 writeFileSync(oldManifest, JSON.stringify(manifest, null, 1) + "\n");
 console.log(`eng-core ${pkg.version}${modules ? ` (Module ${modules.join(", ")})` : ""}: ${Object.keys(manifest.files).length} Dateien nach ${app} kopiert${stale.length ? `, ${stale.length} veraltete entfernt` : ""}${missing.length ? `; noch leer: ${missing.join(", ")}` : ""}`);

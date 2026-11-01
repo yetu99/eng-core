@@ -34,3 +34,7 @@ export * from "./fluid/props";
 export * from "./fluid/line";
 export * from "./fluid/units";
 export { fdRepo, createFdRepo, type FdRepo, type FdFluid, type FdFluidValue, type FdRoughness, type FdLossCoeff, type FdPipeSize, type FdVelocityGuide } from "./fluid/fdData";
+export { I3, rotX, rotY, rotZ, rotAxis, mulVec, maxAbsDiff, deg, rad, type Vec3, type Mat3, type AxisName } from "./kinematics/so3";
+export * as so3 from "./kinematics/so3";
+export * from "./kinematics/orientation";
+export * from "./kinematics/compute";

@@ -628,6 +628,12 @@ ermuedung.add_cases(cases, ref, base)
 import fluid
 fluid.add_cases(cases, ref)
 
+# ---------------------------------------------------------------- Kinematik K1 Orientierung (eng-core 0.12.0, Modul kinematik)
+# Unabhängige Python-Umsetzung in verification/kinematik.py (numpy, expm, Hamilton-Produkt; Rückrichtung scipy Rotation).
+# Fälle mit abs=True werden mit absoluter Abweichung bewertet (Winkel in rad, Matrixelemente).
+import kinematik
+kinematik.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)
@@ -643,14 +649,16 @@ TYPE_MODULE = {'section': 'gemeinsam', 'ashby': 'ashby', 'ashbyset': 'ashby', 'c
 CASE_MODULE = {c['id']: c.get('module') or TYPE_MODULE.get(c.get('type'), 'festigkeit') for c in cases}
 assert all(m in MODREG for m in CASE_MODULE.values()), 'Prüffall mit unbekanntem Modul'
 per_mod = {m: dict(passed=0, total=0) for m in MODREG}
+CASE_ABS = {c['id'] for c in cases if c.get('abs')}
 rows, fails = [], 0
 for id_, (vals, tol) in ref.items():
     mod = CASE_MODULE.get(id_, 'festigkeit')
     for k, v in vals.items():
-        got = out[id_][k]; dev = abs(got - v) / abs(v) if v else abs(got)
+        got = out[id_][k]; dev = abs(got - v) if id_ in CASE_ABS else abs(got - v) / abs(v) if v else abs(got)
         ok = dev <= tol; fails += not ok
         per_mod[mod]['total'] += 1; per_mod[mod]['passed'] += int(ok)
-        rows.append(f"| {id_} | {k} | {v:.6g} | {got:.6g} | {dev*100:.4f} % | {tol*100:g} % | {'OK' if ok else 'ABWEICHUNG'} |")
+        dtxt, ttxt = (f"{dev:.2e} abs", f"{tol:g} abs") if id_ in CASE_ABS else (f"{dev*100:.4f} %", f"{tol*100:g} %")
+        rows.append(f"| {id_} | {k} | {v:.6g} | {got:.6g} | {dtxt} | {ttxt} | {'OK' if ok else 'ABWEICHUNG'} |")
 print('| Fall | Größe | Referenz (Python) | Rechenkern (JS) | Abweichung | Toleranz | Status |\n|---|---|---|---|---|---|---|')
 print('\n'.join(rows))
 print(f"\nJohnson/Euler am Übergang λ_T = {lT:.2f}: σ_J = {j:.3f}, σ_E = {e:.3f} MPa, Steigung J = {dj:.4f}, E = {de:.4f}")

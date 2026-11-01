@@ -1348,6 +1348,216 @@
     "durch": "Seti",
     "formel": "ρ aus fd_fluid_values"
   },
+  "G-01-X": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R_x(θ) = [1 0 0; 0 cos θ −sin θ; 0 sin θ cos θ]"
+  },
+  "G-01-Y": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R_y(θ) = [cos θ 0 sin θ; 0 1 0; −sin θ 0 cos θ]"
+  },
+  "G-01-Z": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R_z(θ) = [cos θ −sin θ 0; sin θ cos θ 0; 0 0 1]"
+  },
+  "G-02": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R = R_z(A)·R_y(B)·R_x(C); mitgedreht um z, y′, x″, gleichwertig fest um x, y, z"
+  },
+  "G-03": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R = R_z(φ)·R_y(θ)·R_z(ψ); mitgedreht um z, y′, z″"
+  },
+  "G-04": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R = I + sin θ·[ω̂] + (1 − cos θ)·[ω̂]²"
+  },
+  "G-04-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "ω̂ = ω/‖ω‖"
+  },
+  "G-05": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R = [w² + x² − y² − z²  2(xy − wz)  2(xz + wy); 2(xy + wz)  w² − x² + y² − z²  2(yz − wx); 2(xz − wy)  2(yz + wx)  w² − x² − y² + z²]"
+  },
+  "G-05-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "q̂ = q/‖q‖, q = (w, x, y, z)"
+  },
+  "G-06-A": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "A = atan2(r_21, r_11)"
+  },
+  "G-06-B": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "B = atan2(−r_31, √(r_11² + r_21²))"
+  },
+  "G-06-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "C = atan2(r_32, r_33)"
+  },
+  "G-06-KN": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Kardansperre B = −90° (√(r_11² + r_21²) ≤ 10⁻⁹, r_31 > 0): A = 0, C = atan2(−r_12, r_22)"
+  },
+  "G-06-KP": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Kardansperre B = +90° (√(r_11² + r_21²) ≤ 10⁻⁹, r_31 < 0): A = 0, C = atan2(r_12, r_22)"
+  },
+  "G-07-K0": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Sonderfall θ = 0 (√(r_31² + r_32²) ≤ 10⁻⁹, r_33 > 0): φ = 0, ψ = atan2(r_21, r_11)"
+  },
+  "G-07-K180": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Sonderfall θ = 180° (√(r_31² + r_32²) ≤ 10⁻⁹, r_33 < 0): φ = 0, ψ = atan2(r_21, r_22)"
+  },
+  "G-07-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "φ = atan2(r_23, r_13)"
+  },
+  "G-07-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "ψ = atan2(r_32, −r_31)"
+  },
+  "G-07-T": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "θ = atan2(√(r_31² + r_32²), r_33)"
+  },
+  "G-08-0": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Sonderfall θ = 0 (θ ≤ 10⁻¹²): ω̂ unbestimmt, gesetzt ω̂ = (0, 0, 1)"
+  },
+  "G-08-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "θ > 90°: ω̂_k = √((r_kk − cos θ)/(1 − cos θ)), k = größtes r_kk; ω̂_j = (r_jk + r_kj)/(2·(1 − cos θ)·ω̂_k); Vorzeichen mit ω̂·v ≥ 0, bei v = 0 (θ = 180°) erste von 0 verschiedene Komponente in x, y, z positiv"
+  },
+  "G-08-T": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "θ = atan2(½·‖v‖, ½·(tr R − 1)), v = (r_32 − r_23, r_13 − r_31, r_21 − r_12)"
+  },
+  "G-08-W": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "ω̂ = v/(2·sin θ) = v/‖v‖"
+  },
+  "G-09-V": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "q und −q beschreiben dieselbe Drehung: Vorzeichen so, dass w ≥ 0; bei |w| ≤ 10⁻¹² erste von 0 verschiedene Komponente in x, y, z positiv"
+  },
+  "G-09-W": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "tr R größtes Glied: w = ½·√(1 + tr R), x = (r_32 − r_23)/(4w), y = (r_13 − r_31)/(4w), z = (r_21 − r_12)/(4w)"
+  },
+  "G-09-X": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "r_11 größtes Glied: x = ½·√(1 + r_11 − r_22 − r_33), w = (r_32 − r_23)/(4x), y = (r_12 + r_21)/(4x), z = (r_13 + r_31)/(4x)"
+  },
+  "G-09-Y": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "r_22 größtes Glied: y = ½·√(1 − r_11 + r_22 − r_33), w = (r_13 − r_31)/(4y), x = (r_12 + r_21)/(4y), z = (r_23 + r_32)/(4y)"
+  },
+  "G-09-Z": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "r_33 größtes Glied: z = ½·√(1 − r_11 − r_22 + r_33), w = (r_21 − r_12)/(4z), x = (r_13 + r_31)/(4z), y = (r_23 + r_32)/(4z)"
+  },
+  "G-10-D": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "det R = +1 (rechtshändig), Toleranz 10⁻⁹"
+  },
+  "G-10-O": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "e = ‖RᵀR − I‖_F, gültig für e ≤ 10⁻⁹"
+  },
+  "G-11-F": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Drehung um feste Achse (in {a}): R′ = Rot·R"
+  },
+  "G-11-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R_ba = R_ab⁻¹ = R_abᵀ"
+  },
+  "G-11-M": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "Drehung um mitgedrehte Achse (in {b}): R″ = R·Rot"
+  },
+  "G-11-V": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "R_ac = R_ab·R_bc"
+  },
+  "G-12": {
+    "status": "freigegeben",
+    "datum": "2026-11-01",
+    "durch": "Seti",
+    "formel": "p_a = R_ab·p_b"
+  },
   "K-FK": {
     "status": "freigegeben",
     "datum": "2026-10-08",

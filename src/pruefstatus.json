@@ -1,14 +1,14 @@
 {
- "core": "0.11.0",
- "formulas": 393,
- "approved": 393,
+ "core": "0.12.0",
+ "formulas": 428,
+ "approved": 428,
  "rejected": 0,
  "stale": 0,
  "draft": 0,
- "lastApproval": "2026-10-29",
+ "lastApproval": "2026-11-01",
  "verification": {
-  "passed": 1539,
-  "total": 1539
+  "passed": 3172,
+  "total": 3172
  },
  "acceptance": {
   "P5": {
@@ -106,6 +106,18 @@
    "verification": {
     "passed": 0,
     "total": 0
+   }
+  },
+  "kinematik": {
+   "formulas": 35,
+   "approved": 35,
+   "rejected": 0,
+   "stale": 0,
+   "draft": 0,
+   "lastApproval": "2026-11-01",
+   "verification": {
+    "passed": 1633,
+    "total": 1633
    }
   }
  },
@@ -322,6 +334,41 @@
   "FS-NU": "freigegeben",
   "FS-TAB-NU": "freigegeben",
   "FS-TAB-RHO": "freigegeben",
+  "G-01-X": "freigegeben",
+  "G-01-Y": "freigegeben",
+  "G-01-Z": "freigegeben",
+  "G-02": "freigegeben",
+  "G-03": "freigegeben",
+  "G-04": "freigegeben",
+  "G-04-N": "freigegeben",
+  "G-05": "freigegeben",
+  "G-05-N": "freigegeben",
+  "G-06-A": "freigegeben",
+  "G-06-B": "freigegeben",
+  "G-06-C": "freigegeben",
+  "G-06-KN": "freigegeben",
+  "G-06-KP": "freigegeben",
+  "G-07-K0": "freigegeben",
+  "G-07-K180": "freigegeben",
+  "G-07-P": "freigegeben",
+  "G-07-S": "freigegeben",
+  "G-07-T": "freigegeben",
+  "G-08-0": "freigegeben",
+  "G-08-S": "freigegeben",
+  "G-08-T": "freigegeben",
+  "G-08-W": "freigegeben",
+  "G-09-V": "freigegeben",
+  "G-09-W": "freigegeben",
+  "G-09-X": "freigegeben",
+  "G-09-Y": "freigegeben",
+  "G-09-Z": "freigegeben",
+  "G-10-D": "freigegeben",
+  "G-10-O": "freigegeben",
+  "G-11-F": "freigegeben",
+  "G-11-I": "freigegeben",
+  "G-11-M": "freigegeben",
+  "G-11-V": "freigegeben",
+  "G-12": "freigegeben",
   "K-FK": "freigegeben",
   "K-LAM": "freigegeben",
   "K-LAMT": "freigegeben",

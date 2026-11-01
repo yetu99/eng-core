@@ -10,7 +10,7 @@ import ps from "./pruefstatus.json";
 import { CORE_VERSION } from "./version";
 import { DATA_VERSION, DATA_RELEASED_AT } from "./dataVersion";
 import { FD_VERSION, FD_RELEASED_AT } from "./fdVersion";
-import { MODULE_IDS, TOOLS, toolOfTitle, usesFd, type ModuleId, type ToolId } from "./modules";
+import { MODULE_IDS, TOOLS, toolOfTitle, usesFd, usesWdb, type ModuleId, type ToolId } from "./modules";
 import type { CalcStep } from "./trace";
 
 /** Prüfstand einer Formel: freigegeben, abgelehnt, seit der Freigabe geändert, Entwurf (implementiert und gegengerechnet). */
@@ -80,6 +80,8 @@ export interface ReportMeta {
   core: string;
   data: string;
   dataReleasedAt: string | null;
+  /** false, wenn keines der Module Werkstoffdaten nutzt (ab 0.12.0, z. B. Greifwerk); dann ohne Werkstoffdaten in Fußzeile und Vermerk. */
+  wdb: boolean;
   /** Fachdaten-Stand (fd_*), nur wenn eines der Module Fachdaten nutzt, sonst null. */
   fd: string | null;
   fdReleasedAt: string | null;
@@ -108,7 +110,7 @@ export function reportMeta(tool = "Ingenieur-Werkbank", modules?: readonly Modul
   const acceptance = toolId === null || toolId === "werkbank" ? PRUEFSTATUS.acceptance : PRUEFSTATUS.acceptanceTools?.[toolId] ?? { P5: OPEN_STAGE, P6: OPEN_STAGE };
   const fd = usesFd(mods);
   return {
-    tool, modules: mods, core: CORE_VERSION, data: DATA_VERSION, dataReleasedAt: DATA_RELEASED_AT,
+    tool, modules: mods, core: CORE_VERSION, data: DATA_VERSION, dataReleasedAt: DATA_RELEASED_AT, wdb: usesWdb(mods),
     fd: fd ? FD_VERSION ?? "–" : null, fdReleasedAt: fd ? FD_RELEASED_AT : null,
     formulas: sum((x) => x.formulas), approved: sum((x) => x.approved), lastApproval: dates.length ? dates[dates.length - 1]! : null,
     verification: { passed: sum((x) => x.verification.passed), total: sum((x) => x.verification.total) }, acceptance,
@@ -127,7 +129,7 @@ export function reportFooter(meta: ReportMeta, usage?: TraceApproval): string {
   const parts = [
     meta.tool,
     `eng-core ${meta.core}`,
-    `Werkstoffdaten ${meta.data}`,
+    ...(meta.wdb ? [`Werkstoffdaten ${meta.data}`] : []),
     ...(meta.fd !== null ? [`Fachdaten ${meta.fd}`] : []),
     usage ? `Formeln im Blatt ${usage.approved}/${usage.used} freigegeben` : `Formeln ${meta.approved}/${meta.formulas} freigegeben`,
     `Gegenrechnung ${meta.verification.passed}/${meta.verification.total}`,
@@ -152,7 +154,7 @@ export function reportVerdict(meta: ReportMeta, usage: TraceApproval): ReportVer
   lines.push(`Unabhängige Gegenrechnung (P2): ${meta.verification.passed} von ${meta.verification.total} Prüfwerten innerhalb der Toleranz.`);
   lines.push(`Abgleich mit Vorlagen und FEM (P5): ${meta.acceptance.P5.status}${meta.acceptance.P5.datum ? `, ${dateDe(meta.acceptance.P5.datum)}` : ""}.`);
   lines.push(`Abnahme (P6): ${meta.acceptance.P6.status}${meta.acceptance.P6.datum ? `, ${dateDe(meta.acceptance.P6.datum)}` : ""}.`);
-  lines.push(`Rechenkern eng-core ${meta.core}, Werkstoffdaten ${meta.data} (${dateDe(meta.dataReleasedAt)})${meta.fd !== null ? `, Fachdaten ${meta.fd}${meta.fdReleasedAt ? ` (${dateDe(meta.fdReleasedAt)})` : ""}` : ""}.`);
+  lines.push(`Rechenkern eng-core ${meta.core}${meta.wdb ? `, Werkstoffdaten ${meta.data} (${dateDe(meta.dataReleasedAt)})` : ""}${meta.fd !== null ? `, Fachdaten ${meta.fd}${meta.fdReleasedAt ? ` (${dateDe(meta.fdReleasedAt)})` : ""}` : ""}.`);
   if (!meta.consistent) lines.push(`Achtung: Prüfstatus gehört zu eng-core ${PRUEFSTATUS.core}, nicht zu ${meta.core}.`);
   const accepted = meta.acceptance.P6.status === "bestanden";
   if (!allApproved || !verOk || !meta.consistent) return { level: "fail", title: "Rechenweg nicht vollständig geprüft", lines };

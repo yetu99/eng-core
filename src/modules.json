@@ -8,11 +8,13 @@
   "fluid": { "title": "Rohrhydraulik und Fluidtechnik", "tool": "fachtools", "prefixes": ["RH", "PU", "FS"], "paths": ["fluid"], "units": "SI: m, kg, s, Pa, m³/s, K (Anzeige bar, m³/h, L/min, °C)", "fd": true },
   "verbindungen": { "title": "Schraubenverbindung und Pressverband", "tool": "fachtools", "prefixes": ["SV", "PV"], "paths": ["joints"], "units": "N, mm, MPa", "fd": true },
   "dichtungen": { "title": "O-Ring", "tool": "fachtools", "prefixes": ["OR"], "paths": ["seals"], "units": "N, mm, MPa", "fd": true },
-  "stabwerke": { "title": "Fachwerk mit Prinzip der virtuellen Verschiebung", "tool": "fachtools", "prefixes": ["FW"], "paths": ["structures"], "units": "N, mm, MPa", "fd": false }
+  "stabwerke": { "title": "Fachwerk mit Prinzip der virtuellen Verschiebung", "tool": "fachtools", "prefixes": ["FW"], "paths": ["structures"], "units": "N, mm, MPa", "fd": false },
+  "kinematik": { "title": "Kinematik: Orientierung (K1), später Transformation, DH, Rückwärtskinematik, Jacobi, Bahn", "tool": "greifwerk", "prefixes": ["G"], "paths": ["kinematics"], "units": "SI: m, rad, s (Anzeige Grad, mm)", "fd": false, "wdb": false }
  },
  "reserved": ["WL"],
  "tools": {
   "werkbank": { "title": "Ingenieur-Werkbank", "modules": ["gemeinsam", "festigkeit", "ashby"] },
-  "fachtools": { "title": "Ingenieur-Fachtools", "modules": ["gemeinsam", "fluid", "verbindungen", "dichtungen", "stabwerke"] }
+  "fachtools": { "title": "Ingenieur-Fachtools", "modules": ["gemeinsam", "fluid", "verbindungen", "dichtungen", "stabwerke"] },
+  "greifwerk": { "title": "Greifwerk", "modules": ["kinematik"] }
  }
 }

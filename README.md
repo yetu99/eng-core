@@ -38,7 +38,7 @@ Einheiten intern: N, mm, MPa, kg/m³. Eingaben: F und N in kN, q in kN/m, T in N
 
 ## Module und Werkzeuge (ab 0.10.0)
 
-Ein Kern, zwei Werkzeuge. `src/modules.json` ordnet jedes Formel-ID-Präfix genau einem Modul zu und jedes Modul einem Werkzeug. Die Skripte lesen dieselbe Datei; ein neues Präfix oder ein neuer Ordner wird nur dort eingetragen (eine nicht zugeordnete ID bricht `scripts/katalog.ts` ab).
+Ein Kern, drei Werkzeuge (ab 0.12.0 Greifwerk). `src/modules.json` ordnet jedes Formel-ID-Präfix genau einem Modul zu und jedes Modul einem Werkzeug. Die Skripte lesen dieselbe Datei; ein neues Präfix oder ein neuer Ordner wird nur dort eingetragen (eine nicht zugeordnete ID bricht `scripts/katalog.ts` ab).
 
 | Modul | Werkzeug | Präfixe | Ordner unter `src/` | Einheiten intern | Fachdaten |
 |---|---|---|---|---|---|
@@ -49,10 +49,12 @@ Ein Kern, zwei Werkzeuge. `src/modules.json` ordnet jedes Formel-ID-Präfix gena
 | verbindungen | Fachtools | SV, PV | `joints/` | N, mm, MPa | ja |
 | dichtungen | Fachtools | OR | `seals/` | N, mm, MPa | ja |
 | stabwerke | Fachtools | FW | `structures/` | N, mm, MPa | nein |
+| kinematik | Greifwerk | G | `kinematics/` | SI (m, rad, s), Anzeige Grad, mm | nein |
 
 `WL` ist reserviert (Wälzlager als Linkkarte, keine Formeln). Module der Fachtools dürfen Formeln anderer Module aufrufen (Pressverband nutzt Lamé aus `mechanics/pressure.ts`); deren IDs behalten ihr Modul.
 
 - **Rechenweg-Gruppen**: `TRACE_GROUPS` je Modul, `TraceGroupOf<"fluid">`, `Trace<G>`; `TraceGroup` und `Trace` ohne Typargument bleiben die Gruppen der Werkbank Blatt 1. Überschriften für neue Oberflächen in `TRACE_GROUP_TITLES`.
+- **Greifwerk (ab 0.12.0)**: Modul `kinematik`, Blatt K1 Orientierung (G-01 bis G-12, 35 Formeln). `computeOrientation(inp)` rechnet aus einer Darstellung (Z-Y-X, Z-Y-Z, Achse-Winkel, Quaternion, Matrix) alle anderen, prüft die Matrix und dreht optional einen Vektor bzw. um eine feste oder mitgedrehte Achse; `orientationStages`, `stageMatrix` liefern die Teildrehungen für die Lernhilfe. `CalcStep.matrix` trägt Matrix- und Vektorergebnisse (`value` ist dann Spur bzw. Betrag). Module mit `"wdb": false` erscheinen ohne Werkstoffdaten in Fußzeile und Prüfvermerk (`reportMeta("Greifwerk")`). Gegenrechnung `verification/kinematik.py` (numpy, expm, scipy Rotation) mit absoluter Toleranz (`abs: true` je Prüffall). Sync: `node scripts/sync-to-app.mjs ../greifwerk --tool greifwerk --core-dir engcore` (Greifwerk hat in `src/core` die eigene Fachlogik der Funktionsfolge; `--core-dir` legt den Kern nach `src/engcore`, ein Zielordner ohne `MANIFEST.json` wird nie überschrieben).
 - **Prüfstatus je Modul**: `src/pruefstatus.json` enthält `modules` (Formeln, Freigaben, Gegenrechnung je Modul; Summe = Gesamtwerte) und `acceptanceTools` (Abnahme weiterer Werkzeuge aus `verification/abnahme.json`, Schlüssel `tools`). `reportMeta(tool, modules?)` zählt nur die Module des Werkzeugs: `reportMeta()` = Werkbank (unverändert), `reportMeta("Ingenieur-Fachtools")` = Fachtools mit Fachdaten-Stand in Fußzeile und Prüfvermerk.
 - **Gegenrechnung je Modul**: `verification/pruefung.py` ordnet jeden Prüffall über `case["module"]` zu (sonst über den Falltyp) und schreibt `verification/ergebnis.json` mit `modules`. Neue Module hängen ihre Fälle aus `verification/<modul>.py` ein und setzen `module`.
 - **Sync nach Modulen**: `node scripts/sync-to-app.mjs <app> --tool werkbank|fachtools` oder `--modules gemeinsam,fluid` kopiert die Basisdateien, die Ordner der Module und alles, was davon über relative Importe erreicht wird; `index.ts` wird auf die kopierten Dateien gekürzt, Dateien des letzten Syncs, die nicht mehr dazugehören, werden entfernt. Ohne Option wie bisher der ganze Kern. `--dry-run` zeigt die Liste.

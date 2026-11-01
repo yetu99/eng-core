@@ -98,6 +98,12 @@ def sig(v: float, n: int = 6) -> float:
     return float(f"{v:.{n}g}") if isinstance(v, (int, float)) else v
 
 
+def mat_text(m: list[list[float]]) -> str:
+    """Matrix bzw. Vektor (Modul kinematik) als Text, 6 signifikante Stellen, Dezimalkomma; |x| < 5·10⁻¹³ als 0."""
+    f = lambda x: "0" if abs(x) < 5e-13 else f"{x:.6g}".replace(".", ",")
+    return "[" + "; ".join("  ".join(f(x) for x in row) for row in m) + "]"
+
+
 def parse_date(v) -> str | None:
     if v is None or v == "":
         return None
@@ -166,7 +172,9 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
     reg = json.loads((ROOT / "src" / "modules.json").read_text(encoding="utf-8"))["modules"]
     uses_fd = any(reg.get(e["module"], {}).get("fd") for e in entries)
     fd = f" · Fachdaten {cat.get('fdVersion') or '–'}" if uses_fd else ""
-    ws["A2"] = f"Datenstand Werkstoffdaten {cat['dataVersion']}{fd} · exportiert am {today} · nur gelbe Spalten ausfüllen, Anleitung im zweiten Blatt"
+    uses_wdb = any(reg.get(e["module"], {}).get("wdb", True) for e in entries)
+    stand = (f"Datenstand Werkstoffdaten {cat['dataVersion']}{fd}" if uses_wdb else "ohne Werkstoffdaten") + (" · Ergebnis bei Matrix und Vektor: Werte im Ergebnisfeld, im Katalog Kontrollwert Spur bzw. Betrag" if any(e.get("exMatrix") for e in entries) else "")
+    ws["A2"] = f"{stand} · exportiert am {today} · nur gelbe Spalten ausfüllen, Anleitung im zweiten Blatt"
     ws["A2"].font = F_MUTED
     head_row, first = 5, 6
 
@@ -189,6 +197,8 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
         c.font, c.fill, c.alignment, c.border = F_HEAD, FILL_HEAD, Alignment(wrap_text=True, vertical="center"), BORDER
         ws.column_dimensions[get_column_letter(i)].width = width
     ws.row_dimensions[head_row].height = 28
+    if any(e.get("exMatrix") for e in entries):
+        ws.column_dimensions[get_column_letter(C["exValue"])].width = 30   # Matrix und Vektor (Modul kinematik)
 
     r, last_group = first, None
     for e in entries:
@@ -202,7 +212,7 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
         st = status.get(e["id"], {})
         stale = bool(st.get("formel")) and st.get("formel") != e["formula"]
         vals = dict(e)
-        vals["exValue"] = sig(e["exValue"])
+        vals["exValue"] = mat_text(e["exMatrix"]) if e.get("exMatrix") else sig(e["exValue"])
         vals["formula_stamp"] = e["formula"]
         vals["in_status"] = "offen" if stale or not st else st.get("status", "offen")
         vals["in_datum"] = None if stale or not st.get("datum") else dt.date.fromisoformat(st["datum"])
@@ -214,7 +224,7 @@ def write_sheet(ws, cat: dict, entries: list, status: dict) -> None:
         for _, _, key in COLS:
             c = ws.cell(row=r, column=C[key], value=vals.get(key))
             c.font, c.border = F_BASE, BORDER
-            c.alignment = WRAP if key in ("title", "formula", "exSubst", "ref", "exCase", "in_kommentar") else TOP
+            c.alignment = WRAP if key in ("title", "formula", "exSubst", "ref", "exCase", "in_kommentar") or (key == "exValue" and e.get("exMatrix")) else TOP
             if key in INPUT_KEYS:
                 c.fill = FILL_INPUT
                 c.protection = Protection(locked=False)

@@ -15,7 +15,9 @@ describe("Gegenrechnung (golden.json aus verification/pruefung.py)", () => {
       for (const [k, v] of Object.entries(g.expect)) {
         const x = got[k];
         expect(x, `${g.id} ${k}`).not.toBeNull();
-        expect(Math.abs((x as number) - v) / Math.abs(v || 1), `${g.id} ${k}`).toBeLessThanOrEqual(g.tol);
+        // abs: absolute Abweichung (Modul kinematik, Winkel in rad und Matrixelemente), sonst relativ
+        const scale = (g.case as { abs?: boolean }).abs ? 1 : Math.abs(v || 1);
+        expect(Math.abs((x as number) - v) / scale, `${g.id} ${k}`).toBeLessThanOrEqual(g.tol);
       }
     });
   }

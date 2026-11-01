@@ -13,6 +13,11 @@ export interface CalcStep {
   unit: string;
   /** Literaturstelle oder Hinweis. */
   ref?: string;
+  /**
+   * Ergebnis als Matrix oder Vektor (ab 0.12.0, Modul kinematik), zeilenweise; ein Vektor als eine Zeile.
+   * `value` ist dann ein Kontrollwert (Matrix: Spur, Vektor: Betrag), siehe Formelkatalog.
+   */
+  matrix?: readonly (readonly number[])[];
 }
 
 /**
@@ -28,6 +33,7 @@ export const TRACE_GROUPS = {
   verbindungen: ["werkstoff", "passung", "fugendruck", "spannungen", "montage", "nachgiebigkeit", "vorspannung", "betrieb", "nachweis"],
   dichtungen: ["abmessungen", "verpressung", "nut", "extrusion", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
+  kinematik: ["orientierung", "umrechnung", "pruefung"],
 } as const satisfies Record<ModuleId, readonly string[]>;
 
 /** Gruppen eines Moduls als Typ, z. B. TraceGroupOf<"fluid">. */
@@ -45,6 +51,7 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   passung: "Passung und Übermaß", fugendruck: "Fugendruck", spannungen: "Spannungen", montage: "Montage", nachgiebigkeit: "Nachgiebigkeiten",
   vorspannung: "Vorspannkraft", betrieb: "Betriebskräfte", abmessungen: "Abmessungen", verpressung: "Verpressung", nut: "Nut",
   extrusion: "Spaltextrusion", gleichgewicht: "Gleichgewicht", stabkraefte: "Stabkräfte", verschiebung: "Verschiebungen",
+  orientierung: "Orientierung", umrechnung: "Umrechnung der Darstellungen", pruefung: "Prüfung der Rotationsmatrix",
 };
 
 /** Gruppen eines Moduls in Anzeigereihenfolge. */

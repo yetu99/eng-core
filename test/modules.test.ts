@@ -42,9 +42,9 @@ describe("Modulregister src/modules.json", () => {
     expect([...traceGroupsOf("gemeinsam"), ...traceGroupsOf("festigkeit")].sort()).toEqual(["belastung", "bemessung", "ermuedung", "formfaktor", "nachweis", "querschnitt", "werkstoff"]);
     for (const m of MODULE_IDS) expect(new Set(traceGroupsOf(m)).size).toBe(traceGroupsOf(m).length);
   });
-  it("jede Katalogformel ist einem Modul zugeordnet (ab 0.11.0 Werkbank-Module und fluid)", () => {
+  it("jede Katalogformel ist einem Modul zugeordnet (ab 0.12.0 Werkbank-Module, fluid und kinematik)", () => {
     for (const e of entries) expect(e.module).toBe(moduleOfId(e.id));
-    expect(new Set(entries.map((e) => e.module))).toEqual(new Set([...TOOLS.werkbank.modules, "fluid"]));
+    expect(new Set(entries.map((e) => e.module))).toEqual(new Set([...TOOLS.werkbank.modules, "fluid", "kinematik"]));
   });
 });
 
@@ -131,14 +131,14 @@ describe("sync-to-app nach Modulen", () => {
   const app = () => { const d = mkdtempSync(join(tmpdir(), "app-")); writeFileSync(join(d, "package.json"), "{}"); return d; };
   const sync = (dir: string, ...extra: string[]) => execFileSync("node", ["scripts/sync-to-app.mjs", dir, ...extra], { cwd: root, encoding: "utf8" });
   const manifest = (dir: string) => JSON.parse(readFileSync(join(dir, "src/core/MANIFEST.json"), "utf8")) as { version: string; modules?: string[]; files: Record<string, string> };
-  it("--tool werkbank kopiert den ganzen Kern ohne Modul fluid und ohne Fachdaten-Tabellen, Inhalte gleich", () => {
+  it("--tool werkbank kopiert den ganzen Kern ohne die Module fluid und kinematik und ohne Fachdaten-Tabellen, Inhalte gleich", () => {
     const a = app(), b = app();
     sync(a); sync(b, "--tool", "werkbank");
     const ma = manifest(a), mb = manifest(b);
-    const fluidOnly = (k: string) => k.startsWith("core/fluid/") || (k.startsWith("data/fd/") && k !== "data/fd/snapshot.json");
+    const fluidOnly = (k: string) => k.startsWith("core/fluid/") || k.startsWith("core/kinematics/") || (k.startsWith("data/fd/") && k !== "data/fd/snapshot.json");
     expect(Object.keys(mb.files)).toEqual(Object.keys(ma.files).filter((k) => !fluidOnly(k)));
     for (const k of Object.keys(mb.files)) if (k !== "core/index.ts") expect(mb.files[k], k).toBe(ma.files[k]);
-    const strip = (s: string) => s.split("\n").filter((l) => !l.includes("Gekürzt von") && l.trim() !== "*" && !l.includes("./fluid/")).join("\n");
+    const strip = (s: string) => s.split("\n").filter((l) => !l.includes("Gekürzt von") && l.trim() !== "*" && !l.includes("./fluid/") && !l.includes("./kinematics/")).join("\n");
     expect(strip(readFileSync(join(b, "src/core/index.ts"), "utf8"))).toBe(strip(readFileSync(join(a, "src/core/index.ts"), "utf8")));
     expect(mb.modules).toEqual(TOOLS.werkbank.modules);
     expect(mb.version).toBe(CORE_VERSION);

@@ -1,8 +1,8 @@
 {
- "core": "0.11.0",
+ "core": "0.12.0",
  "data": "WDB 1.1.1",
- "formulas": 393,
- "approved": 393,
+ "formulas": 428,
+ "approved": 428,
  "items": [
   {
    "id": "A-GR-X",
@@ -3609,6 +3609,601 @@
    "sort": 2120
   },
   {
+   "id": "G-01-X",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Elementardrehung um x",
+   "formula": "R_x(θ) = [1 0 0; 0 cos θ −sin θ; 0 sin θ cos θ]",
+   "unit": "1",
+   "source": "Lynch/Park S. 62, Rot(x̂, θ); Weber/Koch Gl. (2.18), (2.21)",
+   "example": "R_x(-90°) = [1  0  0; 0  0  1; 0  -1  0]",
+   "example_result": 1,
+   "example_case": "G-L2 Weber/Koch Bild 2.12: Z-Y-X A = −60°, B = −90°, C = −90°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2130
+  },
+  {
+   "id": "G-01-Y",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Elementardrehung um y",
+   "formula": "R_y(θ) = [cos θ 0 sin θ; 0 1 0; −sin θ 0 cos θ]",
+   "unit": "1",
+   "source": "Lynch/Park S. 62, Rot(ŷ, θ); Weber/Koch Gl. (2.18), (2.21)",
+   "example": "R_y(-90°) = [0  0  -1; 0  1  0; 1  0  0]",
+   "example_result": 1,
+   "example_case": "G-L2 Weber/Koch Bild 2.12: Z-Y-X A = −60°, B = −90°, C = −90°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2140
+  },
+  {
+   "id": "G-01-Z",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Elementardrehung um z",
+   "formula": "R_z(θ) = [cos θ −sin θ 0; sin θ cos θ 0; 0 0 1]",
+   "unit": "1",
+   "source": "Lynch/Park S. 62, Rot(ẑ, θ); Weber/Koch Gl. (2.18), (2.21)",
+   "example": "R_z(-60°) = [0,5  0,866025  0; -0,866025  0,5  0; 0  0  1]",
+   "example_result": 2,
+   "example_case": "G-L2 Weber/Koch Bild 2.12: Z-Y-X A = −60°, B = −90°, C = −90°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2150
+  },
+  {
+   "id": "G-02",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Rotationsmatrix aus Z-Y-X-Winkeln (A, B, C)",
+   "formula": "R = R_z(A)·R_y(B)·R_x(C); mitgedreht um z, y′, x″, gleichwertig fest um x, y, z",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.1), (B.8) mit (α, β, γ) = (A, B, C); Weber/Koch Gl. (2.21)",
+   "example": "R = R_z(-60°)·R_y(-90°)·R_x(-90°) = [0  0,5  0,866025; 0  -0,866025  0,5; 1  0  0]",
+   "example_result": -0.866025403784,
+   "example_case": "G-L2 Weber/Koch Bild 2.12: Z-Y-X A = −60°, B = −90°, C = −90°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2160
+  },
+  {
+   "id": "G-03",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Rotationsmatrix aus Z-Y-Z-Winkeln (φ, θ, ψ)",
+   "formula": "R = R_z(φ)·R_y(θ)·R_z(ψ); mitgedreht um z, y′, z″",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.6) mit (α, β, γ) = (φ, θ, ψ); Weber/Koch Gl. (2.18) mit (α, β, χ) = (φ, θ, ψ)",
+   "example": "R = R_z(30°)·R_y(90°)·R_z(180°) = [0  0,5  0,866025; 0  -0,866025  0,5; 1  0  0]",
+   "example_result": -0.866025403784,
+   "example_case": "G-L3 Weber/Koch Bild 2.12: Z-Y-Z φ = 30°, θ = 90°, ψ = 180°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2170
+  },
+  {
+   "id": "G-04",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Rotationsmatrix aus Achse und Winkel (Rodrigues)",
+   "formula": "R = I + sin θ·[ω̂] + (1 − cos θ)·[ω̂]²",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.51), (3.52); Weber/Koch Kap. 2.1.10",
+   "example": "R = I + sin(30°)·[ω̂] + (1 − cos(30°))·[ω̂]² = [0,866025  -0,25  0,433013; 0,25  0,966506  0,0580127; -0,433013  0,0580127  0,899519]",
+   "example_result": 2.73205080757,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2180
+  },
+  {
+   "id": "G-04-N",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Einheitsachse",
+   "formula": "ω̂ = ω/‖ω‖",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.51), ‖ω̂‖ = 1",
+   "example": "ω̂ = (0; 0,866025; 0,5)/1 = (0; 0,866025; 0,5)",
+   "example_result": 1,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2190
+  },
+  {
+   "id": "G-05",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Rotationsmatrix aus Quaternion",
+   "formula": "R = [w² + x² − y² − z²  2(xy − wz)  2(xz + wy); 2(xy + wz)  w² − x² + y² − z²  2(yz − wx); 2(xz − wy)  2(yz + wx)  w² − x² − y² + z²]",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.12) mit (q₀, q₁, q₂, q₃) = (w, x, y, z)",
+   "example": "R(0,965926; 0; 0; 0,258819) = [0,866025  -0,5  0; 0,5  0,866025  0; 0  0  1]",
+   "example_result": 2.73205080757,
+   "example_case": "G-L6 Weber/Koch Bild 2.16 b: Drehung um z um α = 30° als Quaternion (cos 15°, 0, 0, sin 15°)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2200
+  },
+  {
+   "id": "G-05-N",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Einheitsquaternion",
+   "formula": "q̂ = q/‖q‖, q = (w, x, y, z)",
+   "unit": "1",
+   "source": "Lynch/Park Anhang B.3, ‖q‖ = 1",
+   "example": "q̂ = (0,965926; 0; 0; 0,258819)/1 = (0,965926; 0; 0; 0,258819)",
+   "example_result": 1,
+   "example_case": "G-L6 Weber/Koch Bild 2.16 b: Drehung um z um α = 30° als Quaternion (cos 15°, 0, 0, sin 15°)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2210
+  },
+  {
+   "id": "G-06-A",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Winkel A (um z)",
+   "formula": "A = atan2(r_21, r_11)",
+   "unit": "rad",
+   "source": "Lynch/Park Anhang B.1.1, Gl. (B.3) bis (B.5); Weber/Koch Gl. (2.22)",
+   "example": "A = atan2(0,25; 0,866025) = 16,1021°",
+   "example_result": 0.281034901503,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2220
+  },
+  {
+   "id": "G-06-B",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Winkel B (um y′)",
+   "formula": "B = atan2(−r_31, √(r_11² + r_21²))",
+   "unit": "rad",
+   "source": "Lynch/Park Anhang B.1.1, Gl. (B.3) bis (B.5); Weber/Koch Gl. (2.22)",
+   "example": "B = atan2(0,433013; 0,901388) = 25,6589°",
+   "example_result": 0.447832396929,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2230
+  },
+  {
+   "id": "G-06-C",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Winkel C (um x″)",
+   "formula": "C = atan2(r_32, r_33)",
+   "unit": "rad",
+   "source": "Lynch/Park Anhang B.1.1, Gl. (B.3) bis (B.5); Weber/Koch Gl. (2.22)",
+   "example": "C = atan2(0,0580127; 0,899519) = 3,69007°",
+   "example_result": 0.0644038279493,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2240
+  },
+  {
+   "id": "G-06-KN",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Kardansperre B = −90°: C bei A = 0",
+   "formula": "Kardansperre B = −90° (√(r_11² + r_21²) ≤ 10⁻⁹, r_31 > 0): A = 0, C = atan2(−r_12, r_22)",
+   "unit": "rad",
+   "source": "Lynch/Park Anhang B.1.1 (c); Weber/Koch Gl. (2.23): nur A + C bestimmt (dort Vorzeichen: richtig A + C = atan2(−r_23, −r_13))",
+   "example": "√(r_11² + r_21²) = 0, r_31 = 1: B = −90°, A = 0°, C = atan2(-0,5; -0,866025) = -150°",
+   "example_result": -2.61799387799,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2250
+  },
+  {
+   "id": "G-06-KP",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Kardansperre B = +90°: C bei A = 0",
+   "formula": "Kardansperre B = +90° (√(r_11² + r_21²) ≤ 10⁻⁹, r_31 < 0): A = 0, C = atan2(r_12, r_22)",
+   "unit": "rad",
+   "source": "Lynch/Park Anhang B.1.1 (b); Weber/Koch Gl. (2.23): nur A − C bestimmt",
+   "example": "√(r_11² + r_21²) = 0, r_31 = -1: B = 90°, A = 0°, C = atan2(-0,173648; 0,984808) = -10°",
+   "example_result": -0.174532925199,
+   "example_case": "G-S1 Kardansperre B = +90°: A = 30°, B = 90°, C = 20°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2260
+  },
+  {
+   "id": "G-07-K0",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Sonderfall θ = 0: ψ bei φ = 0",
+   "formula": "Sonderfall θ = 0 (√(r_31² + r_32²) ≤ 10⁻⁹, r_33 > 0): φ = 0, ψ = atan2(r_21, r_11)",
+   "unit": "rad",
+   "source": "Weber/Koch Gl. (2.20): nur φ + ψ bestimmt",
+   "example": "√(r_31² + r_32²) = 0, r_33 = 1: θ = 0°, φ = 0°, ψ = atan2(1; 0) = 90°",
+   "example_result": 1.57079632679,
+   "example_case": "G-L5 Lynch/Park Abb. 3.7: R_b = Rot(z, 90°), p_b = (1; −1; 0) m, danach Drehung um y_b um −90° (ergibt R_c)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2270
+  },
+  {
+   "id": "G-07-K180",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Sonderfall θ = 180°: ψ bei φ = 0",
+   "formula": "Sonderfall θ = 180° (√(r_31² + r_32²) ≤ 10⁻⁹, r_33 < 0): φ = 0, ψ = atan2(r_21, r_22)",
+   "unit": "rad",
+   "source": "Lynch/Park Gl. (B.6) mit β = 180°: nur φ − ψ bestimmt",
+   "example": "√(r_31² + r_32²) = 0, r_33 = -1: θ = 180°, φ = 0°, ψ = atan2(-0,258819; 0,965926) = -15°",
+   "example_result": -0.261799387799,
+   "example_case": "G-S3 Z-Y-Z Sonderfall θ = 180°: φ = 40°, θ = 180°, ψ = 25°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2280
+  },
+  {
+   "id": "G-07-P",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Winkel φ (um z)",
+   "formula": "φ = atan2(r_23, r_13)",
+   "unit": "rad",
+   "source": "Lynch/Park Gl. (B.6), Lösung analog B.1.1; Weber/Koch Gl. (2.19) (dort χ ohne Minus: richtig χ = atan2(r_32, −r_31))",
+   "example": "φ = atan2(0,5; 0,866025) = 30°",
+   "example_result": 0.523598775598,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2290
+  },
+  {
+   "id": "G-07-S",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Winkel ψ (um z″)",
+   "formula": "ψ = atan2(r_32, −r_31)",
+   "unit": "rad",
+   "source": "Lynch/Park Gl. (B.6), Lösung analog B.1.1; Weber/Koch Gl. (2.19) (dort χ ohne Minus: richtig χ = atan2(r_32, −r_31))",
+   "example": "ψ = atan2(0; -1) = 180°",
+   "example_result": 3.14159265359,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2300
+  },
+  {
+   "id": "G-07-T",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Winkel θ (um y′)",
+   "formula": "θ = atan2(√(r_31² + r_32²), r_33)",
+   "unit": "rad",
+   "source": "Lynch/Park Gl. (B.6), Lösung analog B.1.1; Weber/Koch Gl. (2.19) (dort χ ohne Minus: richtig χ = atan2(r_32, −r_31))",
+   "example": "θ = atan2(1; 0) = 90°",
+   "example_result": 1.57079632679,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2310
+  },
+  {
+   "id": "G-08-0",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Sonderfall θ = 0: Achse unbestimmt",
+   "formula": "Sonderfall θ = 0 (θ ≤ 10⁻¹²): ω̂ unbestimmt, gesetzt ω̂ = (0, 0, 1)",
+   "unit": "1",
+   "source": "Lynch/Park Algorithmus S. 74 (a)",
+   "example": "θ = 0 rad: ω̂ = (0; 0; 1)",
+   "example_result": 1,
+   "example_case": "G-S4 Keine Drehung: A = B = C = 0",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2320
+  },
+  {
+   "id": "G-08-S",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Drehachse ω̂ (θ > 90°, symmetrischer Anteil)",
+   "formula": "θ > 90°: ω̂_k = √((r_kk − cos θ)/(1 − cos θ)), k = größtes r_kk; ω̂_j = (r_jk + r_kj)/(2·(1 − cos θ)·ω̂_k); Vorzeichen mit ω̂·v ≥ 0, bei v = 0 (θ = 180°) erste von 0 verschiedene Komponente in x, y, z positiv",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.52), (3.55) bis (3.60) verallgemeinert auf θ > 90°",
+   "example": "k = 1 (r_11 = 0), cos θ = -0,933013: ω̂ = (-0,694747; -0,186157; -0,694747)",
+   "example_result": 1,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2330
+  },
+  {
+   "id": "G-08-T",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Drehwinkel θ",
+   "formula": "θ = atan2(½·‖v‖, ½·(tr R − 1)), v = (r_32 − r_23, r_13 − r_31, r_21 − r_12)",
+   "unit": "rad",
+   "source": "Lynch/Park Gl. (3.53), (3.54), Algorithmus S. 74 f.; atan2 statt arccos (gleichwertig, genauer nahe 0 und 180°)",
+   "example": "v = (-0,5; -0,133975; -0,5), tr R = -0,866025: θ = atan2(0,359843; -0,933013) = 158,909°",
+   "example_result": 2.77349257086,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2340
+  },
+  {
+   "id": "G-08-W",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Drehachse ω̂ (θ ≤ 90°)",
+   "formula": "ω̂ = v/(2·sin θ) = v/‖v‖",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.53), (3.54), Algorithmus S. 74 f., Gl. (3.61)",
+   "example": "ω̂ = (0; 0,866025; 0,5)/1 = (0; 0,866025; 0,5)",
+   "example_result": 1,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2350
+  },
+  {
+   "id": "G-09-V",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Quaternion eindeutig (Vorzeichen)",
+   "formula": "q und −q beschreiben dieselbe Drehung: Vorzeichen so, dass w ≥ 0; bei |w| ≤ 10⁻¹² erste von 0 verschiedene Komponente in x, y, z positiv",
+   "unit": "1",
+   "source": "Lynch/Park Anhang B.3 (q und −q); Konzept K1, Abschnitt 2",
+   "example": "(-0,183013; 0,683013; 0,183013; 0,683013), w < 0: Vorzeichen gewechselt: q = (0,183013; -0,683013; -0,183013; -0,683013)",
+   "example_result": 1,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2360
+  },
+  {
+   "id": "G-09-W",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Quaternion, Zweig tr R",
+   "formula": "tr R größtes Glied: w = ½·√(1 + tr R), x = (r_32 − r_23)/(4w), y = (r_13 − r_31)/(4w), z = (r_21 − r_12)/(4w)",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29)",
+   "example": "tr R = 2,73205: w = ½·√(1 + 2,73205): q = (0,965926; 0; 0,224144; 0,12941)",
+   "example_result": 1,
+   "example_case": "G-L4 Lynch/Park Bsp. 3.12: ω̂ = (0; 0,866; 0,5), θ = 30°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2370
+  },
+  {
+   "id": "G-09-X",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Quaternion, Zweig r_11",
+   "formula": "r_11 größtes Glied: x = ½·√(1 + r_11 − r_22 − r_33), w = (r_32 − r_23)/(4x), y = (r_12 + r_21)/(4x), z = (r_13 + r_31)/(4x)",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29); Zweig nach Shepperd",
+   "example": "r_11 = 0: x = ½·√(1 + 0 − (-0,866025) − 0): q = (-0,183013; 0,683013; 0,183013; 0,683013)",
+   "example_result": 1,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2380
+  },
+  {
+   "id": "G-09-Y",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Quaternion, Zweig r_22",
+   "formula": "r_22 größtes Glied: y = ½·√(1 − r_11 + r_22 − r_33), w = (r_13 − r_31)/(4y), x = (r_12 + r_21)/(4y), z = (r_23 + r_32)/(4y)",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29); Zweig nach Shepperd",
+   "example": "r_22 = 0,965926: y = ½·√(1 − (-0,965926) + 0,965926 − (-1)): q = (0; -0,130526; 0,991445; 0)",
+   "example_result": 1,
+   "example_case": "G-S3 Z-Y-Z Sonderfall θ = 180°: φ = 40°, θ = 180°, ψ = 25°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2390
+  },
+  {
+   "id": "G-09-Z",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Quaternion, Zweig r_33",
+   "formula": "r_33 größtes Glied: z = ½·√(1 − r_11 − r_22 + r_33), w = (r_21 − r_12)/(4z), x = (r_13 + r_31)/(4z), y = (r_23 + r_32)/(4z)",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29); Zweig nach Shepperd",
+   "example": "r_33 = 0: z = ½·√(1 − 0 − (-0,866025) + 0): q = (-0,183013; 0,683013; 0,183013; 0,683013)",
+   "example_result": 1,
+   "example_case": "G-L3 Weber/Koch Bild 2.12: Z-Y-Z φ = 30°, θ = 90°, ψ = 180°",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2400
+  },
+  {
+   "id": "G-10-D",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Determinante",
+   "formula": "det R = +1 (rechtshändig), Toleranz 10⁻⁹",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.21); ISO 9787:2013, 4.1",
+   "example": "det R = 1 (erfüllt)",
+   "example_result": 1,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2410
+  },
+  {
+   "id": "G-10-O",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Orthogonalität",
+   "formula": "e = ‖RᵀR − I‖_F, gültig für e ≤ 10⁻⁹",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.19)",
+   "example": "e = ‖RᵀR − I‖_F = 1,57009·10⁻¹⁶ (erfüllt)",
+   "example_result": 1.57009245868e-16,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2420
+  },
+  {
+   "id": "G-11-F",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Drehung um feste Achse (links multiplizieren)",
+   "formula": "Drehung um feste Achse (in {a}): R′ = Rot·R",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.23)",
+   "example": "R′ = R_x(45°)·R = [-0,984808  -0,173648  0; 0,122788  -0,696364  -0,707107; 0,122788  -0,696364  0,707107]",
+   "example_result": -0.974065212146,
+   "example_case": "G-S6 Achse z, θ = 170° (Quaternion-Zweig r_33), danach Drehung um x_a um 45° (feste Achse)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2430
+  },
+  {
+   "id": "G-11-I",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Umkehrung",
+   "formula": "R_ba = R_ab⁻¹ = R_abᵀ",
+   "unit": "1",
+   "source": "Lynch/Park Prop. 3.3, S. 61",
+   "example": "R_ba = R_abᵀ = [0  0  1; 0,5  -0,866025  0; 0,866025  0,5  0]",
+   "example_result": -0.866025403784,
+   "example_case": "G-L1 Weber/Koch Bild 2.12: Rotationsmatrix des Werkzeugsystems (B = −90°, Kardansperre)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2440
+  },
+  {
+   "id": "G-11-M",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Drehung um mitgedrehte Achse (rechts multiplizieren)",
+   "formula": "Drehung um mitgedrehte Achse (in {b}): R″ = R·Rot",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.24)",
+   "example": "R″ = R·R_y(-90°) = [0  -1  0; 0  0  -1; 1  0  0]",
+   "example_result": 1.22464679915e-16,
+   "example_case": "G-L5 Lynch/Park Abb. 3.7: R_b = Rot(z, 90°), p_b = (1; −1; 0) m, danach Drehung um y_b um −90° (ergibt R_c)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2450
+  },
+  {
+   "id": "G-11-V",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Verkettung",
+   "formula": "R_ac = R_ab·R_bc",
+   "unit": "1",
+   "source": "Lynch/Park Gl. (3.22)",
+   "example": "R_ac = [0  -1  0; 1  0  0; 0  0  1]·[0  0  -1; 0  1  0; 1  0  0] = [0  -1  0; 0  0  -1; 1  0  0]",
+   "example_result": 1.22464679915e-16,
+   "example_case": "Lynch/Park Abb. 3.7: R_ab = Rot(z, 90°), R_bc = Rot(y, −90°), R_ac = R_ab·R_bc",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2460
+  },
+  {
+   "id": "G-12",
+   "area": "Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)",
+   "module": "kinematik",
+   "quantity": "Vektor in {a} ausdrücken",
+   "formula": "p_a = R_ab·p_b",
+   "unit": "m",
+   "source": "Lynch/Park S. 62 (Rab·pb = pa)",
+   "example": "p_a = R_ab·(1000; -1000; 0) mm = (1000; 1000; 0) mm",
+   "example_result": 1.41421356237,
+   "example_case": "G-L5 Lynch/Park Abb. 3.7: R_b = Rot(z, 90°), p_b = (1; −1; 0) m, danach Drehung um y_b um −90° (ergibt R_c)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-01",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2470
+  },
+  {
    "id": "K-FK",
    "area": "Knicken",
    "module": "festigkeit",
@@ -3623,7 +4218,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2130
+   "sort": 2480
   },
   {
    "id": "K-LAM",
@@ -3640,7 +4235,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2140
+   "sort": 2490
   },
   {
    "id": "K-LAMT",
@@ -3657,7 +4252,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2150
+   "sort": 2500
   },
   {
    "id": "K-LK",
@@ -3674,7 +4269,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2160
+   "sort": 2510
   },
   {
    "id": "K-SKE",
@@ -3691,7 +4286,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2170
+   "sort": 2520
   },
   {
    "id": "K-SKJ",
@@ -3708,7 +4303,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2180
+   "sort": 2530
   },
   {
    "id": "N-FZUL",
@@ -3725,7 +4320,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2190
+   "sort": 2540
   },
   {
    "id": "N-SB",
@@ -3742,7 +4337,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2200
+   "sort": 2550
   },
   {
    "id": "N-SF",
@@ -3759,7 +4354,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2210
+   "sort": 2560
   },
   {
    "id": "N-SK",
@@ -3776,7 +4371,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2220
+   "sort": 2570
   },
   {
    "id": "N-SV",
@@ -3793,7 +4388,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2230
+   "sort": 2580
   },
   {
    "id": "P-BIS",
@@ -3810,7 +4405,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2240
+   "sort": 2590
   },
   {
    "id": "P-GEO",
@@ -3827,7 +4422,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2250
+   "sort": 2600
   },
   {
    "id": "P-KU-B",
@@ -3844,7 +4439,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2260
+   "sort": 2610
   },
   {
    "id": "P-KU-BI",
@@ -3861,7 +4456,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 2270
+   "sort": 2620
   },
   {
    "id": "P-KU-KS",
@@ -3878,7 +4473,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2280
+   "sort": 2630
   },
   {
    "id": "P-KU-SR",
@@ -3895,7 +4490,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2290
+   "sort": 2640
   },
   {
    "id": "P-KU-ST",
@@ -3912,7 +4507,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2300
+   "sort": 2650
   },
   {
    "id": "P-KU-SV",
@@ -3929,7 +4524,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2310
+   "sort": 2660
   },
   {
    "id": "P-KU-U",
@@ -3946,7 +4541,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2320
+   "sort": 2670
   },
   {
    "id": "P-NA",
@@ -3963,7 +4558,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2330
+   "sort": 2680
   },
   {
    "id": "P-NZ",
@@ -3980,7 +4575,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2340
+   "sort": 2690
   },
   {
    "id": "P-TR",
@@ -3997,7 +4592,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2350
+   "sort": 2700
   },
   {
    "id": "P-ZY-B",
@@ -4014,7 +4609,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2360
+   "sort": 2710
   },
   {
    "id": "P-ZY-BI",
@@ -4031,7 +4626,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2370
+   "sort": 2720
   },
   {
    "id": "P-ZY-KS",
@@ -4048,7 +4643,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2380
+   "sort": 2730
   },
   {
    "id": "P-ZY-SR",
@@ -4065,7 +4660,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2390
+   "sort": 2740
   },
   {
    "id": "P-ZY-ST",
@@ -4082,7 +4677,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2400
+   "sort": 2750
   },
   {
    "id": "P-ZY-SV",
@@ -4099,7 +4694,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2410
+   "sort": 2760
   },
   {
    "id": "P-ZY-SZ",
@@ -4116,7 +4711,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2420
+   "sort": 2770
   },
   {
    "id": "P-ZY-U",
@@ -4133,7 +4728,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2430
+   "sort": 2780
   },
   {
    "id": "Q-DH-A",
@@ -4150,7 +4745,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2440
+   "sort": 2790
   },
   {
    "id": "Q-DH-ai",
@@ -4167,7 +4762,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2450
+   "sort": 2800
   },
   {
    "id": "Q-DH-I",
@@ -4184,7 +4779,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2460
+   "sort": 2810
   },
   {
    "id": "Q-DH-K",
@@ -4201,7 +4796,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2470
+   "sort": 2820
   },
   {
    "id": "Q-DH-W",
@@ -4218,7 +4813,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2480
+   "sort": 2830
   },
   {
    "id": "Q-DH-WT",
@@ -4235,7 +4830,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2490
+   "sort": 2840
   },
   {
    "id": "Q-DV-A",
@@ -4252,7 +4847,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2500
+   "sort": 2850
   },
   {
    "id": "Q-DV-e",
@@ -4269,7 +4864,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2510
+   "sort": 2860
   },
   {
    "id": "Q-DV-I",
@@ -4286,7 +4881,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2520
+   "sort": 2870
   },
   {
    "id": "Q-DV-K",
@@ -4303,7 +4898,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2530
+   "sort": 2880
   },
   {
    "id": "Q-DV-W",
@@ -4320,7 +4915,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2540
+   "sort": 2890
   },
   {
    "id": "Q-DV-WT",
@@ -4337,7 +4932,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2550
+   "sort": 2900
   },
   {
    "id": "Q-i",
@@ -4354,7 +4949,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2560
+   "sort": 2910
   },
   {
    "id": "Q-IP-A",
@@ -4371,7 +4966,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2570
+   "sort": 2920
   },
   {
    "id": "Q-IP-IY",
@@ -4388,7 +4983,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2580
+   "sort": 2930
   },
   {
    "id": "Q-IP-IZ",
@@ -4405,7 +5000,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2590
+   "sort": 2940
   },
   {
    "id": "Q-IP-K",
@@ -4422,7 +5017,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2600
+   "sort": 2950
   },
   {
    "id": "Q-IP-KA",
@@ -4439,7 +5034,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2610
+   "sort": 2960
   },
   {
    "id": "Q-IP-KAZ",
@@ -4456,7 +5051,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2620
+   "sort": 2970
   },
   {
    "id": "Q-IP-S",
@@ -4473,7 +5068,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2630
+   "sort": 2980
   },
   {
    "id": "Q-IP-SZ",
@@ -4490,7 +5085,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2640
+   "sort": 2990
   },
   {
    "id": "Q-IP-W",
@@ -4507,7 +5102,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2650
+   "sort": 3000
   },
   {
    "id": "Q-IP-WT",
@@ -4524,7 +5119,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2660
+   "sort": 3010
   },
   {
    "id": "Q-IP-WZ",
@@ -4541,7 +5136,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2670
+   "sort": 3020
   },
   {
    "id": "Q-LP-A",
@@ -4558,7 +5153,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2680
+   "sort": 3030
   },
   {
    "id": "Q-LP-AL",
@@ -4575,7 +5170,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2690
+   "sort": 3040
   },
   {
    "id": "Q-LP-I1",
@@ -4592,7 +5187,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2700
+   "sort": 3050
   },
   {
    "id": "Q-LP-I2",
@@ -4609,7 +5204,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2710
+   "sort": 3060
   },
   {
    "id": "Q-LP-IY",
@@ -4626,7 +5221,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2720
+   "sort": 3070
   },
   {
    "id": "Q-LP-IYZ",
@@ -4643,7 +5238,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2730
+   "sort": 3080
   },
   {
    "id": "Q-LP-IZ",
@@ -4660,7 +5255,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2740
+   "sort": 3090
   },
   {
    "id": "Q-LP-K",
@@ -4677,7 +5272,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2750
+   "sort": 3100
   },
   {
    "id": "Q-LP-KA",
@@ -4694,7 +5289,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2760
+   "sort": 3110
   },
   {
    "id": "Q-LP-S",
@@ -4711,7 +5306,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2770
+   "sort": 3120
   },
   {
    "id": "Q-LP-W",
@@ -4728,7 +5323,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2780
+   "sort": 3130
   },
   {
    "id": "Q-LP-WT",
@@ -4745,7 +5340,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2790
+   "sort": 3140
   },
   {
    "id": "Q-LP-YS",
@@ -4762,7 +5357,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2800
+   "sort": 3150
   },
   {
    "id": "Q-LP-ZS",
@@ -4779,7 +5374,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 2810
+   "sort": 3160
   },
   {
    "id": "Q-m",
@@ -4796,7 +5391,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2820
+   "sort": 3170
   },
   {
    "id": "Q-RE-A",
@@ -4813,7 +5408,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2830
+   "sort": 3180
   },
   {
    "id": "Q-RE-I",
@@ -4830,7 +5425,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2840
+   "sort": 3190
   },
   {
    "id": "Q-RE-K",
@@ -4847,7 +5442,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2850
+   "sort": 3200
   },
   {
    "id": "Q-RE-W",
@@ -4864,7 +5459,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2860
+   "sort": 3210
   },
   {
    "id": "Q-RE-WT",
@@ -4881,7 +5476,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2870
+   "sort": 3220
   },
   {
    "id": "Q-RH-A",
@@ -4898,7 +5493,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2880
+   "sort": 3230
   },
   {
    "id": "Q-RH-d",
@@ -4915,7 +5510,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2890
+   "sort": 3240
   },
   {
    "id": "Q-RH-I",
@@ -4932,7 +5527,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2900
+   "sort": 3250
   },
   {
    "id": "Q-RH-K",
@@ -4949,7 +5544,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2910
+   "sort": 3260
   },
   {
    "id": "Q-RH-W",
@@ -4966,7 +5561,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2920
+   "sort": 3270
   },
   {
    "id": "Q-RH-WT",
@@ -4983,7 +5578,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2930
+   "sort": 3280
   },
   {
    "id": "Q-RR-A",
@@ -5000,7 +5595,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2940
+   "sort": 3290
   },
   {
    "id": "Q-RR-AM",
@@ -5017,7 +5612,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2950
+   "sort": 3300
   },
   {
    "id": "Q-RR-I",
@@ -5034,7 +5629,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2960
+   "sort": 3310
   },
   {
    "id": "Q-RR-K",
@@ -5051,7 +5646,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2970
+   "sort": 3320
   },
   {
    "id": "Q-RR-W",
@@ -5068,7 +5663,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2980
+   "sort": 3330
   },
   {
    "id": "Q-RR-WT",
@@ -5085,7 +5680,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2990
+   "sort": 3340
   },
   {
    "id": "Q-RV-A",
@@ -5102,7 +5697,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3000
+   "sort": 3350
   },
   {
    "id": "Q-RV-I",
@@ -5119,7 +5714,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3010
+   "sort": 3360
   },
   {
    "id": "Q-RV-K",
@@ -5136,7 +5731,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3020
+   "sort": 3370
   },
   {
    "id": "Q-RV-W",
@@ -5153,7 +5748,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3030
+   "sort": 3380
   },
   {
    "id": "Q-RV-WT",
@@ -5170,7 +5765,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3040
+   "sort": 3390
   },
   {
    "id": "Q-SIGO",
@@ -5187,7 +5782,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3050
+   "sort": 3400
   },
   {
    "id": "Q-SIGU",
@@ -5204,7 +5799,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3060
+   "sort": 3410
   },
   {
    "id": "Q-TP-A",
@@ -5221,7 +5816,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3070
+   "sort": 3420
   },
   {
    "id": "Q-TP-IY",
@@ -5238,7 +5833,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3080
+   "sort": 3430
   },
   {
    "id": "Q-TP-IZ",
@@ -5255,7 +5850,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3090
+   "sort": 3440
   },
   {
    "id": "Q-TP-K",
@@ -5272,7 +5867,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3100
+   "sort": 3450
   },
   {
    "id": "Q-TP-KA",
@@ -5289,7 +5884,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3110
+   "sort": 3460
   },
   {
    "id": "Q-TP-S",
@@ -5306,7 +5901,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3120
+   "sort": 3470
   },
   {
    "id": "Q-TP-W",
@@ -5323,7 +5918,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3130
+   "sort": 3480
   },
   {
    "id": "Q-TP-WT",
@@ -5340,7 +5935,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3140
+   "sort": 3490
   },
   {
    "id": "Q-TP-ZS",
@@ -5357,7 +5952,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3150
+   "sort": 3500
   },
   {
    "id": "Q-UP-A",
@@ -5374,7 +5969,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3160
+   "sort": 3510
   },
   {
    "id": "Q-UP-EM",
@@ -5391,7 +5986,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3170
+   "sort": 3520
   },
   {
    "id": "Q-UP-IY",
@@ -5408,7 +6003,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3180
+   "sort": 3530
   },
   {
    "id": "Q-UP-IZ",
@@ -5425,7 +6020,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3190
+   "sort": 3540
   },
   {
    "id": "Q-UP-K",
@@ -5442,7 +6037,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3200
+   "sort": 3550
   },
   {
    "id": "Q-UP-KA",
@@ -5459,7 +6054,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3210
+   "sort": 3560
   },
   {
    "id": "Q-UP-KAZ",
@@ -5476,7 +6071,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3220
+   "sort": 3570
   },
   {
    "id": "Q-UP-S",
@@ -5493,7 +6088,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3230
+   "sort": 3580
   },
   {
    "id": "Q-UP-SZ",
@@ -5510,7 +6105,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3240
+   "sort": 3590
   },
   {
    "id": "Q-UP-W",
@@ -5527,7 +6122,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3250
+   "sort": 3600
   },
   {
    "id": "Q-UP-WT",
@@ -5544,7 +6139,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3260
+   "sort": 3610
   },
   {
    "id": "Q-UP-WZ",
@@ -5561,7 +6156,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3270
+   "sort": 3620
   },
   {
    "id": "Q-UP-YS",
@@ -5578,7 +6173,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3280
+   "sort": 3630
   },
   {
    "id": "RH-A",
@@ -5595,7 +6190,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3290
+   "sort": 3640
   },
   {
    "id": "RH-BE",
@@ -5612,7 +6207,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3300
+   "sort": 3650
   },
   {
    "id": "RH-D-BIS",
@@ -5629,7 +6224,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3310
+   "sort": 3660
   },
   {
    "id": "RH-D-DN",
@@ -5646,7 +6241,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3320
+   "sort": 3670
   },
   {
    "id": "RH-DI",
@@ -5663,7 +6258,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3330
+   "sort": 3680
   },
   {
    "id": "RH-DP-ERF",
@@ -5680,7 +6275,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3340
+   "sort": 3690
   },
   {
    "id": "RH-DP-GEO",
@@ -5697,7 +6292,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3350
+   "sort": 3700
   },
   {
    "id": "RH-DP-R",
@@ -5714,7 +6309,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3360
+   "sort": 3710
   },
   {
    "id": "RH-DP-V",
@@ -5731,7 +6326,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3370
+   "sort": 3720
   },
   {
    "id": "RH-DP-Z",
@@ -5748,7 +6343,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3380
+   "sort": 3730
   },
   {
    "id": "RH-EPS",
@@ -5765,7 +6360,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3390
+   "sort": 3740
   },
   {
    "id": "RH-H-E",
@@ -5782,7 +6377,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3400
+   "sort": 3750
   },
   {
    "id": "RH-H-P",
@@ -5799,7 +6394,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3410
+   "sort": 3760
   },
   {
    "id": "RH-HV",
@@ -5816,7 +6411,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3420
+   "sort": 3770
   },
   {
    "id": "RH-K",
@@ -5833,7 +6428,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3430
+   "sort": 3780
   },
   {
    "id": "RH-L-CB",
@@ -5850,7 +6445,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3440
+   "sort": 3790
   },
   {
    "id": "RH-L-EX",
@@ -5867,7 +6462,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3450
+   "sort": 3800
   },
   {
    "id": "RH-L-LAM",
@@ -5884,7 +6479,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3460
+   "sort": 3810
   },
   {
    "id": "RH-N-KAV",
@@ -5901,7 +6496,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3470
+   "sort": 3820
   },
   {
    "id": "RH-N-RE",
@@ -5918,7 +6513,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3480
+   "sort": 3830
   },
   {
    "id": "RH-N-V",
@@ -5935,7 +6530,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3490
+   "sort": 3840
   },
   {
    "id": "RH-P-HYD",
@@ -5952,7 +6547,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3500
+   "sort": 3850
   },
   {
    "id": "RH-P-W",
@@ -5969,7 +6564,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3510
+   "sort": 3860
   },
   {
    "id": "RH-Q-BIS",
@@ -5986,7 +6581,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3520
+   "sort": 3870
   },
   {
    "id": "RH-RE",
@@ -6003,7 +6598,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3530
+   "sort": 3880
   },
   {
    "id": "RH-V",
@@ -6020,7 +6615,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3540
+   "sort": 3890
   },
   {
    "id": "RH-Z-BC",
@@ -6037,7 +6632,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3550
+   "sort": 3900
   },
   {
    "id": "RH-Z-IP",
@@ -6054,7 +6649,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3560
+   "sort": 3910
   },
   {
    "id": "RH-Z-MAN",
@@ -6071,7 +6666,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3570
+   "sort": 3920
   },
   {
    "id": "RH-Z-TAB",
@@ -6088,7 +6683,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3580
+   "sort": 3930
   },
   {
    "id": "T-PHI1",
@@ -6105,7 +6700,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3590
+   "sort": 3940
   },
   {
    "id": "T-PHI2",
@@ -6122,7 +6717,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3600
+   "sort": 3950
   },
   {
    "id": "T-TA",
@@ -6139,7 +6734,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3610
+   "sort": 3960
   },
   {
    "id": "T-TAU",
@@ -6156,7 +6751,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3620
+   "sort": 3970
   },
   {
    "id": "V-B",
@@ -6173,7 +6768,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3630
+   "sort": 3980
   },
   {
    "id": "V-BL",
@@ -6190,7 +6785,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3640
+   "sort": 3990
   },
   {
    "id": "V-CK-EE",
@@ -6207,7 +6802,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3650
+   "sort": 4000
   },
   {
    "id": "V-CK-EG",
@@ -6224,7 +6819,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3660
+   "sort": 4010
   },
   {
    "id": "V-CK-GG",
@@ -6241,7 +6836,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3670
+   "sort": 4020
   },
   {
    "id": "V-CK-KR",
@@ -6258,7 +6853,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3680
+   "sort": 4030
   },
   {
    "id": "V-EI",
@@ -6275,7 +6870,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3690
+   "sort": 4040
   },
   {
    "id": "V-EW",
@@ -6292,7 +6887,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3700
+   "sort": 4050
   },
   {
    "id": "V-FN",
@@ -6309,7 +6904,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3710
+   "sort": 4060
   },
   {
    "id": "V-MB",
@@ -6326,7 +6921,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 3720
+   "sort": 4070
   },
   {
    "id": "V-NR",
@@ -6343,7 +6938,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3730
+   "sort": 4080
   },
   {
    "id": "V-NZ",
@@ -6360,7 +6955,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3740
+   "sort": 4090
   },
   {
    "id": "V-OM",
@@ -6377,7 +6972,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3750
+   "sort": 4100
   },
   {
    "id": "V-PH-EE",
@@ -6394,7 +6989,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3760
+   "sort": 4110
   },
   {
    "id": "V-PH-EG",
@@ -6411,7 +7006,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3770
+   "sort": 4120
   },
   {
    "id": "V-PH-GG",
@@ -6428,7 +7023,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3780
+   "sort": 4130
   },
   {
    "id": "V-PH-KR",
@@ -6445,7 +7040,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3790
+   "sort": 4140
   },
   {
    "id": "V-RQ",
@@ -6462,7 +7057,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3800
+   "sort": 4150
   },
   {
    "id": "W-BB",
@@ -6479,7 +7074,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3810
+   "sort": 4160
   },
   {
    "id": "W-E",
@@ -6496,7 +7091,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3820
+   "sort": 4170
   },
   {
    "id": "W-G",
@@ -6513,7 +7108,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 3830
+   "sort": 4180
   },
   {
    "id": "W-G-DB",
@@ -6530,7 +7125,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3840
+   "sort": 4190
   },
   {
    "id": "W-RHO",
@@ -6547,7 +7142,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3850
+   "sort": 4200
   },
   {
    "id": "W-RM",
@@ -6564,7 +7159,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3860
+   "sort": 4210
   },
   {
    "id": "W-RP",
@@ -6581,7 +7176,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3870
+   "sort": 4220
   },
   {
    "id": "Z-DL",
@@ -6598,7 +7193,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3880
+   "sort": 4230
   },
   {
    "id": "Z-DL2",
@@ -6615,7 +7210,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3890
+   "sort": 4240
   },
   {
    "id": "Z-NMAX",
@@ -6632,7 +7227,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3900
+   "sort": 4250
   },
   {
    "id": "Z-QG",
@@ -6649,7 +7244,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3910
+   "sort": 4260
   },
   {
    "id": "Z-SIG",
@@ -6666,7 +7261,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3920
+   "sort": 4270
   },
   {
    "id": "Z-SIG2",
@@ -6683,7 +7278,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 3930
+   "sort": 4280
   }
  ]
 }

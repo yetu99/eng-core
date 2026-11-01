@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.11.0
+# Formelkatalog eng-core 0.12.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 393 Formeln, davon 393 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -16,6 +16,7 @@ Stand: 393 Formeln, davon 393 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | verbindungen | fachtools | SV, PV | 0 | 0 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
+| kinematik | greifwerk | G | 35 | 35 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -264,6 +265,46 @@ Stand: 393 Formeln, davon 393 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | FS-TAB-NU | Kinematische Viskosität (Tabellenwert) | ν aus fd_fluid_values (mm²/s · 10⁻⁶) | m²/s | TB 18-9 (bei ca. 1 bar) (Q219) | freigegeben (2026-10-29, Seti) |
 | FS-TAB-RHO | Dichte (Tabellenwert) | ρ aus fd_fluid_values | kg/m³ | TB 18-9 (bei ca. 1 bar) (Q219) | freigegeben (2026-10-29, Seti) |
 
+## Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| G-01-X | Elementardrehung um x | R_x(θ) = [1 0 0; 0 cos θ −sin θ; 0 sin θ cos θ] | 1 | Lynch/Park S. 62, Rot(x̂, θ); Weber/Koch Gl. (2.18), (2.21) | freigegeben (2026-11-01, Seti) |
+| G-01-Y | Elementardrehung um y | R_y(θ) = [cos θ 0 sin θ; 0 1 0; −sin θ 0 cos θ] | 1 | Lynch/Park S. 62, Rot(ŷ, θ); Weber/Koch Gl. (2.18), (2.21) | freigegeben (2026-11-01, Seti) |
+| G-01-Z | Elementardrehung um z | R_z(θ) = [cos θ −sin θ 0; sin θ cos θ 0; 0 0 1] | 1 | Lynch/Park S. 62, Rot(ẑ, θ); Weber/Koch Gl. (2.18), (2.21) | freigegeben (2026-11-01, Seti) |
+| G-02 | Rotationsmatrix aus Z-Y-X-Winkeln (A, B, C) | R = R_z(A)·R_y(B)·R_x(C); mitgedreht um z, y′, x″, gleichwertig fest um x, y, z | 1 | Lynch/Park Gl. (B.1), (B.8) mit (α, β, γ) = (A, B, C); Weber/Koch Gl. (2.21) | freigegeben (2026-11-01, Seti) |
+| G-03 | Rotationsmatrix aus Z-Y-Z-Winkeln (φ, θ, ψ) | R = R_z(φ)·R_y(θ)·R_z(ψ); mitgedreht um z, y′, z″ | 1 | Lynch/Park Gl. (B.6) mit (α, β, γ) = (φ, θ, ψ); Weber/Koch Gl. (2.18) mit (α, β, χ) = (φ, θ, ψ) | freigegeben (2026-11-01, Seti) |
+| G-04 | Rotationsmatrix aus Achse und Winkel (Rodrigues) | R = I + sin θ·[ω̂] + (1 − cos θ)·[ω̂]² | 1 | Lynch/Park Gl. (3.51), (3.52); Weber/Koch Kap. 2.1.10 | freigegeben (2026-11-01, Seti) |
+| G-04-N | Einheitsachse | ω̂ = ω/‖ω‖ | 1 | Lynch/Park Gl. (3.51), ‖ω̂‖ = 1 | freigegeben (2026-11-01, Seti) |
+| G-05 | Rotationsmatrix aus Quaternion | R = [w² + x² − y² − z²  2(xy − wz)  2(xz + wy); 2(xy + wz)  w² − x² + y² − z²  2(yz − wx); 2(xz − wy)  2(yz + wx)  w² − x² − y² + z²] | 1 | Lynch/Park Gl. (B.12) mit (q₀, q₁, q₂, q₃) = (w, x, y, z) | freigegeben (2026-11-01, Seti) |
+| G-05-N | Einheitsquaternion | q̂ = q/‖q‖, q = (w, x, y, z) | 1 | Lynch/Park Anhang B.3, ‖q‖ = 1 | freigegeben (2026-11-01, Seti) |
+| G-06-A | Winkel A (um z) | A = atan2(r_21, r_11) | rad | Lynch/Park Anhang B.1.1, Gl. (B.3) bis (B.5); Weber/Koch Gl. (2.22) | freigegeben (2026-11-01, Seti) |
+| G-06-B | Winkel B (um y′) | B = atan2(−r_31, √(r_11² + r_21²)) | rad | Lynch/Park Anhang B.1.1, Gl. (B.3) bis (B.5); Weber/Koch Gl. (2.22) | freigegeben (2026-11-01, Seti) |
+| G-06-C | Winkel C (um x″) | C = atan2(r_32, r_33) | rad | Lynch/Park Anhang B.1.1, Gl. (B.3) bis (B.5); Weber/Koch Gl. (2.22) | freigegeben (2026-11-01, Seti) |
+| G-06-KN | Kardansperre B = −90°: C bei A = 0 | Kardansperre B = −90° (√(r_11² + r_21²) ≤ 10⁻⁹, r_31 > 0): A = 0, C = atan2(−r_12, r_22) | rad | Lynch/Park Anhang B.1.1 (c); Weber/Koch Gl. (2.23): nur A + C bestimmt (dort Vorzeichen: richtig A + C = atan2(−r_23, −r_13)) | freigegeben (2026-11-01, Seti) |
+| G-06-KP | Kardansperre B = +90°: C bei A = 0 | Kardansperre B = +90° (√(r_11² + r_21²) ≤ 10⁻⁹, r_31 < 0): A = 0, C = atan2(r_12, r_22) | rad | Lynch/Park Anhang B.1.1 (b); Weber/Koch Gl. (2.23): nur A − C bestimmt | freigegeben (2026-11-01, Seti) |
+| G-07-K0 | Sonderfall θ = 0: ψ bei φ = 0 | Sonderfall θ = 0 (√(r_31² + r_32²) ≤ 10⁻⁹, r_33 > 0): φ = 0, ψ = atan2(r_21, r_11) | rad | Weber/Koch Gl. (2.20): nur φ + ψ bestimmt | freigegeben (2026-11-01, Seti) |
+| G-07-K180 | Sonderfall θ = 180°: ψ bei φ = 0 | Sonderfall θ = 180° (√(r_31² + r_32²) ≤ 10⁻⁹, r_33 < 0): φ = 0, ψ = atan2(r_21, r_22) | rad | Lynch/Park Gl. (B.6) mit β = 180°: nur φ − ψ bestimmt | freigegeben (2026-11-01, Seti) |
+| G-07-P | Winkel φ (um z) | φ = atan2(r_23, r_13) | rad | Lynch/Park Gl. (B.6), Lösung analog B.1.1; Weber/Koch Gl. (2.19) (dort χ ohne Minus: richtig χ = atan2(r_32, −r_31)) | freigegeben (2026-11-01, Seti) |
+| G-07-S | Winkel ψ (um z″) | ψ = atan2(r_32, −r_31) | rad | Lynch/Park Gl. (B.6), Lösung analog B.1.1; Weber/Koch Gl. (2.19) (dort χ ohne Minus: richtig χ = atan2(r_32, −r_31)) | freigegeben (2026-11-01, Seti) |
+| G-07-T | Winkel θ (um y′) | θ = atan2(√(r_31² + r_32²), r_33) | rad | Lynch/Park Gl. (B.6), Lösung analog B.1.1; Weber/Koch Gl. (2.19) (dort χ ohne Minus: richtig χ = atan2(r_32, −r_31)) | freigegeben (2026-11-01, Seti) |
+| G-08-0 | Sonderfall θ = 0: Achse unbestimmt | Sonderfall θ = 0 (θ ≤ 10⁻¹²): ω̂ unbestimmt, gesetzt ω̂ = (0, 0, 1) | 1 | Lynch/Park Algorithmus S. 74 (a) | freigegeben (2026-11-01, Seti) |
+| G-08-S | Drehachse ω̂ (θ > 90°, symmetrischer Anteil) | θ > 90°: ω̂_k = √((r_kk − cos θ)/(1 − cos θ)), k = größtes r_kk; ω̂_j = (r_jk + r_kj)/(2·(1 − cos θ)·ω̂_k); Vorzeichen mit ω̂·v ≥ 0, bei v = 0 (θ = 180°) erste von 0 verschiedene Komponente in x, y, z positiv | 1 | Lynch/Park Gl. (3.52), (3.55) bis (3.60) verallgemeinert auf θ > 90° | freigegeben (2026-11-01, Seti) |
+| G-08-T | Drehwinkel θ | θ = atan2(½·‖v‖, ½·(tr R − 1)), v = (r_32 − r_23, r_13 − r_31, r_21 − r_12) | rad | Lynch/Park Gl. (3.53), (3.54), Algorithmus S. 74 f.; atan2 statt arccos (gleichwertig, genauer nahe 0 und 180°) | freigegeben (2026-11-01, Seti) |
+| G-08-W | Drehachse ω̂ (θ ≤ 90°) | ω̂ = v/(2·sin θ) = v/‖v‖ | 1 | Lynch/Park Gl. (3.53), (3.54), Algorithmus S. 74 f., Gl. (3.61) | freigegeben (2026-11-01, Seti) |
+| G-09-V | Quaternion eindeutig (Vorzeichen) | q und −q beschreiben dieselbe Drehung: Vorzeichen so, dass w ≥ 0; bei \|w\| ≤ 10⁻¹² erste von 0 verschiedene Komponente in x, y, z positiv | 1 | Lynch/Park Anhang B.3 (q und −q); Konzept K1, Abschnitt 2 | freigegeben (2026-11-01, Seti) |
+| G-09-W | Quaternion, Zweig tr R | tr R größtes Glied: w = ½·√(1 + tr R), x = (r_32 − r_23)/(4w), y = (r_13 − r_31)/(4w), z = (r_21 − r_12)/(4w) | 1 | Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29) | freigegeben (2026-11-01, Seti) |
+| G-09-X | Quaternion, Zweig r_11 | r_11 größtes Glied: x = ½·√(1 + r_11 − r_22 − r_33), w = (r_32 − r_23)/(4x), y = (r_12 + r_21)/(4x), z = (r_13 + r_31)/(4x) | 1 | Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29); Zweig nach Shepperd | freigegeben (2026-11-01, Seti) |
+| G-09-Y | Quaternion, Zweig r_22 | r_22 größtes Glied: y = ½·√(1 − r_11 + r_22 − r_33), w = (r_13 − r_31)/(4y), x = (r_12 + r_21)/(4y), z = (r_23 + r_32)/(4y) | 1 | Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29); Zweig nach Shepperd | freigegeben (2026-11-01, Seti) |
+| G-09-Z | Quaternion, Zweig r_33 | r_33 größtes Glied: z = ½·√(1 − r_11 − r_22 + r_33), w = (r_21 − r_12)/(4z), x = (r_13 + r_31)/(4z), y = (r_23 + r_32)/(4z) | 1 | Lynch/Park Gl. (B.10), (B.11); Weber/Koch Gl. (2.29); Zweig nach Shepperd | freigegeben (2026-11-01, Seti) |
+| G-10-D | Determinante | det R = +1 (rechtshändig), Toleranz 10⁻⁹ | 1 | Lynch/Park Gl. (3.21); ISO 9787:2013, 4.1 | freigegeben (2026-11-01, Seti) |
+| G-10-O | Orthogonalität | e = ‖RᵀR − I‖_F, gültig für e ≤ 10⁻⁹ | 1 | Lynch/Park Gl. (3.19) | freigegeben (2026-11-01, Seti) |
+| G-11-F | Drehung um feste Achse (links multiplizieren) | Drehung um feste Achse (in {a}): R′ = Rot·R | 1 | Lynch/Park Gl. (3.23) | freigegeben (2026-11-01, Seti) |
+| G-11-I | Umkehrung | R_ba = R_ab⁻¹ = R_abᵀ | 1 | Lynch/Park Prop. 3.3, S. 61 | freigegeben (2026-11-01, Seti) |
+| G-11-M | Drehung um mitgedrehte Achse (rechts multiplizieren) | Drehung um mitgedrehte Achse (in {b}): R″ = R·Rot | 1 | Lynch/Park Gl. (3.24) | freigegeben (2026-11-01, Seti) |
+| G-11-V | Verkettung | R_ac = R_ab·R_bc | 1 | Lynch/Park Gl. (3.22) | freigegeben (2026-11-01, Seti) |
+| G-12 | Vektor in {a} ausdrücken | p_a = R_ab·p_b | m | Lynch/Park S. 62 (Rab·pb = pa) | freigegeben (2026-11-01, Seti) |
+
 ## Knicken
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -501,3 +542,4 @@ Stand: 393 Formeln, davon 393 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 - Druckbehälter: Lamé (Zylinder, Kugel), rotationssymmetrisch, ungestörte Wand weit vom Boden, isotherm; keine Böden, Stutzen, Beulen, Wärmespannungen, plastischen Reserven, kein Normnachweis (EN 13445, AD 2000). Bemessen geschlossen bei p_a = 0, sonst Bisektion, Raster 0,5 mm.
 - Eigenfrequenz: Euler-Bernoulli-Balken, E·I und m′ = ρ·A + m_z konstant, Lagerungen KR, GG, EG, EE, starre Lager, keine Axialkraft, keine Dämpfung, Schwingung in der Lastebene; Hinweis bei L/h < 10 (Timoshenko). Wurzeln deterministisch (Einklammerung, Bisektion 80 Schritte), Einheiten N, mm, t, s. Bemessen nur formtreu.
 - Rohrhydraulik (Modul fluid, ab 0.11.0): inkompressibel, stationär, voll ausgebildet, Newton'sches Fluid, Reihenschaltung; SI-Einheiten (m, kg, s, Pa absolut, m³/s, K). Wasser nach IAPWS-IF97 Region 1 und 4 und R12-08 (μ̄₂ = 1, 0 bis 350 °C, p ≥ p_s); andere Fluide nur an Tabellentemperaturen (fd_fluid_values) oder von Hand. λ laminar 64/Re (Re < 2 320), sonst Colebrook (Newton ab Roloff-Näherung, |Δx| < 10⁻¹², Übergang 2 320 bis 4 000 mit Warnung, Re ≤ 10⁸, k/d ≤ 0,05). ζ aus TB 18-7 mit Bezugsquerschnitt, Bogen linear über r/d, plötzliche Erweiterung nach Borda-Carnot. Energiebilanz nach Dubbel Gl. (17.10); Aufgaben B und C mit Bisektion (100 Schritte). Nicht im Umfang: Gase, vermaschte Netze, Zweiphasen, Druckstoß, Pumpenkennlinie (RH b).
+- Kinematik K1 Orientierung (Modul kinematik, Greifwerk, ab 0.12.0): nur Drehungen starrer Körper, rechtshändige Systeme (ISO 9787), R_ab = Orientierung von {b} in {a} (Spalten = Achsen von {b}); Winkel intern rad. Z-Y-X mit KUKA-Bezeichnung A um z, B um y′, C um x″ (ISO 9787 nennt die Drehungen um x, y, z A, B, C, also umgekehrt; gleiche Matrix). Wertebereiche A, C, φ, ψ in (−180°, 180°], B in [−90°, 90°], θ in [0°, 180°], Quaternion (w, x, y, z) mit w ≥ 0. Kardansperre bzw. θ = 0, 180° bei √(r_11² + r_21²) bzw. √(r_31² + r_32²) ≤ 10⁻⁹: erster Winkel 0. Achse bei θ = 0 unbestimmt (gesetzt z), bei θ = 180° und w = 0 erste von 0 verschiedene Komponente (x, y, z) positiv. Prüfung der Matrix ‖RᵀR − I‖_F und |det R − 1| ≤ 10⁻⁹. Bei Matrix, Vektor und Quaternion ist das Ergebnis im Katalog ein Kontrollwert: Spur tr R = 1 + 2·cos θ (gleich für alle Darstellungen derselben Orientierung) bzw. Betrag; Matrix bzw. Vektor stehen im Beispiel. Nicht im Umfang: Translation, homogene Matrizen (K2), Gelenkketten (K3 bis K6).

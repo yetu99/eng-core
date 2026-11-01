@@ -1,13 +1,13 @@
 /**
  * Modulregister (ab 0.10.0): ein Kern, mehrere Werkzeuge. Jede Formel-ID gehört über ihr Präfix (Teil vor dem
- * ersten Bindestrich) zu genau einem Modul, jedes Modul zu einem Werkzeug (Werkbank oder Fachtools).
+ * ersten Bindestrich) zu genau einem Modul, jedes Modul zu einem Werkzeug (Werkbank, Fachtools oder Greifwerk).
  * Quelle ist src/modules.json; die Skripte (Sync, Katalog, Freigabe, Gegenrechnung) lesen dieselbe Datei.
  * Keine Rechenwerte.
  */
 import reg from "./modules.json";
 
-export type ModuleId = "gemeinsam" | "festigkeit" | "ashby" | "fluid" | "verbindungen" | "dichtungen" | "stabwerke";
-export type ToolId = "werkbank" | "fachtools";
+export type ModuleId = "gemeinsam" | "festigkeit" | "ashby" | "fluid" | "verbindungen" | "dichtungen" | "stabwerke" | "kinematik";
+export type ToolId = "werkbank" | "fachtools" | "greifwerk";
 
 export interface ModuleInfo {
   title: string;
@@ -20,6 +20,8 @@ export interface ModuleInfo {
   units: string;
   /** true, wenn das Modul Fachdaten aus fd_* (data/fd/) nutzt. */
   fd: boolean;
+  /** false, wenn das Modul keine Werkstoffdaten nutzt (ab 0.12.0; fehlt = true). Steuert die Angabe in Fußzeile und Prüfvermerk. */
+  wdb?: boolean;
 }
 export interface ToolInfo { title: string; modules: ModuleId[] }
 
@@ -47,6 +49,11 @@ export function moduleOfId(id: string): ModuleId | null {
 /** Werkzeug zu einem Anzeigenamen ("Ingenieur-Werkbank" → "werkbank"), sonst null. */
 export function toolOfTitle(title: string): ToolId | null {
   return (Object.keys(R.tools) as ToolId[]).find((t) => R.tools[t].title === title) ?? null;
+}
+
+/** true, wenn eines der Module Werkstoffdaten nutzt (Feld wdb, Vorgabe true). */
+export function usesWdb(modules: readonly ModuleId[]): boolean {
+  return modules.some((m) => R.modules[m] !== undefined && R.modules[m].wdb !== false);
 }
 
 /** true, wenn eines der Module Fachdaten (fd_*) nutzt. */

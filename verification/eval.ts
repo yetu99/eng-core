@@ -1,4 +1,5 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
+import { computeOrientation, compose, toZYX, toZYZ, toAxisAngle, toQuaternion, fromZYX, fromZYZ, fromAxisAngle, fromQuaternion, maxAbsDiff, type OrientationInput, type Mat3 } from "../src/index";
 import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
@@ -15,7 +16,53 @@ export type Case =
   | { id: string; type: "psat"; T: number }
   | { id: string; type: "visc"; T: number; rho: number }
   | { id: string; type: "colebrook"; Re: number; eps: number }
-  | { id: string; type: "fluid"; inp: LineInput; task: LineTask };
+  | { id: string; type: "fluid"; inp: LineInput; task: LineTask }
+  | { id: string; type: "kin"; inp: OrientationInput; abs?: boolean }
+  | { id: string; type: "kincompose"; Rab: Mat3; Rbc: Mat3; abs?: boolean }
+  | { id: string; type: "kinbatch"; quats: Array<[number, number, number, number]>; abs?: boolean };
+
+const IJ = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]] as const;
+const matKeys = (p: string, m: Mat3): Record<string, number> => Object.fromEntries(IJ.map(([i, j]) => [`${p}${i + 1}${j + 1}`, m[i][j]]));
+
+/** Kinematik K1 (Modul kinematik): alle Darstellungen, Prüfung und Rundläufe R → Darstellung → R (Fehler elementweise). */
+function evalKin(inp: OrientationInput): Record<string, number | null> {
+  const r = computeOrientation(inp);
+  if (r.errors.length || !r.R || !r.check) return { errors: r.errors.length, valid: r.check ? Number(r.check.valid) : null };
+  const R = r.R;
+  const o: Record<string, number | null> = { errors: 0, ...matKeys("r", R), orth: r.check.orthErr, det: r.check.det, valid: Number(r.check.valid) };
+  if (r.zyx && r.zyz && r.axis && r.quat) {
+    Object.assign(o, { A: r.zyx.A, B: r.zyx.B, C: r.zyx.C, phi: r.zyz.phi, theta: r.zyz.theta, psi: r.zyz.psi,
+      wx: r.axis.axis[0], wy: r.axis.axis[1], wz: r.axis.axis[2], th: r.axis.theta, ex: r.axis.axis[0] * r.axis.theta, ey: r.axis.axis[1] * r.axis.theta, ez: r.axis.axis[2] * r.axis.theta,
+      qw: r.quat.w, qx: r.quat.x, qy: r.quat.y, qz: r.quat.z,
+      rtZYX: maxAbsDiff(R, fromZYX(r.zyx).value), rtZYZ: maxAbsDiff(R, fromZYZ(r.zyz).value), rtAX: maxAbsDiff(R, fromAxisAngle(r.axis).value), rtQ: maxAbsDiff(R, fromQuaternion(r.quat).value) });
+  }
+  if (r.pa) Object.assign(o, { pax: r.pa[0], pay: r.pa[1], paz: r.pa[2] });
+  if (r.Rextra) Object.assign(o, matKeys("e", r.Rextra));
+  if (r.Rinv) Object.assign(o, matKeys("i", r.Rinv), { invErr: maxAbsDiff(compose(R, r.Rinv).value, [[1, 0, 0], [0, 1, 0], [0, 0, 1]]) });
+  return o;
+}
+
+/**
+ * 1000 Orientierungen (Quaternionen aus numpy, fester Startwert): größter Rundlauffehler je Darstellung und
+ * Quadratsummen der Ausgaben Σx² und Σ(x + 4)² (Vergleich mit scipy, Vorzeichen- und Zuordnungsfehler fallen auf).
+ */
+function evalKinBatch(quats: ReadonlyArray<readonly [number, number, number, number]>): Record<string, number | null> {
+  const o: Record<string, number> = { n: quats.length, rtZYX: 0, rtZYZ: 0, rtAX: 0, rtQ: 0 };
+  const acc = (k: string, x: number): void => { o[`s${k}`] = (o[`s${k}`] ?? 0) + x * x; o[`t${k}`] = (o[`t${k}`] ?? 0) + (x + 4) * (x + 4); };
+  for (const [w, x, y, z] of quats) {
+    const R = fromQuaternion({ w, x, y, z }).value;
+    const a = toZYX(R).value, b = toZYZ(R).value, c = toAxisAngle(R).value, d = toQuaternion(R).value;
+    o["rtZYX"] = Math.max(o["rtZYX"]!, maxAbsDiff(R, fromZYX(a).value));
+    o["rtZYZ"] = Math.max(o["rtZYZ"]!, maxAbsDiff(R, fromZYZ(b).value));
+    o["rtAX"] = Math.max(o["rtAX"]!, maxAbsDiff(R, fromAxisAngle(c).value));
+    o["rtQ"] = Math.max(o["rtQ"]!, maxAbsDiff(R, fromQuaternion(d).value));
+    IJ.forEach(([i, j]) => acc("R", R[i][j]));
+    acc("A", a.A); acc("B", a.B); acc("C", a.C); acc("Phi", b.phi); acc("Th", b.theta); acc("Psi", b.psi);
+    acc("E", c.axis[0] * c.theta); acc("E", c.axis[1] * c.theta); acc("E", c.axis[2] * c.theta);
+    acc("Q", d.w); acc("Q", d.x); acc("Q", d.y); acc("Q", d.z);
+  }
+  return o;
+}
 
 /** Rohrhydraulik (Modul fluid): Kennwerte eines Strangs für Gegenrechnung und Golden-Test. */
 function evalFluid(inp: LineInput, task: LineTask): Record<string, number | null> {
@@ -48,6 +95,9 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "visc") return { mu: waterViscosity(c.T, c.rho) };
   if (c.type === "colebrook") { const f = frictionFactor(c.Re, c.eps); return { lam: f.lambda, iterations: f.iterations, res: Math.abs(f.residual) }; }
   if (c.type === "fluid") return evalFluid(c.inp, c.task);
+  if (c.type === "kin") return evalKin(c.inp);
+  if (c.type === "kincompose") return matKeys("c", compose(c.Rab, c.Rbc).value);
+  if (c.type === "kinbatch") return evalKinBatch(c.quats);
   if (c.type === "section") {
     const s = sectionProps(c.sec, c.dims);
     const o = s.open;
