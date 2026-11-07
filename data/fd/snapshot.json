@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "fd 1.0",
-  "released_at": "2026-10-29T11:32:15.291899+00:00",
-  "title": "Rohrhydraulik: Fluide, Rauheit, Widerstandszahlen, Rohrmaße, Geschwindigkeiten"
+  "version": "fd 1.1",
+  "released_at": "2026-11-06T13:46:57.457222+00:00",
+  "title": "Rohrhydraulik Teil b: Venturi-Koeffizienten, Formbeiwerte, Wellengeschwindigkeit, Kompressionsmodul, Hydrauliköle HLP"
  },
  "source": "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
  "files": {
@@ -29,6 +29,26 @@
   "velocity_guide": {
    "rows": 20,
    "sha256": "c1e68b2d1b59cdc790c21ee24fd83797f18e4205af807cd6e684280d0a627133"
+  },
+  "flowmeter": {
+   "rows": 4,
+   "sha256": "d2282aa0c7e3820f20f689ed56ba48eb880b696b4dfb789d4faf4e98dcc14811"
+  },
+  "shape_factor": {
+   "rows": 12,
+   "sha256": "8fd8544b7a7f8635f9db181dcb4e2d173c29bbd69d48d6b240312c117943dd8d"
+  },
+  "wave_speed": {
+   "rows": 2,
+   "sha256": "3dfa2f6dd582ee5155eecb76ea58e126d1b84e57d03f09da44ac799d0684a697"
+  },
+  "bulk_modulus": {
+   "rows": 8,
+   "sha256": "cb749a8bd9df1a2574c61d7cd99833695700f92e98360f985a596dd047cb3680"
+  },
+  "oil_grades": {
+   "rows": 8,
+   "sha256": "a67e726fb4c3aa3f2a17005dfa856b208f29ce3461189ac1cdb3dd60a397ac60"
   }
  }
 }

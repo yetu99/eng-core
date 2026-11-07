@@ -10115,6 +10115,2180 @@
   "tol": 1e-06
  },
  {
+  "id": "RH-P20 IF97 Tab. 5 w T 300 K p 3 MPa",
+  "case": {
+   "type": "sound",
+   "T": 300,
+   "p": 3000000.0,
+   "id": "RH-P20 IF97 Tab. 5 w T 300 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "w": 1507.73921
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P20 IF97 Python w T 300 K p 3 MPa",
+  "case": {
+   "type": "sound",
+   "T": 300,
+   "p": 3000000.0,
+   "id": "RH-P20 IF97 Python w T 300 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "w": 1507.7392096690307
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P20 IF97 Tab. 5 w T 300 K p 80 MPa",
+  "case": {
+   "type": "sound",
+   "T": 300,
+   "p": 80000000.0,
+   "id": "RH-P20 IF97 Tab. 5 w T 300 K p 80 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "w": 1634.69054
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P20 IF97 Python w T 300 K p 80 MPa",
+  "case": {
+   "type": "sound",
+   "T": 300,
+   "p": 80000000.0,
+   "id": "RH-P20 IF97 Python w T 300 K p 80 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "w": 1634.6905431116588
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P20 IF97 Tab. 5 w T 500 K p 3 MPa",
+  "case": {
+   "type": "sound",
+   "T": 500,
+   "p": 3000000.0,
+   "id": "RH-P20 IF97 Tab. 5 w T 500 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "w": 1240.71337
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P20 IF97 Python w T 500 K p 3 MPa",
+  "case": {
+   "type": "sound",
+   "T": 500,
+   "p": 3000000.0,
+   "id": "RH-P20 IF97 Python w T 500 K p 3 MPa",
+   "module": "fluid"
+  },
+  "expect": {
+   "w": 1240.7133731017245
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.1 Re 5000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.07600000000000001,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.0029845130209103033
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.1 Re 5000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6006
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.1 Re 5000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.07600000000000001,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.0029845130209103033
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.1 Re 5000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6005925872807838
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.3 Re 1e+06",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.22799999999999998,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.5969026041820606
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.3 Re 1e+06",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.5987
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.3 Re 1e+06",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.22799999999999998,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.5969026041820606
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.3 Re 1e+06",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.5987351251407294
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.4 Re 30000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.30400000000000005,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.017907078125461818
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.4 Re 30000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6054
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.4 Re 30000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.30400000000000005,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.017907078125461818
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.4 Re 30000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6054492875793657
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.5 Re 100000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.38,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.05969026041820606
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.5 Re 100000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6065
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.5 Re 100000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.38,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.05969026041820606
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.5 Re 100000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6064831647738755
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.6 Re 1e+07",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.45599999999999996,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 5.969026041820607
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.6 Re 1e+07",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6031
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.6 Re 1e+07",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.45599999999999996,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 5.969026041820607
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.6 Re 1e+07",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6030727634413607
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.2 Re 10000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.15200000000000002,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.0059690260418206065
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.2 Re 10000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6016
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.2 Re 10000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.15200000000000002,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.0059690260418206065
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.2 Re 10000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6015787979960905
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.56 Re 300000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.42560000000000003,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.1790707812546182
+    }
+   },
+   "id": "RH-P21 ISO 5167-2 Tab. A.10 beta 0.56 Re 300000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6062
+  },
+  "tol": 0.0001
+ },
+ {
+  "id": "RH-P21 RHG Python beta 0.56 Re 300000",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.76,
+    "d": 0.42560000000000003,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.1790707812546182
+    }
+   },
+   "id": "RH-P21 RHG Python beta 0.56 Re 300000",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6061993818402248
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P22 Pumpe analytisch n0",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "pumpe",
+      "label": "Pumpe"
+     },
+     {
+      "kind": "rohr",
+      "label": "Steigleitung (ohne Reibung)",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.1
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 15
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Widerstand k = 0,001 h²/m⁵",
+      "zeta": 15.684972706299233,
+      "ref": null,
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 40,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.013888888888888888,
+       "H": 36,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.027777777777777776,
+       "H": 24,
+       "eta": null,
+       "npsh": null
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "n",
+      "n": 24.166666666666668
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   },
+   "id": "RH-P22 Pumpe analytisch n0",
+   "module": "fluid"
+  },
+  "expect": {
+   "Qop": 0.02723835210252556,
+   "Hop": 24.615384615384613,
+   "backD": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P22 Pumpe analytisch 0,9 n0",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "pumpe",
+      "label": "Pumpe"
+     },
+     {
+      "kind": "rohr",
+      "label": "Steigleitung (ohne Reibung)",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.1
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 15
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Widerstand k = 0,001 h²/m⁵",
+      "zeta": 15.684972706299233,
+      "ref": null,
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 40,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.013888888888888888,
+       "H": 36,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.027777777777777776,
+       "H": 24,
+       "eta": null,
+       "npsh": null
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "n",
+      "n": 21.75
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   },
+   "id": "RH-P22 Pumpe analytisch 0,9 n0",
+   "module": "fluid"
+  },
+  "expect": {
+   "Qop": 0.022724034993410976,
+   "Hop": 21.692307692307693,
+   "r": 0.9
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P22 Pumpe analytisch Soll-Förderstrom",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "pumpe",
+      "label": "Pumpe"
+     },
+     {
+      "kind": "rohr",
+      "label": "Steigleitung (ohne Reibung)",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.1
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 15
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Widerstand k = 0,001 h²/m⁵",
+      "zeta": 15.684972706299233,
+      "ref": null,
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 40,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.013888888888888888,
+       "H": 36,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.027777777777777776,
+       "H": 24,
+       "eta": null,
+       "npsh": null
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "Qsoll",
+      "Q": 0.022724034993410976
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   },
+   "id": "RH-P22 Pumpe analytisch Soll-Förderstrom",
+   "module": "fluid"
+  },
+  "expect": {
+   "Qop": 0.022724034993410976,
+   "r": 0.9
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P24 Ausgleich drei Punkte exakt",
+  "case": {
+   "type": "pumpfit",
+   "xs": [
+    0,
+    0.013888888888888888,
+    0.027777777777777776
+   ],
+   "ys": [
+    40,
+    36,
+    24
+   ],
+   "id": "RH-P24 Ausgleich drei Punkte exakt",
+   "module": "fluid"
+  },
+  "expect": {
+   "c0": 40.0,
+   "c2": -20736.0,
+   "r2": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P24 Ausgleich vier Punkte numpy.polyfit",
+  "case": {
+   "type": "pumpfit",
+   "xs": [
+    0,
+    0.041666666666666664,
+    0.08333333333333333,
+    0.1111111111111111
+   ],
+   "ys": [
+    22,
+    21,
+    17,
+    12.5
+   ],
+   "id": "RH-P24 Ausgleich vier Punkte numpy.polyfit",
+   "module": "fluid"
+  },
+  "expect": {
+   "c0": 21.990157480314952,
+   "c1": 14.338582677165764,
+   "c2": -896.3149606299243
+  },
+  "tol": 1e-10
+ },
+ {
+  "id": "RH-P23 RH-K8 Betriebspunkt fsolve",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zeta",
+      "label": "Einlauf",
+      "lossId": "LC040",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "label": "Saugleitung",
+      "L": 6,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS017",
+       "wall": 0.0071
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 3
+     },
+     {
+      "kind": "pumpe",
+      "label": "Kreiselpumpe"
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Durchgangsventile",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "rohr",
+      "label": "Druckleitung",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 7
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Kniestücke 60°",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Ausströmung",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 22,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.041666666666666664,
+       "H": 21,
+       "eta": 0.65,
+       "npsh": 2
+      },
+      {
+       "Q": 0.08333333333333333,
+       "H": 17,
+       "eta": 0.8,
+       "npsh": 3
+      },
+      {
+       "Q": 0.1111111111111111,
+       "H": 12.5,
+       "eta": 0.74,
+       "npsh": 4.5
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "n",
+      "n": 23
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   },
+   "id": "RH-P23 RH-K8 Betriebspunkt fsolve",
+   "module": "fluid"
+  },
+  "expect": {
+   "Qop": 0.09726793230522686,
+   "Hop": 12.765492675366959,
+   "r": 0.9517241379310344,
+   "HA": 12.765492675366959,
+   "pStart": 101325.00000000001,
+   "backD": 1.0,
+   "etaB": 0.7731873778068894,
+   "Pu": 12177.177405850196,
+   "Ppump": 15749.322551527162,
+   "nq": 50.671010984327566,
+   "npshA": 7.174919080082157,
+   "npshR": 3.5744537990872103,
+   "reserve": 3.6004652809949467
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P23 RH-K9 Betriebspunkt fsolve",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zeta",
+      "label": "Einlauf",
+      "lossId": "LC040",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "label": "Saugleitung",
+      "L": 6,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS017",
+       "wall": 0.0071
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 3
+     },
+     {
+      "kind": "pumpe",
+      "label": "Kreiselpumpe"
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Durchgangsventile",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "rohr",
+      "label": "Druckleitung",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 7
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Kniestücke 60°",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Ausströmung",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 22,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.041666666666666664,
+       "H": 21,
+       "eta": 0.65,
+       "npsh": 2
+      },
+      {
+       "Q": 0.08333333333333333,
+       "H": 17,
+       "eta": 0.8,
+       "npsh": 3
+      },
+      {
+       "Q": 0.1111111111111111,
+       "H": 12.5,
+       "eta": 0.74,
+       "npsh": 4.5
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "Qsoll",
+      "Q": 0.06944444444444445
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   },
+   "id": "RH-P23 RH-K9 Betriebspunkt fsolve",
+   "module": "fluid"
+  },
+  "expect": {
+   "Qop": 0.06944444444444453,
+   "Hop": 11.427778733532158,
+   "r": 0.823973427251125,
+   "HA": 11.427778733532154,
+   "pStart": 101324.99999999999,
+   "backD": 1.0,
+   "etaB": 0.8000619880000645,
+   "Pu": 7782.85070042809,
+   "Ppump": 9727.809616206217,
+   "nq": 50.671010984327566,
+   "npshA": 7.190067705899546,
+   "npshR": 2.064052548600071,
+   "reserve": 5.126015157299475
+  },
+  "tol": 1e-08
+ },
+ {
+  "id": "RH-P25 NPSH_A analytisch",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "label": "Saugrohr",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.1
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 3
+     },
+     {
+      "kind": "pumpe",
+      "label": "Pumpe"
+     },
+     {
+      "kind": "rohr",
+      "label": "Steigleitung (ohne Reibung)",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.1
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 12
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Widerstand k = 0,001 h²/m⁵",
+      "zeta": 15.684972706299233,
+      "ref": null,
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 40,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.013888888888888888,
+       "H": 36,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.027777777777777776,
+       "H": 24,
+       "eta": null,
+       "npsh": null
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "n",
+      "n": 24.166666666666668
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": 2339.2
+    }
+   },
+   "id": "RH-P25 NPSH_A analytisch",
+   "module": "fluid"
+  },
+  "expect": {
+   "npshA": 7.0902956167176345
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-K10 (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "walther",
+      "walther": {
+       "T1": 313.15,
+       "nu1": 4.6e-05,
+       "T2": 373.15,
+       "nu2": 6.1e-06,
+       "C": 0.8
+      },
+      "rho": 870,
+      "label": "HLP 46"
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0.00016666666666666666,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 601325,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "label": "Ringspalt",
+      "L": 2,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "ring",
+        "da": 0.04,
+        "di": 0.03
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0
+     },
+     {
+      "kind": "rohr",
+      "label": "Rechteckkanal",
+      "L": 2,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "rechteck",
+        "b": 0.03,
+        "h": 0.01
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0
+     },
+     {
+      "kind": "rohr",
+      "label": "Sonderprofil",
+      "L": 2,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "au",
+        "A": 0.0004,
+        "U": 0.09
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-K10 (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": -431071.49370087305,
+   "dpV": 68892.9625314484,
+   "pA": 170253.50629912692,
+   "lam0": 4.5884350847383955,
+   "Re0": 20.864048758530373,
+   "v0": 0.30315227255599103,
+   "lam1": 1.2033071286670711,
+   "Re1": 57.353049515946,
+   "v1": 0.5555555555555556,
+   "lam2": 1.2553822439726015,
+   "Re2": 50.98048845861866,
+   "v2": 0.41666666666666663,
+   "hpe0": 8.076265867473598,
+   "hpe1": 3.777762800338861,
+   "hpe2": 1.2428212838120447,
+   "hpe3": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-K11 (Python)",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0.016666666666666666,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "pAmb": 95000,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "label": "Kanal",
+      "L": 30,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "rechteck",
+        "b": 0.2,
+        "h": 0.1
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 0.0001
+      },
+      "dz": 0
+     },
+     {
+      "kind": "zeta",
+      "lossId": "LC031",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-K11 (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpErf": 1988.702878986823,
+   "dpV": 1988.702878986823,
+   "pA": 103313.70287898682,
+   "lam0": 0.02105669910006736,
+   "Re0": 110734.96041851924,
+   "v0": 0.8333333333333331,
+   "hpe0": 0.8489952798821834,
+   "hpe1": 0.6459089557827971,
+   "hpe2": 0.6459089557827971
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P29 Walther Stützpunkt 40 °C",
+  "case": {
+   "type": "walther",
+   "inp": {
+    "T1": 313.15,
+    "nu1": 4.6e-05,
+    "T2": 373.15,
+    "nu2": 6.1e-06,
+    "C": 0.8
+   },
+   "T": 313.15,
+   "id": "RH-P29 Walther Stützpunkt 40 °C",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 4.6e-05
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P29 Walther Stützpunkt 100 °C",
+  "case": {
+   "type": "walther",
+   "inp": {
+    "T1": 313.15,
+    "nu1": 4.6e-05,
+    "T2": 373.15,
+    "nu2": 6.1e-06,
+    "C": 0.8
+   },
+   "T": 373.15,
+   "id": "RH-P29 Walther Stützpunkt 100 °C",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 6.1e-06
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P29 Walther 0 °C (Python)",
+  "case": {
+   "type": "walther",
+   "inp": {
+    "T1": 313.15,
+    "nu1": 4.6e-05,
+    "T2": 373.15,
+    "nu2": 6.1e-06,
+    "C": 0.8
+   },
+   "T": 273.15,
+   "id": "RH-P29 Walther 0 °C (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "nu": 0.000719125643188251
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P30 Rechteck 100 × 50 mm: Re mit d_h = 4A/U",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0.01,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 10,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "rechteck",
+        "b": 0.1,
+        "h": 0.05
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P30 Rechteck 100 × 50 mm: Re mit d_h = 4A/U",
+   "module": "fluid"
+  },
+  "expect": {
+   "Re0": 133333.33333333334
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P31 Quadrat laminar λ = 0,88·64/Re",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 1e-05,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 10,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "rechteck",
+        "b": 0.02,
+        "h": 0.02
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P31 Quadrat laminar λ = 0,88·64/Re",
+   "module": "fluid"
+  },
+  "expect": {
+   "lam0": 0.11263999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P32 Kreisrohr über A und U = Kreisrohr",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 1e-06
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0.005,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "L": 10,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "au",
+        "A": 0.001963495408493621,
+        "U": 0.15707963267948966
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 1e-05
+      },
+      "dz": 0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P32 Kreisrohr über A und U = Kreisrohr",
+   "module": "fluid"
+  },
+  "expect": {
+   "dpV": 11845.134958507837
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-M1 Messung (Python)",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.1,
+    "d": 0.05,
+    "rho": 998.2057,
+    "nu": 1.0035e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.011111111111111112
+    }
+   },
+   "id": "RH-M1 Messung (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6054874207826729,
+   "Q": 0.011111111111111112,
+   "dp": 40870.154300834365,
+   "Re": 140977.63879036292,
+   "beta": 0.5,
+   "dw": 29933.779035203974,
+   "zeta": 29.966517850321242
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-M2 Messung (Python)",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "eck"
+    },
+    "D": 0.06,
+    "d": 0.03,
+    "rho": 998.2057,
+    "nu": 1.0035e-06,
+    "mode": {
+     "kind": "dp",
+     "dp": 50000
+    }
+   },
+   "id": "RH-M2 Messung (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.6082227514596421,
+   "Q": 0.004444259315496464,
+   "dp": 50000,
+   "Re": 93981.17767061491,
+   "beta": 0.5,
+   "dw": 36569.51672473717,
+   "zeta": 29.65617615672258
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-M3 Messung (Python)",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "venturi",
+     "variant": "maschinell bearbeiteter Einlaufkonus",
+     "C": null,
+     "xi": 0.1
+    },
+    "D": 0.2,
+    "d": 0.12,
+    "rho": 998.2057,
+    "nu": 1.0035e-06,
+    "mode": {
+     "kind": "dp",
+     "dp": 20000
+    }
+   },
+   "id": "RH-M3 Messung (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.995,
+   "Q": 0.07635473706606889,
+   "dp": 20000,
+   "Re": 484393.97439150274,
+   "beta": 0.6,
+   "dw": 2000.0,
+   "zeta": 0.6783716959385924
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-M4 Messung (Python)",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "venturi",
+     "variant": null,
+     "C": 0.98,
+     "xi": null
+    },
+    "D": 0.08,
+    "d": 0.04,
+    "rho": 998.2057,
+    "nu": 1.0035e-06,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.005555555555555556
+    }
+   },
+   "id": "RH-M4 Messung (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "C": 0.98,
+   "Q": 0.005555555555555556,
+   "dp": 9522.3564981093,
+   "Re": 88111.02424397683,
+   "beta": 0.5
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P33 Blende Rundlauf V̇ → Δp → V̇",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.1,
+    "d": 0.05,
+    "rho": 998.2057,
+    "nu": 1.0035e-06,
+    "mode": {
+     "kind": "dp",
+     "dp": 40870.154300834365
+    }
+   },
+   "id": "RH-P33 Blende Rundlauf V̇ → Δp → V̇",
+   "module": "fluid"
+  },
+  "expect": {
+   "Q": 0.011111111111111112
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-P34 Venturi ideal (Dubbel Bd. 1 S. 317)",
+  "case": {
+   "type": "meter",
+   "inp": {
+    "device": {
+     "kind": "venturi",
+     "variant": null,
+     "C": 1.0,
+     "xi": null
+    },
+    "D": 0.1,
+    "d": 0.05,
+    "rho": 1000.0,
+    "nu": 1e-06,
+    "mode": {
+     "kind": "dp",
+     "dp": 20000.0
+    }
+   },
+   "id": "RH-P34 Venturi ideal (Dubbel Bd. 1 S. 317)",
+   "module": "fluid"
+  },
+  "expect": {
+   "Q": 0.012825498301618641
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "RH-S1 Druckstoß (Python)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "hand",
+     "rho": 999,
+     "K": 2190000000
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 6.71,
+     "e": 0.019,
+     "E": 207000000000,
+     "nu": 0.3,
+     "anchor": "b",
+     "wall": "duenn",
+     "material": "Stahl"
+    },
+    "L": 244,
+    "dv": 1,
+    "tS": 0,
+    "p": 800000,
+    "ps": null
+   },
+   "id": "RH-S1 Druckstoß (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 724.546474371279,
+   "tR": 0.6735247734432207,
+   "dp": 723821.9278969078,
+   "pMax": 1523821.9278969078,
+   "pMin": 76178.07210309221,
+   "fast": 1.0,
+   "psi": 300.18421052631584
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-S2 Druckstoß (Python)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "richtwert",
+     "id": "WS01"
+    },
+    "L": 800,
+    "dv": 1.5,
+    "tS": 6,
+    "p": 500000,
+    "ps": null
+   },
+   "id": "RH-S2 Druckstoß (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 1000,
+   "tR": 1.6,
+   "dp": 399282.4369871789,
+   "pMax": 899282.4369871789,
+   "pMin": 100717.56301282108,
+   "fast": 0.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-S3 Druckstoß (Python)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "starr"
+    },
+    "L": 500,
+    "dv": 2,
+    "tS": 0.2,
+    "p": 300000,
+    "ps": null
+   },
+   "id": "RH-S3 Druckstoß (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 1483.4188607696137,
+   "tR": 0.6741184344125092,
+   "dp": 2961515.48900418,
+   "pMax": 3261515.48900418,
+   "pMin": -2661515.48900418,
+   "fast": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-S4 Druckstoß (Python)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 0.09,
+     "e": 0.01,
+     "E": 1100000000,
+     "nu": 0.46,
+     "anchor": "a",
+     "wall": "dick",
+     "material": "PE-HD"
+    },
+    "L": 300,
+    "dv": 1,
+    "tS": 0,
+    "p": 600000,
+    "ps": null
+   },
+   "id": "RH-S4 Druckstoß (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 335.2140290779293,
+   "tR": 1.7899012211702938,
+   "dp": 334612.6861063166,
+   "pMax": 934612.6861063166,
+   "pMin": 265387.3138936834,
+   "fast": 1.0,
+   "psi": 9.30604
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-S5 Druckstoß (Python)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "tabelle",
+     "id": "BK06"
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 0.024,
+     "e": 0.002,
+     "E": 210000000000,
+     "nu": 0.3,
+     "anchor": "c",
+     "wall": "dick",
+     "material": "Stahl"
+    },
+    "L": 12,
+    "dv": 3,
+    "tS": 0.01,
+    "p": 10000000,
+    "ps": null
+   },
+   "id": "RH-S5 Druckstoß (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 1232.2081143977152,
+   "tR": 0.01947722930856598,
+   "dp": 3326961.908873831,
+   "pMax": 13326961.90887383,
+   "pMin": 6673038.091126169,
+   "fast": 1.0,
+   "psi": 13.676923076923073
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-S6 Druckstoß (Python)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "hand",
+     "rho": 1000,
+     "K": null
+    },
+    "wave": {
+     "kind": "hand",
+     "a": 400
+    },
+    "L": 150,
+    "dv": 0.8,
+    "tS": 2,
+    "p": 400000,
+    "ps": 2300
+   },
+   "id": "RH-S6 Druckstoß (Python)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 400,
+   "tR": 0.75,
+   "dp": 120000.0,
+   "pMax": 520000.0,
+   "pMin": 280000.0,
+   "fast": 0.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P27 Roloff Gl. (18.20), (18.22)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "richtwert",
+     "id": "WS01"
+    },
+    "L": 800,
+    "dv": 1.5,
+    "tS": 6,
+    "p": 500000,
+    "ps": null
+   },
+   "id": "RH-P27 Roloff Gl. (18.20), (18.22)",
+   "module": "fluid"
+  },
+  "expect": {
+   "tR": 1.6,
+   "dp": 399282.4369871789
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "RH-P36 Chaudhry Beispiel Rohr 1 (Buchwert 724 m/s)",
+  "case": {
+   "type": "surge",
+   "inp": {
+    "fluid": {
+     "kind": "hand",
+     "rho": 999,
+     "K": 2190000000
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 6.71,
+     "e": 0.019,
+     "E": 207000000000,
+     "nu": 0.3,
+     "anchor": "b",
+     "wall": "duenn",
+     "material": "Stahl"
+    },
+    "L": 244,
+    "dv": 1,
+    "tS": 0,
+    "p": 800000,
+    "ps": null
+   },
+   "id": "RH-P36 Chaudhry Beispiel Rohr 1 (Buchwert 724 m/s)",
+   "module": "fluid"
+  },
+  "expect": {
+   "a": 724.0
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "RH-P35 Überdruckhöhe RH-K1",
+  "case": {
+   "type": "fluid",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325.0
+    },
+    "Q": 0.08333333333333333,
+    "g": 9.81,
+    "eta": 0.7,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325.0,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325.0,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zetaHand",
+      "zeta": 3,
+      "ref": "2",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 10
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 1
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   },
+   "id": "RH-P35 Überdruckhöhe RH-K1",
+   "module": "fluid"
+  },
+  "expect": {
+   "hpe0": 12.252044509480061,
+   "hpe1": 12.003197498554004,
+   "hpe2": 0.9456186415190175,
+   "hpe3": 0.1990776087408451,
+   "hpe4": 0.1493082065556342,
+   "hpe5": 0.0,
+   "hpe6": 0.0
+  },
+  "tol": 1e-09
+ },
+ {
   "id": "RH-P1 IF97 Tab. 5 T 300 K p 3 MPa",
   "case": {
    "type": "water",

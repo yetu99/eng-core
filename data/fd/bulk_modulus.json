@@ -1,0 +1,90 @@
+[
+ {
+  "id": "BK01",
+  "liquid": "Benzol",
+  "liquid_source": "Benzene",
+  "t_c": 15,
+  "rho_kg_m3": 880,
+  "k_gpa": 1.05,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK02",
+  "liquid": "Ethanol",
+  "liquid_source": "Ethyl alcohol",
+  "t_c": 0,
+  "rho_kg_m3": 790,
+  "k_gpa": 1.32,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK03",
+  "liquid": "Glyzerin",
+  "liquid_source": "Glycerin",
+  "t_c": 15,
+  "rho_kg_m3": 1260,
+  "k_gpa": 4.43,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK04",
+  "liquid": "Kerosin",
+  "liquid_source": "Kerosene",
+  "t_c": 20,
+  "rho_kg_m3": 804,
+  "k_gpa": 1.32,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK05",
+  "liquid": "Quecksilber",
+  "liquid_source": "Mercury",
+  "t_c": 20,
+  "rho_kg_m3": 13570,
+  "k_gpa": 26.2,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK06",
+  "liquid": "Öl",
+  "liquid_source": "Oil",
+  "t_c": 15,
+  "rho_kg_m3": 900,
+  "k_gpa": 1.5,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK07",
+  "liquid": "Süßwasser",
+  "liquid_source": "Water, fresh",
+  "t_c": 20,
+  "rho_kg_m3": 999,
+  "k_gpa": 2.19,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ },
+ {
+  "id": "BK08",
+  "liquid": "Meerwasser",
+  "liquid_source": "Water, sea",
+  "t_c": 15,
+  "rho_kg_m3": 1025,
+  "k_gpa": 2.27,
+  "remark": "bei Atmosphärendruck",
+  "source_id": "Q234",
+  "source_locator": "Tab. 2-2 (S. 54)"
+ }
+]

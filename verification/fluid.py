@@ -1,4 +1,4 @@
-"""Unabhängige Gegenrechnung Rohrhydraulik (Modul fluid, eng-core 0.11.0).
+"""Unabhängige Gegenrechnung Rohrhydraulik (Modul fluid, eng-core 0.11.0, ab 0.13.0 mit RH b).
 
 Eigene Python-Umsetzung: IAPWS-IF97 Region 1 und 4 (R7-97(2012)), Viskosität IAPWS R12-08 (μ̄₂ = 1), Colebrook mit
 scipy brentq (statt Newton), eigene Strangrechnung (Knoten, Energiebilanz), eigener Leser der Fachdaten (data/fd/*.json),
@@ -6,15 +6,21 @@ eigene Bisektion bzw. brentq für die Aufgaben B und C. Prüfwerte:
   P1 IF97 Tab. 5 (v), P2 IF97 Tab. 35 (p_s), P3 R12-08 Tab. 4 (11 Punkte), P4 Roloff TB 18-9 Wasser (Plausibilität),
   P5 Roloff 27 Bsp. 18.2, P6 Dubbel 26 Bd. 1 Abb. 17.16, P7 Hagen-Poiseuille, P8 Colebrook-Raster, P9 Grenzfälle VDI-WA L1.2,
   P10 Energiebilanz, P11 Rückeinsetzen Aufgaben B und C, P12 Borda-Carnot zwei Formen.
+RH b (0.13.0, konzept_rh_b.md Abschn. 6): P20 IF97 w (Tab. 5), P21 Reader-Harris/Gallagher gegen ISO 5167-2 Tab. A.10,
+  P22 Pumpe analytisch, P23 Betriebspunkt mit scipy fsolve auf der eigenen Strangrechnung, P24 Modellgesetze und Ausgleich
+  (numpy.polyfit), P25 NPSH_A analytisch, P26 NPSH_A aus eigenen Knotendrücken, P27 Joukowsky und Stoßabminderung,
+  P29 Walther, P30 bis P32 nicht kreisförmige Querschnitte, P33 und P34 Messung, P35 Überdruckhöhe, P36 Chaudhry Beispiel.
 Jeder Prüffall trägt module='fluid' (Zählung je Modul in pruefung.py).
 """
 import json, math, os
-from scipy.optimize import brentq
+import numpy as np
+from scipy.optimize import brentq, fsolve, minimize_scalar
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FD = os.path.join(os.path.dirname(HERE), 'data', 'fd')
 _fd = lambda f: {r['id']: r for r in json.load(open(os.path.join(FD, f + '.json'), encoding='utf8'))}
 FLUIDS, FVALS, ROUGH, LOSS, PIPES, VEL = (_fd(x) for x in ('fluids', 'fluid_values', 'roughness', 'loss_coeff', 'pipe_sizes', 'velocity_guide'))
+FLOWM, SHAPE, WAVE, BULK, OILS = (_fd(x) for x in ('flowmeter', 'shape_factor', 'wave_speed', 'bulk_modulus', 'oil_grades'))
 
 # ---------------------------------------------------------------- IAPWS
 R = 461.526
@@ -59,6 +65,7 @@ def fluid_py(f):
     if s['kind'] == 'wasser':
         rho = 1 / v_if97(f['T'], f['p']); return rho, mu_r12(f['T'], rho) / rho, ps_if97(f['T'])
     if s['kind'] == 'hand': return s['rho'], s['nu'], None
+    if s['kind'] == 'walther': return s['rho'], walther_py(s['walther'], f['T']), None
     v = FVALS[s['valueId']]
     return (v['rho_kg_m3'] if v['rho_kg_m3'] is not None else s['rho']), v['nu_mm2_s'] * 1e-6, None
 
@@ -73,12 +80,14 @@ def line_py(inp, Q, dvar=None):
     els = inp['elements']; out = []
     for e in els:
         if e['kind'] != 'rohr': out.append(dict(kind=e['kind'], v=None, dp=0.0, L=0.0, dz=0.0)); continue
-        gk = e['geom']
+        gk = e['geom']; A = None; phi = 1.0
         if gk['kind'] == 'd': d = gk['d']
         elif gk['kind'] == 'var': d = dvar
+        elif gk['kind'] == 'section': A, U, phi = section_py(gk['section']); d = 4 * A / U
         else: d = (PIPES[gk['pipeId']]['d_a_mm'] - 2 * gk['wall'] * 1e3) / 1e3
         rk = e['rough']; k = rk['k'] if rk['kind'] == 'hand' else ROUGH[rk['id']]['k_' + rk['which'] + '_mm'] * 1e-3
-        A = math.pi * d * d / 4; v = Q / A; Re = v * d / nu; lam = lam_py(Re, k / d)
+        A = math.pi * d * d / 4 if A is None else A; v = Q / A; Re = v * d / nu
+        lam = phi * 64.0 / Re if Re < 2320 else lam_py(Re, k / d)
         out.append(dict(kind='rohr', d=d, A=A, v=v, Re=Re, lam=lam, L=e['L'], dz=e['dz'], dp=lam * e['L'] / d * rho * v * v / 2))
     def pv(i, step):
         while 0 <= i < len(out):
@@ -86,7 +95,7 @@ def line_py(inp, Q, dvar=None):
             i += step
         return None
     for i, e in enumerate(els):
-        if e['kind'] == 'rohr': continue
+        if e['kind'] in ('rohr', 'pumpe'): continue
         if e['kind'] == 'zeta': lc = LOSS[e['lossId']]; z, ref, n = lc['zeta'], lc['ref_section'], e['count']
         elif e['kind'] == 'bogen': z, ref, n = bend_py(e['surface'], e['rd']), None, e['count']
         elif e['kind'] == 'erweiterung':
@@ -108,9 +117,10 @@ def line_py(inp, Q, dvar=None):
     # Knotendrücke rückwärts vom Ende (unabhängig von der Vorwärtsrechnung des Kerns)
     p = [0.0] * (nn + 1); p[nn] = inp['end']['p']
     for i in range(nn - 1, -1, -1):
-        p[i] = p[i + 1] - rho / 2 * (vN[i] ** 2 - vN[i + 1] ** 2) - rho * g * (z[i] - z[i + 1]) + out[i]['dp']
+        p[i] = p[i + 1] - rho / 2 * (vN[i] ** 2 - vN[i + 1] ** 2) - rho * g * (z[i] - z[i + 1]) + out[i]['dp'] - (dpErf if els[i]['kind'] == 'pumpe' else 0.0)
     H = [p[i] / (rho * g) + vN[i] ** 2 / (2 * g) + z[i] for i in range(nn + 1)]
-    return dict(rho=rho, nu=nu, ps=ps, out=out, dpV=dpV, dpErf=dpErf, pA=p[0], pMin=min(p), H=H,
+    pL = inp.get('pAmb', 101325.0)
+    return dict(rho=rho, nu=nu, ps=ps, out=out, dpV=dpV, dpErf=dpErf, pA=p[0], pMin=min(p), H=H, p=p, vN=vN, hpe=[(x - pL) / (rho * g) for x in p],
                 dpR=sum(o['dp'] for o in out if o['kind'] == 'rohr'), dpZ=sum(o['dp'] for o in out if o['kind'] != 'rohr'))
 
 # ---------------------------------------------------------------- Fälle
@@ -151,6 +161,7 @@ K6 = dict(fluid=dict(spec=dict(kind='tabelle', valueId=fv('Glyzerin', 20)), T=T(
 
 
 def add_cases(cases, ref):
+    add_cases_b(cases, ref)
     def case(id_, c, vals, tol):
         c = dict(c, id=id_, module='fluid'); cases.append(c); ref[id_] = (vals, tol)
     # P1 bis P3: IAPWS mit gedruckten Prüfwerten
@@ -214,3 +225,187 @@ def add_cases(cases, ref):
     dg = next(d for d, _ in cands if d >= dm)
     case('RH-P11 Aufgabe C PE SDR 11', dict(type='fluid', inp=K5, task=dict(kind='C', dpAllow=1.5e5, select=dict(norm='DIN 8074', series='SDR 11', minWall=None))),
          dict(dMin=dm, dGew=dg, backC=1.0, dpErf=line_py(K5, K5['Q'], dg)['dpErf']), 1e-8)
+
+
+# ================================================================ RH b (eng-core 0.13.0)
+def w_if97(T, p):
+    """Schallgeschwindigkeit IF97 Region 1 (Tab. 3), Ableitungen eigen nach Tab. 4."""
+    pi, tau = p / 16.53e6, 1386.0 / T; a, b = 7.1 - pi, tau - 1.222
+    gp = sum(-n * i * a ** (i - 1) * b ** j for n, i, j in zip(N1, I1, J1))
+    gpp = sum(n * i * (i - 1) * a ** (i - 2) * b ** j for n, i, j in zip(N1, I1, J1))
+    gtt = sum(n * a ** i * j * (j - 1) * b ** (j - 2) for n, i, j in zip(N1, I1, J1))
+    gpt = sum(-n * i * a ** (i - 1) * j * b ** (j - 1) for n, i, j in zip(N1, I1, J1))
+    return math.sqrt(R * T * gp ** 2 / ((gp - tau * gpt) ** 2 / (tau ** 2 * gtt) - gpp))
+
+def walther_py(w, T):
+    C = w['C']; W = lambda nu: math.log10(math.log10(nu * 1e6 + C))
+    m = (W(w['nu1']) - W(w['nu2'])) / (math.log10(w['T2']) - math.log10(w['T1'])); K = W(w['nu1']) + m * math.log10(w['T1'])
+    return (10 ** (10 ** (K - m * math.log10(T))) - C) * 1e-6
+
+def phi_py(section, x):
+    pts = sorted((r['param_value'], r['phi']) for r in SHAPE.values() if r['section'] == section)
+    return float(np.interp(x, [a for a, _ in pts], [b for _, b in pts]))
+
+def section_py(sec):
+    if sec['kind'] == 'ring': return math.pi * (sec['da'] ** 2 - sec['di'] ** 2) / 4, math.pi * (sec['da'] + sec['di']), phi_py('Kreisring', sec['da'] / sec['di'])
+    if sec['kind'] == 'rechteck': return sec['b'] * sec['h'], 2 * (sec['b'] + sec['h']), phi_py('Rechteck', min(sec['b'], sec['h']) / max(sec['b'], sec['h']))
+    return sec['A'], sec['U'], 1.0
+
+def rhg_py(beta, Re, D, taps):
+    Dmm = D * 1e3
+    L1, L2 = {'eck': (0.0, 0.0), 'D': (1.0, 0.47), 'flansch': (25.4 / Dmm, 25.4 / Dmm)}[taps]
+    A = (19000 * beta / Re) ** 0.8; M2 = 2 * L2 / (1 - beta)
+    C = (0.5961 + 0.0261 * beta ** 2 - 0.216 * beta ** 8 + 0.000521 * (1e6 * beta / Re) ** 0.7 + (0.0188 + 0.0063 * A) * beta ** 3.5 * (1e6 / Re) ** 0.3
+         + (0.043 + 0.080 * math.exp(-10 * L1) - 0.123 * math.exp(-7 * L1)) * (1 - 0.11 * A) * beta ** 4 / (1 - beta ** 4) - 0.031 * (M2 - 0.8 * M2 ** 1.1) * beta ** 1.3)
+    return C + (0.011 * (0.75 - beta) * (2.8 - Dmm / 25.4) if Dmm < 71.12 else 0.0)
+
+def meter_py(m):
+    D, d, rho, nu, dev = m['D'], m['d'], m['rho'], m['nu'], m['device']; beta = d / D; At = math.pi * d * d / 4
+    Re = lambda Q: 4 * Q / (math.pi * D * nu)
+    def C(Q):
+        if dev['kind'] == 'blende': return rhg_py(beta, Re(Q), D, dev['taps'])
+        if dev['variant'] is None: return dev['C']
+        rows = sorted((r for r in FLOWM.values() if r['variant'] == dev['variant']), key=lambda r: r['re_min'])
+        hit = [r for r in rows if r['re_min'] <= Re(Q) and (r['re_max'] is None or Re(Q) <= r['re_max'])]
+        return (hit[0] if hit else rows[0] if Re(Q) < rows[0]['re_min'] else rows[-1])['c']   # außerhalb: nächste Zeile (Warnung im Kern)
+    dpQ = lambda Q: rho / 2 * (Q * math.sqrt(1 - beta ** 4) / (C(Q) * At)) ** 2
+    if m['mode']['kind'] == 'Q': Q = m['mode']['Q']; dp = dpQ(Q)
+    else: dp = m['mode']['dp']; Q = brentq(lambda q: dpQ(q) - dp, 1e-12, 10.0, xtol=1e-16, rtol=1e-15)
+    c = C(Q); o = dict(C=c, Q=Q, dp=dp, Re=Re(Q), beta=beta)
+    if dev['kind'] == 'blende':
+        s = math.sqrt(1 - beta ** 4 * (1 - c * c)); o['dw'] = (s - c * beta * beta) / (s + c * beta * beta) * dp
+    elif dev.get('xi') is not None: o['dw'] = dev['xi'] * dp
+    if 'dw' in o: vD = Q / (math.pi * D * D / 4); o['zeta'] = o['dw'] / (rho * vD * vD / 2)
+    return o
+
+def surge_py(s):
+    f, w = s['fluid'], s['wave']
+    if f['kind'] == 'wasser': rho = 1 / v_if97(f['T'], f['p']); K = rho * w_if97(f['T'], f['p']) ** 2
+    elif f['kind'] == 'tabelle': r = BULK[f['id']]; rho, K = r['rho_kg_m3'], r['k_gpa'] * 1e9
+    else: rho, K = f['rho'], f['K']
+    psi = None
+    if w['kind'] == 'starr': a = math.sqrt(K / rho)
+    elif w['kind'] == 'richtwert': a = WAVE[w['id']]['a_m_s']
+    elif w['kind'] == 'hand': a = w['a']
+    else:
+        D, e, nu = w['D'], w['e'], w['nu']
+        if w['wall'] == 'duenn': psi = D / e * {'a': 1 - nu * nu, 'b': 1 - 0.5 * nu, 'c': 1.0}[w['anchor']]
+        else:
+            Ri, Ro = D / 2, D / 2 + e
+            psi = 2 * (1 + nu) * ((Ro ** 2 + Ri ** 2) / (Ro ** 2 - Ri ** 2) - 2 * nu * Ri ** 2 / (Ro ** 2 - Ri ** 2)) if w['anchor'] == 'a' else 2 * ((Ro ** 2 + Ri ** 2) / (Ro ** 2 - Ri ** 2) + nu)
+        a = math.sqrt(K / (rho * (1 + K / w['E'] * psi)))
+    tR = 2 * s['L'] / a
+    dp = rho * a * s['dv'] if s['tS'] <= tR else rho * a * s['dv'] * tR / s['tS']
+    o = dict(a=a, tR=tR, dp=dp, pMax=s['p'] + dp, pMin=s['p'] - dp, fast=float(s['tS'] <= tR))
+    if psi is not None: o['psi'] = psi
+    return o
+
+def pump_py(inp, pump):
+    """Betriebspunkt mit scipy fsolve auf der eigenen Strangrechnung, Kennlinien mit numpy.polyfit (eigen)."""
+    P = sorted(pump['points'], key=lambda x: x['Q'])
+    cH = np.polyfit([x['Q'] for x in P], [x['H'] for x in P], 2)
+    E = [x for x in P if x['eta'] is not None]; N = [x for x in P if x['npsh'] is not None]
+    cE = np.polyfit([x['Q'] for x in E], [x['eta'] for x in E], 2) if len(E) >= 3 else None
+    cN = np.polyfit([x['Q'] for x in N], [x['npsh'] for x in N], 2) if len(N) >= 3 else None
+    rho = fluid_py(inp['fluid'])[0]; g = inp['g']
+    HA = lambda q: line_py(inp, q)['dpErf'] / (rho * g)
+    H = lambda r, q: r * r * np.polyval(cH, q / r)
+    if pump['speed']['kind'] == 'n': r = pump['speed']['n'] / pump['n0']
+    else:
+        Qs = pump['speed']['Q']; has = HA(Qs); r = brentq(lambda x: H(x, Qs) - has, Qs / P[-1]['Q'], 3.0, xtol=1e-15, rtol=1e-15)
+    q0 = 0.5 * r * (P[0]['Q'] + P[-1]['Q'])
+    Q = float(fsolve(lambda q: [H(r, q[0]) - HA(q[0])], [q0], xtol=1e-14)[0])
+    Hb = float(H(r, Q)); L = line_py(inp, Q)
+    o = dict(Qop=Q, Hop=Hb, r=r, HA=L['dpErf'] / (rho * g), pStart=L['p'][0], backD=1.0)
+    if cE is not None:
+        eta = float(np.polyval(cE, Q / r)); o.update(etaB=eta, Pu=rho * g * Q * Hb, Ppump=rho * g * Q * Hb / eta)
+        qb = minimize_scalar(lambda q: -np.polyval(cE, q), bounds=(P[0]['Q'], P[-1]['Q']), method='bounded', options=dict(xatol=1e-14)).x   # Bestpunkt numerisch (statt Scheitelformel)
+        o['nq'] = 333 * pump['n0'] * math.sqrt(qb) / (g * float(np.polyval(cH, qb))) ** 0.75
+    k = next(i for i, e in enumerate(inp['elements']) if e['kind'] == 'pumpe')
+    pv = L['ps'] if L['ps'] is not None else pump['pv']
+    if pv is not None: o['npshA'] = (L['p'][k] + rho * L['vN'][k] ** 2 / 2 - pv) / (rho * g)
+    if cN is not None:
+        o['npshR'] = r ** pump['npshExp'] * float(np.polyval(cN, Q / r))
+        if 'npshA' in o: o['reserve'] = o['npshA'] - o['npshR']
+    return o
+
+def add_cases_b(cases, ref):
+    import sys; sys.path.insert(0, HERE)
+    def case(id_, c, vals, tol):
+        c = dict(c, id=id_, module='fluid'); cases.append(c); ref[id_] = (vals, tol)
+    F = json.load(open(os.path.join(HERE, 'fluid_b_faelle.json'), encoding='utf8'))   # aus scripts/fluid-faelle.ts (npx tsx scripts/fluid-b-json.ts)
+    lines = {f['id']: f for f in F['lines']}; mess = {f['id']: f for f in F['mess']}; stoss = {f['id']: f for f in F['stoss']}
+    # P20 IF97 Schallgeschwindigkeit
+    for Tk, p, w in [(300, 3e6, 0.150773921e4), (300, 80e6, 0.163469054e4), (500, 3e6, 0.124071337e4)]:
+        case(f'RH-P20 IF97 Tab. 5 w T {Tk} K p {p/1e6:g} MPa', dict(type='sound', T=Tk, p=p), dict(w=w), 1e-8)
+        case(f'RH-P20 IF97 Python w T {Tk} K p {p/1e6:g} MPa', dict(type='sound', T=Tk, p=p), dict(w=w_if97(Tk, p)), 1e-12)
+    # P21 Reader-Harris/Gallagher gegen ISO 5167-2 Tab. A.10 (Flansch, D = 760 mm), Tabelle vierstellig
+    for beta, Re, Ct in [(0.10, 5e3, 0.6006), (0.30, 1e6, 0.5987), (0.40, 3e4, 0.6054), (0.50, 1e5, 0.6065), (0.60, 1e7, 0.6031), (0.20, 1e4, 0.6016), (0.56, 3e5, 0.6062)]:
+        D, nu = 0.76, 1e-6
+        m = dict(device=dict(kind='blende', taps='flansch'), D=D, d=beta * D, rho=1000.0, nu=nu, mode=dict(kind='Q', Q=Re * math.pi * D * nu / 4))
+        case(f'RH-P21 ISO 5167-2 Tab. A.10 beta {beta} Re {Re:g}', dict(type='meter', inp=m), dict(C=Ct), 1e-4)
+        case(f'RH-P21 RHG Python beta {beta} Re {Re:g}', dict(type='meter', inp=m), dict(C=rhg_py(beta, Re, D, 'flansch')), 1e-12)
+    # P22 Pumpe analytisch (K7): Q = √(25/0,0026) m³/h, H = 15 + 0,001·Q²; Drehzahl 0,9·n₀; Soll-Förderstrom
+    K7 = lines['RH-K7']; Qa = math.sqrt(25 / 0.0026)
+    case('RH-P22 Pumpe analytisch n0', dict(type='fluid', inp=K7['inp'], task=K7['task']), dict(Qop=Qa / 3600, Hop=15 + 0.001 * Qa ** 2, backD=1.0), 1e-9)
+    t9 = json.loads(json.dumps(K7['task'])); t9['pump']['speed'] = dict(kind='n', n=0.9 * t9['pump']['n0']); Q9 = math.sqrt((40 * 0.81 - 15) / 0.0026)
+    case('RH-P22 Pumpe analytisch 0,9 n0', dict(type='fluid', inp=K7['inp'], task=t9), dict(Qop=Q9 / 3600, Hop=15 + 0.001 * Q9 ** 2, r=0.9), 1e-9)
+    ts = json.loads(json.dumps(K7['task'])); ts['pump']['speed'] = dict(kind='Qsoll', Q=Q9 / 3600)
+    case('RH-P22 Pumpe analytisch Soll-Förderstrom', dict(type='fluid', inp=K7['inp'], task=ts), dict(Qop=Q9 / 3600, r=0.9), 1e-9)
+    # P24 Ausgleichspolynom: drei Punkte exakt, vier Punkte gegen numpy.polyfit
+    xs = [x['Q'] for x in K7['task']['pump']['points']]; ys = [x['H'] for x in K7['task']['pump']['points']]
+    case('RH-P24 Ausgleich drei Punkte exakt', dict(type='pumpfit', xs=xs, ys=ys), dict(c0=40.0, c2=-0.0016 * 3600 ** 2, r2=1.0), 1e-12)
+    PB = lines['RH-K8']['task']['pump']['points']; cB = np.polyfit([x['Q'] for x in PB], [x['H'] for x in PB], 2)
+    case('RH-P24 Ausgleich vier Punkte numpy.polyfit', dict(type='pumpfit', xs=[x['Q'] for x in PB], ys=[x['H'] for x in PB]), dict(c0=float(cB[2]), c1=float(cB[1]), c2=float(cB[0])), 1e-10)
+    # P23, P26 Betriebspunkt und NPSH mit fsolve auf dem eigenen Strang (K8 Drehzahl, K9 Soll-Förderstrom)
+    for kid in ('RH-K8', 'RH-K9'):
+        f = lines[kid]; o = pump_py(f['inp'], f['task']['pump'])
+        case(f'RH-P23 {kid} Betriebspunkt fsolve', dict(type='fluid', inp=f['inp'], task=f['task']), o, 1e-8)
+    # P25 NPSH_A analytisch: Pumpe 3 m über dem Saugspiegel ohne Saugverlust, p_v 2 339,2 Pa von Hand: NPSH_A = (p − p_v)/(ρg) − 3 m
+    a25 = json.loads(json.dumps(K7['inp'])); a25['elements'] = [dict(kind='rohr', label='Saugrohr', L=0, geom=dict(kind='d', d=0.1), rough=dict(kind='hand', k=1e-5), dz=3)] + a25['elements']
+    a25['elements'][2]['dz'] = 12
+    t25 = json.loads(json.dumps(K7['task'])); t25['pump']['pv'] = 2339.2
+    case('RH-P25 NPSH_A analytisch', dict(type='fluid', inp=a25, task=t25), dict(npshA=(101325 - 2339.2) / (1000 * 9.81) - 3), 1e-12)
+    # Strangfälle RH b (Querschnitte, Walther, Überdruckhöhe) gegen den eigenen Strang
+    for kid in ('RH-K10', 'RH-K11'):
+        f = lines[kid]; py = line_py(f['inp'], f['inp']['Q'])
+        vals = dict(dpErf=py['dpErf'], dpV=py['dpV'], pA=py['pA'])
+        for i, o in enumerate(py['out']):
+            if o['kind'] == 'rohr': vals.update({f'lam{i}': o['lam'], f'Re{i}': o['Re'], f'v{i}': o['v']})
+        vals.update({f'hpe{i}': h for i, h in enumerate(py['hpe'])})
+        case(f'{kid} (Python)', dict(type='fluid', inp=f['inp'], task=f['task']), vals, 1e-9)
+    # P29 Walther HLP 46: Stützpunkte exakt, ν bei 0 °C eigen und unter dem Grenzwert DIN 51524-2
+    wl = lines['RH-K10']['inp']['fluid']['spec']['walther']
+    for T, nu in [(wl['T1'], wl['nu1']), (wl['T2'], wl['nu2'])]:
+        case(f'RH-P29 Walther Stützpunkt {T - 273.15:g} °C', dict(type='walther', inp=wl, T=T), dict(nu=nu), 1e-9)
+    case('RH-P29 Walther 0 °C (Python)', dict(type='walther', inp=wl, T=273.15), dict(nu=walther_py(wl, 273.15)), 1e-12)
+    og = next(r for r in OILS.values() if r['grade'] == 'HLP 46')
+    assert walther_py(wl, 273.15) * 1e6 <= og['nu0_max_mm2_s'], 'Walther HLP 46 bei 0 °C über dem Grenzwert DIN 51524-2'
+    # P30 bis P32: Rechteck analytisch, Quadrat laminar φ = 0,88, Kreisrohr über A und U = Kreisrohr
+    def one(sec, Q, nu=1e-6, k=1e-5):
+        return dict(fluid=dict(spec=dict(kind='hand', rho=1000, nu=nu), T=293.15, p=101325), Q=Q, g=9.81, eta=None, velocityGuideId=None,
+                    start=dict(p=101325, z=0, v0=False), end=dict(p=101325, v0=False), elements=[dict(kind='rohr', L=10, geom=sec, rough=dict(kind='hand', k=k), dz=0)])
+    r30 = one(dict(kind='section', section=dict(kind='rechteck', b=0.1, h=0.05)), 0.01)
+    case('RH-P30 Rechteck 100 × 50 mm: Re mit d_h = 4A/U', dict(type='fluid', inp=r30, task=dict(kind='A')), dict(Re0=(0.01 / 0.005) * (4 * 0.005 / 0.3) / 1e-6), 1e-12)
+    r31 = one(dict(kind='section', section=dict(kind='rechteck', b=0.02, h=0.02)), 1e-5)
+    Re31 = (1e-5 / 4e-4) * 0.02 / 1e-6
+    case('RH-P31 Quadrat laminar λ = 0,88·64/Re', dict(type='fluid', inp=r31, task=dict(kind='A')), dict(lam0=0.88 * 64 / Re31), 1e-12)
+    d = 0.05; ra = one(dict(kind='section', section=dict(kind='au', A=math.pi * d * d / 4, U=math.pi * d)), 5e-3); rc = one(dict(kind='d', d=d), 5e-3)
+    case('RH-P32 Kreisrohr über A und U = Kreisrohr', dict(type='fluid', inp=ra, task=dict(kind='A')), dict(dpV=line_py(rc, 5e-3)['dpV']), 1e-12)
+    # Messung: Fälle M1 bis M4 (Python), P33 Rundlauf, P34 Venturi ideal = Dubbel S. 317
+    for mid, f in mess.items():
+        o = meter_py(f['inp']); case(f'{mid} Messung (Python)', dict(type='meter', inp=f['inp']), o, 1e-9)
+    m1 = mess['RH-M1']['inp']; back = dict(m1, mode=dict(kind='dp', dp=meter_py(m1)['dp']))
+    case('RH-P33 Blende Rundlauf V̇ → Δp → V̇', dict(type='meter', inp=back), dict(Q=m1['mode']['Q']), 1e-9)
+    vi = dict(device=dict(kind='venturi', variant=None, C=1.0, xi=None), D=0.1, d=0.05, rho=1000.0, nu=1e-6, mode=dict(kind='dp', dp=2e4))
+    A1, A2 = math.pi * 0.1 ** 2 / 4, math.pi * 0.05 ** 2 / 4
+    case('RH-P34 Venturi ideal (Dubbel Bd. 1 S. 317)', dict(type='meter', inp=vi), dict(Q=A1 * math.sqrt(2 * 2e4 / 1000 / ((A1 / A2) ** 2 - 1))), 1e-9)
+    # Druckstoß: S1 bis S6 (Python), P27 Roloff, P36 Chaudhry Buchwert
+    for sid, f in stoss.items():
+        case(f'{sid} Druckstoß (Python)', dict(type='surge', inp=f['inp']), surge_py(f['inp']), 1e-12)
+    s2 = stoss['RH-S2']['inp']; rho20 = 1 / v_if97(293.15, 101325)
+    case('RH-P27 Roloff Gl. (18.20), (18.22)', dict(type='surge', inp=s2), dict(tR=1.6, dp=rho20 * 1000 * 1.5 * 1.6 / 6), 1e-12)
+    case('RH-P36 Chaudhry Beispiel Rohr 1 (Buchwert 724 m/s)', dict(type='surge', inp=stoss['RH-S1']['inp']), dict(a=724.0), 5e-3)
+    # P35 Überdruckhöhe: h_pe = h_p − p_L/(ρ·g) an allen Knoten von RH-K1 (Python)
+    py = line_py(K1, K1['Q'])
+    case('RH-P35 Überdruckhöhe RH-K1', dict(type='fluid', inp=K1, task=dict(kind='A')), {f'hpe{i}': h for i, h in enumerate(py['hpe'])}, 1e-9)

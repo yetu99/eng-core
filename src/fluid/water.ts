@@ -126,3 +126,48 @@ export function waterState(T: number, p: number): WaterState {
   ];
   return { T, p, rho, eta, nu, ps, steps, errors, warnings };
 }
+
+/** Ableitungen γ_ππ, γ_τ, γ_ττ, γ_πτ der IF97 Region 1 (Tab. 4), ab 0.13.0 für die Schallgeschwindigkeit. */
+export function if97Derivatives(pi: number, tau: number): { gp: number; gpp: number; gt: number; gtt: number; gpt: number } {
+  let gp = 0, gpp = 0, gt = 0, gtt = 0, gpt = 0;
+  const a = 7.1 - pi, b = tau - 1.222;
+  for (let i = 0; i < 34; i++) {
+    const n = N1[i]!, I = I1[i]!, J = J1[i]!;
+    gp += -n * I * Math.pow(a, I - 1) * Math.pow(b, J);
+    gpp += n * I * (I - 1) * Math.pow(a, I - 2) * Math.pow(b, J);
+    gt += n * Math.pow(a, I) * J * Math.pow(b, J - 1);
+    gtt += n * Math.pow(a, I) * J * (J - 1) * Math.pow(b, J - 2);
+    gpt += -n * I * Math.pow(a, I - 1) * J * Math.pow(b, J - 1);
+  }
+  return { gp, gpp, gt, gtt, gpt };
+}
+
+/** Schallgeschwindigkeit Wasser in Region 1 in m/s (IF97 Tab. 3), ohne Gültigkeitsprüfung. */
+export function waterSoundSpeed(T: number, p: number): number {
+  const pi = p / 16.53e6, tau = 1386 / T;
+  const d = if97Derivatives(pi, tau);
+  return Math.sqrt((R_WATER * T * d.gp * d.gp) / ((d.gp - tau * d.gpt) ** 2 / (tau * tau * d.gtt) - d.gpp));
+}
+
+export interface WaterSound { T: number; p: number; rho: number; w: number; K: number; steps: CalcStep[]; errors: string[] }
+
+/**
+ * Schallgeschwindigkeit und Kompressionsmodul Wasser mit Rechenweg (RH b, Druckstoß, Entscheidung R22):
+ * w² = R·T·γ_π²/[(γ_π − τ·γ_πτ)²/(τ²·γ_ττ) − γ_ππ] (IF97 Tab. 3), K = ρ·w² (isentrop). Gültigkeit wie waterState.
+ */
+export function waterSound(T: number, p: number): WaterSound {
+  const st = waterState(T, p);
+  if (st.errors.length) return { T, p, rho: NaN, w: NaN, K: NaN, steps: [], errors: st.errors };
+  const pi = p / 16.53e6, tau = 1386 / T;
+  const d = if97Derivatives(pi, tau);
+  const w = Math.sqrt((R_WATER * T * d.gp * d.gp) / ((d.gp - tau * d.gpt) ** 2 / (tau * tau * d.gtt) - d.gpp));
+  const K = st.rho * w * w;
+  const steps: CalcStep[] = [
+    step("FS-IF-G2", "Weitere Ableitungen der Gibbs-Funktion", "γ_ππ, γ_τ, γ_ττ, γ_πτ aus den 34 Gliedern",
+      `π = ${fmt(pi, 6)}, τ = ${fmt(tau, 6)}: γ_ππ = ${fmt(d.gpp, 6)}, γ_τ = ${fmt(d.gt, 6)}, γ_ττ = ${fmt(d.gtt, 6)}, γ_πτ = ${fmt(d.gpt, 6)}`, d.gpp, "1", `${REF_IF}, Tab. 2 und 4`),
+    step("FS-IF-W", "Schallgeschwindigkeit Wasser", "w = √(R·T·γ_π²/[(γ_π − τ·γ_πτ)²/(τ²·γ_ττ) − γ_ππ])",
+      `w = √(461,526·${fmt(T, 6)}·${fmt(d.gp, 6)}²/[(${fmt(d.gp, 6)} − ${fmt(tau, 6)}·${fmt(d.gpt, 6)})²/(${fmt(tau, 6)}²·${fmt(d.gtt, 6)}) − ${fmt(d.gpp, 6)}])`, w, "m/s", `${REF_IF}, Tab. 3`),
+    step("FS-K", "Kompressionsmodul (isentrop)", "K = ρ·w²", `K = ${fmt(st.rho, 6)}·${fmt(w, 6)}²`, K, "Pa", `Definition; ${REF_IF}, Tab. 3`),
+  ];
+  return { T, p, rho: st.rho, w, K, steps: [...st.steps.filter((s) => s.id === "FS-IF-PI" || s.id === "FS-IF-GP" || s.id === "FS-IF-RHO"), ...steps], errors: [] };
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "id": "WS01",
+  "case": "Wasser und dünnflüssige Öle in dünnwandigen Leitungen",
+  "a_m_s": 1000,
+  "remark": "Richtwert",
+  "source_id": "Q219",
+  "source_locator": "S. 747 (zu Gl. 18.21)"
+ },
+ {
+  "id": "WS02",
+  "case": "verhältnismäßig dickwandige Hydraulikleitungen",
+  "a_m_s": 1300,
+  "remark": "Mittelwert",
+  "source_id": "Q219",
+  "source_locator": "S. 747 (zu Gl. 18.21)"
+ }
+]

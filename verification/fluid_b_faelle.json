@@ -1,0 +1,715 @@
+{
+ "lines": [
+  {
+   "id": "RH-K7",
+   "text": "Pumpe analytisch (Prüffall P22): Punkte (0; 40), (50; 36), (100; 24) m³/h und m bei 1 450 min⁻¹, Anlage H_A = 15 m + 0,001·V̇² (ζ von Hand), Wasser ρ 1 000 kg/m³ von Hand",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "hand",
+      "rho": 1000,
+      "nu": 0.000001
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "pumpe",
+      "label": "Pumpe"
+     },
+     {
+      "kind": "rohr",
+      "label": "Steigleitung (ohne Reibung)",
+      "L": 0,
+      "geom": {
+       "kind": "d",
+       "d": 0.1
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 0.00001
+      },
+      "dz": 15
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Widerstand k = 0,001 h²/m⁵",
+      "zeta": 15.684972706299233,
+      "ref": null,
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 40,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.013888888888888888,
+       "H": 36,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.027777777777777776,
+       "H": 24,
+       "eta": null,
+       "npsh": null
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "n",
+      "n": 24.166666666666668
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   }
+  },
+  {
+   "id": "RH-K8",
+   "text": "Roloff Bsp. 18.2 mit Saugleitung 323,9 × 7,1 (6 m, Pumpe 3 m über dem Saugspiegel) und Beispielpumpe (4 Punkte mit η und NPSH_R, n₀ 1 450 min⁻¹) bei 1 380 min⁻¹, Wasser 10 °C, s = 2 m",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zeta",
+      "label": "Einlauf",
+      "lossId": "LC040",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "label": "Saugleitung",
+      "L": 6,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS017",
+       "wall": 0.0071
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 3
+     },
+     {
+      "kind": "pumpe",
+      "label": "Kreiselpumpe"
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Durchgangsventile",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "rohr",
+      "label": "Druckleitung",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 7
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Kniestücke 60°",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Ausströmung",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 22,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.041666666666666664,
+       "H": 21,
+       "eta": 0.65,
+       "npsh": 2
+      },
+      {
+       "Q": 0.08333333333333333,
+       "H": 17,
+       "eta": 0.8,
+       "npsh": 3
+      },
+      {
+       "Q": 0.1111111111111111,
+       "H": 12.5,
+       "eta": 0.74,
+       "npsh": 4.5
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "n",
+      "n": 23
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   }
+  },
+  {
+   "id": "RH-K9",
+   "text": "wie RH-K8, Drehzahl für Soll-Förderstrom 300 m³/h gesucht",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 283.15,
+     "p": 101325
+    },
+    "Q": 0,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "zeta",
+      "label": "Einlauf",
+      "lossId": "LC040",
+      "count": 1
+     },
+     {
+      "kind": "rohr",
+      "label": "Saugleitung",
+      "L": 6,
+      "geom": {
+       "kind": "norm",
+       "pipeId": "PS017",
+       "wall": 0.0071
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 3
+     },
+     {
+      "kind": "pumpe",
+      "label": "Kreiselpumpe"
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Durchgangsventile",
+      "zeta": 6,
+      "ref": null,
+      "count": 2
+     },
+     {
+      "kind": "rohr",
+      "label": "Druckleitung",
+      "L": 280,
+      "geom": {
+       "kind": "d",
+       "d": 0.3099
+      },
+      "rough": {
+       "kind": "tab",
+       "id": "RG10",
+       "which": "max"
+      },
+      "dz": 7
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Kniestücke 60°",
+      "zeta": 0.8,
+      "ref": null,
+      "count": 3
+     },
+     {
+      "kind": "zetaHand",
+      "label": "Ausströmung",
+      "zeta": 1,
+      "ref": "1",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "D",
+    "pump": {
+     "points": [
+      {
+       "Q": 0,
+       "H": 22,
+       "eta": null,
+       "npsh": null
+      },
+      {
+       "Q": 0.041666666666666664,
+       "H": 21,
+       "eta": 0.65,
+       "npsh": 2
+      },
+      {
+       "Q": 0.08333333333333333,
+       "H": 17,
+       "eta": 0.8,
+       "npsh": 3
+      },
+      {
+       "Q": 0.1111111111111111,
+       "H": 12.5,
+       "eta": 0.74,
+       "npsh": 4.5
+      }
+     ],
+     "n0": 24.166666666666668,
+     "speed": {
+      "kind": "Qsoll",
+      "Q": 0.06944444444444445
+     },
+     "npshMargin": 2,
+     "npshExp": 2,
+     "pv": null
+    }
+   }
+  },
+  {
+   "id": "RH-K10",
+   "text": "HLP 46 nach Walther (ν40 46, ν100 6,1 mm²/s, C 0,8, ρ 870 kg/m³) bei 20 °C, Kreisring 40/30 mm (laminar, φ aus Tabelle), Rechteckkanal 30 × 10 mm, Querschnitt von Hand, je 2 m",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "walther",
+      "walther": {
+       "T1": 313.15,
+       "nu1": 0.000046,
+       "T2": 373.15,
+       "nu2": 0.0000061,
+       "C": 0.8
+      },
+      "rho": 870,
+      "label": "HLP 46"
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0.00016666666666666666,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "start": {
+     "p": 601325,
+     "z": 0,
+     "v0": false
+    },
+    "end": {
+     "p": 101325,
+     "v0": false
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "label": "Ringspalt",
+      "L": 2,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "ring",
+        "da": 0.04,
+        "di": 0.03
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 0.00001
+      },
+      "dz": 0
+     },
+     {
+      "kind": "rohr",
+      "label": "Rechteckkanal",
+      "L": 2,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "rechteck",
+        "b": 0.03,
+        "h": 0.01
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 0.00001
+      },
+      "dz": 0
+     },
+     {
+      "kind": "rohr",
+      "label": "Sonderprofil",
+      "L": 2,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "au",
+        "A": 0.0004,
+        "U": 0.09
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 0.00001
+      },
+      "dz": 0
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   }
+  },
+  {
+   "id": "RH-K11",
+   "text": "Wasser 20 °C, 60 m³/h, Rechteckkanal 200 × 100 mm (turbulent, d_h), L 30 m, k 0,1 mm, mit Überdruckhöhe gegen 0,95 bar Umgebung",
+   "inp": {
+    "fluid": {
+     "spec": {
+      "kind": "wasser"
+     },
+     "T": 293.15,
+     "p": 101325
+    },
+    "Q": 0.016666666666666666,
+    "g": 9.81,
+    "eta": null,
+    "velocityGuideId": null,
+    "pAmb": 95000,
+    "start": {
+     "p": 101325,
+     "z": 0,
+     "v0": true
+    },
+    "end": {
+     "p": 101325,
+     "v0": true
+    },
+    "elements": [
+     {
+      "kind": "rohr",
+      "label": "Kanal",
+      "L": 30,
+      "geom": {
+       "kind": "section",
+       "section": {
+        "kind": "rechteck",
+        "b": 0.2,
+        "h": 0.1
+       }
+      },
+      "rough": {
+       "kind": "hand",
+       "k": 0.0001
+      },
+      "dz": 0
+     },
+     {
+      "kind": "zeta",
+      "lossId": "LC031",
+      "count": 1
+     }
+    ]
+   },
+   "task": {
+    "kind": "A"
+   }
+  }
+ ],
+ "mess": [
+  {
+   "id": "RH-M1",
+   "text": "Blende mit Flansch-Druckentnahmen, D 100 mm, d 50 mm (β 0,5), Wasser 20 °C (ρ, ν gerundet von Hand), V̇ 40 m³/h gegeben",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "flansch"
+    },
+    "D": 0.1,
+    "d": 0.05,
+    "rho": 998.2057,
+    "nu": 0.0000010035,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.011111111111111112
+    }
+   }
+  },
+  {
+   "id": "RH-M2",
+   "text": "Blende mit Eck-Druckentnahmen, D 60 mm, d 30 mm (Zusatzterm D < 71,12 mm), Δp 0,5 bar gemessen",
+   "inp": {
+    "device": {
+     "kind": "blende",
+     "taps": "eck"
+    },
+    "D": 0.06,
+    "d": 0.03,
+    "rho": 998.2057,
+    "nu": 0.0000010035,
+    "mode": {
+     "kind": "dp",
+     "dp": 50000
+    }
+   }
+  },
+  {
+   "id": "RH-M3",
+   "text": "Venturi maschinell bearbeitet, D 200 mm, d 120 mm (β 0,6), Δp 0,2 bar, ξ 0,1 von Hand",
+   "inp": {
+    "device": {
+     "kind": "venturi",
+     "variant": "maschinell bearbeiteter Einlaufkonus",
+     "C": null,
+     "xi": 0.1
+    },
+    "D": 0.2,
+    "d": 0.12,
+    "rho": 998.2057,
+    "nu": 0.0000010035,
+    "mode": {
+     "kind": "dp",
+     "dp": 20000
+    }
+   }
+  },
+  {
+   "id": "RH-M4",
+   "text": "Venturi mit C = 0,98 von Hand, D 80 mm, d 40 mm, V̇ 20 m³/h",
+   "inp": {
+    "device": {
+     "kind": "venturi",
+     "variant": null,
+     "C": 0.98,
+     "xi": null
+    },
+    "D": 0.08,
+    "d": 0.04,
+    "rho": 998.2057,
+    "nu": 0.0000010035,
+    "mode": {
+     "kind": "Q",
+     "Q": 0.005555555555555556
+    }
+   }
+  }
+ ],
+ "stoss": [
+  {
+   "id": "RH-S1",
+   "text": "Chaudhry 2014 Beispiel S. 57 f. (Kootenay Canal, Rohr 1): D 6,71 m, e 19 mm, E 207 GPa, ν 0,3, K 2,19 GPa, ρ 999 kg/m³, Dehnkupplung an einem Ende (dünnwandig, Gl. (2-71)); Δv 1 m/s, l 244 m, schnell",
+   "inp": {
+    "fluid": {
+     "kind": "hand",
+     "rho": 999,
+     "K": 2190000000
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 6.71,
+     "e": 0.019,
+     "E": 207000000000,
+     "nu": 0.3,
+     "anchor": "b",
+     "wall": "duenn",
+     "material": "Stahl"
+    },
+    "L": 244,
+    "dv": 1,
+    "tS": 0,
+    "p": 800000,
+    "ps": null
+   }
+  },
+  {
+   "id": "RH-S2",
+   "text": "Roloff Gl. (18.20) bis (18.22): Wasser 20 °C, Richtwert a 1 000 m/s, Δv 1,5 m/s, l 800 m, t_S 6 s (langsam), p 5 bar absolut",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "richtwert",
+     "id": "WS01"
+    },
+    "L": 800,
+    "dv": 1.5,
+    "tS": 6,
+    "p": 500000,
+    "ps": null
+   }
+  },
+  {
+   "id": "RH-S3",
+   "text": "Wasser 20 °C, starre Wand (a = w aus IF97), Δv 2 m/s, l 500 m, t_S 0,2 s (schnell), p 3 bar absolut: Unterdruck",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "starr"
+    },
+    "L": 500,
+    "dv": 2,
+    "tS": 0.2,
+    "p": 300000,
+    "ps": null
+   }
+  },
+  {
+   "id": "RH-S4",
+   "text": "Wasser 20 °C, PE-HD 110 × 10 (SDR 11, E 1,1 GPa, ν 0,46 von Hand), dickwandig, längs verankert, Δv 1 m/s, l 300 m, schnell, p 6 bar absolut",
+   "inp": {
+    "fluid": {
+     "kind": "wasser",
+     "T": 293.15,
+     "p": 101325
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 0.09,
+     "e": 0.01,
+     "E": 1100000000,
+     "nu": 0.46,
+     "anchor": "a",
+     "wall": "dick",
+     "material": "PE-HD"
+    },
+    "L": 300,
+    "dv": 1,
+    "tS": 0,
+    "p": 600000,
+    "ps": null
+   }
+  },
+  {
+   "id": "RH-S5",
+   "text": "Öl nach Chaudhry Tab. 2-2 (900 kg/m³, K 1,5 GPa), Stahl 28 × 2 dickwandig mit Dehnfugen (E 210 GPa, ν 0,3), Δv 3 m/s, l 12 m, t_S 0,01 s",
+   "inp": {
+    "fluid": {
+     "kind": "tabelle",
+     "id": "BK06"
+    },
+    "wave": {
+     "kind": "wand",
+     "D": 0.024,
+     "e": 0.002,
+     "E": 210000000000,
+     "nu": 0.3,
+     "anchor": "c",
+     "wall": "dick",
+     "material": "Stahl"
+    },
+    "L": 12,
+    "dv": 3,
+    "tS": 0.01,
+    "p": 10000000,
+    "ps": null
+   }
+  },
+  {
+   "id": "RH-S6",
+   "text": "Wellengeschwindigkeit von Hand 400 m/s, Fluid von Hand ρ 1 000 kg/m³, Δv 0,8 m/s, l 150 m, t_S 2 s, p 4 bar, p_v 2,3 kPa von Hand",
+   "inp": {
+    "fluid": {
+     "kind": "hand",
+     "rho": 1000,
+     "K": null
+    },
+    "wave": {
+     "kind": "hand",
+     "a": 400
+    },
+    "L": 150,
+    "dv": 0.8,
+    "tS": 2,
+    "p": 400000,
+    "ps": 2300
+   }
+  }
+ ]
+}

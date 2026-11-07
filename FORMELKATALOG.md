@@ -1,18 +1,18 @@
-# Formelkatalog eng-core 0.12.0
+# Formelkatalog eng-core 0.13.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 486 Formeln, davon 486 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
 | gemeinsam | werkbank | Q, F, W | 96 | 96 |
 | festigkeit | werkbank | B, Z, K, T, N, D, P, V, E | 165 | 165 |
 | ashby | werkbank | A, C | 90 | 90 |
-| fluid | fachtools | RH, PU, FS | 42 | 42 |
+| fluid | fachtools | RH, PU, FS | 100 | 100 |
 | verbindungen | fachtools | SV, PV | 0 | 0 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
@@ -252,10 +252,15 @@ Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
+| FS-IF-G2 | Weitere Ableitungen der Gibbs-Funktion | γ_ππ, γ_τ, γ_ττ, γ_πτ aus den 34 Gliedern | 1 | IAPWS-IF97 (R7-97, 2012), Tab. 2 und 4 | freigegeben (2026-11-06, Seti) |
 | FS-IF-GP | Ableitung der Gibbs-Funktion | γ_π = Σ −n_i·I_i·(7,1 − π)^(I_i−1)·(τ − 1,222)^J_i | 1 | IAPWS-IF97 (R7-97, 2012), Tab. 2 und 4 | freigegeben (2026-10-29, Seti) |
 | FS-IF-PI | Reduzierter Druck (IF97 Region 1) | π = p/16,53 MPa; τ = 1 386 K/T | 1 | IAPWS-IF97 (R7-97, 2012), Gl. (7) | freigegeben (2026-10-29, Seti) |
 | FS-IF-PS | Sättigungsdruck | p_s = 1 MPa·[2C/(−B + √(B² − 4AC))]⁴ | Pa | IAPWS-IF97 (R7-97, 2012), Gl. (30), Tab. 34 | freigegeben (2026-10-29, Seti) |
 | FS-IF-RHO | Dichte Wasser | ρ = p/(R·T·π·γ_π) | kg/m³ | IAPWS-IF97 (R7-97, 2012), Tab. 3, Gl. (1) | freigegeben (2026-10-29, Seti) |
+| FS-IF-W | Schallgeschwindigkeit Wasser | w = √(R·T·γ_π²/[(γ_π − τ·γ_πτ)²/(τ²·γ_ττ) − γ_ππ]) | m/s | IAPWS-IF97 (R7-97, 2012), Tab. 3 | freigegeben (2026-11-06, Seti) |
+| FS-K | Kompressionsmodul (isentrop) | K = ρ·w² | Pa | Definition; IAPWS-IF97 (R7-97, 2012), Tab. 3 | freigegeben (2026-11-06, Seti) |
+| FS-K-MAN | Kompressionsmodul (Eingabe) | K = Eingabe | Pa | Eingabe | freigegeben (2026-11-06, Seti) |
+| FS-K-TAB | Dichte und Kompressionsmodul (Tabellenwert) | ρ, K aus fd_bulk_modulus | Pa | Tab. 2-2 (S. 54) (Q234) | freigegeben (2026-11-06, Seti) |
 | FS-MAN-NU | Kinematische Viskosität (Eingabe) | ν = Eingabe | m²/s | Eingabe | freigegeben (2026-10-29, Seti) |
 | FS-MAN-RHO | Dichte (Eingabe) | ρ = Eingabe | kg/m³ | Eingabe | freigegeben (2026-10-29, Seti) |
 | FS-MU | Dynamische Viskosität Wasser | η = 1 µPa·s·μ̄_0·μ̄_1 (μ̄_2 = 1) | Pa·s | IAPWS R12-08, Gl. (10), Abschn. 3 | freigegeben (2026-10-29, Seti) |
@@ -264,6 +269,9 @@ Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | FS-NU | Kinematische Viskosität | ν = η/ρ | m²/s | Definition | freigegeben (2026-10-29, Seti) |
 | FS-TAB-NU | Kinematische Viskosität (Tabellenwert) | ν aus fd_fluid_values (mm²/s · 10⁻⁶) | m²/s | TB 18-9 (bei ca. 1 bar) (Q219) | freigegeben (2026-10-29, Seti) |
 | FS-TAB-RHO | Dichte (Tabellenwert) | ρ aus fd_fluid_values | kg/m³ | TB 18-9 (bei ca. 1 bar) (Q219) | freigegeben (2026-10-29, Seti) |
+| FS-WA-KM | Walther-Konstanten aus zwei Stützpunkten | m = [W(ν₁) − W(ν₂)]/(lg T₂ − lg T₁); K = W(ν₁) + m·lg T₁; W(ν) = lg lg(ν + C) | 1 | Dubbel 26 Bd. 1 Kap. 33 (S. 681) | freigegeben (2026-11-06, Seti) |
+| FS-WA-N | Gültigkeitsbereich Walther | T₁ − 20 K ≤ T ≤ T₂ + 20 K | K | Verfahren (R21) | freigegeben (2026-11-06, Seti) |
+| FS-WA-NU | Kinematische Viskosität Öl (Walther) | ν = 10^(10^(K − m·lg T)) − C (ν in mm²/s, T in K) | m²/s | Dubbel 26 Bd. 1 Kap. 33 (S. 681) | freigegeben (2026-11-06, Seti) |
 
 ## Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)
 
@@ -350,6 +358,31 @@ Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | P-ZY-SV | Vergleichsspannung (GEH) | σ_v = √(½·[(σ_θ − σ_r)² + (σ_r − σ_z)² + (σ_z − σ_θ)²]), bei r = a und r = b, größerer Wert maßgebend | MPa | Gestaltänderungsenergiehypothese | freigegeben (2026-10-12, Seti) |
 | P-ZY-SZ | Axialspannung | geschlossen: σ_z = (p_i·a² − p_a·b²)/(b² − a²), konstant über r;  offen: σ_z = 0 | MPa | Gleichgewicht am Schnitt, Gross/Hauger TM 2, Kap. 6 | freigegeben (2026-10-12, Seti) |
 | P-ZY-U | Radiale Verschiebung (Aufweitung) | u(r) = r/E·[σ_θ − ν·(σ_r + σ_z)] | mm | Hooke; ν = 0,3 aus EN 1999-1-1 | freigegeben (2026-10-12, Seti) |
+
+## Pumpe und Anlage
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| PU-AFF-H | Förderhöhe bei geänderter Drehzahl | H = H₀·(n/n₀)² | m | Dubbel 26 Bd. 3 S. 232; ISO 9906 Abschn. 6.1.1 Gl. (28) | freigegeben (2026-11-06, Seti) |
+| PU-AFF-NPSH | NPSH_R bei geänderter Drehzahl | NPSH_R = NPSH_R,0·(n/n₀)^x | m | ISO 9906 Abschn. 6.1.1 Gl. (31), x = 2 erste Näherung | freigegeben (2026-11-06, Seti) |
+| PU-AFF-P | Leistungsbedarf bei geänderter Drehzahl | P = P₀·(n/n₀)³, η = η₀ | W | Dubbel 26 Bd. 3 S. 232; ISO 9906 Abschn. 6.1.1 Gl. (29), (30) | freigegeben (2026-11-06, Seti) |
+| PU-AFF-Q | Förderstrom bei geänderter Drehzahl | V̇ = V̇₀·n/n₀ | m³/s | Dubbel 26 Bd. 3 S. 232; ISO 9906 Abschn. 6.1.1 Gl. (27) | freigegeben (2026-11-06, Seti) |
+| PU-BE | Druck nach der Pumpe | p_2 = p_1 + ρ/2·(v_1² − v_2²) + ρ·g·H_A | Pa | Dubbel 26 Bd. 3 Gl. (8.5), (8.6) | freigegeben (2026-11-06, Seti) |
+| PU-BP | Betriebspunkt | V̇_B mit H(V̇_B) = H_A(V̇_B) (Raster 200, Bisektion 100 Schritte) | m³/s | Dubbel 26 Bd. 3 S. 231 | freigegeben (2026-11-06, Seti) |
+| PU-FIT-ETA | Wirkungsgradkennlinie (Ausgleichspolynom) | η(V̇) = b₀ + b₁·V̇ + b₂·V̇² | 1 | Verfahren (R12) | freigegeben (2026-11-06, Seti) |
+| PU-FIT-H | Förderhöhenkennlinie (Ausgleichspolynom) | H(V̇) = a₀ + a₁·V̇ + a₂·V̇² (kleinste Quadrate) | m | Verfahren (R12), Dubbel 26 Bd. 3 S. 230 | freigegeben (2026-11-06, Seti) |
+| PU-FIT-NPSH | NPSH_R-Kennlinie (Ausgleichspolynom) | NPSH_R(V̇) = c₀ + c₁·V̇ + c₂·V̇² | m | Verfahren (R12) | freigegeben (2026-11-06, Seti) |
+| PU-FIT-R2 | Güte des Ausgleichs | R² = 1 − Σ(y − ŷ)²/Σ(y − ȳ)²; größte Abweichung max\|y − ŷ\| | 1 | Verfahren (R12) | freigegeben (2026-11-06, Seti) |
+| PU-HA | Förderhöhe der Anlage | H_A(V̇) = Δp_erf(V̇)/(ρ·g) | m | Dubbel 26 Bd. 3 Gl. (8.6); RH-DP-ERF | freigegeben (2026-11-06, Seti) |
+| PU-N-AFF | Gültigkeit der Modellgesetze | \|n/n₀ − 1\| ≤ 0,2 | 1 | Dubbel 26 Bd. 3 S. 232 | freigegeben (2026-11-06, Seti) |
+| PU-N-BER | Kennlinienbereich und Stabilität | V̇_min·n/n₀ ≤ V̇_B ≤ V̇_max·n/n₀; dH/dV̇ ≤ ε mit ε = 10⁻⁶·H_max/V̇_max (an beiden Rändern) | m/(m³/s) | Verfahren (R12); Dubbel 26 Bd. 3 S. 230 | freigegeben (2026-11-06, Seti) |
+| PU-N-BIS | Drehzahl für Soll-Förderstrom | n mit H_n(V̇_soll) = H_A(V̇_soll), H_n(V̇) = (n/n₀)²·H₀(V̇·n₀/n) (Raster 200, Bisektion 100 Schritte) | 1/s | Verfahren (R16); Dubbel 26 Bd. 3 S. 232 | freigegeben (2026-11-06, Seti) |
+| PU-N-NPSH | Kavitation Saugseite (NPSH) | NPSH_A ≥ NPSH_R + s | m | Dubbel 26 Bd. 3 S. 230 (Sicherheit ca. 1 bis 2 m) | freigegeben (2026-11-06, Seti) |
+| PU-NPSHA | NPSH der Anlage | NPSH_A = (p_abs,S + ρ·v_S²/2 − p_v)/(ρ·g) | m | Dubbel 26 Bd. 3 Gl. (8.2), S. 229 | freigegeben (2026-11-06, Seti) |
+| PU-NQ | Spezifische Drehzahl (Bestpunkt) | n_q = 333·n·√V̇/(g·H)^(3/4), n in s⁻¹ | 1 | Dubbel 26 Bd. 3 Gl. (8.1), S. 226 | freigegeben (2026-11-06, Seti) |
+| PU-P | Leistungsbedarf der Pumpe | P = P_u/η(V̇_B) | W | Dubbel 26 Bd. 3 S. 231 | freigegeben (2026-11-06, Seti) |
+| PU-PU | Förderleistung | P_u = ρ·g·V̇·H | W | Dubbel 26 Bd. 3 Gl. (2.5a) | freigegeben (2026-11-06, Seti) |
+| PU-RES | NPSH-Reserve | ΔNPSH = NPSH_A − NPSH_R(V̇_B) | m | Dubbel 26 Bd. 3 S. 230 | freigegeben (2026-11-06, Seti) |
 
 ## Querschnitte
 
@@ -446,30 +479,60 @@ Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | RH-A | Querschnitt | A = π·d²/4 | m² | Roloff 27 Gl. 18.3 | freigegeben (2026-10-29, Seti) |
+| RH-A-RE | Fläche Rechteck | A = b·h | m² | Geometrie | freigegeben (2026-11-06, Seti) |
+| RH-A-RI | Fläche Kreisring | A = π·(d_a² − d_i²)/4 | m² | Geometrie | freigegeben (2026-11-06, Seti) |
+| RH-AU-MAN | Fläche und benetzter Umfang (Eingabe) | A, U = Eingabe | m² | Eingabe | freigegeben (2026-11-06, Seti) |
 | RH-BE | Druck nach dem Element | p_2 = p_1 + ρ/2·(v_1² − v_2²) + ρ·g·(z_1 − z_2) − Δp_v | Pa | Dubbel 26 Bd. 1 Gl. (17.10) | freigegeben (2026-10-29, Seti) |
 | RH-D-BIS | Kleinster Innendurchmesser | d mit Δp_erf(d) = Δp_zul (Bisektion im log-Raum, 100 Schritte) | m | Verfahren (R7) | freigegeben (2026-10-29, Seti) |
 | RH-D-DN | Gewähltes Rohr | kleinstes Rohr mit d_i = d_a − 2·s ≥ d_min | m | Anhang A, Tab. A.2, S. 17 (Q224) | freigegeben (2026-10-29, Seti) |
+| RH-DH | hydraulischer Durchmesser | d_h = 4·A/U | m | Dubbel 26 Bd. 1 Abschn. 17.2.3 (S. 322) | freigegeben (2026-11-06, Seti) |
 | RH-DI | Innendurchmesser | d_i = d_a − 2·s | m | DIN EN 10220 Reihe 1, Tab. 1, S. 6 f. (Wanddicken mit Massenangabe, T ≤ 20 mm) | freigegeben (2026-10-29, Seti) |
 | RH-DP-ERF | Erforderliche Druckerhöhung | Δp_erf = (p_E − p_A) + Δp_geo + ρ/2·(v_E² − v_A²) + Δp_v | Pa | Dubbel 26 Bd. 1 Gl. (17.10) | freigegeben (2026-10-29, Seti) |
 | RH-DP-GEO | Höhendruck | Δp_geo = ρ·g·(z_E − z_A) | Pa | Roloff 27 Gl. 18.7 | freigegeben (2026-10-29, Seti) |
 | RH-DP-R | Reibungsdruckverlust | Δp_R = λ·(L/d)·ρ·v²/2 | Pa | Roloff 27 Gl. 18.5; VDI-WA L1.2 Gl. (1) | freigegeben (2026-10-29, Seti) |
 | RH-DP-V | Summe der Verluste | Δp_v = Σ Δp_R + Σ Δp_ζ | Pa | Roloff 27 Gl. 18.7 | freigegeben (2026-10-29, Seti) |
 | RH-DP-Z | Druckverlust | Δp_ζ = n·ζ·ρ·v_B²/2 | Pa | Roloff 27 Gl. 18.6 | freigegeben (2026-10-29, Seti) |
+| RH-DS-AH | Wellengeschwindigkeit (Eingabe) | a = Eingabe | m/s | Eingabe | freigegeben (2026-11-06, Seti) |
+| RH-DS-AK | Wellengeschwindigkeit bei elastischer Rohrwand | a = √(K/(ρ·[1 + (K/E)·ψ])) | m/s | Chaudhry 2014 (Q234) Gl. (2-65), S. 50 | freigegeben (2026-11-06, Seti) |
+| RH-DS-AR | Wellengeschwindigkeit (Richtwert) | a aus fd_wave_speed | m/s | S. 747 (zu Gl. 18.21) (Q219) | freigegeben (2026-11-06, Seti) |
+| RH-DS-AW | Wellengeschwindigkeit bei starrer Wand | a = √(K/ρ) (ψ = 0) | m/s | Chaudhry 2014 (Q234) Gl. (2-65), (2-66), S. 50 | freigegeben (2026-11-06, Seti) |
+| RH-DS-J | Druckstoß bei schnellem Schließen (Joukowsky) | Δp = ρ·a·Δv (t_S ≤ t_R) | Pa | Roloff 27 Abschn. 18.4 Nr. 4 Gl. (18.21) | freigegeben (2026-11-06, Seti) |
+| RH-DS-L | Druckstoß bei langsamem Schließen (Stoßabminderung) | Δp = ρ·a·Δv·t_R/t_S (t_S > t_R, gleichbedeutend mit l < a·t_S/2; lineares Schließgesetz) | Pa | Roloff 27 Abschn. 18.4 Nr. 4 Gl. (18.22) | freigegeben (2026-11-06, Seti) |
+| RH-DS-N | Unterdruck beim Druckstoß | p_min ≥ p_s | 1 | Roloff 27 Abschn. 18.4 Nr. 4 S. 747; IAPWS-IF97 Gl. (30) | freigegeben (2026-11-06, Seti) |
+| RH-DS-P | Extremdrücke an der Armatur | p_max = p + Δp; p_min = p − Δp | Pa | Roloff 27 Abschn. 18.4 Nr. 4 S. 747 | freigegeben (2026-11-06, Seti) |
+| RH-DS-PSI-D | Wandbeiwert dünnwandig | ψ = (D/e)·(1 − ν²) \| (D/e)·(1 − 0,5ν) \| D/e (Verankerung ganze Länge \| oberes Ende \| Dehnfugen) | 1 | Chaudhry 2014 (Q234) Gl. (2-70) bis (2-72), S. 52 | freigegeben (2026-11-06, Seti) |
+| RH-DS-PSI-K | Wandbeiwert dickwandig | ψ = 2(1 + ν)·[(R_o² + R_i²)/(R_o² − R_i²) − 2νR_i²/(R_o² − R_i²)] \| 2·[(R_o² + R_i²)/(R_o² − R_i²) + ν] (Verankerung ganze Länge \| Dehnfugen) | 1 | Chaudhry 2014 (Q234) Gl. (2-67), (2-69), S. 51 | freigegeben (2026-11-06, Seti) |
+| RH-DS-TR | Reflexionszeit | t_R = 2·l/a | s | Roloff 27 Abschn. 18.4 Nr. 4 Gl. (18.20) | freigegeben (2026-11-06, Seti) |
 | RH-EPS | relative Rauheit | ε = k/d | 1 | VDI-WA L1.2 Gl. (8) | freigegeben (2026-10-29, Seti) |
 | RH-H-E | Energiehöhe | H = p/(ρ·g) + v²/(2g) + z | m | Dubbel 26 Bd. 1 Gl. (17.10) | freigegeben (2026-10-29, Seti) |
 | RH-H-P | Druckhöhe | h_p = p/(ρ·g) | m | Dubbel 26 Bd. 1 S. 325 | freigegeben (2026-10-29, Seti) |
+| RH-H-PG | Überdruckhöhe | h_pe = (p − p_L)/(ρ·g) | m | Dubbel 26 Bd. 1 Gl. (17.10); Überdruck gegen Umgebung | freigegeben (2026-11-06, Seti) |
 | RH-HV | Verlusthöhe | h_v = Δp_v/(ρ·g) | m | Dubbel 26 Bd. 1 Gl. (17.11b) | freigegeben (2026-10-29, Seti) |
 | RH-K | Rauheit | k = k_min bzw. k_max aus fd_roughness | m | TB 18-6 (Q219) | freigegeben (2026-10-29, Seti) |
 | RH-L-CB | Rohrreibungszahl turbulent (Colebrook) | 1/√λ = −2·lg(2,51/(Re·√λ) + ε/3,71) | 1 | Roloff 27 Gl. 18.11; VDI-WA L1.2 Gl. (10) | freigegeben (2026-10-29, Seti) |
 | RH-L-EX | Rohrreibungszahl Näherung (Startwert) | λ_0 = 0,11·(ε + 68/Re)^0,25 | 1 | Roloff 27 S. 742 | freigegeben (2026-10-29, Seti) |
 | RH-L-LAM | Rohrreibungszahl laminar | λ = 64/Re | 1 | Roloff 27 Gl. 18.9; VDI-WA L1.2 Gl. (4) | freigegeben (2026-10-29, Seti) |
+| RH-L-LAM-PHI | Rohrreibungszahl laminar, nicht kreisförmig | λ = φ·64/Re | 1 | Dubbel 26 Bd. 1 Abschn. 17.2.3 (S. 322) | freigegeben (2026-11-06, Seti) |
+| RH-M-BETA | Durchmesserverhältnis | β = d/D | 1 | ISO 5167-1:2023 Gl. (1), (2) (Q228) | freigegeben (2026-11-06, Seti) |
+| RH-M-CB | Durchflusskoeffizient Blende (Reader-Harris/Gallagher) | C = 0,5961 + 0,0261β² − 0,216β⁸ + 0,000521(10⁶β/Re_D)^0,7 + (0,0188 + 0,0063A)β^3,5(10⁶/Re_D)^0,3 + (0,043 + 0,080e^(−10L₁) − 0,123e^(−7L₁))(1 − 0,11A)β⁴/(1 − β⁴) − 0,031(M′₂ − 0,8M′₂^1,1)β^1,3 [+ 0,011(0,75 − β)(2,8 − D/25,4) für D < 71,12 mm]; A = (19 000β/Re_D)^0,8; M′₂ = 2L′₂/(1 − β) | 1 | ISO 5167-2:2023 (Q229) Abschn. 5.3.2.1 Gl. (4) | freigegeben (2026-11-06, Seti) |
+| RH-M-CV | Durchflusskoeffizient Venturi | C aus fd_flowmeter je Bauart und Re_D-Bereich, sonst Eingabe | 1 | Abschn. 5.5.3 (S. 16) (Q230) | freigegeben (2026-11-06, Seti) |
+| RH-M-DP | Wirkdruck | Δp = (ρ/2)·[V̇·√(1 − β⁴)/(C·ε·π·d²/4)]² | Pa | ISO 5167-1:2023 Gl. (1), (2) (Q228), umgestellt | freigegeben (2026-11-06, Seti) |
+| RH-M-DW | Bleibender Druckverlust Blende | Δϖ = [√(1 − β⁴(1 − C²)) − C·β²]/[√(1 − β⁴(1 − C²)) + C·β²]·Δp | Pa | ISO 5167-2:2023 (Q229) Abschn. 5.4 Gl. (7) | freigegeben (2026-11-06, Seti) |
+| RH-M-DWV | Bleibender Druckverlust Venturi | Δϖ = ξ·Δp (ξ von Hand) | Pa | ISO 5167-4:2023 (Q230) Abschn. 5.9.2 Gl. (3) (Definition) | freigegeben (2026-11-06, Seti) |
+| RH-M-N | Gültigkeit des Messgeräts | D, β, Re_D in den Grenzen der Bauart | 1 | ISO 5167-2:2023 (Q229) Abschn. 5.3.1 (S. 19) | freigegeben (2026-11-06, Seti) |
+| RH-M-Q | Volumenstrom (Wirkdruckverfahren) | V̇ = C/√(1 − β⁴)·ε·(π·d²/4)·√(2·Δp/ρ), ε = 1 (Flüssigkeit) | m³/s | ISO 5167-1:2023 Gl. (1), (2) (Q228) | freigegeben (2026-11-06, Seti) |
+| RH-M-QIT | Volumenstrom aus Wirkdruck (C hängt von Re_D ab) | V̇ mit Δp(V̇, C(Re_D)) = Δp_gemessen (Bisektion, 100 Schritte) | m³/s | Verfahren (R19) | freigegeben (2026-11-06, Seti) |
+| RH-M-ZETA | Ersatz-Widerstandszahl für den Strang | ζ = Δϖ/(ρ·v_D²/2), v_D = V̇/(π·D²/4) | 1 | Roloff 27 Gl. 18.6 (umgestellt) | freigegeben (2026-11-06, Seti) |
 | RH-N-KAV | Kavitationsgefahr (Abstand zum Dampfdruck) | p_abs,min/p_s ≥ 1 | 1 | IAPWS-IF97 Gl. (30) | freigegeben (2026-10-29, Seti) |
 | RH-N-RE | Strömungsbereich (größte Reynolds-Zahl im Strang) | Re_max = max Re_i; Re < 2 320 laminar; 2 320 ≤ Re < 4 000 Übergang; Re ≥ 4 000 turbulent | 1 | Roloff 27 S. 741; VDI-WA L1.2 | freigegeben (2026-10-29, Seti) |
 | RH-N-V | Geschwindigkeit gegen Richtwert | v_min ≤ v_max,Strang ≤ v_max | m/s | TB 18-5 (Q219) | freigegeben (2026-10-29, Seti) |
 | RH-P-HYD | Hydraulische Leistung | P_h = Δp_erf·V̇ | W | Roloff 27 S. 742 | freigegeben (2026-10-29, Seti) |
 | RH-P-W | Antriebsleistung | P = P_h/η | W | Roloff 27 S. 742 | freigegeben (2026-10-29, Seti) |
+| RH-PHI | Formbeiwert laminar (Interpolation) | φ = φ_a + (φ_b − φ_a)·(x − x_a)/(x_b − x_a) | 1 | Abschn. 17.2.3 (S. 322) (Q220), linear zwischen Zeilen | freigegeben (2026-11-06, Seti) |
 | RH-Q-BIS | Volumenstrom bei verfügbarer Druckerhöhung | V̇ mit Δp_erf(V̇) = Δp_verf (Bisektion, 100 Schritte) | m³/s | Verfahren (R7) | freigegeben (2026-10-29, Seti) |
 | RH-RE | Reynolds-Zahl | Re = v·d/ν | 1 | Roloff 27 Gl. 18.8; VDI-WA L1.2 Gl. (2) | freigegeben (2026-10-29, Seti) |
+| RH-U-RE | benetzter Umfang Rechteck | U = 2·(b + h) | m | Geometrie | freigegeben (2026-11-06, Seti) |
+| RH-U-RI | benetzter Umfang Kreisring | U = π·(d_a + d_i) | m | Geometrie | freigegeben (2026-11-06, Seti) |
 | RH-V | mittlere Geschwindigkeit | v = V̇/A | m/s | Roloff 27 Gl. 18.3 | freigegeben (2026-10-29, Seti) |
 | RH-Z-BC | plötzliche Erweiterung (Borda-Carnot) | ζ_1 = (1 − A_1/A_2)² | 1 | VDI-WA L1.3 Gl. (7); TB 18-7; Dubbel 26 Bd. 1 S. 324 | freigegeben (2026-10-29, Seti) |
 | RH-Z-IP | Widerstandszahl Bogen 90° (Interpolation über r/d) | ζ = ζ_a + (ζ_b − ζ_a)·(r/d − x_a)/(x_b − x_a) | 1 | TB 18-7 (Q219), linear zwischen Zeilen | freigegeben (2026-10-29, Seti) |
@@ -513,10 +576,10 @@ Stand: 428 Formeln, davon 428 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.1 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.2 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.1 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.2 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 

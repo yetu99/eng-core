@@ -6,6 +6,7 @@ import { fmt } from "../format";
 import { step, type CalcStep } from "../trace";
 import type { FdRepo } from "./fdData";
 import { waterState } from "./water";
+import { walther, type WaltherInput } from "./walther";
 
 export type FluidSpec =
   /** Wasser nach IAPWS-IF97 und R12-08 bei T und Bezugsdruck p. */
@@ -13,11 +14,13 @@ export type FluidSpec =
   /** Zeile aus fd_fluid_values; rho von Hand, wenn die Zeile keine Dichte hat (ISO VG). */
   | { kind: "tabelle"; valueId: string; rho?: number | null }
   /** Dichte (kg/m³) und kinematische Viskosität (m²/s) von Hand. */
-  | { kind: "hand"; rho: number; nu: number };
+  | { kind: "hand"; rho: number; nu: number }
+  /** Öl nach Walther (ab 0.13.0, R21): zwei Stützpunkte (K, m²/s), C, Dichte von Hand; gerechnet bei FluidInput.T. */
+  | { kind: "walther"; walther: WaltherInput; rho: number; label?: string };
 
 export interface FluidInput {
   spec: FluidSpec;
-  /** Temperatur in K (nur Wasser). */
+  /** Temperatur in K (Wasser und Walther). */
   T: number;
   /** Bezugsdruck in Pa absolut (nur Wasser, R2). */
   p: number;
@@ -54,6 +57,18 @@ export function fluidProps(fd: FdRepo, inp: FluidInput): FluidProps {
         step("FS-MAN-RHO", "Dichte (Eingabe)", "ρ = Eingabe", `ρ = ${fmt(s.rho, 6)} kg/m³`, s.rho, "kg/m³", "Eingabe"),
         step("FS-MAN-NU", "Kinematische Viskosität (Eingabe)", "ν = Eingabe", `ν = ${fmt(s.nu, 6)} m²/s`, s.nu, "m²/s", "Eingabe"),
       ],
+    };
+  }
+  if (s.kind === "walther") {
+    const label = `${s.label?.trim() || "Öl nach Walther"} ${fmt(inp.T - 273.15)} °C`;
+    const w = walther(s.walther, inp.T);
+    const errors = [...w.errors];
+    if (!(s.rho > 0)) errors.push("Dichte von Hand muss größer als 0 sein.");
+    if (errors.length) return fail(label, errors);
+    return {
+      label, rho: s.rho, nu: w.nu, eta: s.rho * w.nu, ps: null, errors,
+      warnings: [...w.warnings, "Öl nach Walther: kein Sättigungsdruck bekannt, Kavitationshinweis entfällt (Dampfdruck für NPSH von Hand)."],
+      steps: [step("FS-MAN-RHO", "Dichte (Eingabe)", "ρ = Eingabe", `ρ = ${fmt(s.rho, 6)} kg/m³`, s.rho, "kg/m³", "Eingabe"), ...w.steps],
     };
   }
   const v = fd.fluidValue(s.valueId);

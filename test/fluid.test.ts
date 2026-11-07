@@ -3,8 +3,8 @@
  * Literatur- und Gegenrechnungswerte stehen in golden.json (verification/fluid.py).
  */
 import { describe, expect, it } from "vitest";
-import { bendZeta, colebrook, computeLine, fdRepo, frictionFactor, formulaState, moduleOfId, reportMeta, TOOLS, units, waterState, FD_VERSION, PRUEFSTATUS, type LineInput } from "../src/index";
-import { fluidFaelle } from "../scripts/fluid-faelle";
+import { bendZeta, colebrook, computeLine, computeMeter, computeSurge, fdRepo, frictionFactor, formulaState, moduleOfId, reportMeta, TOOLS, units, waterState, FD_VERSION, PRUEFSTATUS, type LineInput } from "../src/index";
+import { fluidFaelle, messFaelle, stossFaelle } from "../scripts/fluid-faelle";
 import sources from "../data/sources.json";
 import { DATA_VERSION } from "../src/dataVersion";
 
@@ -60,13 +60,14 @@ describe("Strang", () => {
     expect(computeLine(fdRepo, base({ fluid: { spec: { kind: "tabelle", valueId: vg.id }, T: 313.15, p: P0 } })).errors[0]).toMatch(/Dichte/);
     expect(computeLine(fdRepo, base({ Q: 1e3 })).errors.some((e) => e.includes("10⁸"))).toBe(true);
   });
-  it("Drucklinie endet genau bei p_E, Energiebilanz H_A − H_E = h_v", () => {
+  it("Drucklinie endet genau bei p_E, Energiebilanz H_A − H_E = h_v (mit Pumpe: + H_A der Pumpe)", () => {
     for (const f of fluidFaelle()) {
       const r = computeLine(fdRepo, f.inp, f.task);
       expect(r.errors, f.id).toEqual([]);
       const last = r.nodes[r.nodes.length - 1]!;
       expect(Math.abs(last.p - f.inp.end.p) / f.inp.end.p, f.id).toBeLessThan(1e-12);
-      expect(Math.abs(r.nodes[0]!.H - last.H - r.dpV / (r.fluid.rho * f.inp.g)), f.id).toBeLessThan(1e-9);
+      const lift = f.task.kind === "D" ? r.dpErf / (r.fluid.rho * f.inp.g) : 0;
+      expect(Math.abs(r.nodes[0]!.H + lift - last.H - r.dpV / (r.fluid.rho * f.inp.g)), f.id).toBeLessThan(1e-9);
     }
   });
   it("Monotonie: Δp steigt mit V̇, fällt mit d", () => {
@@ -88,14 +89,16 @@ describe("Strang", () => {
   });
 });
 
-describe("Fachdaten fd 1.0", () => {
+describe("Fachdaten fd 1.0 und fd 1.1", () => {
   it("Stand und Zeilenzahlen", () => {
-    expect(FD_VERSION).toBe("fd 1.0");
+    expect(FD_VERSION).toBe("fd 1.1");
     expect([fdRepo.fluids.length, fdRepo.fluidValues.length, fdRepo.roughness.length, fdRepo.lossCoeff.length, fdRepo.pipeSizes.length, fdRepo.velocityGuide.length]).toEqual([21, 32, 20, 87, 68, 20]);
+    expect([fdRepo.flowmeters.length, fdRepo.shapeFactors.length, fdRepo.waveSpeeds.length, fdRepo.bulkModuli.length, fdRepo.oilGrades.length]).toEqual([4, 12, 2, 8, 8]);
   });
   it("jede Fachdaten-Quelle steht in den Werkstoffdaten (wa_sources); bis zum Abzug WDB 1.1.1 fehlen genau Teile von Q221 bis Q226", () => {
     const known = new Set((sources as { id: string }[]).map((x) => x.id));
-    const used = new Set([...fdRepo.fluids, ...fdRepo.fluidValues, ...fdRepo.roughness, ...fdRepo.lossCoeff, ...fdRepo.pipeSizes, ...fdRepo.velocityGuide].map((r) => r.source_id));
+    const used = new Set([...fdRepo.fluids, ...fdRepo.fluidValues, ...fdRepo.roughness, ...fdRepo.lossCoeff, ...fdRepo.pipeSizes, ...fdRepo.velocityGuide,
+      ...fdRepo.flowmeters, ...fdRepo.shapeFactors, ...fdRepo.waveSpeeds, ...fdRepo.bulkModuli, ...fdRepo.oilGrades].map((r) => r.source_id));
     const missing = [...used].filter((id) => !known.has(id)).sort();
     if (DATA_VERSION === "WDB 1.1") for (const id of missing) expect(["Q221", "Q222", "Q223", "Q224", "Q225", "Q226"], id).toContain(id);
     else expect(missing).toEqual([]);
@@ -109,7 +112,11 @@ describe("Fachdaten fd 1.0", () => {
 
 describe("Katalog und Prüfstatus Fachtools", () => {
   it("jeder Rechenschritt der Beispielfälle hat eine Katalog-ID im Modul fluid", () => {
-    const ids = new Set(fluidFaelle().flatMap((f) => allSteps(computeLine(fdRepo, f.inp, f.task)).map((s) => s.id)));
+    const ids = new Set([
+      ...fluidFaelle().flatMap((f) => allSteps(computeLine(fdRepo, f.inp, f.task)).map((s) => s.id)),
+      ...messFaelle().flatMap((f) => Object.values(computeMeter(fdRepo, f.inp).trace).flatMap((a) => a ?? []).map((s) => s.id)),
+      ...stossFaelle().flatMap((f) => Object.values(computeSurge(fdRepo, f.inp).trace).flatMap((a) => a ?? []).map((s) => s.id)),
+    ]);
     for (const id of ids) {
       expect(moduleOfId(id), id).toBe("fluid");
       expect(formulaState(id), id).not.toBe("unbekannt");
@@ -119,7 +126,7 @@ describe("Katalog und Prüfstatus Fachtools", () => {
   it("reportMeta Fachtools zählt gemeinsam und fluid, Werkbank bleibt unverändert", () => {
     const f = reportMeta("Ingenieur-Fachtools");
     expect(f.formulas).toBe(TOOLS.fachtools.modules.reduce((a, m) => a + PRUEFSTATUS.modules[m].formulas, 0));
-    expect(f.fd).toBe("fd 1.0");
+    expect(f.fd).toBe("fd 1.1");
     expect(reportMeta().formulas).toBe(PRUEFSTATUS.modules.gemeinsam.formulas + PRUEFSTATUS.modules.festigkeit.formulas + PRUEFSTATUS.modules.ashby.formulas);
   });
 });

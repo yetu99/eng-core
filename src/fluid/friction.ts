@@ -46,14 +46,22 @@ export function colebrook(Re: number, eps: number): { lambda: number; iterations
   return { lambda: 1 / (x * x), iterations: it, residual: colebrookResidual(x, Re, eps), lambda0 };
 }
 
-/** λ mit Rechenweg; `tag` kennzeichnet das Rohr im Rechenweg (z. B. "Rohr 2"). */
-export function frictionFactor(Re: number, eps: number, tag = ""): Friction {
+/**
+ * λ mit Rechenweg; `tag` kennzeichnet das Rohr im Rechenweg (z. B. "Rohr 2"). `phi` (ab 0.13.0, RH b): Formbeiwert des
+ * nicht kreisförmigen Querschnitts, laminar λ = φ·64/Re (Dubbel 26 Bd. 1 S. 322); null beim Kreisrohr (RH a unverändert).
+ */
+export function frictionFactor(Re: number, eps: number, tag = "", phi: number | null = null): Friction {
   const pre = tag ? `${tag}: ` : "";
   const errors: string[] = [], warnings: string[] = [];
   if (!(Re > 0)) errors.push(`${pre}Reynolds-Zahl muss größer als 0 sein.`);
   if (Re > RE_MAX) errors.push(`${pre}Re = ${fmt(Re)} über 10⁸, Colebrook nicht abgesichert.`);
   if (!(eps >= 0) || eps > EPS_MAX) errors.push(`${pre}relative Rauheit k/d = ${fmt(eps)} außerhalb 0 bis 0,05.`);
   if (errors.length) return { lambda: NaN, regime: "turbulent", lambda0: null, iterations: 0, residual: NaN, steps: [], errors, warnings };
+  if (Re < RE_CRIT && phi !== null) {
+    const lambda = phi * 64 / Re;
+    return { lambda, regime: "laminar", lambda0: null, iterations: 0, residual: 0, errors, warnings,
+      steps: [step("RH-L-LAM-PHI", "Rohrreibungszahl laminar, nicht kreisförmig", "λ = φ·64/Re", `${pre}λ = ${fmt(phi, 6)}·64/${fmt(Re, 6)} (Re mit d_h)`, lambda, "1", "Dubbel 26 Bd. 1 Abschn. 17.2.3 (S. 322)")] };
+  }
   if (Re < RE_CRIT) {
     const lambda = 64 / Re;
     return { lambda, regime: "laminar", lambda0: null, iterations: 0, residual: 0, errors, warnings,

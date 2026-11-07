@@ -1,0 +1,122 @@
+[
+ {
+  "id": "SF01",
+  "section": "Kreisring",
+  "param_name": "d_a/d_i",
+  "param_value": 1,
+  "phi": 1.5,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF02",
+  "section": "Kreisring",
+  "param_name": "d_a/d_i",
+  "param_value": 5,
+  "phi": 1.45,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF03",
+  "section": "Kreisring",
+  "param_name": "d_a/d_i",
+  "param_value": 10,
+  "phi": 1.4,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF04",
+  "section": "Kreisring",
+  "param_name": "d_a/d_i",
+  "param_value": 20,
+  "phi": 1.35,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF05",
+  "section": "Kreisring",
+  "param_name": "d_a/d_i",
+  "param_value": 50,
+  "phi": 1.28,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF06",
+  "section": "Kreisring",
+  "param_name": "d_a/d_i",
+  "param_value": 100,
+  "phi": 1.25,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF07",
+  "section": "Rechteck",
+  "param_name": "h/b",
+  "param_value": 0,
+  "phi": 1.5,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF08",
+  "section": "Rechteck",
+  "param_name": "h/b",
+  "param_value": 0.1,
+  "phi": 1.34,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF09",
+  "section": "Rechteck",
+  "param_name": "h/b",
+  "param_value": 0.3,
+  "phi": 1.1,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF10",
+  "section": "Rechteck",
+  "param_name": "h/b",
+  "param_value": 0.5,
+  "phi": 0.97,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF11",
+  "section": "Rechteck",
+  "param_name": "h/b",
+  "param_value": 0.8,
+  "phi": 0.9,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ },
+ {
+  "id": "SF12",
+  "section": "Rechteck",
+  "param_name": "h/b",
+  "param_value": 1,
+  "phi": 0.88,
+  "remark": null,
+  "source_id": "Q220",
+  "source_locator": "Abschn. 17.2.3 (S. 322)"
+ }
+]

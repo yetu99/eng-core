@@ -1,0 +1,62 @@
+[
+ {
+  "id": "VM01",
+  "kind": "Venturi",
+  "variant": "gussrauer Einlaufkonus",
+  "c": 0.984,
+  "d_min_mm": 100,
+  "d_max_mm": 800,
+  "beta_min": 0.3,
+  "beta_max": 0.75,
+  "re_min": 200000,
+  "re_max": 2000000,
+  "remark": null,
+  "source_id": "Q230",
+  "source_locator": "Abschn. 5.5.2 (S. 15)"
+ },
+ {
+  "id": "VM02",
+  "kind": "Venturi",
+  "variant": "maschinell bearbeiteter Einlaufkonus",
+  "c": 0.995,
+  "d_min_mm": 50,
+  "d_max_mm": 350,
+  "beta_min": 0.4,
+  "beta_max": 0.75,
+  "re_min": 200000,
+  "re_max": 1000000,
+  "remark": "für 2·10⁵ ≤ Re_D ≤ 10⁶",
+  "source_id": "Q230",
+  "source_locator": "Abschn. 5.5.3 (S. 16)"
+ },
+ {
+  "id": "VM03",
+  "kind": "Venturi",
+  "variant": "maschinell bearbeiteter Einlaufkonus",
+  "c": 1,
+  "d_min_mm": 50,
+  "d_max_mm": 350,
+  "beta_min": 0.4,
+  "beta_max": 0.75,
+  "re_min": 1000000,
+  "re_max": null,
+  "remark": "für Re_D > 10⁶ (Grenze 10⁶ gehört zu VM02)",
+  "source_id": "Q230",
+  "source_locator": "Abschn. 5.5.3 (S. 16)"
+ },
+ {
+  "id": "VM04",
+  "kind": "Venturi",
+  "variant": "aus Einzelteilen gefertigter Einlaufkonus",
+  "c": 0.985,
+  "d_min_mm": 200,
+  "d_max_mm": 1200,
+  "beta_min": 0.4,
+  "beta_max": 0.7,
+  "re_min": 200000,
+  "re_max": 2000000,
+  "remark": null,
+  "source_id": "Q230",
+  "source_locator": "Abschn. 5.5.4 (S. 16)"
+ }
+]

@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "WDB 1.1.1",
-  "released_at": "2026-10-29T11:32:15.291899+00:00",
-  "title": "Quellen Fachtools Rohrhydraulik"
+  "version": "WDB 1.1.2",
+  "released_at": "2026-11-06T13:46:57.457222+00:00",
+  "title": "Quellen Fachtools Rohrhydraulik Teil b"
  },
  "source": "Supabase Kompendium, Tabellen wa_* (eng-core scripts/pull-data.mjs)",
  "files": {
@@ -23,8 +23,8 @@
    "sha256": "b9730a6e17a011dca632b2a1bf0dab28c43974b3533c20c1dce1c3e6000517b6"
   },
   "sources": {
-   "rows": 228,
-   "sha256": "0f90b2df20083509049c3d6f620c2e8a77aa878224eefb55c1eb11d60cf70fe0"
+   "rows": 236,
+   "sha256": "0377f67fc0bc09c8546e1d8893243d19fabee2293a6a97818c28437bf2270d01"
   },
   "processes": {
    "rows": 16,

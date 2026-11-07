@@ -1276,6 +1276,12 @@
     "durch": "Seti",
     "formel": "φ_T^f = 2√π·Wₜ / A^1,5"
   },
+  "FS-IF-G2": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "γ_ππ, γ_τ, γ_ττ, γ_πτ aus den 34 Gliedern"
+  },
   "FS-IF-GP": {
     "status": "freigegeben",
     "datum": "2026-10-29",
@@ -1299,6 +1305,30 @@
     "datum": "2026-10-29",
     "durch": "Seti",
     "formel": "ρ = p/(R·T·π·γ_π)"
+  },
+  "FS-IF-W": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "w = √(R·T·γ_π²/[(γ_π − τ·γ_πτ)²/(τ²·γ_ττ) − γ_ππ])"
+  },
+  "FS-K": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "K = ρ·w²"
+  },
+  "FS-K-MAN": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "K = Eingabe"
+  },
+  "FS-K-TAB": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "ρ, K aus fd_bulk_modulus"
   },
   "FS-MAN-NU": {
     "status": "freigegeben",
@@ -1347,6 +1377,24 @@
     "datum": "2026-10-29",
     "durch": "Seti",
     "formel": "ρ aus fd_fluid_values"
+  },
+  "FS-WA-KM": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "m = [W(ν₁) − W(ν₂)]/(lg T₂ − lg T₁); K = W(ν₁) + m·lg T₁; W(ν) = lg lg(ν + C)"
+  },
+  "FS-WA-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "T₁ − 20 K ≤ T ≤ T₂ + 20 K"
+  },
+  "FS-WA-NU": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "ν = 10^(10^(K − m·lg T)) − C (ν in mm²/s, T in K)"
   },
   "G-01-X": {
     "status": "freigegeben",
@@ -1756,6 +1804,128 @@
     "durch": "Seti",
     "antwort": "ν kommt aus der Werkstoffdatenbank (EN AW-6082: 0,3, Bemessungswert), im Konzept D1 stand 0,33: u(a) = 0,06711 mm statt 0,06630 mm.",
     "formel": "u(r) = r/E·[σ_θ − ν·(σ_r + σ_z)]"
+  },
+  "PU-AFF-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "H = H₀·(n/n₀)²"
+  },
+  "PU-AFF-NPSH": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "NPSH_R = NPSH_R,0·(n/n₀)^x"
+  },
+  "PU-AFF-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "P = P₀·(n/n₀)³, η = η₀"
+  },
+  "PU-AFF-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "V̇ = V̇₀·n/n₀"
+  },
+  "PU-BE": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "p_2 = p_1 + ρ/2·(v_1² − v_2²) + ρ·g·H_A"
+  },
+  "PU-BP": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "V̇_B mit H(V̇_B) = H_A(V̇_B) (Raster 200, Bisektion 100 Schritte)"
+  },
+  "PU-FIT-ETA": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "η(V̇) = b₀ + b₁·V̇ + b₂·V̇²"
+  },
+  "PU-FIT-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "H(V̇) = a₀ + a₁·V̇ + a₂·V̇² (kleinste Quadrate)"
+  },
+  "PU-FIT-NPSH": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "NPSH_R(V̇) = c₀ + c₁·V̇ + c₂·V̇²"
+  },
+  "PU-FIT-R2": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "R² = 1 − Σ(y − ŷ)²/Σ(y − ȳ)²; größte Abweichung max|y − ŷ|"
+  },
+  "PU-HA": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "H_A(V̇) = Δp_erf(V̇)/(ρ·g)"
+  },
+  "PU-N-AFF": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "|n/n₀ − 1| ≤ 0,2"
+  },
+  "PU-N-BER": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "erledigt": "Stabilitätskriterium dH/dV̇ < 0 ohne Toleranz: Die exakt fallende Parabel H = 40 − 20736·V̇² (Steigung 0 im Nullpunkt) wird wegen Rundungsrest a₁ = 4,6·10⁻¹² als »nicht überall fallend« gemeldet (Fehlalarm). Vorschlag: dH/dV̇ ≤ ε (z. B. ε = 10⁻⁶·|H|/V̇_max) bzw. Prüfung nur im Bereich um V̇_B; außerdem untere Grenze 2,78·10⁻⁸ m³/s statt 0 prüfen.",
+    "antwort": "Formel geändert 06.11.2026 (Runde 1 abgelehnt): Stabilität mit Toleranz dH/dV̇ ≤ ε, ε = 10⁻⁶·H_max/V̇_max, an beiden Rändern der Kennlinie bei n; Kennlinienbereich ab V̇_min·n/n₀ (bei V̇_min = 0 ab 0). Die Suche des Betriebspunkts beginnt weiter bei 10⁻⁶·V̇_max, weil H_A bei V̇ = 0 nicht definiert ist (Vermerk im Einsetztext von PU-BP).",
+    "formel": "V̇_min·n/n₀ ≤ V̇_B ≤ V̇_max·n/n₀; dH/dV̇ ≤ ε mit ε = 10⁻⁶·H_max/V̇_max (an beiden Rändern)"
+  },
+  "PU-N-BIS": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "n mit H_n(V̇_soll) = H_A(V̇_soll), H_n(V̇) = (n/n₀)²·H₀(V̇·n₀/n) (Raster 200, Bisektion 100 Schritte)"
+  },
+  "PU-N-NPSH": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "NPSH_A ≥ NPSH_R + s"
+  },
+  "PU-NPSHA": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "NPSH_A = (p_abs,S + ρ·v_S²/2 − p_v)/(ρ·g)"
+  },
+  "PU-NQ": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "n_q = 333·n·√V̇/(g·H)^(3/4), n in s⁻¹"
+  },
+  "PU-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "P = P_u/η(V̇_B)"
+  },
+  "PU-PU": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "P_u = ρ·g·V̇·H"
+  },
+  "PU-RES": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "ΔNPSH = NPSH_A − NPSH_R(V̇_B)"
   },
   "Q-DH-A": {
     "status": "freigegeben",
@@ -2281,6 +2451,24 @@
     "durch": "Seti",
     "formel": "A = π·d²/4"
   },
+  "RH-A-RE": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "A = b·h"
+  },
+  "RH-A-RI": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "A = π·(d_a² − d_i²)/4"
+  },
+  "RH-AU-MAN": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "A, U = Eingabe"
+  },
   "RH-BE": {
     "status": "freigegeben",
     "datum": "2026-10-29",
@@ -2298,6 +2486,12 @@
     "datum": "2026-10-29",
     "durch": "Seti",
     "formel": "kleinstes Rohr mit d_i = d_a − 2·s ≥ d_min"
+  },
+  "RH-DH": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "d_h = 4·A/U"
   },
   "RH-DI": {
     "status": "freigegeben",
@@ -2335,6 +2529,72 @@
     "durch": "Seti",
     "formel": "Δp_ζ = n·ζ·ρ·v_B²/2"
   },
+  "RH-DS-AH": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "a = Eingabe"
+  },
+  "RH-DS-AK": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "a = √(K/(ρ·[1 + (K/E)·ψ]))"
+  },
+  "RH-DS-AR": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "a aus fd_wave_speed"
+  },
+  "RH-DS-AW": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "a = √(K/ρ) (ψ = 0)"
+  },
+  "RH-DS-J": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "Δp = ρ·a·Δv (t_S ≤ t_R)"
+  },
+  "RH-DS-L": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "Δp = ρ·a·Δv·t_R/t_S (t_S > t_R, gleichbedeutend mit l < a·t_S/2; lineares Schließgesetz)"
+  },
+  "RH-DS-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "p_min ≥ p_s"
+  },
+  "RH-DS-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "p_max = p + Δp; p_min = p − Δp"
+  },
+  "RH-DS-PSI-D": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "ψ = (D/e)·(1 − ν²) | (D/e)·(1 − 0,5ν) | D/e (Verankerung ganze Länge | oberes Ende | Dehnfugen)"
+  },
+  "RH-DS-PSI-K": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "ψ = 2(1 + ν)·[(R_o² + R_i²)/(R_o² − R_i²) − 2νR_i²/(R_o² − R_i²)] | 2·[(R_o² + R_i²)/(R_o² − R_i²) + ν] (Verankerung ganze Länge | Dehnfugen)"
+  },
+  "RH-DS-TR": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "t_R = 2·l/a"
+  },
   "RH-EPS": {
     "status": "freigegeben",
     "datum": "2026-10-29",
@@ -2352,6 +2612,12 @@
     "datum": "2026-10-29",
     "durch": "Seti",
     "formel": "h_p = p/(ρ·g)"
+  },
+  "RH-H-PG": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "h_pe = (p − p_L)/(ρ·g)"
   },
   "RH-HV": {
     "status": "freigegeben",
@@ -2383,6 +2649,72 @@
     "durch": "Seti",
     "formel": "λ = 64/Re"
   },
+  "RH-L-LAM-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "λ = φ·64/Re"
+  },
+  "RH-M-BETA": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "β = d/D"
+  },
+  "RH-M-CB": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "C = 0,5961 + 0,0261β² − 0,216β⁸ + 0,000521(10⁶β/Re_D)^0,7 + (0,0188 + 0,0063A)β^3,5(10⁶/Re_D)^0,3 + (0,043 + 0,080e^(−10L₁) − 0,123e^(−7L₁))(1 − 0,11A)β⁴/(1 − β⁴) − 0,031(M′₂ − 0,8M′₂^1,1)β^1,3 [+ 0,011(0,75 − β)(2,8 − D/25,4) für D < 71,12 mm]; A = (19 000β/Re_D)^0,8; M′₂ = 2L′₂/(1 − β)"
+  },
+  "RH-M-CV": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "C aus fd_flowmeter je Bauart und Re_D-Bereich, sonst Eingabe"
+  },
+  "RH-M-DP": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "Δp = (ρ/2)·[V̇·√(1 − β⁴)/(C·ε·π·d²/4)]²"
+  },
+  "RH-M-DW": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "Δϖ = [√(1 − β⁴(1 − C²)) − C·β²]/[√(1 − β⁴(1 − C²)) + C·β²]·Δp"
+  },
+  "RH-M-DWV": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "Δϖ = ξ·Δp (ξ von Hand)"
+  },
+  "RH-M-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "D, β, Re_D in den Grenzen der Bauart"
+  },
+  "RH-M-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "V̇ = C/√(1 − β⁴)·ε·(π·d²/4)·√(2·Δp/ρ), ε = 1 (Flüssigkeit)"
+  },
+  "RH-M-QIT": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "V̇ mit Δp(V̇, C(Re_D)) = Δp_gemessen (Bisektion, 100 Schritte)"
+  },
+  "RH-M-ZETA": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "ζ = Δϖ/(ρ·v_D²/2), v_D = V̇/(π·D²/4)"
+  },
   "RH-N-KAV": {
     "status": "freigegeben",
     "datum": "2026-10-29",
@@ -2413,6 +2745,12 @@
     "durch": "Seti",
     "formel": "P = P_h/η"
   },
+  "RH-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "φ = φ_a + (φ_b − φ_a)·(x − x_a)/(x_b − x_a)"
+  },
   "RH-Q-BIS": {
     "status": "freigegeben",
     "datum": "2026-10-29",
@@ -2424,6 +2762,18 @@
     "datum": "2026-10-29",
     "durch": "Seti",
     "formel": "Re = v·d/ν"
+  },
+  "RH-U-RE": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "U = 2·(b + h)"
+  },
+  "RH-U-RI": {
+    "status": "freigegeben",
+    "datum": "2026-11-06",
+    "durch": "Seti",
+    "formel": "U = π·(d_a + d_i)"
   },
   "RH-V": {
     "status": "freigegeben",

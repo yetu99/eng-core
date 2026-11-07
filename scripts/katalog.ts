@@ -8,8 +8,8 @@ import { readFileSync, existsSync } from "node:fs";
 import { FATIGUE_DEFAULT, type FatigueInput, LOADLIST_SUPPORTS, PRESSURE_CASES, VIBRATION_CASES, isPressureCase, isVibrationCase, pressureText, vibrationText, designPressureStrength, computeStrength, designSize, dimsLabel, caseLabel, SECTIONS, BENDING_CASES, TENSION_CASES, BUCKLING_CASES, TORSION_CASES, CORE_VERSION, buildIndex, ranking, points, indexTrace, pointTrace, allIndexSpecs, multiConstraint, sectionProps, MAT_CLASSES, type CalcStep, type StrengthInput, type SecType, type AshbyState, type MatClass, type ShapeMode } from "../src/index";
 import { repo, DATA_VERSION } from "../src/data";
 import { moduleOfId, type ModuleId } from "../src/modules";
-import { computeLine, fdRepo, FD_VERSION } from "../src/index";
-import { fluidFaelle } from "./fluid-faelle";
+import { computeLine, computeMeter, computeSurge, fdRepo, FD_VERSION } from "../src/index";
+import { fluidFaelle, messFaelle, stossFaelle } from "./fluid-faelle";
 import { kinematikFaelle, kinematikVerkettung } from "./kinematik-faelle";
 import { computeOrientation, compose } from "../src/index";
 
@@ -141,6 +141,17 @@ export function collectCatalog(): CatalogEntry[] {
   // Rohrhydraulik (0.11.0, Modul fluid): Beispielfälle aus scripts/fluid-faelle.ts, Literaturfälle zuerst
   for (const f of fluidFaelle()) {
     const r = computeLine(fdRepo, f.inp, f.task);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
+  }
+  // Rohrhydraulik Teil b (0.13.0): Durchflussmessung und Druckstoß
+  for (const f of messFaelle()) {
+    const r = computeMeter(fdRepo, f.inp);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
+  }
+  for (const f of stossFaelle()) {
+    const r = computeSurge(fdRepo, f.inp);
     if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
   }

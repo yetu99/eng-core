@@ -4,5 +4,10 @@
  { "file": "roughness", "table": "fd_roughness", "min": 20, "cols": ["id", "pipe_kind", "state", "k_min_mm", "k_max_mm", "confidence", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "loss_coeff", "table": "fd_loss_coeff", "min": 87, "cols": ["id", "grp", "element", "param_name", "param_value", "dn_min", "dn_max", "zeta", "zeta_max", "ref_section", "confidence", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "pipe_sizes", "table": "fd_pipe_sizes", "min": 68, "cols": ["id", "norm", "material", "series", "d_a_mm", "walls_mm", "source_id", "source_locator"], "sort": ["id"] },
- { "file": "velocity_guide", "table": "fd_velocity_guide", "min": 20, "cols": ["id", "system", "case", "v_min_m_s", "v_max_m_s", "remark", "source_id", "source_locator"], "sort": ["id"] }
+ { "file": "velocity_guide", "table": "fd_velocity_guide", "min": 20, "cols": ["id", "system", "case", "v_min_m_s", "v_max_m_s", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "flowmeter", "table": "fd_flowmeter", "min": 4, "cols": ["id", "kind", "variant", "c", "d_min_mm", "d_max_mm", "beta_min", "beta_max", "re_min", "re_max", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "shape_factor", "table": "fd_shape_factor", "min": 12, "cols": ["id", "section", "param_name", "param_value", "phi", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "wave_speed", "table": "fd_wave_speed", "min": 2, "cols": ["id", "case", "a_m_s", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "bulk_modulus", "table": "fd_bulk_modulus", "min": 8, "cols": ["id", "liquid", "liquid_source", "t_c", "rho_kg_m3", "k_gpa", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "oil_grades", "table": "fd_oil_grades", "min": 8, "cols": ["id", "grade", "iso_vg", "nu_m20_max_mm2_s", "nu0_max_mm2_s", "nu40_min_mm2_s", "nu40_max_mm2_s", "nu100_min_mm2_s", "remark", "source_id", "source_locator"], "sort": ["id"] }
 ]

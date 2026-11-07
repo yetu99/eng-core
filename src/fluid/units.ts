@@ -26,3 +26,8 @@ export const units = {
   barGaugeToPaAbs: (barG: number, ambientBar = P_ATM / 1e5): number => (barG + ambientBar) * 1e5,
   paAbsToBarGauge: (pa: number, ambientBar = P_ATM / 1e5): number => pa / 1e5 - ambientBar,
 } as const;
+/** Drehzahl: der Kern rechnet in s⁻¹ (RH b, n_q nach Dubbel Bd. 3 Gl. (8.1) mit n in s⁻¹), Anzeige in min⁻¹. */
+export const rpm = {
+  toHz: (n: number): number => n / 60,
+  fromHz: (n: number): number => n * 60,
+} as const;

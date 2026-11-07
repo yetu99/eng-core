@@ -1,6 +1,7 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
 import { computeOrientation, compose, toZYX, toZYZ, toAxisAngle, toQuaternion, fromZYX, fromZYZ, fromAxisAngle, fromQuaternion, maxAbsDiff, type OrientationInput, type Mat3 } from "../src/index";
 import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
+import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -17,6 +18,11 @@ export type Case =
   | { id: string; type: "visc"; T: number; rho: number }
   | { id: string; type: "colebrook"; Re: number; eps: number }
   | { id: string; type: "fluid"; inp: LineInput; task: LineTask }
+  | { id: string; type: "sound"; T: number; p: number }
+  | { id: string; type: "walther"; inp: WaltherInput; T: number }
+  | { id: string; type: "meter"; inp: MeterInput }
+  | { id: string; type: "surge"; inp: SurgeInput }
+  | { id: string; type: "pumpfit"; xs: number[]; ys: number[] }
   | { id: string; type: "kin"; inp: OrientationInput; abs?: boolean }
   | { id: string; type: "kincompose"; Rab: Mat3; Rbc: Mat3; abs?: boolean }
   | { id: string; type: "kinbatch"; quats: Array<[number, number, number, number]>; abs?: boolean };
@@ -81,6 +87,13 @@ function evalFluid(inp: LineInput, task: LineTask): Record<string, number | null
     const a = computeLine(fdRepo, { ...inp, Q: r.Q }, { kind: "A" });
     o["backB"] = a.dpErf / task.dpAvail;
   }
+  if (task.kind === "D" && r.pump) {
+    const u = r.pump;
+    Object.assign(o, { Qop: u.Q, Hop: u.H, r: u.r, n: u.n, etaB: u.eta, Ppump: u.P, Pu: u.Pu, nq: u.nq, npshA: u.npshA, npshR: u.npshR, reserve: u.reserve, HA: r.dpErf / (rho * g), pStart: r.nodes[0]!.p });
+    // Rückeinsetzen: Förderhöhe der Pumpe = Förderhöhe der Anlage im Betriebspunkt (Verhältnis 1)
+    o["backD"] = u.H / (r.dpErf / (rho * g));
+  }
+  r.nodes.forEach((nd) => { o[`hpe${nd.index}`] = nd.hpe; });
   if (task.kind === "C" && r.design) {
     const elements = inp.elements.map((e) => (e.kind === "rohr" && e.geom.kind === "var" ? { ...e, geom: { kind: "d" as const, d: r.design!.dMin } } : e));
     o["dMin"] = r.design.dMin; o["dGew"] = r.design.pipe?.d ?? null;
@@ -95,6 +108,11 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "visc") return { mu: waterViscosity(c.T, c.rho) };
   if (c.type === "colebrook") { const f = frictionFactor(c.Re, c.eps); return { lam: f.lambda, iterations: f.iterations, res: Math.abs(f.residual) }; }
   if (c.type === "fluid") return evalFluid(c.inp, c.task);
+  if (c.type === "sound") return { w: waterSoundSpeed(c.T, c.p) };
+  if (c.type === "walther") { const w = walther(c.inp, c.T); return { nu: w.nu, K: w.K, m: w.m, errors: w.errors.length }; }
+  if (c.type === "meter") { const m = computeMeter(fdRepo, c.inp); return m.errors.length ? { errors: m.errors.length } : { errors: 0, C: m.C, Q: m.Q, dp: m.dp, dw: m.dw, zeta: m.zeta, Re: m.Re, beta: m.beta, ok: m.checks[0]?.ok ? 1 : 0 }; }
+  if (c.type === "surge") { const m = computeSurge(fdRepo, c.inp); return m.errors.length ? { errors: m.errors.length } : { errors: 0, a: m.a, psi: m.psi, tR: m.tR, dp: m.dp, pMax: m.pMax, pMin: m.pMin, fast: m.fast ? 1 : 0 }; }
+  if (c.type === "pumpfit") { const f = fitQuadratic(c.xs, c.ys); return { c0: f.c[0], c1: f.c[1], c2: f.c[2], r2: f.r2 }; }
   if (c.type === "kin") return evalKin(c.inp);
   if (c.type === "kincompose") return matKeys("c", compose(c.Rab, c.Rbc).value);
   if (c.type === "kinbatch") return evalKinBatch(c.quats);
