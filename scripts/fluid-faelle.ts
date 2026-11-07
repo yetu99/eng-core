@@ -126,8 +126,8 @@ export function fluidFaelle(): FluidFall[] {
 
 // ---------------------------------------------------------------- RH b (eng-core 0.13.0): Pumpe, Querschnitte, Walther
 const pts = (rows: Array<[number, number, number | null, number | null]>): PumpPoint[] => rows.map(([q, h, eta, npsh]) => ({ Q: units.m3hToM3s(q), H: h, eta, npsh }));
-/** Beispielpumpe (radial, n₀ 1 450 min⁻¹), Datenblattpunkte frei gewählt, glatt; nur für Beispiele und Prüffälle. */
-export const PUMPE_B: PumpPoint[] = pts([[0, 22, null, null], [150, 21, 0.65, 2.0], [300, 17, 0.8, 3.0], [400, 12.5, 0.74, 4.5]]);
+/** Beispielpumpe (radial, n₀ 1 450 min⁻¹), Datenblattpunkte frei gewählt, glatt und überall fallend (ab 0.13.1, Seti 07.11.2026); nur für Beispiele und Prüffälle. */
+export const PUMPE_B: PumpPoint[] = pts([[0, 22, null, null], [150, 20.4, 0.65, 2.0], [300, 16.2, 0.8, 3.0], [400, 12.0, 0.74, 4.5]]);
 const pumpIn = (points: PumpPoint[], speed: PumpInput["speed"], over: Partial<PumpInput> = {}): PumpInput => ({ points, n0: rpm.toHz(1450), speed, npshMargin: 2, npshExp: 2, pv: null, ...over });
 /** Roloff Bsp. 18.2 mit Saugleitung DN 300 (EN 10220 323,9 × 7,1), Pumpe 3 m über dem Saugspiegel, Druckleitung wie RH-K1. */
 const anlageK1 = (): LineInput => ({
@@ -165,7 +165,7 @@ export function fluidFaelleB(): FluidFall[] {
     { id: "RH-K8", text: "Roloff Bsp. 18.2 mit Saugleitung 323,9 × 7,1 (6 m, Pumpe 3 m über dem Saugspiegel) und Beispielpumpe (4 Punkte mit η und NPSH_R, n₀ 1 450 min⁻¹) bei 1 380 min⁻¹, Wasser 10 °C, s = 2 m",
       inp: anlageK1(), task: { kind: "D", pump: pumpIn(PUMPE_B, { kind: "n", n: rpm.toHz(1380) }) } },
     { id: "RH-K9", text: "wie RH-K8, Drehzahl für Soll-Förderstrom 300 m³/h gesucht",
-      inp: anlageK1(), task: { kind: "D", pump: pumpIn(PUMPE_B, { kind: "Qsoll", Q: units.m3hToM3s(250) }) } },
+      inp: anlageK1(), task: { kind: "D", pump: pumpIn(PUMPE_B, { kind: "Qsoll", Q: units.m3hToM3s(300) }) } },
     { id: "RH-K10", text: "HLP 46 nach Walther (ν40 46, ν100 6,1 mm²/s, C 0,8, ρ 870 kg/m³) bei 20 °C, Kreisring 40/30 mm (laminar, φ aus Tabelle), Rechteckkanal 30 × 10 mm, Querschnitt von Hand, je 2 m",
       inp: {
         fluid: { spec: { kind: "walther", walther: { T1: units.cToK(40), nu1: 46e-6, T2: units.cToK(100), nu2: 6.1e-6, C: 0.8 }, rho: 870, label: "HLP 46" }, T: units.cToK(20), p: P0 },

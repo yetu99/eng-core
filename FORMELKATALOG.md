@@ -1,4 +1,4 @@
-# Formelkatalog eng-core 0.13.0
+# Formelkatalog eng-core 0.13.1
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
