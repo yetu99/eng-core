@@ -1738,6 +1738,90 @@
     "durch": "Seti",
     "formel": "T_ik = T_ri⁻¹·T_rk (r = Wurzel; T_ri, T_rk als Ketten G-16-N)"
   },
+  "G-21": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "A_i = Rot_z(θ_i)·Trans_z(d_i)·Trans_x(a_i)·Rot_x(α_i) = [R  (a_i cos θ_i, a_i sin θ_i, d_i)ᵀ; 0 0 0 1]"
+  },
+  "G-21-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "R = Rot_z(θ_i)·Rot_x(α_i) = [cos θ −sin θ cos α  sin θ sin α; sin θ  cos θ cos α  −cos θ sin α; 0  sin α  cos α]"
+  },
+  "G-22": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "A_i = Rot_x(α_{i−1})·Trans_x(a_{i−1})·Trans_z(d_i)·Rot_z(θ_i) = [R  (a_{i−1}, −d_i sin α_{i−1}, d_i cos α_{i−1})ᵀ; 0 0 0 1]"
+  },
+  "G-22-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "R = Rot_x(α_{i−1})·Rot_z(θ_i) = [cos θ  −sin θ  0; sin θ cos α  cos θ cos α  −sin α; sin θ sin α  cos θ sin α  cos α]"
+  },
+  "G-23-G": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "q_min,i ≤ q_i ≤ q_max,i für alle Gelenke; sonst Warnung, Ergebnis bleibt"
+  },
+  "G-23-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "d_i = q_i + d_i,0 (θ_i fest)"
+  },
+  "G-23-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "θ_i = q_i + θ_i,0 (d_i fest)"
+  },
+  "G-24": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "T_0n(q) = A_1(q_1)·A_2(q_2)·…·A_n(q_n), Zwischenrahmen T_0k = A_1·…·A_k"
+  },
+  "G-24-W": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "T_Wt = T_W0·T_0n(q)·T_nt (wie G-20-K mit T_01 = T_W0, T_1m = T_0n, T_mt = T_nt)"
+  },
+  "G-25-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "x = Σ a_k cos(θ_1+…+θ_k), y = Σ a_k sin(θ_1+…+θ_k), z = Σ d_k, φ = Σ θ_k; e = max(|p − p_0n|, |R_0n − R_z(φ)|)"
+  },
+  "G-25-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "p = (a_1 cos θ_1 + a_2 cos(θ_1+θ_2), a_1 sin θ_1 + a_2 sin(θ_1+θ_2), d_1+d_2+d_3+d_4), A = θ_1+θ_2+θ_3+θ_4; e = max(|p − p_04|, |R_04 − R_z(A)|)"
+  },
+  "G-26": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "1 ≤ n ≤ 8; Typ je Gelenk R (Dreh) oder P (Schub); Konvention klassisch oder modifiziert; alle Werte endlich; q_min < q_max"
+  },
+  "G-27-KM": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "modifiziert: Zeile i = (α_{i−1}, a_{i−1}, d_i, θ_i) mit α_0 = a_0 = 0; T_nt′ = Trans_x(a_n)·Rot_x(α_n)·T_nt; Kontrolle e = max |T_Wt − T_Wt′| an derselben Stellung q"
+  },
+  "G-27-MK": {
+    "status": "freigegeben",
+    "datum": "2026-11-08",
+    "durch": "Seti",
+    "formel": "klassisch: Zeile i = (θ_i, d_i, a_i, α_i) mit a_i, α_i aus Zeile i+1, a_n = α_n = 0; T_W0′ = T_W0·Rot_x(α_0)·Trans_x(a_0); Kontrolle e = max |T_Wt − T_Wt′| an derselben Stellung q"
+  },
   "K-FK": {
     "status": "freigegeben",
     "datum": "2026-10-08",

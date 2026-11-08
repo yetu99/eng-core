@@ -46,3 +46,6 @@ export * from "./kinematics/compute";
 export * from "./kinematics/se3";
 export * from "./kinematics/frames";
 export * from "./kinematics/templates";
+export * from "./kinematics/dh";
+export * from "./kinematics/forward";
+export * from "./kinematics/robots";

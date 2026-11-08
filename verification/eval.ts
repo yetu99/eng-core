@@ -1,6 +1,7 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
 import { computeOrientation, compose, toZYX, toZYZ, toAxisAngle, toQuaternion, fromZYX, fromZYZ, fromAxisAngle, fromQuaternion, maxAbsDiff, type OrientationInput, type Mat3 } from "../src/index";
 import { computeFrames, invertT, composeT, transformPoint, se3, type FrameInput, type Transform, type Vec3 } from "../src/index";
+import { computeForward, convertDh, forwardRaw, checkTransform, toMat4, type ForwardInput, type Robot } from "../src/index";
 import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
 import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
@@ -28,7 +29,9 @@ export type Case =
   | { id: string; type: "kincompose"; Rab: Mat3; Rbc: Mat3; abs?: boolean }
   | { id: string; type: "kinbatch"; quats: Array<[number, number, number, number]>; abs?: boolean }
   | { id: string; type: "frames"; inp: FrameInput; abs?: boolean }
-  | { id: string; type: "framesbatch"; samples: number[][]; abs?: boolean };
+  | { id: string; type: "framesbatch"; samples: number[][]; abs?: boolean }
+  | { id: string; type: "forward"; inp: ForwardInput; abs?: boolean }
+  | { id: string; type: "forwardbatch"; samples: Array<{ robot: Robot; q: number[] }>; abs?: boolean };
 
 const IJ = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]] as const;
 const matKeys = (p: string, m: Mat3): Record<string, number> => Object.fromEntries(IJ.map(([i, j]) => [`${p}${i + 1}${j + 1}`, m[i][j]]));
@@ -126,6 +129,57 @@ function evalFramesBatch(samples: readonly number[][]): Record<string, number | 
   return o;
 }
 
+/** Kinematik K3 (Modul kinematik, ab 0.16.0): Vorwärtskinematik, Zwischenrahmen, Pose, Kontrolle, Umrechnung, Punkt. */
+function evalForward(inp: ForwardInput): Record<string, number | null> {
+  const r = computeForward(inp);
+  if (r.errors.length) return { errors: r.errors.length };
+  const o: Record<string, number | null> = { errors: 0, lim: r.limitsViolated.length };
+  Object.assign(o, tKeys("n", r.T0n!), tKeys("w", r.TWt!));
+  r.frames.forEach((T, k) => Object.assign(o, tKeys(`F${k}_`, T)));
+  const p = r.pose!;
+  Object.assign(o, { X: p.x, Y: p.y, Z: p.z, PA: p.A, PB: p.B, PC: p.C });
+  r.values.forEach((v, k) => Object.assign(o, { [`th${k + 1}`]: v.theta, [`d${k + 1}`]: v.d }));
+  if (r.closedForm) Object.assign(o, { cfDev: r.closedForm.dev, cfX: r.closedForm.p[0], cfY: r.closedForm.p[1], cfZ: r.closedForm.p[2], cfPhi: r.closedForm.phi });
+  if (r.converted) {
+    const cv = r.trace.kontrolle!.at(-1)!;
+    o["convDev"] = cv.value;
+    r.converted.joints.forEach((j, k) => Object.assign(o, { [`c${k + 1}_th`]: j.theta, [`c${k + 1}_d`]: j.d, [`c${k + 1}_a`]: j.a, [`c${k + 1}_al`]: j.alpha }));
+  }
+  if (r.point) Object.assign(o, { Px: r.point[0], Py: r.point[1], Pz: r.point[2] });
+  return o;
+}
+
+/**
+ * Zufallsketten (Klassisch und modifiziert, n = 1 bis 8, Dreh- und Schubgelenke): Quadratsummen der Elemente von T_Wt
+ * (Vergleich mit der Python-Umsetzung), dazu Eigenschaften im Kern: T_Wt gültig (G-14), Teilketten T_0k·T_kn = T_0n,
+ * Umrechnung G-27 hin und zurück erhält T_Wt, Gelenk i ändert nur Rahmen k ≥ i.
+ */
+function evalForwardBatch(samples: ReadonlyArray<{ robot: Robot; q: number[] }>): Record<string, number | null> {
+  const o: Record<string, number> = { n: samples.length, eValid: 0, eSub: 0, eConv: 0, eLocal: 0, errors: 0 };
+  const acc = (k: string, x: number): void => { o[`s${k}`] = (o[`s${k}`] ?? 0) + x * x; o[`t${k}`] = (o[`t${k}`] ?? 0) + (x + 4) * (x + 4); };
+  for (const { robot, q } of samples) {
+    const r = computeForward({ robot, q });
+    if (r.errors.length) { o["errors"]! += 1; continue; }
+    const T = r.TWt!;
+    for (const [i, j] of IJ4) acc("W", j === 3 ? T.p[i] : T.R[i][j]);
+    const c = checkTransform(toMat4(T)).value;
+    o["eValid"] = Math.max(o["eValid"]!, c.orthErr, Math.abs(c.det - 1), c.rowErr);
+    const n = r.n;
+    for (let k = 0; k <= n; k++) {
+      let Tk = r.frames[k]!;
+      for (let m = k; m < n; m++) Tk = se3.compose(Tk, r.links[m]!);
+      o["eSub"] = Math.max(o["eSub"]!, se3.maxAbsDiff(Tk, r.T0n!));
+    }
+    const back = convertDh(convertDh(robot, q).value, q).value;
+    o["eConv"] = Math.max(o["eConv"]!, se3.maxAbsDiff(forwardRaw(robot, q), forwardRaw(convertDh(robot, q).value, q)), se3.maxAbsDiff(forwardRaw(robot, q), forwardRaw(back, q)));
+    // Gelenk i verstellen: Rahmen k < i (klassisch) bzw. k < i (modifiziert, Rahmen i liegt auf Achse i) bleiben gleich
+    const i = Math.floor(n / 2) + 1, q2 = q.map((x, k) => (k === i - 1 ? x + 0.3 : x));
+    const r2 = computeForward({ robot: { ...robot, joints: robot.joints.map((j) => ({ ...j, qMin: -1e9, qMax: 1e9 })) }, q: q2 });
+    for (let k = 0; k < i; k++) o["eLocal"] = Math.max(o["eLocal"]!, se3.maxAbsDiff(r2.frames[k]!, r.frames[k]!));
+  }
+  return o;
+}
+
 /** Rohrhydraulik (Modul fluid): Kennwerte eines Strangs für Gegenrechnung und Golden-Test. */
 function evalFluid(inp: LineInput, task: LineTask): Record<string, number | null> {
   const r = computeLine(fdRepo, inp, task);
@@ -174,6 +228,8 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "kinbatch") return evalKinBatch(c.quats);
   if (c.type === "frames") return evalFrames(c.inp);
   if (c.type === "framesbatch") return evalFramesBatch(c.samples);
+  if (c.type === "forward") return evalForward(c.inp);
+  if (c.type === "forwardbatch") return evalForwardBatch(c.samples);
   if (c.type === "section") {
     const s = sectionProps(c.sec, c.dims);
     const o = s.open;

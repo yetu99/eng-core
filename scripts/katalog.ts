@@ -10,8 +10,8 @@ import { repo, DATA_VERSION } from "../src/data";
 import { moduleOfId, type ModuleId } from "../src/modules";
 import { computeLine, computeMeter, computeSurge, fdRepo, FD_VERSION } from "../src/index";
 import { fluidFaelle, messFaelle, stossFaelle } from "./fluid-faelle";
-import { kinematikFaelle, kinematikVerkettung, kinematikK2Faelle } from "./kinematik-faelle";
-import { computeOrientation, compose, computeFrames } from "../src/index";
+import { kinematikFaelle, kinematikVerkettung, kinematikK2Faelle, kinematikK3Faelle } from "./kinematik-faelle";
+import { computeOrientation, compose, computeFrames, computeForward } from "../src/index";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -27,7 +27,7 @@ export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Form
   // Fachtools (ab 0.10.0 registriert, Formeln folgen mit den Modulen)
   FS: "Fluid-Stoffwerte", RH: "Rohrhydraulik", PU: "Pumpe und Anlage", SV: "Schraubenverbindung", PV: "Pressverband", OR: "O-Ring", FW: "Fachwerk",
   // Greifwerk (ab 0.12.0)
-  G: "Kinematik: Orientierung und Lage (Lynch/Park Kap. 3.2, 3.3 und Anhang B, Weber/Koch Kap. 2.1, ISO 9787)" };
+  G: "Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
@@ -166,6 +166,12 @@ export function collectCatalog(): CatalogEntry[] {
   // Kinematik K2 Homogene Transformation (0.14.0): Rahmenbaum, ISO-Kette, Punkt, Richtung, Verschieben
   for (const f of kinematikK2Faelle()) {
     const r = computeFrames(f.inp);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
+  }
+  // Kinematik K3 DH-Parameter und Vorwärtskinematik (0.16.0): Vorlagen in der Stellung der Quelle, mit Umrechnung
+  for (const f of kinematikK3Faelle()) {
+    const r = computeForward(f.inp);
     if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
   }

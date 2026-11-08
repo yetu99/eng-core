@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.14.0
+# Formelkatalog eng-core 0.16.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 508 Formeln, davon 508 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 522 Formeln, davon 522 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@ Stand: 508 Formeln, davon 508 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | verbindungen | fachtools | SV, PV | 0 | 0 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
-| kinematik | greifwerk | G | 57 | 57 |
+| kinematik | greifwerk | G | 71 | 71 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -273,7 +273,7 @@ Stand: 508 Formeln, davon 508 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | FS-WA-N | Gültigkeitsbereich Walther | T₁ − 20 K ≤ T ≤ T₂ + 20 K | K | Verfahren (R21) | freigegeben (2026-11-06, Seti) |
 | FS-WA-NU | Kinematische Viskosität Öl (Walther) | ν = 10^(10^(K − m·lg T)) − C (ν in mm²/s, T in K) | m²/s | Dubbel 26 Bd. 1 Kap. 33 (S. 681) | freigegeben (2026-11-06, Seti) |
 
-## Kinematik: Orientierung und Lage (Lynch/Park Kap. 3.2, 3.3 und Anhang B, Weber/Koch Kap. 2.1, ISO 9787)
+## Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
@@ -334,6 +334,20 @@ Stand: 508 Formeln, davon 508 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | G-20-F | Flansch-Soll aus TCP-Soll | T_1m = T_01⁻¹·T_0t,soll·T_mt⁻¹ (Umstellen von G-20-K) | m | G-20-K umgestellt; Lynch/Park Prop. 3.15, 3.17 | freigegeben (2026-11-07, Seti) |
 | G-20-K | Werkzeug in Welt (Rahmenkette ISO 9787) | T_0t = T_01·T_1m·T_mt (Welt, Basis, Flansch, Werkzeug) | m | ISO 9787:2013, 5.1 bis 5.4; Weber/Koch Kap. 2 (DH, Werkzeugsystem am letzten Gliedsystem); Lynch/Park S. 78 | freigegeben (2026-11-07, Seti) |
 | G-20-R | Relative Lage zweier Rahmen im Baum | T_ik = T_ri⁻¹·T_rk (r = Wurzel; T_ri, T_rk als Ketten G-16-N) | m | Lynch/Park S. 78 (T_de = T_ed⁻¹) und Bsp. 3.19; Weber/Koch Gl. (2.17) | freigegeben (2026-11-07, Seti) |
+| G-21 | Gliedmatrix (DH klassisch) | A_i = Rot_z(θ_i)·Trans_z(d_i)·Trans_x(a_i)·Rot_x(α_i) = [R  (a_i cos θ_i, a_i sin θ_i, d_i)ᵀ; 0 0 0 1] | m | Weber/Koch Gl. (2.34), Kap. 2.2.2 | freigegeben (2026-11-08, Seti) |
+| G-21-R | Rotation eines Glieds (DH klassisch) | R = Rot_z(θ_i)·Rot_x(α_i) = [cos θ −sin θ cos α  sin θ sin α; sin θ  cos θ cos α  −cos θ sin α; 0  sin α  cos α] | 1 | Weber/Koch Gl. (2.33) | freigegeben (2026-11-08, Seti) |
+| G-22 | Gliedmatrix (DH modifiziert, Craig) | A_i = Rot_x(α_{i−1})·Trans_x(a_{i−1})·Trans_z(d_i)·Rot_z(θ_i) = [R  (a_{i−1}, −d_i sin α_{i−1}, d_i cos α_{i−1})ᵀ; 0 0 0 1] | m | Lynch/Park Anhang C.3, S. 510, Gl. (C.2) bis (C.5) | freigegeben (2026-11-08, Seti) |
+| G-22-R | Rotation eines Glieds (DH modifiziert) | R = Rot_x(α_{i−1})·Rot_z(θ_i) = [cos θ  −sin θ  0; sin θ cos α  cos θ cos α  −sin α; sin θ sin α  cos θ sin α  cos α] | 1 | Lynch/Park Anhang C.3, S. 510 | freigegeben (2026-11-08, Seti) |
+| G-23-G | Gelenkgrenzen | q_min,i ≤ q_i ≤ q_max,i für alle Gelenke; sonst Warnung, Ergebnis bleibt | 1 | eigene Festlegung (Konzept K3, Abschn. 1) | freigegeben (2026-11-08, Seti) |
+| G-23-P | Gelenkwert Schubgelenk | d_i = q_i + d_i,0 (θ_i fest) | m | Weber/Koch S. 42 (Schublänge d_i Gelenkkoordinate beim Schubgelenk); Lynch/Park Anhang C.1, Abb. C.2 | freigegeben (2026-11-08, Seti) |
+| G-23-R | Gelenkwert Drehgelenk | θ_i = q_i + θ_i,0 (d_i fest) | rad | Weber/Koch S. 42 (θ_i Gelenkkoordinate beim Drehgelenk); Lynch/Park Bsp. C.1 (Offset θ₂ − 90°) | freigegeben (2026-11-08, Seti) |
+| G-24 | Vorwärtskinematik (Kette der Gliedmatrizen) | T_0n(q) = A_1(q_1)·A_2(q_2)·…·A_n(q_n), Zwischenrahmen T_0k = A_1·…·A_k | m | Weber/Koch Gl. (2.35), (3.2); Lynch/Park Anhang C, Gl. (C.1) | freigegeben (2026-11-08, Seti) |
+| G-24-W | Vorwärtskinematik mit Basis und Werkzeug | T_Wt = T_W0·T_0n(q)·T_nt (wie G-20-K mit T_01 = T_W0, T_1m = T_0n, T_mt = T_nt) | m | Weber/Koch S. 46 (konstante Werkzeugmatrix am letzten Gliedsystem); ISO 9787:2013, 5.1 bis 5.4 | freigegeben (2026-11-08, Seti) |
+| G-25-P | Kontrolle planare Kette geschlossen | x = Σ a_k cos(θ_1+…+θ_k), y = Σ a_k sin(θ_1+…+θ_k), z = Σ d_k, φ = Σ θ_k; e = max(\|p − p_0n\|, \|R_0n − R_z(φ)\|) | m | Lynch/Park Gl. (4.1) bis (4.3); Weber/Koch Bild 3.5 | freigegeben (2026-11-08, Seti) |
+| G-25-S | Kontrolle SCARA geschlossen | p = (a_1 cos θ_1 + a_2 cos(θ_1+θ_2), a_1 sin θ_1 + a_2 sin(θ_1+θ_2), d_1+d_2+d_3+d_4), A = θ_1+θ_2+θ_3+θ_4; e = max(\|p − p_04\|, \|R_04 − R_z(A)\|) | m | Weber/Koch Gl. (3.8), (3.9), (3.10), Bild 3.8 | freigegeben (2026-11-08, Seti) |
+| G-26 | Prüfung der Gelenkkette | 1 ≤ n ≤ 8; Typ je Gelenk R (Dreh) oder P (Schub); Konvention klassisch oder modifiziert; alle Werte endlich; q_min < q_max | 1 | Weber/Koch Kap. 2.2.2 (S. 40 bis 42); Lynch/Park Anhang C.1 | freigegeben (2026-11-08, Seti) |
+| G-27-KM | Umrechnung klassisch → modifiziert | modifiziert: Zeile i = (α_{i−1}, a_{i−1}, d_i, θ_i) mit α_0 = a_0 = 0; T_nt′ = Trans_x(a_n)·Rot_x(α_n)·T_nt; Kontrolle e = max \|T_Wt − T_Wt′\| an derselben Stellung q | m | Weber/Koch Gl. (2.34); Lynch/Park Anhang C.3 (Reihenfolge der Faktoren in Paaren vertauschbar, S. 511) | freigegeben (2026-11-08, Seti) |
+| G-27-MK | Umrechnung modifiziert → klassisch | klassisch: Zeile i = (θ_i, d_i, a_i, α_i) mit a_i, α_i aus Zeile i+1, a_n = α_n = 0; T_W0′ = T_W0·Rot_x(α_0)·Trans_x(a_0); Kontrolle e = max \|T_Wt − T_Wt′\| an derselben Stellung q | m | Weber/Koch Gl. (2.34); Lynch/Park Anhang C.3 (Reihenfolge der Faktoren in Paaren vertauschbar, S. 511) | freigegeben (2026-11-08, Seti) |
 
 ## Knicken
 

@@ -109,7 +109,7 @@ describe("Lernhilfe Schritt für Schritt", () => {
 });
 
 describe("Katalog, Prüfstatus und Werkzeug Greifwerk", () => {
-  it("jeder Rechenschritt der Beispielfälle K1 hat eine Katalog-ID im Modul kinematik, alle 35 Formeln K1 kommen vor (mit K2 ab 0.14.0: 57)", () => {
+  it("jeder Rechenschritt der Beispielfälle K1 hat eine Katalog-ID im Modul kinematik, alle 35 Formeln K1 kommen vor (mit K2 ab 0.14.0: 57, mit K3 ab 0.16.0: 71)", () => {
     const ids = new Set(kinematikFaelle().flatMap((f) => orientationSteps(computeOrientation(f.inp)).map((s) => s.id)));
     ids.add("G-11-V");
     for (const id of ids) {
@@ -117,7 +117,7 @@ describe("Katalog, Prüfstatus und Werkzeug Greifwerk", () => {
       expect(formulaState(id), id).not.toBe("unbekannt");
     }
     expect(ids.size).toBe(35);
-    expect(PRUEFSTATUS.modules.kinematik.formulas).toBe(57);
+    expect(PRUEFSTATUS.modules.kinematik.formulas).toBe(71);
   });
   it("Rechenweg nach den Gruppen des Moduls", () => {
     const r = computeOrientation({ rep: "zyx", zyx: { A: 0.1, B: 0.2, C: 0.3 } });

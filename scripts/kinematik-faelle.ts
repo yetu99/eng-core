@@ -3,7 +3,7 @@
  * Jeder Fall erzeugt seine Formeln einmal mit nachrechenbarem Beispiel. Literaturfälle zuerst; dieselben Zahlen
  * prüft verification/kinematik.py (Fälle G-L1 bis G-L6) gegen die gedruckten Werte.
  */
-import { rad, rotZ, rotY, so3, frameTemplates, type Mat3, type OrientationInput, type FrameInput } from "../src/index";
+import { rad, rotZ, rotY, so3, frameTemplates, robotTemplates, type Mat3, type OrientationInput, type FrameInput, type ForwardInput } from "../src/index";
 
 const { mul, transpose } = so3;
 
@@ -61,5 +61,32 @@ export function kinematikK2Faelle(): KinematikK2Fall[] {
     { id: "G-K2-S2", text: "Rahmen aus R (Weber/Koch Bild 2.12, Blatt K1) und p = (100; 200; 300) mm", inp: {
       frames: [{ id: "0", name: "K_0", role: "welt", parent: null }, { id: "W", name: "K_W", role: "frei", parent: "0", rp: { R: WK_BILD_2_12, p: [0.1, 0.2, 0.3] } }],
       rel: { of: "0", in: "W" } } },
+  ];
+}
+
+// ---------------------------------------------------------------- K3 DH-Parameter und Vorwärtskinematik (0.16.0)
+export interface KinematikK3Fall { id: string; text: string; inp: ForwardInput }
+
+/**
+ * Beispielfälle Kinematik K3 für den Formelkatalog: Vorlagen aus src/kinematics/robots.ts in der Stellung der Quelle,
+ * Literatur zuerst, mit Umrechnung (G-27), damit alle 14 Formeln G-21 bis G-27 mit Beispiel vorkommen.
+ * Dieselben Zahlen prüft verification/kinematik.py (Fälle G-K3-…).
+ */
+export function kinematikK3Faelle(): KinematikK3Fall[] {
+  const t = Object.fromEntries(robotTemplates().map((x) => [x.robot.id, x]));
+  const f = (id: string, key: string, text: string, extra: Partial<ForwardInput> = {}): KinematikK3Fall => {
+    const r = t[key]!.robot;
+    return { id, text: `${r.name}: ${text} (${r.source})`, inp: { robot: r, q: [...r.qSource!], convert: true, ...extra } };
+  };
+  return [
+    f("G-K3-L1", "r612", "Zeichenstellung θ₁ = 0°, θ₂ = −90°, l₁₁ = 300 mm, l₂ = 500 mm gewählt"),
+    f("G-K3-L2", "scara", "q = (30°, 45°, 120 mm, −60°), l₁ = 350 mm, l₂ = 250 mm gewählt"),
+    f("G-K3-L5", "ur5", "θ = (0, −90°, 0, 0, 90°, 0), Längen aus dem Buch"),
+    f("G-K3-L7", "rrt", "θ₁ = 90°, θ₂ = 0°, d₃ = 500 mm, Punkt p_H = (−500; 250; −400) mm in K₃ (Aufgabe 2.3.5)", { q: [Math.PI / 2, 0, 0.5], point: { frame: 3, v: [-0.5, 0.25, -0.4] } }),
+    f("G-K3-P1", "2r", "θ₁ = −45°, θ₂ = 135°, l₁ = 500 mm, l₂ = 400 mm gewählt"),
+    f("G-K3-E1", "kartesisch", "q = (400; 300; 200) mm, Basis Rot_y(90°)"),
+    f("G-K3-E2", "rv6", "Zeichenstellung, Längen gewählt"),
+    f("G-K3-L4", "lp-c1", "Nullstellung, L₁ = 400 mm, L₂ = 300 mm gewählt"),
+    f("G-K3-P2", "lp-c2", "q = (0, 0, 0, 200 mm), L₂ = 400 mm gewählt"),
   ];
 }
