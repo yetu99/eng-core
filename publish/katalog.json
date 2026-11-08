@@ -1,8 +1,8 @@
 {
- "core": "0.16.0",
- "data": "WDB 1.1.2",
- "formulas": 522,
- "approved": 522,
+ "core": "0.17.0",
+ "data": "WDB 1.1.3",
+ "formulas": 589,
+ "approved": 589,
  "items": [
   {
    "id": "A-GR-X",
@@ -5819,6 +5819,1145 @@
    "sort": 3420
   },
   {
+   "id": "PV-AF",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fugenfläche",
+   "formula": "A_F = π·D_F·l_F",
+   "unit": "mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.10)",
+   "example": "A_F = π·50·50 = 7854 mm²",
+   "example_result": 7853.98163397,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3430
+  },
+  {
+   "id": "PV-DAA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Aufweitung des Nabenaußendurchmessers (p_max)",
+   "formula": "ΔD_aA = D_aA·σ_tAa/E_A (σ_r = 0 außen)",
+   "unit": "mm",
+   "source": "Hooke; Lamé P-ZY-U",
+   "example": "ΔD_aA = 100·75,46/2,15·10⁵ = 35,1 µm",
+   "example_result": 0.0351,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3440
+  },
+  {
+   "id": "PV-EP-P",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fugendruck elastisch-plastisch",
+   "formula": "p = R_eLA/√3·[1 + 2·ln ζ − (Q_A·ζ)²]",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (43)",
+   "example": "U_k: p = 400/√3·[1 + 2·ln 1,30739 − (0,5·1,30739)²] = 256,1 N/mm²",
+   "example_result": 256.054921217,
+   "example_case": "P-PV6 DIN 7190-1 A.6 (elastisch-plastisch): wie A.5, U = 190 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3450
+  },
+  {
+   "id": "PV-EP-PPA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Grenzfugendruck vollplastische Nabe",
+   "formula": "p_PA = −2·R_eLA·ln Q_A/√3 (Q_A ≥ 1/e)",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (27), (28)",
+   "example": "p_PA = −2·400·ln 0,5/√3 = 320,2 N/mm²",
+   "example_result": 320.150969027,
+   "example_case": "P-PV5 DIN 7190-1 A.5 (elastisch-plastisch): R_eLA 400, R_eLI 400, Rz 8/8, p 220 N/mm², S_PA 1,25, S_PI 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3460
+  },
+  {
+   "id": "PV-EP-PPI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Grenzfugendruck vollplastische Vollwelle",
+   "formula": "p_PI = 2·R_eLI/√3",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (30)",
+   "example": "p_PI = 2·400/√3 = 461,9 N/mm²",
+   "example_result": 461.880215352,
+   "example_case": "P-PV5 DIN 7190-1 A.5 (elastisch-plastisch): R_eLA 400, R_eLI 400, Rz 8/8, p 220 N/mm², S_PA 1,25, S_PI 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3470
+  },
+  {
+   "id": "PV-EP-QPA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Plastischer Flächenanteil der Nabe",
+   "formula": "q_PA/q_A = (ζ² − 1)·Q_A²/(1 − Q_A²)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (35)",
+   "example": "U_k: q_PA/q_A = (1,30739² − 1)·0,5²/(1 − 0,5²) = 0,2364",
+   "example_result": 0.236424779816,
+   "example_case": "P-PV6 DIN 7190-1 A.6 (elastisch-plastisch): wie A.5, U = 190 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3480
+  },
+  {
+   "id": "PV-EP-XI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Bezogenes wirksames Übermaß aus ζ",
+   "formula": "ξ_w = 2/√3·ζ²·R_eLA/E",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (34)",
+   "example": "ξ_w = 2/√3·1,15321²·400/2,15·10⁵ = 2,857·10⁻³",
+   "example_result": 0.00285699421184,
+   "example_case": "P-PV5 DIN 7190-1 A.5 (elastisch-plastisch): R_eLA 400, R_eLI 400, Rz 8/8, p 220 N/mm², S_PA 1,25, S_PI 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3490
+  },
+  {
+   "id": "PV-EP-ZETA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Bezogener Plastizitätsdurchmesser",
+   "formula": "2·ln ζ − (Q_A·ζ)² + 1 − √3·p/R_eLA = 0, 1 ≤ ζ ≤ 1/Q_A",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (31) bis (33), Anhang B",
+   "example": "p = 220 N/mm², Q_A = 0,5: ζ = 1,15321 (Bisektion, Rest 1,1·10⁻¹⁶); Anhang B: 1,1351; 1,1529; 1,1532 (Abweichung -2,4·10⁻⁵)",
+   "example_result": 1.15321220583,
+   "example_case": "P-PV5 DIN 7190-1 A.5 (elastisch-plastisch): R_eLA 400, R_eLI 400, Rz 8/8, p 220 N/mm², S_PA 1,25, S_PI 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3500
+  },
+  {
+   "id": "PV-EP-ZU",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "ζ aus ξ_w",
+   "formula": "ζ = √(√3·ξ_w·E/(2·R_eLA))",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (42)",
+   "example": "U_k: ζ = √(√3·3,672·10⁻³·2,15·10⁵/(2·400)) = 1,30739",
+   "example_result": 1.30739219037,
+   "example_case": "P-PV6 DIN 7190-1 A.6 (elastisch-plastisch): wie A.5, U = 190 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3510
+  },
+  {
+   "id": "PV-EP-ZZUL",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Zulässiger bezogener Plastizitätsdurchmesser",
+   "formula": "ζ_zul aus Gl. (32) mit p = p_PA/S_PA (Fall 2)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (37) bis (41)",
+   "example": "p = min(461,9/1,1; 320,2/1,25) = 256,1 N/mm² → ζ_zul = 1,30772; ξ_w,zul = 2/√3·ζ_zul²·R_eLA/E = 3,6738·10⁻³",
+   "example_result": 1.30771778739,
+   "example_case": "P-PV5 DIN 7190-1 A.5 (elastisch-plastisch): R_eLA 400, R_eLI 400, Rz 8/8, p 220 N/mm², S_PA 1,25, S_PI 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3520
+  },
+  {
+   "id": "PV-FAX",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Übertragbare Axialkraft (p_min)",
+   "formula": "F_ax = π·D_F·l_F·p·ν_rl/S_r",
+   "unit": "N",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (2)",
+   "example": "F_ax = π·50·50·113,2·0,1/1 = 88,91 kN",
+   "example_result": 88905.1086012,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3530
+  },
+  {
+   "id": "PV-FE",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Einpresskraft",
+   "formula": "F_e = π·D_F·l_F·ν_ll·p_max",
+   "unit": "N",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (48); Roloff/Matek 27 (Q219) (12.22)",
+   "example": "F_e = π·40·40·0,11·106,7 = 59 kN",
+   "example_result": 59000.0525122,
+   "example_case": "P-PV16 Längspressverband ⌀40 H7/s6, l_F 40, D_aA 80, Stahl/E335 trocken (ν_rl 0,08, ν_ll 0,11), T 150 N·m, F_ax 2 kN",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3540
+  },
+  {
+   "id": "PV-FIT-H",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Grenzabmaße Bohrung H6",
+   "formula": "EI = 0, ES = IT(D_F, Grad)",
+   "unit": "mm",
+   "source": "ISO 286-1:2019 (Q236) Tab. 1, 2",
+   "example": "EI = 0; ES = IT6(50 < D ≤ 80 mm) = 19 µm",
+   "example_result": 0.019,
+   "example_case": "P-PV8 Roloff/Matek 27 Bsp. 12.2: Riemenscheibe EN-GJL-250 (E 115 000, μ 0,25, R_m 180, S 2) auf E295, D_F 80, D_aA 190, l_F 115, T 1200 N·m, S_H 1,5, ν 0,16, Rz 6,3/6,3, H6/r6, Fügespiel Ü_o′/2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3550
+  },
+  {
+   "id": "PV-FIT-SEL",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Zulässige Passungen",
+   "formula": "H6 bis H8 × p bis z × IT5 bis IT8 mit U_k ≥ Ü_u und U_g ≤ Ü_o, sortiert nach |(U_k + U_g)/2 − (Ü_u + Ü_o)/2|",
+   "unit": "1",
+   "source": "Roloff/Matek 27 (Q219) S. 446, Bild 12.17; Verfahren",
+   "example": "D_F 50 mm, Ü_u 60,61 µm, Ü_o 78,04 µm: 0 Passungen",
+   "example_result": 0,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3560
+  },
+  {
+   "id": "PV-FIT-W",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Grenzabmaße Welle r6",
+   "formula": "ei = Grundabmaß(D_F, Feld); es = ei + IT(D_F, Grad)",
+   "unit": "mm",
+   "source": "ISO 286-1:2019 (Q236) Tab. 1, 5",
+   "example": "ei = 43 µm (r); es = 43 + IT6 19 = 62 µm",
+   "example_result": 0.043,
+   "example_case": "P-PV8 Roloff/Matek 27 Bsp. 12.2: Riemenscheibe EN-GJL-250 (E 115 000, μ 0,25, R_m 180, S 2) auf E295, D_F 80, D_aA 190, l_F 115, T 1200 N·m, S_H 1,5, ν 0,16, Rz 6,3/6,3, H6/r6, Fügespiel Ü_o′/2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3570
+  },
+  {
+   "id": "PV-FL-NG",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Grenzdrehzahl (Abheben)",
+   "formula": "n_g = u_ab/(π·D_aA)",
+   "unit": "1/s",
+   "source": "Roloff/Matek 27 (Q219) (12.24a); DIN 7190-1:2017 (Q235) Gl. (56), (58)",
+   "example": "n_g = 192,5 m/s/(π·100 mm) = 612,8 1/s = 36770 1/min",
+   "example_result": 612.764991924,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3580
+  },
+  {
+   "id": "PV-FL-PN",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fugendruck bei Drehzahl n",
+   "formula": "p_n = [1 − (u/u_ab)²]·p",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (57)",
+   "example": "p_n = [1 − (52,36/192,5)²]·90 = 83,34 N/mm²",
+   "example_result": 83.3418723435,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3590
+  },
+  {
+   "id": "PV-FL-TN",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Übertragbares Moment bei Drehzahl n",
+   "formula": "T_n = T·[1 − (n/n_g)²]",
+   "unit": "N·mm",
+   "source": "Roloff/Matek 27 (Q219) (12.25)",
+   "example": "T_n = 1767 N·m·[1 − (166,7/612,8)²] = 1636 N·m",
+   "example_result": 1636413.83682,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3600
+  },
+  {
+   "id": "PV-FL-U",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Umfangsgeschwindigkeit der Nabe außen",
+   "formula": "u = π·n·D_aA",
+   "unit": "mm/s",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (56)",
+   "example": "u = π·166,7 1/s·100 mm = 52,36 m/s",
+   "example_result": 52359.8775598,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3610
+  },
+  {
+   "id": "PV-FL-UAB",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Abhebegeschwindigkeit",
+   "formula": "u_ab = 2·√(E·ξ_w/((3 + μ)·ρ))",
+   "unit": "mm/s",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (58)",
+   "example": "u_ab = 2·√(2,15·10⁵·1,1163·10⁻³/((3 + 0,3)·7,85·10⁻⁹)) = 192,5 m/s",
+   "example_result": 192505.799701,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3620
+  },
+  {
+   "id": "PV-FRES",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Rutschkraft (Auslegung)",
+   "formula": "F_R = S_r·K_A·√(F_ax² + F_t²)",
+   "unit": "N",
+   "source": "Roloff/Matek 27 (Q219) (12.9)",
+   "example": "F_R = 1·1·√(70690² + 0²) = 70690 N",
+   "example_result": 70685.8347058,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3630
+  },
+  {
+   "id": "PV-FT",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Umfangskraft in der Fuge",
+   "formula": "F_t = 2·T/D_F",
+   "unit": "N",
+   "source": "Roloff/Matek 27 (Q219) S. 449",
+   "example": "F_t = 2·100 N·m·10³/50 = 4000 N",
+   "example_result": 4000,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3640
+  },
+  {
+   "id": "PV-GL",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Glättung",
+   "formula": "G = 0,4·(Rz_A + Rz_I)",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (7); Roloff/Matek 27 (Q219) (12.15)",
+   "example": "G = 0,4·(6 + 6) = 4,8 µm",
+   "example_result": 0.0048,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3650
+  },
+  {
+   "id": "PV-K",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Hilfsgröße K",
+   "formula": "K = E_A/E_I·[(1 + Q_I²)/(1 − Q_I²) − μ_I] + (1 + Q_A²)/(1 − Q_A²) + μ_A",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (13), (14); Roloff/Matek 27 (Q219) (12.13)",
+   "example": "K = 2,15·10⁵/2,15·10⁵·[(1 + 0²)/(1 − 0²) − 0,3] + (1 + 0,5²)/(1 − 0,5²) + 0,3 = 2,6667",
+   "example_result": 2.66666666667,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3660
+  },
+  {
+   "id": "PV-LE",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fasenlänge",
+   "formula": "l_e ≈ ∛D_F (D_F ≤ 50 mm, Tab. 6 beginnt über 50 mm)",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Tab. 6, Gl. (49)",
+   "example": "l_e = ∛40 = 3,42 mm",
+   "example_result": 3.41995189335,
+   "example_case": "P-PV16 Längspressverband ⌀40 H7/s6, l_F 40, D_aA 80, Stahl/E335 trocken (ν_rl 0,08, ν_ll 0,11), T 150 N·m, F_ax 2 kN",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3670
+  },
+  {
+   "id": "PV-N-ELAST",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Warnung plastisch",
+   "formula": "p_max > p_zul,A oder p_zul,I → plastische Dehnung (Überschreitung in %)",
+   "unit": "%",
+   "source": "DIN 7190-1:2017 (Q235) Abschn. 4.1, S. 9",
+   "example": "Teil: keines; Überschreitung 0 %",
+   "example_result": 0,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3680
+  },
+  {
+   "id": "PV-N-EP",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Grenzen elastisch-plastisch",
+   "formula": "ξ_w ≤ 2/√3·ζ_zul²·R_eLA/E (41) und q_PA/q_A ≤ 0,30 (35)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (26), (29), (33), (36), (41), (35)",
+   "example": "ξ_w,g = 3,672·10⁻³ ≤ 3,6738·10⁻³; q_PA/q_A = 0,2364",
+   "example_result": 0.236424779816,
+   "example_case": "P-PV6 DIN 7190-1 A.6 (elastisch-plastisch): wie A.5, U = 190 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3690
+  },
+  {
+   "id": "PV-N-FL",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fliehkraft rein elastisch",
+   "formula": "ξ_w ≤ (3 + μ)/(3 + μ + (1 − μ)·Q_A²)·R_eLA/E (54) und ξ_w ≤ R_eLI/(Q_A²·E) (55)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (54), (55)",
+   "example": "ξ_w,g 1,1163·10⁻³; Grenzen 1,3251·10⁻³ und 3,7209·10⁻³; Verhältnis 0,8424",
+   "example_result": 0.842424242424,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3700
+  },
+  {
+   "id": "PV-N-FL10",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Druckabfall höchstens 10 %",
+   "formula": "u ≤ √0,1·u_ab ≈ 0,316·u_ab (Verhältnis)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (59)",
+   "example": "52,36/(0,316·192,5) = 0,8601",
+   "example_result": 0.860111598477,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3710
+  },
+  {
+   "id": "PV-N-GEO",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Gestaltung",
+   "formula": "Torsion l_F/D_F ≤ 1,5; Biegung l_F/D_F > 0,5; Q_A ≤ 0,5 empfohlen (Hinweise)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (46), (47), S. 16",
+   "example": "l_F/D_F = 1; Q_A = 0,5",
+   "example_result": 1,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3720
+  },
+  {
+   "id": "PV-N-PASS",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Passung trägt",
+   "formula": "U_k ≥ Ü_u und U_g ≤ Ü_o (kleinster Abstand)",
+   "unit": "mm",
+   "source": "Roloff/Matek 27 (Q219) S. 446",
+   "example": "U_k 24 ≥ Ü_u 19,01; U_g 62 ≤ Ü_o 66,43 µm; Abstand 4,43 µm",
+   "example_result": 0.00443007202913,
+   "example_case": "P-PV8 Roloff/Matek 27 Bsp. 12.2: Riemenscheibe EN-GJL-250 (E 115 000, μ 0,25, R_m 180, S 2) auf E295, D_F 80, D_aA 190, l_F 115, T 1200 N·m, S_H 1,5, ν 0,16, Rz 6,3/6,3, H6/r6, Fügespiel Ü_o′/2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3730
+  },
+  {
+   "id": "PV-N-SPA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Nachweis Nabe rein elastisch",
+   "formula": "p_max ≤ p_zul,A (Auslastung p_max/p_zul,A)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (15), (20)",
+   "example": "113,2/118,1 = 0,9585",
+   "example_result": 0.958534237417,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3740
+  },
+  {
+   "id": "PV-N-SPI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Nachweis Welle rein elastisch",
+   "formula": "p_max ≤ p_zul,I (Auslastung p_max/p_zul,I)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (16), (17), (21)",
+   "example": "113,2/209,9 = 0,5392",
+   "example_result": 0.539175508547,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3750
+  },
+  {
+   "id": "PV-N-SR",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Nachweis Rutschen",
+   "formula": "S_r,ist ≥ S_r (mit p_min, bei Drehzahl mit p_n)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (1), (2)",
+   "example": "16,36/1 = 16,36",
+   "example_result": 16.3641383682,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3760
+  },
+  {
+   "id": "PV-N-TA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Nachweis Fügetemperatur",
+   "formula": "ϑ_A,erf ≤ ϑ_A,zul (Reserve ϑ_A,zul − ϑ_A,erf)",
+   "unit": "K",
+   "source": "DIN 7190-1:2017 (Q235) Tab. 8, S. 23",
+   "example": "300 − 66,31 = 233,7 K",
+   "example_result": 233.686363636,
+   "example_case": "P-PV9 DIN 7190-1 Tab. 5: ⌀160 H7/u6, Hohlwelle D_iI 60, Nabe D_aA 320, l_F 160, Stahl vergütet (ϑ_A,zul 300 °C), Welle mit Stickstoff unterkühlt, Ra 1,6/0,8",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3770
+  },
+  {
+   "id": "PV-N-VERF",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Verformbarkeit Nabe",
+   "formula": "A ≥ 10 % (Z ≥ 30 % selbst prüfen)",
+   "unit": "%",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (8), (9)",
+   "example": "A = 15 %",
+   "example_result": 15,
+   "example_case": "P-PV5 DIN 7190-1 A.5 (elastisch-plastisch): R_eLA 400, R_eLI 400, Rz 8/8, p 220 N/mm², S_PA 1,25, S_PI 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3780
+  },
+  {
+   "id": "PV-P",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fugendruck aus Übermaß",
+   "formula": "p = ξ_w·E_A/K",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (24)",
+   "example": "p_min = 1,404·10⁻³·2,15·10⁵/2,6667 = 113,2 N/mm²",
+   "example_result": 113.1975,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3790
+  },
+  {
+   "id": "PV-PERF",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Erforderlicher Fugendruck",
+   "formula": "p_erf = F_R/(A_F·ν_r)",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.10); DIN 7190-1:2017 (Q235) Gl. (1), (2) umgestellt",
+   "example": "p_erf = 70690/(7854·0,1) = 90 N/mm²",
+   "example_result": 90,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3800
+  },
+  {
+   "id": "PV-PT",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Passtoleranz",
+   "formula": "PT = Ü_o − Ü_u",
+   "unit": "mm",
+   "source": "Roloff/Matek 27 (Q219) (12.20)",
+   "example": "PT = 78,04 − 60,61 = 17,42 µm",
+   "example_result": 0.0174228671276,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3810
+  },
+  {
+   "id": "PV-PZA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Zulässiger Fugendruck Nabe (rein elastisch)",
+   "formula": "p_zul,A = (1 − Q_A²)·R_eLA/(√3·S_PA)",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (15); Roloff/Matek 27 (Q219) (12.17)",
+   "example": "p_zul,A = (1 − 0,5²)·300 (R_eLA)/(√3·1,1) = 118,1 N/mm²",
+   "example_result": 118.094373243,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3820
+  },
+  {
+   "id": "PV-PZI-H",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Zulässiger Fugendruck Hohlwelle",
+   "formula": "p_zul,I = (1 − Q_I²)·R_eLI/(√3·S_PI)",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (16)",
+   "example": "p_zul,I = (1 − 0,2²)·300 (R_eLI)/(√3·1,2) = 138,6 N/mm²",
+   "example_result": 138.564064606,
+   "example_case": "P-PV3 DIN 7190-1 A.3: Hohlwelle D_iI 10, D_aA 125, E_A 70 000, E_I 215 000, R_eLA 150, R_eLI 300, p 50 N/mm², S_P 1,2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3830
+  },
+  {
+   "id": "PV-PZI-V",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Zulässiger Fugendruck Vollwelle",
+   "formula": "p_zul,I = 2·R_eLI/(√3·S_PI)",
+   "unit": "N/mm²",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (17)",
+   "example": "p_zul,I = 2·200 (R_eLI)/(√3·1,1) = 209,9 N/mm²",
+   "example_result": 209.945552433,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3840
+  },
+  {
+   "id": "PV-QA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Durchmesserverhältnis Nabe",
+   "formula": "Q_A = D_F/D_aA",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (10)",
+   "example": "Q_A = 50/100 = 0,5",
+   "example_result": 0.5,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3850
+  },
+  {
+   "id": "PV-QI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Durchmesserverhältnis Welle",
+   "formula": "Q_I = D_iI/D_F (Vollwelle: 0)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (11)",
+   "example": "Q_I = 0/50 = 0",
+   "example_result": 0,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3860
+  },
+  {
+   "id": "PV-RZ",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Rz aus Ra",
+   "formula": "Ra 0,8/1,6/3,2 µm → Rz 6,3/12,5/20 µm",
+   "unit": "µm",
+   "source": "DIN 7190-1:2017 (Q235) Tab. 1",
+   "example": "Nabe: Ra 1,6 µm → Rz 12,5 µm",
+   "example_result": 12.5,
+   "example_case": "P-PV9 DIN 7190-1 Tab. 5: ⌀160 H7/u6, Hohlwelle D_iI 60, Nabe D_aA 320, l_F 160, Stahl vergütet (ϑ_A,zul 300 °C), Welle mit Stickstoff unterkühlt, Ra 1,6/0,8",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3870
+  },
+  {
+   "id": "PV-S-TAA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Tangentialspannung Nabe außen (p_max)",
+   "formula": "σ_tAa = 2·p·Q_A²/(1 − Q_A²)",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.6)",
+   "example": "σ_tAa = 2·113,2·0,25/(1 − 0,25) = 75,46 N/mm²",
+   "example_result": 75.465,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3880
+  },
+  {
+   "id": "PV-S-TAI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Tangentialspannung Nabe innen (p_max)",
+   "formula": "σ_tAi = p·(1 + Q_A²)/(1 − Q_A²); σ_r = −p",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.6)",
+   "example": "σ_tAi = 113,2·(1 + 0,25)/(1 − 0,25) = 188,7 N/mm²",
+   "example_result": 188.6625,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3890
+  },
+  {
+   "id": "PV-S-TIA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Tangentialspannung Welle außen (p_max)",
+   "formula": "σ_tIa = −p·(1 + Q_I²)/(1 − Q_I²)",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.7)",
+   "example": "σ_tIa = −113,2·(1 + 0)/(1 − 0) = -113,2 N/mm²",
+   "example_result": -113.1975,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3900
+  },
+  {
+   "id": "PV-S-TII",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Tangentialspannung Welle innen (p_max)",
+   "formula": "Vollwelle: σ_t = σ_r = −p",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.7), S. 443",
+   "example": "σ_tIi = −113,2 N/mm²",
+   "example_result": -113.1975,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3910
+  },
+  {
+   "id": "PV-S-VA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Vergleichsspannung Nabe innen (SH)",
+   "formula": "σ_vAi = 2·p/(1 − Q_A²)",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.8); Dubbel 2 S. 199",
+   "example": "σ_vAi = 2·113,2/(1 − 0,25) = 301,9 N/mm²",
+   "example_result": 301.86,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3920
+  },
+  {
+   "id": "PV-S-VI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Vergleichsspannung Welle (SH)",
+   "formula": "Vollwelle: σ_vI = p",
+   "unit": "N/mm²",
+   "source": "Roloff/Matek 27 (Q219) (12.8)",
+   "example": "σ_vI = 113,2 N/mm²",
+   "example_result": 113.1975,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3930
+  },
+  {
+   "id": "PV-SPA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Ist-Sicherheit Nabe gegen plastische Dehnung",
+   "formula": "S_PA = (1 − Q_A²)·R_eLA/(√3·p_max)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (15) umgestellt",
+   "example": "S_PA = (1 − 0,25)·300/(√3·113,2) = 1,148",
+   "example_result": 1.14758550823,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3940
+  },
+  {
+   "id": "PV-SPI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Ist-Sicherheit Welle gegen plastische Dehnung",
+   "formula": "S_PI = 2·R_eLI/(√3·p_max)",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (16), (17) umgestellt",
+   "example": "S_PI = 2·200/(√3·113,2) = 2,04",
+   "example_result": 2.04015201463,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3950
+  },
+  {
+   "id": "PV-SR",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Ist-Sicherheit gegen Rutschen",
+   "formula": "S_r,ist = p·A_F·ν_r/(K_A·√(F_ax² + F_t²)) mit p = p_min (Stillstand) bzw. p = p_n (Drehzahl n)",
+   "unit": "1",
+   "source": "Roloff/Matek 27 (Q219) S. 449 (S_H′); DIN 7190-1:2017 (Q235) Gl. (57)",
+   "example": "p = p_n: S_r,ist = 83,34·7854·0,1/(1·4000) = 16,36 (Stillstand mit p_min 90: 17,67)",
+   "example_result": 16.3641383682,
+   "example_case": "P-PV7a DIN 7190-1 A.7 (Fliehkraft): wie A.1 mit p 90 N/mm², ρ 7850 kg/m³, n 10 000 1/min",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3960
+  },
+  {
+   "id": "PV-T",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Übertragbares Drehmoment (p_min)",
+   "formula": "T = π/2·D_F²·l_F·p·ν_ru/S_r",
+   "unit": "N·mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (1)",
+   "example": "T = π/2·50²·50·113,2·0,1/1 = 2223 N·m",
+   "example_result": 2222627.71503,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3970
+  },
+  {
+   "id": "PV-TA",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Erforderliche Fügetemperatur der Nabe",
+   "formula": "ϑ_A,erf = ϑ_R + U_F/(α_A·D_F) + α_I/α_A·(ϑ_I − ϑ_R)",
+   "unit": "°C",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (52); Roloff/Matek 27 (Q219) (12.23)",
+   "example": "ϑ_A,erf = 20 + 125·10⁻³/(11·10⁻⁶·50) + 11/11·(20 − 20) = 247,3 °C",
+   "example_result": 247.272727273,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3980
+  },
+  {
+   "id": "PV-U-MAN",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Übermaß von Hand",
+   "formula": "U_k, U_g eingegeben (U_k ≤ U_i ≤ U_g)",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (6)",
+   "example": "U_k = 75 µm, U_g = 75 µm",
+   "example_result": 0.075,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3990
+  },
+  {
+   "id": "PV-UF",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Übermaß beim Fügen",
+   "formula": "U_F = U_g + U_sϑ",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (51) (mit U_g, Befund B5)",
+   "example": "U_F = 75 + 50 = 125 µm",
+   "example_result": 0.125,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4000
+  },
+  {
+   "id": "PV-UG",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Höchstübermaß",
+   "formula": "U_g = A_oI − A_uA",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (4)",
+   "example": "U_g = 62 − 0 = 62 µm",
+   "example_result": 0.062,
+   "example_case": "P-PV8 Roloff/Matek 27 Bsp. 12.2: Riemenscheibe EN-GJL-250 (E 115 000, μ 0,25, R_m 180, S 2) auf E295, D_F 80, D_aA 190, l_F 115, T 1200 N·m, S_H 1,5, ν 0,16, Rz 6,3/6,3, H6/r6, Fügespiel Ü_o′/2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4010
+  },
+  {
+   "id": "PV-UK",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Mindestübermaß",
+   "formula": "U_k = A_uI − A_oA",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (5)",
+   "example": "U_k = 43 − 19 = 24 µm",
+   "example_result": 0.024,
+   "example_case": "P-PV8 Roloff/Matek 27 Bsp. 12.2: Riemenscheibe EN-GJL-250 (E 115 000, μ 0,25, R_m 180, S 2) auf E295, D_F 80, D_aA 190, l_F 115, T 1200 N·m, S_H 1,5, ν 0,16, Rz 6,3/6,3, H6/r6, Fügespiel Ü_o′/2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4020
+  },
+  {
+   "id": "PV-UMAX",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Größtes fügbares Übermaß",
+   "formula": "U_max = D_F·[α_A·(ϑ_A,zul − ϑ_R) − α_I·(ϑ_I − ϑ_R)] − U_sϑ",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (53)",
+   "example": "U_max = 160·[11·10⁻⁶·(300 − 20) − 8,5·10⁻⁶·(-195,8 − 20)] − 160·10⁻³ = 626,3 µm",
+   "example_result": 0.626288,
+   "example_case": "P-PV9 DIN 7190-1 Tab. 5: ⌀160 H7/u6, Hohlwelle D_iI 60, Nabe D_aA 320, l_F 160, Stahl vergütet (ϑ_A,zul 300 °C), Welle mit Stickstoff unterkühlt, Ra 1,6/0,8",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4030
+  },
+  {
+   "id": "PV-UO",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Größtes zulässiges Übermaß",
+   "formula": "Ü_o = K·min(p_zul,A; p_zul,I)·D_F/E_A + G",
+   "unit": "mm",
+   "source": "Roloff/Matek 27 (Q219) (12.18), (12.19)",
+   "example": "Ü_o = 2,6667·118,1·50/2,15·10⁵ + 4,8·10⁻³ = 78,04 µm",
+   "example_result": 0.078036820616,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4040
+  },
+  {
+   "id": "PV-US",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Fügespiel",
+   "formula": "U_sϑ = 0,001·D_F",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (50)",
+   "example": "U_sϑ = 0,001·50 = 50 µm",
+   "example_result": 0.05,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4050
+  },
+  {
+   "id": "PV-UU",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Kleinstes erforderliches Übermaß",
+   "formula": "Ü_u = K·p_erf·D_F/E_A + G",
+   "unit": "mm",
+   "source": "Roloff/Matek 27 (Q219) (12.14), (12.16); DIN 7190-1:2017 (Q235) Gl. (18), (7)",
+   "example": "Ü_u = 2,6667·90·50/2,15·10⁵ + 4,8·10⁻³ = 60,61 µm",
+   "example_result": 0.0606139534884,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4060
+  },
+  {
+   "id": "PV-UW",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Wirksames Übermaß",
+   "formula": "U_w = U − G",
+   "unit": "mm",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (7)",
+   "example": "Mindestübermaß: U_w,k = 75 − 4,8 = 70,2 µm",
+   "example_result": 0.0702,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4070
+  },
+  {
+   "id": "PV-XI",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Bezogenes wirksames Übermaß",
+   "formula": "ξ_w = U_w/D_F",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (12)",
+   "example": "Mindestübermaß: ξ_w,k = 70,2·10⁻³/50 = 1,404·10⁻³",
+   "example_result": 0.001404,
+   "example_case": "P-PV2 DIN 7190-1 A.2: wie A.1, U = 75 µm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4080
+  },
+  {
+   "id": "PV-XIERF",
+   "area": "Pressverband",
+   "module": "verbindungen",
+   "quantity": "Bezogenes wirksames Übermaß für p_erf",
+   "formula": "ξ_w = K·p/E_A",
+   "unit": "1",
+   "source": "DIN 7190-1:2017 (Q235) Gl. (18)",
+   "example": "ξ_w = 2,6667·90/2,15·10⁵ = 1,1163·10⁻³",
+   "example_result": 0.00111627906977,
+   "example_case": "P-PV1 DIN 7190-1 A.1: D_F 50, D_aA 100, Vollwelle, E 215 000, μ 0,3, Rz 6/6, p 90 N/mm² (über F_ax), S_P 1,1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-08",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 4090
+  },
+  {
    "id": "Q-DH-A",
    "area": "Querschnitte",
    "module": "gemeinsam",
@@ -5833,7 +6972,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3430
+   "sort": 4100
   },
   {
    "id": "Q-DH-ai",
@@ -5850,7 +6989,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3440
+   "sort": 4110
   },
   {
    "id": "Q-DH-I",
@@ -5867,7 +7006,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3450
+   "sort": 4120
   },
   {
    "id": "Q-DH-K",
@@ -5884,7 +7023,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3460
+   "sort": 4130
   },
   {
    "id": "Q-DH-W",
@@ -5901,7 +7040,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3470
+   "sort": 4140
   },
   {
    "id": "Q-DH-WT",
@@ -5918,7 +7057,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3480
+   "sort": 4150
   },
   {
    "id": "Q-DV-A",
@@ -5935,7 +7074,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3490
+   "sort": 4160
   },
   {
    "id": "Q-DV-e",
@@ -5952,7 +7091,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3500
+   "sort": 4170
   },
   {
    "id": "Q-DV-I",
@@ -5969,7 +7108,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3510
+   "sort": 4180
   },
   {
    "id": "Q-DV-K",
@@ -5986,7 +7125,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3520
+   "sort": 4190
   },
   {
    "id": "Q-DV-W",
@@ -6003,7 +7142,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3530
+   "sort": 4200
   },
   {
    "id": "Q-DV-WT",
@@ -6020,7 +7159,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3540
+   "sort": 4210
   },
   {
    "id": "Q-i",
@@ -6037,7 +7176,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3550
+   "sort": 4220
   },
   {
    "id": "Q-IP-A",
@@ -6054,7 +7193,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3560
+   "sort": 4230
   },
   {
    "id": "Q-IP-IY",
@@ -6071,7 +7210,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3570
+   "sort": 4240
   },
   {
    "id": "Q-IP-IZ",
@@ -6088,7 +7227,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3580
+   "sort": 4250
   },
   {
    "id": "Q-IP-K",
@@ -6105,7 +7244,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3590
+   "sort": 4260
   },
   {
    "id": "Q-IP-KA",
@@ -6122,7 +7261,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3600
+   "sort": 4270
   },
   {
    "id": "Q-IP-KAZ",
@@ -6139,7 +7278,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3610
+   "sort": 4280
   },
   {
    "id": "Q-IP-S",
@@ -6156,7 +7295,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3620
+   "sort": 4290
   },
   {
    "id": "Q-IP-SZ",
@@ -6173,7 +7312,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3630
+   "sort": 4300
   },
   {
    "id": "Q-IP-W",
@@ -6190,7 +7329,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3640
+   "sort": 4310
   },
   {
    "id": "Q-IP-WT",
@@ -6207,7 +7346,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3650
+   "sort": 4320
   },
   {
    "id": "Q-IP-WZ",
@@ -6224,7 +7363,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3660
+   "sort": 4330
   },
   {
    "id": "Q-LP-A",
@@ -6241,7 +7380,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3670
+   "sort": 4340
   },
   {
    "id": "Q-LP-AL",
@@ -6258,7 +7397,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3680
+   "sort": 4350
   },
   {
    "id": "Q-LP-I1",
@@ -6275,7 +7414,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3690
+   "sort": 4360
   },
   {
    "id": "Q-LP-I2",
@@ -6292,7 +7431,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3700
+   "sort": 4370
   },
   {
    "id": "Q-LP-IY",
@@ -6309,7 +7448,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3710
+   "sort": 4380
   },
   {
    "id": "Q-LP-IYZ",
@@ -6326,7 +7465,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3720
+   "sort": 4390
   },
   {
    "id": "Q-LP-IZ",
@@ -6343,7 +7482,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3730
+   "sort": 4400
   },
   {
    "id": "Q-LP-K",
@@ -6360,7 +7499,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3740
+   "sort": 4410
   },
   {
    "id": "Q-LP-KA",
@@ -6377,7 +7516,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3750
+   "sort": 4420
   },
   {
    "id": "Q-LP-S",
@@ -6394,7 +7533,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3760
+   "sort": 4430
   },
   {
    "id": "Q-LP-W",
@@ -6411,7 +7550,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3770
+   "sort": 4440
   },
   {
    "id": "Q-LP-WT",
@@ -6428,7 +7567,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3780
+   "sort": 4450
   },
   {
    "id": "Q-LP-YS",
@@ -6445,7 +7584,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3790
+   "sort": 4460
   },
   {
    "id": "Q-LP-ZS",
@@ -6462,7 +7601,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 3800
+   "sort": 4470
   },
   {
    "id": "Q-m",
@@ -6479,7 +7618,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3810
+   "sort": 4480
   },
   {
    "id": "Q-RE-A",
@@ -6496,7 +7635,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3820
+   "sort": 4490
   },
   {
    "id": "Q-RE-I",
@@ -6513,7 +7652,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3830
+   "sort": 4500
   },
   {
    "id": "Q-RE-K",
@@ -6530,7 +7669,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3840
+   "sort": 4510
   },
   {
    "id": "Q-RE-W",
@@ -6547,7 +7686,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3850
+   "sort": 4520
   },
   {
    "id": "Q-RE-WT",
@@ -6564,7 +7703,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3860
+   "sort": 4530
   },
   {
    "id": "Q-RH-A",
@@ -6581,7 +7720,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3870
+   "sort": 4540
   },
   {
    "id": "Q-RH-d",
@@ -6598,7 +7737,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3880
+   "sort": 4550
   },
   {
    "id": "Q-RH-I",
@@ -6615,7 +7754,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3890
+   "sort": 4560
   },
   {
    "id": "Q-RH-K",
@@ -6632,7 +7771,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3900
+   "sort": 4570
   },
   {
    "id": "Q-RH-W",
@@ -6649,7 +7788,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3910
+   "sort": 4580
   },
   {
    "id": "Q-RH-WT",
@@ -6666,7 +7805,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3920
+   "sort": 4590
   },
   {
    "id": "Q-RR-A",
@@ -6683,7 +7822,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3930
+   "sort": 4600
   },
   {
    "id": "Q-RR-AM",
@@ -6700,7 +7839,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3940
+   "sort": 4610
   },
   {
    "id": "Q-RR-I",
@@ -6717,7 +7856,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3950
+   "sort": 4620
   },
   {
    "id": "Q-RR-K",
@@ -6734,7 +7873,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3960
+   "sort": 4630
   },
   {
    "id": "Q-RR-W",
@@ -6751,7 +7890,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3970
+   "sort": 4640
   },
   {
    "id": "Q-RR-WT",
@@ -6768,7 +7907,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3980
+   "sort": 4650
   },
   {
    "id": "Q-RV-A",
@@ -6785,7 +7924,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3990
+   "sort": 4660
   },
   {
    "id": "Q-RV-I",
@@ -6802,7 +7941,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4000
+   "sort": 4670
   },
   {
    "id": "Q-RV-K",
@@ -6819,7 +7958,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4010
+   "sort": 4680
   },
   {
    "id": "Q-RV-W",
@@ -6836,7 +7975,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4020
+   "sort": 4690
   },
   {
    "id": "Q-RV-WT",
@@ -6853,7 +7992,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4030
+   "sort": 4700
   },
   {
    "id": "Q-SIGO",
@@ -6870,7 +8009,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4040
+   "sort": 4710
   },
   {
    "id": "Q-SIGU",
@@ -6887,7 +8026,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4050
+   "sort": 4720
   },
   {
    "id": "Q-TP-A",
@@ -6904,7 +8043,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4060
+   "sort": 4730
   },
   {
    "id": "Q-TP-IY",
@@ -6921,7 +8060,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4070
+   "sort": 4740
   },
   {
    "id": "Q-TP-IZ",
@@ -6938,7 +8077,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4080
+   "sort": 4750
   },
   {
    "id": "Q-TP-K",
@@ -6955,7 +8094,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4090
+   "sort": 4760
   },
   {
    "id": "Q-TP-KA",
@@ -6972,7 +8111,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4100
+   "sort": 4770
   },
   {
    "id": "Q-TP-S",
@@ -6989,7 +8128,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4110
+   "sort": 4780
   },
   {
    "id": "Q-TP-W",
@@ -7006,7 +8145,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4120
+   "sort": 4790
   },
   {
    "id": "Q-TP-WT",
@@ -7023,7 +8162,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4130
+   "sort": 4800
   },
   {
    "id": "Q-TP-ZS",
@@ -7040,7 +8179,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4140
+   "sort": 4810
   },
   {
    "id": "Q-UP-A",
@@ -7057,7 +8196,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4150
+   "sort": 4820
   },
   {
    "id": "Q-UP-EM",
@@ -7074,7 +8213,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4160
+   "sort": 4830
   },
   {
    "id": "Q-UP-IY",
@@ -7091,7 +8230,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4170
+   "sort": 4840
   },
   {
    "id": "Q-UP-IZ",
@@ -7108,7 +8247,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4180
+   "sort": 4850
   },
   {
    "id": "Q-UP-K",
@@ -7125,7 +8264,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4190
+   "sort": 4860
   },
   {
    "id": "Q-UP-KA",
@@ -7142,7 +8281,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4200
+   "sort": 4870
   },
   {
    "id": "Q-UP-KAZ",
@@ -7159,7 +8298,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4210
+   "sort": 4880
   },
   {
    "id": "Q-UP-S",
@@ -7176,7 +8315,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4220
+   "sort": 4890
   },
   {
    "id": "Q-UP-SZ",
@@ -7193,7 +8332,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4230
+   "sort": 4900
   },
   {
    "id": "Q-UP-W",
@@ -7210,7 +8349,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4240
+   "sort": 4910
   },
   {
    "id": "Q-UP-WT",
@@ -7227,7 +8366,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4250
+   "sort": 4920
   },
   {
    "id": "Q-UP-WZ",
@@ -7244,7 +8383,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4260
+   "sort": 4930
   },
   {
    "id": "Q-UP-YS",
@@ -7261,7 +8400,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4270
+   "sort": 4940
   },
   {
    "id": "RH-A",
@@ -7278,7 +8417,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4280
+   "sort": 4950
   },
   {
    "id": "RH-A-RE",
@@ -7295,7 +8434,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4290
+   "sort": 4960
   },
   {
    "id": "RH-A-RI",
@@ -7312,7 +8451,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4300
+   "sort": 4970
   },
   {
    "id": "RH-AU-MAN",
@@ -7329,7 +8468,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4310
+   "sort": 4980
   },
   {
    "id": "RH-BE",
@@ -7346,7 +8485,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4320
+   "sort": 4990
   },
   {
    "id": "RH-D-BIS",
@@ -7363,7 +8502,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4330
+   "sort": 5000
   },
   {
    "id": "RH-D-DN",
@@ -7380,7 +8519,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4340
+   "sort": 5010
   },
   {
    "id": "RH-DH",
@@ -7397,7 +8536,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4350
+   "sort": 5020
   },
   {
    "id": "RH-DI",
@@ -7414,7 +8553,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4360
+   "sort": 5030
   },
   {
    "id": "RH-DP-ERF",
@@ -7431,7 +8570,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4370
+   "sort": 5040
   },
   {
    "id": "RH-DP-GEO",
@@ -7448,7 +8587,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4380
+   "sort": 5050
   },
   {
    "id": "RH-DP-R",
@@ -7465,7 +8604,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4390
+   "sort": 5060
   },
   {
    "id": "RH-DP-V",
@@ -7482,7 +8621,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4400
+   "sort": 5070
   },
   {
    "id": "RH-DP-Z",
@@ -7499,7 +8638,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4410
+   "sort": 5080
   },
   {
    "id": "RH-DS-AH",
@@ -7516,7 +8655,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4420
+   "sort": 5090
   },
   {
    "id": "RH-DS-AK",
@@ -7533,7 +8672,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4430
+   "sort": 5100
   },
   {
    "id": "RH-DS-AR",
@@ -7550,7 +8689,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4440
+   "sort": 5110
   },
   {
    "id": "RH-DS-AW",
@@ -7567,7 +8706,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4450
+   "sort": 5120
   },
   {
    "id": "RH-DS-J",
@@ -7584,7 +8723,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4460
+   "sort": 5130
   },
   {
    "id": "RH-DS-L",
@@ -7601,7 +8740,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4470
+   "sort": 5140
   },
   {
    "id": "RH-DS-N",
@@ -7618,7 +8757,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4480
+   "sort": 5150
   },
   {
    "id": "RH-DS-P",
@@ -7635,7 +8774,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4490
+   "sort": 5160
   },
   {
    "id": "RH-DS-PSI-D",
@@ -7652,7 +8791,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4500
+   "sort": 5170
   },
   {
    "id": "RH-DS-PSI-K",
@@ -7669,7 +8808,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4510
+   "sort": 5180
   },
   {
    "id": "RH-DS-TR",
@@ -7686,7 +8825,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4520
+   "sort": 5190
   },
   {
    "id": "RH-EPS",
@@ -7703,7 +8842,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4530
+   "sort": 5200
   },
   {
    "id": "RH-H-E",
@@ -7720,7 +8859,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4540
+   "sort": 5210
   },
   {
    "id": "RH-H-P",
@@ -7737,7 +8876,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4550
+   "sort": 5220
   },
   {
    "id": "RH-H-PG",
@@ -7754,7 +8893,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4560
+   "sort": 5230
   },
   {
    "id": "RH-HV",
@@ -7771,7 +8910,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4570
+   "sort": 5240
   },
   {
    "id": "RH-K",
@@ -7788,7 +8927,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4580
+   "sort": 5250
   },
   {
    "id": "RH-L-CB",
@@ -7805,7 +8944,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4590
+   "sort": 5260
   },
   {
    "id": "RH-L-EX",
@@ -7822,7 +8961,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4600
+   "sort": 5270
   },
   {
    "id": "RH-L-LAM",
@@ -7839,7 +8978,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4610
+   "sort": 5280
   },
   {
    "id": "RH-L-LAM-PHI",
@@ -7856,7 +8995,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4620
+   "sort": 5290
   },
   {
    "id": "RH-M-BETA",
@@ -7873,7 +9012,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4630
+   "sort": 5300
   },
   {
    "id": "RH-M-CB",
@@ -7890,7 +9029,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4640
+   "sort": 5310
   },
   {
    "id": "RH-M-CV",
@@ -7907,7 +9046,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4650
+   "sort": 5320
   },
   {
    "id": "RH-M-DP",
@@ -7924,7 +9063,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4660
+   "sort": 5330
   },
   {
    "id": "RH-M-DW",
@@ -7941,7 +9080,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4670
+   "sort": 5340
   },
   {
    "id": "RH-M-DWV",
@@ -7958,7 +9097,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4680
+   "sort": 5350
   },
   {
    "id": "RH-M-N",
@@ -7975,7 +9114,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4690
+   "sort": 5360
   },
   {
    "id": "RH-M-Q",
@@ -7992,7 +9131,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4700
+   "sort": 5370
   },
   {
    "id": "RH-M-QIT",
@@ -8009,7 +9148,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4710
+   "sort": 5380
   },
   {
    "id": "RH-M-ZETA",
@@ -8026,7 +9165,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4720
+   "sort": 5390
   },
   {
    "id": "RH-N-KAV",
@@ -8043,7 +9182,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4730
+   "sort": 5400
   },
   {
    "id": "RH-N-RE",
@@ -8060,7 +9199,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4740
+   "sort": 5410
   },
   {
    "id": "RH-N-V",
@@ -8077,7 +9216,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4750
+   "sort": 5420
   },
   {
    "id": "RH-P-HYD",
@@ -8094,7 +9233,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4760
+   "sort": 5430
   },
   {
    "id": "RH-P-W",
@@ -8111,7 +9250,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4770
+   "sort": 5440
   },
   {
    "id": "RH-PHI",
@@ -8128,7 +9267,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4780
+   "sort": 5450
   },
   {
    "id": "RH-Q-BIS",
@@ -8145,7 +9284,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4790
+   "sort": 5460
   },
   {
    "id": "RH-RE",
@@ -8162,7 +9301,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4800
+   "sort": 5470
   },
   {
    "id": "RH-U-RE",
@@ -8179,7 +9318,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4810
+   "sort": 5480
   },
   {
    "id": "RH-U-RI",
@@ -8196,7 +9335,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4820
+   "sort": 5490
   },
   {
    "id": "RH-V",
@@ -8213,7 +9352,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4830
+   "sort": 5500
   },
   {
    "id": "RH-Z-BC",
@@ -8230,7 +9369,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4840
+   "sort": 5510
   },
   {
    "id": "RH-Z-IP",
@@ -8247,7 +9386,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4850
+   "sort": 5520
   },
   {
    "id": "RH-Z-MAN",
@@ -8264,7 +9403,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4860
+   "sort": 5530
   },
   {
    "id": "RH-Z-TAB",
@@ -8281,7 +9420,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4870
+   "sort": 5540
   },
   {
    "id": "T-PHI1",
@@ -8298,7 +9437,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 4880
+   "sort": 5550
   },
   {
    "id": "T-PHI2",
@@ -8315,7 +9454,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 4890
+   "sort": 5560
   },
   {
    "id": "T-TA",
@@ -8332,7 +9471,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 4900
+   "sort": 5570
   },
   {
    "id": "T-TAU",
@@ -8349,7 +9488,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 4910
+   "sort": 5580
   },
   {
    "id": "V-B",
@@ -8366,7 +9505,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4920
+   "sort": 5590
   },
   {
    "id": "V-BL",
@@ -8383,7 +9522,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4930
+   "sort": 5600
   },
   {
    "id": "V-CK-EE",
@@ -8400,7 +9539,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4940
+   "sort": 5610
   },
   {
    "id": "V-CK-EG",
@@ -8417,7 +9556,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4950
+   "sort": 5620
   },
   {
    "id": "V-CK-GG",
@@ -8434,7 +9573,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4960
+   "sort": 5630
   },
   {
    "id": "V-CK-KR",
@@ -8451,7 +9590,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4970
+   "sort": 5640
   },
   {
    "id": "V-EI",
@@ -8468,7 +9607,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4980
+   "sort": 5650
   },
   {
    "id": "V-EW",
@@ -8485,7 +9624,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4990
+   "sort": 5660
   },
   {
    "id": "V-FN",
@@ -8502,7 +9641,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5000
+   "sort": 5670
   },
   {
    "id": "V-MB",
@@ -8519,7 +9658,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 5010
+   "sort": 5680
   },
   {
    "id": "V-NR",
@@ -8536,7 +9675,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5020
+   "sort": 5690
   },
   {
    "id": "V-NZ",
@@ -8553,7 +9692,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5030
+   "sort": 5700
   },
   {
    "id": "V-OM",
@@ -8570,7 +9709,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5040
+   "sort": 5710
   },
   {
    "id": "V-PH-EE",
@@ -8587,7 +9726,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5050
+   "sort": 5720
   },
   {
    "id": "V-PH-EG",
@@ -8604,7 +9743,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5060
+   "sort": 5730
   },
   {
    "id": "V-PH-GG",
@@ -8621,7 +9760,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5070
+   "sort": 5740
   },
   {
    "id": "V-PH-KR",
@@ -8638,7 +9777,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5080
+   "sort": 5750
   },
   {
    "id": "V-RQ",
@@ -8655,7 +9794,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5090
+   "sort": 5760
   },
   {
    "id": "W-BB",
@@ -8672,7 +9811,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 5100
+   "sort": 5770
   },
   {
    "id": "W-E",
@@ -8681,7 +9820,7 @@
    "quantity": "E-Modul",
    "formula": "E (Werkstoffdatenbank, Standardvariante)",
    "unit": "MPa",
-   "source": "WDB 1.1.2",
+   "source": "WDB 1.1.3",
    "example": "70 GPa",
    "example_result": 70000,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -8689,7 +9828,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5110
+   "sort": 5780
   },
   {
    "id": "W-G",
@@ -8706,7 +9845,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 5120
+   "sort": 5790
   },
   {
    "id": "W-G-DB",
@@ -8723,7 +9862,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5130
+   "sort": 5800
   },
   {
    "id": "W-RHO",
@@ -8732,7 +9871,7 @@
    "quantity": "Dichte",
    "formula": "ρ (Werkstoffdatenbank)",
    "unit": "kg/m³",
-   "source": "WDB 1.1.2",
+   "source": "WDB 1.1.3",
    "example": "2700 kg/m³",
    "example_result": 2700,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -8740,7 +9879,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5140
+   "sort": 5810
   },
   {
    "id": "W-RM",
@@ -8757,7 +9896,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 5150
+   "sort": 5820
   },
   {
    "id": "W-RP",
@@ -8774,7 +9913,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 5160
+   "sort": 5830
   },
   {
    "id": "Z-DL",
@@ -8791,7 +9930,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5170
+   "sort": 5840
   },
   {
    "id": "Z-DL2",
@@ -8808,7 +9947,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 5180
+   "sort": 5850
   },
   {
    "id": "Z-NMAX",
@@ -8825,7 +9964,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5190
+   "sort": 5860
   },
   {
    "id": "Z-QG",
@@ -8842,7 +9981,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5200
+   "sort": 5870
   },
   {
    "id": "Z-SIG",
@@ -8859,7 +9998,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5210
+   "sort": 5880
   },
   {
    "id": "Z-SIG2",
@@ -8876,7 +10015,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 5220
+   "sort": 5890
   }
  ]
 }

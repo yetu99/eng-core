@@ -634,6 +634,12 @@ fluid.add_cases(cases, ref)
 import kinematik
 kinematik.add_cases(cases, ref)
 
+# ---------------------------------------------------------------- Pressverband (eng-core 0.17.0, Modul verbindungen)
+# Unabhängige Python-Umsetzung in verification/verbindungen.py (Lamé-Verschiebungen statt K, brentq, eigener Fachdatenleser,
+# eigener Passungsvorschlag, Einzelwerte ISO 286-2) und Literaturfälle DIN 7190-1 Anhang A, Roloff/Matek 27 Bsp. 12.2.
+import verbindungen
+verbindungen.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

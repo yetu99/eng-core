@@ -483376,5 +483376,7640 @@
    "tW": 195415.1583649332
   },
   "tol": 1e-12
+ },
+ {
+  "id": "P-PV1 PV",
+  "case": {
+   "id": "P-PV1 PV",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": null,
+    "T": 0,
+    "Fax": 70685.83470577035,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 7853.981633974483,
+   "G": 0.0048000000000000004,
+   "pzulA": 118.09437324333253,
+   "pzulI": 209.94555243259117,
+   "K": 2.666666666666667,
+   "FR": 70685.83470577035,
+   "perf": 90.0,
+   "Uu": 0.0606139534883721,
+   "Uo": 0.07803682061602017,
+   "PT": 0.017422867127648074,
+   "nCand": 0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV1 PV Literatur",
+  "case": {
+   "id": "P-PV1 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": null,
+    "T": 0,
+    "Fax": 70685.83470577035,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "pzulA": 118.1,
+   "pzulI": 210,
+   "Uu": 0.0608
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "P-PV2 PV",
+  "case": {
+   "id": "P-PV2 PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.075,
+     "Ug": 0.075
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 7853.981633974483,
+   "G": 0.0048000000000000004,
+   "pzulA": 118.09437324333253,
+   "pzulI": 209.94555243259117,
+   "K": 2.666666666666667,
+   "FR": 0.0,
+   "Uk": 0.075,
+   "Ug": 0.075,
+   "ep_min": 0.0,
+   "Uw_min": 0.0702,
+   "xi_min": 0.0014039999999999999,
+   "p_min": 113.19749999999999,
+   "ep_max": 0.0,
+   "Uw_max": 0.0702,
+   "xi_max": 0.0014039999999999999,
+   "p_max": 113.19749999999999,
+   "T": 2222627.715029566,
+   "Faxt": 88905.10860118264,
+   "SPA": 1.1475855082282367,
+   "SPI": 2.040152014627976,
+   "tAi": 188.66250000000002,
+   "tAa": 75.465,
+   "tIa": -113.1975,
+   "tIi": -113.1975,
+   "vA": 301.86,
+   "vI": 113.1975,
+   "dDaA": 0.035100000000000006,
+   "Us": 0.05,
+   "UF": 0.125,
+   "thetaA": 247.27272727272728
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV2 PV Literatur",
+  "case": {
+   "id": "P-PV2 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.075,
+     "Ug": 0.075
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "p_max": 112.9
+  },
+  "tol": 0.005
+ },
+ {
+  "id": "P-PV3 PV",
+  "case": {
+   "id": "P-PV3 PV",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 125,
+    "DiI": 10,
+    "hub": {
+     "label": "",
+     "E": 70000,
+     "mu": 0.3,
+     "Re": 150,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": null,
+    "T": 0,
+    "Fax": 39269.90816987241,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.2,
+    "SPI": 1.2,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.4,
+   "QI": 0.2,
+   "AF": 7853.981633974483,
+   "G": 0.0048000000000000004,
+   "pzulA": 60.62177826491071,
+   "pzulI": 138.5640646055102,
+   "K": 1.9359911406423036,
+   "FR": 39269.90816987241,
+   "perf": 49.99999999999999,
+   "Uu": 0.07394254073722512,
+   "Uo": 0.08863087546489234,
+   "PT": 0.01468833472766723,
+   "nCand": 0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV3 PV Literatur",
+  "case": {
+   "id": "P-PV3 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 125,
+    "DiI": 10,
+    "hub": {
+     "label": "",
+     "E": 70000,
+     "mu": 0.3,
+     "Re": 150,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": null,
+    "T": 0,
+    "Fax": 39269.90816987241,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.2,
+    "SPI": 1.2,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "pzulA": 60.6,
+   "pzulI": 138.6,
+   "K": 1.936,
+   "Uu": 0.0738
+  },
+  "tol": 0.003
+ },
+ {
+  "id": "P-PV4 PV",
+  "case": {
+   "id": "P-PV4 PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 125,
+    "DiI": 10,
+    "hub": {
+     "label": "",
+     "E": 70000,
+     "mu": 0.3,
+     "Re": 150,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.065,
+     "Ug": 0.065
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.2,
+    "SPI": 1.2,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.4,
+   "QI": 0.2,
+   "AF": 7853.981633974483,
+   "G": 0.0048000000000000004,
+   "pzulA": 60.62177826491071,
+   "pzulI": 138.5640646055102,
+   "K": 1.9359911406423036,
+   "FR": 0.0,
+   "Uk": 0.065,
+   "Ug": 0.065,
+   "ep_min": 0.0,
+   "Uw_min": 0.060200000000000004,
+   "xi_min": 0.001204,
+   "p_min": 43.533257064409106,
+   "ep_max": 0.0,
+   "Uw_max": 0.060200000000000004,
+   "xi_max": 0.001204,
+   "p_max": 43.533257064409106,
+   "T": 854773.5036273976,
+   "Faxt": 34190.940145095905,
+   "SPA": 1.671047351459648,
+   "SPI": 3.819536803336338,
+   "tAi": 60.117354993707806,
+   "tAa": 16.584097929298707,
+   "tIa": -47.16102848644319,
+   "tIi": -90.6942855508523,
+   "vA": 103.6506120581169,
+   "vI": 90.6942855508523,
+   "dDaA": 0.029614460588033405,
+   "Us": 0.05,
+   "UF": 0.115,
+   "thetaA": 229.0909090909091
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV4 PV Literatur",
+  "case": {
+   "id": "P-PV4 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 125,
+    "DiI": 10,
+    "hub": {
+     "label": "",
+     "E": 70000,
+     "mu": 0.3,
+     "Re": 150,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.065,
+     "Ug": 0.065
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.2,
+    "SPI": 1.2,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "p_max": 43.5
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "P-PV5 PV",
+  "case": {
+   "id": "P-PV5 PV",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "fit": null,
+    "T": 0,
+    "Fax": 172787.59594743865,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.25,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": true,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 7853.981633974483,
+   "G": 0.0064,
+   "pzulA": 138.56406460551017,
+   "pzulI": 419.89110486518234,
+   "K": 2.666666666666667,
+   "FR": 172787.59594743865,
+   "perf": 220.00000000000003,
+   "pPA": 320.15096902745165,
+   "pPI": 461.88021535170066,
+   "zetaZul": 1.3077177873909491,
+   "xiZul": 0.003673829200349008,
+   "Uu": 0.1492497105920236,
+   "Uo": 0.1900914600174504,
+   "PT": 0.04084174942542679,
+   "nCand": 0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV5 PV Literatur",
+  "case": {
+   "id": "P-PV5 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "fit": null,
+    "T": 0,
+    "Fax": 172787.59594743865,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.25,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": true,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "pPA": 320.2,
+   "pPI": 462.0,
+   "Uu": 0.1494,
+   "zetaZul": 1.308
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "P-PV6 PV",
+  "case": {
+   "id": "P-PV6 PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.19,
+     "Ug": 0.19
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.25,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": true,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 7853.981633974483,
+   "G": 0.0064,
+   "pzulA": 138.56406460551017,
+   "pzulI": 419.89110486518234,
+   "K": 2.666666666666667,
+   "FR": 0.0,
+   "pPA": 320.15096902745165,
+   "pPI": 461.88021535170066,
+   "zetaZul": 1.3077177873909491,
+   "xiZul": 0.003673829200349008,
+   "Uk": 0.19,
+   "Ug": 0.19,
+   "zeta_min": 1.3073921903733963,
+   "q_min": 0.23642477981644894,
+   "ep_min": 1.0,
+   "Uw_min": 0.1836,
+   "xi_min": 0.0036720000000000004,
+   "p_min": 256.0549212169937,
+   "zeta_max": 1.3073921903733963,
+   "q_max": 0.23642477981644894,
+   "ep_max": 1.0,
+   "Uw_max": 0.1836,
+   "xi_max": 0.0036720000000000004,
+   "p_max": 256.0549212169937,
+   "T": 5027626.621317629,
+   "Faxt": 201105.0648527052,
+   "SPA": 0.676437226567128,
+   "SPI": 1.8038326041790085,
+   "tAi": 426.75820202832284,
+   "tAa": 170.70328081132914,
+   "tIa": -256.0549212169937,
+   "tIi": -256.0549212169937,
+   "vA": 682.8131232453165,
+   "vI": 256.0549212169937,
+   "dDaA": 0.07939687479596705,
+   "Us": 0.05,
+   "UF": 0.24,
+   "thetaA": 456.3636363636363
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV6 PV Literatur",
+  "case": {
+   "id": "P-PV6 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 400,
+     "Rm": null,
+     "A": 15,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 8
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.19,
+     "Ug": 0.19
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.25,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": true,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "zeta_max": 1.309,
+   "p_max": 256.4,
+   "q_max": 0.237
+  },
+  "tol": 0.003
+ },
+ {
+  "id": "P-PV7a PV",
+  "case": {
+   "id": "P-PV7a PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.06061395348837209,
+     "Ug": 0.06061395348837209
+    },
+    "T": 100000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": 10000
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 7853.981633974483,
+   "G": 0.0048000000000000004,
+   "pzulA": 118.09437324333253,
+   "pzulI": 209.94555243259117,
+   "K": 2.666666666666667,
+   "FR": 4000.0,
+   "perf": 5.09295817894065,
+   "Uk": 0.06061395348837209,
+   "Ug": 0.06061395348837209,
+   "ep_min": 0.0,
+   "Uw_min": 0.05581395348837209,
+   "xi_min": 0.0011162790697674418,
+   "p_min": 90.0,
+   "ep_max": 0.0,
+   "Uw_max": 0.05581395348837209,
+   "xi_max": 0.0011162790697674418,
+   "p_max": 90.0,
+   "T": 1767145.8676442588,
+   "Faxt": 70685.83470577035,
+   "SPA": 1.4433756729740645,
+   "SPI": 2.5660011963983367,
+   "tAi": 150.0,
+   "tAa": 60.0,
+   "tIa": -90.0,
+   "tIi": -90.0,
+   "vA": 240.0,
+   "vI": 90.0,
+   "dDaA": 0.02790697674418605,
+   "Us": 0.05,
+   "UF": 0.1106139534883721,
+   "thetaA": 221.11627906976744,
+   "u": 52359.87755982989,
+   "uab": 192505.79970056884,
+   "pn": 83.34187234348386,
+   "ng": 612.7649919240768,
+   "lim54": 0.0013250794713066758,
+   "lim55": 0.0037209302325581397,
+   "ratio10": 0.8601115984772714,
+   "Tn": 1636413.8368169204,
+   "SrIst": 16.364138368169204
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV7a PV Literatur",
+  "case": {
+   "id": "P-PV7a PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.06061395348837209,
+     "Ug": 0.06061395348837209
+    },
+    "T": 100000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": 10000
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "uab": 192500.0,
+   "u": 52400.0,
+   "lim54": 0.001325,
+   "lim55": 0.003721
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "P-PV7b PV",
+  "case": {
+   "id": "P-PV7b PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.06061395348837209,
+     "Ug": 0.06061395348837209
+    },
+    "T": 100000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": 20000
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 7853.981633974483,
+   "G": 0.0048000000000000004,
+   "pzulA": 118.09437324333253,
+   "pzulI": 209.94555243259117,
+   "K": 2.666666666666667,
+   "FR": 4000.0,
+   "perf": 5.09295817894065,
+   "Uk": 0.06061395348837209,
+   "Ug": 0.06061395348837209,
+   "ep_min": 0.0,
+   "Uw_min": 0.05581395348837209,
+   "xi_min": 0.0011162790697674418,
+   "p_min": 90.0,
+   "ep_max": 0.0,
+   "Uw_max": 0.05581395348837209,
+   "xi_max": 0.0011162790697674418,
+   "p_max": 90.0,
+   "T": 1767145.8676442588,
+   "Faxt": 70685.83470577035,
+   "SPA": 1.4433756729740645,
+   "SPI": 2.5660011963983367,
+   "tAi": 150.0,
+   "tAa": 60.0,
+   "tIa": -90.0,
+   "tIi": -90.0,
+   "vA": 240.0,
+   "vI": 90.0,
+   "dDaA": 0.02790697674418605,
+   "Us": 0.05,
+   "UF": 0.1106139534883721,
+   "thetaA": 221.11627906976744,
+   "u": 104719.75511965978,
+   "uab": 192505.79970056884,
+   "pn": 63.367489373935435,
+   "ng": 612.7649919240768,
+   "lim54": 0.0013250794713066758,
+   "lim55": 0.0037209302325581397,
+   "ratio10": 1.7202231969545427,
+   "Tn": 1244217.7443349054,
+   "SrIst": 12.442177443349054
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV7b PV Literatur",
+  "case": {
+   "id": "P-PV7b PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.06061395348837209,
+     "Ug": 0.06061395348837209
+    },
+    "T": 100000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": 20000
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "pn": 63.4,
+   "u": 104700.0
+  },
+  "tol": 0.002
+ },
+ {
+  "id": "P-PV8 PV",
+  "case": {
+   "id": "P-PV8 PV",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 80,
+    "lF": 115,
+    "DaA": 190,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 115000,
+     "mu": 0.25,
+     "Re": null,
+     "Rm": 180,
+     "A": 0.5,
+     "alphaHeat": 1e-05,
+     "alphaCool": 8e-06,
+     "rho": 7850,
+     "brittle": true
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 295,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6.3
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6.3
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 6,
+     "field": "r",
+     "grade": 6
+    },
+    "T": 1200000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 2,
+    "SPI": 1.1,
+    "nuR": 0.16,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "half",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.42105263157894735,
+   "QI": 0.0,
+   "AF": 28902.652413026095,
+   "G": 0.00504,
+   "pzulA": 42.749508851630736,
+   "pzulI": 309.669689838072,
+   "K": 2.0643097643097645,
+   "FR": 45000.0,
+   "perf": 9.730940814042514,
+   "Uu": 0.019014035574503214,
+   "Uo": 0.0664300720291256,
+   "PT": 0.04741603645462238,
+   "nCand": 2,
+   "c0": 6016,
+   "c0Uk": 0.023999999999999997,
+   "c0Ug": 0.062,
+   "Uk": 0.023999999999999997,
+   "Ug": 0.062,
+   "ep_min": 0.0,
+   "Uw_min": 0.018959999999999998,
+   "xi_min": 0.00023699999999999996,
+   "p_min": 13.202960365356383,
+   "ep_max": 0.0,
+   "Uw_max": 0.05696,
+   "xi_max": 0.000712,
+   "p_max": 39.66458978959386,
+   "T": 1628162.450188184,
+   "Faxt": 40704.06125470459,
+   "SPA": 2.1555502819215446,
+   "SPI": 8.58792844269491,
+   "tAi": 56.75909313325721,
+   "tAa": 17.094503343663348,
+   "tIa": -39.66458978959386,
+   "tIi": -39.66458978959386,
+   "vA": 96.42368292285107,
+   "vI": 39.66458978959386,
+   "dDaA": 0.0282430924808351,
+   "Us": 0.031,
+   "UF": 0.093,
+   "thetaA": 136.25,
+   "SrIst": 2.0352030627352296
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV8 PV Literatur",
+  "case": {
+   "id": "P-PV8 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 80,
+    "lF": 115,
+    "DaA": 190,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 115000,
+     "mu": 0.25,
+     "Re": null,
+     "Rm": 180,
+     "A": 0.5,
+     "alphaHeat": 1e-05,
+     "alphaCool": 8e-06,
+     "rho": 7850,
+     "brittle": true
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 295,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6.3
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6.3
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 6,
+     "field": "r",
+     "grade": 6
+    },
+    "T": 1200000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 2,
+    "SPI": 1.1,
+    "nuR": 0.16,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "half",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "K": 2.06,
+   "perf": 9.7,
+   "Uu": 0.019,
+   "pzulA": 42.8,
+   "Uo": 0.066,
+   "PT": 0.047,
+   "Uk": 0.024,
+   "Ug": 0.062,
+   "thetaA": 136.25
+  },
+  "tol": 0.01
+ },
+ {
+  "id": "P-PV9 PV",
+  "case": {
+   "id": "P-PV9 PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 160,
+    "lF": 160,
+    "DaA": 320,
+    "DiI": 60,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 650,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 430,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "ra",
+     "Ra": 1.6
+    },
+    "rzI": {
+     "kind": "ra",
+     "Ra": 0.8
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "u",
+     "grade": 6
+    },
+    "T": 20000000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.14,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": -195.8,
+     "clearance": "din",
+     "thetaAzul": 300
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.375,
+   "AF": 80424.77193189871,
+   "G": 0.007520000000000001,
+   "pzulA": 255.8711420272205,
+   "pzulI": 193.9536060558899,
+   "K": 2.9939393939393937,
+   "FR": 375000.0,
+   "perf": 33.305303381395504,
+   "Uk": 0.15,
+   "Ug": 0.215,
+   "ep_min": 0.0,
+   "Uw_min": 0.14248,
+   "xi_min": 0.0008905,
+   "p_min": 62.46118421052631,
+   "ep_max": 0.0,
+   "Uw_max": 0.20748,
+   "xi_max": 0.00129675,
+   "p_max": 90.95625,
+   "T": 37508251.16063493,
+   "Faxt": 468853.13950793655,
+   "SPA": 3.0944355800722056,
+   "SPI": 2.345621841945759,
+   "tAi": 151.59375,
+   "tAa": 60.6375,
+   "tIa": -120.72375000000001,
+   "tIi": -211.68,
+   "vA": 242.55,
+   "vI": 211.68,
+   "dDaA": 0.09240000000000001,
+   "Us": 0.16,
+   "UF": 0.375,
+   "thetaA": 66.31363636363635,
+   "Umax": 0.626288,
+   "SrIst": 2.8131188370476194
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV9 PV Literatur",
+  "case": {
+   "id": "P-PV9 PV Literatur",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 160,
+    "lF": 160,
+    "DaA": 320,
+    "DiI": 60,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 650,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 430,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "ra",
+     "Ra": 1.6
+    },
+    "rzI": {
+     "kind": "ra",
+     "Ra": 0.8
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "u",
+     "grade": 6
+    },
+    "T": 20000000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.14,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": -195.8,
+     "clearance": "din",
+     "thetaAzul": 300
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "Uk": 0.15,
+   "Ug": 0.215
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "P-PV16 PV",
+  "case": {
+   "id": "P-PV16 PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 40,
+    "lF": 40,
+    "DaA": 80,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 335,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 430,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "s",
+     "grade": 6
+    },
+    "T": 150000.0,
+    "Fax": 2000,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.08,
+    "nuL": 0.11,
+    "joining": {
+     "kind": "laengs"
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 5026.548245743669,
+   "G": 0.0048000000000000004,
+   "pzulA": 131.87205012172132,
+   "pzulI": 451.38293773007103,
+   "K": 2.666666666666667,
+   "FR": 11643.131022195019,
+   "perf": 28.954091488264524,
+   "Uk": 0.017999999999999995,
+   "Ug": 0.059,
+   "ep_min": 0.0,
+   "Uw_min": 0.013199999999999995,
+   "xi_min": 0.0003299999999999999,
+   "p_min": 25.987499999999986,
+   "ep_max": 0.0,
+   "Uw_max": 0.0542,
+   "xi_max": 0.0013549999999999999,
+   "p_max": 106.70624999999998,
+   "T": 139335.91737201446,
+   "Faxt": 6966.795868600722,
+   "SPA": 1.3594260423723399,
+   "SPI": 4.653159786826716,
+   "tAi": 177.84374999999994,
+   "tAa": 71.13749999999999,
+   "tIa": -106.70624999999998,
+   "tIi": -106.70624999999998,
+   "vA": 284.5499999999999,
+   "vI": 106.70624999999998,
+   "dDaA": 0.027099999999999996,
+   "Fe": 59000.05251221239,
+   "le": 3.4199518933533937,
+   "SrIst": 1.3463123170623261
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV17 PV",
+  "case": {
+   "id": "P-PV17 PV",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 100,
+    "lF": 80,
+    "DaA": 160,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 235,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 650,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "r",
+     "grade": 6
+    },
+    "T": 1000000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.06,
+    "nuL": 0.07,
+    "joining": {
+     "kind": "laengs"
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.625,
+   "QI": 0.0,
+   "AF": 25132.741228718347,
+   "G": 0.0048000000000000004,
+   "pzulA": 75.16214797049602,
+   "pzulI": 682.3230454059213,
+   "K": 3.282051282051282,
+   "FR": 30000.0,
+   "perf": 19.894367886486915,
+   "Uk": 0.015999999999999993,
+   "Ug": 0.073,
+   "ep_min": 0.0,
+   "Uw_min": 0.011199999999999993,
+   "xi_min": 0.00011199999999999993,
+   "p_min": 7.166249999999996,
+   "ep_max": 0.0,
+   "Uw_max": 0.0682,
+   "xi_max": 0.000682,
+   "p_max": 43.63734375000001,
+   "T": 360215.01366060553,
+   "Faxt": 7204.30027321211,
+   "SPA": 1.8946699240268405,
+   "SPI": 17.199840445066354,
+   "tAi": 99.58265625000001,
+   "tAa": 55.945312500000014,
+   "tIa": -43.637343750000014,
+   "tIi": -43.637343750000014,
+   "vA": 143.22000000000003,
+   "vI": 43.637343750000014,
+   "dDaA": 0.04262500000000001,
+   "Fe": 76770.82478641662,
+   "le": 5,
+   "SrIst": 0.5403225204909083
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV18 PV",
+  "case": {
+   "id": "P-PV18 PV",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 60,
+    "lF": 70,
+    "DaA": 120,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 355,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 650,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "s",
+     "grade": 6
+    },
+    "T": 800000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.14,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": 300
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "QA": 0.5,
+   "QI": 0.0,
+   "AF": 13194.68914507713,
+   "G": 0.0048000000000000004,
+   "pzulA": 139.74500833794352,
+   "pzulI": 682.3230454059213,
+   "K": 2.6666666666666665,
+   "FR": 40000.0,
+   "perf": 21.653733753999365,
+   "Uu": 0.02129808286018999,
+   "Uo": 0.11127238730509982,
+   "PT": 0.08997430444490984,
+   "nCand": 24,
+   "c0": 6028,
+   "c0Uk": 0.034,
+   "c0Ug": 0.099,
+   "Uk": 0.023,
+   "Ug": 0.072,
+   "ep_min": 0.0,
+   "Uw_min": 0.0182,
+   "xi_min": 0.00030333333333333335,
+   "p_min": 23.8875,
+   "ep_max": 0.0,
+   "Uw_max": 0.0672,
+   "xi_max": 0.00112,
+   "p_max": 88.19999999999999,
+   "T": 882526.783468484,
+   "Faxt": 29417.559448949465,
+   "SPA": 1.7428515779108606,
+   "SPI": 8.509697845198566,
+   "tAi": 146.99999999999997,
+   "tAa": 58.79999999999998,
+   "tIa": -88.19999999999999,
+   "tIi": -88.19999999999999,
+   "vA": 235.19999999999993,
+   "vI": 88.19999999999999,
+   "dDaA": 0.03359999999999999,
+   "Us": 0.06,
+   "UF": 0.132,
+   "thetaA": 220.00000000000003,
+   "Umax": 0.1248,
+   "SrIst": 1.6547377190034074
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "P-PV7a PV Rutschen mit p_n",
+  "case": {
+   "id": "P-PV7a PV Rutschen mit p_n",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 100,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 200,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.06061395348837209,
+     "Ug": 0.06061395348837209
+    },
+    "T": 100000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": 10000
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "SrIst": 16.36,
+   "pn": 83.34
+  },
+  "tol": 0.001
+ },
+ {
+  "id": "P-PV8 PV Passungsvorschlag",
+  "case": {
+   "id": "P-PV8 PV Passungsvorschlag",
+   "type": "pv",
+   "inp": {
+    "task": "B",
+    "DF": 80,
+    "lF": 115,
+    "DaA": 190,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 115000,
+     "mu": 0.25,
+     "Re": null,
+     "Rm": 180,
+     "A": 0.5,
+     "alphaHeat": 1e-05,
+     "alphaCool": 8e-06,
+     "rho": 7850,
+     "brittle": true
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 295,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6.3
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6.3
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 6,
+     "field": "r",
+     "grade": 6
+    },
+    "T": 1200000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 2,
+    "SPI": 1.1,
+    "nuR": 0.16,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "half",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "c0": 6016.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "P-PV4 PV Lamé",
+  "case": {
+   "id": "P-PV4 PV Lamé",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 50,
+    "lF": 50,
+    "DaA": 125,
+    "DiI": 10,
+    "hub": {
+     "label": "",
+     "E": 70000,
+     "mu": 0.3,
+     "Re": 150,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 215000,
+     "mu": 0.3,
+     "Re": 300,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "manual",
+     "Uk": 0.065,
+     "Ug": 0.065
+    },
+    "T": 0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1,
+    "SPA": 1.2,
+    "SPI": 1.2,
+    "nuR": 0.1,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": 20,
+     "clearance": "din",
+     "thetaAzul": null
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "lameErr": 0.0,
+   "uLameErr": 0.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "P-PV9 PV Lamé",
+  "case": {
+   "id": "P-PV9 PV Lamé",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 160,
+    "lF": 160,
+    "DaA": 320,
+    "DiI": 60,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 650,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 430,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "ra",
+     "Ra": 1.6
+    },
+    "rzI": {
+     "kind": "ra",
+     "Ra": 0.8
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "u",
+     "grade": 6
+    },
+    "T": 20000000.0,
+    "Fax": 0,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.14,
+    "nuL": null,
+    "joining": {
+     "kind": "quer",
+     "thetaR": 20,
+     "thetaI": -195.8,
+     "clearance": "din",
+     "thetaAzul": 300
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "lameErr": 0.0,
+   "uLameErr": 0.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "P-PV16 PV Lamé",
+  "case": {
+   "id": "P-PV16 PV Lamé",
+   "type": "pv",
+   "inp": {
+    "task": "A",
+    "DF": 40,
+    "lF": 40,
+    "DaA": 80,
+    "DiI": 0,
+    "hub": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 335,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "shaft": {
+     "label": "",
+     "E": 210000,
+     "mu": 0.3,
+     "Re": 430,
+     "Rm": null,
+     "A": null,
+     "alphaHeat": 1.1e-05,
+     "alphaCool": 8.5e-06,
+     "rho": 7850,
+     "brittle": false
+    },
+    "rzA": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "rzI": {
+     "kind": "rz",
+     "Rz": 6
+    },
+    "fit": {
+     "kind": "iso",
+     "hole": 7,
+     "field": "s",
+     "grade": 6
+    },
+    "T": 150000.0,
+    "Fax": 2000,
+    "KA": 1,
+    "Sr": 1.5,
+    "SPA": 1.1,
+    "SPI": 1.1,
+    "nuR": 0.08,
+    "nuL": 0.11,
+    "joining": {
+     "kind": "laengs"
+    },
+    "plastic": false,
+    "spinN": null
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "lameErr": 0.0,
+   "uLameErr": 0.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H7/p6",
+  "case": {
+   "id": "PV Passung D 1 H7/p6",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.01,
+   "ei": 0.006,
+   "es": 0.012,
+   "Uk": -0.004,
+   "Ug": 0.012
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H6/s5",
+  "case": {
+   "id": "PV Passung D 1 H6/s5",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.006,
+   "ei": 0.014,
+   "es": 0.018000000000000002,
+   "Uk": 0.008,
+   "Ug": 0.018000000000000002
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H8/u7",
+  "case": {
+   "id": "PV Passung D 1 H8/u7",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.014,
+   "ei": 0.018,
+   "es": 0.027999999999999997,
+   "Uk": 0.003999999999999998,
+   "Ug": 0.027999999999999997
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H7/x6",
+  "case": {
+   "id": "PV Passung D 1 H7/x6",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.01,
+   "ei": 0.02,
+   "es": 0.026000000000000002,
+   "Uk": 0.01,
+   "Ug": 0.026000000000000002
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H11/z11",
+  "case": {
+   "id": "PV Passung D 1 H11/z11",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.06,
+   "ei": 0.026,
+   "es": 0.086,
+   "Uk": -0.034,
+   "Ug": 0.086
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H6/t5",
+  "case": {
+   "id": "PV Passung D 1 H6/t5",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H8/v8",
+  "case": {
+   "id": "PV Passung D 1 H8/v8",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H7/y6",
+  "case": {
+   "id": "PV Passung D 1 H7/y6",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 1 H9/r9",
+  "case": {
+   "id": "PV Passung D 1 H9/r9",
+   "type": "pvfit",
+   "D": 1,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.01,
+   "es": 0.035,
+   "Uk": -0.015000000000000001,
+   "Ug": 0.035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H7/p6",
+  "case": {
+   "id": "PV Passung D 3 H7/p6",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.01,
+   "ei": 0.006,
+   "es": 0.012,
+   "Uk": -0.004,
+   "Ug": 0.012
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H6/s5",
+  "case": {
+   "id": "PV Passung D 3 H6/s5",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.006,
+   "ei": 0.014,
+   "es": 0.018000000000000002,
+   "Uk": 0.008,
+   "Ug": 0.018000000000000002
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H8/u7",
+  "case": {
+   "id": "PV Passung D 3 H8/u7",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.014,
+   "ei": 0.018,
+   "es": 0.027999999999999997,
+   "Uk": 0.003999999999999998,
+   "Ug": 0.027999999999999997
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H7/x6",
+  "case": {
+   "id": "PV Passung D 3 H7/x6",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.01,
+   "ei": 0.02,
+   "es": 0.026000000000000002,
+   "Uk": 0.01,
+   "Ug": 0.026000000000000002
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H11/z11",
+  "case": {
+   "id": "PV Passung D 3 H11/z11",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.06,
+   "ei": 0.026,
+   "es": 0.086,
+   "Uk": -0.034,
+   "Ug": 0.086
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H6/t5",
+  "case": {
+   "id": "PV Passung D 3 H6/t5",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H8/v8",
+  "case": {
+   "id": "PV Passung D 3 H8/v8",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H7/y6",
+  "case": {
+   "id": "PV Passung D 3 H7/y6",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3 H9/r9",
+  "case": {
+   "id": "PV Passung D 3 H9/r9",
+   "type": "pvfit",
+   "D": 3,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.01,
+   "es": 0.035,
+   "Uk": -0.015000000000000001,
+   "Ug": 0.035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H7/p6",
+  "case": {
+   "id": "PV Passung D 3.5 H7/p6",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.012,
+   "ei": 0.012,
+   "es": 0.02,
+   "Uk": 0.0,
+   "Ug": 0.02
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H6/s5",
+  "case": {
+   "id": "PV Passung D 3.5 H6/s5",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.008,
+   "ei": 0.019,
+   "es": 0.024,
+   "Uk": 0.011,
+   "Ug": 0.024
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H8/u7",
+  "case": {
+   "id": "PV Passung D 3.5 H8/u7",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.023,
+   "es": 0.035,
+   "Uk": 0.005000000000000001,
+   "Ug": 0.035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H7/x6",
+  "case": {
+   "id": "PV Passung D 3.5 H7/x6",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.012,
+   "ei": 0.028,
+   "es": 0.036000000000000004,
+   "Uk": 0.016,
+   "Ug": 0.036000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H11/z11",
+  "case": {
+   "id": "PV Passung D 3.5 H11/z11",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.075,
+   "ei": 0.035,
+   "es": 0.11,
+   "Uk": -0.039999999999999994,
+   "Ug": 0.11
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H6/t5",
+  "case": {
+   "id": "PV Passung D 3.5 H6/t5",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H8/v8",
+  "case": {
+   "id": "PV Passung D 3.5 H8/v8",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H7/y6",
+  "case": {
+   "id": "PV Passung D 3.5 H7/y6",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 3.5 H9/r9",
+  "case": {
+   "id": "PV Passung D 3.5 H9/r9",
+   "type": "pvfit",
+   "D": 3.5,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.015,
+   "es": 0.045,
+   "Uk": -0.015,
+   "Ug": 0.045
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H7/p6",
+  "case": {
+   "id": "PV Passung D 6 H7/p6",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.012,
+   "ei": 0.012,
+   "es": 0.02,
+   "Uk": 0.0,
+   "Ug": 0.02
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H6/s5",
+  "case": {
+   "id": "PV Passung D 6 H6/s5",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.008,
+   "ei": 0.019,
+   "es": 0.024,
+   "Uk": 0.011,
+   "Ug": 0.024
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H8/u7",
+  "case": {
+   "id": "PV Passung D 6 H8/u7",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.023,
+   "es": 0.035,
+   "Uk": 0.005000000000000001,
+   "Ug": 0.035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H7/x6",
+  "case": {
+   "id": "PV Passung D 6 H7/x6",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.012,
+   "ei": 0.028,
+   "es": 0.036000000000000004,
+   "Uk": 0.016,
+   "Ug": 0.036000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H11/z11",
+  "case": {
+   "id": "PV Passung D 6 H11/z11",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.075,
+   "ei": 0.035,
+   "es": 0.11,
+   "Uk": -0.039999999999999994,
+   "Ug": 0.11
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H6/t5",
+  "case": {
+   "id": "PV Passung D 6 H6/t5",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H8/v8",
+  "case": {
+   "id": "PV Passung D 6 H8/v8",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H7/y6",
+  "case": {
+   "id": "PV Passung D 6 H7/y6",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 6 H9/r9",
+  "case": {
+   "id": "PV Passung D 6 H9/r9",
+   "type": "pvfit",
+   "D": 6,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.015,
+   "es": 0.045,
+   "Uk": -0.015,
+   "Ug": 0.045
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H7/p6",
+  "case": {
+   "id": "PV Passung D 10 H7/p6",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.015,
+   "ei": 0.015,
+   "es": 0.024,
+   "Uk": 0.0,
+   "Ug": 0.024
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H6/s5",
+  "case": {
+   "id": "PV Passung D 10 H6/s5",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.009,
+   "ei": 0.023,
+   "es": 0.028999999999999998,
+   "Uk": 0.014,
+   "Ug": 0.028999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H8/u7",
+  "case": {
+   "id": "PV Passung D 10 H8/u7",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.022,
+   "ei": 0.028,
+   "es": 0.043,
+   "Uk": 0.006000000000000002,
+   "Ug": 0.043
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H7/x6",
+  "case": {
+   "id": "PV Passung D 10 H7/x6",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.015,
+   "ei": 0.034,
+   "es": 0.043000000000000003,
+   "Uk": 0.019000000000000003,
+   "Ug": 0.043000000000000003
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H11/z11",
+  "case": {
+   "id": "PV Passung D 10 H11/z11",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.09,
+   "ei": 0.042,
+   "es": 0.132,
+   "Uk": -0.047999999999999994,
+   "Ug": 0.132
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H6/t5",
+  "case": {
+   "id": "PV Passung D 10 H6/t5",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H8/v8",
+  "case": {
+   "id": "PV Passung D 10 H8/v8",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H7/y6",
+  "case": {
+   "id": "PV Passung D 10 H7/y6",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 10 H9/r9",
+  "case": {
+   "id": "PV Passung D 10 H9/r9",
+   "type": "pvfit",
+   "D": 10,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.036,
+   "ei": 0.019,
+   "es": 0.05499999999999999,
+   "Uk": -0.016999999999999998,
+   "Ug": 0.05499999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H7/p6",
+  "case": {
+   "id": "PV Passung D 14 H7/p6",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.018,
+   "es": 0.028999999999999998,
+   "Uk": 0.0,
+   "Ug": 0.028999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H6/s5",
+  "case": {
+   "id": "PV Passung D 14 H6/s5",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.011,
+   "ei": 0.028,
+   "es": 0.036000000000000004,
+   "Uk": 0.017,
+   "Ug": 0.036000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H8/u7",
+  "case": {
+   "id": "PV Passung D 14 H8/u7",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.027,
+   "ei": 0.033,
+   "es": 0.051000000000000004,
+   "Uk": 0.006000000000000002,
+   "Ug": 0.051000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H7/x6",
+  "case": {
+   "id": "PV Passung D 14 H7/x6",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.04,
+   "es": 0.051000000000000004,
+   "Uk": 0.022000000000000002,
+   "Ug": 0.051000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H11/z11",
+  "case": {
+   "id": "PV Passung D 14 H11/z11",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.11,
+   "ei": 0.05,
+   "es": 0.16,
+   "Uk": -0.06,
+   "Ug": 0.16
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H6/t5",
+  "case": {
+   "id": "PV Passung D 14 H6/t5",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H8/v8",
+  "case": {
+   "id": "PV Passung D 14 H8/v8",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H7/y6",
+  "case": {
+   "id": "PV Passung D 14 H7/y6",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 14 H9/r9",
+  "case": {
+   "id": "PV Passung D 14 H9/r9",
+   "type": "pvfit",
+   "D": 14,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.043,
+   "ei": 0.023,
+   "es": 0.066,
+   "Uk": -0.019999999999999997,
+   "Ug": 0.066
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H7/p6",
+  "case": {
+   "id": "PV Passung D 15 H7/p6",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.018,
+   "es": 0.028999999999999998,
+   "Uk": 0.0,
+   "Ug": 0.028999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H6/s5",
+  "case": {
+   "id": "PV Passung D 15 H6/s5",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.011,
+   "ei": 0.028,
+   "es": 0.036000000000000004,
+   "Uk": 0.017,
+   "Ug": 0.036000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H8/u7",
+  "case": {
+   "id": "PV Passung D 15 H8/u7",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.027,
+   "ei": 0.033,
+   "es": 0.051000000000000004,
+   "Uk": 0.006000000000000002,
+   "Ug": 0.051000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H7/x6",
+  "case": {
+   "id": "PV Passung D 15 H7/x6",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.045,
+   "es": 0.055999999999999994,
+   "Uk": 0.027,
+   "Ug": 0.055999999999999994
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H11/z11",
+  "case": {
+   "id": "PV Passung D 15 H11/z11",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.11,
+   "ei": 0.06,
+   "es": 0.16999999999999998,
+   "Uk": -0.05,
+   "Ug": 0.16999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H6/t5",
+  "case": {
+   "id": "PV Passung D 15 H6/t5",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H8/v8",
+  "case": {
+   "id": "PV Passung D 15 H8/v8",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.027,
+   "ei": 0.039,
+   "es": 0.066,
+   "Uk": 0.012,
+   "Ug": 0.066
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H7/y6",
+  "case": {
+   "id": "PV Passung D 15 H7/y6",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 15 H9/r9",
+  "case": {
+   "id": "PV Passung D 15 H9/r9",
+   "type": "pvfit",
+   "D": 15,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.043,
+   "ei": 0.023,
+   "es": 0.066,
+   "Uk": -0.019999999999999997,
+   "Ug": 0.066
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H7/p6",
+  "case": {
+   "id": "PV Passung D 18 H7/p6",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.018,
+   "es": 0.028999999999999998,
+   "Uk": 0.0,
+   "Ug": 0.028999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H6/s5",
+  "case": {
+   "id": "PV Passung D 18 H6/s5",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.011,
+   "ei": 0.028,
+   "es": 0.036000000000000004,
+   "Uk": 0.017,
+   "Ug": 0.036000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H8/u7",
+  "case": {
+   "id": "PV Passung D 18 H8/u7",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.027,
+   "ei": 0.033,
+   "es": 0.051000000000000004,
+   "Uk": 0.006000000000000002,
+   "Ug": 0.051000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H7/x6",
+  "case": {
+   "id": "PV Passung D 18 H7/x6",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.018,
+   "ei": 0.045,
+   "es": 0.055999999999999994,
+   "Uk": 0.027,
+   "Ug": 0.055999999999999994
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H11/z11",
+  "case": {
+   "id": "PV Passung D 18 H11/z11",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.11,
+   "ei": 0.06,
+   "es": 0.16999999999999998,
+   "Uk": -0.05,
+   "Ug": 0.16999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H6/t5",
+  "case": {
+   "id": "PV Passung D 18 H6/t5",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H8/v8",
+  "case": {
+   "id": "PV Passung D 18 H8/v8",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.027,
+   "ei": 0.039,
+   "es": 0.066,
+   "Uk": 0.012,
+   "Ug": 0.066
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H7/y6",
+  "case": {
+   "id": "PV Passung D 18 H7/y6",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 18 H9/r9",
+  "case": {
+   "id": "PV Passung D 18 H9/r9",
+   "type": "pvfit",
+   "D": 18,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.043,
+   "ei": 0.023,
+   "es": 0.066,
+   "Uk": -0.019999999999999997,
+   "Ug": 0.066
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H7/p6",
+  "case": {
+   "id": "PV Passung D 24 H7/p6",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.022,
+   "es": 0.034999999999999996,
+   "Uk": 0.0009999999999999974,
+   "Ug": 0.034999999999999996
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H6/s5",
+  "case": {
+   "id": "PV Passung D 24 H6/s5",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.013,
+   "ei": 0.035,
+   "es": 0.044000000000000004,
+   "Uk": 0.022000000000000006,
+   "Ug": 0.044000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H8/u7",
+  "case": {
+   "id": "PV Passung D 24 H8/u7",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.033,
+   "ei": 0.041,
+   "es": 0.062,
+   "Uk": 0.008,
+   "Ug": 0.062
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H7/x6",
+  "case": {
+   "id": "PV Passung D 24 H7/x6",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.054,
+   "es": 0.067,
+   "Uk": 0.033,
+   "Ug": 0.067
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H11/z11",
+  "case": {
+   "id": "PV Passung D 24 H11/z11",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.13,
+   "ei": 0.073,
+   "es": 0.203,
+   "Uk": -0.05700000000000001,
+   "Ug": 0.203
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H6/t5",
+  "case": {
+   "id": "PV Passung D 24 H6/t5",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H8/v8",
+  "case": {
+   "id": "PV Passung D 24 H8/v8",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.033,
+   "ei": 0.047,
+   "es": 0.08,
+   "Uk": 0.013999999999999999,
+   "Ug": 0.08
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H7/y6",
+  "case": {
+   "id": "PV Passung D 24 H7/y6",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.063,
+   "es": 0.076,
+   "Uk": 0.041999999999999996,
+   "Ug": 0.076
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 24 H9/r9",
+  "case": {
+   "id": "PV Passung D 24 H9/r9",
+   "type": "pvfit",
+   "D": 24,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.052,
+   "ei": 0.028,
+   "es": 0.08,
+   "Uk": -0.023999999999999997,
+   "Ug": 0.08
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H7/p6",
+  "case": {
+   "id": "PV Passung D 25 H7/p6",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.022,
+   "es": 0.034999999999999996,
+   "Uk": 0.0009999999999999974,
+   "Ug": 0.034999999999999996
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H6/s5",
+  "case": {
+   "id": "PV Passung D 25 H6/s5",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.013,
+   "ei": 0.035,
+   "es": 0.044000000000000004,
+   "Uk": 0.022000000000000006,
+   "Ug": 0.044000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H8/u7",
+  "case": {
+   "id": "PV Passung D 25 H8/u7",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.033,
+   "ei": 0.048,
+   "es": 0.069,
+   "Uk": 0.015,
+   "Ug": 0.069
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H7/x6",
+  "case": {
+   "id": "PV Passung D 25 H7/x6",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.064,
+   "es": 0.077,
+   "Uk": 0.043,
+   "Ug": 0.077
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H11/z11",
+  "case": {
+   "id": "PV Passung D 25 H11/z11",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.13,
+   "ei": 0.088,
+   "es": 0.218,
+   "Uk": -0.04200000000000001,
+   "Ug": 0.218
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H6/t5",
+  "case": {
+   "id": "PV Passung D 25 H6/t5",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.013,
+   "ei": 0.041,
+   "es": 0.05,
+   "Uk": 0.028000000000000004,
+   "Ug": 0.05
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H8/v8",
+  "case": {
+   "id": "PV Passung D 25 H8/v8",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.033,
+   "ei": 0.055,
+   "es": 0.088,
+   "Uk": 0.022,
+   "Ug": 0.088
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H7/y6",
+  "case": {
+   "id": "PV Passung D 25 H7/y6",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.075,
+   "es": 0.088,
+   "Uk": 0.05399999999999999,
+   "Ug": 0.088
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 25 H9/r9",
+  "case": {
+   "id": "PV Passung D 25 H9/r9",
+   "type": "pvfit",
+   "D": 25,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.052,
+   "ei": 0.028,
+   "es": 0.08,
+   "Uk": -0.023999999999999997,
+   "Ug": 0.08
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H7/p6",
+  "case": {
+   "id": "PV Passung D 30 H7/p6",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.022,
+   "es": 0.034999999999999996,
+   "Uk": 0.0009999999999999974,
+   "Ug": 0.034999999999999996
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H6/s5",
+  "case": {
+   "id": "PV Passung D 30 H6/s5",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.013,
+   "ei": 0.035,
+   "es": 0.044000000000000004,
+   "Uk": 0.022000000000000006,
+   "Ug": 0.044000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H8/u7",
+  "case": {
+   "id": "PV Passung D 30 H8/u7",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.033,
+   "ei": 0.048,
+   "es": 0.069,
+   "Uk": 0.015,
+   "Ug": 0.069
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H7/x6",
+  "case": {
+   "id": "PV Passung D 30 H7/x6",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.064,
+   "es": 0.077,
+   "Uk": 0.043,
+   "Ug": 0.077
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H11/z11",
+  "case": {
+   "id": "PV Passung D 30 H11/z11",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.13,
+   "ei": 0.088,
+   "es": 0.218,
+   "Uk": -0.04200000000000001,
+   "Ug": 0.218
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H6/t5",
+  "case": {
+   "id": "PV Passung D 30 H6/t5",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.013,
+   "ei": 0.041,
+   "es": 0.05,
+   "Uk": 0.028000000000000004,
+   "Ug": 0.05
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H8/v8",
+  "case": {
+   "id": "PV Passung D 30 H8/v8",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.033,
+   "ei": 0.055,
+   "es": 0.088,
+   "Uk": 0.022,
+   "Ug": 0.088
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H7/y6",
+  "case": {
+   "id": "PV Passung D 30 H7/y6",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.021,
+   "ei": 0.075,
+   "es": 0.088,
+   "Uk": 0.05399999999999999,
+   "Ug": 0.088
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 30 H9/r9",
+  "case": {
+   "id": "PV Passung D 30 H9/r9",
+   "type": "pvfit",
+   "D": 30,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.052,
+   "ei": 0.028,
+   "es": 0.08,
+   "Uk": -0.023999999999999997,
+   "Ug": 0.08
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H7/p6",
+  "case": {
+   "id": "PV Passung D 50 H7/p6",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.026,
+   "es": 0.041999999999999996,
+   "Uk": 0.0009999999999999974,
+   "Ug": 0.041999999999999996
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H6/s5",
+  "case": {
+   "id": "PV Passung D 50 H6/s5",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.016,
+   "ei": 0.043,
+   "es": 0.05399999999999999,
+   "Uk": 0.026999999999999996,
+   "Ug": 0.05399999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H8/u7",
+  "case": {
+   "id": "PV Passung D 50 H8/u7",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.039,
+   "ei": 0.07,
+   "es": 0.095,
+   "Uk": 0.031000000000000007,
+   "Ug": 0.095
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H7/x6",
+  "case": {
+   "id": "PV Passung D 50 H7/x6",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.097,
+   "es": 0.113,
+   "Uk": 0.07200000000000001,
+   "Ug": 0.113
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H11/z11",
+  "case": {
+   "id": "PV Passung D 50 H11/z11",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.16,
+   "ei": 0.136,
+   "es": 0.29600000000000004,
+   "Uk": -0.023999999999999994,
+   "Ug": 0.29600000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H6/t5",
+  "case": {
+   "id": "PV Passung D 50 H6/t5",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.016,
+   "ei": 0.054,
+   "es": 0.065,
+   "Uk": 0.038,
+   "Ug": 0.065
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H8/v8",
+  "case": {
+   "id": "PV Passung D 50 H8/v8",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.039,
+   "ei": 0.081,
+   "es": 0.12,
+   "Uk": 0.042,
+   "Ug": 0.12
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H7/y6",
+  "case": {
+   "id": "PV Passung D 50 H7/y6",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.114,
+   "es": 0.13,
+   "Uk": 0.089,
+   "Ug": 0.13
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 50 H9/r9",
+  "case": {
+   "id": "PV Passung D 50 H9/r9",
+   "type": "pvfit",
+   "D": 50,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.062,
+   "ei": 0.034,
+   "es": 0.096,
+   "Uk": -0.027999999999999997,
+   "Ug": 0.096
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H7/p6",
+  "case": {
+   "id": "PV Passung D 65 H7/p6",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.032,
+   "es": 0.051000000000000004,
+   "Uk": 0.0020000000000000018,
+   "Ug": 0.051000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H6/s5",
+  "case": {
+   "id": "PV Passung D 65 H6/s5",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.019,
+   "ei": 0.053,
+   "es": 0.066,
+   "Uk": 0.034,
+   "Ug": 0.066
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H8/u7",
+  "case": {
+   "id": "PV Passung D 65 H8/u7",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.087,
+   "es": 0.11699999999999999,
+   "Uk": 0.040999999999999995,
+   "Ug": 0.11699999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H7/x6",
+  "case": {
+   "id": "PV Passung D 65 H7/x6",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.122,
+   "es": 0.141,
+   "Uk": 0.092,
+   "Ug": 0.141
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H11/z11",
+  "case": {
+   "id": "PV Passung D 65 H11/z11",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.19,
+   "ei": 0.172,
+   "es": 0.362,
+   "Uk": -0.018000000000000016,
+   "Ug": 0.362
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H6/t5",
+  "case": {
+   "id": "PV Passung D 65 H6/t5",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.019,
+   "ei": 0.066,
+   "es": 0.079,
+   "Uk": 0.047,
+   "Ug": 0.079
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H8/v8",
+  "case": {
+   "id": "PV Passung D 65 H8/v8",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.102,
+   "es": 0.148,
+   "Uk": 0.055999999999999994,
+   "Ug": 0.148
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H7/y6",
+  "case": {
+   "id": "PV Passung D 65 H7/y6",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.144,
+   "es": 0.16299999999999998,
+   "Uk": 0.11399999999999999,
+   "Ug": 0.16299999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 65 H9/r9",
+  "case": {
+   "id": "PV Passung D 65 H9/r9",
+   "type": "pvfit",
+   "D": 65,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.074,
+   "ei": 0.041,
+   "es": 0.11499999999999999,
+   "Uk": -0.032999999999999995,
+   "Ug": 0.11499999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H7/p6",
+  "case": {
+   "id": "PV Passung D 80 H7/p6",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.032,
+   "es": 0.051000000000000004,
+   "Uk": 0.0020000000000000018,
+   "Ug": 0.051000000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H6/s5",
+  "case": {
+   "id": "PV Passung D 80 H6/s5",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.019,
+   "ei": 0.059,
+   "es": 0.072,
+   "Uk": 0.039999999999999994,
+   "Ug": 0.072
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H8/u7",
+  "case": {
+   "id": "PV Passung D 80 H8/u7",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.102,
+   "es": 0.132,
+   "Uk": 0.055999999999999994,
+   "Ug": 0.132
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H7/x6",
+  "case": {
+   "id": "PV Passung D 80 H7/x6",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.146,
+   "es": 0.16499999999999998,
+   "Uk": 0.11599999999999999,
+   "Ug": 0.16499999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H11/z11",
+  "case": {
+   "id": "PV Passung D 80 H11/z11",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.19,
+   "ei": 0.21,
+   "es": 0.4,
+   "Uk": 0.01999999999999999,
+   "Ug": 0.4
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H6/t5",
+  "case": {
+   "id": "PV Passung D 80 H6/t5",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.019,
+   "ei": 0.075,
+   "es": 0.088,
+   "Uk": 0.055999999999999994,
+   "Ug": 0.088
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H8/v8",
+  "case": {
+   "id": "PV Passung D 80 H8/v8",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.12,
+   "es": 0.16599999999999998,
+   "Uk": 0.074,
+   "Ug": 0.16599999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H7/y6",
+  "case": {
+   "id": "PV Passung D 80 H7/y6",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.03,
+   "ei": 0.174,
+   "es": 0.19299999999999998,
+   "Uk": 0.144,
+   "Ug": 0.19299999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 80 H9/r9",
+  "case": {
+   "id": "PV Passung D 80 H9/r9",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.074,
+   "ei": 0.043,
+   "es": 0.11699999999999999,
+   "Uk": -0.031,
+   "Ug": 0.11699999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H7/p6",
+  "case": {
+   "id": "PV Passung D 100 H7/p6",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.035,
+   "ei": 0.037,
+   "es": 0.059,
+   "Uk": 0.001999999999999995,
+   "Ug": 0.059
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H6/s5",
+  "case": {
+   "id": "PV Passung D 100 H6/s5",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.022,
+   "ei": 0.071,
+   "es": 0.086,
+   "Uk": 0.048999999999999995,
+   "Ug": 0.086
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H8/u7",
+  "case": {
+   "id": "PV Passung D 100 H8/u7",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.054,
+   "ei": 0.124,
+   "es": 0.159,
+   "Uk": 0.07,
+   "Ug": 0.159
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H7/x6",
+  "case": {
+   "id": "PV Passung D 100 H7/x6",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.035,
+   "ei": 0.178,
+   "es": 0.19999999999999998,
+   "Uk": 0.143,
+   "Ug": 0.19999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H11/z11",
+  "case": {
+   "id": "PV Passung D 100 H11/z11",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.22,
+   "ei": 0.258,
+   "es": 0.478,
+   "Uk": 0.038000000000000006,
+   "Ug": 0.478
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H6/t5",
+  "case": {
+   "id": "PV Passung D 100 H6/t5",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.022,
+   "ei": 0.091,
+   "es": 0.106,
+   "Uk": 0.069,
+   "Ug": 0.106
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H8/v8",
+  "case": {
+   "id": "PV Passung D 100 H8/v8",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.054,
+   "ei": 0.146,
+   "es": 0.19999999999999998,
+   "Uk": 0.092,
+   "Ug": 0.19999999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H7/y6",
+  "case": {
+   "id": "PV Passung D 100 H7/y6",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.035,
+   "ei": 0.214,
+   "es": 0.236,
+   "Uk": 0.179,
+   "Ug": 0.236
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 100 H9/r9",
+  "case": {
+   "id": "PV Passung D 100 H9/r9",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.087,
+   "ei": 0.051,
+   "es": 0.13799999999999998,
+   "Uk": -0.036,
+   "Ug": 0.13799999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H7/p6",
+  "case": {
+   "id": "PV Passung D 120 H7/p6",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.035,
+   "ei": 0.037,
+   "es": 0.059,
+   "Uk": 0.001999999999999995,
+   "Ug": 0.059
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H6/s5",
+  "case": {
+   "id": "PV Passung D 120 H6/s5",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.022,
+   "ei": 0.079,
+   "es": 0.094,
+   "Uk": 0.057,
+   "Ug": 0.094
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H8/u7",
+  "case": {
+   "id": "PV Passung D 120 H8/u7",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.054,
+   "ei": 0.144,
+   "es": 0.179,
+   "Uk": 0.09,
+   "Ug": 0.179
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H7/x6",
+  "case": {
+   "id": "PV Passung D 120 H7/x6",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.035,
+   "ei": 0.21,
+   "es": 0.23199999999999998,
+   "Uk": 0.175,
+   "Ug": 0.23199999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H11/z11",
+  "case": {
+   "id": "PV Passung D 120 H11/z11",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.22,
+   "ei": 0.31,
+   "es": 0.53,
+   "Uk": 0.09,
+   "Ug": 0.53
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H6/t5",
+  "case": {
+   "id": "PV Passung D 120 H6/t5",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.022,
+   "ei": 0.104,
+   "es": 0.119,
+   "Uk": 0.08199999999999999,
+   "Ug": 0.119
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H8/v8",
+  "case": {
+   "id": "PV Passung D 120 H8/v8",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.054,
+   "ei": 0.172,
+   "es": 0.22599999999999998,
+   "Uk": 0.118,
+   "Ug": 0.22599999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H7/y6",
+  "case": {
+   "id": "PV Passung D 120 H7/y6",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.035,
+   "ei": 0.254,
+   "es": 0.276,
+   "Uk": 0.219,
+   "Ug": 0.276
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 120 H9/r9",
+  "case": {
+   "id": "PV Passung D 120 H9/r9",
+   "type": "pvfit",
+   "D": 120,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.087,
+   "ei": 0.054,
+   "es": 0.141,
+   "Uk": -0.032999999999999995,
+   "Ug": 0.141
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H7/p6",
+  "case": {
+   "id": "PV Passung D 160 H7/p6",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.043,
+   "es": 0.068,
+   "Uk": 0.0029999999999999957,
+   "Ug": 0.068
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H6/s5",
+  "case": {
+   "id": "PV Passung D 160 H6/s5",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.1,
+   "es": 0.11800000000000001,
+   "Uk": 0.07500000000000001,
+   "Ug": 0.11800000000000001
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H8/u7",
+  "case": {
+   "id": "PV Passung D 160 H8/u7",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.19,
+   "es": 0.23,
+   "Uk": 0.127,
+   "Ug": 0.23
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H7/x6",
+  "case": {
+   "id": "PV Passung D 160 H7/x6",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.28,
+   "es": 0.30500000000000005,
+   "Uk": 0.24000000000000002,
+   "Ug": 0.30500000000000005
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H11/z11",
+  "case": {
+   "id": "PV Passung D 160 H11/z11",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.25,
+   "ei": 0.415,
+   "es": 0.665,
+   "Uk": 0.16499999999999998,
+   "Ug": 0.665
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H6/t5",
+  "case": {
+   "id": "PV Passung D 160 H6/t5",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.134,
+   "es": 0.152,
+   "Uk": 0.10900000000000001,
+   "Ug": 0.152
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H8/v8",
+  "case": {
+   "id": "PV Passung D 160 H8/v8",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.228,
+   "es": 0.29100000000000004,
+   "Uk": 0.165,
+   "Ug": 0.29100000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H7/y6",
+  "case": {
+   "id": "PV Passung D 160 H7/y6",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.34,
+   "es": 0.36500000000000005,
+   "Uk": 0.30000000000000004,
+   "Ug": 0.36500000000000005
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 160 H9/r9",
+  "case": {
+   "id": "PV Passung D 160 H9/r9",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.1,
+   "ei": 0.065,
+   "es": 0.165,
+   "Uk": -0.035,
+   "Ug": 0.165
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H7/p6",
+  "case": {
+   "id": "PV Passung D 180 H7/p6",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.043,
+   "es": 0.068,
+   "Uk": 0.0029999999999999957,
+   "Ug": 0.068
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H6/s5",
+  "case": {
+   "id": "PV Passung D 180 H6/s5",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.108,
+   "es": 0.126,
+   "Uk": 0.08299999999999999,
+   "Ug": 0.126
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H8/u7",
+  "case": {
+   "id": "PV Passung D 180 H8/u7",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.21,
+   "es": 0.25,
+   "Uk": 0.147,
+   "Ug": 0.25
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H7/x6",
+  "case": {
+   "id": "PV Passung D 180 H7/x6",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.31,
+   "es": 0.335,
+   "Uk": 0.27,
+   "Ug": 0.335
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H11/z11",
+  "case": {
+   "id": "PV Passung D 180 H11/z11",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.25,
+   "ei": 0.465,
+   "es": 0.7150000000000001,
+   "Uk": 0.21500000000000002,
+   "Ug": 0.7150000000000001
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H6/t5",
+  "case": {
+   "id": "PV Passung D 180 H6/t5",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.025,
+   "ei": 0.146,
+   "es": 0.16399999999999998,
+   "Uk": 0.121,
+   "Ug": 0.16399999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H8/v8",
+  "case": {
+   "id": "PV Passung D 180 H8/v8",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.252,
+   "es": 0.315,
+   "Uk": 0.189,
+   "Ug": 0.315
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H7/y6",
+  "case": {
+   "id": "PV Passung D 180 H7/y6",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.38,
+   "es": 0.405,
+   "Uk": 0.34,
+   "Ug": 0.405
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 180 H9/r9",
+  "case": {
+   "id": "PV Passung D 180 H9/r9",
+   "type": "pvfit",
+   "D": 180,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.1,
+   "ei": 0.068,
+   "es": 0.168,
+   "Uk": -0.032,
+   "Ug": 0.168
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H7/p6",
+  "case": {
+   "id": "PV Passung D 250 H7/p6",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.05,
+   "es": 0.079,
+   "Uk": 0.0040000000000000036,
+   "Ug": 0.079
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H6/s5",
+  "case": {
+   "id": "PV Passung D 250 H6/s5",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.029,
+   "ei": 0.14,
+   "es": 0.16,
+   "Uk": 0.11100000000000002,
+   "Ug": 0.16
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H8/u7",
+  "case": {
+   "id": "PV Passung D 250 H8/u7",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.072,
+   "ei": 0.284,
+   "es": 0.32999999999999996,
+   "Uk": 0.21199999999999997,
+   "Ug": 0.32999999999999996
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H7/x6",
+  "case": {
+   "id": "PV Passung D 250 H7/x6",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.425,
+   "es": 0.454,
+   "Uk": 0.379,
+   "Ug": 0.454
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H11/z11",
+  "case": {
+   "id": "PV Passung D 250 H11/z11",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.29,
+   "ei": 0.64,
+   "es": 0.9299999999999999,
+   "Uk": 0.35000000000000003,
+   "Ug": 0.9299999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H6/t5",
+  "case": {
+   "id": "PV Passung D 250 H6/t5",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.029,
+   "ei": 0.196,
+   "es": 0.216,
+   "Uk": 0.167,
+   "Ug": 0.216
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H8/v8",
+  "case": {
+   "id": "PV Passung D 250 H8/v8",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.072,
+   "ei": 0.34,
+   "es": 0.41200000000000003,
+   "Uk": 0.268,
+   "Ug": 0.41200000000000003
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H7/y6",
+  "case": {
+   "id": "PV Passung D 250 H7/y6",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.046,
+   "ei": 0.52,
+   "es": 0.549,
+   "Uk": 0.47400000000000003,
+   "Ug": 0.549
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 250 H9/r9",
+  "case": {
+   "id": "PV Passung D 250 H9/r9",
+   "type": "pvfit",
+   "D": 250,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.115,
+   "ei": 0.084,
+   "es": 0.199,
+   "Uk": -0.031,
+   "Ug": 0.199
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H7/p6",
+  "case": {
+   "id": "PV Passung D 315 H7/p6",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.052,
+   "ei": 0.056,
+   "es": 0.088,
+   "Uk": 0.0040000000000000036,
+   "Ug": 0.088
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H6/s5",
+  "case": {
+   "id": "PV Passung D 315 H6/s5",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.032,
+   "ei": 0.17,
+   "es": 0.193,
+   "Uk": 0.138,
+   "Ug": 0.193
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H8/u7",
+  "case": {
+   "id": "PV Passung D 315 H8/u7",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.081,
+   "ei": 0.35,
+   "es": 0.40199999999999997,
+   "Uk": 0.26899999999999996,
+   "Ug": 0.40199999999999997
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H7/x6",
+  "case": {
+   "id": "PV Passung D 315 H7/x6",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.052,
+   "ei": 0.525,
+   "es": 0.557,
+   "Uk": 0.47300000000000003,
+   "Ug": 0.557
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H11/z11",
+  "case": {
+   "id": "PV Passung D 315 H11/z11",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.32,
+   "ei": 0.79,
+   "es": 1.11,
+   "Uk": 0.47000000000000003,
+   "Ug": 1.11
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H6/t5",
+  "case": {
+   "id": "PV Passung D 315 H6/t5",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.032,
+   "ei": 0.24,
+   "es": 0.263,
+   "Uk": 0.208,
+   "Ug": 0.263
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H8/v8",
+  "case": {
+   "id": "PV Passung D 315 H8/v8",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.081,
+   "ei": 0.425,
+   "es": 0.506,
+   "Uk": 0.344,
+   "Ug": 0.506
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H7/y6",
+  "case": {
+   "id": "PV Passung D 315 H7/y6",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.052,
+   "ei": 0.65,
+   "es": 0.682,
+   "Uk": 0.598,
+   "Ug": 0.682
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 315 H9/r9",
+  "case": {
+   "id": "PV Passung D 315 H9/r9",
+   "type": "pvfit",
+   "D": 315,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.13,
+   "ei": 0.098,
+   "es": 0.228,
+   "Uk": -0.032,
+   "Ug": 0.228
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H7/p6",
+  "case": {
+   "id": "PV Passung D 400 H7/p6",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.057,
+   "ei": 0.062,
+   "es": 0.098,
+   "Uk": 0.0049999999999999975,
+   "Ug": 0.098
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H6/s5",
+  "case": {
+   "id": "PV Passung D 400 H6/s5",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.036,
+   "ei": 0.208,
+   "es": 0.23299999999999998,
+   "Uk": 0.172,
+   "Ug": 0.23299999999999998
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H8/u7",
+  "case": {
+   "id": "PV Passung D 400 H8/u7",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.089,
+   "ei": 0.435,
+   "es": 0.492,
+   "Uk": 0.346,
+   "Ug": 0.492
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H7/x6",
+  "case": {
+   "id": "PV Passung D 400 H7/x6",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.057,
+   "ei": 0.66,
+   "es": 0.6960000000000001,
+   "Uk": 0.603,
+   "Ug": 0.6960000000000001
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H11/z11",
+  "case": {
+   "id": "PV Passung D 400 H11/z11",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.36,
+   "ei": 1.0,
+   "es": 1.3599999999999999,
+   "Uk": 0.64,
+   "Ug": 1.3599999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H6/t5",
+  "case": {
+   "id": "PV Passung D 400 H6/t5",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.036,
+   "ei": 0.294,
+   "es": 0.319,
+   "Uk": 0.258,
+   "Ug": 0.319
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H8/v8",
+  "case": {
+   "id": "PV Passung D 400 H8/v8",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.089,
+   "ei": 0.53,
+   "es": 0.619,
+   "Uk": 0.44100000000000006,
+   "Ug": 0.619
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H7/y6",
+  "case": {
+   "id": "PV Passung D 400 H7/y6",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.057,
+   "ei": 0.82,
+   "es": 0.856,
+   "Uk": 0.7629999999999999,
+   "Ug": 0.856
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 400 H9/r9",
+  "case": {
+   "id": "PV Passung D 400 H9/r9",
+   "type": "pvfit",
+   "D": 400,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.14,
+   "ei": 0.114,
+   "es": 0.254,
+   "Uk": -0.02600000000000001,
+   "Ug": 0.254
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H7/p6",
+  "case": {
+   "id": "PV Passung D 450 H7/p6",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.068,
+   "es": 0.10800000000000001,
+   "Uk": 0.0050000000000000044,
+   "Ug": 0.10800000000000001
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H6/s5",
+  "case": {
+   "id": "PV Passung D 450 H6/s5",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.232,
+   "es": 0.259,
+   "Uk": 0.192,
+   "Ug": 0.259
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H8/u7",
+  "case": {
+   "id": "PV Passung D 450 H8/u7",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.097,
+   "ei": 0.49,
+   "es": 0.5529999999999999,
+   "Uk": 0.393,
+   "Ug": 0.5529999999999999
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H7/x6",
+  "case": {
+   "id": "PV Passung D 450 H7/x6",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.74,
+   "es": 0.78,
+   "Uk": 0.677,
+   "Ug": 0.78
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H11/z11",
+  "case": {
+   "id": "PV Passung D 450 H11/z11",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.4,
+   "ei": 1.1,
+   "es": 1.5,
+   "Uk": 0.7000000000000001,
+   "Ug": 1.5
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H6/t5",
+  "case": {
+   "id": "PV Passung D 450 H6/t5",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.33,
+   "es": 0.35700000000000004,
+   "Uk": 0.29000000000000004,
+   "Ug": 0.35700000000000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H8/v8",
+  "case": {
+   "id": "PV Passung D 450 H8/v8",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.097,
+   "ei": 0.595,
+   "es": 0.692,
+   "Uk": 0.498,
+   "Ug": 0.692
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H7/y6",
+  "case": {
+   "id": "PV Passung D 450 H7/y6",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.92,
+   "es": 0.9600000000000001,
+   "Uk": 0.857,
+   "Ug": 0.9600000000000001
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 450 H9/r9",
+  "case": {
+   "id": "PV Passung D 450 H9/r9",
+   "type": "pvfit",
+   "D": 450,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.155,
+   "ei": 0.126,
+   "es": 0.281,
+   "Uk": -0.028999999999999998,
+   "Ug": 0.281
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H7/p6",
+  "case": {
+   "id": "PV Passung D 500 H7/p6",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.068,
+   "es": 0.10800000000000001,
+   "Uk": 0.0050000000000000044,
+   "Ug": 0.10800000000000001
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H6/s5",
+  "case": {
+   "id": "PV Passung D 500 H6/s5",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "s",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.252,
+   "es": 0.279,
+   "Uk": 0.212,
+   "Ug": 0.279
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H8/u7",
+  "case": {
+   "id": "PV Passung D 500 H8/u7",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "u",
+    "grade": 7
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.097,
+   "ei": 0.54,
+   "es": 0.603,
+   "Uk": 0.44300000000000006,
+   "Ug": 0.603
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H7/x6",
+  "case": {
+   "id": "PV Passung D 500 H7/x6",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "x",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 0.82,
+   "es": 0.86,
+   "Uk": 0.7569999999999999,
+   "Ug": 0.86
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H11/z11",
+  "case": {
+   "id": "PV Passung D 500 H11/z11",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 11,
+    "field": "z",
+    "grade": 11
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.4,
+   "ei": 1.25,
+   "es": 1.65,
+   "Uk": 0.85,
+   "Ug": 1.65
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H6/t5",
+  "case": {
+   "id": "PV Passung D 500 H6/t5",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "t",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.04,
+   "ei": 0.36,
+   "es": 0.387,
+   "Uk": 0.32,
+   "Ug": 0.387
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H8/v8",
+  "case": {
+   "id": "PV Passung D 500 H8/v8",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 8,
+    "field": "v",
+    "grade": 8
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.097,
+   "ei": 0.66,
+   "es": 0.757,
+   "Uk": 0.5630000000000001,
+   "Ug": 0.757
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H7/y6",
+  "case": {
+   "id": "PV Passung D 500 H7/y6",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "y",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.063,
+   "ei": 1.0,
+   "es": 1.04,
+   "Uk": 0.937,
+   "Ug": 1.04
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Passung D 500 H9/r9",
+  "case": {
+   "id": "PV Passung D 500 H9/r9",
+   "type": "pvfit",
+   "D": 500,
+   "fit": {
+    "kind": "iso",
+    "hole": 9,
+    "field": "r",
+    "grade": 9
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "errors": 0.0,
+   "ES": 0.155,
+   "ei": 0.132,
+   "es": 0.28700000000000003,
+   "Uk": -0.022999999999999993,
+   "Ug": 0.28700000000000003
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 80 H6",
+  "case": {
+   "id": "PV ISO 286-2 D 80 H6",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 6,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ES": 0.019
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 80 r6",
+  "case": {
+   "id": "PV ISO 286-2 D 80 r6",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "r",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.043,
+   "es": 0.062
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 80 r5",
+  "case": {
+   "id": "PV ISO 286-2 D 80 r5",
+   "type": "pvfit",
+   "D": 80,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "r",
+    "grade": 5
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.043,
+   "es": 0.056
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 160 H7",
+  "case": {
+   "id": "PV ISO 286-2 D 160 H7",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ES": 0.04
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 160 u6",
+  "case": {
+   "id": "PV ISO 286-2 D 160 u6",
+   "type": "pvfit",
+   "D": 160,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "u",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.19,
+   "es": 0.215
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 40 H7",
+  "case": {
+   "id": "PV ISO 286-2 D 40 H7",
+   "type": "pvfit",
+   "D": 40,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ES": 0.025
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 40 s6",
+  "case": {
+   "id": "PV ISO 286-2 D 40 s6",
+   "type": "pvfit",
+   "D": 40,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "s",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.043,
+   "es": 0.059
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 100 H7",
+  "case": {
+   "id": "PV ISO 286-2 D 100 H7",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ES": 0.035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 100 r6",
+  "case": {
+   "id": "PV ISO 286-2 D 100 r6",
+   "type": "pvfit",
+   "D": 100,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "r",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.051,
+   "es": 0.073
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 60 H7",
+  "case": {
+   "id": "PV ISO 286-2 D 60 H7",
+   "type": "pvfit",
+   "D": 60,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "p",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ES": 0.03
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 60 s6",
+  "case": {
+   "id": "PV ISO 286-2 D 60 s6",
+   "type": "pvfit",
+   "D": 60,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "s",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.053,
+   "es": 0.072
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV ISO 286-2 D 60 t6",
+  "case": {
+   "id": "PV ISO 286-2 D 60 t6",
+   "type": "pvfit",
+   "D": 60,
+   "fit": {
+    "kind": "iso",
+    "hole": 7,
+    "field": "t",
+    "grade": 6
+   },
+   "module": "verbindungen"
+  },
+  "expect": {
+   "ei": 0.066,
+   "es": 0.085
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Vorschlag D 80 Ü 19.014 bis 66.430 µm",
+  "case": {
+   "id": "PV Vorschlag D 80 Ü 19.014 bis 66.430 µm",
+   "type": "pvsel",
+   "D": 80,
+   "Uu": 0.019014,
+   "Uo": 0.06643,
+   "module": "verbindungen"
+  },
+  "expect": {
+   "n": 2,
+   "sumUk": 0.047999999999999994,
+   "sumUg": 0.118,
+   "nIso": 1,
+   "c0": 6016,
+   "c1": 6015
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Vorschlag D 60 Ü 21.298 bis 111.271 µm",
+  "case": {
+   "id": "PV Vorschlag D 60 Ü 21.298 bis 111.271 µm",
+   "type": "pvsel",
+   "D": 60,
+   "Uu": 0.021298,
+   "Uo": 0.111271,
+   "module": "verbindungen"
+  },
+  "expect": {
+   "n": 24,
+   "sumUk": 0.897,
+   "sumUg": 2.05,
+   "nIso": 7,
+   "c0": 6028,
+   "c1": 6036
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Vorschlag D 160 Ü 50.000 bis 200.000 µm",
+  "case": {
+   "id": "PV Vorschlag D 160 Ü 50.000 bis 200.000 µm",
+   "type": "pvsel",
+   "D": 160,
+   "Uu": 0.05,
+   "Uo": 0.2,
+   "module": "verbindungen"
+  },
+  "expect": {
+   "n": 20,
+   "sumUk": 1.6360000000000001,
+   "sumUg": 3.138,
+   "nIso": 6,
+   "c0": 7036,
+   "c1": 7035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Vorschlag D 25 Ü 20.000 bis 60.000 µm",
+  "case": {
+   "id": "PV Vorschlag D 25 Ü 20.000 bis 60.000 µm",
+   "type": "pvsel",
+   "D": 25,
+   "Uu": 0.02,
+   "Uo": 0.06,
+   "module": "verbindungen"
+  },
+  "expect": {
+   "n": 9,
+   "sumUk": 0.22400000000000003,
+   "sumUg": 0.47000000000000003,
+   "nIso": 4,
+   "c0": 6027,
+   "c1": 6035
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "PV Vorschlag D 400 Ü 200.000 bis 450.000 µm",
+  "case": {
+   "id": "PV Vorschlag D 400 Ü 200.000 bis 450.000 µm",
+   "type": "pvsel",
+   "D": 400,
+   "Uu": 0.2,
+   "Uo": 0.45,
+   "module": "verbindungen"
+  },
+  "expect": {
+   "n": 12,
+   "sumUk": 2.8,
+   "sumUg": 4.149,
+   "nIso": 4,
+   "c0": 6038,
+   "c1": 7038
+  },
+  "tol": 1e-12
  }
 ]

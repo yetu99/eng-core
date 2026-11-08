@@ -4,6 +4,7 @@ import { computeFrames, invertT, composeT, transformPoint, se3, type FrameInput,
 import { computeForward, convertDh, forwardRaw, checkTransform, toMat4, type ForwardInput, type Robot } from "../src/index";
 import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
 import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
+import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_FIELDS, type PressFitInput, type FitSpecIso } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -31,7 +32,10 @@ export type Case =
   | { id: string; type: "frames"; inp: FrameInput; abs?: boolean }
   | { id: string; type: "framesbatch"; samples: number[][]; abs?: boolean }
   | { id: string; type: "forward"; inp: ForwardInput; abs?: boolean }
-  | { id: string; type: "forwardbatch"; samples: Array<{ robot: Robot; q: number[] }>; abs?: boolean };
+  | { id: string; type: "forwardbatch"; samples: Array<{ robot: Robot; q: number[] }>; abs?: boolean }
+  | { id: string; type: "pv"; inp: PressFitInput; module?: string }
+  | { id: string; type: "pvfit"; D: number; fit: FitSpecIso; module?: string }
+  | { id: string; type: "pvsel"; D: number; Uu: number; Uo: number; module?: string };
 
 const IJ = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]] as const;
 const matKeys = (p: string, m: Mat3): Record<string, number> => Object.fromEntries(IJ.map(([i, j]) => [`${p}${i + 1}${j + 1}`, m[i][j]]));
@@ -212,7 +216,34 @@ function evalFluid(inp: LineInput, task: LineTask): Record<string, number | null
   return o;
 }
 
+
+/** Pressverband (Modul verbindungen, ab 0.17.0): alle Kennwerte eines Rechenlaufs (Übermaße in mm, Momente in N·mm). */
+function evalPv(inp: PressFitInput): Record<string, number | null> {
+  const r = computePressFit(pvRepo, inp);
+  if (r.errors.length) return { errors: r.errors.length };
+  const o: Record<string, number | null> = { errors: 0, QA: r.QA, QI: r.QI, AF: r.AF, K: r.K, G: r.G, pzulA: r.pzulA, pzulI: r.pzulI, FR: r.FR, perf: r.perf, Uu: r.Uu, Uo: r.Uo, PT: r.PT, nCand: r.candidates.length };
+  const c0 = r.candidates[0];
+  if (c0) Object.assign(o, { c0: c0.hole * 1000 + SHAFT_FIELDS.indexOf(c0.field) * 10 + c0.grade, c0Uk: c0.Uk, c0Ug: c0.Ug });
+  if (r.fit) Object.assign(o, { Uk: r.fit.Uk, Ug: r.fit.Ug });
+  for (const [k, s] of [["min", r.min], ["max", r.max]] as const) if (s) Object.assign(o, { [`Uw_${k}`]: s.Uw, [`xi_${k}`]: s.xi, [`p_${k}`]: s.p, [`ep_${k}`]: s.state === "elastisch-plastisch" ? 1 : s.state === "elastisch" ? 0 : -1, [`zeta_${k}`]: s.zeta, [`q_${k}`]: s.qPA });
+  Object.assign(o, { T: r.T, Faxt: r.Faxt, SrIst: r.SrIst, SPA: r.SPAist, SPI: r.SPIist, dDaA: r.dDaA });
+  if (r.stress) Object.assign(o, { tAi: r.stress.tAi, tAa: r.stress.tAa, tIi: r.stress.tIi, tIa: r.stress.tIa, vA: r.stress.vA, vI: r.stress.vI });
+  if (r.join) Object.assign(o, { Fe: r.join.Fe, le: r.join.le, Us: r.join.Us, UF: r.join.UF, thetaA: r.join.thetaA, Umax: r.join.Umax });
+  if (r.plastic) Object.assign(o, { pPA: r.plastic.pPA, pPI: r.plastic.pPI, zetaZul: r.plastic.zetaZul, xiZul: r.plastic.xiZul });
+  if (r.spin) Object.assign(o, { u: r.spin.u, uab: r.spin.uab, pn: r.spin.pn, ng: r.spin.ng, Tn: r.spin.Tn, lim54: r.spin.lim54, lim55: r.spin.lim55, ratio10: r.spin.ratio10 });
+  // Lamé-Verlauf (lame() aus mechanics/pressure) an D_F/2, D_aA/2 und Wellenrand gegen die geschlossenen Formeln (P-PV10)
+  if (r.max && r.stress) {
+    const pr = pressFitProfile(inp, r.max.p, 4);
+    o["lameErr"] = Math.max(Math.abs(pr.hub[0]!.st - r.stress.tAi), Math.abs(pr.hub[4]!.st - r.stress.tAa), Math.abs(pr.hub[0]!.sr + r.max.p), Math.abs(pr.shaft[4]!.st - r.stress.tIa), Math.abs(pr.shaft[0]!.st - r.stress.tIi)) / r.max.p;
+    o["uLameErr"] = Math.abs(2 * pr.hub[4]!.u - r.dDaA!) / r.dDaA!;   // ΔD_aA = 2·u(b) (P-ZY-U, P-PV14)
+  }
+  return o;
+}
+
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
+  if (c.type === "pv") return evalPv(c.inp);
+  if (c.type === "pvfit") { const L = fitLimits(pvRepo, c.D, c.fit); return typeof L === "string" ? { errors: 1 } : { errors: 0, ES: L.ES, ei: L.ei, es: L.es, Uk: L.Uk, Ug: L.Ug }; }
+  if (c.type === "pvsel") { const l = selectFits(pvRepo, c.D, c.Uu, c.Uo); return { n: l.length, sumUk: l.reduce((a, x) => a + x.Uk, 0), sumUg: l.reduce((a, x) => a + x.Ug, 0), c0: l[0] ? l[0].hole * 1000 + SHAFT_FIELDS.indexOf(l[0].field) * 10 + l[0].grade : null, c1: l[1] ? l[1].hole * 1000 + SHAFT_FIELDS.indexOf(l[1].field) * 10 + l[1].grade : null, nIso: l.filter((x) => x.iso).length }; }
   if (c.type === "water") { const rho = waterDensity(c.T, c.p); const eta = waterViscosity(c.T, rho); return { v: 1 / rho, rho, eta, nu: eta / rho }; }
   if (c.type === "psat") return { ps: saturationPressure(c.T) };
   if (c.type === "visc") return { mu: waterViscosity(c.T, c.rho) };

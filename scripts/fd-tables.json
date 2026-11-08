@@ -9,5 +9,13 @@
  { "file": "shape_factor", "table": "fd_shape_factor", "min": 12, "cols": ["id", "section", "param_name", "param_value", "phi", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "wave_speed", "table": "fd_wave_speed", "min": 2, "cols": ["id", "case", "a_m_s", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "bulk_modulus", "table": "fd_bulk_modulus", "min": 8, "cols": ["id", "liquid", "liquid_source", "t_c", "rho_kg_m3", "k_gpa", "remark", "source_id", "source_locator"], "sort": ["id"] },
- { "file": "oil_grades", "table": "fd_oil_grades", "min": 8, "cols": ["id", "grade", "iso_vg", "nu_m20_max_mm2_s", "nu0_max_mm2_s", "nu40_min_mm2_s", "nu40_max_mm2_s", "nu100_min_mm2_s", "remark", "source_id", "source_locator"], "sort": ["id"] }
+ { "file": "oil_grades", "table": "fd_oil_grades", "min": 8, "cols": ["id", "grade", "iso_vg", "nu_m20_max_mm2_s", "nu0_max_mm2_s", "nu40_min_mm2_s", "nu40_max_mm2_s", "nu100_min_mm2_s", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "fit_it", "table": "fd_fit_it", "min": 13, "cols": ["id", "d_over_mm", "d_to_mm", "it1", "it2", "it3", "it4", "it5", "it6", "it7", "it8", "it9", "it10", "it11", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] },
+ { "file": "fit_shaft_dev", "table": "fd_fit_shaft_dev", "min": 25, "cols": ["id", "d_over_mm", "d_to_mm", "p", "r", "s", "t", "u", "v", "x", "y", "z", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] },
+ { "file": "pv_friction", "table": "fd_pv_friction", "min": 28, "cols": ["id", "kind", "pairing", "hub_group", "condition", "lubricated", "nu_r_min", "nu_r_max", "nu_l", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "pv_groups", "table": "fd_pv_groups", "min": 15, "cols": ["id", "din_group", "din_designation", "en_designation", "mu_min", "mu_max", "e_min_mpa", "e_max_mpa", "alpha_heat_e6", "alpha_cool_e6", "wdb_ids", "wdb_subclasses", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "pv_join_temp", "table": "fd_pv_join_temp", "min": 4, "cols": ["id", "hub_state", "t_max_c", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "pv_coolants", "table": "fd_pv_coolants", "min": 2, "cols": ["id", "medium", "t_c", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "pv_rz", "table": "fd_pv_rz", "min": 3, "cols": ["id", "ra_um", "rz_um", "rz_min_um", "rz_max_um", "remark", "source_id", "source_locator"], "sort": ["ra_um"] },
+ { "file": "pv_chamfer", "table": "fd_pv_chamfer", "min": 8, "cols": ["id", "d_over_mm", "d_to_mm", "le_mm", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] }
 ]

@@ -1,0 +1,34 @@
+[
+ {
+  "id": "FT01",
+  "hub_state": "Baustahl niedriger Festigkeit, Stahlguss, Gusseisen mit Kugelgraphit",
+  "t_max_c": 350,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 8 (S. 25)"
+ },
+ {
+  "id": "FT02",
+  "hub_state": "Stahl oder Stahlguss vergütet",
+  "t_max_c": 300,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 8 (S. 25)"
+ },
+ {
+  "id": "FT03",
+  "hub_state": "Stahl randschichtgehärtet",
+  "t_max_c": 250,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 8 (S. 25)"
+ },
+ {
+  "id": "FT04",
+  "hub_state": "Stahl einsatzgehärtet oder hochvergüteter Baustahl",
+  "t_max_c": 200,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 8 (S. 25)"
+ }
+]

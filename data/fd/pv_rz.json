@@ -1,0 +1,32 @@
+[
+ {
+  "id": "RZ01",
+  "ra_um": 0.8,
+  "rz_um": 6.3,
+  "rz_min_um": 3.15,
+  "rz_max_um": 10,
+  "remark": "gemittelte Rautiefe für die Rechnung",
+  "source_id": "Q235",
+  "source_locator": "Tab. 1 (S. 8)"
+ },
+ {
+  "id": "RZ02",
+  "ra_um": 1.6,
+  "rz_um": 12.5,
+  "rz_min_um": 6.3,
+  "rz_max_um": 20,
+  "remark": "gemittelte Rautiefe für die Rechnung",
+  "source_id": "Q235",
+  "source_locator": "Tab. 1 (S. 8)"
+ },
+ {
+  "id": "RZ03",
+  "ra_um": 3.2,
+  "rz_um": 20,
+  "rz_min_um": 12.5,
+  "rz_max_um": 31.5,
+  "remark": "gemittelte Rautiefe für die Rechnung",
+  "source_id": "Q235",
+  "source_locator": "Tab. 1 (S. 8)"
+ }
+]

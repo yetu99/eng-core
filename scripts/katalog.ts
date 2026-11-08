@@ -11,7 +11,8 @@ import { moduleOfId, type ModuleId } from "../src/modules";
 import { computeLine, computeMeter, computeSurge, fdRepo, FD_VERSION } from "../src/index";
 import { fluidFaelle, messFaelle, stossFaelle } from "./fluid-faelle";
 import { kinematikFaelle, kinematikVerkettung, kinematikK2Faelle, kinematikK3Faelle } from "./kinematik-faelle";
-import { computeOrientation, compose, computeFrames, computeForward } from "../src/index";
+import { computeOrientation, compose, computeFrames, computeForward, computePressFit, pvRepo } from "../src/index";
+import { pvFaelle } from "./pv-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -174,6 +175,12 @@ export function collectCatalog(): CatalogEntry[] {
     const r = computeForward(f.inp);
     if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.text}`)));
+  }
+  // Pressverband (0.17.0, Modul verbindungen): Literaturfälle DIN 7190-1 Anhang A, Roloff Bsp. 12.2, Längs- und Querpress
+  for (const f of pvFaelle) {
+    const r = computePressFit(pvRepo, f.inp);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
   }
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));
 }

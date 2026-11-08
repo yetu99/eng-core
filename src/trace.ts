@@ -30,7 +30,7 @@ export const TRACE_GROUPS = {
   festigkeit: ["belastung", "nachweis", "bemessung", "ermuedung"],
   ashby: [],
   fluid: ["stoffwerte", "geometrie", "reibung", "verluste", "energie", "pumpe", "messung", "druckstoss", "nachweis"],
-  verbindungen: ["werkstoff", "passung", "fugendruck", "spannungen", "montage", "nachgiebigkeit", "vorspannung", "betrieb", "nachweis"],
+  verbindungen: ["werkstoff", "geometrie", "passung", "fugendruck", "betrieb", "spannungen", "montage", "plastisch", "fliehkraft", "nachgiebigkeit", "vorspannung", "nachweis"],
   dichtungen: ["abmessungen", "verpressung", "nut", "extrusion", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
   kinematik: ["orientierung", "umrechnung", "pruefung", "lage", "kette", "inverse", "abbildung", "gelenke", "vorwaerts", "kontrolle"],
@@ -52,6 +52,7 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   vorspannung: "Vorspannkraft", betrieb: "Betriebskräfte", abmessungen: "Abmessungen", verpressung: "Verpressung", nut: "Nut",
   extrusion: "Spaltextrusion", gleichgewicht: "Gleichgewicht", stabkraefte: "Stabkräfte", verschiebung: "Verschiebungen",
   orientierung: "Orientierung", umrechnung: "Umrechnung der Darstellungen", pruefung: "Prüfung der Rotationsmatrix",
+  plastisch: "Elastisch-plastisch (DIN 7190-1 Abschn. 4.3)", fliehkraft: "Fliehkraft (DIN 7190-1 Abschn. 10.2)",
   lage: "Lage der Rahmen", kette: "Rahmenkette und relative Lage", inverse: "Inverse", abbildung: "Punkt, Richtung und Verschieben",
   gelenke: "Gelenke und DH-Gliedmatrizen", vorwaerts: "Vorwärtskinematik", kontrolle: "Kontrolle und Umrechnung",
 };

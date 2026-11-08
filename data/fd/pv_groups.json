@@ -1,0 +1,298 @@
+[
+ {
+  "id": "PG01",
+  "din_group": "MgAl8Zn",
+  "din_designation": "MgAl8Zn1 / 3.5812",
+  "en_designation": "EN-MCMgAl8Zn1 / EN-MC21110",
+  "mu_min": 0.3,
+  "mu_max": 0.3,
+  "e_min_mpa": 65000,
+  "e_max_mpa": 75000,
+  "alpha_heat_e6": 23,
+  "alpha_cool_e6": 18,
+  "wdb_ids": [],
+  "wdb_subclasses": [
+   "Magnesium, Gusslegierung",
+   "Magnesium, Knetlegierung"
+  ],
+  "remark": "E-Zelle in der Tabelle gemeinsam für MgAl8Zn, AlMgSi, AlCuMg; in der Norm als MgAl8Znn gedruckt (Druckfehler, gemeint G-MgAl8Zn1)",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG02",
+  "din_group": "AlMgSi",
+  "din_designation": "AlMgSi / 3.2315",
+  "en_designation": "EN AW-Al Si1MgMn / EN AW-6082",
+  "mu_min": 0.34,
+  "mu_max": 0.34,
+  "e_min_mpa": 65000,
+  "e_max_mpa": 75000,
+  "alpha_heat_e6": 23,
+  "alpha_cool_e6": 18,
+  "wdb_ids": [
+   "W038"
+  ],
+  "wdb_subclasses": [
+   "Aluminium, Knetlegierung"
+  ],
+  "remark": "E-Zelle in der Tabelle gemeinsam für MgAl8Zn, AlMgSi, AlCuMg; Al-Gusslegierungen bewusst ohne Zuordnung (α ≈ 20 bis 21·10⁻⁶/K, Prüfliste fd 1.2)",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG03",
+  "din_group": "AlCuMg",
+  "din_designation": "AlCuMg / 3.1325",
+  "en_designation": "EN AW-Al Cu4MgSi(A) / EN AW-2017A",
+  "mu_min": 0.33,
+  "mu_max": 0.34,
+  "e_min_mpa": 65000,
+  "e_max_mpa": 75000,
+  "alpha_heat_e6": 23,
+  "alpha_cool_e6": 18,
+  "wdb_ids": [
+   "W040"
+  ],
+  "wdb_subclasses": [],
+  "remark": "E-Zelle in der Tabelle gemeinsam für MgAl8Zn, AlMgSi, AlCuMg",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG04",
+  "din_group": "GG-10",
+  "din_designation": "GG-10 / 0.6010",
+  "en_designation": "EN-GJL-100 / 5.1100",
+  "mu_min": 0.24,
+  "mu_max": 0.24,
+  "e_min_mpa": 70000,
+  "e_max_mpa": 70000,
+  "alpha_heat_e6": 10,
+  "alpha_cool_e6": 8,
+  "wdb_ids": [],
+  "wdb_subclasses": [],
+  "remark": "nicht zugelassen für Anlagetechnik in Hütten- und Walzwerken",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG05",
+  "din_group": "GG-15",
+  "din_designation": "GG-15 / 0.6015",
+  "en_designation": "EN-GJL-150 / 5.1200",
+  "mu_min": 0.24,
+  "mu_max": 0.24,
+  "e_min_mpa": 80000,
+  "e_max_mpa": 80000,
+  "alpha_heat_e6": 10,
+  "alpha_cool_e6": 8,
+  "wdb_ids": [],
+  "wdb_subclasses": [],
+  "remark": "nicht zugelassen für Anlagetechnik in Hütten- und Walzwerken",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG06",
+  "din_group": "GG-20",
+  "din_designation": "GG-20 / 0.6020",
+  "en_designation": "EN-GJL-200 / 5.1300",
+  "mu_min": 0.24,
+  "mu_max": 0.26,
+  "e_min_mpa": 105000,
+  "e_max_mpa": 105000,
+  "alpha_heat_e6": 10,
+  "alpha_cool_e6": 8,
+  "wdb_ids": [],
+  "wdb_subclasses": [],
+  "remark": "nicht zugelassen für Anlagetechnik in Hütten- und Walzwerken",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG07",
+  "din_group": "GG-25",
+  "din_designation": "GG-25 / 0.6025",
+  "en_designation": "EN-GJL-250 / 5.1301",
+  "mu_min": 0.24,
+  "mu_max": 0.26,
+  "e_min_mpa": 130000,
+  "e_max_mpa": 130000,
+  "alpha_heat_e6": 10,
+  "alpha_cool_e6": 8,
+  "wdb_ids": [
+   "W029"
+  ],
+  "wdb_subclasses": [
+   "Gusseisen, lamellar"
+  ],
+  "remark": "nicht zugelassen für Anlagetechnik in Hütten- und Walzwerken",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG08",
+  "din_group": "GGG-50",
+  "din_designation": "GGG-50 / 0.7050",
+  "en_designation": "EN-GJS-500-7 / 5.3200",
+  "mu_min": 0.28,
+  "mu_max": 0.29,
+  "e_min_mpa": 140000,
+  "e_max_mpa": null,
+  "alpha_heat_e6": 10,
+  "alpha_cool_e6": 8,
+  "wdb_ids": [],
+  "wdb_subclasses": [
+   "Gusseisen, globular"
+  ],
+  "remark": "E-Modul > 140 000 N/mm² (nur Untergrenze)",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG09",
+  "din_group": "Temperguss",
+  "din_designation": null,
+  "en_designation": null,
+  "mu_min": 0.25,
+  "mu_max": 0.25,
+  "e_min_mpa": 90000,
+  "e_max_mpa": 100000,
+  "alpha_heat_e6": 10,
+  "alpha_cool_e6": 8,
+  "wdb_ids": [],
+  "wdb_subclasses": [],
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG10",
+  "din_group": "C-Stähle niedrig legiert",
+  "din_designation": null,
+  "en_designation": null,
+  "mu_min": 0.3,
+  "mu_max": 0.31,
+  "e_min_mpa": 200000,
+  "e_max_mpa": 235000,
+  "alpha_heat_e6": 11,
+  "alpha_cool_e6": 8.5,
+  "wdb_ids": [],
+  "wdb_subclasses": [
+   "Stahl, Automatenstahl",
+   "Stahl, Baustahl",
+   "Stahl, Druckbehälter",
+   "Stahl, Einsatzstahl",
+   "Stahl, Federstahl",
+   "Stahl, hochfester Baustahl",
+   "Stahl, Kaltarbeitsstahl",
+   "Stahl, Kaltband",
+   "Stahl, Kunststoffformenstahl",
+   "Stahl, presshärtbar",
+   "Stahl, Schnellarbeitsstahl",
+   "Stahl, Vergütungsstahl",
+   "Stahl, verzinktes Feinblech",
+   "Stahl, Wälzlagerstahl",
+   "Stahl, Warmarbeitsstahl"
+  ],
+  "remark": "Zuordnung der Vergütungs-, Einsatz- und Werkzeugstähle nach O-pv1 (Konzept PV); hochlegierte Werkzeugstähle nur näherungsweise",
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG11",
+  "din_group": "Ni-Stähle",
+  "din_designation": null,
+  "en_designation": null,
+  "mu_min": 0.31,
+  "mu_max": 0.31,
+  "e_min_mpa": 200000,
+  "e_max_mpa": 235000,
+  "alpha_heat_e6": 11,
+  "alpha_cool_e6": 8.5,
+  "wdb_ids": [],
+  "wdb_subclasses": [],
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG12",
+  "din_group": "Bronze",
+  "din_designation": null,
+  "en_designation": null,
+  "mu_min": 0.35,
+  "mu_max": 0.35,
+  "e_min_mpa": 80000,
+  "e_max_mpa": 85000,
+  "alpha_heat_e6": 16,
+  "alpha_cool_e6": 14,
+  "wdb_ids": [
+   "W049"
+  ],
+  "wdb_subclasses": [
+   "Kupfer, Bronze"
+  ],
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG13",
+  "din_group": "Rotguss",
+  "din_designation": null,
+  "en_designation": null,
+  "mu_min": 0.35,
+  "mu_max": 0.36,
+  "e_min_mpa": 80000,
+  "e_max_mpa": 85000,
+  "alpha_heat_e6": 17,
+  "alpha_cool_e6": 15,
+  "wdb_ids": [],
+  "wdb_subclasses": [],
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG14",
+  "din_group": "CuZn39Pb3",
+  "din_designation": "CuZn39Pb3 / 2.0401",
+  "en_designation": "CuZn39Pb3 / CW614N",
+  "mu_min": 0.37,
+  "mu_max": 0.37,
+  "e_min_mpa": 80000,
+  "e_max_mpa": 85000,
+  "alpha_heat_e6": 18,
+  "alpha_cool_e6": 16,
+  "wdb_ids": [
+   "W047"
+  ],
+  "wdb_subclasses": [],
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ },
+ {
+  "id": "PG15",
+  "din_group": "CuZn37",
+  "din_designation": "CuZn37 / 2.0321",
+  "en_designation": "CuZn37 / CW508L",
+  "mu_min": 0.36,
+  "mu_max": 0.36,
+  "e_min_mpa": 80000,
+  "e_max_mpa": 85000,
+  "alpha_heat_e6": 18,
+  "alpha_cool_e6": 16,
+  "wdb_ids": [
+   "W046"
+  ],
+  "wdb_subclasses": [
+   "Kupfer, Messing"
+  ],
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 7 (S. 24)"
+ }
+]

@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.16.0
+# Formelkatalog eng-core 0.17.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 522 Formeln, davon 522 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 589 Formeln, davon 589 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -13,7 +13,7 @@ Stand: 522 Formeln, davon 522 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | festigkeit | werkbank | B, Z, K, T, N, D, P, V, E | 165 | 165 |
 | ashby | werkbank | A, C | 90 | 90 |
 | fluid | fachtools | RH, PU, FS | 100 | 100 |
-| verbindungen | fachtools | SV, PV | 0 | 0 |
+| verbindungen | fachtools | SV, PV | 67 | 67 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
@@ -420,6 +420,78 @@ Stand: 522 Formeln, davon 522 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | PU-PU | Förderleistung | P_u = ρ·g·V̇·H | W | Dubbel 26 Bd. 3 Gl. (2.5a) | freigegeben (2026-11-06, Seti) |
 | PU-RES | NPSH-Reserve | ΔNPSH = NPSH_A − NPSH_R(V̇_B) | m | Dubbel 26 Bd. 3 S. 230 | freigegeben (2026-11-06, Seti) |
 
+## Pressverband
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| PV-AF | Fugenfläche | A_F = π·D_F·l_F | mm² | Roloff/Matek 27 (Q219) (12.10) | freigegeben (2026-11-08, Seti) |
+| PV-DAA | Aufweitung des Nabenaußendurchmessers (p_max) | ΔD_aA = D_aA·σ_tAa/E_A (σ_r = 0 außen) | mm | Hooke; Lamé P-ZY-U | freigegeben (2026-11-08, Seti) |
+| PV-EP-P | Fugendruck elastisch-plastisch | p = R_eLA/√3·[1 + 2·ln ζ − (Q_A·ζ)²] | N/mm² | DIN 7190-1:2017 (Q235) Gl. (43) | freigegeben (2026-11-08, Seti) |
+| PV-EP-PPA | Grenzfugendruck vollplastische Nabe | p_PA = −2·R_eLA·ln Q_A/√3 (Q_A ≥ 1/e) | N/mm² | DIN 7190-1:2017 (Q235) Gl. (27), (28) | freigegeben (2026-11-08, Seti) |
+| PV-EP-PPI | Grenzfugendruck vollplastische Vollwelle | p_PI = 2·R_eLI/√3 | N/mm² | DIN 7190-1:2017 (Q235) Gl. (30) | freigegeben (2026-11-08, Seti) |
+| PV-EP-QPA | Plastischer Flächenanteil der Nabe | q_PA/q_A = (ζ² − 1)·Q_A²/(1 − Q_A²) | 1 | DIN 7190-1:2017 (Q235) Gl. (35) | freigegeben (2026-11-08, Seti) |
+| PV-EP-XI | Bezogenes wirksames Übermaß aus ζ | ξ_w = 2/√3·ζ²·R_eLA/E | 1 | DIN 7190-1:2017 (Q235) Gl. (34) | freigegeben (2026-11-08, Seti) |
+| PV-EP-ZETA | Bezogener Plastizitätsdurchmesser | 2·ln ζ − (Q_A·ζ)² + 1 − √3·p/R_eLA = 0, 1 ≤ ζ ≤ 1/Q_A | 1 | DIN 7190-1:2017 (Q235) Gl. (31) bis (33), Anhang B | freigegeben (2026-11-08, Seti) |
+| PV-EP-ZU | ζ aus ξ_w | ζ = √(√3·ξ_w·E/(2·R_eLA)) | 1 | DIN 7190-1:2017 (Q235) Gl. (42) | freigegeben (2026-11-08, Seti) |
+| PV-EP-ZZUL | Zulässiger bezogener Plastizitätsdurchmesser | ζ_zul aus Gl. (32) mit p = p_PA/S_PA (Fall 2) | 1 | DIN 7190-1:2017 (Q235) Gl. (37) bis (41) | freigegeben (2026-11-08, Seti) |
+| PV-FAX | Übertragbare Axialkraft (p_min) | F_ax = π·D_F·l_F·p·ν_rl/S_r | N | DIN 7190-1:2017 (Q235) Gl. (2) | freigegeben (2026-11-08, Seti) |
+| PV-FE | Einpresskraft | F_e = π·D_F·l_F·ν_ll·p_max | N | DIN 7190-1:2017 (Q235) Gl. (48); Roloff/Matek 27 (Q219) (12.22) | freigegeben (2026-11-08, Seti) |
+| PV-FIT-H | Grenzabmaße Bohrung H6 | EI = 0, ES = IT(D_F, Grad) | mm | ISO 286-1:2019 (Q236) Tab. 1, 2 | freigegeben (2026-11-08, Seti) |
+| PV-FIT-SEL | Zulässige Passungen | H6 bis H8 × p bis z × IT5 bis IT8 mit U_k ≥ Ü_u und U_g ≤ Ü_o, sortiert nach \|(U_k + U_g)/2 − (Ü_u + Ü_o)/2\| | 1 | Roloff/Matek 27 (Q219) S. 446, Bild 12.17; Verfahren | freigegeben (2026-11-08, Seti) |
+| PV-FIT-W | Grenzabmaße Welle r6 | ei = Grundabmaß(D_F, Feld); es = ei + IT(D_F, Grad) | mm | ISO 286-1:2019 (Q236) Tab. 1, 5 | freigegeben (2026-11-08, Seti) |
+| PV-FL-NG | Grenzdrehzahl (Abheben) | n_g = u_ab/(π·D_aA) | 1/s | Roloff/Matek 27 (Q219) (12.24a); DIN 7190-1:2017 (Q235) Gl. (56), (58) | freigegeben (2026-11-08, Seti) |
+| PV-FL-PN | Fugendruck bei Drehzahl n | p_n = [1 − (u/u_ab)²]·p | N/mm² | DIN 7190-1:2017 (Q235) Gl. (57) | freigegeben (2026-11-08, Seti) |
+| PV-FL-TN | Übertragbares Moment bei Drehzahl n | T_n = T·[1 − (n/n_g)²] | N·mm | Roloff/Matek 27 (Q219) (12.25) | freigegeben (2026-11-08, Seti) |
+| PV-FL-U | Umfangsgeschwindigkeit der Nabe außen | u = π·n·D_aA | mm/s | DIN 7190-1:2017 (Q235) Gl. (56) | freigegeben (2026-11-08, Seti) |
+| PV-FL-UAB | Abhebegeschwindigkeit | u_ab = 2·√(E·ξ_w/((3 + μ)·ρ)) | mm/s | DIN 7190-1:2017 (Q235) Gl. (58) | freigegeben (2026-11-08, Seti) |
+| PV-FRES | Rutschkraft (Auslegung) | F_R = S_r·K_A·√(F_ax² + F_t²) | N | Roloff/Matek 27 (Q219) (12.9) | freigegeben (2026-11-08, Seti) |
+| PV-FT | Umfangskraft in der Fuge | F_t = 2·T/D_F | N | Roloff/Matek 27 (Q219) S. 449 | freigegeben (2026-11-08, Seti) |
+| PV-GL | Glättung | G = 0,4·(Rz_A + Rz_I) | mm | DIN 7190-1:2017 (Q235) Gl. (7); Roloff/Matek 27 (Q219) (12.15) | freigegeben (2026-11-08, Seti) |
+| PV-K | Hilfsgröße K | K = E_A/E_I·[(1 + Q_I²)/(1 − Q_I²) − μ_I] + (1 + Q_A²)/(1 − Q_A²) + μ_A | 1 | DIN 7190-1:2017 (Q235) Gl. (13), (14); Roloff/Matek 27 (Q219) (12.13) | freigegeben (2026-11-08, Seti) |
+| PV-LE | Fasenlänge | l_e ≈ ∛D_F (D_F ≤ 50 mm, Tab. 6 beginnt über 50 mm) | mm | DIN 7190-1:2017 (Q235) Tab. 6, Gl. (49) | freigegeben (2026-11-08, Seti) |
+| PV-N-ELAST | Warnung plastisch | p_max > p_zul,A oder p_zul,I → plastische Dehnung (Überschreitung in %) | % | DIN 7190-1:2017 (Q235) Abschn. 4.1, S. 9 | freigegeben (2026-11-08, Seti) |
+| PV-N-EP | Grenzen elastisch-plastisch | ξ_w ≤ 2/√3·ζ_zul²·R_eLA/E (41) und q_PA/q_A ≤ 0,30 (35) | 1 | DIN 7190-1:2017 (Q235) Gl. (26), (29), (33), (36), (41), (35) | freigegeben (2026-11-08, Seti) |
+| PV-N-FL | Fliehkraft rein elastisch | ξ_w ≤ (3 + μ)/(3 + μ + (1 − μ)·Q_A²)·R_eLA/E (54) und ξ_w ≤ R_eLI/(Q_A²·E) (55) | 1 | DIN 7190-1:2017 (Q235) Gl. (54), (55) | freigegeben (2026-11-08, Seti) |
+| PV-N-FL10 | Druckabfall höchstens 10 % | u ≤ √0,1·u_ab ≈ 0,316·u_ab (Verhältnis) | 1 | DIN 7190-1:2017 (Q235) Gl. (59) | freigegeben (2026-11-08, Seti) |
+| PV-N-GEO | Gestaltung | Torsion l_F/D_F ≤ 1,5; Biegung l_F/D_F > 0,5; Q_A ≤ 0,5 empfohlen (Hinweise) | 1 | DIN 7190-1:2017 (Q235) Gl. (46), (47), S. 16 | freigegeben (2026-11-08, Seti) |
+| PV-N-PASS | Passung trägt | U_k ≥ Ü_u und U_g ≤ Ü_o (kleinster Abstand) | mm | Roloff/Matek 27 (Q219) S. 446 | freigegeben (2026-11-08, Seti) |
+| PV-N-SPA | Nachweis Nabe rein elastisch | p_max ≤ p_zul,A (Auslastung p_max/p_zul,A) | 1 | DIN 7190-1:2017 (Q235) Gl. (15), (20) | freigegeben (2026-11-08, Seti) |
+| PV-N-SPI | Nachweis Welle rein elastisch | p_max ≤ p_zul,I (Auslastung p_max/p_zul,I) | 1 | DIN 7190-1:2017 (Q235) Gl. (16), (17), (21) | freigegeben (2026-11-08, Seti) |
+| PV-N-SR | Nachweis Rutschen | S_r,ist ≥ S_r (mit p_min, bei Drehzahl mit p_n) | 1 | DIN 7190-1:2017 (Q235) Gl. (1), (2) | freigegeben (2026-11-08, Seti) |
+| PV-N-TA | Nachweis Fügetemperatur | ϑ_A,erf ≤ ϑ_A,zul (Reserve ϑ_A,zul − ϑ_A,erf) | K | DIN 7190-1:2017 (Q235) Tab. 8, S. 23 | freigegeben (2026-11-08, Seti) |
+| PV-N-VERF | Verformbarkeit Nabe | A ≥ 10 % (Z ≥ 30 % selbst prüfen) | % | DIN 7190-1:2017 (Q235) Gl. (8), (9) | freigegeben (2026-11-08, Seti) |
+| PV-P | Fugendruck aus Übermaß | p = ξ_w·E_A/K | N/mm² | DIN 7190-1:2017 (Q235) Gl. (24) | freigegeben (2026-11-08, Seti) |
+| PV-PERF | Erforderlicher Fugendruck | p_erf = F_R/(A_F·ν_r) | N/mm² | Roloff/Matek 27 (Q219) (12.10); DIN 7190-1:2017 (Q235) Gl. (1), (2) umgestellt | freigegeben (2026-11-08, Seti) |
+| PV-PT | Passtoleranz | PT = Ü_o − Ü_u | mm | Roloff/Matek 27 (Q219) (12.20) | freigegeben (2026-11-08, Seti) |
+| PV-PZA | Zulässiger Fugendruck Nabe (rein elastisch) | p_zul,A = (1 − Q_A²)·R_eLA/(√3·S_PA) | N/mm² | DIN 7190-1:2017 (Q235) Gl. (15); Roloff/Matek 27 (Q219) (12.17) | freigegeben (2026-11-08, Seti) |
+| PV-PZI-H | Zulässiger Fugendruck Hohlwelle | p_zul,I = (1 − Q_I²)·R_eLI/(√3·S_PI) | N/mm² | DIN 7190-1:2017 (Q235) Gl. (16) | freigegeben (2026-11-08, Seti) |
+| PV-PZI-V | Zulässiger Fugendruck Vollwelle | p_zul,I = 2·R_eLI/(√3·S_PI) | N/mm² | DIN 7190-1:2017 (Q235) Gl. (17) | freigegeben (2026-11-08, Seti) |
+| PV-QA | Durchmesserverhältnis Nabe | Q_A = D_F/D_aA | 1 | DIN 7190-1:2017 (Q235) Gl. (10) | freigegeben (2026-11-08, Seti) |
+| PV-QI | Durchmesserverhältnis Welle | Q_I = D_iI/D_F (Vollwelle: 0) | 1 | DIN 7190-1:2017 (Q235) Gl. (11) | freigegeben (2026-11-08, Seti) |
+| PV-RZ | Rz aus Ra | Ra 0,8/1,6/3,2 µm → Rz 6,3/12,5/20 µm | µm | DIN 7190-1:2017 (Q235) Tab. 1 | freigegeben (2026-11-08, Seti) |
+| PV-S-TAA | Tangentialspannung Nabe außen (p_max) | σ_tAa = 2·p·Q_A²/(1 − Q_A²) | N/mm² | Roloff/Matek 27 (Q219) (12.6) | freigegeben (2026-11-08, Seti) |
+| PV-S-TAI | Tangentialspannung Nabe innen (p_max) | σ_tAi = p·(1 + Q_A²)/(1 − Q_A²); σ_r = −p | N/mm² | Roloff/Matek 27 (Q219) (12.6) | freigegeben (2026-11-08, Seti) |
+| PV-S-TIA | Tangentialspannung Welle außen (p_max) | σ_tIa = −p·(1 + Q_I²)/(1 − Q_I²) | N/mm² | Roloff/Matek 27 (Q219) (12.7) | freigegeben (2026-11-08, Seti) |
+| PV-S-TII | Tangentialspannung Welle innen (p_max) | Vollwelle: σ_t = σ_r = −p | N/mm² | Roloff/Matek 27 (Q219) (12.7), S. 443 | freigegeben (2026-11-08, Seti) |
+| PV-S-VA | Vergleichsspannung Nabe innen (SH) | σ_vAi = 2·p/(1 − Q_A²) | N/mm² | Roloff/Matek 27 (Q219) (12.8); Dubbel 2 S. 199 | freigegeben (2026-11-08, Seti) |
+| PV-S-VI | Vergleichsspannung Welle (SH) | Vollwelle: σ_vI = p | N/mm² | Roloff/Matek 27 (Q219) (12.8) | freigegeben (2026-11-08, Seti) |
+| PV-SPA | Ist-Sicherheit Nabe gegen plastische Dehnung | S_PA = (1 − Q_A²)·R_eLA/(√3·p_max) | 1 | DIN 7190-1:2017 (Q235) Gl. (15) umgestellt | freigegeben (2026-11-08, Seti) |
+| PV-SPI | Ist-Sicherheit Welle gegen plastische Dehnung | S_PI = 2·R_eLI/(√3·p_max) | 1 | DIN 7190-1:2017 (Q235) Gl. (16), (17) umgestellt | freigegeben (2026-11-08, Seti) |
+| PV-SR | Ist-Sicherheit gegen Rutschen | S_r,ist = p·A_F·ν_r/(K_A·√(F_ax² + F_t²)) mit p = p_min (Stillstand) bzw. p = p_n (Drehzahl n) | 1 | Roloff/Matek 27 (Q219) S. 449 (S_H′); DIN 7190-1:2017 (Q235) Gl. (57) | freigegeben (2026-11-08, Seti) |
+| PV-T | Übertragbares Drehmoment (p_min) | T = π/2·D_F²·l_F·p·ν_ru/S_r | N·mm | DIN 7190-1:2017 (Q235) Gl. (1) | freigegeben (2026-11-08, Seti) |
+| PV-TA | Erforderliche Fügetemperatur der Nabe | ϑ_A,erf = ϑ_R + U_F/(α_A·D_F) + α_I/α_A·(ϑ_I − ϑ_R) | °C | DIN 7190-1:2017 (Q235) Gl. (52); Roloff/Matek 27 (Q219) (12.23) | freigegeben (2026-11-08, Seti) |
+| PV-U-MAN | Übermaß von Hand | U_k, U_g eingegeben (U_k ≤ U_i ≤ U_g) | mm | DIN 7190-1:2017 (Q235) Gl. (6) | freigegeben (2026-11-08, Seti) |
+| PV-UF | Übermaß beim Fügen | U_F = U_g + U_sϑ | mm | DIN 7190-1:2017 (Q235) Gl. (51) (mit U_g, Befund B5) | freigegeben (2026-11-08, Seti) |
+| PV-UG | Höchstübermaß | U_g = A_oI − A_uA | mm | DIN 7190-1:2017 (Q235) Gl. (4) | freigegeben (2026-11-08, Seti) |
+| PV-UK | Mindestübermaß | U_k = A_uI − A_oA | mm | DIN 7190-1:2017 (Q235) Gl. (5) | freigegeben (2026-11-08, Seti) |
+| PV-UMAX | Größtes fügbares Übermaß | U_max = D_F·[α_A·(ϑ_A,zul − ϑ_R) − α_I·(ϑ_I − ϑ_R)] − U_sϑ | mm | DIN 7190-1:2017 (Q235) Gl. (53) | freigegeben (2026-11-08, Seti) |
+| PV-UO | Größtes zulässiges Übermaß | Ü_o = K·min(p_zul,A; p_zul,I)·D_F/E_A + G | mm | Roloff/Matek 27 (Q219) (12.18), (12.19) | freigegeben (2026-11-08, Seti) |
+| PV-US | Fügespiel | U_sϑ = 0,001·D_F | mm | DIN 7190-1:2017 (Q235) Gl. (50) | freigegeben (2026-11-08, Seti) |
+| PV-UU | Kleinstes erforderliches Übermaß | Ü_u = K·p_erf·D_F/E_A + G | mm | Roloff/Matek 27 (Q219) (12.14), (12.16); DIN 7190-1:2017 (Q235) Gl. (18), (7) | freigegeben (2026-11-08, Seti) |
+| PV-UW | Wirksames Übermaß | U_w = U − G | mm | DIN 7190-1:2017 (Q235) Gl. (7) | freigegeben (2026-11-08, Seti) |
+| PV-XI | Bezogenes wirksames Übermaß | ξ_w = U_w/D_F | 1 | DIN 7190-1:2017 (Q235) Gl. (12) | freigegeben (2026-11-08, Seti) |
+| PV-XIERF | Bezogenes wirksames Übermaß für p_erf | ξ_w = K·p/E_A | 1 | DIN 7190-1:2017 (Q235) Gl. (18) | freigegeben (2026-11-08, Seti) |
+
 ## Querschnitte
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -612,10 +684,10 @@ Stand: 522 Formeln, davon 522 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.2 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.3 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.2 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.3 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 

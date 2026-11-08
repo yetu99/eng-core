@@ -3066,5 +3066,31 @@
   "viewed": "ja",
   "local_file": "Applied Hydraulic Transients (Springer, 3. Aufl. 2014).pdf",
   "kb_source_id": null
+ },
+ {
+  "id": "Q235",
+  "kind": "Norm",
+  "short_name": "DIN 7190-1",
+  "title": "Pressverbände, Teil 1: Berechnungsgrundlagen und Gestaltungsregeln für zylindrische Pressverbände",
+  "publisher": "DIN 7190-1:2017-02",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen (KIT-Lizenz), Fundstelle je Formel und Wert; Formeln im Kern eng-core (PV-*)",
+  "viewed": "ja",
+  "local_file": "DIN 7190-1_2017-02-00_DE_2414563.pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q236",
+  "kind": "Norm",
+  "short_name": "ISO 286-1",
+  "title": "Geometrische Produktspezifikation (GPS), ISO-Toleranzsystem für Längenmaße, Teil 1: Grundlagen für Toleranzen, Abmaße und Passungen",
+  "publisher": "DIN EN ISO 286-1:2019-09",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen (KIT-Lizenz), Tab. 1 Grundtoleranzen und Tab. 5 Grundabmaße als Einzelwerte bis 500 mm; Gegenprobe ISO 286-2:2019",
+  "viewed": "ja",
+  "local_file": "DIN EN ISO 286-1_2019-09-00_DE_3056514.pdf",
+  "kb_source_id": null
  }
 ]

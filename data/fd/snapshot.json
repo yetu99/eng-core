@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "fd 1.1",
-  "released_at": "2026-11-06T13:46:57.457222+00:00",
-  "title": "Rohrhydraulik Teil b: Venturi-Koeffizienten, Formbeiwerte, Wellengeschwindigkeit, Kompressionsmodul, Hydrauliköle HLP"
+  "version": "fd 1.2",
+  "released_at": "2026-11-08T08:37:29.08801+00:00",
+  "title": "Pressverband: ISO-Toleranzen IT1 bis IT11 und Grundabmaße p bis z bis 500 mm, Haftbeiwerte, Werkstoffgruppen, Fügetemperaturen, Kühlmittel, Rauheit, Fasenlänge"
  },
  "source": "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
  "files": {
@@ -49,6 +49,38 @@
   "oil_grades": {
    "rows": 8,
    "sha256": "a67e726fb4c3aa3f2a17005dfa856b208f29ce3461189ac1cdb3dd60a397ac60"
+  },
+  "fit_it": {
+   "rows": 13,
+   "sha256": "46c41ed30d3ac3f94939fae2890b2513104945d57631b94a728d56d4867f7eab"
+  },
+  "fit_shaft_dev": {
+   "rows": 25,
+   "sha256": "b87f0c3576f64ddbf71d9991866df86657a4141a59f6d708511abca9b916b98c"
+  },
+  "pv_friction": {
+   "rows": 28,
+   "sha256": "6c0924f6268005ea37a2ea766804fc43972b766830e7061500a7ab50e711a53b"
+  },
+  "pv_groups": {
+   "rows": 15,
+   "sha256": "25d41aa58130488f22589e8f0f643a34607b4c03db32e52916fd960b8aac6c5e"
+  },
+  "pv_join_temp": {
+   "rows": 4,
+   "sha256": "d8cc81aceb73ba7648828e51adcf3bc9b50378f75d79e4aef831fcefcc27cbb0"
+  },
+  "pv_coolants": {
+   "rows": 2,
+   "sha256": "198724de96d10f105732a04140e16f5c49f077acb22a28dfc3dddc5b930d9170"
+  },
+  "pv_rz": {
+   "rows": 3,
+   "sha256": "6b4e729c7e0946a03be3cf4e43ee3391bd94800ed827c5ec9888b9ebf70111d2"
+  },
+  "pv_chamfer": {
+   "rows": 8,
+   "sha256": "42ad9f1e26adc7ca908ccd4d7db347fba2a074846a45c16cd3295606abcd6a1e"
   }
  }
 }

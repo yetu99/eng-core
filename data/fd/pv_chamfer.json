@@ -1,0 +1,74 @@
+[
+ {
+  "id": "FL01",
+  "d_over_mm": 50,
+  "d_to_mm": 80,
+  "le_mm": 4,
+  "remark": "D_F ≤ 50 mm nicht tabelliert, Gl. (49) l_e ≈ ∛D_F",
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL02",
+  "d_over_mm": 80,
+  "d_to_mm": 160,
+  "le_mm": 5,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL03",
+  "d_over_mm": 160,
+  "d_to_mm": 250,
+  "le_mm": 6,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL04",
+  "d_over_mm": 250,
+  "d_to_mm": 400,
+  "le_mm": 7,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL05",
+  "d_over_mm": 400,
+  "d_to_mm": 630,
+  "le_mm": 8,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL06",
+  "d_over_mm": 630,
+  "d_to_mm": 800,
+  "le_mm": 9,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL07",
+  "d_over_mm": 800,
+  "d_to_mm": 1000,
+  "le_mm": 10,
+  "remark": null,
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ },
+ {
+  "id": "FL08",
+  "d_over_mm": 1000,
+  "d_to_mm": null,
+  "le_mm": 10,
+  "remark": "ohne Obergrenze",
+  "source_id": "Q235",
+  "source_locator": "Tab. 6 (S. 22)"
+ }
+]
