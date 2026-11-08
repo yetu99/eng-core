@@ -1,5 +1,6 @@
 /** Auswertung eines Prüffalls durch den Rechenkern. Gemeinsam genutzt von engine_out.ts (Python-Gegenrechnung) und den Golden-Tests. */
 import { computeOrientation, compose, toZYX, toZYZ, toAxisAngle, toQuaternion, fromZYX, fromZYZ, fromAxisAngle, fromQuaternion, maxAbsDiff, type OrientationInput, type Mat3 } from "../src/index";
+import { computeFrames, invertT, composeT, transformPoint, se3, type FrameInput, type Transform, type Vec3 } from "../src/index";
 import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
 import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
@@ -25,7 +26,9 @@ export type Case =
   | { id: string; type: "pumpfit"; xs: number[]; ys: number[] }
   | { id: string; type: "kin"; inp: OrientationInput; abs?: boolean }
   | { id: string; type: "kincompose"; Rab: Mat3; Rbc: Mat3; abs?: boolean }
-  | { id: string; type: "kinbatch"; quats: Array<[number, number, number, number]>; abs?: boolean };
+  | { id: string; type: "kinbatch"; quats: Array<[number, number, number, number]>; abs?: boolean }
+  | { id: string; type: "frames"; inp: FrameInput; abs?: boolean }
+  | { id: string; type: "framesbatch"; samples: number[][]; abs?: boolean };
 
 const IJ = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]] as const;
 const matKeys = (p: string, m: Mat3): Record<string, number> => Object.fromEntries(IJ.map(([i, j]) => [`${p}${i + 1}${j + 1}`, m[i][j]]));
@@ -66,6 +69,59 @@ function evalKinBatch(quats: ReadonlyArray<readonly [number, number, number, num
     acc("A", a.A); acc("B", a.B); acc("C", a.C); acc("Phi", b.phi); acc("Th", b.theta); acc("Psi", b.psi);
     acc("E", c.axis[0] * c.theta); acc("E", c.axis[1] * c.theta); acc("E", c.axis[2] * c.theta);
     acc("Q", d.w); acc("Q", d.x); acc("Q", d.y); acc("Q", d.z);
+  }
+  return o;
+}
+
+const IJ4 = [[0, 0], [0, 1], [0, 2], [0, 3], [1, 0], [1, 1], [1, 2], [1, 3], [2, 0], [2, 1], [2, 2], [2, 3]] as const;
+/** T als 12 Werte p11 … p34 (Spalte 4 in m). */
+const tKeys = (p: string, T: Transform): Record<string, number> =>
+  Object.fromEntries(IJ4.map(([i, j]) => [`${p}${i + 1}${j + 1}`, j === 3 ? T.p[i] : T.R[i][j]]));
+
+/** Kinematik K2 (Modul kinematik, ab 0.14.0): Rahmenbaum, relative Lage, ISO-Kette, Punkt, Verschieben. */
+function evalFrames(inp: FrameInput): Record<string, number | null> {
+  const r = computeFrames(inp);
+  if (r.errors.length) return { errors: r.errors.length };
+  const o: Record<string, number | null> = { errors: 0 };
+  for (const id of r.order) Object.assign(o, tKeys(`W${id}_`, r.abs[id]!));
+  if (r.rel) Object.assign(o, tKeys("t", r.rel));
+  if (r.relPose) Object.assign(o, { X: r.relPose.x, Y: r.relPose.y, Z: r.relPose.z, PA: r.relPose.A, PB: r.relPose.B, PC: r.relPose.C });
+  if (r.iso) {
+    Object.assign(o, tKeys("o", r.iso.T0t));
+    if (r.iso.Tkt) Object.assign(o, tKeys("a", r.iso.Tkt));
+    if (r.iso.T1mTarget) Object.assign(o, tKeys("f", r.iso.T1mTarget));
+  }
+  if (r.points) for (const [id, v] of Object.entries(r.points)) Object.assign(o, { [`P${id}_x`]: v[0], [`P${id}_y`]: v[1], [`P${id}_z`]: v[2] });
+  if (r.displaced) Object.assign(o, tKeys("d", r.displaced));
+  const k = [...(r.trace.inverse ?? [])].filter((s) => s.id === "G-15-K").map((s) => s.value);
+  o["invErr"] = k.length ? Math.max(...k) : 0;
+  return o;
+}
+
+/**
+ * Eigenschaften an Zufallsfällen (Lynch/Park Prop. 3.15 bis 3.18): je Probe drei Transformationen und zwei Punkte
+ * (q, p je T aus numpy). Größte Fehler: T·T⁻¹ = I, (T⁻¹)⁻¹ = T, Assoziativität, Abstand und Winkel; Quadratsummen
+ * der Elemente von T⁻¹ und T_1·T_2 sowie der Bildpunkte (Vergleich mit numpy.linalg.inv und @).
+ */
+function evalFramesBatch(samples: readonly number[][]): Record<string, number | null> {
+  const o: Record<string, number> = { n: samples.length, eInv: 0, eInvInv: 0, eAssoc: 0, eDist: 0, eAng: 0 };
+  const acc = (k: string, x: number): void => { o[`s${k}`] = (o[`s${k}`] ?? 0) + x * x; o[`t${k}`] = (o[`t${k}`] ?? 0) + (x + 4) * (x + 4); };
+  const T = (a: readonly number[], k: number): Transform => ({ R: fromQuaternion({ w: a[7 * k]!, x: a[7 * k + 1]!, y: a[7 * k + 2]!, z: a[7 * k + 3]! }).value, p: [a[7 * k + 4]!, a[7 * k + 5]!, a[7 * k + 6]!] });
+  const d = (x: Vec3, y: Vec3): number => Math.hypot(x[0] - y[0], x[1] - y[1], x[2] - y[2]);
+  const dot3 = (x: Vec3, y: Vec3, z: Vec3): number => (x[0] - z[0]) * (y[0] - z[0]) + (x[1] - z[1]) * (y[1] - z[1]) + (x[2] - z[2]) * (y[2] - z[2]);
+  for (const a of samples) {
+    const T1 = T(a, 0), T2 = T(a, 1), T3 = T(a, 2);
+    const x: Vec3 = [a[21]!, a[22]!, a[23]!], y: Vec3 = [a[24]!, a[25]!, a[26]!], z: Vec3 = [0, 0, 0];
+    const inv = invertT(T1);
+    o["eInv"] = Math.max(o["eInv"]!, inv.steps.find((s) => s.id === "G-15-K")!.value);
+    o["eInvInv"] = Math.max(o["eInvInv"]!, se3.maxAbsDiff(invertT(inv.value).value, T1));
+    const c12 = composeT(T1, T2).value;
+    o["eAssoc"] = Math.max(o["eAssoc"]!, se3.maxAbsDiff(composeT(c12, T3).value, composeT(T1, composeT(T2, T3).value).value));
+    const px = transformPoint(T1, x).value, py = transformPoint(T1, y).value, pz = transformPoint(T1, z).value;
+    o["eDist"] = Math.max(o["eDist"]!, Math.abs(d(px, py) - d(x, y)));
+    o["eAng"] = Math.max(o["eAng"]!, Math.abs(dot3(px, py, pz) - dot3(x, y, z)));
+    for (const [i, j] of IJ4) { acc("I", j === 3 ? inv.value.p[i] : inv.value.R[i][j]); acc("C", j === 3 ? c12.p[i] : c12.R[i][j]); }
+    for (const v of px) acc("X", v);
   }
   return o;
 }
@@ -116,6 +172,8 @@ export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "kin") return evalKin(c.inp);
   if (c.type === "kincompose") return matKeys("c", compose(c.Rab, c.Rbc).value);
   if (c.type === "kinbatch") return evalKinBatch(c.quats);
+  if (c.type === "frames") return evalFrames(c.inp);
+  if (c.type === "framesbatch") return evalFramesBatch(c.samples);
   if (c.type === "section") {
     const s = sectionProps(c.sec, c.dims);
     const o = s.open;

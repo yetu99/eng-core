@@ -109,19 +109,20 @@ describe("Lernhilfe Schritt für Schritt", () => {
 });
 
 describe("Katalog, Prüfstatus und Werkzeug Greifwerk", () => {
-  it("jeder Rechenschritt der Beispielfälle hat eine Katalog-ID im Modul kinematik, alle 35 Formeln kommen vor", () => {
+  it("jeder Rechenschritt der Beispielfälle K1 hat eine Katalog-ID im Modul kinematik, alle 35 Formeln K1 kommen vor (mit K2 ab 0.14.0: 57)", () => {
     const ids = new Set(kinematikFaelle().flatMap((f) => orientationSteps(computeOrientation(f.inp)).map((s) => s.id)));
     ids.add("G-11-V");
     for (const id of ids) {
       expect(moduleOfId(id), id).toBe("kinematik");
       expect(formulaState(id), id).not.toBe("unbekannt");
     }
-    expect(ids.size).toBe(PRUEFSTATUS.modules.kinematik.formulas);
     expect(ids.size).toBe(35);
+    expect(PRUEFSTATUS.modules.kinematik.formulas).toBe(57);
   });
   it("Rechenweg nach den Gruppen des Moduls", () => {
     const r = computeOrientation({ rep: "zyx", zyx: { A: 0.1, B: 0.2, C: 0.3 } });
-    expect(Object.keys(r.trace).sort()).toEqual([...traceGroupsOf("kinematik")].sort());
+    expect(Object.keys(r.trace).sort()).toEqual(["orientierung", "pruefung", "umrechnung"]);
+    for (const g of Object.keys(r.trace)) expect(traceGroupsOf("kinematik")).toContain(g);
     for (const s of orientationSteps(r)) if (s.matrix) expect(s.matrix.flat().every(Number.isFinite)).toBe(true);
   });
   it("reportMeta Greifwerk: nur Modul kinematik, ohne Werkstoff- und Fachdaten; Werkbank unverändert", () => {
@@ -151,7 +152,7 @@ describe("Katalog, Prüfstatus und Werkzeug Greifwerk", () => {
     const files = Object.keys(m.files);
     expect(m.modules).toEqual(["kinematik"]);
     expect(m.version).toBe(CORE_VERSION);
-    for (const f of ["engcore/kinematics/so3.ts", "engcore/kinematics/orientation.ts", "engcore/kinematics/compute.ts", "engcore/report.ts"]) expect(files).toContain(f);
+    for (const f of ["engcore/kinematics/so3.ts", "engcore/kinematics/orientation.ts", "engcore/kinematics/compute.ts", "engcore/kinematics/se3.ts", "engcore/kinematics/frames.ts", "engcore/kinematics/templates.ts", "engcore/report.ts"]) expect(files).toContain(f);
     expect(files.some((f) => /^engcore\/(mechanics|fluid|ashby)\//.test(f))).toBe(false);
     const idx = readFileSync(join(d, "src/engcore/index.ts"), "utf8");
     expect(idx).toContain("./kinematics/compute");

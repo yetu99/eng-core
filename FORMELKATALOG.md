@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.13.1
+# Formelkatalog eng-core 0.14.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 486 Formeln, davon 486 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 508 Formeln, davon 508 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -16,7 +16,7 @@ Stand: 486 Formeln, davon 486 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | verbindungen | fachtools | SV, PV | 0 | 0 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
-| kinematik | greifwerk | G | 35 | 35 |
+| kinematik | greifwerk | G | 57 | 57 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -273,7 +273,7 @@ Stand: 486 Formeln, davon 486 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | FS-WA-N | Gültigkeitsbereich Walther | T₁ − 20 K ≤ T ≤ T₂ + 20 K | K | Verfahren (R21) | freigegeben (2026-11-06, Seti) |
 | FS-WA-NU | Kinematische Viskosität Öl (Walther) | ν = 10^(10^(K − m·lg T)) − C (ν in mm²/s, T in K) | m²/s | Dubbel 26 Bd. 1 Kap. 33 (S. 681) | freigegeben (2026-11-06, Seti) |
 
-## Kinematik: Orientierung (Lynch/Park Kap. 3.2 und Anhang B, Weber/Koch Kap. 2.1)
+## Kinematik: Orientierung und Lage (Lynch/Park Kap. 3.2, 3.3 und Anhang B, Weber/Koch Kap. 2.1, ISO 9787)
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
@@ -312,6 +312,28 @@ Stand: 486 Formeln, davon 486 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | G-11-M | Drehung um mitgedrehte Achse (rechts multiplizieren) | Drehung um mitgedrehte Achse (in {b}): R″ = R·Rot | 1 | Lynch/Park Gl. (3.24) | freigegeben (2026-11-01, Seti) |
 | G-11-V | Verkettung | R_ac = R_ab·R_bc | 1 | Lynch/Park Gl. (3.22) | freigegeben (2026-11-01, Seti) |
 | G-12 | Vektor in {a} ausdrücken | p_a = R_ab·p_b | m | Lynch/Park S. 62 (Rab·pb = pa) | freigegeben (2026-11-01, Seti) |
+| G-13 | Homogene Transformation aus R und p | T = [R p; 0 0 0 1], R = Orientierung, p = Ursprung von {b} in {a} | m | Lynch/Park Def. 3.13, Gl. (3.62); Weber/Koch Gl. (2.12) | freigegeben (2026-11-07, Seti) |
+| G-13-P | Homogene Transformation aus Pose (x, y, z, A, B, C) | T = [R_z(A)·R_y(B)·R_x(C)  (x, y, z)ᵀ; 0 0 0 1], R nach G-02 | m | Lynch/Park Gl. (3.62) mit R aus Gl. (B.8); Weber/Koch Gl. (2.12), (2.21); Pose wie KUKA-Frame (X, Y, Z, A, B, C) | freigegeben (2026-11-07, Seti) |
+| G-13-X | Pose aus homogener Transformation | (x, y, z) = p; (A, B, C) aus R nach G-06; Ergebnis (x, y, z in m; A, B, C in rad) | m | Lynch/Park Def. 3.13 und Anhang B.1.1; Weber/Koch Gl. (2.22) | freigegeben (2026-11-07, Seti) |
+| G-13-Z | Zerlegung in R und p | R = (t_ij), i, j = 1…3; p = (t_14, t_24, t_34) | m | Lynch/Park Def. 3.13 | freigegeben (2026-11-07, Seti) |
+| G-14 | Letzte Zeile der homogenen Transformation | e_4 = ‖(t_41, t_42, t_43, t_44) − (0, 0, 0, 1)‖, gültig für e_4 ≤ 10⁻⁹ (zusammen mit G-10-O, G-10-D) | 1 | Lynch/Park Def. 3.13, Gl. (3.62) | freigegeben (2026-11-07, Seti) |
+| G-15 | Inverse der homogenen Transformation | T_ba = T_ab⁻¹ = [R_abᵀ  −R_abᵀ·p_ab; 0 0 0 1] | m | Lynch/Park Prop. 3.15, Gl. (3.64); Weber/Koch Gl. (2.16) | freigegeben (2026-11-07, Seti) |
+| G-15-K | Kontrolle der Inversen | e = ‖T·T⁻¹ − I‖_F (4×4), Rundungsfehler im Bereich 10⁻¹⁵ | 1 | Lynch/Park Prop. 3.15 | freigegeben (2026-11-07, Seti) |
+| G-15-P | Ursprung von {a} in {b} | p_ba = −R_abᵀ·p_ab | m | Weber/Koch Gl. (2.16); Lynch/Park Gl. (3.64) | freigegeben (2026-11-07, Seti) |
+| G-16 | Verkettung zweier Transformationen | T_ac = T_ab·T_bc | m | Lynch/Park S. 78 (T_ab·T_bc = T_ac), Prop. 3.16; Weber/Koch Gl. (2.17) | freigegeben (2026-11-07, Seti) |
+| G-16-N | Kette aus n Transformationen | T_0n = T_01·T_12·…·T_(n−1)n (Zwischenprodukte T_0k nacheinander) | m | Weber/Koch Gl. (2.17); Lynch/Park S. 78, Bsp. 3.19 | freigegeben (2026-11-07, Seti) |
+| G-16-P | Ursprung der Verkettung | p_ac = R_ab·p_bc + p_ab | m | Lynch/Park Gl. (3.62) ausmultipliziert | freigegeben (2026-11-07, Seti) |
+| G-16-R | Orientierung der Verkettung | R_ac = R_ab·R_bc | 1 | Lynch/Park Gl. (3.62) ausmultipliziert | freigegeben (2026-11-07, Seti) |
+| G-17 | Punkt in {a} ausdrücken (Ortsvektor) | [x_a; 1] = T_ab·[x_b; 1], also x_a = R_ab·x_b + p_ab | m | Lynch/Park Gl. (3.65); Weber/Koch Gl. (2.14) | freigegeben (2026-11-07, Seti) |
+| G-18 | Richtung in {a} ausdrücken (freier Vektor) | [v_a; 0] = T_ab·[v_b; 0], also v_a = R_ab·v_b | m | Weber/Koch Gl. (2.13); Lynch/Park S. 77 f. | freigegeben (2026-11-07, Seti) |
+| G-19-F | Verschieben im festen Rahmen (links multiplizieren) | T_sb′ = T_op·T_sb: erst drehen um ω̂ in {s}, dann verschieben um p in {s} | m | Lynch/Park Gl. (3.66), Abb. 3.15 links | freigegeben (2026-11-07, Seti) |
+| G-19-M | Verschieben im mitgedrehten Rahmen (rechts multiplizieren) | T_sb″ = T_sb·T_op: erst verschieben um p in {b}, dann drehen um ω̂ von {b} | m | Lynch/Park Gl. (3.67), Abb. 3.15 rechts | freigegeben (2026-11-07, Seti) |
+| G-19-R | Drehoperator Rot(ω̂, θ) | Rot(ω̂, θ) = [R 0; 0 0 0 1], R nach G-04 | m | Lynch/Park S. 79 | freigegeben (2026-11-07, Seti) |
+| G-19-T | Verschiebeoperator Trans(p) | Trans(p) = [I p; 0 0 0 1] | m | Lynch/Park S. 79 | freigegeben (2026-11-07, Seti) |
+| G-20-A | Werkzeug im Aufgabensystem | T_kt = T_0k⁻¹·T_0t (Lage des TCP im Aufgaben- bzw. BASE-System) | m | ISO 9787:2013, 5.6; Lynch/Park S. 78 (T_de = T_ed⁻¹) | freigegeben (2026-11-07, Seti) |
+| G-20-F | Flansch-Soll aus TCP-Soll | T_1m = T_01⁻¹·T_0t,soll·T_mt⁻¹ (Umstellen von G-20-K) | m | G-20-K umgestellt; Lynch/Park Prop. 3.15, 3.17 | freigegeben (2026-11-07, Seti) |
+| G-20-K | Werkzeug in Welt (Rahmenkette ISO 9787) | T_0t = T_01·T_1m·T_mt (Welt, Basis, Flansch, Werkzeug) | m | ISO 9787:2013, 5.1 bis 5.4; Weber/Koch Kap. 2 (DH, Werkzeugsystem am letzten Gliedsystem); Lynch/Park S. 78 | freigegeben (2026-11-07, Seti) |
+| G-20-R | Relative Lage zweier Rahmen im Baum | T_ik = T_ri⁻¹·T_rk (r = Wurzel; T_ri, T_rk als Ketten G-16-N) | m | Lynch/Park S. 78 (T_de = T_ed⁻¹) und Bsp. 3.19; Weber/Koch Gl. (2.17) | freigegeben (2026-11-07, Seti) |
 
 ## Knicken
 

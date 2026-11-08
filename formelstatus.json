@@ -1606,6 +1606,138 @@
     "durch": "Seti",
     "formel": "p_a = R_ab·p_b"
   },
+  "G-13": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T = [R p; 0 0 0 1], R = Orientierung, p = Ursprung von {b} in {a}"
+  },
+  "G-13-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T = [R_z(A)·R_y(B)·R_x(C)  (x, y, z)ᵀ; 0 0 0 1], R nach G-02"
+  },
+  "G-13-X": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "(x, y, z) = p; (A, B, C) aus R nach G-06; Ergebnis (x, y, z in m; A, B, C in rad)"
+  },
+  "G-13-Z": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "R = (t_ij), i, j = 1…3; p = (t_14, t_24, t_34)"
+  },
+  "G-14": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "e_4 = ‖(t_41, t_42, t_43, t_44) − (0, 0, 0, 1)‖, gültig für e_4 ≤ 10⁻⁹ (zusammen mit G-10-O, G-10-D)"
+  },
+  "G-15": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_ba = T_ab⁻¹ = [R_abᵀ  −R_abᵀ·p_ab; 0 0 0 1]"
+  },
+  "G-15-K": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "e = ‖T·T⁻¹ − I‖_F (4×4), Rundungsfehler im Bereich 10⁻¹⁵"
+  },
+  "G-15-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "p_ba = −R_abᵀ·p_ab"
+  },
+  "G-16": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_ac = T_ab·T_bc"
+  },
+  "G-16-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_0n = T_01·T_12·…·T_(n−1)n (Zwischenprodukte T_0k nacheinander)"
+  },
+  "G-16-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "p_ac = R_ab·p_bc + p_ab"
+  },
+  "G-16-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "R_ac = R_ab·R_bc"
+  },
+  "G-17": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "[x_a; 1] = T_ab·[x_b; 1], also x_a = R_ab·x_b + p_ab"
+  },
+  "G-18": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "[v_a; 0] = T_ab·[v_b; 0], also v_a = R_ab·v_b"
+  },
+  "G-19-F": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_sb′ = T_op·T_sb: erst drehen um ω̂ in {s}, dann verschieben um p in {s}"
+  },
+  "G-19-M": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_sb″ = T_sb·T_op: erst verschieben um p in {b}, dann drehen um ω̂ von {b}"
+  },
+  "G-19-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "Rot(ω̂, θ) = [R 0; 0 0 0 1], R nach G-04"
+  },
+  "G-19-T": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "Trans(p) = [I p; 0 0 0 1]"
+  },
+  "G-20-A": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_kt = T_0k⁻¹·T_0t (Lage des TCP im Aufgaben- bzw. BASE-System)"
+  },
+  "G-20-F": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_1m = T_01⁻¹·T_0t,soll·T_mt⁻¹ (Umstellen von G-20-K)"
+  },
+  "G-20-K": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_0t = T_01·T_1m·T_mt (Welt, Basis, Flansch, Werkzeug)"
+  },
+  "G-20-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-07",
+    "durch": "Seti",
+    "formel": "T_ik = T_ri⁻¹·T_rk (r = Wurzel; T_ri, T_rk als Ketten G-16-N)"
+  },
   "K-FK": {
     "status": "freigegeben",
     "datum": "2026-10-08",

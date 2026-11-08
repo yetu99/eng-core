@@ -9,7 +9,7 @@
   "verbindungen": { "title": "Schraubenverbindung und Pressverband", "tool": "fachtools", "prefixes": ["SV", "PV"], "paths": ["joints"], "units": "N, mm, MPa", "fd": true },
   "dichtungen": { "title": "O-Ring", "tool": "fachtools", "prefixes": ["OR"], "paths": ["seals"], "units": "N, mm, MPa", "fd": true },
   "stabwerke": { "title": "Fachwerk mit Prinzip der virtuellen Verschiebung", "tool": "fachtools", "prefixes": ["FW"], "paths": ["structures"], "units": "N, mm, MPa", "fd": false },
-  "kinematik": { "title": "Kinematik: Orientierung (K1), später Transformation, DH, Rückwärtskinematik, Jacobi, Bahn", "tool": "greifwerk", "prefixes": ["G"], "paths": ["kinematics"], "units": "SI: m, rad, s (Anzeige Grad, mm)", "fd": false, "wdb": false }
+  "kinematik": { "title": "Kinematik: Orientierung (K1), homogene Transformation (K2), später DH, Rückwärtskinematik, Jacobi, Bahn", "tool": "greifwerk", "prefixes": ["G"], "paths": ["kinematics"], "units": "SI: m, rad, s (Anzeige Grad, mm)", "fd": false, "wdb": false }
  },
  "reserved": ["WL"],
  "tools": {

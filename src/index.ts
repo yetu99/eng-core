@@ -43,3 +43,6 @@ export { I3, rotX, rotY, rotZ, rotAxis, mulVec, maxAbsDiff, deg, rad, type Vec3,
 export * as so3 from "./kinematics/so3";
 export * from "./kinematics/orientation";
 export * from "./kinematics/compute";
+export * from "./kinematics/se3";
+export * from "./kinematics/frames";
+export * from "./kinematics/templates";

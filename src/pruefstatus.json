@@ -1,14 +1,14 @@
 {
- "core": "0.13.1",
- "formulas": 486,
- "approved": 486,
+ "core": "0.14.0",
+ "formulas": 508,
+ "approved": 508,
  "rejected": 0,
  "stale": 0,
  "draft": 0,
- "lastApproval": "2026-11-06",
+ "lastApproval": "2026-11-07",
  "verification": {
-  "passed": 3341,
-  "total": 3341
+  "passed": 4467,
+  "total": 4467
  },
  "acceptance": {
   "P5": {
@@ -109,15 +109,15 @@
    }
   },
   "kinematik": {
-   "formulas": 35,
-   "approved": 35,
+   "formulas": 57,
+   "approved": 57,
    "rejected": 0,
    "stale": 0,
    "draft": 0,
-   "lastApproval": "2026-11-01",
+   "lastApproval": "2026-11-07",
    "verification": {
-    "passed": 1633,
-    "total": 1633
+    "passed": 2759,
+    "total": 2759
    }
   }
  },
@@ -377,6 +377,28 @@
   "G-11-M": "freigegeben",
   "G-11-V": "freigegeben",
   "G-12": "freigegeben",
+  "G-13": "freigegeben",
+  "G-13-P": "freigegeben",
+  "G-13-X": "freigegeben",
+  "G-13-Z": "freigegeben",
+  "G-14": "freigegeben",
+  "G-15": "freigegeben",
+  "G-15-K": "freigegeben",
+  "G-15-P": "freigegeben",
+  "G-16": "freigegeben",
+  "G-16-N": "freigegeben",
+  "G-16-P": "freigegeben",
+  "G-16-R": "freigegeben",
+  "G-17": "freigegeben",
+  "G-18": "freigegeben",
+  "G-19-F": "freigegeben",
+  "G-19-M": "freigegeben",
+  "G-19-R": "freigegeben",
+  "G-19-T": "freigegeben",
+  "G-20-A": "freigegeben",
+  "G-20-F": "freigegeben",
+  "G-20-K": "freigegeben",
+  "G-20-R": "freigegeben",
   "K-FK": "freigegeben",
   "K-LAM": "freigegeben",
   "K-LAMT": "freigegeben",

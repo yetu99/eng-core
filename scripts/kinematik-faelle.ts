@@ -3,7 +3,7 @@
  * Jeder Fall erzeugt seine Formeln einmal mit nachrechenbarem Beispiel. Literaturfälle zuerst; dieselben Zahlen
  * prüft verification/kinematik.py (Fälle G-L1 bis G-L6) gegen die gedruckten Werte.
  */
-import { rad, rotZ, rotY, so3, type Mat3, type OrientationInput } from "../src/index";
+import { rad, rotZ, rotY, so3, frameTemplates, type Mat3, type OrientationInput, type FrameInput } from "../src/index";
 
 const { mul, transpose } = so3;
 
@@ -37,4 +37,29 @@ export function kinematikFaelle(): KinematikFall[] {
 /** Verkettung Lynch/Park Abb. 3.7: R_ac = R_ab·R_bc mit R_ab = R_b, R_bc = R_bᵀ·R_c. */
 export function kinematikVerkettung(): { text: string; Rab: Mat3; Rbc: Mat3 } {
   return { text: "Lynch/Park Abb. 3.7: R_ab = Rot(z, 90°), R_bc = Rot(y, −90°), R_ac = R_ab·R_bc", Rab: LP_ABB_3_7.Rb, Rbc: mul(transpose(LP_ABB_3_7.Rb), LP_ABB_3_7.Rc) };
+}
+
+// ---------------------------------------------------------------- K2 Homogene Transformation (0.14.0)
+export interface KinematikK2Fall { id: string; text: string; inp: FrameInput }
+
+/**
+ * Beispielfälle Kinematik K2 für den Formelkatalog: Vorlagen aus src/kinematics/templates.ts (Literatur zuerst),
+ * dazu freier Vektor, mitgedrehtes Verschieben und ein Rahmen aus R und p, damit alle 22 Formeln G-13 bis G-20
+ * mit Beispiel vorkommen. Dieselben Zahlen prüft verification/kinematik.py (Fälle G-K2-…).
+ */
+export function kinematikK2Faelle(): KinematikK2Fall[] {
+  const t = Object.fromEntries(frameTemplates().map((x) => [x.id, x]));
+  const wk = t["wk211"]!, lp314 = t["lp314"]!, lp315 = t["lp315"]!, lp319 = t["lp319"]!, iso = t["iso"]!;
+  return [
+    { id: "G-K2-L1", text: `${wk.title}: Ortsvektor u_kP = (−2, −1, 0) in K_k, Lage von K_i in K_k (${wk.unitNote})`, inp: wk.input },
+    { id: "G-K2-L2", text: `${lp314.title}: T_bc und v_b = (0, 0, 1,5) (${lp314.unitNote})`, inp: lp314.input },
+    { id: "G-K2-L3", text: `${lp315.title}: Rot(ẑ, 90°), p = (0, 2, 0), fest (${lp315.unitNote})`, inp: lp315.input },
+    { id: "G-K2-L4", text: `${lp315.title}: mitgedreht (${lp315.unitNote})`, inp: { ...lp315.input, displace: { ...lp315.input.displace!, mode: "mitgedreht" } } },
+    { id: "G-K2-L5", text: `${lp319.title}: T_ce (${lp319.unitNote})`, inp: lp319.input },
+    { id: "G-K2-L6", text: `Weber/Koch Bild 2.11: freier Vektor a_k = (1, 2, 0) (${wk.unitNote})`, inp: { frames: wk.input.frames, point: { frame: "k", v: [0.1, 0.2, 0], kind: "richtung" } } },
+    { id: "G-K2-S1", text: `${iso.title}: T_0t, Werkzeug in Aufgabe, Flansch-Soll für TCP-Soll (2100; 700; 850) mm, C = 180°`, inp: iso.input },
+    { id: "G-K2-S2", text: "Rahmen aus R (Weber/Koch Bild 2.12, Blatt K1) und p = (100; 200; 300) mm", inp: {
+      frames: [{ id: "0", name: "K_0", role: "welt", parent: null }, { id: "W", name: "K_W", role: "frei", parent: "0", rp: { R: WK_BILD_2_12, p: [0.1, 0.2, 0.3] } }],
+      rel: { of: "0", in: "W" } } },
+  ];
 }

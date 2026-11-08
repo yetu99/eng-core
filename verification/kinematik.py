@@ -184,3 +184,183 @@ def add_cases(cases, ref):
     # Rundlauf absolut 10⁻¹²; Quadratsummen relativ 10⁻¹² (eigener Fall ohne abs)
     c = dict(type='kinbatch', quats=Q.tolist(), id='G-P3 1000 zufällige Orientierungen', module='kinematik'); cases.append(c)
     ref[c['id']] = (vals, TOL)
+
+    add_cases_k2(cases, ref)
+
+
+# ======================================================================================================
+# Kinematik K2 Homogene Transformation (eng-core 0.14.0): Rahmenbaum, Inverse, Verkettung, Punkt, Richtung,
+# Verschieben, ISO-Kette. Eigene Umsetzung mit 4×4-Matrizen in numpy: R aus scipy Rotation.from_euler('ZYX')
+# (intrinsisch, unabhängig von G-01/G-02 des Kerns), Inverse mit numpy.linalg.inv (der Kern rechnet geschlossen
+# nach G-15), Ketten mit @, Drehoperator über expm. Prüfwerte:
+#   G-K2-L1 bis L6  Literatur: Weber/Koch Bild 2.11 und Gl. (2.16), Lynch/Park Abb. 3.14, 3.15, Bsp. 3.19 (gedruckte Zahlen)
+#   G-K2-P…         dieselben Fälle und die ISO-Zelle vollständig gegen die Python-Umsetzung
+#   G-K2-S…         Grenz- und Fehlerfälle
+#   G-K2-B          1000 Zufallsproben: Eigenschaften nach Lynch/Park Prop. 3.15 bis 3.18 und Quadratsummen
+# ======================================================================================================
+SQ = math.sqrt(0.5)
+IJ4 = [(i, j) for i in range(3) for j in range(4)]
+
+
+def tkeys(p, T): return {f'{p}{i + 1}{j + 1}': float(T[i, j]) for i, j in IJ4}
+
+
+def h(R, p):
+    T = np.eye(4); T[:3, :3] = np.asarray(R, float); T[:3, 3] = np.asarray(p, float); return T
+
+
+def t_pose(ps):
+    R = Rotation.from_euler('ZYX', [ps['A'], ps['B'], ps['C']]).as_matrix()
+    return h(R, [ps['x'], ps['y'], ps['z']])
+
+
+def frames_ref(inp):
+    """Eigene Auswertung eines Rahmenbaums (Eingabe wie FrameInput des Kerns)."""
+    fr = {f['id']: f for f in inp['frames']}
+    root = next(f['id'] for f in inp['frames'] if f['parent'] is None)
+    loc = {}
+    for f in inp['frames']:
+        if f['parent'] is None: loc[f['id']] = np.eye(4)
+        elif 'matrix' in f: loc[f['id']] = np.array(f['matrix'], float)
+        elif 'rp' in f: loc[f['id']] = h(f['rp']['R'], f['rp']['p'])
+        else: loc[f['id']] = t_pose(f['pose'])
+    absT = {}
+    def ab(i):
+        if i not in absT: absT[i] = loc[i] if fr[i]['parent'] is None else ab(fr[i]['parent']) @ loc[i]
+        return absT[i]
+    v = dict(errors=0.0, invErr=0.0)
+    for i in fr: v.update(tkeys(f'W{i}_', ab(i)))
+    if inp.get('rel'):
+        T = np.linalg.inv(ab(inp['rel']['in'])) @ ab(inp['rel']['of']); v.update(tkeys('t', T))
+        if math.hypot(T[0, 0], T[1, 0]) > 1e-9:
+            A, B, C = Rotation.from_matrix(T[:3, :3]).as_euler('ZYX')
+            v.update(X=T[0, 3], Y=T[1, 3], Z=T[2, 3], PA=wrap(A), PB=B, PC=wrap(C))
+    roles = {f['role']: f['id'] for f in inp['frames']}
+    if all(r in roles for r in ('welt', 'basis', 'flansch', 'werkzeug')):
+        w, b, m, t = (roles[r] for r in ('welt', 'basis', 'flansch', 'werkzeug'))
+        v.update(tkeys('o', ab(t)))
+        if 'aufgabe' in roles: v.update(tkeys('a', np.linalg.inv(ab(roles['aufgabe'])) @ ab(t)))
+        if inp.get('tcpTarget'):
+            Ts = t_pose(inp['tcpTarget']); F = np.linalg.inv(loc[b]) @ Ts @ np.linalg.inv(loc[t]); v.update(tkeys('f', F))
+            assert np.abs(loc[b] @ F @ loc[t] - Ts).max() < 1e-12   # Rückeinsetzen in G-20-K
+    if inp.get('point'):
+        pt = inp['point']; x = np.r_[np.asarray(pt['v'], float), 1.0 if pt['kind'] == 'punkt' else 0.0]
+        x0 = ab(pt['frame']) @ x
+        for i in fr:
+            y = np.linalg.inv(ab(i)) @ x0
+            v.update({f'P{i}_x': y[0], f'P{i}_y': y[1], f'P{i}_z': y[2]})
+    if inp.get('displace'):
+        d = inp['displace']; w_ = np.asarray(d['axis'], float); w_ = w_ / np.linalg.norm(w_)
+        Top = h(np.eye(3), d['p']) @ h(expm(hat(w_) * d['theta']), [0, 0, 0])
+        v.update(tkeys('d', Top @ ab(d['frame']) if d['mode'] == 'fest' else ab(d['frame']) @ Top))
+    return {k: float(x) for k, x in v.items()}
+
+
+def add_cases_k2(cases, ref):
+    def case(id_, c, vals, tol=TOL):
+        c = dict(c, id=id_, module='kinematik', abs=True); cases.append(c); ref[id_] = (vals, tol)
+
+    def full(id_, inp):
+        case(id_, dict(type='frames', inp=inp), frames_ref(inp))
+
+    def M(R, p, u): return [list(map(float, R[0])) + [p[0] * u], list(map(float, R[1])) + [p[1] * u], list(map(float, R[2])) + [p[2] * u], [0.0, 0.0, 0.0, 1.0]]
+    u2, u3 = 0.1, 1e-3
+
+    # ---------------- Weber/Koch Bild 2.11 (S. 26 f.), 1 Einheit = 100 mm
+    Tik = M([[0, 0, -1], [-1, 0, 0], [0, 1, 0]], [0, 4, 2], u2)
+    wk = lambda **kw: dict(frames=[dict(id='i', name='K_i', role='frei', parent=None), dict(id='k', name='K_k', role='frei', parent='i', matrix=Tik)], **kw)
+    inp = wk(rel=dict(of='i', **{'in': 'k'}), point=dict(frame='k', v=[-0.2, -0.1, 0.0], kind='punkt'))
+    # Gl. (2.16): T_ki = [0 −1 0 4; 0 0 1 −2; −1 0 0 0]; Gl. (2.14): u_iP = (0, 6, 1)
+    case('G-K2-L1 Weber/Koch Gl. (2.16) Inverse T_ki', dict(type='frames', inp=inp),
+         tkeys('t', np.array([[0, -1, 0, 0.4], [0, 0, 1, -0.2], [-1, 0, 0, 0], [0, 0, 0, 1]])))
+    case('G-K2-L1 Weber/Koch Gl. (2.14) Ortsvektor u_iP', dict(type='frames', inp=inp), dict(Pi_x=0.0, Pi_y=0.6, Pi_z=0.1))
+    full('G-K2-P1 Weber/Koch Bild 2.11 Punkt (Python)', inp)
+    inp6 = wk(point=dict(frame='k', v=[0.1, 0.2, 0.0], kind='richtung'))
+    # Gl. (2.13): a_k = (1, 2, 0, 0) → a_i = (0, −1, 2, 0)
+    case('G-K2-L6 Weber/Koch Gl. (2.13) freier Vektor a_i', dict(type='frames', inp=inp6), dict(Pi_x=0.0, Pi_y=-0.1, Pi_z=0.2))
+    full('G-K2-P6 Weber/Koch Bild 2.11 freier Vektor (Python)', inp6)
+
+    # ---------------- Lynch/Park Abb. 3.14 (S. 78), 1 Einheit = 100 mm
+    Tsb = M([[0, 0, 1], [0, -1, 0], [1, 0, 0]], [0, -2, 0], u2)
+    Tsc = M([[-1, 0, 0], [0, 0, 1], [0, 1, 0]], [-1, 1, 0], u2)
+    inp2 = dict(frames=[dict(id='s', name='{s}', role='frei', parent=None), dict(id='b', name='{b}', role='frei', parent='s', matrix=Tsb),
+                        dict(id='c', name='{c}', role='frei', parent='s', matrix=Tsc)], rel=dict(of='c', **{'in': 'b'}), point=dict(frame='b', v=[0.0, 0.0, 0.15], kind='punkt'))
+    case('G-K2-L2 Lynch/Park Abb. 3.14 T_bc', dict(type='frames', inp=inp2), tkeys('t', np.array(M([[0, 1, 0], [0, 0, -1], [-1, 0, 0]], [0, -3, -1], u2))))
+    full('G-K2-P2 Lynch/Park Abb. 3.14 (Python)', inp2)
+
+    # ---------------- Lynch/Park Abb. 3.15 (S. 80): T = (Rot(ẑ, 90°), (0, 2, 0)), T_sb wie oben
+    for mode, R_, p_ in (('fest', [[0, 1, 0], [0, 0, 1], [1, 0, 0]], [2, 2, 0]), ('mitgedreht', [[0, 0, 1], [-1, 0, 0], [0, -1, 0]], [0, -4, 0])):
+        inp3 = dict(frames=inp2['frames'][:2], displace=dict(frame='b', mode=mode, axis=[0, 0, 1], theta=90 * D, p=[0.0, 0.2, 0.0]))
+        case(f'G-K2-L3 Lynch/Park Abb. 3.15 {mode}', dict(type='frames', inp=inp3), tkeys('d', np.array(M(R_, p_, u2))))
+        full(f'G-K2-P3 Lynch/Park Abb. 3.15 {mode} (Python)', inp3)
+
+    # ---------------- Lynch/Park Bsp. 3.19 (S. 80 f.), 1 Einheit = 1 mm
+    E = [[0, 0, -1], [0, -1, 0], [-1, 0, 0]]
+    inp5 = dict(frames=[dict(id='a', name='{a}', role='frei', parent=None),
+                        dict(id='d', name='{d}', role='frei', parent='a', matrix=M(E, [400, 50, 300], u3)),
+                        dict(id='b', name='{b}', role='frei', parent='d', matrix=M(E, [250, -150, 200], u3)),
+                        dict(id='c', name='{c}', role='frei', parent='b', matrix=M([[0, -SQ, -SQ], [0, SQ, -SQ], [1, 0, 0]], [30, -40, 25], u3)),
+                        dict(id='e', name='{e}', role='frei', parent='d', matrix=M(E, [300, 100, 120], u3))], rel=dict(of='e', **{'in': 'c'}))
+    r2 = math.sqrt(2)
+    case('G-K2-L5 Lynch/Park Bsp. 3.19 T_ce', dict(type='frames', inp=inp5),
+         tkeys('t', np.array(M([[0, 0, 1], [-1 / r2, 1 / r2, 0], [-1 / r2, -1 / r2, 0]], [-75, -260 / r2, 160 / r2], u3))))
+    # Zwischenwert S. 82: T_ad·T_de = (I, (280, −50, 0)) = Lage von {e} in {a}
+    case('G-K2-L5 Lynch/Park Bsp. 3.19 T_ae = T_ad·T_de', dict(type='frames', inp=inp5), tkeys('We_', np.array(M([[1, 0, 0], [0, 1, 0], [0, 0, 1]], [280, -50, 0], u3))))
+    full('G-K2-P5 Lynch/Park Bsp. 3.19 (Python)', inp5)
+
+    # ---------------- ISO-Zelle (eigener Fall wie src/kinematics/templates.ts), vollständig gegen Python
+    iso = [dict(id='0', name='Welt', role='welt', parent=None),
+           dict(id='1', name='Basis', role='basis', parent='0', pose=dict(x=0.8, y=0.4, z=0.5, A=90 * D, B=0.0, C=0.0)),
+           dict(id='m', name='Flansch', role='flansch', parent='1', pose=dict(x=1.2, y=0.1, z=0.9, A=30 * D, B=0.0, C=180 * D)),
+           dict(id='t', name='Werkzeug', role='werkzeug', parent='m', pose=dict(x=0.03, y=0.0, z=0.2, A=0.0, B=15 * D, C=0.0)),
+           dict(id='k', name='Aufgabe', role='aufgabe', parent='0', pose=dict(x=2.0, y=0.6, z=0.8, A=-90 * D, B=0.0, C=0.0))]
+    tcp = dict(x=2.1, y=0.7, z=0.85, A=0.0, B=0.0, C=180 * D)
+    full('G-K2-P7 ISO-Zelle T_0t, T_kt, Flansch-Soll, Punkt im Werkzeug', dict(frames=iso, rel=dict(of='t', **{'in': 'k'}), point=dict(frame='t', v=[0.0, 0.0, 0.05], kind='punkt'), tcpTarget=tcp))
+    full('G-K2-P7 ISO-Zelle Richtung im Werkzeug, Werkzeug in Basis', dict(frames=iso, rel=dict(of='t', **{'in': '1'}), point=dict(frame='t', v=[0.0, 0.0, 1.0], kind='richtung')))
+    full('G-K2-P7 ISO-Zelle Welt in Werkzeug (Inverse über den Baum)', dict(frames=iso, rel=dict(of='0', **{'in': 't'})))
+    # Werkzeug mitgedreht verschieben (Werkzeugkorrektur in {t}) und Aufgabe fest verschieben
+    full('G-K2-P7 ISO-Zelle Werkzeug mitgedreht verschoben', dict(frames=iso, displace=dict(frame='t', mode='mitgedreht', axis=[1, 1, 0], theta=20 * D, p=[0.01, -0.02, 0.03])))
+    full('G-K2-P7 ISO-Zelle Aufgabe fest verschoben', dict(frames=iso, displace=dict(frame='k', mode='fest', axis=[0, 0, 1], theta=-45 * D, p=[0.1, 0.0, 0.0])))
+    # Rahmen aus R (Blatt K1, Weber/Koch Bild 2.12) und p (G-13)
+    WK212 = [[0, 0.5, math.sqrt(3) / 2], [0, -math.sqrt(3) / 2, 0.5], [1, 0, 0]]
+    full('G-K2-P8 Rahmen aus R (Weber/Koch Bild 2.12) und p', dict(frames=[dict(id='0', name='K_0', role='welt', parent=None),
+         dict(id='W', name='K_W', role='frei', parent='0', rp=dict(R=WK212, p=[0.1, 0.2, 0.3]))], rel=dict(of='0', **{'in': 'W'}), point=dict(frame='W', v=[0.0, 0.0, 0.1], kind='punkt')))
+
+    # ---------------- Grenz- und Fehlerfälle
+    full('G-K2-S1 Identität', dict(frames=[dict(id='a', name='a', role='frei', parent=None), dict(id='b', name='b', role='frei', parent='a', pose=dict(x=0.0, y=0.0, z=0.0, A=0.0, B=0.0, C=0.0))], rel=dict(of='a', **{'in': 'b'})))
+    full('G-K2-S2 reine Translation, Richtung bleibt', dict(frames=[dict(id='a', name='a', role='frei', parent=None), dict(id='b', name='b', role='frei', parent='a', pose=dict(x=0.3, y=-0.2, z=0.1, A=0.0, B=0.0, C=0.0))],
+                                                          rel=dict(of='a', **{'in': 'b'}), point=dict(frame='b', v=[0.6, 0.0, 0.8], kind='richtung')))
+    full('G-K2-S3 Drehung 180° um z', dict(frames=[dict(id='a', name='a', role='frei', parent=None), dict(id='b', name='b', role='frei', parent='a', pose=dict(x=0.1, y=0.0, z=0.0, A=180 * D, B=0.0, C=0.0))], rel=dict(of='a', **{'in': 'b'})))
+    # Kardansperre in der relativen Pose: A = 0 (G-06-KP), Winkel nur im Kern geprüft (Python ohne Euler-Winkel)
+    case('G-K2-S4 Kardansperre B = +90° in G-13-X', dict(type='frames', inp=dict(frames=[dict(id='a', name='a', role='frei', parent=None),
+         dict(id='b', name='b', role='frei', parent='a', pose=dict(x=0.0, y=0.0, z=0.0, A=30 * D, B=90 * D, C=20 * D))], rel=dict(of='b', **{'in': 'a'}))), dict(PA=0.0, PB=90 * D, PC=-10 * D))
+    bad = lambda **f: dict(frames=[dict(id='a', name='a', role='frei', parent=None), dict(id='b', name='b', role='frei', parent='a', **f)])
+    case('G-K2-S5 letzte Zeile (0; 0; 0,1; 1) ungültig', dict(type='frames', inp=bad(matrix=[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0.1, 1]])), dict(errors=1.0))
+    case('G-K2-S5 det R = −1 ungültig', dict(type='frames', inp=bad(matrix=[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, -1, 0], [0, 0, 0, 1]])), dict(errors=1.0))
+    case('G-K2-S5 Zyklus im Baum', dict(type='frames', inp=dict(frames=[dict(id='a', name='a', role='frei', parent=None), dict(id='b', name='b', role='frei', parent='c', pose=dict(x=0, y=0, z=0, A=0, B=0, C=0)),
+         dict(id='c', name='c', role='frei', parent='b', pose=dict(x=0, y=0, z=0, A=0, B=0, C=0))])), dict(errors=1.0))
+    case('G-K2-S5 unbekannter Bezugsrahmen', dict(type='frames', inp=dict(frames=[dict(id='a', name='a', role='frei', parent=None), dict(id='b', name='b', role='frei', parent='x', pose=dict(x=0, y=0, z=0, A=0, B=0, C=0))])), dict(errors=1.0))
+
+    # ---------------- G-K2-B: 1000 Zufallsproben (fester Startwert)
+    rng = np.random.default_rng(20261107)
+    samples, vals = [], dict(n=1000.0, eInv=0.0, eInvInv=0.0, eAssoc=0.0, eDist=0.0, eAng=0.0)
+    acc = {}
+    def ad(k, x): acc['s' + k] = acc.get('s' + k, 0.0) + x * x; acc['t' + k] = acc.get('t' + k, 0.0) + (x + 4) ** 2
+    for _ in range(1000):
+        row, Ts = [], []
+        for _k in range(3):
+            q = rng.normal(size=4); q /= np.linalg.norm(q); p = rng.uniform(-2, 2, size=3)
+            row += list(q) + list(p); Ts.append(h(r_quat(q), p))
+        x, y = rng.uniform(-2, 2, size=3), rng.uniform(-2, 2, size=3); row += list(x) + list(y)
+        samples.append([float(c) for c in row])
+        Ti = np.linalg.inv(Ts[0]); C12 = Ts[0] @ Ts[1]
+        for i, j in IJ4: ad('I', float(Ti[i, j])); ad('C', float(C12[i, j]))
+        for c in (Ts[0] @ np.r_[x, 1.0])[:3]: ad('X', float(c))
+    vals.update(acc)
+    # Fehler absolut 10⁻¹² (Abstand und Skalarprodukt bei Koordinaten bis 2 m: 10⁻¹¹); Quadratsummen relativ 10⁻¹²
+    c = dict(type='framesbatch', samples=samples, id='G-K2-B 1000 Zufallsproben Eigenschaften', module='kinematik', abs=True); cases.append(c)
+    ref[c['id']] = (dict(n=1000.0, eInv=0.0, eInvInv=0.0, eAssoc=0.0), TOL)
+    c2 = dict(type='framesbatch', samples=samples, id='G-K2-B 1000 Zufallsproben Abstand und Winkel', module='kinematik', abs=True); cases.append(c2)
+    ref[c2['id']] = (dict(eDist=0.0, eAng=0.0), 1e-11)
+    c3 = dict(type='framesbatch', samples=samples, id='G-K2-B 1000 Zufallsproben Quadratsummen', module='kinematik'); cases.append(c3)
+    ref[c3['id']] = ({k: v for k, v in vals.items() if k[0] in 'st'}, TOL)
