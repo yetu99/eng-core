@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "fd 1.2",
-  "released_at": "2026-11-08T08:37:29.08801+00:00",
-  "title": "Pressverband: ISO-Toleranzen IT1 bis IT11 und Grundabmaße p bis z bis 500 mm, Haftbeiwerte, Werkstoffgruppen, Fügetemperaturen, Kühlmittel, Rauheit, Fasenlänge"
+  "version": "fd 1.3.1",
+  "released_at": "2026-11-10T06:47:20.958089+00:00",
+  "title": "Schraubenverbindung: Korrektur Normlängen ISO 4014 und ISO 4017"
  },
  "source": "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
  "files": {
@@ -81,6 +81,58 @@
   "pv_chamfer": {
    "rows": 8,
    "sha256": "42ad9f1e26adc7ca908ccd4d7db347fba2a074846a45c16cd3295606abcd6a1e"
+  },
+  "threads": {
+   "rows": 33,
+   "sha256": "782b23aa33785dba39da3b138875fb6a3c522f1867ab663bae83aa313c67e20c"
+  },
+  "bolt_grades": {
+   "rows": 13,
+   "sha256": "8806751e3ee978038f581d27e51e02a14a0be4a3bb631f393a1feef7f9e31545"
+  },
+  "bolt_geometry": {
+   "rows": 89,
+   "sha256": "ca85ad612357c599709f1310b2069b24ab07863742e4ecd74bcca49431c120fa"
+  },
+  "clearance_holes": {
+   "rows": 17,
+   "sha256": "22d6b87dcebc8811ab24dd8df48b2ff181522bce4115fc775690adfd47fe9294"
+  },
+  "counterbore": {
+   "rows": 29,
+   "sha256": "5586217e078a35888c89b5eb2ef417cb3a016e93330ae436258d53e3f2b2e42d"
+  },
+  "sv_friction": {
+   "rows": 10,
+   "sha256": "9ec7eb09b3717ea49499465a4cdc61a7ff0d32341aa6bed31dea3ed850d7c07c"
+  },
+  "sv_mu_t": {
+   "rows": 18,
+   "sha256": "38a767ec872a55952344c87f9612b6414e8377ac97818c7bcb9daf27ddab3171"
+  },
+  "sv_tightening": {
+   "rows": 12,
+   "sha256": "354388d546df4fc2a5255af7ed9195b5595f4a450d5c178636c69ece2471d142"
+  },
+  "sv_embed": {
+   "rows": 6,
+   "sha256": "dba9352b074128e4b2be54b10e6969bc3a29234db816dfe0ccdd124ef1a6af0c"
+  },
+  "sv_pg": {
+   "rows": 40,
+   "sha256": "3b3a095110b789b46d46c6a35c04bf94f44ae25a462afde29fbcfe44851af364"
+  },
+  "sv_kef": {
+   "rows": 96,
+   "sha256": "8958919ed67c71b06b5d050a5435ee8d305ed9aa002278abfd3b977ee7c1543c"
+  },
+  "sv_shear": {
+   "rows": 8,
+   "sha256": "1fc4fe067767b42b425b907e777fca3fb7d9182ddbe7f33d3420ab9e71d81975"
+  },
+  "sv_engagement": {
+   "rows": 40,
+   "sha256": "653f59a95c62e877bcae9d62f77c2505c7be1ab83b9e6df5702679b072979abe"
   }
  }
 }

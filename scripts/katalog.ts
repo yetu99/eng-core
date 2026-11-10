@@ -13,6 +13,8 @@ import { fluidFaelle, messFaelle, stossFaelle } from "./fluid-faelle";
 import { kinematikFaelle, kinematikVerkettung, kinematikK2Faelle, kinematikK3Faelle } from "./kinematik-faelle";
 import { computeOrientation, compose, computeFrames, computeForward, computePressFit, pvRepo } from "../src/index";
 import { pvFaelle } from "./pv-faelle";
+import { computeBoltJoint, computeBoltUnpreloaded, svRepo } from "../src/index";
+import { svFaelle } from "./sv-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -182,6 +184,13 @@ export function collectCatalog(): CatalogEntry[] {
     if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
   }
+  // Schraubenverbindung (0.18.0, Modul verbindungen): Roloff Bsp. 8.1, 8.3, EKB, VDI B1, B2, Normgeometrie, Auslegung, Optionen
+  for (const f of svFaelle) {
+    const r = computeBoltJoint(svRepo, f.inp);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
+  }
+  { const r = computeBoltUnpreloaded(svRepo, 20000, "8.8", false); r.steps.forEach((s) => take(s, "P-SV18 nicht vorgespannte Schraube, F 20 kN, 8.8, ohne Last angezogen (Roloff (8.38))")); }
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));
 }
 

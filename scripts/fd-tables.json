@@ -17,5 +17,18 @@
  { "file": "pv_join_temp", "table": "fd_pv_join_temp", "min": 4, "cols": ["id", "hub_state", "t_max_c", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "pv_coolants", "table": "fd_pv_coolants", "min": 2, "cols": ["id", "medium", "t_c", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "pv_rz", "table": "fd_pv_rz", "min": 3, "cols": ["id", "ra_um", "rz_um", "rz_min_um", "rz_max_um", "remark", "source_id", "source_locator"], "sort": ["ra_um"] },
- { "file": "pv_chamfer", "table": "fd_pv_chamfer", "min": 8, "cols": ["id", "d_over_mm", "d_to_mm", "le_mm", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] }
+ { "file": "pv_chamfer", "table": "fd_pv_chamfer", "min": 8, "cols": ["id", "d_over_mm", "d_to_mm", "le_mm", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] },
+ { "file": "threads", "table": "fd_threads", "min": 33, "cols": ["id", "series", "d_mm", "p_mm", "d2_mm", "d3_mm", "d1_mm", "h3_mm", "h1_mm", "as_mm2", "a3_mm2", "reihe", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "bolt_grades", "table": "fd_bolt_grades", "min": 13, "cols": ["id", "grade", "standard", "d_over_mm", "d_to_mm", "rm_nom_mpa", "rm_min_mpa", "yield_nom_mpa", "yield_min_mpa", "yield_kind", "a_min_pct", "af_min_d", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "bolt_geometry", "table": "fd_bolt_geometry", "min": 89, "cols": ["id", "norm", "d_mm", "product_class", "s_mm", "e_min_mm", "k_mm", "dw_min_mm", "dk_max_mm", "t_min_mm", "b1_mm", "b2_mm", "b3_mm", "m_max_mm", "d1_min_mm", "d2_max_mm", "h_mm", "l_min_mm", "l_max_mm", "l_series", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "clearance_holes", "table": "fd_clearance_holes", "min": 17, "cols": ["id", "d_mm", "fine_mm", "medium_mm", "coarse_mm", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "counterbore", "table": "fd_counterbore", "min": 29, "cols": ["id", "kind", "d_mm", "dc_r1_mm", "dc_r2_mm", "dc_r3_mm", "dc_r4_mm", "t_bolt_mm", "t_nut_mm", "t_add_mm", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_friction", "table": "fd_sv_friction", "min": 10, "cols": ["id", "kind", "friction_class", "description", "mu_min", "mu_max", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_mu_t", "table": "fd_sv_mu_t", "min": 18, "cols": ["id", "part_a", "part_b", "condition", "dry_min", "dry_max", "lub_min", "lub_max", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_tightening", "table": "fd_sv_tightening", "min": 12, "cols": ["id", "method", "alpha_min", "alpha_max", "scatter_min_pct", "scatter_max_pct", "nu_default", "torsion", "fm_basis", "d_from_mm", "friction_class", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_embed", "table": "fd_sv_embed", "min": 6, "cols": ["id", "rz_over_um", "rz_to_um", "load", "f_thread_um", "f_bearing_um", "f_interface_um", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_pg", "table": "fd_sv_pg", "min": 40, "cols": ["id", "material_group", "material", "rm_mpa", "p_g_mpa", "tau_b_mpa", "tau_b_source_id", "tau_b_locator", "wdb_id", "wdb_subclass", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_kef", "table": "fd_sv_kef", "min": 96, "cols": ["id", "sv_type", "la_h", "ak_h", "n", "la_h_ge", "ak_h_ge", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_shear", "table": "fd_sv_shear", "min": 8, "cols": ["id", "grade", "standard", "tau_rm", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "sv_engagement", "table": "fd_sv_engagement", "min": 40, "cols": ["id", "material_group", "rm_over_mpa", "grade", "thread", "le_d_min", "le_d_max", "le_d_print_min", "le_d_print_max", "remark", "source_id", "source_locator"], "sort": ["id"] }
 ]

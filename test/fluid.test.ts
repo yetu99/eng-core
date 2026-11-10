@@ -91,7 +91,7 @@ describe("Strang", () => {
 
 describe("Fachdaten fd 1.0 und fd 1.1", () => {
   it("Stand und Zeilenzahlen", () => {
-    expect(FD_VERSION).toBe("fd 1.2");
+    expect(FD_VERSION).toBe("fd 1.3.1");
     expect([fdRepo.fluids.length, fdRepo.fluidValues.length, fdRepo.roughness.length, fdRepo.lossCoeff.length, fdRepo.pipeSizes.length, fdRepo.velocityGuide.length]).toEqual([21, 32, 20, 87, 68, 20]);
     expect([fdRepo.flowmeters.length, fdRepo.shapeFactors.length, fdRepo.waveSpeeds.length, fdRepo.bulkModuli.length, fdRepo.oilGrades.length]).toEqual([4, 12, 2, 8, 8]);
   });
@@ -126,7 +126,7 @@ describe("Katalog und Prüfstatus Fachtools", () => {
   it("reportMeta Fachtools zählt gemeinsam und fluid, Werkbank bleibt unverändert", () => {
     const f = reportMeta("Ingenieur-Fachtools");
     expect(f.formulas).toBe(TOOLS.fachtools.modules.reduce((a, m) => a + PRUEFSTATUS.modules[m].formulas, 0));
-    expect(f.fd).toBe("fd 1.2");
+    expect(f.fd).toBe("fd 1.3.1");
     expect(reportMeta().formulas).toBe(PRUEFSTATUS.modules.gemeinsam.formulas + PRUEFSTATUS.modules.festigkeit.formulas + PRUEFSTATUS.modules.ashby.formulas);
   });
 });

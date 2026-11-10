@@ -30,7 +30,7 @@ export const TRACE_GROUPS = {
   festigkeit: ["belastung", "nachweis", "bemessung", "ermuedung"],
   ashby: [],
   fluid: ["stoffwerte", "geometrie", "reibung", "verluste", "energie", "pumpe", "messung", "druckstoss", "nachweis"],
-  verbindungen: ["werkstoff", "geometrie", "passung", "fugendruck", "betrieb", "spannungen", "montage", "plastisch", "fliehkraft", "nachgiebigkeit", "vorspannung", "nachweis"],
+  verbindungen: ["werkstoff", "geometrie", "passung", "fugendruck", "betrieb", "spannungen", "montage", "plastisch", "fliehkraft", "nachgiebigkeit", "kraft", "vorspannung", "festigkeit", "schwingung", "pressung", "gleiten", "anziehen", "vorwahl", "nachweis"],
   dichtungen: ["abmessungen", "verpressung", "nut", "extrusion", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
   kinematik: ["orientierung", "umrechnung", "pruefung", "lage", "kette", "inverse", "abbildung", "gelenke", "vorwaerts", "kontrolle"],
@@ -53,6 +53,8 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   extrusion: "Spaltextrusion", gleichgewicht: "Gleichgewicht", stabkraefte: "Stabkräfte", verschiebung: "Verschiebungen",
   orientierung: "Orientierung", umrechnung: "Umrechnung der Darstellungen", pruefung: "Prüfung der Rotationsmatrix",
   plastisch: "Elastisch-plastisch (DIN 7190-1 Abschn. 4.3)", fliehkraft: "Fliehkraft (DIN 7190-1 Abschn. 10.2)",
+  kraft: "Kraftverhältnis und Betriebskräfte (R3)", festigkeit: "Montage- und Betriebsbeanspruchung (R7, R8)", schwingung: "Dauerhaltbarkeit (R9)", pressung: "Flächenpressung (R10)",
+  gleiten: "Gleiten, Abscheren, Einschraubtiefe (R11, R12)", anziehen: "Anziehen und Lösen (R13)", vorwahl: "Vorwahl und Auslegung (R0)",
   lage: "Lage der Rahmen", kette: "Rahmenkette und relative Lage", inverse: "Inverse", abbildung: "Punkt, Richtung und Verschieben",
   gelenke: "Gelenke und DH-Gliedmatrizen", vorwaerts: "Vorwärtskinematik", kontrolle: "Kontrolle und Umrechnung",
 };

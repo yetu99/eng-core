@@ -1,0 +1,172 @@
+[
+ {
+  "id": "DL04",
+  "d_mm": 4,
+  "fine_mm": 4.3,
+  "medium_mm": 4.5,
+  "coarse_mm": 4.8,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL05",
+  "d_mm": 5,
+  "fine_mm": 5.3,
+  "medium_mm": 5.5,
+  "coarse_mm": 5.8,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL06",
+  "d_mm": 6,
+  "fine_mm": 6.4,
+  "medium_mm": 6.6,
+  "coarse_mm": 7,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL08",
+  "d_mm": 8,
+  "fine_mm": 8.4,
+  "medium_mm": 9,
+  "coarse_mm": 10,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL10",
+  "d_mm": 10,
+  "fine_mm": 10.5,
+  "medium_mm": 11,
+  "coarse_mm": 12,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL12",
+  "d_mm": 12,
+  "fine_mm": 13,
+  "medium_mm": 13.5,
+  "coarse_mm": 14.5,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL14",
+  "d_mm": 14,
+  "fine_mm": 15,
+  "medium_mm": 15.5,
+  "coarse_mm": 16.5,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL16",
+  "d_mm": 16,
+  "fine_mm": 17,
+  "medium_mm": 17.5,
+  "coarse_mm": 18.5,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL18",
+  "d_mm": 18,
+  "fine_mm": 19,
+  "medium_mm": 20,
+  "coarse_mm": 21,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q245",
+  "source_locator": "Tabelle (S. 2, Scan)"
+ },
+ {
+  "id": "DL20",
+  "d_mm": 20,
+  "fine_mm": 21,
+  "medium_mm": 22,
+  "coarse_mm": 24,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL22",
+  "d_mm": 22,
+  "fine_mm": 23,
+  "medium_mm": 24,
+  "coarse_mm": 26,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q245",
+  "source_locator": "Tabelle (S. 2, Scan)"
+ },
+ {
+  "id": "DL24",
+  "d_mm": 24,
+  "fine_mm": 25,
+  "medium_mm": 26,
+  "coarse_mm": 28,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL27",
+  "d_mm": 27,
+  "fine_mm": 28,
+  "medium_mm": 30,
+  "coarse_mm": 32,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q245",
+  "source_locator": "Tabelle (S. 2, Scan)"
+ },
+ {
+  "id": "DL30",
+  "d_mm": 30,
+  "fine_mm": 31,
+  "medium_mm": 33,
+  "coarse_mm": 35,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL33",
+  "d_mm": 33,
+  "fine_mm": 34,
+  "medium_mm": 36,
+  "coarse_mm": 38,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q245",
+  "source_locator": "Tabelle (S. 2, Scan)"
+ },
+ {
+  "id": "DL36",
+  "d_mm": 36,
+  "fine_mm": 37,
+  "medium_mm": 39,
+  "coarse_mm": 42,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-8 Sp. 15 bis 17 (S. 1075)"
+ },
+ {
+  "id": "DL39",
+  "d_mm": 39,
+  "fine_mm": 40,
+  "medium_mm": 42,
+  "coarse_mm": 45,
+  "remark": "Reihe fein H12, mittel H13, grob H14 (ISO 273 informativ); mittel für Produktklasse A (TB 8-8 Fußnote 4)",
+  "source_id": "Q245",
+  "source_locator": "Tabelle (S. 2, Scan)"
+ }
+]

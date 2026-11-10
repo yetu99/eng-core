@@ -1,0 +1,112 @@
+[
+ {
+  "id": "RG1",
+  "kind": "gesamt",
+  "friction_class": null,
+  "description": "schwarz oder phosphatiert, leicht geölt",
+  "mu_min": 0.12,
+  "mu_max": 0.18,
+  "remark": "Gesamtreibungszahl μ_ges = μ_G = μ_K bei Normalausführung (nach Bauer & Schaurte Karcher)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-12a (S. 1080)"
+ },
+ {
+  "id": "RG2",
+  "kind": "gesamt",
+  "friction_class": null,
+  "description": "schwarz oder phosphatiert, MoS2 geschmiert",
+  "mu_min": 0.08,
+  "mu_max": 0.12,
+  "remark": "Gesamtreibungszahl μ_ges = μ_G = μ_K bei Normalausführung (nach Bauer & Schaurte Karcher)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-12a (S. 1080)"
+ },
+ {
+  "id": "RG3",
+  "kind": "gesamt",
+  "friction_class": null,
+  "description": "galvanisch verzinkt 6 bis 12 µm",
+  "mu_min": 0.12,
+  "mu_max": 0.18,
+  "remark": "Gesamtreibungszahl μ_ges = μ_G = μ_K bei Normalausführung (nach Bauer & Schaurte Karcher)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-12a (S. 1080)"
+ },
+ {
+  "id": "RG4",
+  "kind": "gesamt",
+  "friction_class": null,
+  "description": "galvanisch verkadmet 6 bis 10 µm",
+  "mu_min": 0.08,
+  "mu_max": 0.12,
+  "remark": "Gesamtreibungszahl μ_ges = μ_G = μ_K bei Normalausführung (nach Bauer & Schaurte Karcher)",
+  "source_id": "Q219",
+  "source_locator": "TB 8-12a (S. 1080)"
+ },
+ {
+  "id": "RG5",
+  "kind": "gesamt",
+  "friction_class": null,
+  "description": "mikroverkapselter Klebstoff",
+  "mu_min": 0.14,
+  "mu_max": 0.2,
+  "remark": "Gesamtreibungszahl μ_ges = μ_G = μ_K bei Normalausführung (nach Bauer & Schaurte Karcher), andere Klebstoffe 0,2 bis 0,3",
+  "source_id": "Q219",
+  "source_locator": "TB 8-12a (S. 1080)"
+ },
+ {
+  "id": "RKA",
+  "kind": "klasse",
+  "friction_class": "A",
+  "description": "Festschmierstoffe (MoS2, Grafit, PTFE u. a.) in Gleitlacken, Pasten; Wachse; metallisch blank, phosphatiert, galv. Zn, Zink-Lamellen",
+  "mu_min": 0.04,
+  "mu_max": 0.1,
+  "remark": "gilt für μ_G und μ_K; Rechnung mit μ_min (R7, R13), Streuung über α_A",
+  "source_id": "Q237",
+  "source_locator": "Tab. A5 (S. 113)"
+ },
+ {
+  "id": "RKB",
+  "kind": "klasse",
+  "friction_class": "B",
+  "description": "Fette, Öle, Anlieferzustand; Wachsdispersionen; metallisch blank, phosphatiert, galv. Überzüge, Al-, Mg-Legierungen, austenitischer Stahl mit Pasten (anzustreben)",
+  "mu_min": 0.08,
+  "mu_max": 0.16,
+  "remark": "gilt für μ_G und μ_K; Rechnung mit μ_min (R7, R13), Streuung über α_A",
+  "source_id": "Q237",
+  "source_locator": "Tab. A5 (S. 113)"
+ },
+ {
+  "id": "RKC",
+  "kind": "klasse",
+  "friction_class": "C",
+  "description": "Anlieferungszustand leicht geölt bzw. ohne; metallisch blank, phosphatiert, galv. Überzüge; Klebstoff; austenitischer Stahl mit Öl",
+  "mu_min": 0.14,
+  "mu_max": 0.24,
+  "remark": "gilt für μ_G und μ_K; Rechnung mit μ_min (R7, R13), Streuung über α_A",
+  "source_id": "Q237",
+  "source_locator": "Tab. A5 (S. 113)"
+ },
+ {
+  "id": "RKD",
+  "kind": "klasse",
+  "friction_class": "D",
+  "description": "ohne Schmierung; galv. Zn, Zn/Fe; feuerverzinkt",
+  "mu_min": 0.2,
+  "mu_max": 0.35,
+  "remark": "gilt für μ_G und μ_K; Rechnung mit μ_min (R7, R13), Streuung über α_A",
+  "source_id": "Q237",
+  "source_locator": "Tab. A5 (S. 113)"
+ },
+ {
+  "id": "RKE",
+  "kind": "klasse",
+  "friction_class": "E",
+  "description": "ohne Schmierung; galv. Zn/Fe, Zn/Ni; austenitischer Stahl; Al-, Mg-Legierungen",
+  "mu_min": 0.3,
+  "mu_max": null,
+  "remark": "gilt für μ_G und μ_K; Rechnung mit μ_min (R7, R13), Streuung über α_A",
+  "source_id": "Q237",
+  "source_locator": "Tab. A5 (S. 113)"
+ }
+]

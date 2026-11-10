@@ -1,0 +1,74 @@
+[
+ {
+  "id": "TB109",
+  "grade": "10.9",
+  "standard": "ISO 898-1",
+  "tau_rm": 0.62,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB129",
+  "grade": "12.9",
+  "standard": "ISO 898-1",
+  "tau_rm": 0.6,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB46",
+  "grade": "4.6",
+  "standard": "ISO 898-1",
+  "tau_rm": 0.7,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB50",
+  "grade": "50",
+  "standard": "ISO 3506-1",
+  "tau_rm": 0.8,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB56",
+  "grade": "5.6",
+  "standard": "ISO 898-1",
+  "tau_rm": 0.7,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB70",
+  "grade": "70",
+  "standard": "ISO 3506-1",
+  "tau_rm": 0.72,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB80",
+  "grade": "80",
+  "standard": "ISO 3506-1",
+  "tau_rm": 0.68,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ },
+ {
+  "id": "TB88",
+  "grade": "8.8",
+  "standard": "ISO 898-1",
+  "tau_rm": 0.65,
+  "remark": "τ_B = (τ_B/R_m)·R_m (R12/6-2)",
+  "source_id": "Q237",
+  "source_locator": "Tab. 7 (S. 104)"
+ }
+]

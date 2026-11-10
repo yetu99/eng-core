@@ -1,0 +1,74 @@
+[
+ {
+  "id": "SB1",
+  "rz_over_um": 0,
+  "rz_to_um": 10,
+  "load": "axial",
+  "f_thread_um": 3,
+  "f_bearing_um": 2.5,
+  "f_interface_um": 1.5,
+  "remark": "Richtwerte massive Verbindungen aus Stahl ohne Beschichtung; je Kopf- oder Mutterauflage und je innere Trennfuge; Rz von a bis unter b",
+  "source_id": "Q219",
+  "source_locator": "TB 8-10a (S. 1078)"
+ },
+ {
+  "id": "SB2",
+  "rz_over_um": 10,
+  "rz_to_um": 40,
+  "load": "axial",
+  "f_thread_um": 3,
+  "f_bearing_um": 3,
+  "f_interface_um": 2,
+  "remark": "Richtwerte massive Verbindungen aus Stahl ohne Beschichtung; je Kopf- oder Mutterauflage und je innere Trennfuge; Rz von a bis unter b",
+  "source_id": "Q219",
+  "source_locator": "TB 8-10a (S. 1078)"
+ },
+ {
+  "id": "SB3",
+  "rz_over_um": 40,
+  "rz_to_um": 160,
+  "load": "axial",
+  "f_thread_um": 3,
+  "f_bearing_um": 4,
+  "f_interface_um": 3,
+  "remark": "Richtwerte massive Verbindungen aus Stahl ohne Beschichtung; je Kopf- oder Mutterauflage und je innere Trennfuge; Rz von a bis unter b",
+  "source_id": "Q219",
+  "source_locator": "TB 8-10a (S. 1078)"
+ },
+ {
+  "id": "SB4",
+  "rz_over_um": 0,
+  "rz_to_um": 10,
+  "load": "schub",
+  "f_thread_um": 3,
+  "f_bearing_um": 3,
+  "f_interface_um": 2,
+  "remark": "Richtwerte massive Verbindungen aus Stahl ohne Beschichtung; je Kopf- oder Mutterauflage und je innere Trennfuge; Rz von a bis unter b",
+  "source_id": "Q219",
+  "source_locator": "TB 8-10a (S. 1078)"
+ },
+ {
+  "id": "SB5",
+  "rz_over_um": 10,
+  "rz_to_um": 40,
+  "load": "schub",
+  "f_thread_um": 3,
+  "f_bearing_um": 4.5,
+  "f_interface_um": 2.5,
+  "remark": "Richtwerte massive Verbindungen aus Stahl ohne Beschichtung; je Kopf- oder Mutterauflage und je innere Trennfuge; Rz von a bis unter b",
+  "source_id": "Q219",
+  "source_locator": "TB 8-10a (S. 1078)"
+ },
+ {
+  "id": "SB6",
+  "rz_over_um": 40,
+  "rz_to_um": 160,
+  "load": "schub",
+  "f_thread_um": 3,
+  "f_bearing_um": 6.5,
+  "f_interface_um": 3.5,
+  "remark": "Richtwerte massive Verbindungen aus Stahl ohne Beschichtung; je Kopf- oder Mutterauflage und je innere Trennfuge; Rz von a bis unter b",
+  "source_id": "Q219",
+  "source_locator": "TB 8-10a (S. 1078)"
+ }
+]

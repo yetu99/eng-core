@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "WDB 1.1.3",
-  "released_at": "2026-11-08T08:37:29.08801+00:00",
-  "title": "Quellen Fachtools Pressverband"
+  "version": "WDB 1.1.4",
+  "released_at": "2026-11-09T10:38:01.921967+00:00",
+  "title": "Quellen Fachtools Schraubenverbindung"
  },
  "source": "Supabase Kompendium, Tabellen wa_* (eng-core scripts/pull-data.mjs)",
  "files": {
@@ -23,8 +23,8 @@
    "sha256": "b9730a6e17a011dca632b2a1bf0dab28c43974b3533c20c1dce1c3e6000517b6"
   },
   "sources": {
-   "rows": 238,
-   "sha256": "30b9caa7549803fe83d8eb2cb6e2d06c3c4e1f38559aff5a886623bd08ec1a33"
+   "rows": 251,
+   "sha256": "6fff6c08aed627a78b07c47d4fed38342225f5cc0801210fbce21f7ed8c4a577"
   },
   "processes": {
    "rows": 16,

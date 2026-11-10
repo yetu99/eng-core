@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.17.0
+# Formelkatalog eng-core 0.18.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 589 Formeln, davon 589 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 674 Formeln, davon 674 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -13,7 +13,7 @@ Stand: 589 Formeln, davon 589 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | festigkeit | werkbank | B, Z, K, T, N, D, P, V, E | 165 | 165 |
 | ashby | werkbank | A, C | 90 | 90 |
 | fluid | fachtools | RH, PU, FS | 100 | 100 |
-| verbindungen | fachtools | SV, PV | 67 | 67 |
+| verbindungen | fachtools | SV, PV | 152 | 152 |
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
@@ -647,6 +647,96 @@ Stand: 589 Formeln, davon 589 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | RH-Z-MAN | Widerstandszahl (Eingabe) | ζ = Eingabe | 1 | Eingabe | freigegeben (2026-10-29, Seti) |
 | RH-Z-TAB | Widerstandszahl | ζ aus fd_loss_coeff | 1 | TB 18-7 (Q219) | freigegeben (2026-10-29, Seti) |
 
+## Schraubenverbindung
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| SV-A3 | Kernquerschnitt | A_d3 = π/4·d₃² | mm² | VDI 2230-1:2015 (Q237) Abschn. 5.1.1 | freigegeben (2026-11-09, Seti) |
+| SV-AN | Nennquerschnitt | A_N = π/4·d² | mm² | VDI 2230-1:2015 (Q237) Abschn. 5.1.1 | freigegeben (2026-11-09, Seti) |
+| SV-AP | Auflagefläche | A_p,min = π/4·(d_W² − D_Ki²), D_Ki = max(d_h, d_ha) bzw. d₁ der Scheibe | mm² | VDI 2230-1:2015 (Q237) Gl. (193); Roloff/Matek 27 (Q219) (8.36) | freigegeben (2026-11-09, Seti) |
+| SV-AS | Spannungsquerschnitt | A_s = π/4·((d₂ + d₃)/2)² | mm² | Roloff/Matek 27 (Q219) (8.34); VDI 2230-1:2015 (Q237) Tab. A11; DIN 13-1:1999 (Q238) S. 3 | freigegeben (2026-11-09, Seti) |
+| SV-ASMIN | Mindestquerschnitt nach Kübler (Vorwahl R0) | A_s ≥ (F_B + F_Kl)/(R_p0,2/(κ·k_A) − β·E_S·f_Z/l_K), κ nach μ_G, β 1,1/0,8/0,6 | mm² | Roloff/Matek 27 (Q219) (8.2), Bsp. 8.3 | freigegeben (2026-11-09, Seti) |
+| SV-AT | Taillenquerschnitt (Dehnschaft) | A_T = π/4·d_T², Vorschlag d_T = 0,9·d₃ | mm² | Roloff/Matek 27 (Q219) (8.34b) | freigegeben (2026-11-09, Seti) |
+| SV-DAGR | Grenzdurchmesser des Verformungskegels | D_A,Gr = d_W + w·l_K·tan φ (w = 1 DSV, 2 ESV) | mm | VDI 2230-1:2015 (Q237) Gl. (39) | freigegeben (2026-11-09, Seti) |
+| SV-DG | Nachgiebigkeit eingeschraubtes Gewinde | δ_G = 0,5·d/(E_S·A_d3) | mm/N | VDI 2230-1:2015 (Q237) Abschn. 5.1.1 (S. 40) | freigegeben (2026-11-09, Seti) |
+| SV-DGEW | Nachgiebigkeit freies Gewinde | δ_Gew = l_Gew/(E_S·A_d3) | mm/N | VDI 2230-1:2015 (Q237) Abschn. 5.1.1 (S. 40) | freigegeben (2026-11-09, Seti) |
+| SV-DI | Nachgiebigkeit Schaftelement 1 | δ_i = l_i/(E_S·A_i), A_i = π/4·d_i² | mm/N | VDI 2230-1:2015 (Q237) Abschn. 5.1.1; Roloff/Matek 27 (Q219) (8.8) | freigegeben (2026-11-09, Seti) |
+| SV-DKM | Reibdurchmesser der Kopfauflage | D_Km = (d_W + D_Ki)/2 | mm | VDI 2230-1:2015 (Q237) R13; Roloff/Matek 27 (Q219) zu (8.24) | freigegeben (2026-11-09, Seti) |
+| SV-DM | Nachgiebigkeit Innengewinde (ESV) | δ_M = l_M/(E_M·A_N), l_M = 0,33·d, E_M = E_BI | mm/N | VDI 2230-1:2015 (Q237) Abschn. 5.1.1 (S. 40) | freigegeben (2026-11-09, Seti) |
+| SV-DP-H | Nachgiebigkeit Platten, nur Hülse (d_W ≥ D_A) | δ_P = 4·l_K/(E_P·π·(D_A² − d_h²)) | mm/N | VDI 2230-1:2015 (Q237) Abschn. 5.1.2, Gl. (49) | freigegeben (2026-11-09, Seti) |
+| SV-DP-HZ | Nachgiebigkeit Platten, Hohlzylinder (Roloff) | A_ers = π/4·(d_w² − d_h²) + π/8·d_w·(D_A − d_w)·((x + 1)² − 1), x = ∛(l_K·d_w/D_A²), D_A ≤ d_w + l_K; δ_T = Σ l_i/(A_ers·E_i) | mm/N | Roloff/Matek 27 (Q219) (8.9), (8.10) | freigegeben (2026-11-09, Seti) |
+| SV-DP-K | Nachgiebigkeit Platten, Kegel (D_A ≥ D_A,Gr) | δ_P = 2·ln[((d_W + d_h)(d_W + w·l_K·tan φ − d_h))/((d_W − d_h)(d_W + w·l_K·tan φ + d_h))]/(w·E_P·π·d_h·tan φ) | mm/N | VDI 2230-1:2015 (Q237) Gl. (40) | freigegeben (2026-11-09, Seti) |
+| SV-DP-KH | Nachgiebigkeit Platten, Kegel und Hülse (d_W < D_A < D_A,Gr) | l_V = (D_A − d_W)/(2·tan φ), l_H = l_K − 2·l_V/w, δ_P = 2/w·δ_P^V + δ_P^H | mm/N | VDI 2230-1:2015 (Q237) Gl. (41), (44) bis (49) (S. 47) | freigegeben (2026-11-09, Seti) |
+| SV-DP-T | Nachgiebigkeit Platten, Teilkörper mit eigenem E | Zerlegung nach l_i, d_W,i = d_W + 2·tan φ·Σl_j, δ_P = Σ δ_P,i (Kegelstumpf bzw. Hülse je Abschnitt) | mm/N | VDI 2230-1:2015 (Q237) S. 48 Hinweis 3 | freigegeben (2026-11-09, Seti) |
+| SV-DS | Nachgiebigkeit der Schraube | δ_S = δ_SK + Σδ_i + δ_Gew + δ_G + δ_M | mm/N | VDI 2230-1:2015 (Q237) Gl. (19); Roloff/Matek 27 (Q219) (8.7) | freigegeben (2026-11-09, Seti) |
+| SV-DS0 | Durchmesser zu A_s und Rechendurchmesser d₀ | d_S = (d₂ + d₃)/2; d₀ = d_S, Dehnschraube d₀ = d_T | mm | VDI 2230-1:2015 (Q237) R7; Roloff/Matek 27 (Q219) (8.32) | freigegeben (2026-11-09, Seti) |
+| SV-DSK | Nachgiebigkeit Schraubenkopf | δ_SK = l_SK/(E_S·A_N), l_SK = 0,4·d (Innensechskant) | mm/N | VDI 2230-1:2015 (Q237) Abschn. 5.1.1 (S. 40 f.); Roloff/Matek 27 (Q219) (8.8) | freigegeben (2026-11-09, Seti) |
+| SV-FAM | Ausschlag- und Mittelkraft der Schraube | F_a = (F_SAo − F_SAu)/2; F_m = F_V + (F_Ao + F_Au)/2·Φ_n (F_V = F_M,zul) | N | Roloff/Matek 27 (Q219) (8.15), (8.16) | freigegeben (2026-11-09, Seti) |
+| SV-FBS01 | Zulässige Zusatzkraft nach Roloff (Kurznachweis) | F_SA ≤ 0,1·R_p0,2·A₀ (bei ν = 0,9) | N | Roloff/Matek 27 (Q219) (8.34a/b) | freigegeben (2026-11-09, Seti) |
+| SV-FKERF | Erforderliche Klemmkraft | F_Kerf = max(F_KQ; F_KP + F_K,Hand) (F_KA = 0, zentrisch) | N | VDI 2230-1:2015 (Q237) (R2/4) | freigegeben (2026-11-09, Seti) |
+| SV-FKP | Dichtkraft | F_KP = A_D·p_i,max | N | VDI 2230-1:2015 (Q237) (R2/2) | freigegeben (2026-11-09, Seti) |
+| SV-FKQ | Klemmkraft für Querkraft und Moment (Reibschluss) | F_KQ = F_Q,max/(q_F·μ_T,min) + M_Y,max/(q_M·r_a·μ_T,min) | N | VDI 2230-1:2015 (Q237) (R2/1); Roloff/Matek 27 (Q219) (8.18) | freigegeben (2026-11-09, Seti) |
+| SV-FKR | Kleinste Restklemmkraft | F_KR,min = F_V,min − (1 − Φ_n)·F_A,max | N | VDI 2230-1:2015 (Q237) (R12/1); Roloff/Matek 27 (Q219) (8.13) | freigegeben (2026-11-09, Seti) |
+| SV-FMMAX | Maximalmontagevorspannkraft | F_M,max = α_A·F_M,min | N | VDI 2230-1:2015 (Q237) (R6/1); Roloff/Matek 27 (Q219) (8.29) | freigegeben (2026-11-09, Seti) |
+| SV-FMMIN | Mindestmontagevorspannkraft | F_M,min = F_Kerf + (1 − Φ_n)·F_A,max + F_Z + ΔF′_Vth (Zunahme ΔF′_Vth < 0 → 0) | N | VDI 2230-1:2015 (Q237) (R5/1); Roloff/Matek 27 (Q219) (8.29), (8.30) | freigegeben (2026-11-09, Seti) |
+| SV-FMZUL | Zulässige Montagevorspannkraft | F_M,zul = A₀·ν·R_p0,2min/√(1 + 3·[3/2·d₂/d₀·(P/(π·d₂) + 1,155·μ_G,min)]²) | N | VDI 2230-1:2015 (Q237) (R7/2); Roloff/Matek 27 (Q219) (8.32), (8.33); ISO 898-1:2013 (Q239) Tab. 3 | freigegeben (2026-11-09, Seti) |
+| SV-FPA | Plattenentlastung | F_PA = (1 − Φ_n)·F_A | N | VDI 2230-1:2015 (Q237) (R3/2); Roloff/Matek 27 (Q219) (8.12) | freigegeben (2026-11-09, Seti) |
+| SV-FQT | Querkraft je Schraube aus Moment am Lochkreis | F_Q = 2·T/(D_t·z) + F_Q,direkt/z | N | Roloff/Matek 27 (Q219) (8.18); VDI 2230-1:2015 (Q237) B2 S. 137 | freigegeben (2026-11-09, Seti) |
+| SV-FSA | Schraubenzusatzkraft | F_SA = Φ_n·F_A (max und min) | N | VDI 2230-1:2015 (Q237) (R3/1); Roloff/Matek 27 (Q219) (8.11) | freigegeben (2026-11-09, Seti) |
+| SV-FSMAX | Maximale Schraubenkraft | F_S,max = F_M,zul + Φ_n·F_A,max − ΔF_Vth (nur Zunahme, ΔF_Vth < 0) | N | VDI 2230-1:2015 (Q237) (R8/1); Roloff/Matek 27 (Q219) (8.14) | freigegeben (2026-11-09, Seti) |
+| SV-FVMIN | Kleinste Vorspannkraft im Betrieb | F_V,min = F_M,zul/α_A − F_Z − ΔF′_Vth (Zunahme ΔF′_Vth < 0 → 0) | N | VDI 2230-1:2015 (Q237) (R12/1) | freigegeben (2026-11-09, Seti) |
+| SV-FZ | Vorspannkraftverlust durch Setzen | F_Z = f_Z/(δ_S + δ_P) | N | VDI 2230-1:2015 (Q237) (R4/1); Roloff/Matek 27 (Q219) (8.19) | freigegeben (2026-11-09, Seti) |
+| SV-FZSUM | Setzbetrag (von Hand) | f_Z eingegeben | mm | VDI 2230-1:2015 (Q237) Tab. 5; Roloff/Matek 27 (Q219) TB 8-10a | freigegeben (2026-11-09, Seti) |
+| SV-KEF | Vorschlag Krafteinleitungsfaktor (VDI Tab. 2) | lineare Interpolation in l_A/h und a_k/h je Typ SV 1 bis SV 6 | 1 | VDI 2230-1:2015 (Q237) Tab. 2 (S. 62) | freigegeben (2026-11-09, Seti) |
+| SV-LE | Erforderliche Einschraubtiefe (Anhaltswert) | l_e = Faktor·d nach Werkstoff Innengewinde, R_m, Klasse, d/P (oberer Wert) | mm | Roloff/Matek 27 (Q219) TB 8-15 | freigegeben (2026-11-09, Seti) |
+| SV-LGEW | Freie belastete Gewindelänge | l_Gew = l_K − Σ l_i (Schaftelemente in der Klemmlänge) | mm | VDI 2230-1:2015 (Q237) Bild 6; Roloff/Matek 27 (Q219) Bsp. 8.1 | freigegeben (2026-11-09, Seti) |
+| SV-LK | Klemmlänge | l_K = Σ h_i (Platten und Scheiben) | mm | VDI 2230-1:2015 (Q237) Bild 6 | freigegeben (2026-11-09, Seti) |
+| SV-MA | Anziehmoment | M_A = F_M,zul·(0,16·P + 0,58·d₂·μ_G,min + D_Km/2·μ_K,min) | N·mm | VDI 2230-1:2015 (Q237) (R13/1); Roloff/Matek 27 (Q219) (8.26) | freigegeben (2026-11-09, Seti) |
+| SV-MA-EX | Anziehmoment exakt | M_A = F_M·[d₂/2·tan(φ + ρ′) + D_Km/2·μ_K], tan ρ′ = μ_G/cos 30° | N·mm | Roloff/Matek 27 (Q219) (8.24); VDI 2230-1:2015 (Q237) Abschn. 5.4.3 | freigegeben (2026-11-09, Seti) |
+| SV-MG | Gewindemoment | M_G = F_M,zul·d₂/2·(P/(π·d₂) + 1,155·μ_G,min) | N·mm | VDI 2230-1:2015 (Q237) Gl. (154); Roloff/Matek 27 (Q219) (8.23) | freigegeben (2026-11-09, Seti) |
+| SV-ML | Losdrehmoment | M_L = F_V·[d₂/2·tan(ρ′ − φ) + D_Km/2·μ_K], F_V = F_M,zul − F_Z | N·mm | Roloff/Matek 27 (Q219) S. 277 | freigegeben (2026-11-09, Seti) |
+| SV-MLI | Inneres Losdrehmoment | M_Li = F_V·P/(2·π) | N·mm | Roloff/Matek 27 (Q219) S. 278 | freigegeben (2026-11-09, Seti) |
+| SV-MVORH | Vorhandene wirksame Einschraubtiefe | m_eff,vorh = m_ges − 2·P | mm | VDI 2230-1:2015 (Q237) Gl. (208), B1 S. 136 | freigegeben (2026-11-09, Seti) |
+| SV-N-FBS | Kurznachweis Roloff (nur Anzeige) | F_SA ≤ 0,1·R_p0,2·A₀ (Verhältnis) | 1 | Roloff/Matek 27 (Q219) (8.34) | freigegeben (2026-11-09, Seti) |
+| SV-N-FM | Nachweis Schraubengröße | F_M,max ≤ F_M,zul (Reserve F_M,zul/F_M,max) | 1 | VDI 2230-1:2015 (Q237) (R7/3); Roloff/Matek 27 (Q219) S. 273 | freigegeben (2026-11-09, Seti) |
+| SV-N-GEO | Gestaltung | l_K/d < 2 Hinweis α_A; l_K/d > 5 Dehnschraube empfohlen; Gewindeauslauf nicht in der Trennfuge | 1 | VDI 2230-1:2015 (Q237) Tab. A8; Roloff/Matek 27 (Q219) Abschn. 8.2.2 | freigegeben (2026-11-09, Seti) |
+| SV-N-GUELT | Gültigkeit | M4 bis M39, 8.8 bis 12.9, Stahlschraube, zentrisch, D_A > d_h, Raumtemperatur | 1 | VDI 2230-1:2015 (Q237) Abschn. 1 | freigegeben (2026-11-09, Seti) |
+| SV-N-KR | Nachweis Restklemmkraft | F_KR,min ≥ F_Kerf; F_KR,min ≤ 0: Trennfuge öffnet | N | VDI 2230-1:2015 (Q237) R5; Roloff/Matek 27 (Q219) (8.13) | freigegeben (2026-11-09, Seti) |
+| SV-N-LE | Nachweis Einschraubtiefe | m_eff,vorh ≥ l_e (ESV) | mm | VDI 2230-1:2015 (Q237) R11; Roloff/Matek 27 (Q219) TB 8-15 | freigegeben (2026-11-09, Seti) |
+| SV-N-P | Nachweis Flächenpressung Kopfseite | S_p = p_G/p_max je Auflage, p_max = max(p_M; p_B), p_M = F_M,zul/A_p,min (Montage), p_B = (F_V,max + F_SA,max − ΔF_Vth)/A_p,min (Betrieb), F_V,max = F_M,zul − F_Z; streckgrenz- bzw. drehwinkelgesteuert p_max = 1,4·F_M,Tab/A_p,min; maßgebend die kleinere Sicherheit; Nachweis S_p/S_p,erf ≥ 1 | 1 | VDI 2230-1:2015 (Q237) R10, (R10/1) bis (R10/4) | freigegeben (2026-11-10, Seti) |
+| SV-N-SA | Nachweis Abscheren (Ausfallbetrachtung) | S_A ≥ S_A,erf (Verhältnis) | 1 | VDI 2230-1:2015 (Q237) R12 | freigegeben (2026-11-09, Seti) |
+| SV-N-SD | Nachweis Dauerhaltbarkeit | S_D ≥ S_D,erf (Verhältnis) | 1 | VDI 2230-1:2015 (Q237) R9 | freigegeben (2026-11-09, Seti) |
+| SV-N-SF | Nachweis Fließen im Betrieb | S_F ≥ S_F,erf (Verhältnis) | 1 | VDI 2230-1:2015 (Q237) R8 | freigegeben (2026-11-09, Seti) |
+| SV-N-SG | Nachweis Gleiten | S_G ≥ S_G,erf (Verhältnis) | 1 | VDI 2230-1:2015 (Q237) R12 | freigegeben (2026-11-09, Seti) |
+| SV-NV | Nicht vorgespannte Schraube | A_s ≥ F/(R_p0,2/S), S = 1,25 bzw. 1,5 unter Last angezogen | mm² | Roloff/Matek 27 (Q219) (8.38) | freigegeben (2026-11-09, Seti) |
+| SV-OPT-A24 | Nichtrostende Schraube (Option) | R_p0,2 = R_pf und R_m aus ISO 3506-1; σ_A nur von Hand (VDI-Werte gelten nicht) | N/mm² | ISO 3506-1:2020 (Q247) | freigegeben (2026-11-09, Seti) |
+| SV-OPT-FEIN | Feingewinde (Option) | Datenzeile fd_threads Reihe fein, gleiche Formeln wie Regelgewinde | mm | DIN 13-2 bis 13-11; Roloff/Matek 27 (Q219) TB 8-2 | freigegeben (2026-11-09, Seti) |
+| SV-OPT-FL | Axialkraft je Schraube am Flansch (Option) | F_A = p·π/4·d_m²/z (Druck bis Dichtungsmitte) | N | Roloff/Matek 27 (Q219) Bsp. 8.2 (S. 303) | freigegeben (2026-11-09, Seti) |
+| SV-OPT-SAZ | Zeitfestigkeit (Option) | σ_AZSG = σ_ASG·(N_D/N_Z)^(1/6), N_D = 2·10⁶ | N/mm² | VDI 2230-1:2015 (Q237) (R9/6-1), (R9/6-2) | freigegeben (2026-11-09, Seti) |
+| SV-OPT-VTH | Vorspannkraftänderung durch Temperatur (Option, vereinfacht) | ΔF′_Vth = l_K·(α_S·ΔT_S − α_P·ΔT_P)/(δ_S·E_SRT/E_ST + δ_P·E_PRT/E_PT), hier E(T) = E_RT | N | VDI 2230-1:2015 (Q237) (R4/2) | freigegeben (2026-11-09, Seti) |
+| SV-PB | Flächenpressung Betrieb | p_B,max = (F_V,max + F_SA,max − ΔF_Vth)/A_p,min, F_V,max = F_M,zul − F_Z (ΔF_Vth > 0 → 0, Druck: F_SA = 0) | N/mm² | VDI 2230-1:2015 (Q237) (R10/2), Gl. (191) | freigegeben (2026-11-09, Seti) |
+| SV-PHI | Steigungswinkel | φ = arctan(P/(π·d₂)) | ° | Roloff/Matek 27 (Q219) (8.1) | freigegeben (2026-11-09, Seti) |
+| SV-PHIK | Kraftverhältnis Kopf/Mutter (n = 1) | Φ_K = (δ_P + δ_PZu)/(δ_S + δ_P); VDI Gl. (83): δ_PZu = (w − 1)·δ_M (w = 1 DSV, 2 ESV); Roloff (8.17): δ_PZu = 0 (Schalter δ_PZu aus) | 1 | VDI 2230-1:2015 (Q237) Gl. (83); Roloff/Matek 27 (Q219) (8.17) | freigegeben (2026-11-09, Seti) |
+| SV-PHIN | Kraftverhältnis mit Krafteinleitung | Φ_n = n·Φ_K | 1 | VDI 2230-1:2015 (Q237) (R3/3); Roloff/Matek 27 (Q219) (8.17) | freigegeben (2026-11-09, Seti) |
+| SV-PM | Flächenpressung Montage | p_M,max = F_M,zul/A_p,min | N/mm² | VDI 2230-1:2015 (Q237) (R10/1); Roloff/Matek 27 (Q219) (8.36) | freigegeben (2026-11-09, Seti) |
+| SV-PSG | Flächenpressung streckgrenz- bzw. drehwinkelgesteuert | p_max = 1,4·F_M,Tab/A_p,min (F_M,Tab mit ν = 0,9) | N/mm² | VDI 2230-1:2015 (Q237) (R10/3); Roloff/Matek 27 (Q219) (8.37) | freigegeben (2026-11-09, Seti) |
+| SV-SA | Spannungsausschlag | σ_a = (F_SAo − F_SAu)/(2·A_s) | N/mm² | VDI 2230-1:2015 (Q237) (R9/1); Roloff/Matek 27 (Q219) (8.20a) | freigegeben (2026-11-09, Seti) |
+| SV-SAB | Sicherheit gegen Abscheren | S_A = τ_B·A_τ/F_Q,max, τ_B = (τ_B/R_m)·R_m | 1 | VDI 2230-1:2015 (Q237) (R12/7), Tab. 7 | freigegeben (2026-11-09, Seti) |
+| SV-SASG | Dauerhaltbarkeit schlussgewalzt | σ_ASG = (2 − F_Sm/F_0,2min)·σ_ASV, F_0,2min = A_s·R_p0,2min | N/mm² | VDI 2230-1:2015 (Q237) (R9/5-2); Roloff/Matek 27 (Q219) (8.22) | freigegeben (2026-11-09, Seti) |
+| SV-SASV | Dauerhaltbarkeit schlussvergütet | σ_ASV = 0,85·(150/d + 45) | N/mm² | VDI 2230-1:2015 (Q237) (R9/5-1); Roloff/Matek 27 (Q219) (8.21) | freigegeben (2026-11-09, Seti) |
+| SV-SD | Sicherheit gegen Dauerbruch | S_D = σ_AS/σ_a | 1 | VDI 2230-1:2015 (Q237) (R9/4); Roloff/Matek 27 (Q219) (8.20b) | freigegeben (2026-11-09, Seti) |
+| SV-SF | Sicherheit gegen Fließen | S_F = R_p0,2min/σ_red,B | 1 | VDI 2230-1:2015 (Q237) (R8/5-2); Roloff/Matek 27 (Q219) (8.35a) | freigegeben (2026-11-09, Seti) |
+| SV-SG | Sicherheit gegen Gleiten | S_G = F_KR,min/F_KQerf | 1 | VDI 2230-1:2015 (Q237) (R12/4) | freigegeben (2026-11-09, Seti) |
+| SV-SP | Sicherheit gegen Flächenpressung | S_p = p_G/p_max | 1 | VDI 2230-1:2015 (Q237) (R10/4) | freigegeben (2026-11-09, Seti) |
+| SV-SREDB | Vergleichsspannung im Betrieb | σ_red,B = √(σ_z,max² + 3·(k_τ·τ_max)²), k_τ = 0,5 | N/mm² | VDI 2230-1:2015 (Q237) (R8/4); Roloff/Matek 27 (Q219) (8.35b) | freigegeben (2026-11-09, Seti) |
+| SV-SREDM | Vergleichsspannung bei der Montage | σ_red,M = ν·R_p0,2min (bei F_M,zul) | N/mm² | VDI 2230-1:2015 (Q237) (R7/1); Roloff/Matek 27 (Q219) (8.31) | freigegeben (2026-11-09, Seti) |
+| SV-SZMAX | Maximale Zugspannung | σ_z,max = F_S,max/A₀ | N/mm² | VDI 2230-1:2015 (Q237) (R8/2) | freigegeben (2026-11-09, Seti) |
+| SV-TANPHI | Kegelwinkel (ESV, Gl. (42)) | tan φ_E = 0,348 + 0,013·ln β_L + 0,193·ln y; β_L = l_K/d_W, y = D′_A/d_W | 1 | VDI 2230-1:2015 (Q237) Gl. (42), (43) | freigegeben (2026-11-09, Seti) |
+| SV-TAU | Torsionsspannung | τ_max = M_G/W_P | N/mm² | VDI 2230-1:2015 (Q237) (R8/3) | freigegeben (2026-11-09, Seti) |
+| SV-TAUQ | Scherspannung bei Durchrutschen | τ_Q,max = F_Q,max/A_τ (A_τ mit d_τ = d_i im Schaft, d_S im Gewinde, B-sv6) | N/mm² | VDI 2230-1:2015 (Q237) (R12/5), Gl. (219) | freigegeben (2026-11-09, Seti) |
+| SV-WAHL | Auslegung: gültige Schrauben | Aufzählung M4 bis M39 × 8.8, 10.9, 12.9 mit Geometrie aus der Norm; Länge = kleinste Normlänge der Norm (fd_bolt_geometry) mit l ≥ l_K + m + 2·P (DSV: Mutterhöhe m ISO 4032, Überstand 2·P) bzw. l ≥ l_K + l_e + 2·P (ESV, l_e TB 8-15, sonst 1,25·d) und Schaft l − b ≤ l_K (ISO 4014: b für l ≤ 125, ≤ 200, > 200 mm); je Größe gültig (alle Pflichtnachweise erfüllt), ungültig oder nicht bewertbar (Kennwert fehlt); sortiert nach d, dann Klasse; fehlt p_G einer Platte oder Scheibe: Abbruch mit Hinweis | mm | Verfahren (S6, U8) | freigegeben (2026-11-10, Seti) |
+| SV-WP | Polares Widerstandsmoment | W_P = π/16·d₀³ | mm³ | VDI 2230-1:2015 (Q237) Gl. (156) | freigegeben (2026-11-09, Seti) |
+
 ## Torsion
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -684,10 +774,10 @@ Stand: 589 Formeln, davon 589 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.3 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.4 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.3 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.4 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 

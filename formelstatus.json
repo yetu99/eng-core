@@ -3427,6 +3427,522 @@
     "durch": "Seti",
     "formel": "ζ aus fd_loss_coeff"
   },
+  "SV-A3": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_d3 = π/4·d₃²"
+  },
+  "SV-AN": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_N = π/4·d²"
+  },
+  "SV-AP": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_p,min = π/4·(d_W² − D_Ki²), D_Ki = max(d_h, d_ha) bzw. d₁ der Scheibe"
+  },
+  "SV-AS": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_s = π/4·((d₂ + d₃)/2)²"
+  },
+  "SV-ASMIN": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_s ≥ (F_B + F_Kl)/(R_p0,2/(κ·k_A) − β·E_S·f_Z/l_K), κ nach μ_G, β 1,1/0,8/0,6"
+  },
+  "SV-AT": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_T = π/4·d_T², Vorschlag d_T = 0,9·d₃"
+  },
+  "SV-DAGR": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "D_A,Gr = d_W + w·l_K·tan φ (w = 1 DSV, 2 ESV)"
+  },
+  "SV-DG": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_G = 0,5·d/(E_S·A_d3)"
+  },
+  "SV-DGEW": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_Gew = l_Gew/(E_S·A_d3)"
+  },
+  "SV-DI": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_i = l_i/(E_S·A_i), A_i = π/4·d_i²"
+  },
+  "SV-DKM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "D_Km = (d_W + D_Ki)/2"
+  },
+  "SV-DM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_M = l_M/(E_M·A_N), l_M = 0,33·d, E_M = E_BI"
+  },
+  "SV-DP-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_P = 4·l_K/(E_P·π·(D_A² − d_h²))"
+  },
+  "SV-DP-HZ": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_ers = π/4·(d_w² − d_h²) + π/8·d_w·(D_A − d_w)·((x + 1)² − 1), x = ∛(l_K·d_w/D_A²), D_A ≤ d_w + l_K; δ_T = Σ l_i/(A_ers·E_i)"
+  },
+  "SV-DP-K": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_P = 2·ln[((d_W + d_h)(d_W + w·l_K·tan φ − d_h))/((d_W − d_h)(d_W + w·l_K·tan φ + d_h))]/(w·E_P·π·d_h·tan φ)"
+  },
+  "SV-DP-KH": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "l_V = (D_A − d_W)/(2·tan φ), l_H = l_K − 2·l_V/w, δ_P = 2/w·δ_P^V + δ_P^H"
+  },
+  "SV-DP-T": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "Zerlegung nach l_i, d_W,i = d_W + 2·tan φ·Σl_j, δ_P = Σ δ_P,i (Kegelstumpf bzw. Hülse je Abschnitt)"
+  },
+  "SV-DS": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_S = δ_SK + Σδ_i + δ_Gew + δ_G + δ_M"
+  },
+  "SV-DS0": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "d_S = (d₂ + d₃)/2; d₀ = d_S, Dehnschraube d₀ = d_T"
+  },
+  "SV-DSK": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "δ_SK = l_SK/(E_S·A_N), l_SK = 0,4·d (Innensechskant)"
+  },
+  "SV-FAM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_a = (F_SAo − F_SAu)/2; F_m = F_V + (F_Ao + F_Au)/2·Φ_n (F_V = F_M,zul)"
+  },
+  "SV-FBS01": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_SA ≤ 0,1·R_p0,2·A₀ (bei ν = 0,9)"
+  },
+  "SV-FKERF": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_Kerf = max(F_KQ; F_KP + F_K,Hand) (F_KA = 0, zentrisch)"
+  },
+  "SV-FKP": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_KP = A_D·p_i,max"
+  },
+  "SV-FKQ": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_KQ = F_Q,max/(q_F·μ_T,min) + M_Y,max/(q_M·r_a·μ_T,min)"
+  },
+  "SV-FKR": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_KR,min = F_V,min − (1 − Φ_n)·F_A,max"
+  },
+  "SV-FMMAX": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_M,max = α_A·F_M,min"
+  },
+  "SV-FMMIN": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_M,min = F_Kerf + (1 − Φ_n)·F_A,max + F_Z + ΔF′_Vth (Zunahme ΔF′_Vth < 0 → 0)"
+  },
+  "SV-FMZUL": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_M,zul = A₀·ν·R_p0,2min/√(1 + 3·[3/2·d₂/d₀·(P/(π·d₂) + 1,155·μ_G,min)]²)"
+  },
+  "SV-FPA": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_PA = (1 − Φ_n)·F_A"
+  },
+  "SV-FQT": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_Q = 2·T/(D_t·z) + F_Q,direkt/z"
+  },
+  "SV-FSA": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_SA = Φ_n·F_A (max und min)"
+  },
+  "SV-FSMAX": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_S,max = F_M,zul + Φ_n·F_A,max − ΔF_Vth (nur Zunahme, ΔF_Vth < 0)"
+  },
+  "SV-FVMIN": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_V,min = F_M,zul/α_A − F_Z − ΔF′_Vth (Zunahme ΔF′_Vth < 0 → 0)"
+  },
+  "SV-FZ": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_Z = f_Z/(δ_S + δ_P)"
+  },
+  "SV-FZSUM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "f_Z eingegeben"
+  },
+  "SV-KEF": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "lineare Interpolation in l_A/h und a_k/h je Typ SV 1 bis SV 6"
+  },
+  "SV-LE": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "l_e = Faktor·d nach Werkstoff Innengewinde, R_m, Klasse, d/P (oberer Wert)"
+  },
+  "SV-LGEW": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "l_Gew = l_K − Σ l_i (Schaftelemente in der Klemmlänge)"
+  },
+  "SV-LK": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "l_K = Σ h_i (Platten und Scheiben)"
+  },
+  "SV-MA": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "M_A = F_M,zul·(0,16·P + 0,58·d₂·μ_G,min + D_Km/2·μ_K,min)"
+  },
+  "SV-MA-EX": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "M_A = F_M·[d₂/2·tan(φ + ρ′) + D_Km/2·μ_K], tan ρ′ = μ_G/cos 30°"
+  },
+  "SV-MG": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "M_G = F_M,zul·d₂/2·(P/(π·d₂) + 1,155·μ_G,min)"
+  },
+  "SV-ML": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "M_L = F_V·[d₂/2·tan(ρ′ − φ) + D_Km/2·μ_K], F_V = F_M,zul − F_Z"
+  },
+  "SV-MLI": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "M_Li = F_V·P/(2·π)"
+  },
+  "SV-MVORH": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "m_eff,vorh = m_ges − 2·P"
+  },
+  "SV-N-FBS": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_SA ≤ 0,1·R_p0,2·A₀ (Verhältnis)"
+  },
+  "SV-N-FM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_M,max ≤ F_M,zul (Reserve F_M,zul/F_M,max)"
+  },
+  "SV-N-GEO": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "l_K/d < 2 Hinweis α_A; l_K/d > 5 Dehnschraube empfohlen; Gewindeauslauf nicht in der Trennfuge"
+  },
+  "SV-N-GUELT": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "M4 bis M39, 8.8 bis 12.9, Stahlschraube, zentrisch, D_A > d_h, Raumtemperatur"
+  },
+  "SV-N-KR": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_KR,min ≥ F_Kerf; F_KR,min ≤ 0: Trennfuge öffnet"
+  },
+  "SV-N-LE": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "m_eff,vorh ≥ l_e (ESV)"
+  },
+  "SV-N-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-10",
+    "durch": "Seti",
+    "erledigt": "Abgelehnt: Das Beispiel ist nicht nachrechenbar – es nennt nur das Ergebnis 1,803, aber keine eingesetzten Werte. Bitte S_p = p_G/p_max mit p_max = F_V,max/A_p,min ausschreiben, mit p_G (16MnCr5), F_V,max und A_p,min aus P-SV3. Außerdem angeben, welcher Zustand maßgebend ist: Montage (F_M,zul) oder Betrieb (F_M,zul + Φ_en·F_A,max − ΔF_Vth), vgl. VDI 2230-1 R10. Der Formeltext »S_p ≥ S_p,erf« ist nur die Bedingung, nicht die Berechnung.",
+    "antwort": "Runde 3: Formeltext schreibt die Rechnung aus: S_p = p_G/p_max je Auflage mit p_max = max(p_M = F_M,zul/A_p,min; p_B = (F_V,max + F_SA,max − ΔF_Vth)/A_p,min), F_V,max = F_M,zul − F_Z (U1, VDI Gl. (191)), streckgrenzgesteuert 1,4·F_M,Tab/A_p,min. Beispiel P-SV3 (VDI B1): p_G 1300 (16MnCr5), A_p 90,02 mm², p_M = 64 900/90,02 = 720,9, p_B = (62 480 + 1 405)/90,02 = 709,7 N/mm², Montage maßgebend, S_p = 1,803. Der Betrieb nutzt nach VDI (R10/2) F_V,max + F_SA,max (nicht F_M,zul + Φ_en·F_A,max); B1 S. 136: p_B entfällt, weil F_Z > Φ_n·F_A,max.",
+    "formel": "S_p = p_G/p_max je Auflage, p_max = max(p_M; p_B), p_M = F_M,zul/A_p,min (Montage), p_B = (F_V,max + F_SA,max − ΔF_Vth)/A_p,min (Betrieb), F_V,max = F_M,zul − F_Z; streckgrenz- bzw. drehwinkelgesteuert p_max = 1,4·F_M,Tab/A_p,min; maßgebend die kleinere Sicherheit; Nachweis S_p/S_p,erf ≥ 1"
+  },
+  "SV-N-SA": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_A ≥ S_A,erf (Verhältnis)"
+  },
+  "SV-N-SD": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_D ≥ S_D,erf (Verhältnis)"
+  },
+  "SV-N-SF": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_F ≥ S_F,erf (Verhältnis)"
+  },
+  "SV-N-SG": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_G ≥ S_G,erf (Verhältnis)"
+  },
+  "SV-NV": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "A_s ≥ F/(R_p0,2/S), S = 1,25 bzw. 1,5 unter Last angezogen"
+  },
+  "SV-OPT-A24": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "R_p0,2 = R_pf und R_m aus ISO 3506-1; σ_A nur von Hand (VDI-Werte gelten nicht)"
+  },
+  "SV-OPT-FEIN": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "Datenzeile fd_threads Reihe fein, gleiche Formeln wie Regelgewinde"
+  },
+  "SV-OPT-FL": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "F_A = p·π/4·d_m²/z (Druck bis Dichtungsmitte)"
+  },
+  "SV-OPT-SAZ": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_AZSG = σ_ASG·(N_D/N_Z)^(1/6), N_D = 2·10⁶"
+  },
+  "SV-OPT-VTH": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "ΔF′_Vth = l_K·(α_S·ΔT_S − α_P·ΔT_P)/(δ_S·E_SRT/E_ST + δ_P·E_PRT/E_PT), hier E(T) = E_RT"
+  },
+  "SV-PB": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "p_B,max = (F_V,max + F_SA,max − ΔF_Vth)/A_p,min, F_V,max = F_M,zul − F_Z (ΔF_Vth > 0 → 0, Druck: F_SA = 0)"
+  },
+  "SV-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "φ = arctan(P/(π·d₂))"
+  },
+  "SV-PHIK": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "erledigt": "Abgelehnt: Formeltext und Beispiel passen nicht zusammen. Laut Formel ist δ_PZu = (w − 1)·δ_M; bei ESV (w = 2) ergibt das δ_PZu = δ_M = 0,12505 µm/kN und Φ_K = (0,25423 + 0,12505)/(2,0291 + 0,25423) = 0,1661. Im Beispiel wird δ_PZu = 0 gesetzt (»ohne, Roloff«), das ergibt Φ_K = 0,11134. Die Umschaltung VDI (mit δ_PZu) / Roloff (ohne δ_PZu) muss in den Formeltext, z. B. »δ_PZu = (w − 1)·δ_M nach VDI Gl. (83), Roloff-Weg: δ_PZu = 0«. Sonst lässt sich das Beispiel nicht nachrechnen. Diese Änderung wirkt auch auf Φ_n, F_SA, F_PA, F_Z, F_M,min und alle Folgenachweise.",
+    "antwort": "Runde 2: Formeltext nennt beide Wege, VDI Gl. (83) mit δ_PZu = (w − 1)·δ_M und Roloff (8.17) mit δ_PZu = 0 (Schalter δ_PZu aus). Werte unverändert: P-SV1 (Roloff Bsp. 8.1) rechnet ohne δ_PZu wie das Buch (Φ_K 0,111); der Rechenweg zeigt zusätzlich den VDI-Weg (Φ_K 0,1661). Literaturfälle VDI B1 mit δ_PZu (Φ_K 0,1613), B2 DSV (δ_PZu = 0).",
+    "formel": "Φ_K = (δ_P + δ_PZu)/(δ_S + δ_P); VDI Gl. (83): δ_PZu = (w − 1)·δ_M (w = 1 DSV, 2 ESV); Roloff (8.17): δ_PZu = 0 (Schalter δ_PZu aus)"
+  },
+  "SV-PHIN": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "Φ_n = n·Φ_K"
+  },
+  "SV-PM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "p_M,max = F_M,zul/A_p,min"
+  },
+  "SV-PSG": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "p_max = 1,4·F_M,Tab/A_p,min (F_M,Tab mit ν = 0,9)"
+  },
+  "SV-SA": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_a = (F_SAo − F_SAu)/(2·A_s)"
+  },
+  "SV-SAB": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_A = τ_B·A_τ/F_Q,max, τ_B = (τ_B/R_m)·R_m"
+  },
+  "SV-SASG": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_ASG = (2 − F_Sm/F_0,2min)·σ_ASV, F_0,2min = A_s·R_p0,2min"
+  },
+  "SV-SASV": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_ASV = 0,85·(150/d + 45)"
+  },
+  "SV-SD": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_D = σ_AS/σ_a"
+  },
+  "SV-SF": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_F = R_p0,2min/σ_red,B"
+  },
+  "SV-SG": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_G = F_KR,min/F_KQerf"
+  },
+  "SV-SP": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "S_p = p_G/p_max"
+  },
+  "SV-SREDB": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_red,B = √(σ_z,max² + 3·(k_τ·τ_max)²), k_τ = 0,5"
+  },
+  "SV-SREDM": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_red,M = ν·R_p0,2min (bei F_M,zul)"
+  },
+  "SV-SZMAX": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "σ_z,max = F_S,max/A₀"
+  },
+  "SV-TANPHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "tan φ_E = 0,348 + 0,013·ln β_L + 0,193·ln y; β_L = l_K/d_W, y = D′_A/d_W"
+  },
+  "SV-TAU": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "τ_max = M_G/W_P"
+  },
+  "SV-TAUQ": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "τ_Q,max = F_Q,max/A_τ (A_τ mit d_τ = d_i im Schaft, d_S im Gewinde, B-sv6)"
+  },
+  "SV-WAHL": {
+    "status": "freigegeben",
+    "datum": "2026-11-10",
+    "durch": "Seti",
+    "erledigt": "Abgelehnt (Zweifel): Laut Ausgabe sind 7 von 51 Schrauben gültig, gelistet sind aber nur 3 – bitte alle 7 Treffer zeigen, damit sich die Sortierung (d, dann Klasse) prüfen lässt. Die Längenwahl ist nicht nachvollziehbar: Mit l_K 40 + m + Überstand reicht bei M18 rechnerisch etwa 61 mm. Die kleinste ISO-4014-Länge für M18 ist meines Wissens 70 mm; gewählt wurde aber 80 mm. Bitte die Längenregel (Überstand, Mutterhöhe, Gewindelänge b) im Formeltext angeben und die Norm-Längenstufen prüfen. Ebenso bei M16: rechnerisch ca. 59 mm, gewählt 65 mm.",
+    "antwort": "Runde 3: Ausgabe listet alle gültigen Schrauben mit Länge und Längenbedarf; Längenregel im Formeltext (l ≥ l_K + m + 2·P bei DSV, l ≥ l_K + l_e + 2·P bei ESV, Schaft l − b ≤ l_K). Ihr Zweifel war berechtigt (Befund B-sv15): fd 1.3 leitete die Normlängen ISO 4014 und 4017 aus einer Faustregel ab; nach ISO 4014:2022 Tab. 3 beginnt M18 bei 70 mm (fd 1.3: 80), ebenso M14 (55), M27 (100), M30 (110), M33 (120); ISO 4017 M16 (30), M18 (35), M33 (65), M36 (70). Korrektur als fd 1.3.1 (fd_patch_0005, Prüfliste). M16: ISO 4014 beginnt erst bei 65 mm (60 nur als ISO 4017), Bedarf 58,8 mm → 65 ist richtig. Nach Einspielen von fd 1.3.1 wählt die Auslegung M18 × 70.",
+    "formel": "Aufzählung M4 bis M39 × 8.8, 10.9, 12.9 mit Geometrie aus der Norm; Länge = kleinste Normlänge der Norm (fd_bolt_geometry) mit l ≥ l_K + m + 2·P (DSV: Mutterhöhe m ISO 4032, Überstand 2·P) bzw. l ≥ l_K + l_e + 2·P (ESV, l_e TB 8-15, sonst 1,25·d) und Schaft l − b ≤ l_K (ISO 4014: b für l ≤ 125, ≤ 200, > 200 mm); je Größe gültig (alle Pflichtnachweise erfüllt), ungültig oder nicht bewertbar (Kennwert fehlt); sortiert nach d, dann Klasse; fehlt p_G einer Platte oder Scheibe: Abbruch mit Hinweis"
+  },
+  "SV-WP": {
+    "status": "freigegeben",
+    "datum": "2026-11-09",
+    "durch": "Seti",
+    "formel": "W_P = π/16·d₀³"
+  },
   "T-PHI1": {
     "status": "freigegeben",
     "datum": "2026-10-10",

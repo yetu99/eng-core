@@ -5,6 +5,7 @@ import { computeForward, convertDh, forwardRaw, checkTransform, toMat4, type For
 import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, frictionFactor, type LineInput, type LineTask } from "../src/index";
 import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
 import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_FIELDS, type PressFitInput, type FitSpecIso } from "../src/index";
+import { computeBoltJoint, svRepo, jointDiagram, threadOf, threadProps, fmZul, gradeOf, tighteningTorque, tighteningTorqueExact, computeBoltUnpreloaded, coneLayers, type BoltJointInput, type PlateLayer } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -35,7 +36,13 @@ export type Case =
   | { id: string; type: "forwardbatch"; samples: Array<{ robot: Robot; q: number[] }>; abs?: boolean }
   | { id: string; type: "pv"; inp: PressFitInput; module?: string }
   | { id: string; type: "pvfit"; D: number; fit: FitSpecIso; module?: string }
-  | { id: string; type: "pvsel"; D: number; Uu: number; Uo: number; module?: string };
+  | { id: string; type: "pvsel"; D: number; Uu: number; Uo: number; module?: string }
+  | { id: string; type: "sv"; inp: BoltJointInput; module?: string }
+  | { id: string; type: "svthread"; d: number; module?: string }
+  | { id: string; type: "svfmzul"; d: number; grade: string; mu: number; nu: number; module?: string }
+  | { id: string; type: "svma"; d: number; mu: number; DKm: number; module?: string }
+  | { id: string; type: "svnv"; F: number; grade: string; underLoad: boolean; module?: string }
+  | { id: string; type: "svcone"; layers: PlateLayer[]; dW: number; dh: number; DA: number; w: 1 | 2; t: number; module?: string };
 
 const IJ = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]] as const;
 const matKeys = (p: string, m: Mat3): Record<string, number> => Object.fromEntries(IJ.map(([i, j]) => [`${p}${i + 1}${j + 1}`, m[i][j]]));
@@ -240,8 +247,36 @@ function evalPv(inp: PressFitInput): Record<string, number | null> {
   return o;
 }
 
+/** Schraubenverbindung (0.18.0): Kennwerte, Nachweise als 1/0, Verspannungsschaubild gegen F_SA, F_PA, F_KR (P-SV9). */
+function evalSv(inp: BoltJointInput): Record<string, number | null> {
+  const r = computeBoltJoint(svRepo, inp);
+  if (r.errors.length) return { errors: r.errors.length };
+  const o: Record<string, number | null> = { errors: 0, lK: r.geo!.lK, lGew: r.geo!.lGew, length: r.geo!.length, d0: r.geo!.d0, Ap: r.geo!.Ap, ApNut: r.geo!.ApNut, DKm: r.geo!.DKm,
+    dS: r.dS, dP: r.dP, dPK: r.plate!.dPK, dPHZ: r.plate!.dPHZ, Aers: r.plate!.Aers, tanPhi: r.plate!.tanPhi, DAGr: r.plate!.DAGr, PhiK: r.PhiK, PhiN: r.PhiN, kefN: r.kefN,
+    FAmax: r.FAmax, FSAmax: r.FSAmax, FSAmin: r.FSAmin, FPAmax: r.FPAmax, FQ: r.FQ, FKQ: r.FKQ, FKerf: r.FKerf, fZ: r.fZ, FZ: r.FZ, dFVth: r.dFVth,
+    FMmin: r.FMmin, FMmax: r.FMmax, FMzul: r.FMzul, FVmin: r.FVmin, FKRmin: r.FKRmin, FSmax: r.FSmax, sigZ: r.sigZ, MG: r.MG, WP: r.WP, tau: r.tau, sigRedB: r.sigRedB, SF: r.SF,
+    sigA: r.sigA, sigAS: r.sigAS, SD: r.SD, pM: r.pM, pB: r.pB, pMax: r.pMax, SpHead: r.SpHead, SpNut: r.SpNut, SG: r.SG, tauQ: r.tauQ, SA: r.SA, le: r.le, mEff: r.mEff,
+    MA: r.MA, MAex: r.MAex?.MA ?? null, ML: r.ML, MLi: r.MLi, AsMin: r.AsMin };
+  for (const c of r.checks) if (c.ok !== null) o[`ok_${c.key}`] = c.ok ? 1 : 0;
+  if (inp.task === "B") { const v = r.candidates.filter((c) => c.valid); Object.assign(o, { nCand: r.candidates.length, nValid: v.length, nOpen: r.candidates.filter((c) => c.status === "nicht bewertbar").length, c0d: v[0]?.d ?? null, sumFMzul: r.candidates.reduce((a, c) => a + (c.FMzul ?? 0), 0) }); }
+  const D = jointDiagram(r);
+  if (D) {
+    const op = D.operating[0]!;
+    // Pfeile aus dem Schaubild (Geradenschnitt der Kennlinien) gegen die Rechenwerte (Abnahme G1)
+    const FSAdiag = (op.x - D.states[2]!.fS) / D.dS, FPAdiag = (op.x - D.states[2]!.fS) / D.dPn;
+    o["diagErr"] = r.FAmax !== 0 ? Math.max(Math.abs(FSAdiag - r.FSAmax), Math.abs(FPAdiag - r.FPAmax), Math.abs(op.FKR - r.FKRmin)) / Math.abs(r.FAmax) : Math.abs(op.FKR - r.FKRmin) / Math.max(r.FKRmin, 1);
+  }
+  return o;
+}
+
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "pv") return evalPv(c.inp);
+  if (c.type === "sv") return evalSv(c.inp);
+  if (c.type === "svthread") { const t = threadOf(svRepo, c.d); if (!t) return { errors: 1 }; const T = threadProps(t); return { errors: 0, As: T.As, Ad3: T.Ad3, AN: T.AN, dS: T.dS, phiDeg: T.phiDeg }; }
+  if (c.type === "svfmzul") { const t = threadOf(svRepo, c.d)!, T = threadProps(t), g = gradeOf(svRepo, c.grade, c.d)!; return { FMzul: fmZul(T, T.dS, c.nu, g.yield_min_mpa, c.mu) }; }
+  if (c.type === "svma") { const T = threadProps(threadOf(svRepo, c.d)!), F = 1e4; return { maRel: tighteningTorque(F, T, c.mu, c.DKm, c.mu) / tighteningTorqueExact(F, T, c.mu, c.DKm, c.mu).MA - 1 }; }
+  if (c.type === "svnv") { const r = computeBoltUnpreloaded(svRepo, c.F, c.grade, c.underLoad); return { AsErf: r.AsErf, d: r.d }; }
+  if (c.type === "svcone") { const p = coneLayers(c.layers, c.dW, c.dh, c.DA, c.w, c.t); return { dP: p.reduce((a, b) => a + b, 0), n: p.length }; }
   if (c.type === "pvfit") { const L = fitLimits(pvRepo, c.D, c.fit); return typeof L === "string" ? { errors: 1 } : { errors: 0, ES: L.ES, ei: L.ei, es: L.es, Uk: L.Uk, Ug: L.Ug }; }
   if (c.type === "pvsel") { const l = selectFits(pvRepo, c.D, c.Uu, c.Uo); return { n: l.length, sumUk: l.reduce((a, x) => a + x.Uk, 0), sumUg: l.reduce((a, x) => a + x.Ug, 0), c0: l[0] ? l[0].hole * 1000 + SHAFT_FIELDS.indexOf(l[0].field) * 10 + l[0].grade : null, c1: l[1] ? l[1].hole * 1000 + SHAFT_FIELDS.indexOf(l[1].field) * 10 + l[1].grade : null, nIso: l.filter((x) => x.iso).length }; }
   if (c.type === "water") { const rho = waterDensity(c.T, c.p); const eta = waterViscosity(c.T, rho); return { v: 1 / rho, rho, eta, nu: eta / rho }; }
