@@ -495,13 +495,16 @@ export function computeBoltJoint(fd: SvRepo, inp: BoltJointInput): BoltJointResu
   // ---------------------------------------------------------------- Kennwerte
   const req = checks.filter((c) => c.required && c.reserve !== null);
   const minRes = req.length ? Math.min(...req.map((c) => c.reserve!)) : NaN;
+  // maßgebende Auflage (0.18.1, F2): kleinste Sicherheit S_p aller Auflagen, ohne p_G die größte Pressung
+  const knownSp = contacts.filter((c) => c.Sp !== null);
+  const pGov = knownSp.length ? knownSp.reduce((a, c) => (c.Sp! < a.Sp! ? c : a)) : contacts.reduce((a, c) => (c.pMax > a.pMax ? c : a));
   const kpis: SvKpi[] = [
     { key: "res", label: "Kleinste Reserve der Pflichtnachweise", sym: "min(S/S_erf)", value: minRes, unit: "1", primary: true },
     { key: "MA", label: "Anziehmoment", sym: "M_A", value: MA / 1e3, unit: "N·m", primary: true },
     { key: "FMmin", label: "Mindestmontagevorspannkraft", sym: "F_M,min", value: FMmin / 1e3, unit: "kN" }, { key: "FMmax", label: "Maximalmontagevorspannkraft", sym: "F_M,max", value: FMmax / 1e3, unit: "kN" },
     { key: "FMzul", label: "Zulässige Montagevorspannkraft", sym: "F_M,zul", value: FMzul / 1e3, unit: "kN" }, { key: "PhiN", label: "Kraftverhältnis", sym: "Φ_n", value: PhiN, unit: "1" },
     { key: "FZ", label: "Vorspannkraftverlust Setzen", sym: "F_Z", value: FZ / 1e3, unit: "kN" }, { key: "FKR", label: "Kleinste Restklemmkraft", sym: "F_KR,min", value: FKRmin / 1e3, unit: "kN" },
-    { key: "sred", label: "Vergleichsspannung Betrieb", sym: "σ_red,B", value: sigRedB, unit: "N/mm²" }, { key: "p", label: "Flächenpressung Kopf", sym: "p_max", value: pMax, unit: "N/mm²" },
+    { key: "sred", label: "Vergleichsspannung Betrieb", sym: "σ_red,B", value: sigRedB, unit: "N/mm²" }, { key: "p", label: "Flächenpressung maßgebende Auflage", sym: "p_max", value: pGov.pMax, unit: "N/mm²" },
   ];
   if (sigA !== null) kpis.push({ key: "sa", label: "Spannungsausschlag", sym: "σ_a", value: sigA, unit: "N/mm²" });
   const res: BoltJointResult = {

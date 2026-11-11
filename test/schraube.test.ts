@@ -18,7 +18,7 @@ const rel = (a: number, b: number) => Math.abs(a - b) / Math.abs(b);
 
 describe("Fachdaten fd 1.3", () => {
   it("Stand, Zeilenzahlen, Version, Modul", () => {
-    expect(CORE_VERSION).toBe("0.18.0");
+    expect(CORE_VERSION).toBe("0.18.1");
     expect(FD_VERSION).toBe("fd 1.3.1");
     expect(["threads", "bolt_grades", "bolt_geometry", "clearance_holes", "counterbore", "sv_friction", "sv_mu_t", "sv_tightening", "sv_embed", "sv_pg", "sv_kef", "sv_shear", "sv_engagement"]
       .map((k) => FD_FILES[k]!.rows)).toEqual([33, 13, 89, 17, 29, 10, 18, 12, 6, 40, 96, 8, 40]);
@@ -195,6 +195,15 @@ describe("Freigabe Runde 1 (09.11.2026): U3 Scheiben, U8 nicht bewertbar, SV-PHI
     expect(r.contacts[0]!.Ap).toBeCloseTo(Math.PI / 4 * (16.63 ** 2 - w.d1_min_mm! ** 2), 10);
     expect(r.SpHead).toBe(Math.min(r.contacts[0]!.Sp!, r.contacts[1]!.Sp!));
     expect(r.checks.find((c) => c.key === "pressung-kopf")!.text).toMatch(/Kopf auf Scheibe/);
+  });
+  it("0.18.1 (F2): Kennwert p zeigt die maßgebende Auflage (kleinste S_p), ohne p_G die größte Pressung", () => {
+    const r = computeBoltJoint(svRepo, fall("P-SV20"));
+    const p = r.kpis.find((k) => k.key === "p")!;
+    expect(p.label).toBe("Flächenpressung maßgebende Auflage");
+    expect(p.value).toBe(r.contacts[0]!.pMax);
+    expect(p.value).toBeGreaterThan(r.contacts[1]!.pMax);
+    const n = computeBoltJoint(svRepo, fall("P-SV1"));
+    expect(n.kpis.find((k) => k.key === "p")!.value).toBe(Math.max(...n.contacts.map((c) => c.pMax)));
   });
   it("U8: fehlendes p_G der Scheibe: Nachweis nicht bewertbar, Auslegung bricht mit Hinweis ab", () => {
     const r = computeBoltJoint(svRepo, fall("P-SV19"));
