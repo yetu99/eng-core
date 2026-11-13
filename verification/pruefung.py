@@ -640,6 +640,12 @@ kinematik.add_cases(cases, ref)
 import verbindungen
 verbindungen.add_cases(cases, ref)
 
+# ---------------------------------------------------------------- Elektrotechnik (eng-core 0.19.0, Modul elektrik, Werkzeug Stromwerk)
+# Unabhängige Python-Umsetzung in verification/elektrik.py (Sparse-Tableau statt MNA, Laplace-Pseudoinverse für den Ersatzwiderstand,
+# geschlossene Formeln der Vorlagen und Rechner, E-Reihen E48/E96 aus der Bildungsregel).
+import elektrik
+elektrik.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

@@ -34,6 +34,7 @@ export const TRACE_GROUPS = {
   dichtungen: ["abmessungen", "verpressung", "nut", "extrusion", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
   kinematik: ["orientierung", "umrechnung", "pruefung", "lage", "kette", "inverse", "abbildung", "gelenke", "vorwaerts", "kontrolle"],
+  elektrik: ["grundlagen", "netz", "wechselstrom", "ersatz", "vorlage", "rechner", "nachweis"],
 } as const satisfies Record<ModuleId, readonly string[]>;
 
 /** Gruppen eines Moduls als Typ, z. B. TraceGroupOf<"fluid">. */
@@ -57,6 +58,7 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   gleiten: "Gleiten, Abscheren, Einschraubtiefe (R11, R12)", anziehen: "Anziehen und Lösen (R13)", vorwahl: "Vorwahl und Auslegung (R0)",
   lage: "Lage der Rahmen", kette: "Rahmenkette und relative Lage", inverse: "Inverse", abbildung: "Punkt, Richtung und Verschieben",
   gelenke: "Gelenke und DH-Gliedmatrizen", vorwaerts: "Vorwärtskinematik", kontrolle: "Kontrolle und Umrechnung",
+  grundlagen: "Grundlagen", netz: "Netzwerk (Knotenpunktanalyse)", wechselstrom: "Wechselstrom", ersatz: "Ersatzwiderstand", vorlage: "Vorlage", rechner: "Rechner",
 };
 
 /** Gruppen eines Moduls in Anzeigereihenfolge. */

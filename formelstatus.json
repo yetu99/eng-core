@@ -1252,6 +1252,852 @@
     "durch": "Seti",
     "formel": "N(x_K), M_b(x_K), T(x_K) aus dem Blatt-1-Lastfall"
   },
+  "EL-E01": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_ab = Ergebnis der Reduktion"
+  },
+  "EL-E01-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_p = R_1 · R_2 / (R_1 + R_2)"
+  },
+  "EL-E01-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_s = R_1 + R_2"
+  },
+  "EL-E02": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_ab = (u_a − u_b) / I_T"
+  },
+  "EL-E03": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "|R_red − R_MNA| / R_red ≤ 10⁻⁹"
+  },
+  "EL-G01-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = U / R"
+  },
+  "EL-G01-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = U / I"
+  },
+  "EL-G01-U": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U = R · I"
+  },
+  "EL-G02-IPR": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = √(P / R)"
+  },
+  "EL-G02-IPU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = P / U"
+  },
+  "EL-G02-IR": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P = I² · R"
+  },
+  "EL-G02-RPI": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = P / I²"
+  },
+  "EL-G02-RPU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = U² / P"
+  },
+  "EL-G02-UI": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P = U · I"
+  },
+  "EL-G02-UPI": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U = P / I"
+  },
+  "EL-G02-UPR": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U = √(P · R)"
+  },
+  "EL-G02-UR": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P = U² / R"
+  },
+  "EL-G03": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "G = 1 / R"
+  },
+  "EL-G04-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "1 / C_ges = Σ 1 / C_i"
+  },
+  "EL-G04-L": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "L_ges = Σ L_i"
+  },
+  "EL-G04-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_ges = Σ R_i"
+  },
+  "EL-G05-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "C_ges = Σ C_i"
+  },
+  "EL-G05-L": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "1 / L_ges = Σ 1 / L_i"
+  },
+  "EL-G05-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "1 / R_ges = Σ 1 / R_i"
+  },
+  "EL-G06": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_2 = U · R_2 / (R_1 + R_2)"
+  },
+  "EL-G07": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_k = I · G_k / Σ G_i"
+  },
+  "EL-N01-LA": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = U_N² / P_N"
+  },
+  "EL-N01-PA": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_as = x · R"
+  },
+  "EL-N01-PB": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_sb = (1 − x) · R"
+  },
+  "EL-N01-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "G = 1 / R"
+  },
+  "EL-N02": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "u_+ − u_− = U"
+  },
+  "EL-N03": {
+    "status": "freigegeben",
+    "datum": "2026-11-13",
+    "durch": "SETI",
+    "erledigt": "Formel nur im Verbraucherzählpfeilsystem richtig (I < 0 bei Stromabgabe, siehe Beispiel −0,042355 A). Ohne Angabe der Zählrichtung widerspricht sie der üblichen Lehrbuchform U_Kl = U_0 − R_i · I (Erzeugerzählpfeil, Hagmann/Weißgerber). Vorschlag: Zählpfeil in Größe/Formel angeben, z. B. »U_Kl = U_0 + R_i · I (Verbraucherzählpfeil)« oder U_Kl = U_0 − R_i · I_ab.",
+    "antwort": "Umgesetzt 12.11.2026: Formel »U_Kl = U_0 + R_i · I (Verbraucherzählpfeil)«, Größe nennt I < 0 bei Stromabgabe.",
+    "formel": "U_Kl = U_0 + R_i · I (Verbraucherzählpfeil)"
+  },
+  "EL-N04": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Einspeisung I_q am Pluspol"
+  },
+  "EL-N05": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_C = 0"
+  },
+  "EL-N06": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_L = r · I"
+  },
+  "EL-N07": {
+    "status": "freigegeben",
+    "datum": "2026-11-13",
+    "durch": "SETI",
+    "erledigt": "Formel und Ergebnis passen nicht zusammen: Formel ist die Zwangsbedingung U = 0 (ideales Amperemeter), Ergebnis/Einheit zeigen aber den Strom 0,0545455 A. Vorschlag: Ergebnis 0 V ausweisen oder Formel als »u_a − u_b = 0, I = x_k (Zweigstrom)« schreiben und Größe auf »Strom durch A1« ändern. Zahlenwert I = 12 V / 220 Ω = 0,0545 A selbst ist korrekt.",
+    "antwort": "Umgesetzt 12.11.2026: Formel »u_a − u_b = 0, I = x_k (Zweigstrom)«, Größe »Strom durch A1 (Kurzschlussbrücke)«, Ergebnis bleibt der Strom.",
+    "formel": "u_a − u_b = 0, I = x_k (Zweigstrom)"
+  },
+  "EL-N08": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_V = u_a − u_b"
+  },
+  "EL-N09-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "i_p = −(n_2 / n_1) · i_s"
+  },
+  "EL-N09-U": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "u_s = (n_2 / n_1) · u_p"
+  },
+  "EL-N10": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "A · x = z"
+  },
+  "EL-N11-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = G · U"
+  },
+  "EL-N11-IQ": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = −I_q"
+  },
+  "EL-N11-IV": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = x_k (Zweigstrom)"
+  },
+  "EL-N11-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P = U · I"
+  },
+  "EL-N11-U": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U = u_a − u_b"
+  },
+  "EL-N12": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Σ P = 0"
+  },
+  "EL-N13-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "a = |U| / U_max"
+  },
+  "EL-N13-CA": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "a = √2 · |U| / U_max"
+  },
+  "EL-N13-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "a = |P| / P_max"
+  },
+  "EL-R1": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = (10 · z_1 + z_2) · 10^m"
+  },
+  "EL-R1-5": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = (100 · z_1 + 10 · z_2 + z_3) · 10^m"
+  },
+  "EL-R1-TO": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_max = R · (1 + t)"
+  },
+  "EL-R1-TU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_min = R · (1 − t)"
+  },
+  "EL-R2-A": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Δ = (X_N − X) / X"
+  },
+  "EL-R2-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "X_N = nächster Normwert (logarithmischer Abstand)"
+  },
+  "EL-R4-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "C_ges = m · C"
+  },
+  "EL-R4-CR": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "C-Rate = I / C_ges"
+  },
+  "EL-R4-E": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "E = U_ges · C_ges"
+  },
+  "EL-R4-T": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "t = η_n · C_ges / I"
+  },
+  "EL-R4-U": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_ges = n · U"
+  },
+  "EL-R5-IS": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_Str = I_L"
+  },
+  "EL-R5-ISD": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_Str = I_L / √3"
+  },
+  "EL-R5-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P = √3 · U_L · I_L · cos φ"
+  },
+  "EL-R5-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Q = S · sin φ"
+  },
+  "EL-R5-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "S = √3 · U_L · I_L"
+  },
+  "EL-R5-US": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_Str = U_L / √3"
+  },
+  "EL-R5-USD": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_Str = U_L"
+  },
+  "EL-R6-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = P_zu / (√3 · U · cos φ)"
+  },
+  "EL-R6-M": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "M = P / (2π · n)"
+  },
+  "EL-R6-NS": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "n_s = f / p"
+  },
+  "EL-R6-PZ": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P_zu = P / η"
+  },
+  "EL-R6-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "s = (n_s − n) / n_s"
+  },
+  "EL-S0-GP": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "δ = |X_analytisch − X_Netz| / |X_analytisch|"
+  },
+  "EL-S0-N": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "X_N = nächster Normwert (logarithmischer Abstand)"
+  },
+  "EL-S0-NH": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "X_N = kleinster Normwert ≥ X"
+  },
+  "EL-S0-UA": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_a = |H| · U_e"
+  },
+  "EL-S1-DU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "ΔU = (U_2 − U_2L) / U_2"
+  },
+  "EL-S1-IL": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_L = U_2L / R_L"
+  },
+  "EL-S1-IQ": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_q = U_2L / R_2"
+  },
+  "EL-S1-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "q = I_q / I_L"
+  },
+  "EL-S1-R2": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_2 = R_1 · U_2 / (U − U_2)"
+  },
+  "EL-S1-RP": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_2L = R_2 · R_L / (R_2 + R_L)"
+  },
+  "EL-S1-U2L": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_2L = U · R_2L / (R_1 + R_2L)"
+  },
+  "EL-S2-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "C = 1 / (2π · f_g · R)"
+  },
+  "EL-S2-FG": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "f_g = 1 / (2π · R · C)"
+  },
+  "EL-S2-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "|H| = 1 / √(1 + (f / f_g)²)"
+  },
+  "EL-S2-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "φ = −arctan(f / f_g)"
+  },
+  "EL-S2-TAU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "τ = R · C"
+  },
+  "EL-S3-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "|H| = (f / f_g) / √(1 + (f / f_g)²)"
+  },
+  "EL-S3-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "φ = 90° − arctan(f / f_g)"
+  },
+  "EL-S3-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = 1 / (2π · f_g · C)"
+  },
+  "EL-S4-B": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "B = f_0 / Q"
+  },
+  "EL-S4-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "C = 1 / ((2π · f_0)² · L)"
+  },
+  "EL-S4-F0": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "f_0 = 1 / (2π · √(L · C))"
+  },
+  "EL-S4-FO": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "f_o = f_0 · (√(1 + 1 / (4Q²)) + 1 / (2Q))"
+  },
+  "EL-S4-FU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "f_u = f_0 · (√(1 + 1 / (4Q²)) − 1 / (2Q))"
+  },
+  "EL-S4-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "|H_R| = 1 / √(1 + Q² · (f / f_0 − f_0 / f)²)"
+  },
+  "EL-S4-HC": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_C / U = |H_R| / (ω · R · C)"
+  },
+  "EL-S4-I0": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_0 = U / R"
+  },
+  "EL-S4-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Q = (1 / R) · √(L / C)"
+  },
+  "EL-S4-UC": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_C0 = Q · U"
+  },
+  "EL-S5-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = (U − U_F) / R"
+  },
+  "EL-S5-PL": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P_LED = U_F · I"
+  },
+  "EL-S5-PR": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P_R = I² · R"
+  },
+  "EL-S5-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = (U − U_F) / I_F"
+  },
+  "EL-S6-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "i(t) = (U / R) · e^(−t/τ)"
+  },
+  "EL-S6-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R = τ / C"
+  },
+  "EL-S6-TAU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "τ = R · C"
+  },
+  "EL-S6-TE": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "t = −τ · ln(u / U)"
+  },
+  "EL-S6-TZ": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "t = −τ · ln(1 − u / U)"
+  },
+  "EL-S6-UE": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "u_C(t) = U · e^(−t/τ)"
+  },
+  "EL-S6-UL": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "u_C(t) = U · (1 − e^(−t/τ))"
+  },
+  "EL-S6-W": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "W = ½ · C · U²"
+  },
+  "EL-S7-R4": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "R_4 = R_3 · R_2 / R_1"
+  },
+  "EL-S7-UD": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U_d = U · (R_2 / (R_1 + R_2) − R_4 / (R_3 + R_4))"
+  },
+  "EL-S8-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "i(t) = (U / R) · (1 − e^(−t/τ))"
+  },
+  "EL-S8-IE": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I_∞ = U / R"
+  },
+  "EL-S8-L": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "L = τ · R"
+  },
+  "EL-S8-TAU": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "τ = L / R"
+  },
+  "EL-S8-UL": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "u_L(t) = U · e^(−t/τ)"
+  },
+  "EL-S8-W": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "W = ½ · L · I_∞²"
+  },
+  "EL-W01": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "ω = 2π · f"
+  },
+  "EL-W02-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Z_C = 1 / (jωC)"
+  },
+  "EL-W02-L": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Z_L = r + jωL"
+  },
+  "EL-W02-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Z_R = R"
+  },
+  "EL-W03": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U = U_eff · e^(jφ)"
+  },
+  "EL-W04": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Y · u = i"
+  },
+  "EL-W04-I": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = Y · U"
+  },
+  "EL-W04-IV": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "I = x_k (Zweigstrom)"
+  },
+  "EL-W04-U": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "U = u_a − u_b"
+  },
+  "EL-W05-B": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Σ S = 0"
+  },
+  "EL-W05-CP": {
+    "status": "freigegeben",
+    "datum": "2026-11-13",
+    "durch": "SETI",
+    "erledigt": "Leistungsfaktor ist nach IEC 60050-131-11-46 (bzw. DIN 40110-1) λ = |P| / S und damit ≥ 0. Ausgegeben wird −0,532 (Vorzeichen aus dem Verbraucherzählpfeil der Quelle). Vorschlag: λ = |P| / |S| = 0,532 ausgeben und die Energierichtung (Abgabe/Aufnahme) getrennt über das Vorzeichen von P angeben, oder Größe als »cos φ (vorzeichenbehaftet, φ = ∠(U, I))« kennzeichnen.",
+    "antwort": "Umgesetzt 12.11.2026: λ = |P| / |S| ≥ 0 nach IEC 60050-131; Energierichtung (Abgabe/Aufnahme) steht in der Größe, Vorzeichen bleibt bei P.",
+    "formel": "λ = |P| / |S|"
+  },
+  "EL-W05-P": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "P = Re S"
+  },
+  "EL-W05-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "Q = Im S"
+  },
+  "EL-W05-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "S = U · I*"
+  },
+  "EL-W06-DB": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "G = 20 · lg |H|"
+  },
+  "EL-W06-H": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "H = U_aus / U_ein"
+  },
+  "EL-W06-PHI": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "φ = arg H"
+  },
+  "EL-W07": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "f_k = f_min · (f_max / f_min)^(k / (N − 1))"
+  },
+  "EL-W08": {
+    "status": "freigegeben",
+    "datum": "2026-11-12",
+    "durch": "Seti",
+    "formel": "G(f) = G_max − 20 · lg √2"
+  },
   "F-BE": {
     "status": "freigegeben",
     "datum": "2026-10-08",

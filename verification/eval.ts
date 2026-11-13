@@ -6,6 +6,7 @@ import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, 
 import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
 import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_FIELDS, type PressFitInput, type FitSpecIso } from "../src/index";
 import { computeBoltJoint, svRepo, jointDiagram, threadOf, threadProps, fmZul, gradeOf, tighteningTorque, tighteningTorqueExact, computeBoltUnpreloaded, coneLayers, type BoltJointInput, type PlateLayer } from "../src/index";
+import { elektrik } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -42,7 +43,50 @@ export type Case =
   | { id: string; type: "svfmzul"; d: number; grade: string; mu: number; nu: number; module?: string }
   | { id: string; type: "svma"; d: number; mu: number; DKm: number; module?: string }
   | { id: string; type: "svnv"; F: number; grade: string; underLoad: boolean; module?: string }
-  | { id: string; type: "svcone"; layers: PlateLayer[]; dW: number; dh: number; DA: number; w: 1 | 2; t: number; module?: string };
+  | { id: string; type: "svcone"; layers: PlateLayer[]; dW: number; dh: number; DA: number; w: 1 | 2; t: number; module?: string }
+  | { id: string; type: "eldc"; net: elektrik.ElNetlist; module?: string; abs?: boolean }
+  | { id: string; type: "elac"; net: elektrik.ElNetlist; f: number; module?: string; abs?: boolean }
+  | { id: string; type: "elsweep"; net: elektrik.ElNetlist; inNode: string; outNode: string; fMin: number; fMax: number; n: number; module?: string; abs?: boolean }
+  | { id: string; type: "elreq"; net: elektrik.ElNetlist; a: string; b: string; module?: string; abs?: boolean }
+  | { id: string; type: "elsheet"; sheet: elektrik.SheetId; mode: elektrik.SheetMode; inp: Record<string, number>; module?: string; abs?: boolean }
+  | { id: string; type: "eltool"; tool: elektrik.ToolId; inp: Record<string, number | string>; module?: string; abs?: boolean }
+  | { id: string; type: "eleseries"; x: number; n: elektrik.ESeries; module?: string; abs?: boolean };
+
+/** Modul elektrik (ab 0.19.0): Netzwerk, Wechselstrom, Frequenzgang, Ersatzwiderstand, Vorlagen, Rechner, E-Reihen. */
+function evalEl(c: Extract<Case, { type: `el${string}` }>): Record<string, number | null> {
+  const nFail = (f: readonly elektrik.ElFinding[]): number => f.filter((x) => x.level === "fail").length;
+  if (c.type === "eldc") {
+    const r = elektrik.solveDc(c.net), o: Record<string, number | null> = { ok: r.ok ? 1 : 0, nFail: nFail(r.findings) };
+    if (!r.ok) return o;
+    for (const [n, v] of Object.entries(r.nodes)) o[`V_${n}`] = v;
+    for (const [id, e] of Object.entries(r.elements)) Object.assign(o, { [`U_${id}`]: e.u, [`I_${id}`]: e.i, [`P_${id}`]: e.p });
+    for (const [id, a] of Object.entries(r.utilization)) o[`util_${id}`] = a;
+    o["bal"] = r.balance;
+    return o;
+  }
+  if (c.type === "elac") {
+    const r = elektrik.solveAc(c.net, c.f), o: Record<string, number | null> = { ok: r.ok ? 1 : 0, nFail: nFail(r.findings) };
+    if (!r.ok) return o;
+    for (const [n, v] of Object.entries(r.nodes)) Object.assign(o, { [`Vre_${n}`]: v.re, [`Vim_${n}`]: v.im });
+    for (const [id, e] of Object.entries(r.elements)) Object.assign(o, { [`Ure_${id}`]: e.u.re, [`Uim_${id}`]: e.u.im, [`Ire_${id}`]: e.i.re, [`Iim_${id}`]: e.i.im, [`Sre_${id}`]: e.s.re, [`Sim_${id}`]: e.s.im });
+    return o;
+  }
+  if (c.type === "elsweep") {
+    const r = elektrik.sweep(c.net, c.inNode, c.outNode, c.fMin, c.fMax, c.n), o: Record<string, number | null> = { ok: r.ok ? 1 : 0, n: r.points.length };
+    r.points.forEach((p, k) => { o[`g_${k}`] = p.gainDb; o[`ph_${k}`] = p.phaseDeg; });
+    if (r.marks) { o["fPeak"] = r.marks.fPeak; o["gPeak"] = r.marks.gPeak; o["n3"] = r.marks.f3dB.length; r.marks.f3dB.forEach((f, k) => { o[`f3_${k}`] = f; }); }
+    return o;
+  }
+  if (c.type === "elreq") { const r = elektrik.equivalentResistance(c.net, c.a, c.b); return { ok: r.ok ? 1 : 0, r: r.r, rMna: r.rMna, reducible: r.reducible ? 1 : 0, open: r.r === null ? 1 : 0 }; }
+  if (c.type === "elsheet" || c.type === "eltool") {
+    const r = c.type === "elsheet" ? elektrik.computeSheet(c.sheet, c.mode, c.inp) : elektrik.computeTool(c.tool, c.inp);
+    const o: Record<string, number | null> = { ok: r.ok ? 1 : 0, nFail: nFail(r.findings) };
+    for (const k of r.kpis) o[`k_${k.key}`] = k.value;
+    return o;
+  }
+  const p = elektrik.eSeriesPick(c.x, c.n);
+  return p ? { nearest: p.nearest, lower: p.lower, upper: p.upper } : { nearest: null };
+}
 
 const IJ = [[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2], [2, 0], [2, 1], [2, 2]] as const;
 const matKeys = (p: string, m: Mat3): Record<string, number> => Object.fromEntries(IJ.map(([i, j]) => [`${p}${i + 1}${j + 1}`, m[i][j]]));
@@ -270,6 +314,7 @@ function evalSv(inp: BoltJointInput): Record<string, number | null> {
 }
 
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
+  if (c.type === "eldc" || c.type === "elac" || c.type === "elsweep" || c.type === "elreq" || c.type === "elsheet" || c.type === "eltool" || c.type === "eleseries") return evalEl(c);
   if (c.type === "pv") return evalPv(c.inp);
   if (c.type === "sv") return evalSv(c.inp);
   if (c.type === "svthread") { const t = threadOf(svRepo, c.d); if (!t) return { errors: 1 }; const T = threadProps(t); return { errors: 0, As: T.As, Ad3: T.Ad3, AN: T.AN, dS: T.dS, phiDeg: T.phiDeg }; }

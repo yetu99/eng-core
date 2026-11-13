@@ -18,7 +18,7 @@ const rel = (a: number, b: number) => Math.abs(a - b) / Math.abs(b);
 
 describe("Fachdaten fd 1.3", () => {
   it("Stand, Zeilenzahlen, Version, Modul", () => {
-    expect(CORE_VERSION).toBe("0.18.1");
+    expect(CORE_VERSION).toBe("0.19.0");
     expect(FD_VERSION).toBe("fd 1.3.1");
     expect(["threads", "bolt_grades", "bolt_geometry", "clearance_holes", "counterbore", "sv_friction", "sv_mu_t", "sv_tightening", "sv_embed", "sv_pg", "sv_kef", "sv_shear", "sv_engagement"]
       .map((k) => FD_FILES[k]!.rows)).toEqual([33, 13, 89, 17, 29, 10, 18, 12, 6, 40, 96, 8, 40]);

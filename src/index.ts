@@ -61,3 +61,4 @@ export * from "./joints/resilience";
 export * from "./joints/tighten";
 export * from "./joints/bolt";
 export * from "./joints/boltSelect";
+export * as elektrik from "./electrical/index";

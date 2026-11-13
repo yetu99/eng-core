@@ -15,6 +15,7 @@ import { computeOrientation, compose, computeFrames, computeForward, computePres
 import { pvFaelle } from "./pv-faelle";
 import { computeBoltJoint, computeBoltUnpreloaded, svRepo } from "../src/index";
 import { svFaelle } from "./sv-faelle";
+import { elektrikFaelle } from "./elektrik-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -30,7 +31,9 @@ export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Form
   // Fachtools (ab 0.10.0 registriert, Formeln folgen mit den Modulen)
   FS: "Fluid-Stoffwerte", RH: "Rohrhydraulik", PU: "Pumpe und Anlage", SV: "Schraubenverbindung", PV: "Pressverband", OR: "O-Ring", FW: "Fachwerk",
   // Greifwerk (ab 0.12.0)
-  G: "Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)" };
+  G: "Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)",
+  // Stromwerk (ab 0.19.0)
+  EL: "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
@@ -191,6 +194,8 @@ export function collectCatalog(): CatalogEntry[] {
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
   }
   { const r = computeBoltUnpreloaded(svRepo, 20000, "8.8", false); r.steps.forEach((s) => take(s, "P-SV18 nicht vorgespannte Schraube, F 20 kN, 8.8, ohne Last angezogen (Roloff (8.38))")); }
+  // Elektrotechnik (0.19.0, Modul elektrik): Netze, Wechselstrom, Frequenzgang, Ersatzwiderstand, Grundlagen, Vorlagen, Rechner
+  for (const f of elektrikFaelle()) f.steps.forEach((s) => take(s, f.text));
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));
 }
 

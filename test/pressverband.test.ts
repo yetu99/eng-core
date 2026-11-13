@@ -12,7 +12,7 @@ const rel = (a: number, b: number) => Math.abs(a - b) / Math.abs(b);
 
 describe("Fachdaten fd 1.2 (im Abzug fd 1.3)", () => {
   it("Stand, Zeilenzahlen, Version", () => {
-    expect(CORE_VERSION).toBe("0.18.1");
+    expect(CORE_VERSION).toBe("0.19.0");
     expect(FD_VERSION).toBe("fd 1.3.1");
     expect(["fit_it", "fit_shaft_dev", "pv_friction", "pv_groups", "pv_join_temp", "pv_coolants", "pv_rz", "pv_chamfer"].map((k) => FD_FILES[k]!.rows))
       .toEqual([13, 25, 28, 15, 4, 2, 3, 8]);

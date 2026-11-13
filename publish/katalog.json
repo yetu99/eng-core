@@ -1,8 +1,8 @@
 {
- "core": "0.18.1",
+ "core": "0.19.0",
  "data": "WDB 1.1.4",
- "formulas": 674,
- "approved": 674,
+ "formulas": 814,
+ "approved": 814,
  "items": [
   {
    "id": "A-GR-X",
@@ -3337,6 +3337,2386 @@
    "sort": 1960
   },
   {
+   "id": "EL-E01",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Ersatzwiderstand durch Reihen-/Parallelreduktion",
+   "formula": "R_ab = Ergebnis der Reduktion",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_ab = (R1 + (R2 ∥ (R3 + R4))) = 220 Ω",
+   "example_result": 220,
+   "example_case": "EL-Q1 Ersatzwiderstand Leiter R1 100 Ω, R2 200 Ω, R3 150 Ω, R4 150 Ω, R5 47 Ω (offen)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1970
+  },
+  {
+   "id": "EL-E01-P",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Parallelschaltung (R2 ∥ (R3 + R4))",
+   "formula": "R_p = R_1 · R_2 / (R_1 + R_2)",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_p = 200 Ω · 300 Ω / (200 Ω + 300 Ω)",
+   "example_result": 120,
+   "example_case": "EL-Q1 Ersatzwiderstand Leiter R1 100 Ω, R2 200 Ω, R3 150 Ω, R4 150 Ω, R5 47 Ω (offen)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1980
+  },
+  {
+   "id": "EL-E01-S",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Reihenschaltung (R3 + R4)",
+   "formula": "R_s = R_1 + R_2",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_s = 150 Ω + 150 Ω",
+   "example_result": 300,
+   "example_case": "EL-Q1 Ersatzwiderstand Leiter R1 100 Ω, R2 200 Ω, R3 150 Ω, R4 150 Ω, R5 47 Ω (offen)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 1990
+  },
+  {
+   "id": "EL-E02",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Ersatzwiderstand über Testquelle (Knotenpunktanalyse)",
+   "formula": "R_ab = (u_a − u_b) / I_T",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_ab = (u_a − u_b) / 1 A mit I_T = 1 A von a nach b, Quellen entfernt",
+   "example_result": 220,
+   "example_case": "EL-Q1 Ersatzwiderstand Leiter R1 100 Ω, R2 200 Ω, R3 150 Ω, R4 150 Ω, R5 47 Ω (offen)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2000
+  },
+  {
+   "id": "EL-E03",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Gegenprüfung Reduktion gegen Testquelle",
+   "formula": "|R_red − R_MNA| / R_red ≤ 10⁻⁹",
+   "unit": "1",
+   "source": null,
+   "example": "|220 − 220| / 220",
+   "example_result": 0,
+   "example_case": "EL-Q1 Ersatzwiderstand Leiter R1 100 Ω, R2 200 Ω, R3 150 Ω, R4 150 Ω, R5 47 Ω (offen)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2010
+  },
+  {
+   "id": "EL-G01-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom",
+   "formula": "I = U / R",
+   "unit": "A",
+   "source": null,
+   "example": "I = 12 V / 120 Ω",
+   "example_result": 0.1,
+   "example_case": "Ohm und Leistung, gegeben U und R",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2020
+  },
+  {
+   "id": "EL-G01-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Widerstand",
+   "formula": "R = U / I",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = 230 V / 0,5 A",
+   "example_result": 460,
+   "example_case": "Ohm und Leistung, gegeben U und I",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2030
+  },
+  {
+   "id": "EL-G01-U",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannung",
+   "formula": "U = R · I",
+   "unit": "V",
+   "source": null,
+   "example": "U = 150 Ω · 0,02 A",
+   "example_result": 3,
+   "example_case": "Ohm und Leistung, gegeben I und R",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2040
+  },
+  {
+   "id": "EL-G02-IPR",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom",
+   "formula": "I = √(P / R)",
+   "unit": "A",
+   "source": null,
+   "example": "I = √(0,25 W / 1000 Ω)",
+   "example_result": 0.0158113883008,
+   "example_case": "Ohm und Leistung, gegeben P und R",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2050
+  },
+  {
+   "id": "EL-G02-IPU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom",
+   "formula": "I = P / U",
+   "unit": "A",
+   "source": null,
+   "example": "I = 60 W / 230 V",
+   "example_result": 0.260869565217,
+   "example_case": "Ohm und Leistung, gegeben P und U",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2060
+  },
+  {
+   "id": "EL-G02-IR",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistung",
+   "formula": "P = I² · R",
+   "unit": "W",
+   "source": null,
+   "example": "P = (0,02 A)² · 150 Ω",
+   "example_result": 0.06,
+   "example_case": "Ohm und Leistung, gegeben I und R",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2070
+  },
+  {
+   "id": "EL-G02-RPI",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Widerstand",
+   "formula": "R = P / I²",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = 2 W / (0,1 A)²",
+   "example_result": 200,
+   "example_case": "Ohm und Leistung, gegeben P und I",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2080
+  },
+  {
+   "id": "EL-G02-RPU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Widerstand",
+   "formula": "R = U² / P",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = (230 V)² / 60 W",
+   "example_result": 881.666666667,
+   "example_case": "Ohm und Leistung, gegeben P und U",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2090
+  },
+  {
+   "id": "EL-G02-UI",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistung",
+   "formula": "P = U · I",
+   "unit": "W",
+   "source": null,
+   "example": "P = 230 V · 0,5 A",
+   "example_result": 115,
+   "example_case": "Ohm und Leistung, gegeben U und I",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2100
+  },
+  {
+   "id": "EL-G02-UPI",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannung",
+   "formula": "U = P / I",
+   "unit": "V",
+   "source": null,
+   "example": "U = 2 W / 0,1 A",
+   "example_result": 20,
+   "example_case": "Ohm und Leistung, gegeben P und I",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2110
+  },
+  {
+   "id": "EL-G02-UPR",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannung",
+   "formula": "U = √(P · R)",
+   "unit": "V",
+   "source": null,
+   "example": "U = √(0,25 W · 1000 Ω)",
+   "example_result": 15.8113883008,
+   "example_case": "Ohm und Leistung, gegeben P und R",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2120
+  },
+  {
+   "id": "EL-G02-UR",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistung",
+   "formula": "P = U² / R",
+   "unit": "W",
+   "source": null,
+   "example": "P = (12 V)² / 120 Ω",
+   "example_result": 1.2,
+   "example_case": "Ohm und Leistung, gegeben U und R",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2130
+  },
+  {
+   "id": "EL-G03",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leitwert",
+   "formula": "G = 1 / R",
+   "unit": "S",
+   "source": null,
+   "example": "G = 1 / 470 Ω",
+   "example_result": 0.00212765957447,
+   "example_case": "Leitwert 470 Ω",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2140
+  },
+  {
+   "id": "EL-G04-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Reihenschaltung Kapazitäten",
+   "formula": "1 / C_ges = Σ 1 / C_i",
+   "unit": "F",
+   "source": null,
+   "example": "1 / C_ges = 1 / 1·10⁻⁶ F + 1 / 2,2·10⁻⁶ F",
+   "example_result": 6.875e-7,
+   "example_case": "Reihenschaltung C: 0.000001, 0.0000022",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2150
+  },
+  {
+   "id": "EL-G04-L",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Reihenschaltung Induktivitäten",
+   "formula": "L_ges = Σ L_i",
+   "unit": "H",
+   "source": null,
+   "example": "L_ges = 0,001 H + 0,0022 H",
+   "example_result": 0.0032,
+   "example_case": "Reihenschaltung L: 0.001, 0.0022",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2160
+  },
+  {
+   "id": "EL-G04-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Reihenschaltung Widerstände",
+   "formula": "R_ges = Σ R_i",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_ges = 100 Ω + 220 Ω + 470 Ω",
+   "example_result": 790,
+   "example_case": "Reihenschaltung R: 100, 220, 470",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2170
+  },
+  {
+   "id": "EL-G05-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Parallelschaltung Kapazitäten",
+   "formula": "C_ges = Σ C_i",
+   "unit": "F",
+   "source": null,
+   "example": "C_ges = 1·10⁻⁶ F + 2,2·10⁻⁶ F",
+   "example_result": 0.0000032,
+   "example_case": "Parallelschaltung C: 0.000001, 0.0000022",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2180
+  },
+  {
+   "id": "EL-G05-L",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Parallelschaltung Induktivitäten",
+   "formula": "1 / L_ges = Σ 1 / L_i",
+   "unit": "H",
+   "source": null,
+   "example": "1 / L_ges = 1 / 0,001 H + 1 / 0,0022 H",
+   "example_result": 0.0006875,
+   "example_case": "Parallelschaltung L: 0.001, 0.0022",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2190
+  },
+  {
+   "id": "EL-G05-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Parallelschaltung Widerstände",
+   "formula": "1 / R_ges = Σ 1 / R_i",
+   "unit": "Ω",
+   "source": null,
+   "example": "1 / R_ges = 1 / 100 Ω + 1 / 220 Ω + 1 / 470 Ω",
+   "example_result": 59.9767981439,
+   "example_case": "Parallelschaltung R: 100, 220, 470",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2200
+  },
+  {
+   "id": "EL-G06",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Unbelasteter Spannungsteiler",
+   "formula": "U_2 = U · R_2 / (R_1 + R_2)",
+   "unit": "V",
+   "source": null,
+   "example": "U_2 = 12 V · 10000 Ω / (10000 Ω + 10000 Ω)",
+   "example_result": 6,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2210
+  },
+  {
+   "id": "EL-G07",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Stromteiler Zweig 1",
+   "formula": "I_k = I · G_k / Σ G_i",
+   "unit": "A",
+   "source": null,
+   "example": "I_1 = 1 A · 0,01 S / 0,0183333 S",
+   "example_result": 0.545454545455,
+   "example_case": "Stromteiler 1 A auf 100 Ω, 200 Ω, 300 Ω, Zweig 1",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2220
+  },
+  {
+   "id": "EL-N01-LA",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Widerstand Glühlampe H1 (warm, EL-E4)",
+   "formula": "R = U_N² / P_N",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = 12² V² / 5 W",
+   "example_result": 28.8,
+   "example_case": "EL-P2 Batterie 9 V (R_i 0,5 Ω), Potentiometer 10 kΩ Stellung 0,3, R 4,7 kΩ, Glühlampe 12 V 5 W, Schalter geschlossen, R 220 Ω",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2230
+  },
+  {
+   "id": "EL-N01-PA",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Teilwiderstand a–s P1",
+   "formula": "R_as = x · R",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_as = 0,3 · 10000 Ω (mindestens 1·10⁻⁶ Ω)",
+   "example_result": 3000,
+   "example_case": "EL-P2 Batterie 9 V (R_i 0,5 Ω), Potentiometer 10 kΩ Stellung 0,3, R 4,7 kΩ, Glühlampe 12 V 5 W, Schalter geschlossen, R 220 Ω",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2240
+  },
+  {
+   "id": "EL-N01-PB",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Teilwiderstand s–b P1",
+   "formula": "R_sb = (1 − x) · R",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_sb = (1 − 0,3) · 10000 Ω (mindestens 1·10⁻⁶ Ω)",
+   "example_result": 7000,
+   "example_case": "EL-P2 Batterie 9 V (R_i 0,5 Ω), Potentiometer 10 kΩ Stellung 0,3, R 4,7 kΩ, Glühlampe 12 V 5 W, Schalter geschlossen, R 220 Ω",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2250
+  },
+  {
+   "id": "EL-N01-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leitwert R1",
+   "formula": "G = 1 / R",
+   "unit": "S",
+   "source": null,
+   "example": "G = 1 / 100 Ω",
+   "example_result": 0.01,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2260
+  },
+  {
+   "id": "EL-N02",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannungsquelle U1",
+   "formula": "u_+ − u_− = U",
+   "unit": "V",
+   "source": null,
+   "example": "u_+ − u_− = 12 V",
+   "example_result": 12,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2270
+  },
+  {
+   "id": "EL-N03",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Klemmenspannung B1 (Verbraucherzählpfeil, I < 0 bei Stromabgabe)",
+   "formula": "U_Kl = U_0 + R_i · I (Verbraucherzählpfeil)",
+   "unit": "V",
+   "source": null,
+   "example": "U_Kl = 9 V + 0,5 Ω · (-0,042355 A)",
+   "example_result": 8.97882250674,
+   "example_case": "EL-P2 Batterie 9 V (R_i 0,5 Ω), Potentiometer 10 kΩ Stellung 0,3, R 4,7 kΩ, Glühlampe 12 V 5 W, Schalter geschlossen, R 220 Ω",
+   "status": "freigegeben",
+   "approved_at": "2026-11-13",
+   "approved_by": "SETI",
+   "comment": null,
+   "sort": 2280
+  },
+  {
+   "id": "EL-N04",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Stromquelle I1",
+   "formula": "Einspeisung I_q am Pluspol",
+   "unit": "A",
+   "source": null,
+   "example": "I_q = 0,01 A",
+   "example_result": 0.01,
+   "example_case": "EL-P3 Stromquelle 10 mA, Spule 0,1 H (r 12 Ω), Kondensator 1 µF offen, Digitalpin HIGH 5 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2290
+  },
+  {
+   "id": "EL-N05",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kondensator C1 bei Gleichstrom (offen)",
+   "formula": "I_C = 0",
+   "unit": "A",
+   "source": null,
+   "example": "I_C = 0 A",
+   "example_result": 0,
+   "example_case": "EL-P3 Stromquelle 10 mA, Spule 0,1 H (r 12 Ω), Kondensator 1 µF offen, Digitalpin HIGH 5 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2300
+  },
+  {
+   "id": "EL-N06",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spule L1 bei Gleichstrom",
+   "formula": "U_L = r · I",
+   "unit": "V",
+   "source": null,
+   "example": "U_L = 12 Ω · 0,00674764 A",
+   "example_result": 0.080971659919,
+   "example_case": "EL-P3 Stromquelle 10 mA, Spule 0,1 H (r 12 Ω), Kondensator 1 µF offen, Digitalpin HIGH 5 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2310
+  },
+  {
+   "id": "EL-N07",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom durch A1 (Kurzschlussbrücke)",
+   "formula": "u_a − u_b = 0, I = x_k (Zweigstrom)",
+   "unit": "A",
+   "source": null,
+   "example": "u_a − u_b = 0 V, I = 0,0545455 A",
+   "example_result": 0.0545454545455,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-13",
+   "approved_by": "SETI",
+   "comment": null,
+   "sort": 2320
+  },
+  {
+   "id": "EL-N08",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Anzeige V1",
+   "formula": "U_V = u_a − u_b",
+   "unit": "V",
+   "source": null,
+   "example": "U_V = 5,45455 V",
+   "example_result": 5.45454545455,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2330
+  },
+  {
+   "id": "EL-N09-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Primärstrom T1",
+   "formula": "i_p = −(n_2 / n_1) · i_s",
+   "unit": "A",
+   "source": null,
+   "example": "i_p = −0,0521739 · 1,55271 ∠ 125,61° A",
+   "example_result": 0.0810110295492,
+   "example_case": "EL-P7 Transformator 230 V / 12 V mit R 4 Ω und Spule 20 mH (r 0,5 Ω), 50 Hz",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2340
+  },
+  {
+   "id": "EL-N09-U",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Sekundärspannung T1",
+   "formula": "u_s = (n_2 / n_1) · u_p",
+   "unit": "V",
+   "source": null,
+   "example": "u_s = 0,0521739 · 230 ∠ 0° V",
+   "example_result": 12,
+   "example_case": "EL-P7 Transformator 230 V / 12 V mit R 4 Ω und Spule 20 mH (r 0,5 Ω), 50 Hz",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2350
+  },
+  {
+   "id": "EL-N10",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Lineares Gleichungssystem der Knotenpunktanalyse",
+   "formula": "A · x = z",
+   "unit": "1",
+   "source": null,
+   "example": "5 Unbekannte (3 Knotenspannungen, 2 Zweigströme), LU-Zerlegung mit Spaltenpivotisierung",
+   "example_result": 5,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2360
+  },
+  {
+   "id": "EL-N11-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom R1",
+   "formula": "I = G · U",
+   "unit": "A",
+   "source": null,
+   "example": "I = 0,01 S · 5,45455 V",
+   "example_result": 0.0545454545455,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2370
+  },
+  {
+   "id": "EL-N11-IQ",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom I1 (Verbraucherzählpfeil)",
+   "formula": "I = −I_q",
+   "unit": "A",
+   "source": null,
+   "example": "I = −0,01 A",
+   "example_result": -0.01,
+   "example_case": "EL-P3 Stromquelle 10 mA, Spule 0,1 H (r 12 Ω), Kondensator 1 µF offen, Digitalpin HIGH 5 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2380
+  },
+  {
+   "id": "EL-N11-IV",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom U1",
+   "formula": "I = x_k (Zweigstrom)",
+   "unit": "A",
+   "source": null,
+   "example": "I = -0,0545455 A",
+   "example_result": -0.0545454545455,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2390
+  },
+  {
+   "id": "EL-N11-P",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistung U1",
+   "formula": "P = U · I",
+   "unit": "W",
+   "source": null,
+   "example": "P = 12 V · -0,0545455 A",
+   "example_result": -0.654545454545,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2400
+  },
+  {
+   "id": "EL-N11-U",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannung U1",
+   "formula": "U = u_a − u_b",
+   "unit": "V",
+   "source": null,
+   "example": "U = 12 V",
+   "example_result": 12,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2410
+  },
+  {
+   "id": "EL-N12",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistungsbilanz",
+   "formula": "Σ P = 0",
+   "unit": "W",
+   "source": null,
+   "example": "Σ P = U1 -0,654545 + A1 0 + R1 0,297521 + R2 0,214215 + R3 0,14281 + V1 0 W",
+   "example_result": 0,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2420
+  },
+  {
+   "id": "EL-N13-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Auslastung C1",
+   "formula": "a = |U| / U_max",
+   "unit": "1",
+   "source": null,
+   "example": "a = 1,82861 V / 6,3 V",
+   "example_result": 0.290255553413,
+   "example_case": "EL-P3 Stromquelle 10 mA, Spule 0,1 H (r 12 Ω), Kondensator 1 µF offen, Digitalpin HIGH 5 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2430
+  },
+  {
+   "id": "EL-N13-CA",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Auslastung C1 (Scheitelwert)",
+   "formula": "a = √2 · |U| / U_max",
+   "unit": "1",
+   "source": null,
+   "example": "a = √2 · 0,846733 V / 50 V",
+   "example_result": 0.0239492262977,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2440
+  },
+  {
+   "id": "EL-N13-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Auslastung R1",
+   "formula": "a = |P| / P_max",
+   "unit": "1",
+   "source": null,
+   "example": "a = 0,297521 W / 0,5 W",
+   "example_result": 0.595041322314,
+   "example_case": "EL-P1 Beispiel Reihe und Parallel: 12 V, R1 100 Ω, R2 200 Ω ∥ R3 300 Ω, Voltmeter an R1, Amperemeter im Hauptzweig",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2450
+  },
+  {
+   "id": "EL-R1",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Widerstand aus 4 Ringen",
+   "formula": "R = (10 · z_1 + z_2) · 10^m",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = (10 · 4 + 7) · 10^2 Ω (gelb, violett, rot)",
+   "example_result": 4700,
+   "example_case": "Rechner R1: gelb, violett, rot, gold",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2460
+  },
+  {
+   "id": "EL-R1-5",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Widerstand aus 5 Ringen",
+   "formula": "R = (100 · z_1 + 10 · z_2 + z_3) · 10^m",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = (100 · 1 + 10 · 0 + 0) · 10^1 Ω (braun, schwarz, schwarz, braun)",
+   "example_result": 1000,
+   "example_case": "Rechner R1: braun, schwarz, schwarz, braun, braun",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2470
+  },
+  {
+   "id": "EL-R1-TO",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Obere Grenze",
+   "formula": "R_max = R · (1 + t)",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_max = 4700 Ω · (1 + 0,05)",
+   "example_result": 4935,
+   "example_case": "Rechner R1: gelb, violett, rot, gold",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2480
+  },
+  {
+   "id": "EL-R1-TU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Untere Grenze",
+   "formula": "R_min = R · (1 − t)",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_min = 4700 Ω · (1 − 0,05)",
+   "example_result": 4465,
+   "example_case": "Rechner R1: gelb, violett, rot, gold",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2490
+  },
+  {
+   "id": "EL-R2-A",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Relative Abweichung",
+   "formula": "Δ = (X_N − X) / X",
+   "unit": "1",
+   "source": null,
+   "example": "Δ = (4700 − 4300) / 4300",
+   "example_result": 0.093023255814,
+   "example_case": "Rechner R2: 4300 Ω, E12",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2500
+  },
+  {
+   "id": "EL-R2-N",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Nächster Normwert E12",
+   "formula": "X_N = nächster Normwert (logarithmischer Abstand)",
+   "unit": "1",
+   "source": null,
+   "example": "X = 4300 → X_N = 4700 (Nachbarn 3900 und 4700)",
+   "example_result": 4700,
+   "example_case": "Rechner R2: 4300 Ω, E12",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2510
+  },
+  {
+   "id": "EL-R4-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kapazität des Pakets",
+   "formula": "C_ges = m · C",
+   "unit": "A·s",
+   "source": null,
+   "example": "C_ges = 2 · 3 Ah · 3600 s/h",
+   "example_result": 21600,
+   "example_case": "Rechner R4: 4S2P, 3 Ah, 3,6 V, 5 A, 90 %",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2520
+  },
+  {
+   "id": "EL-R4-CR",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "C-Rate",
+   "formula": "C-Rate = I / C_ges",
+   "unit": "1/h",
+   "source": null,
+   "example": "C-Rate = 5 A / 6 Ah",
+   "example_result": 0.833333333333,
+   "example_case": "Rechner R4: 4S2P, 3 Ah, 3,6 V, 5 A, 90 %",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2530
+  },
+  {
+   "id": "EL-R4-E",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Energieinhalt",
+   "formula": "E = U_ges · C_ges",
+   "unit": "J",
+   "source": null,
+   "example": "E = 14,4 V · 21600 A·s",
+   "example_result": 311040,
+   "example_case": "Rechner R4: 4S2P, 3 Ah, 3,6 V, 5 A, 90 %",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2540
+  },
+  {
+   "id": "EL-R4-T",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Laufzeit",
+   "formula": "t = η_n · C_ges / I",
+   "unit": "s",
+   "source": null,
+   "example": "t = 0,9 · 21600 A·s / 5 A",
+   "example_result": 3888,
+   "example_case": "Rechner R4: 4S2P, 3 Ah, 3,6 V, 5 A, 90 %",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2550
+  },
+  {
+   "id": "EL-R4-U",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannung des Pakets",
+   "formula": "U_ges = n · U",
+   "unit": "V",
+   "source": null,
+   "example": "U_ges = 4 · 3,6 V",
+   "example_result": 14.4,
+   "example_case": "Rechner R4: 4S2P, 3 Ah, 3,6 V, 5 A, 90 %",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2560
+  },
+  {
+   "id": "EL-R5-IS",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strangstrom (Stern)",
+   "formula": "I_Str = I_L",
+   "unit": "A",
+   "source": null,
+   "example": "I_Str = 10 A",
+   "example_result": 10,
+   "example_case": "Rechner R5: 400 V, 10 A, cos φ 0,85, Stern",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2570
+  },
+  {
+   "id": "EL-R5-ISD",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strangstrom (Dreieck)",
+   "formula": "I_Str = I_L / √3",
+   "unit": "A",
+   "source": null,
+   "example": "I_Str = 16 A / √3",
+   "example_result": 9.23760430703,
+   "example_case": "Rechner R5: 400 V, 16 A, cos φ 0,9, Dreieck",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2580
+  },
+  {
+   "id": "EL-R5-P",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Wirkleistung",
+   "formula": "P = √3 · U_L · I_L · cos φ",
+   "unit": "W",
+   "source": null,
+   "example": "P = √3 · 400 V · 10 A · 0,85",
+   "example_result": 5888.97274573,
+   "example_case": "Rechner R5: 400 V, 10 A, cos φ 0,85, Stern",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2590
+  },
+  {
+   "id": "EL-R5-Q",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Blindleistung",
+   "formula": "Q = S · sin φ",
+   "unit": "var",
+   "source": null,
+   "example": "Q = 6928,2 VA · √(1 − 0,85²)",
+   "example_result": 3649.65751818,
+   "example_case": "Rechner R5: 400 V, 10 A, cos φ 0,85, Stern",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2600
+  },
+  {
+   "id": "EL-R5-S",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Scheinleistung",
+   "formula": "S = √3 · U_L · I_L",
+   "unit": "VA",
+   "source": null,
+   "example": "S = √3 · 400 V · 10 A",
+   "example_result": 6928.20323028,
+   "example_case": "Rechner R5: 400 V, 10 A, cos φ 0,85, Stern",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2610
+  },
+  {
+   "id": "EL-R5-US",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strangspannung (Stern)",
+   "formula": "U_Str = U_L / √3",
+   "unit": "V",
+   "source": null,
+   "example": "U_Str = 400 V / √3",
+   "example_result": 230.940107676,
+   "example_case": "Rechner R5: 400 V, 10 A, cos φ 0,85, Stern",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2620
+  },
+  {
+   "id": "EL-R5-USD",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strangspannung (Dreieck)",
+   "formula": "U_Str = U_L",
+   "unit": "V",
+   "source": null,
+   "example": "U_Str = 400 V",
+   "example_result": 400,
+   "example_case": "Rechner R5: 400 V, 16 A, cos φ 0,9, Dreieck",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2630
+  },
+  {
+   "id": "EL-R6-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Stromaufnahme (Drehstrom)",
+   "formula": "I = P_zu / (√3 · U · cos φ)",
+   "unit": "A",
+   "source": null,
+   "example": "I = 1764,71 W / (√3 · 400 V · 0,82)",
+   "example_result": 3.1062604153,
+   "example_case": "Rechner R6: 1,5 kW, 1450 1/min, 400 V, η 0,85, cos φ 0,82, 50 Hz, p = 2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2640
+  },
+  {
+   "id": "EL-R6-M",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Drehmoment",
+   "formula": "M = P / (2π · n)",
+   "unit": "N·m",
+   "source": null,
+   "example": "M = 1500 W / (2π · 24,1667 1/s)",
+   "example_result": 9.87858267467,
+   "example_case": "Rechner R6: 1,5 kW, 1450 1/min, 400 V, η 0,85, cos φ 0,82, 50 Hz, p = 2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2650
+  },
+  {
+   "id": "EL-R6-NS",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Synchrone Drehzahl",
+   "formula": "n_s = f / p",
+   "unit": "1/s",
+   "source": null,
+   "example": "n_s = 50 Hz / 2",
+   "example_result": 25,
+   "example_case": "Rechner R6: 1,5 kW, 1450 1/min, 400 V, η 0,85, cos φ 0,82, 50 Hz, p = 2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2660
+  },
+  {
+   "id": "EL-R6-PZ",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Aufgenommene Leistung",
+   "formula": "P_zu = P / η",
+   "unit": "W",
+   "source": null,
+   "example": "P_zu = 1500 W / 0,85",
+   "example_result": 1764.70588235,
+   "example_case": "Rechner R6: 1,5 kW, 1450 1/min, 400 V, η 0,85, cos φ 0,82, 50 Hz, p = 2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2670
+  },
+  {
+   "id": "EL-R6-S",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Schlupf",
+   "formula": "s = (n_s − n) / n_s",
+   "unit": "1",
+   "source": null,
+   "example": "s = (25 − 24,1667) / 25 (1/s)",
+   "example_result": 0.0333333333333,
+   "example_case": "Rechner R6: 1,5 kW, 1450 1/min, 400 V, η 0,85, cos φ 0,82, 50 Hz, p = 2",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2680
+  },
+  {
+   "id": "EL-S0-GP",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Gegenprüfung U_2L: analytisch gegen Netzwerk",
+   "formula": "δ = |X_analytisch − X_Netz| / |X_analytisch|",
+   "unit": "1",
+   "source": null,
+   "example": "δ = |5,97015 − 5,97015| V / 5,97015 V",
+   "example_result": 0,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2690
+  },
+  {
+   "id": "EL-S0-N",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R2: Normwert E24",
+   "formula": "X_N = nächster Normwert (logarithmischer Abstand)",
+   "unit": "Ω",
+   "source": null,
+   "example": "X = 7142,86 Ω → X_N = 7500 Ω",
+   "example_result": 7500,
+   "example_case": "Vorlage S1 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2700
+  },
+  {
+   "id": "EL-S0-NH",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R: Normwert E24 (nächsthöher)",
+   "formula": "X_N = kleinster Normwert ≥ X",
+   "unit": "Ω",
+   "source": null,
+   "example": "X = 500 Ω → X_N = 510 Ω",
+   "example_result": 510,
+   "example_case": "Vorlage S5 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2710
+  },
+  {
+   "id": "EL-S0-UA",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Ausgangsspannung",
+   "formula": "U_a = |H| · U_e",
+   "unit": "V",
+   "source": null,
+   "example": "U_a = 0,846733 · 12 V",
+   "example_result": 10.1607961916,
+   "example_case": "Vorlage S2 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2720
+  },
+  {
+   "id": "EL-S1-DU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannungseinbruch durch die Last",
+   "formula": "ΔU = (U_2 − U_2L) / U_2",
+   "unit": "1",
+   "source": null,
+   "example": "ΔU = (6 V − 5,97015 V) / 6 V",
+   "example_result": 0.00497512437811,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2730
+  },
+  {
+   "id": "EL-S1-IL",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Laststrom",
+   "formula": "I_L = U_2L / R_L",
+   "unit": "A",
+   "source": null,
+   "example": "I_L = 5,97015 V / 1·10⁶ Ω",
+   "example_result": 0.00000597014925373,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2740
+  },
+  {
+   "id": "EL-S1-IQ",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Querstrom durch R2",
+   "formula": "I_q = U_2L / R_2",
+   "unit": "A",
+   "source": null,
+   "example": "I_q = 5,97015 V / 10000 Ω",
+   "example_result": 0.000597014925373,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2750
+  },
+  {
+   "id": "EL-S1-Q",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Querstromverhältnis",
+   "formula": "q = I_q / I_L",
+   "unit": "1",
+   "source": null,
+   "example": "q = 5,97015·10⁻⁴ A / 5,97015·10⁻⁶ A",
+   "example_result": 100,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2760
+  },
+  {
+   "id": "EL-S1-R2",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R2 für die Zielspannung (unbelastet)",
+   "formula": "R_2 = R_1 · U_2 / (U − U_2)",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_2 = 10000 Ω · 5 V / (12 V − 5 V)",
+   "example_result": 7142.85714286,
+   "example_case": "Vorlage S1 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2770
+  },
+  {
+   "id": "EL-S1-RP",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R2 parallel zur Last",
+   "formula": "R_2L = R_2 · R_L / (R_2 + R_L)",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_2L = 10000 Ω · 1·10⁶ Ω / (10000 Ω + 1·10⁶ Ω)",
+   "example_result": 9900.99009901,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2780
+  },
+  {
+   "id": "EL-S1-U2L",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Belastete Ausgangsspannung",
+   "formula": "U_2L = U · R_2L / (R_1 + R_2L)",
+   "unit": "V",
+   "source": null,
+   "example": "U_2L = 12 V · 9900,99 Ω / (10000 Ω + 9900,99 Ω)",
+   "example_result": 5.97014925373,
+   "example_case": "Vorlage S1 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2790
+  },
+  {
+   "id": "EL-S2-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "C für die Grenzfrequenz",
+   "formula": "C = 1 / (2π · f_g · R)",
+   "unit": "F",
+   "source": null,
+   "example": "C = 1 / (2π · 1000 Hz · 1000 Ω)",
+   "example_result": 1.59154943092e-7,
+   "example_case": "Vorlage S2 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2800
+  },
+  {
+   "id": "EL-S2-FG",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Grenzfrequenz",
+   "formula": "f_g = 1 / (2π · R · C)",
+   "unit": "Hz",
+   "source": null,
+   "example": "f_g = 1 / (2π · 1000 Ω · 1·10⁻⁷ F)",
+   "example_result": 1591.54943092,
+   "example_case": "Vorlage S2 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2810
+  },
+  {
+   "id": "EL-S2-H",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Betrag der Übertragungsfunktion (Tiefpass)",
+   "formula": "|H| = 1 / √(1 + (f / f_g)²)",
+   "unit": "1",
+   "source": null,
+   "example": "|H| = 1 / √(1 + 0,628319²)",
+   "example_result": 0.846733015965,
+   "example_case": "Vorlage S2 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2820
+  },
+  {
+   "id": "EL-S2-PHI",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Phase (Tiefpass)",
+   "formula": "φ = −arctan(f / f_g)",
+   "unit": "°",
+   "source": null,
+   "example": "φ = −arctan 0,628319",
+   "example_result": -32.1419076353,
+   "example_case": "Vorlage S2 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2830
+  },
+  {
+   "id": "EL-S2-TAU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Zeitkonstante",
+   "formula": "τ = R · C",
+   "unit": "s",
+   "source": null,
+   "example": "τ = 1000 Ω · 1·10⁻⁷ F",
+   "example_result": 0.0001,
+   "example_case": "Vorlage S2 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2840
+  },
+  {
+   "id": "EL-S3-H",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Betrag der Übertragungsfunktion (Hochpass)",
+   "formula": "|H| = (f / f_g) / √(1 + (f / f_g)²)",
+   "unit": "1",
+   "source": null,
+   "example": "|H| = 0,628319 / √(1 + 0,628319²)",
+   "example_result": 0.532018044501,
+   "example_case": "Vorlage S3 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2850
+  },
+  {
+   "id": "EL-S3-PHI",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Phase (Hochpass)",
+   "formula": "φ = 90° − arctan(f / f_g)",
+   "unit": "°",
+   "source": null,
+   "example": "φ = 90° − arctan 0,628319",
+   "example_result": 57.8580923647,
+   "example_case": "Vorlage S3 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2860
+  },
+  {
+   "id": "EL-S3-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R für die Grenzfrequenz",
+   "formula": "R = 1 / (2π · f_g · C)",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = 1 / (2π · 1000 Hz · 1·10⁻⁷ F)",
+   "example_result": 1591.54943092,
+   "example_case": "Vorlage S3 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2870
+  },
+  {
+   "id": "EL-S4-B",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Bandbreite",
+   "formula": "B = f_0 / Q",
+   "unit": "Hz",
+   "source": null,
+   "example": "B = 5032,92 Hz / 0,316228",
+   "example_result": 15915.4943092,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2880
+  },
+  {
+   "id": "EL-S4-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "C für die Resonanzfrequenz",
+   "formula": "C = 1 / ((2π · f_0)² · L)",
+   "unit": "F",
+   "source": null,
+   "example": "C = 1 / ((2π · 5000 Hz)² · 0,01 H)",
+   "example_result": 1.01321183642e-7,
+   "example_case": "Vorlage S4 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2890
+  },
+  {
+   "id": "EL-S4-F0",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Resonanzfrequenz",
+   "formula": "f_0 = 1 / (2π · √(L · C))",
+   "unit": "Hz",
+   "source": null,
+   "example": "f_0 = 1 / (2π · √(0,01 H · 1·10⁻⁷ F))",
+   "example_result": 5032.92121045,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2900
+  },
+  {
+   "id": "EL-S4-FO",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Obere Grenzfrequenz",
+   "formula": "f_o = f_0 · (√(1 + 1 / (4Q²)) + 1 / (2Q))",
+   "unit": "Hz",
+   "source": null,
+   "example": "f_o = 5032,92 Hz · (√(1 + 1 / (4 · 0,316228²)) + 1 / (2 · 0,316228))",
+   "example_result": 17373.4805667,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2910
+  },
+  {
+   "id": "EL-S4-FU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Untere Grenzfrequenz",
+   "formula": "f_u = f_0 · (√(1 + 1 / (4Q²)) − 1 / (2Q))",
+   "unit": "Hz",
+   "source": null,
+   "example": "f_u = 5032,92 Hz · (√(1 + 1 / (4 · 0,316228²)) − 1 / (2 · 0,316228))",
+   "example_result": 1457.98625747,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2920
+  },
+  {
+   "id": "EL-S4-H",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Bandpass bei f_u (Kontrolle 1/√2)",
+   "formula": "|H_R| = 1 / √(1 + Q² · (f / f_0 − f_0 / f)²)",
+   "unit": "1",
+   "source": null,
+   "example": "|H_R(f_u)| = 1 / √(1 + 0,316228² · (0,28969 − 3,45197)²)",
+   "example_result": 0.707106781187,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2930
+  },
+  {
+   "id": "EL-S4-HC",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kondensatorspannung bei f_0",
+   "formula": "U_C / U = |H_R| / (ω · R · C)",
+   "unit": "1",
+   "source": null,
+   "example": "U_C / U = 1 / (2π · 5032,92 Hz · 1000 Ω · 1·10⁻⁷ F)",
+   "example_result": 0.316227766017,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2940
+  },
+  {
+   "id": "EL-S4-I0",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom bei Resonanz",
+   "formula": "I_0 = U / R",
+   "unit": "A",
+   "source": null,
+   "example": "I_0 = 12 V / 1000 Ω",
+   "example_result": 0.012,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2950
+  },
+  {
+   "id": "EL-S4-Q",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Güte",
+   "formula": "Q = (1 / R) · √(L / C)",
+   "unit": "1",
+   "source": null,
+   "example": "Q = (1 / 1000 Ω) · √(0,01 H / 1·10⁻⁷ F)",
+   "example_result": 0.316227766017,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2960
+  },
+  {
+   "id": "EL-S4-UC",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kondensatorspannung bei Resonanz",
+   "formula": "U_C0 = Q · U",
+   "unit": "V",
+   "source": null,
+   "example": "U_C0 = 0,316228 · 12 V",
+   "example_result": 3.7947331922,
+   "example_case": "Vorlage S4 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2970
+  },
+  {
+   "id": "EL-S5-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "LED-Strom",
+   "formula": "I = (U − U_F) / R",
+   "unit": "A",
+   "source": null,
+   "example": "I = (12 V − 2 V) / 1000 Ω",
+   "example_result": 0.01,
+   "example_case": "Vorlage S5 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2980
+  },
+  {
+   "id": "EL-S5-PL",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistung in der LED",
+   "formula": "P_LED = U_F · I",
+   "unit": "W",
+   "source": null,
+   "example": "P_LED = 2 V · 0,01 A",
+   "example_result": 0.02,
+   "example_case": "Vorlage S5 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 2990
+  },
+  {
+   "id": "EL-S5-PR",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistung im Vorwiderstand",
+   "formula": "P_R = I² · R",
+   "unit": "W",
+   "source": null,
+   "example": "P_R = (0,01 A)² · 1000 Ω",
+   "example_result": 0.1,
+   "example_case": "Vorlage S5 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3000
+  },
+  {
+   "id": "EL-S5-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Vorwiderstand für den LED-Strom",
+   "formula": "R = (U − U_F) / I_F",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = (12 V − 2 V) / 0,02 A",
+   "example_result": 500,
+   "example_case": "Vorlage S5 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3010
+  },
+  {
+   "id": "EL-S6-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Lade- bzw. Entladestrom (Betrag)",
+   "formula": "i(t) = (U / R) · e^(−t/τ)",
+   "unit": "A",
+   "source": null,
+   "example": "i = (12 V / 1000 Ω) · e^(−5·10⁻⁴ s / 1·10⁻⁴ s)",
+   "example_result": 0.000080855363989,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3020
+  },
+  {
+   "id": "EL-S6-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R für die Zeitkonstante",
+   "formula": "R = τ / C",
+   "unit": "Ω",
+   "source": null,
+   "example": "R = 0,001 s / 1·10⁻⁷ F",
+   "example_result": 10000,
+   "example_case": "Vorlage S6 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3030
+  },
+  {
+   "id": "EL-S6-TAU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Zeitkonstante",
+   "formula": "τ = R · C",
+   "unit": "s",
+   "source": null,
+   "example": "τ = 1000 Ω · 1·10⁻⁷ F",
+   "example_result": 0.0001,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3040
+  },
+  {
+   "id": "EL-S6-TE",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Entladezeit bis 1 %",
+   "formula": "t = −τ · ln(u / U)",
+   "unit": "s",
+   "source": null,
+   "example": "t = −1·10⁻⁴ s · ln 0,01",
+   "example_result": 0.000460517018599,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3050
+  },
+  {
+   "id": "EL-S6-TZ",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Ladezeit bis 99 %",
+   "formula": "t = −τ · ln(1 − u / U)",
+   "unit": "s",
+   "source": null,
+   "example": "t = −1·10⁻⁴ s · ln(1 − 0,99)",
+   "example_result": 0.000460517018599,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3060
+  },
+  {
+   "id": "EL-S6-UE",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kondensatorspannung beim Entladen",
+   "formula": "u_C(t) = U · e^(−t/τ)",
+   "unit": "V",
+   "source": null,
+   "example": "u_C = 12 V · e^(−5·10⁻⁴ s / 1·10⁻⁴ s)",
+   "example_result": 0.080855363989,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3070
+  },
+  {
+   "id": "EL-S6-UL",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kondensatorspannung beim Laden",
+   "formula": "u_C(t) = U · (1 − e^(−t/τ))",
+   "unit": "V",
+   "source": null,
+   "example": "u_C = 12 V · (1 − e^(−5·10⁻⁴ s / 1·10⁻⁴ s))",
+   "example_result": 11.919144636,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3080
+  },
+  {
+   "id": "EL-S6-W",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Gespeicherte Energie (voll geladen)",
+   "formula": "W = ½ · C · U²",
+   "unit": "J",
+   "source": null,
+   "example": "W = ½ · 1·10⁻⁷ F · (12 V)²",
+   "example_result": 0.0000072,
+   "example_case": "Vorlage S6 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3090
+  },
+  {
+   "id": "EL-S7-R4",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "R4 für den Abgleich (U_d = 0)",
+   "formula": "R_4 = R_3 · R_2 / R_1",
+   "unit": "Ω",
+   "source": null,
+   "example": "R_4 = 1000 Ω · 10000 Ω / 10000 Ω",
+   "example_result": 1000,
+   "example_case": "Vorlage S7 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3100
+  },
+  {
+   "id": "EL-S7-UD",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Brückenspannung",
+   "formula": "U_d = U · (R_2 / (R_1 + R_2) − R_4 / (R_3 + R_4))",
+   "unit": "V",
+   "source": null,
+   "example": "U_d = 12 V · (10000 / 20000 − 1200 / 2200)",
+   "example_result": -0.545454545455,
+   "example_case": "Vorlage S7 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3110
+  },
+  {
+   "id": "EL-S8-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom beim Einschalten",
+   "formula": "i(t) = (U / R) · (1 − e^(−t/τ))",
+   "unit": "A",
+   "source": null,
+   "example": "i = 0,012 A · (1 − e^(−5·10⁻⁴ s / 1·10⁻⁵ s))",
+   "example_result": 0.012,
+   "example_case": "Vorlage S8 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3120
+  },
+  {
+   "id": "EL-S8-IE",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Endstrom",
+   "formula": "I_∞ = U / R",
+   "unit": "A",
+   "source": null,
+   "example": "I_∞ = 12 V / 1000 Ω",
+   "example_result": 0.012,
+   "example_case": "Vorlage S8 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3130
+  },
+  {
+   "id": "EL-S8-L",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "L für die Zeitkonstante",
+   "formula": "L = τ · R",
+   "unit": "H",
+   "source": null,
+   "example": "L = 0,001 s · 1000 Ω",
+   "example_result": 1,
+   "example_case": "Vorlage S8 auslegen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3140
+  },
+  {
+   "id": "EL-S8-TAU",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Zeitkonstante",
+   "formula": "τ = L / R",
+   "unit": "s",
+   "source": null,
+   "example": "τ = 0,01 H / 1000 Ω",
+   "example_result": 0.00001,
+   "example_case": "Vorlage S8 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3150
+  },
+  {
+   "id": "EL-S8-UL",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spulenspannung beim Einschalten",
+   "formula": "u_L(t) = U · e^(−t/τ)",
+   "unit": "V",
+   "source": null,
+   "example": "u_L = 12 V · e^(−5·10⁻⁴ s / 1·10⁻⁵ s)",
+   "example_result": 2.31449981756e-21,
+   "example_case": "Vorlage S8 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3160
+  },
+  {
+   "id": "EL-S8-W",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Gespeicherte Energie (Endstrom)",
+   "formula": "W = ½ · L · I_∞²",
+   "unit": "J",
+   "source": null,
+   "example": "W = ½ · 0,01 H · (0,012 A)²",
+   "example_result": 7.2e-7,
+   "example_case": "Vorlage S8 nachrechnen (Eingaben u_V 12, r1_ohm 10000, r2_ohm 10000, r_last_ohm 1000000, r_ohm 1000, c_F 1e-7, f_Hz 1000, l_H 0.01, u_f_V 2, i_f_A 0.02, t_s 0.0005, r3_ohm 1000, r4_ohm 1200, u2_V 5, fg_Hz 1000, f0_Hz 5000, tau_s 0.001, e_reihe 24)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3170
+  },
+  {
+   "id": "EL-W01",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Kreisfrequenz",
+   "formula": "ω = 2π · f",
+   "unit": "1/s",
+   "source": null,
+   "example": "ω = 2π · 1000 Hz",
+   "example_result": 6283.18530718,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3180
+  },
+  {
+   "id": "EL-W02-C",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Impedanz C1",
+   "formula": "Z_C = 1 / (jωC)",
+   "unit": "Ω",
+   "source": null,
+   "example": "Z_C = 1 / (j · 6283,19 1/s · 1·10⁻⁷ F)",
+   "example_result": 1591.54943092,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3190
+  },
+  {
+   "id": "EL-W02-L",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Impedanz L1",
+   "formula": "Z_L = r + jωL",
+   "unit": "Ω",
+   "source": null,
+   "example": "Z_L = 0,5 Ω + j · 314,159 1/s · 0,02 H",
+   "example_result": 6.30304827876,
+   "example_case": "EL-P7 Transformator 230 V / 12 V mit R 4 Ω und Spule 20 mH (r 0,5 Ω), 50 Hz",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3200
+  },
+  {
+   "id": "EL-W02-R",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Impedanz R1",
+   "formula": "Z_R = R",
+   "unit": "Ω",
+   "source": null,
+   "example": "Z_R = 1000 Ω",
+   "example_result": 1000,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3210
+  },
+  {
+   "id": "EL-W03",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Zeiger der Quelle AC1 (Effektivwert)",
+   "formula": "U = U_eff · e^(jφ)",
+   "unit": "V",
+   "source": null,
+   "example": "U = 1 V · e^(j · 0°)",
+   "example_result": 1,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3220
+  },
+  {
+   "id": "EL-W04",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Komplexes Gleichungssystem der Knotenpunktanalyse",
+   "formula": "Y · u = i",
+   "unit": "1",
+   "source": null,
+   "example": "3 Unbekannte, komplexe LU-Zerlegung mit Spaltenpivotisierung",
+   "example_result": 3,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3230
+  },
+  {
+   "id": "EL-W04-I",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom R1",
+   "formula": "I = Y · U",
+   "unit": "A",
+   "source": null,
+   "example": "I = (0,001) S · (0,283043 + j·0,450477) V",
+   "example_result": 0.000532018044501,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3240
+  },
+  {
+   "id": "EL-W04-IV",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Strom AC1",
+   "formula": "I = x_k (Zweigstrom)",
+   "unit": "A",
+   "source": null,
+   "example": "I = -2,83043·10⁻⁴ − j·4,50477·10⁻⁴ A = 5,32018·10⁻⁴ ∠ -122,142° A",
+   "example_result": 0.000532018044501,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3250
+  },
+  {
+   "id": "EL-W04-U",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Spannung AC1",
+   "formula": "U = u_a − u_b",
+   "unit": "V",
+   "source": null,
+   "example": "U = 1 V = 1 ∠ 0° V",
+   "example_result": 1,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3260
+  },
+  {
+   "id": "EL-W05-B",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistungsbilanz Wechselstrom",
+   "formula": "Σ S = 0",
+   "unit": "VA",
+   "source": null,
+   "example": "Σ S = -5,42101·10⁻²⁰ VA",
+   "example_result": 5.42101086243e-20,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3270
+  },
+  {
+   "id": "EL-W05-CP",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Leistungsfaktor λ AC1 (Abgabe von Wirkleistung)",
+   "formula": "λ = |P| / |S|",
+   "unit": "1",
+   "source": null,
+   "example": "λ = |-2,83043·10⁻⁴| W / 5,32018·10⁻⁴ VA",
+   "example_result": 0.532018044501,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-13",
+   "approved_by": "SETI",
+   "comment": null,
+   "sort": 3280
+  },
+  {
+   "id": "EL-W05-P",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Wirkleistung AC1",
+   "formula": "P = Re S",
+   "unit": "W",
+   "source": null,
+   "example": "P = Re(-2,83043·10⁻⁴ + j·4,50477·10⁻⁴) VA",
+   "example_result": -0.000283043199675,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3290
+  },
+  {
+   "id": "EL-W05-Q",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Blindleistung AC1",
+   "formula": "Q = Im S",
+   "unit": "var",
+   "source": null,
+   "example": "Q = Im(-2,83043·10⁻⁴ + j·4,50477·10⁻⁴) VA",
+   "example_result": 0.000450477243368,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3300
+  },
+  {
+   "id": "EL-W05-S",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Scheinleistung AC1",
+   "formula": "S = U · I*",
+   "unit": "VA",
+   "source": null,
+   "example": "S = (1) V · (-2,83043·10⁻⁴ + j·4,50477·10⁻⁴) A",
+   "example_result": 0.000532018044501,
+   "example_case": "EL-P5 RC-Tiefpass 1 kΩ, 100 nF bei 1 kHz, Quelle 1 V",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3310
+  },
+  {
+   "id": "EL-W06-DB",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Verstärkung im Maximum",
+   "formula": "G = 20 · lg |H|",
+   "unit": "dB",
+   "source": null,
+   "example": "G = 20 · lg 0,99998",
+   "example_result": -0.00017144920495,
+   "example_case": "EL-B1 Frequenzgang RC-Tiefpass 10 Hz bis 100 kHz, 200 Punkte",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3320
+  },
+  {
+   "id": "EL-W06-H",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Übertragungsfunktion im Maximum",
+   "formula": "H = U_aus / U_ein",
+   "unit": "1",
+   "source": null,
+   "example": "H = 0,999961 − j·0,00628294 bei f = 10 Hz",
+   "example_result": 0.999980261376,
+   "example_case": "EL-B1 Frequenzgang RC-Tiefpass 10 Hz bis 100 kHz, 200 Punkte",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3330
+  },
+  {
+   "id": "EL-W06-PHI",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Phase im Maximum",
+   "formula": "φ = arg H",
+   "unit": "°",
+   "source": null,
+   "example": "φ = arg(0,999961 − j·0,00628294)",
+   "example_result": -0.359995262702,
+   "example_case": "EL-B1 Frequenzgang RC-Tiefpass 10 Hz bis 100 kHz, 200 Punkte",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3340
+  },
+  {
+   "id": "EL-W07",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "Frequenzpunkte logarithmisch",
+   "formula": "f_k = f_min · (f_max / f_min)^(k / (N − 1))",
+   "unit": "1",
+   "source": null,
+   "example": "f_min = 10 Hz, f_max = 1·10⁵ Hz, N = 200",
+   "example_result": 200,
+   "example_case": "EL-B1 Frequenzgang RC-Tiefpass 10 Hz bis 100 kHz, 200 Punkte",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3350
+  },
+  {
+   "id": "EL-W08",
+   "area": "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+   "module": "elektrik",
+   "quantity": "−3-dB-Punkt 1",
+   "formula": "G(f) = G_max − 20 · lg √2",
+   "unit": "Hz",
+   "source": null,
+   "example": "G_max = -1,71449·10⁻⁴ dB, Schnitt mit -3,01047 dB, lineare Interpolation über lg f",
+   "example_result": 1591.18830386,
+   "example_case": "EL-B1 Frequenzgang RC-Tiefpass 10 Hz bis 100 kHz, 200 Punkte",
+   "status": "freigegeben",
+   "approved_at": "2026-11-12",
+   "approved_by": "Seti",
+   "comment": null,
+   "sort": 3360
+  },
+  {
    "id": "F-BE",
    "area": "Formfaktoren (Ashby Kap. 7.2)",
    "module": "gemeinsam",
@@ -3351,7 +5731,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1970
+   "sort": 3370
   },
   {
    "id": "F-BF",
@@ -3368,7 +5748,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1980
+   "sort": 3380
   },
   {
    "id": "F-TE",
@@ -3385,7 +5765,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 1990
+   "sort": 3390
   },
   {
    "id": "F-TF",
@@ -3402,7 +5782,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2000
+   "sort": 3400
   },
   {
    "id": "FS-IF-G2",
@@ -3419,7 +5799,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2010
+   "sort": 3410
   },
   {
    "id": "FS-IF-GP",
@@ -3436,7 +5816,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2020
+   "sort": 3420
   },
   {
    "id": "FS-IF-PI",
@@ -3453,7 +5833,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2030
+   "sort": 3430
   },
   {
    "id": "FS-IF-PS",
@@ -3470,7 +5850,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2040
+   "sort": 3440
   },
   {
    "id": "FS-IF-RHO",
@@ -3487,7 +5867,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2050
+   "sort": 3450
   },
   {
    "id": "FS-IF-W",
@@ -3504,7 +5884,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2060
+   "sort": 3460
   },
   {
    "id": "FS-K",
@@ -3521,7 +5901,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2070
+   "sort": 3470
   },
   {
    "id": "FS-K-MAN",
@@ -3538,7 +5918,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2080
+   "sort": 3480
   },
   {
    "id": "FS-K-TAB",
@@ -3555,7 +5935,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2090
+   "sort": 3490
   },
   {
    "id": "FS-MAN-NU",
@@ -3572,7 +5952,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2100
+   "sort": 3500
   },
   {
    "id": "FS-MAN-RHO",
@@ -3589,7 +5969,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2110
+   "sort": 3510
   },
   {
    "id": "FS-MU",
@@ -3606,7 +5986,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2120
+   "sort": 3520
   },
   {
    "id": "FS-MU-0",
@@ -3623,7 +6003,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2130
+   "sort": 3530
   },
   {
    "id": "FS-MU-1",
@@ -3640,7 +6020,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2140
+   "sort": 3540
   },
   {
    "id": "FS-NU",
@@ -3657,7 +6037,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2150
+   "sort": 3550
   },
   {
    "id": "FS-TAB-NU",
@@ -3674,7 +6054,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2160
+   "sort": 3560
   },
   {
    "id": "FS-TAB-RHO",
@@ -3691,7 +6071,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2170
+   "sort": 3570
   },
   {
    "id": "FS-WA-KM",
@@ -3708,7 +6088,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2180
+   "sort": 3580
   },
   {
    "id": "FS-WA-N",
@@ -3725,7 +6105,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2190
+   "sort": 3590
   },
   {
    "id": "FS-WA-NU",
@@ -3742,7 +6122,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2200
+   "sort": 3600
   },
   {
    "id": "G-01-X",
@@ -3759,7 +6139,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2210
+   "sort": 3610
   },
   {
    "id": "G-01-Y",
@@ -3776,7 +6156,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2220
+   "sort": 3620
   },
   {
    "id": "G-01-Z",
@@ -3793,7 +6173,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2230
+   "sort": 3630
   },
   {
    "id": "G-02",
@@ -3810,7 +6190,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2240
+   "sort": 3640
   },
   {
    "id": "G-03",
@@ -3827,7 +6207,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2250
+   "sort": 3650
   },
   {
    "id": "G-04",
@@ -3844,7 +6224,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2260
+   "sort": 3660
   },
   {
    "id": "G-04-N",
@@ -3861,7 +6241,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2270
+   "sort": 3670
   },
   {
    "id": "G-05",
@@ -3878,7 +6258,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2280
+   "sort": 3680
   },
   {
    "id": "G-05-N",
@@ -3895,7 +6275,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2290
+   "sort": 3690
   },
   {
    "id": "G-06-A",
@@ -3912,7 +6292,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2300
+   "sort": 3700
   },
   {
    "id": "G-06-B",
@@ -3929,7 +6309,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2310
+   "sort": 3710
   },
   {
    "id": "G-06-C",
@@ -3946,7 +6326,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2320
+   "sort": 3720
   },
   {
    "id": "G-06-KN",
@@ -3963,7 +6343,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2330
+   "sort": 3730
   },
   {
    "id": "G-06-KP",
@@ -3980,7 +6360,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2340
+   "sort": 3740
   },
   {
    "id": "G-07-K0",
@@ -3997,7 +6377,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2350
+   "sort": 3750
   },
   {
    "id": "G-07-K180",
@@ -4014,7 +6394,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2360
+   "sort": 3760
   },
   {
    "id": "G-07-P",
@@ -4031,7 +6411,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2370
+   "sort": 3770
   },
   {
    "id": "G-07-S",
@@ -4048,7 +6428,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2380
+   "sort": 3780
   },
   {
    "id": "G-07-T",
@@ -4065,7 +6445,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2390
+   "sort": 3790
   },
   {
    "id": "G-08-0",
@@ -4082,7 +6462,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2400
+   "sort": 3800
   },
   {
    "id": "G-08-S",
@@ -4099,7 +6479,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2410
+   "sort": 3810
   },
   {
    "id": "G-08-T",
@@ -4116,7 +6496,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2420
+   "sort": 3820
   },
   {
    "id": "G-08-W",
@@ -4133,7 +6513,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2430
+   "sort": 3830
   },
   {
    "id": "G-09-V",
@@ -4150,7 +6530,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2440
+   "sort": 3840
   },
   {
    "id": "G-09-W",
@@ -4167,7 +6547,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2450
+   "sort": 3850
   },
   {
    "id": "G-09-X",
@@ -4184,7 +6564,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2460
+   "sort": 3860
   },
   {
    "id": "G-09-Y",
@@ -4201,7 +6581,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2470
+   "sort": 3870
   },
   {
    "id": "G-09-Z",
@@ -4218,7 +6598,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2480
+   "sort": 3880
   },
   {
    "id": "G-10-D",
@@ -4235,7 +6615,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2490
+   "sort": 3890
   },
   {
    "id": "G-10-O",
@@ -4252,7 +6632,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2500
+   "sort": 3900
   },
   {
    "id": "G-11-F",
@@ -4269,7 +6649,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2510
+   "sort": 3910
   },
   {
    "id": "G-11-I",
@@ -4286,7 +6666,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2520
+   "sort": 3920
   },
   {
    "id": "G-11-M",
@@ -4303,7 +6683,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2530
+   "sort": 3930
   },
   {
    "id": "G-11-V",
@@ -4320,7 +6700,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2540
+   "sort": 3940
   },
   {
    "id": "G-12",
@@ -4337,7 +6717,7 @@
    "approved_at": "2026-11-01",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2550
+   "sort": 3950
   },
   {
    "id": "G-13",
@@ -4354,7 +6734,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2560
+   "sort": 3960
   },
   {
    "id": "G-13-P",
@@ -4371,7 +6751,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2570
+   "sort": 3970
   },
   {
    "id": "G-13-X",
@@ -4388,7 +6768,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2580
+   "sort": 3980
   },
   {
    "id": "G-13-Z",
@@ -4405,7 +6785,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2590
+   "sort": 3990
   },
   {
    "id": "G-14",
@@ -4422,7 +6802,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2600
+   "sort": 4000
   },
   {
    "id": "G-15",
@@ -4439,7 +6819,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2610
+   "sort": 4010
   },
   {
    "id": "G-15-K",
@@ -4456,7 +6836,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2620
+   "sort": 4020
   },
   {
    "id": "G-15-P",
@@ -4473,7 +6853,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2630
+   "sort": 4030
   },
   {
    "id": "G-16",
@@ -4490,7 +6870,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2640
+   "sort": 4040
   },
   {
    "id": "G-16-N",
@@ -4507,7 +6887,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2650
+   "sort": 4050
   },
   {
    "id": "G-16-P",
@@ -4524,7 +6904,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2660
+   "sort": 4060
   },
   {
    "id": "G-16-R",
@@ -4541,7 +6921,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2670
+   "sort": 4070
   },
   {
    "id": "G-17",
@@ -4558,7 +6938,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2680
+   "sort": 4080
   },
   {
    "id": "G-18",
@@ -4575,7 +6955,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2690
+   "sort": 4090
   },
   {
    "id": "G-19-F",
@@ -4592,7 +6972,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2700
+   "sort": 4100
   },
   {
    "id": "G-19-M",
@@ -4609,7 +6989,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2710
+   "sort": 4110
   },
   {
    "id": "G-19-R",
@@ -4626,7 +7006,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2720
+   "sort": 4120
   },
   {
    "id": "G-19-T",
@@ -4643,7 +7023,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2730
+   "sort": 4130
   },
   {
    "id": "G-20-A",
@@ -4660,7 +7040,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2740
+   "sort": 4140
   },
   {
    "id": "G-20-F",
@@ -4677,7 +7057,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2750
+   "sort": 4150
   },
   {
    "id": "G-20-K",
@@ -4694,7 +7074,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2760
+   "sort": 4160
   },
   {
    "id": "G-20-R",
@@ -4711,7 +7091,7 @@
    "approved_at": "2026-11-07",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2770
+   "sort": 4170
   },
   {
    "id": "G-21",
@@ -4728,7 +7108,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2780
+   "sort": 4180
   },
   {
    "id": "G-21-R",
@@ -4745,7 +7125,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2790
+   "sort": 4190
   },
   {
    "id": "G-22",
@@ -4762,7 +7142,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2800
+   "sort": 4200
   },
   {
    "id": "G-22-R",
@@ -4779,7 +7159,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2810
+   "sort": 4210
   },
   {
    "id": "G-23-G",
@@ -4796,7 +7176,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2820
+   "sort": 4220
   },
   {
    "id": "G-23-P",
@@ -4813,7 +7193,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2830
+   "sort": 4230
   },
   {
    "id": "G-23-R",
@@ -4830,7 +7210,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2840
+   "sort": 4240
   },
   {
    "id": "G-24",
@@ -4847,7 +7227,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2850
+   "sort": 4250
   },
   {
    "id": "G-24-W",
@@ -4864,7 +7244,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2860
+   "sort": 4260
   },
   {
    "id": "G-25-P",
@@ -4881,7 +7261,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2870
+   "sort": 4270
   },
   {
    "id": "G-25-S",
@@ -4898,7 +7278,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2880
+   "sort": 4280
   },
   {
    "id": "G-26",
@@ -4915,7 +7295,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2890
+   "sort": 4290
   },
   {
    "id": "G-27-KM",
@@ -4932,7 +7312,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2900
+   "sort": 4300
   },
   {
    "id": "G-27-MK",
@@ -4949,7 +7329,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2910
+   "sort": 4310
   },
   {
    "id": "K-FK",
@@ -4966,7 +7346,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2920
+   "sort": 4320
   },
   {
    "id": "K-LAM",
@@ -4983,7 +7363,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2930
+   "sort": 4330
   },
   {
    "id": "K-LAMT",
@@ -5000,7 +7380,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2940
+   "sort": 4340
   },
   {
    "id": "K-LK",
@@ -5017,7 +7397,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 2950
+   "sort": 4350
   },
   {
    "id": "K-SKE",
@@ -5034,7 +7414,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2960
+   "sort": 4360
   },
   {
    "id": "K-SKJ",
@@ -5051,7 +7431,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2970
+   "sort": 4370
   },
   {
    "id": "N-FZUL",
@@ -5068,7 +7448,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2980
+   "sort": 4380
   },
   {
    "id": "N-SB",
@@ -5085,7 +7465,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 2990
+   "sort": 4390
   },
   {
    "id": "N-SF",
@@ -5102,7 +7482,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3000
+   "sort": 4400
   },
   {
    "id": "N-SK",
@@ -5119,7 +7499,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3010
+   "sort": 4410
   },
   {
    "id": "N-SV",
@@ -5136,7 +7516,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3020
+   "sort": 4420
   },
   {
    "id": "P-BIS",
@@ -5153,7 +7533,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 3030
+   "sort": 4430
   },
   {
    "id": "P-GEO",
@@ -5170,7 +7550,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 3040
+   "sort": 4440
   },
   {
    "id": "P-KU-B",
@@ -5187,7 +7567,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 3050
+   "sort": 4450
   },
   {
    "id": "P-KU-BI",
@@ -5204,7 +7584,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 3060
+   "sort": 4460
   },
   {
    "id": "P-KU-KS",
@@ -5221,7 +7601,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3070
+   "sort": 4470
   },
   {
    "id": "P-KU-SR",
@@ -5238,7 +7618,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3080
+   "sort": 4480
   },
   {
    "id": "P-KU-ST",
@@ -5255,7 +7635,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3090
+   "sort": 4490
   },
   {
    "id": "P-KU-SV",
@@ -5272,7 +7652,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3100
+   "sort": 4500
   },
   {
    "id": "P-KU-U",
@@ -5289,7 +7669,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3110
+   "sort": 4510
   },
   {
    "id": "P-NA",
@@ -5306,7 +7686,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3120
+   "sort": 4520
   },
   {
    "id": "P-NZ",
@@ -5323,7 +7703,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3130
+   "sort": 4530
   },
   {
    "id": "P-TR",
@@ -5340,7 +7720,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3140
+   "sort": 4540
   },
   {
    "id": "P-ZY-B",
@@ -5357,7 +7737,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3150
+   "sort": 4550
   },
   {
    "id": "P-ZY-BI",
@@ -5374,7 +7754,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3160
+   "sort": 4560
   },
   {
    "id": "P-ZY-KS",
@@ -5391,7 +7771,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3170
+   "sort": 4570
   },
   {
    "id": "P-ZY-SR",
@@ -5408,7 +7788,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3180
+   "sort": 4580
   },
   {
    "id": "P-ZY-ST",
@@ -5425,7 +7805,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3190
+   "sort": 4590
   },
   {
    "id": "P-ZY-SV",
@@ -5442,7 +7822,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3200
+   "sort": 4600
   },
   {
    "id": "P-ZY-SZ",
@@ -5459,7 +7839,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3210
+   "sort": 4610
   },
   {
    "id": "P-ZY-U",
@@ -5476,7 +7856,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3220
+   "sort": 4620
   },
   {
    "id": "PU-AFF-H",
@@ -5493,7 +7873,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3230
+   "sort": 4630
   },
   {
    "id": "PU-AFF-NPSH",
@@ -5510,7 +7890,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3240
+   "sort": 4640
   },
   {
    "id": "PU-AFF-P",
@@ -5527,7 +7907,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3250
+   "sort": 4650
   },
   {
    "id": "PU-AFF-Q",
@@ -5544,7 +7924,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3260
+   "sort": 4660
   },
   {
    "id": "PU-BE",
@@ -5561,7 +7941,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3270
+   "sort": 4670
   },
   {
    "id": "PU-BP",
@@ -5578,7 +7958,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3280
+   "sort": 4680
   },
   {
    "id": "PU-FIT-ETA",
@@ -5595,7 +7975,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3290
+   "sort": 4690
   },
   {
    "id": "PU-FIT-H",
@@ -5612,7 +7992,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3300
+   "sort": 4700
   },
   {
    "id": "PU-FIT-NPSH",
@@ -5629,7 +8009,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3310
+   "sort": 4710
   },
   {
    "id": "PU-FIT-R2",
@@ -5646,7 +8026,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3320
+   "sort": 4720
   },
   {
    "id": "PU-HA",
@@ -5663,7 +8043,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3330
+   "sort": 4730
   },
   {
    "id": "PU-N-AFF",
@@ -5680,7 +8060,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3340
+   "sort": 4740
   },
   {
    "id": "PU-N-BER",
@@ -5697,7 +8077,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3350
+   "sort": 4750
   },
   {
    "id": "PU-N-BIS",
@@ -5714,7 +8094,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3360
+   "sort": 4760
   },
   {
    "id": "PU-N-NPSH",
@@ -5731,7 +8111,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3370
+   "sort": 4770
   },
   {
    "id": "PU-NPSHA",
@@ -5748,7 +8128,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3380
+   "sort": 4780
   },
   {
    "id": "PU-NQ",
@@ -5765,7 +8145,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3390
+   "sort": 4790
   },
   {
    "id": "PU-P",
@@ -5782,7 +8162,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3400
+   "sort": 4800
   },
   {
    "id": "PU-PU",
@@ -5799,7 +8179,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3410
+   "sort": 4810
   },
   {
    "id": "PU-RES",
@@ -5816,7 +8196,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3420
+   "sort": 4820
   },
   {
    "id": "PV-AF",
@@ -5833,7 +8213,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3430
+   "sort": 4830
   },
   {
    "id": "PV-DAA",
@@ -5850,7 +8230,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3440
+   "sort": 4840
   },
   {
    "id": "PV-EP-P",
@@ -5867,7 +8247,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3450
+   "sort": 4850
   },
   {
    "id": "PV-EP-PPA",
@@ -5884,7 +8264,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3460
+   "sort": 4860
   },
   {
    "id": "PV-EP-PPI",
@@ -5901,7 +8281,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3470
+   "sort": 4870
   },
   {
    "id": "PV-EP-QPA",
@@ -5918,7 +8298,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3480
+   "sort": 4880
   },
   {
    "id": "PV-EP-XI",
@@ -5935,7 +8315,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3490
+   "sort": 4890
   },
   {
    "id": "PV-EP-ZETA",
@@ -5952,7 +8332,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3500
+   "sort": 4900
   },
   {
    "id": "PV-EP-ZU",
@@ -5969,7 +8349,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3510
+   "sort": 4910
   },
   {
    "id": "PV-EP-ZZUL",
@@ -5986,7 +8366,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3520
+   "sort": 4920
   },
   {
    "id": "PV-FAX",
@@ -6003,7 +8383,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3530
+   "sort": 4930
   },
   {
    "id": "PV-FE",
@@ -6020,7 +8400,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3540
+   "sort": 4940
   },
   {
    "id": "PV-FIT-H",
@@ -6037,7 +8417,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3550
+   "sort": 4950
   },
   {
    "id": "PV-FIT-SEL",
@@ -6054,7 +8434,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3560
+   "sort": 4960
   },
   {
    "id": "PV-FIT-W",
@@ -6071,7 +8451,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3570
+   "sort": 4970
   },
   {
    "id": "PV-FL-NG",
@@ -6088,7 +8468,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3580
+   "sort": 4980
   },
   {
    "id": "PV-FL-PN",
@@ -6105,7 +8485,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3590
+   "sort": 4990
   },
   {
    "id": "PV-FL-TN",
@@ -6122,7 +8502,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3600
+   "sort": 5000
   },
   {
    "id": "PV-FL-U",
@@ -6139,7 +8519,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3610
+   "sort": 5010
   },
   {
    "id": "PV-FL-UAB",
@@ -6156,7 +8536,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3620
+   "sort": 5020
   },
   {
    "id": "PV-FRES",
@@ -6173,7 +8553,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3630
+   "sort": 5030
   },
   {
    "id": "PV-FT",
@@ -6190,7 +8570,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3640
+   "sort": 5040
   },
   {
    "id": "PV-GL",
@@ -6207,7 +8587,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3650
+   "sort": 5050
   },
   {
    "id": "PV-K",
@@ -6224,7 +8604,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3660
+   "sort": 5060
   },
   {
    "id": "PV-LE",
@@ -6241,7 +8621,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3670
+   "sort": 5070
   },
   {
    "id": "PV-N-ELAST",
@@ -6258,7 +8638,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3680
+   "sort": 5080
   },
   {
    "id": "PV-N-EP",
@@ -6275,7 +8655,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3690
+   "sort": 5090
   },
   {
    "id": "PV-N-FL",
@@ -6292,7 +8672,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3700
+   "sort": 5100
   },
   {
    "id": "PV-N-FL10",
@@ -6309,7 +8689,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3710
+   "sort": 5110
   },
   {
    "id": "PV-N-GEO",
@@ -6326,7 +8706,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3720
+   "sort": 5120
   },
   {
    "id": "PV-N-PASS",
@@ -6343,7 +8723,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3730
+   "sort": 5130
   },
   {
    "id": "PV-N-SPA",
@@ -6360,7 +8740,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3740
+   "sort": 5140
   },
   {
    "id": "PV-N-SPI",
@@ -6377,7 +8757,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3750
+   "sort": 5150
   },
   {
    "id": "PV-N-SR",
@@ -6394,7 +8774,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3760
+   "sort": 5160
   },
   {
    "id": "PV-N-TA",
@@ -6411,7 +8791,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3770
+   "sort": 5170
   },
   {
    "id": "PV-N-VERF",
@@ -6428,7 +8808,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3780
+   "sort": 5180
   },
   {
    "id": "PV-P",
@@ -6445,7 +8825,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3790
+   "sort": 5190
   },
   {
    "id": "PV-PERF",
@@ -6462,7 +8842,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3800
+   "sort": 5200
   },
   {
    "id": "PV-PT",
@@ -6479,7 +8859,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3810
+   "sort": 5210
   },
   {
    "id": "PV-PZA",
@@ -6496,7 +8876,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3820
+   "sort": 5220
   },
   {
    "id": "PV-PZI-H",
@@ -6513,7 +8893,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3830
+   "sort": 5230
   },
   {
    "id": "PV-PZI-V",
@@ -6530,7 +8910,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3840
+   "sort": 5240
   },
   {
    "id": "PV-QA",
@@ -6547,7 +8927,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3850
+   "sort": 5250
   },
   {
    "id": "PV-QI",
@@ -6564,7 +8944,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3860
+   "sort": 5260
   },
   {
    "id": "PV-RZ",
@@ -6581,7 +8961,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3870
+   "sort": 5270
   },
   {
    "id": "PV-S-TAA",
@@ -6598,7 +8978,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3880
+   "sort": 5280
   },
   {
    "id": "PV-S-TAI",
@@ -6615,7 +8995,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3890
+   "sort": 5290
   },
   {
    "id": "PV-S-TIA",
@@ -6632,7 +9012,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3900
+   "sort": 5300
   },
   {
    "id": "PV-S-TII",
@@ -6649,7 +9029,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3910
+   "sort": 5310
   },
   {
    "id": "PV-S-VA",
@@ -6666,7 +9046,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3920
+   "sort": 5320
   },
   {
    "id": "PV-S-VI",
@@ -6683,7 +9063,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3930
+   "sort": 5330
   },
   {
    "id": "PV-SPA",
@@ -6700,7 +9080,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3940
+   "sort": 5340
   },
   {
    "id": "PV-SPI",
@@ -6717,7 +9097,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3950
+   "sort": 5350
   },
   {
    "id": "PV-SR",
@@ -6734,7 +9114,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3960
+   "sort": 5360
   },
   {
    "id": "PV-T",
@@ -6751,7 +9131,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3970
+   "sort": 5370
   },
   {
    "id": "PV-TA",
@@ -6768,7 +9148,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3980
+   "sort": 5380
   },
   {
    "id": "PV-U-MAN",
@@ -6785,7 +9165,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 3990
+   "sort": 5390
   },
   {
    "id": "PV-UF",
@@ -6802,7 +9182,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4000
+   "sort": 5400
   },
   {
    "id": "PV-UG",
@@ -6819,7 +9199,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4010
+   "sort": 5410
   },
   {
    "id": "PV-UK",
@@ -6836,7 +9216,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4020
+   "sort": 5420
   },
   {
    "id": "PV-UMAX",
@@ -6853,7 +9233,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4030
+   "sort": 5430
   },
   {
    "id": "PV-UO",
@@ -6870,7 +9250,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4040
+   "sort": 5440
   },
   {
    "id": "PV-US",
@@ -6887,7 +9267,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4050
+   "sort": 5450
   },
   {
    "id": "PV-UU",
@@ -6904,7 +9284,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4060
+   "sort": 5460
   },
   {
    "id": "PV-UW",
@@ -6921,7 +9301,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4070
+   "sort": 5470
   },
   {
    "id": "PV-XI",
@@ -6938,7 +9318,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4080
+   "sort": 5480
   },
   {
    "id": "PV-XIERF",
@@ -6955,7 +9335,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4090
+   "sort": 5490
   },
   {
    "id": "Q-DH-A",
@@ -6972,7 +9352,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4100
+   "sort": 5500
   },
   {
    "id": "Q-DH-ai",
@@ -6989,7 +9369,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4110
+   "sort": 5510
   },
   {
    "id": "Q-DH-I",
@@ -7006,7 +9386,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4120
+   "sort": 5520
   },
   {
    "id": "Q-DH-K",
@@ -7023,7 +9403,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4130
+   "sort": 5530
   },
   {
    "id": "Q-DH-W",
@@ -7040,7 +9420,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4140
+   "sort": 5540
   },
   {
    "id": "Q-DH-WT",
@@ -7057,7 +9437,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4150
+   "sort": 5550
   },
   {
    "id": "Q-DV-A",
@@ -7074,7 +9454,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4160
+   "sort": 5560
   },
   {
    "id": "Q-DV-e",
@@ -7091,7 +9471,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4170
+   "sort": 5570
   },
   {
    "id": "Q-DV-I",
@@ -7108,7 +9488,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4180
+   "sort": 5580
   },
   {
    "id": "Q-DV-K",
@@ -7125,7 +9505,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4190
+   "sort": 5590
   },
   {
    "id": "Q-DV-W",
@@ -7142,7 +9522,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4200
+   "sort": 5600
   },
   {
    "id": "Q-DV-WT",
@@ -7159,7 +9539,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4210
+   "sort": 5610
   },
   {
    "id": "Q-i",
@@ -7176,7 +9556,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4220
+   "sort": 5620
   },
   {
    "id": "Q-IP-A",
@@ -7193,7 +9573,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4230
+   "sort": 5630
   },
   {
    "id": "Q-IP-IY",
@@ -7210,7 +9590,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4240
+   "sort": 5640
   },
   {
    "id": "Q-IP-IZ",
@@ -7227,7 +9607,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4250
+   "sort": 5650
   },
   {
    "id": "Q-IP-K",
@@ -7244,7 +9624,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4260
+   "sort": 5660
   },
   {
    "id": "Q-IP-KA",
@@ -7261,7 +9641,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4270
+   "sort": 5670
   },
   {
    "id": "Q-IP-KAZ",
@@ -7278,7 +9658,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4280
+   "sort": 5680
   },
   {
    "id": "Q-IP-S",
@@ -7295,7 +9675,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4290
+   "sort": 5690
   },
   {
    "id": "Q-IP-SZ",
@@ -7312,7 +9692,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4300
+   "sort": 5700
   },
   {
    "id": "Q-IP-W",
@@ -7329,7 +9709,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4310
+   "sort": 5710
   },
   {
    "id": "Q-IP-WT",
@@ -7346,7 +9726,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4320
+   "sort": 5720
   },
   {
    "id": "Q-IP-WZ",
@@ -7363,7 +9743,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4330
+   "sort": 5730
   },
   {
    "id": "Q-LP-A",
@@ -7380,7 +9760,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4340
+   "sort": 5740
   },
   {
    "id": "Q-LP-AL",
@@ -7397,7 +9777,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4350
+   "sort": 5750
   },
   {
    "id": "Q-LP-I1",
@@ -7414,7 +9794,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4360
+   "sort": 5760
   },
   {
    "id": "Q-LP-I2",
@@ -7431,7 +9811,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4370
+   "sort": 5770
   },
   {
    "id": "Q-LP-IY",
@@ -7448,7 +9828,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4380
+   "sort": 5780
   },
   {
    "id": "Q-LP-IYZ",
@@ -7465,7 +9845,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4390
+   "sort": 5790
   },
   {
    "id": "Q-LP-IZ",
@@ -7482,7 +9862,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4400
+   "sort": 5800
   },
   {
    "id": "Q-LP-K",
@@ -7499,7 +9879,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4410
+   "sort": 5810
   },
   {
    "id": "Q-LP-KA",
@@ -7516,7 +9896,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4420
+   "sort": 5820
   },
   {
    "id": "Q-LP-S",
@@ -7533,7 +9913,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4430
+   "sort": 5830
   },
   {
    "id": "Q-LP-W",
@@ -7550,7 +9930,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4440
+   "sort": 5840
   },
   {
    "id": "Q-LP-WT",
@@ -7567,7 +9947,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4450
+   "sort": 5850
   },
   {
    "id": "Q-LP-YS",
@@ -7584,7 +9964,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4460
+   "sort": 5860
   },
   {
    "id": "Q-LP-ZS",
@@ -7601,7 +9981,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4470
+   "sort": 5870
   },
   {
    "id": "Q-m",
@@ -7618,7 +9998,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4480
+   "sort": 5880
   },
   {
    "id": "Q-RE-A",
@@ -7635,7 +10015,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4490
+   "sort": 5890
   },
   {
    "id": "Q-RE-I",
@@ -7652,7 +10032,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4500
+   "sort": 5900
   },
   {
    "id": "Q-RE-K",
@@ -7669,7 +10049,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4510
+   "sort": 5910
   },
   {
    "id": "Q-RE-W",
@@ -7686,7 +10066,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4520
+   "sort": 5920
   },
   {
    "id": "Q-RE-WT",
@@ -7703,7 +10083,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4530
+   "sort": 5930
   },
   {
    "id": "Q-RH-A",
@@ -7720,7 +10100,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4540
+   "sort": 5940
   },
   {
    "id": "Q-RH-d",
@@ -7737,7 +10117,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4550
+   "sort": 5950
   },
   {
    "id": "Q-RH-I",
@@ -7754,7 +10134,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4560
+   "sort": 5960
   },
   {
    "id": "Q-RH-K",
@@ -7771,7 +10151,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4570
+   "sort": 5970
   },
   {
    "id": "Q-RH-W",
@@ -7788,7 +10168,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4580
+   "sort": 5980
   },
   {
    "id": "Q-RH-WT",
@@ -7805,7 +10185,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4590
+   "sort": 5990
   },
   {
    "id": "Q-RR-A",
@@ -7822,7 +10202,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4600
+   "sort": 6000
   },
   {
    "id": "Q-RR-AM",
@@ -7839,7 +10219,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4610
+   "sort": 6010
   },
   {
    "id": "Q-RR-I",
@@ -7856,7 +10236,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4620
+   "sort": 6020
   },
   {
    "id": "Q-RR-K",
@@ -7873,7 +10253,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4630
+   "sort": 6030
   },
   {
    "id": "Q-RR-W",
@@ -7890,7 +10270,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4640
+   "sort": 6040
   },
   {
    "id": "Q-RR-WT",
@@ -7907,7 +10287,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4650
+   "sort": 6050
   },
   {
    "id": "Q-RV-A",
@@ -7924,7 +10304,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4660
+   "sort": 6060
   },
   {
    "id": "Q-RV-I",
@@ -7941,7 +10321,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4670
+   "sort": 6070
   },
   {
    "id": "Q-RV-K",
@@ -7958,7 +10338,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4680
+   "sort": 6080
   },
   {
    "id": "Q-RV-W",
@@ -7975,7 +10355,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4690
+   "sort": 6090
   },
   {
    "id": "Q-RV-WT",
@@ -7992,7 +10372,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4700
+   "sort": 6100
   },
   {
    "id": "Q-SIGO",
@@ -8009,7 +10389,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4710
+   "sort": 6110
   },
   {
    "id": "Q-SIGU",
@@ -8026,7 +10406,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4720
+   "sort": 6120
   },
   {
    "id": "Q-TP-A",
@@ -8043,7 +10423,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4730
+   "sort": 6130
   },
   {
    "id": "Q-TP-IY",
@@ -8060,7 +10440,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4740
+   "sort": 6140
   },
   {
    "id": "Q-TP-IZ",
@@ -8077,7 +10457,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4750
+   "sort": 6150
   },
   {
    "id": "Q-TP-K",
@@ -8094,7 +10474,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4760
+   "sort": 6160
   },
   {
    "id": "Q-TP-KA",
@@ -8111,7 +10491,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4770
+   "sort": 6170
   },
   {
    "id": "Q-TP-S",
@@ -8128,7 +10508,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4780
+   "sort": 6180
   },
   {
    "id": "Q-TP-W",
@@ -8145,7 +10525,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4790
+   "sort": 6190
   },
   {
    "id": "Q-TP-WT",
@@ -8162,7 +10542,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4800
+   "sort": 6200
   },
   {
    "id": "Q-TP-ZS",
@@ -8179,7 +10559,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4810
+   "sort": 6210
   },
   {
    "id": "Q-UP-A",
@@ -8196,7 +10576,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4820
+   "sort": 6220
   },
   {
    "id": "Q-UP-EM",
@@ -8213,7 +10593,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4830
+   "sort": 6230
   },
   {
    "id": "Q-UP-IY",
@@ -8230,7 +10610,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4840
+   "sort": 6240
   },
   {
    "id": "Q-UP-IZ",
@@ -8247,7 +10627,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4850
+   "sort": 6250
   },
   {
    "id": "Q-UP-K",
@@ -8264,7 +10644,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4860
+   "sort": 6260
   },
   {
    "id": "Q-UP-KA",
@@ -8281,7 +10661,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4870
+   "sort": 6270
   },
   {
    "id": "Q-UP-KAZ",
@@ -8298,7 +10678,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4880
+   "sort": 6280
   },
   {
    "id": "Q-UP-S",
@@ -8315,7 +10695,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4890
+   "sort": 6290
   },
   {
    "id": "Q-UP-SZ",
@@ -8332,7 +10712,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4900
+   "sort": 6300
   },
   {
    "id": "Q-UP-W",
@@ -8349,7 +10729,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4910
+   "sort": 6310
   },
   {
    "id": "Q-UP-WT",
@@ -8366,7 +10746,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4920
+   "sort": 6320
   },
   {
    "id": "Q-UP-WZ",
@@ -8383,7 +10763,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4930
+   "sort": 6330
   },
   {
    "id": "Q-UP-YS",
@@ -8400,7 +10780,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 4940
+   "sort": 6340
   },
   {
    "id": "RH-A",
@@ -8417,7 +10797,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4950
+   "sort": 6350
   },
   {
    "id": "RH-A-RE",
@@ -8434,7 +10814,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4960
+   "sort": 6360
   },
   {
    "id": "RH-A-RI",
@@ -8451,7 +10831,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4970
+   "sort": 6370
   },
   {
    "id": "RH-AU-MAN",
@@ -8468,7 +10848,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4980
+   "sort": 6380
   },
   {
    "id": "RH-BE",
@@ -8485,7 +10865,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4990
+   "sort": 6390
   },
   {
    "id": "RH-D-BIS",
@@ -8502,7 +10882,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5000
+   "sort": 6400
   },
   {
    "id": "RH-D-DN",
@@ -8519,7 +10899,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5010
+   "sort": 6410
   },
   {
    "id": "RH-DH",
@@ -8536,7 +10916,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5020
+   "sort": 6420
   },
   {
    "id": "RH-DI",
@@ -8553,7 +10933,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5030
+   "sort": 6430
   },
   {
    "id": "RH-DP-ERF",
@@ -8570,7 +10950,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5040
+   "sort": 6440
   },
   {
    "id": "RH-DP-GEO",
@@ -8587,7 +10967,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5050
+   "sort": 6450
   },
   {
    "id": "RH-DP-R",
@@ -8604,7 +10984,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5060
+   "sort": 6460
   },
   {
    "id": "RH-DP-V",
@@ -8621,7 +11001,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5070
+   "sort": 6470
   },
   {
    "id": "RH-DP-Z",
@@ -8638,7 +11018,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5080
+   "sort": 6480
   },
   {
    "id": "RH-DS-AH",
@@ -8655,7 +11035,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5090
+   "sort": 6490
   },
   {
    "id": "RH-DS-AK",
@@ -8672,7 +11052,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5100
+   "sort": 6500
   },
   {
    "id": "RH-DS-AR",
@@ -8689,7 +11069,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5110
+   "sort": 6510
   },
   {
    "id": "RH-DS-AW",
@@ -8706,7 +11086,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5120
+   "sort": 6520
   },
   {
    "id": "RH-DS-J",
@@ -8723,7 +11103,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5130
+   "sort": 6530
   },
   {
    "id": "RH-DS-L",
@@ -8740,7 +11120,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5140
+   "sort": 6540
   },
   {
    "id": "RH-DS-N",
@@ -8757,7 +11137,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5150
+   "sort": 6550
   },
   {
    "id": "RH-DS-P",
@@ -8774,7 +11154,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5160
+   "sort": 6560
   },
   {
    "id": "RH-DS-PSI-D",
@@ -8791,7 +11171,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5170
+   "sort": 6570
   },
   {
    "id": "RH-DS-PSI-K",
@@ -8808,7 +11188,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5180
+   "sort": 6580
   },
   {
    "id": "RH-DS-TR",
@@ -8825,7 +11205,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5190
+   "sort": 6590
   },
   {
    "id": "RH-EPS",
@@ -8842,7 +11222,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5200
+   "sort": 6600
   },
   {
    "id": "RH-H-E",
@@ -8859,7 +11239,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5210
+   "sort": 6610
   },
   {
    "id": "RH-H-P",
@@ -8876,7 +11256,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5220
+   "sort": 6620
   },
   {
    "id": "RH-H-PG",
@@ -8893,7 +11273,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5230
+   "sort": 6630
   },
   {
    "id": "RH-HV",
@@ -8910,7 +11290,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5240
+   "sort": 6640
   },
   {
    "id": "RH-K",
@@ -8927,7 +11307,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5250
+   "sort": 6650
   },
   {
    "id": "RH-L-CB",
@@ -8944,7 +11324,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5260
+   "sort": 6660
   },
   {
    "id": "RH-L-EX",
@@ -8961,7 +11341,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5270
+   "sort": 6670
   },
   {
    "id": "RH-L-LAM",
@@ -8978,7 +11358,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5280
+   "sort": 6680
   },
   {
    "id": "RH-L-LAM-PHI",
@@ -8995,7 +11375,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5290
+   "sort": 6690
   },
   {
    "id": "RH-M-BETA",
@@ -9012,7 +11392,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5300
+   "sort": 6700
   },
   {
    "id": "RH-M-CB",
@@ -9029,7 +11409,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5310
+   "sort": 6710
   },
   {
    "id": "RH-M-CV",
@@ -9046,7 +11426,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5320
+   "sort": 6720
   },
   {
    "id": "RH-M-DP",
@@ -9063,7 +11443,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5330
+   "sort": 6730
   },
   {
    "id": "RH-M-DW",
@@ -9080,7 +11460,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5340
+   "sort": 6740
   },
   {
    "id": "RH-M-DWV",
@@ -9097,7 +11477,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5350
+   "sort": 6750
   },
   {
    "id": "RH-M-N",
@@ -9114,7 +11494,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5360
+   "sort": 6760
   },
   {
    "id": "RH-M-Q",
@@ -9131,7 +11511,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5370
+   "sort": 6770
   },
   {
    "id": "RH-M-QIT",
@@ -9148,7 +11528,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5380
+   "sort": 6780
   },
   {
    "id": "RH-M-ZETA",
@@ -9165,7 +11545,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5390
+   "sort": 6790
   },
   {
    "id": "RH-N-KAV",
@@ -9182,7 +11562,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5400
+   "sort": 6800
   },
   {
    "id": "RH-N-RE",
@@ -9199,7 +11579,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5410
+   "sort": 6810
   },
   {
    "id": "RH-N-V",
@@ -9216,7 +11596,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5420
+   "sort": 6820
   },
   {
    "id": "RH-P-HYD",
@@ -9233,7 +11613,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5430
+   "sort": 6830
   },
   {
    "id": "RH-P-W",
@@ -9250,7 +11630,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5440
+   "sort": 6840
   },
   {
    "id": "RH-PHI",
@@ -9267,7 +11647,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5450
+   "sort": 6850
   },
   {
    "id": "RH-Q-BIS",
@@ -9284,7 +11664,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5460
+   "sort": 6860
   },
   {
    "id": "RH-RE",
@@ -9301,7 +11681,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5470
+   "sort": 6870
   },
   {
    "id": "RH-U-RE",
@@ -9318,7 +11698,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5480
+   "sort": 6880
   },
   {
    "id": "RH-U-RI",
@@ -9335,7 +11715,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5490
+   "sort": 6890
   },
   {
    "id": "RH-V",
@@ -9352,7 +11732,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5500
+   "sort": 6900
   },
   {
    "id": "RH-Z-BC",
@@ -9369,7 +11749,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5510
+   "sort": 6910
   },
   {
    "id": "RH-Z-IP",
@@ -9386,7 +11766,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5520
+   "sort": 6920
   },
   {
    "id": "RH-Z-MAN",
@@ -9403,7 +11783,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5530
+   "sort": 6930
   },
   {
    "id": "RH-Z-TAB",
@@ -9420,7 +11800,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5540
+   "sort": 6940
   },
   {
    "id": "SV-A3",
@@ -9437,7 +11817,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5550
+   "sort": 6950
   },
   {
    "id": "SV-AN",
@@ -9454,7 +11834,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5560
+   "sort": 6960
   },
   {
    "id": "SV-AP",
@@ -9471,7 +11851,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5570
+   "sort": 6970
   },
   {
    "id": "SV-AS",
@@ -9488,7 +11868,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5580
+   "sort": 6980
   },
   {
    "id": "SV-ASMIN",
@@ -9505,7 +11885,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5590
+   "sort": 6990
   },
   {
    "id": "SV-AT",
@@ -9522,7 +11902,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5600
+   "sort": 7000
   },
   {
    "id": "SV-DAGR",
@@ -9539,7 +11919,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5610
+   "sort": 7010
   },
   {
    "id": "SV-DG",
@@ -9556,7 +11936,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5620
+   "sort": 7020
   },
   {
    "id": "SV-DGEW",
@@ -9573,7 +11953,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5630
+   "sort": 7030
   },
   {
    "id": "SV-DI",
@@ -9590,7 +11970,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5640
+   "sort": 7040
   },
   {
    "id": "SV-DKM",
@@ -9607,7 +11987,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5650
+   "sort": 7050
   },
   {
    "id": "SV-DM",
@@ -9624,7 +12004,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5660
+   "sort": 7060
   },
   {
    "id": "SV-DP-H",
@@ -9641,7 +12021,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5670
+   "sort": 7070
   },
   {
    "id": "SV-DP-HZ",
@@ -9658,7 +12038,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5680
+   "sort": 7080
   },
   {
    "id": "SV-DP-K",
@@ -9675,7 +12055,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5690
+   "sort": 7090
   },
   {
    "id": "SV-DP-KH",
@@ -9692,7 +12072,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5700
+   "sort": 7100
   },
   {
    "id": "SV-DP-T",
@@ -9709,7 +12089,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5710
+   "sort": 7110
   },
   {
    "id": "SV-DS",
@@ -9726,7 +12106,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5720
+   "sort": 7120
   },
   {
    "id": "SV-DS0",
@@ -9743,7 +12123,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5730
+   "sort": 7130
   },
   {
    "id": "SV-DSK",
@@ -9760,7 +12140,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5740
+   "sort": 7140
   },
   {
    "id": "SV-FAM",
@@ -9777,7 +12157,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5750
+   "sort": 7150
   },
   {
    "id": "SV-FBS01",
@@ -9794,7 +12174,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5760
+   "sort": 7160
   },
   {
    "id": "SV-FKERF",
@@ -9811,7 +12191,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5770
+   "sort": 7170
   },
   {
    "id": "SV-FKP",
@@ -9828,7 +12208,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5780
+   "sort": 7180
   },
   {
    "id": "SV-FKQ",
@@ -9845,7 +12225,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5790
+   "sort": 7190
   },
   {
    "id": "SV-FKR",
@@ -9862,7 +12242,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5800
+   "sort": 7200
   },
   {
    "id": "SV-FMMAX",
@@ -9879,7 +12259,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5810
+   "sort": 7210
   },
   {
    "id": "SV-FMMIN",
@@ -9896,7 +12276,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5820
+   "sort": 7220
   },
   {
    "id": "SV-FMZUL",
@@ -9913,7 +12293,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5830
+   "sort": 7230
   },
   {
    "id": "SV-FPA",
@@ -9930,7 +12310,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5840
+   "sort": 7240
   },
   {
    "id": "SV-FQT",
@@ -9947,7 +12327,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5850
+   "sort": 7250
   },
   {
    "id": "SV-FSA",
@@ -9964,7 +12344,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5860
+   "sort": 7260
   },
   {
    "id": "SV-FSMAX",
@@ -9981,7 +12361,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5870
+   "sort": 7270
   },
   {
    "id": "SV-FVMIN",
@@ -9998,7 +12378,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5880
+   "sort": 7280
   },
   {
    "id": "SV-FZ",
@@ -10015,7 +12395,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5890
+   "sort": 7290
   },
   {
    "id": "SV-FZSUM",
@@ -10032,7 +12412,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5900
+   "sort": 7300
   },
   {
    "id": "SV-KEF",
@@ -10049,7 +12429,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5910
+   "sort": 7310
   },
   {
    "id": "SV-LE",
@@ -10066,7 +12446,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5920
+   "sort": 7320
   },
   {
    "id": "SV-LGEW",
@@ -10083,7 +12463,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5930
+   "sort": 7330
   },
   {
    "id": "SV-LK",
@@ -10100,7 +12480,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5940
+   "sort": 7340
   },
   {
    "id": "SV-MA",
@@ -10117,7 +12497,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5950
+   "sort": 7350
   },
   {
    "id": "SV-MA-EX",
@@ -10134,7 +12514,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5960
+   "sort": 7360
   },
   {
    "id": "SV-MG",
@@ -10151,7 +12531,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5970
+   "sort": 7370
   },
   {
    "id": "SV-ML",
@@ -10168,7 +12548,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5980
+   "sort": 7380
   },
   {
    "id": "SV-MLI",
@@ -10185,7 +12565,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5990
+   "sort": 7390
   },
   {
    "id": "SV-MVORH",
@@ -10202,7 +12582,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6000
+   "sort": 7400
   },
   {
    "id": "SV-N-FBS",
@@ -10219,7 +12599,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6010
+   "sort": 7410
   },
   {
    "id": "SV-N-FM",
@@ -10236,7 +12616,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6020
+   "sort": 7420
   },
   {
    "id": "SV-N-GEO",
@@ -10253,7 +12633,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6030
+   "sort": 7430
   },
   {
    "id": "SV-N-GUELT",
@@ -10270,7 +12650,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6040
+   "sort": 7440
   },
   {
    "id": "SV-N-KR",
@@ -10287,7 +12667,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6050
+   "sort": 7450
   },
   {
    "id": "SV-N-LE",
@@ -10304,7 +12684,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6060
+   "sort": 7460
   },
   {
    "id": "SV-N-P",
@@ -10321,7 +12701,7 @@
    "approved_at": "2026-11-10",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6070
+   "sort": 7470
   },
   {
    "id": "SV-N-SA",
@@ -10338,7 +12718,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6080
+   "sort": 7480
   },
   {
    "id": "SV-N-SD",
@@ -10355,7 +12735,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6090
+   "sort": 7490
   },
   {
    "id": "SV-N-SF",
@@ -10372,7 +12752,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6100
+   "sort": 7500
   },
   {
    "id": "SV-N-SG",
@@ -10389,7 +12769,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6110
+   "sort": 7510
   },
   {
    "id": "SV-NV",
@@ -10406,7 +12786,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6120
+   "sort": 7520
   },
   {
    "id": "SV-OPT-A24",
@@ -10423,7 +12803,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6130
+   "sort": 7530
   },
   {
    "id": "SV-OPT-FEIN",
@@ -10440,7 +12820,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6140
+   "sort": 7540
   },
   {
    "id": "SV-OPT-FL",
@@ -10457,7 +12837,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6150
+   "sort": 7550
   },
   {
    "id": "SV-OPT-SAZ",
@@ -10474,7 +12854,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6160
+   "sort": 7560
   },
   {
    "id": "SV-OPT-VTH",
@@ -10491,7 +12871,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6170
+   "sort": 7570
   },
   {
    "id": "SV-PB",
@@ -10508,7 +12888,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6180
+   "sort": 7580
   },
   {
    "id": "SV-PHI",
@@ -10525,7 +12905,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6190
+   "sort": 7590
   },
   {
    "id": "SV-PHIK",
@@ -10542,7 +12922,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6200
+   "sort": 7600
   },
   {
    "id": "SV-PHIN",
@@ -10559,7 +12939,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6210
+   "sort": 7610
   },
   {
    "id": "SV-PM",
@@ -10576,7 +12956,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6220
+   "sort": 7620
   },
   {
    "id": "SV-PSG",
@@ -10593,7 +12973,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6230
+   "sort": 7630
   },
   {
    "id": "SV-SA",
@@ -10610,7 +12990,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6240
+   "sort": 7640
   },
   {
    "id": "SV-SAB",
@@ -10627,7 +13007,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6250
+   "sort": 7650
   },
   {
    "id": "SV-SASG",
@@ -10644,7 +13024,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6260
+   "sort": 7660
   },
   {
    "id": "SV-SASV",
@@ -10661,7 +13041,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6270
+   "sort": 7670
   },
   {
    "id": "SV-SD",
@@ -10678,7 +13058,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6280
+   "sort": 7680
   },
   {
    "id": "SV-SF",
@@ -10695,7 +13075,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6290
+   "sort": 7690
   },
   {
    "id": "SV-SG",
@@ -10712,7 +13092,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6300
+   "sort": 7700
   },
   {
    "id": "SV-SP",
@@ -10729,7 +13109,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6310
+   "sort": 7710
   },
   {
    "id": "SV-SREDB",
@@ -10746,7 +13126,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6320
+   "sort": 7720
   },
   {
    "id": "SV-SREDM",
@@ -10763,7 +13143,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6330
+   "sort": 7730
   },
   {
    "id": "SV-SZMAX",
@@ -10780,7 +13160,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6340
+   "sort": 7740
   },
   {
    "id": "SV-TANPHI",
@@ -10797,7 +13177,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6350
+   "sort": 7750
   },
   {
    "id": "SV-TAU",
@@ -10814,7 +13194,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6360
+   "sort": 7760
   },
   {
    "id": "SV-TAUQ",
@@ -10831,7 +13211,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6370
+   "sort": 7770
   },
   {
    "id": "SV-WAHL",
@@ -10848,7 +13228,7 @@
    "approved_at": "2026-11-10",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6380
+   "sort": 7780
   },
   {
    "id": "SV-WP",
@@ -10865,7 +13245,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6390
+   "sort": 7790
   },
   {
    "id": "T-PHI1",
@@ -10882,7 +13262,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6400
+   "sort": 7800
   },
   {
    "id": "T-PHI2",
@@ -10899,7 +13279,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6410
+   "sort": 7810
   },
   {
    "id": "T-TA",
@@ -10916,7 +13296,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6420
+   "sort": 7820
   },
   {
    "id": "T-TAU",
@@ -10933,7 +13313,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6430
+   "sort": 7830
   },
   {
    "id": "V-B",
@@ -10950,7 +13330,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6440
+   "sort": 7840
   },
   {
    "id": "V-BL",
@@ -10967,7 +13347,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6450
+   "sort": 7850
   },
   {
    "id": "V-CK-EE",
@@ -10984,7 +13364,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6460
+   "sort": 7860
   },
   {
    "id": "V-CK-EG",
@@ -11001,7 +13381,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6470
+   "sort": 7870
   },
   {
    "id": "V-CK-GG",
@@ -11018,7 +13398,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6480
+   "sort": 7880
   },
   {
    "id": "V-CK-KR",
@@ -11035,7 +13415,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6490
+   "sort": 7890
   },
   {
    "id": "V-EI",
@@ -11052,7 +13432,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6500
+   "sort": 7900
   },
   {
    "id": "V-EW",
@@ -11069,7 +13449,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6510
+   "sort": 7910
   },
   {
    "id": "V-FN",
@@ -11086,7 +13466,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6520
+   "sort": 7920
   },
   {
    "id": "V-MB",
@@ -11103,7 +13483,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 6530
+   "sort": 7930
   },
   {
    "id": "V-NR",
@@ -11120,7 +13500,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6540
+   "sort": 7940
   },
   {
    "id": "V-NZ",
@@ -11137,7 +13517,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6550
+   "sort": 7950
   },
   {
    "id": "V-OM",
@@ -11154,7 +13534,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6560
+   "sort": 7960
   },
   {
    "id": "V-PH-EE",
@@ -11171,7 +13551,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6570
+   "sort": 7970
   },
   {
    "id": "V-PH-EG",
@@ -11188,7 +13568,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6580
+   "sort": 7980
   },
   {
    "id": "V-PH-GG",
@@ -11205,7 +13585,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6590
+   "sort": 7990
   },
   {
    "id": "V-PH-KR",
@@ -11222,7 +13602,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6600
+   "sort": 8000
   },
   {
    "id": "V-RQ",
@@ -11239,7 +13619,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6610
+   "sort": 8010
   },
   {
    "id": "W-BB",
@@ -11256,7 +13636,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6620
+   "sort": 8020
   },
   {
    "id": "W-E",
@@ -11273,7 +13653,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6630
+   "sort": 8030
   },
   {
    "id": "W-G",
@@ -11290,7 +13670,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 6640
+   "sort": 8040
   },
   {
    "id": "W-G-DB",
@@ -11307,7 +13687,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6650
+   "sort": 8050
   },
   {
    "id": "W-RHO",
@@ -11324,7 +13704,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6660
+   "sort": 8060
   },
   {
    "id": "W-RM",
@@ -11341,7 +13721,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6670
+   "sort": 8070
   },
   {
    "id": "W-RP",
@@ -11358,7 +13738,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6680
+   "sort": 8080
   },
   {
    "id": "Z-DL",
@@ -11375,7 +13755,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6690
+   "sort": 8090
   },
   {
    "id": "Z-DL2",
@@ -11392,7 +13772,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6700
+   "sort": 8100
   },
   {
    "id": "Z-NMAX",
@@ -11409,7 +13789,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6710
+   "sort": 8110
   },
   {
    "id": "Z-QG",
@@ -11426,7 +13806,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6720
+   "sort": 8120
   },
   {
    "id": "Z-SIG",
@@ -11443,7 +13823,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6730
+   "sort": 8130
   },
   {
    "id": "Z-SIG2",
@@ -11460,7 +13840,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 6740
+   "sort": 8140
   }
  ]
 }

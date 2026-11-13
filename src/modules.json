@@ -9,12 +9,14 @@
   "verbindungen": { "title": "Schraubenverbindung und Pressverband", "tool": "fachtools", "prefixes": ["SV", "PV"], "paths": ["joints"], "units": "N, mm, MPa", "fd": true },
   "dichtungen": { "title": "O-Ring", "tool": "fachtools", "prefixes": ["OR"], "paths": ["seals"], "units": "N, mm, MPa", "fd": true },
   "stabwerke": { "title": "Fachwerk mit Prinzip der virtuellen Verschiebung", "tool": "fachtools", "prefixes": ["FW"], "paths": ["structures"], "units": "N, mm, MPa", "fd": false },
-  "kinematik": { "title": "Kinematik: Orientierung (K1), homogene Transformation (K2), DH und Vorwärtskinematik (K3), später Rückwärtskinematik, Jacobi, Bahn", "tool": "greifwerk", "prefixes": ["G"], "paths": ["kinematics"], "units": "SI: m, rad, s (Anzeige Grad, mm)", "fd": false, "wdb": false }
+  "kinematik": { "title": "Kinematik: Orientierung (K1), homogene Transformation (K2), DH und Vorwärtskinematik (K3), später Rückwärtskinematik, Jacobi, Bahn", "tool": "greifwerk", "prefixes": ["G"], "paths": ["kinematics"], "units": "SI: m, rad, s (Anzeige Grad, mm)", "fd": false, "wdb": false },
+  "elektrik": { "title": "Elektrotechnik: Grundlagen, Netzwerk (MNA Gleich- und Wechselstrom), Ersatzwiderstand, Vorlagen S1 bis S8, Rechner R1 bis R6", "tool": "stromwerk", "prefixes": ["EL"], "paths": ["electrical"], "units": "SI: V, A, Ω, S, F, H, Hz, W, VA, var, J, s (Anzeige Wh, h, 1/min, Grad)", "fd": false, "wdb": false }
  },
  "reserved": ["WL"],
  "tools": {
   "werkbank": { "title": "Ingenieur-Werkbank", "modules": ["gemeinsam", "festigkeit", "ashby"] },
   "fachtools": { "title": "Ingenieur-Fachtools", "modules": ["gemeinsam", "fluid", "verbindungen", "dichtungen", "stabwerke"] },
-  "greifwerk": { "title": "Greifwerk", "modules": ["kinematik"] }
+  "greifwerk": { "title": "Greifwerk", "modules": ["kinematik"] },
+  "stromwerk": { "title": "Stromwerk", "modules": ["elektrik"] }
  }
 }

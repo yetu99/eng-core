@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.18.1
+# Formelkatalog eng-core 0.19.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 674 Formeln, davon 674 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 814 Formeln, davon 814 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -17,6 +17,7 @@ Stand: 674 Formeln, davon 674 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
+| elektrik | stromwerk | EL | 140 | 140 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -238,6 +239,151 @@ Stand: 674 Formeln, davon 674 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | E-WL1 | Bauteil-Wöhlerlinie, Biegung | σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D, sonst σ_GA;  N_D = 10⁶, k_σ = 5, k_τ = 8 (Typ I) | MPa | Steibler 2021 Anh. A6 (FKM Tab. 4.4.3); Roloff Bsp. 3.5 | freigegeben (2026-10-26, Seti) |
 | E-WL2 | Bauteil-Wöhlerlinie, Zug/Druck | σ_AK = σ_GA·(N_D/N)^(1/k) für N < N_D; σ_GA·(N_D/N)^(1/k_II) bis 10⁸, danach konstant;  N_D = 10⁶, k_σ = 5, k_τ = 8, k_II,σ = 15, k_II,τ = 25 (Typ II) | MPa | Steibler 2021 Anh. A6 (FKM Tab. 4.4.3); Roloff Bsp. 3.5 | freigegeben (2026-10-26, Seti) |
 | E-X-SG | Schnittgrößen an der Kerbstelle (Oberlast) | N(x_K), M_b(x_K), T(x_K) aus dem Blatt-1-Lastfall | mm | Eingabe | freigegeben (2026-10-26, Seti) |
+
+## Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| EL-E01 | Ersatzwiderstand durch Reihen-/Parallelreduktion | R_ab = Ergebnis der Reduktion | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-E01-P | Parallelschaltung (R2 ∥ (R3 + R4)) | R_p = R_1 · R_2 / (R_1 + R_2) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-E01-S | Reihenschaltung (R3 + R4) | R_s = R_1 + R_2 | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-E02 | Ersatzwiderstand über Testquelle (Knotenpunktanalyse) | R_ab = (u_a − u_b) / I_T | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-E03 | Gegenprüfung Reduktion gegen Testquelle | \|R_red − R_MNA\| / R_red ≤ 10⁻⁹ | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-G01-I | Strom | I = U / R | A |  | freigegeben (2026-11-12, Seti) |
+| EL-G01-R | Widerstand | R = U / I | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-G01-U | Spannung | U = R · I | V |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-IPR | Strom | I = √(P / R) | A |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-IPU | Strom | I = P / U | A |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-IR | Leistung | P = I² · R | W |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-RPI | Widerstand | R = P / I² | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-RPU | Widerstand | R = U² / P | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-UI | Leistung | P = U · I | W |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-UPI | Spannung | U = P / I | V |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-UPR | Spannung | U = √(P · R) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-G02-UR | Leistung | P = U² / R | W |  | freigegeben (2026-11-12, Seti) |
+| EL-G03 | Leitwert | G = 1 / R | S |  | freigegeben (2026-11-12, Seti) |
+| EL-G04-C | Reihenschaltung Kapazitäten | 1 / C_ges = Σ 1 / C_i | F |  | freigegeben (2026-11-12, Seti) |
+| EL-G04-L | Reihenschaltung Induktivitäten | L_ges = Σ L_i | H |  | freigegeben (2026-11-12, Seti) |
+| EL-G04-R | Reihenschaltung Widerstände | R_ges = Σ R_i | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-G05-C | Parallelschaltung Kapazitäten | C_ges = Σ C_i | F |  | freigegeben (2026-11-12, Seti) |
+| EL-G05-L | Parallelschaltung Induktivitäten | 1 / L_ges = Σ 1 / L_i | H |  | freigegeben (2026-11-12, Seti) |
+| EL-G05-R | Parallelschaltung Widerstände | 1 / R_ges = Σ 1 / R_i | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-G06 | Unbelasteter Spannungsteiler | U_2 = U · R_2 / (R_1 + R_2) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-G07 | Stromteiler Zweig 1 | I_k = I · G_k / Σ G_i | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N01-LA | Widerstand Glühlampe H1 (warm, EL-E4) | R = U_N² / P_N | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-N01-PA | Teilwiderstand a–s P1 | R_as = x · R | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-N01-PB | Teilwiderstand s–b P1 | R_sb = (1 − x) · R | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-N01-R | Leitwert R1 | G = 1 / R | S |  | freigegeben (2026-11-12, Seti) |
+| EL-N02 | Spannungsquelle U1 | u_+ − u_− = U | V |  | freigegeben (2026-11-12, Seti) |
+| EL-N03 | Klemmenspannung B1 (Verbraucherzählpfeil, I < 0 bei Stromabgabe) | U_Kl = U_0 + R_i · I (Verbraucherzählpfeil) | V |  | freigegeben (2026-11-13, SETI) |
+| EL-N04 | Stromquelle I1 | Einspeisung I_q am Pluspol | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N05 | Kondensator C1 bei Gleichstrom (offen) | I_C = 0 | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N06 | Spule L1 bei Gleichstrom | U_L = r · I | V |  | freigegeben (2026-11-12, Seti) |
+| EL-N07 | Strom durch A1 (Kurzschlussbrücke) | u_a − u_b = 0, I = x_k (Zweigstrom) | A |  | freigegeben (2026-11-13, SETI) |
+| EL-N08 | Anzeige V1 | U_V = u_a − u_b | V |  | freigegeben (2026-11-12, Seti) |
+| EL-N09-I | Primärstrom T1 | i_p = −(n_2 / n_1) · i_s | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N09-U | Sekundärspannung T1 | u_s = (n_2 / n_1) · u_p | V |  | freigegeben (2026-11-12, Seti) |
+| EL-N10 | Lineares Gleichungssystem der Knotenpunktanalyse | A · x = z | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-N11-I | Strom R1 | I = G · U | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N11-IQ | Strom I1 (Verbraucherzählpfeil) | I = −I_q | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N11-IV | Strom U1 | I = x_k (Zweigstrom) | A |  | freigegeben (2026-11-12, Seti) |
+| EL-N11-P | Leistung U1 | P = U · I | W |  | freigegeben (2026-11-12, Seti) |
+| EL-N11-U | Spannung U1 | U = u_a − u_b | V |  | freigegeben (2026-11-12, Seti) |
+| EL-N12 | Leistungsbilanz | Σ P = 0 | W |  | freigegeben (2026-11-12, Seti) |
+| EL-N13-C | Auslastung C1 | a = \|U\| / U_max | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-N13-CA | Auslastung C1 (Scheitelwert) | a = √2 · \|U\| / U_max | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-N13-R | Auslastung R1 | a = \|P\| / P_max | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-R1 | Widerstand aus 4 Ringen | R = (10 · z_1 + z_2) · 10^m | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-R1-5 | Widerstand aus 5 Ringen | R = (100 · z_1 + 10 · z_2 + z_3) · 10^m | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-R1-TO | Obere Grenze | R_max = R · (1 + t) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-R1-TU | Untere Grenze | R_min = R · (1 − t) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-R2-A | Relative Abweichung | Δ = (X_N − X) / X | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-R2-N | Nächster Normwert E12 | X_N = nächster Normwert (logarithmischer Abstand) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-R4-C | Kapazität des Pakets | C_ges = m · C | A·s |  | freigegeben (2026-11-12, Seti) |
+| EL-R4-CR | C-Rate | C-Rate = I / C_ges | 1/h |  | freigegeben (2026-11-12, Seti) |
+| EL-R4-E | Energieinhalt | E = U_ges · C_ges | J |  | freigegeben (2026-11-12, Seti) |
+| EL-R4-T | Laufzeit | t = η_n · C_ges / I | s |  | freigegeben (2026-11-12, Seti) |
+| EL-R4-U | Spannung des Pakets | U_ges = n · U | V |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-IS | Strangstrom (Stern) | I_Str = I_L | A |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-ISD | Strangstrom (Dreieck) | I_Str = I_L / √3 | A |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-P | Wirkleistung | P = √3 · U_L · I_L · cos φ | W |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-Q | Blindleistung | Q = S · sin φ | var |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-S | Scheinleistung | S = √3 · U_L · I_L | VA |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-US | Strangspannung (Stern) | U_Str = U_L / √3 | V |  | freigegeben (2026-11-12, Seti) |
+| EL-R5-USD | Strangspannung (Dreieck) | U_Str = U_L | V |  | freigegeben (2026-11-12, Seti) |
+| EL-R6-I | Stromaufnahme (Drehstrom) | I = P_zu / (√3 · U · cos φ) | A |  | freigegeben (2026-11-12, Seti) |
+| EL-R6-M | Drehmoment | M = P / (2π · n) | N·m |  | freigegeben (2026-11-12, Seti) |
+| EL-R6-NS | Synchrone Drehzahl | n_s = f / p | 1/s |  | freigegeben (2026-11-12, Seti) |
+| EL-R6-PZ | Aufgenommene Leistung | P_zu = P / η | W |  | freigegeben (2026-11-12, Seti) |
+| EL-R6-S | Schlupf | s = (n_s − n) / n_s | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S0-GP | Gegenprüfung U_2L: analytisch gegen Netzwerk | δ = \|X_analytisch − X_Netz\| / \|X_analytisch\| | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S0-N | R2: Normwert E24 | X_N = nächster Normwert (logarithmischer Abstand) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S0-NH | R: Normwert E24 (nächsthöher) | X_N = kleinster Normwert ≥ X | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S0-UA | Ausgangsspannung | U_a = \|H\| · U_e | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-DU | Spannungseinbruch durch die Last | ΔU = (U_2 − U_2L) / U_2 | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-IL | Laststrom | I_L = U_2L / R_L | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-IQ | Querstrom durch R2 | I_q = U_2L / R_2 | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-Q | Querstromverhältnis | q = I_q / I_L | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-R2 | R2 für die Zielspannung (unbelastet) | R_2 = R_1 · U_2 / (U − U_2) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-RP | R2 parallel zur Last | R_2L = R_2 · R_L / (R_2 + R_L) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S1-U2L | Belastete Ausgangsspannung | U_2L = U · R_2L / (R_1 + R_2L) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S2-C | C für die Grenzfrequenz | C = 1 / (2π · f_g · R) | F |  | freigegeben (2026-11-12, Seti) |
+| EL-S2-FG | Grenzfrequenz | f_g = 1 / (2π · R · C) | Hz |  | freigegeben (2026-11-12, Seti) |
+| EL-S2-H | Betrag der Übertragungsfunktion (Tiefpass) | \|H\| = 1 / √(1 + (f / f_g)²) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S2-PHI | Phase (Tiefpass) | φ = −arctan(f / f_g) | ° |  | freigegeben (2026-11-12, Seti) |
+| EL-S2-TAU | Zeitkonstante | τ = R · C | s |  | freigegeben (2026-11-12, Seti) |
+| EL-S3-H | Betrag der Übertragungsfunktion (Hochpass) | \|H\| = (f / f_g) / √(1 + (f / f_g)²) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S3-PHI | Phase (Hochpass) | φ = 90° − arctan(f / f_g) | ° |  | freigegeben (2026-11-12, Seti) |
+| EL-S3-R | R für die Grenzfrequenz | R = 1 / (2π · f_g · C) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-B | Bandbreite | B = f_0 / Q | Hz |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-C | C für die Resonanzfrequenz | C = 1 / ((2π · f_0)² · L) | F |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-F0 | Resonanzfrequenz | f_0 = 1 / (2π · √(L · C)) | Hz |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-FO | Obere Grenzfrequenz | f_o = f_0 · (√(1 + 1 / (4Q²)) + 1 / (2Q)) | Hz |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-FU | Untere Grenzfrequenz | f_u = f_0 · (√(1 + 1 / (4Q²)) − 1 / (2Q)) | Hz |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-H | Bandpass bei f_u (Kontrolle 1/√2) | \|H_R\| = 1 / √(1 + Q² · (f / f_0 − f_0 / f)²) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-HC | Kondensatorspannung bei f_0 | U_C / U = \|H_R\| / (ω · R · C) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-I0 | Strom bei Resonanz | I_0 = U / R | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-Q | Güte | Q = (1 / R) · √(L / C) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-S4-UC | Kondensatorspannung bei Resonanz | U_C0 = Q · U | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S5-I | LED-Strom | I = (U − U_F) / R | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S5-PL | Leistung in der LED | P_LED = U_F · I | W |  | freigegeben (2026-11-12, Seti) |
+| EL-S5-PR | Leistung im Vorwiderstand | P_R = I² · R | W |  | freigegeben (2026-11-12, Seti) |
+| EL-S5-R | Vorwiderstand für den LED-Strom | R = (U − U_F) / I_F | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-I | Lade- bzw. Entladestrom (Betrag) | i(t) = (U / R) · e^(−t/τ) | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-R | R für die Zeitkonstante | R = τ / C | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-TAU | Zeitkonstante | τ = R · C | s |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-TE | Entladezeit bis 1 % | t = −τ · ln(u / U) | s |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-TZ | Ladezeit bis 99 % | t = −τ · ln(1 − u / U) | s |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-UE | Kondensatorspannung beim Entladen | u_C(t) = U · e^(−t/τ) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-UL | Kondensatorspannung beim Laden | u_C(t) = U · (1 − e^(−t/τ)) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S6-W | Gespeicherte Energie (voll geladen) | W = ½ · C · U² | J |  | freigegeben (2026-11-12, Seti) |
+| EL-S7-R4 | R4 für den Abgleich (U_d = 0) | R_4 = R_3 · R_2 / R_1 | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-S7-UD | Brückenspannung | U_d = U · (R_2 / (R_1 + R_2) − R_4 / (R_3 + R_4)) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S8-I | Strom beim Einschalten | i(t) = (U / R) · (1 − e^(−t/τ)) | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S8-IE | Endstrom | I_∞ = U / R | A |  | freigegeben (2026-11-12, Seti) |
+| EL-S8-L | L für die Zeitkonstante | L = τ · R | H |  | freigegeben (2026-11-12, Seti) |
+| EL-S8-TAU | Zeitkonstante | τ = L / R | s |  | freigegeben (2026-11-12, Seti) |
+| EL-S8-UL | Spulenspannung beim Einschalten | u_L(t) = U · e^(−t/τ) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-S8-W | Gespeicherte Energie (Endstrom) | W = ½ · L · I_∞² | J |  | freigegeben (2026-11-12, Seti) |
+| EL-W01 | Kreisfrequenz | ω = 2π · f | 1/s |  | freigegeben (2026-11-12, Seti) |
+| EL-W02-C | Impedanz C1 | Z_C = 1 / (jωC) | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-W02-L | Impedanz L1 | Z_L = r + jωL | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-W02-R | Impedanz R1 | Z_R = R | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-W03 | Zeiger der Quelle AC1 (Effektivwert) | U = U_eff · e^(jφ) | V |  | freigegeben (2026-11-12, Seti) |
+| EL-W04 | Komplexes Gleichungssystem der Knotenpunktanalyse | Y · u = i | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-W04-I | Strom R1 | I = Y · U | A |  | freigegeben (2026-11-12, Seti) |
+| EL-W04-IV | Strom AC1 | I = x_k (Zweigstrom) | A |  | freigegeben (2026-11-12, Seti) |
+| EL-W04-U | Spannung AC1 | U = u_a − u_b | V |  | freigegeben (2026-11-12, Seti) |
+| EL-W05-B | Leistungsbilanz Wechselstrom | Σ S = 0 | VA |  | freigegeben (2026-11-12, Seti) |
+| EL-W05-CP | Leistungsfaktor λ AC1 (Abgabe von Wirkleistung) | λ = \|P\| / \|S\| | 1 |  | freigegeben (2026-11-13, SETI) |
+| EL-W05-P | Wirkleistung AC1 | P = Re S | W |  | freigegeben (2026-11-12, Seti) |
+| EL-W05-Q | Blindleistung AC1 | Q = Im S | var |  | freigegeben (2026-11-12, Seti) |
+| EL-W05-S | Scheinleistung AC1 | S = U · I* | VA |  | freigegeben (2026-11-12, Seti) |
+| EL-W06-DB | Verstärkung im Maximum | G = 20 · lg \|H\| | dB |  | freigegeben (2026-11-12, Seti) |
+| EL-W06-H | Übertragungsfunktion im Maximum | H = U_aus / U_ein | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-W06-PHI | Phase im Maximum | φ = arg H | ° |  | freigegeben (2026-11-12, Seti) |
+| EL-W07 | Frequenzpunkte logarithmisch | f_k = f_min · (f_max / f_min)^(k / (N − 1)) | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-W08 | −3-dB-Punkt 1 | G(f) = G_max − 20 · lg √2 | Hz |  | freigegeben (2026-11-12, Seti) |
 
 ## Formfaktoren (Ashby Kap. 7.2)
 

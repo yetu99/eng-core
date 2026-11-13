@@ -6,8 +6,8 @@
  */
 import reg from "./modules.json";
 
-export type ModuleId = "gemeinsam" | "festigkeit" | "ashby" | "fluid" | "verbindungen" | "dichtungen" | "stabwerke" | "kinematik";
-export type ToolId = "werkbank" | "fachtools" | "greifwerk";
+export type ModuleId = "gemeinsam" | "festigkeit" | "ashby" | "fluid" | "verbindungen" | "dichtungen" | "stabwerke" | "kinematik" | "elektrik";
+export type ToolId = "werkbank" | "fachtools" | "greifwerk" | "stromwerk";
 
 export interface ModuleInfo {
   title: string;
