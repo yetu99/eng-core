@@ -1,16 +1,22 @@
 /**
- * Ersatzwiderstand zwischen zwei Knoten (Modul elektrik, EL-E01 bis EL-E03).
- * Ersatzwiderstand der passiven Schaltung, wie ihn eine Quelle an den Klemmen sieht: alle Quellen (Spannungs-, Strom-,
- * Wechselspannungsquelle, Batterie, Digitalpin) werden entfernt (offen). Gleichstrombild: Kondensator offen, Spule → Wicklungswiderstand r (0 = Kurzschluss), Schalter nach Stellung,
- * Amperemeter Kurzschluss, Voltmeter und nichtlineare Bauteile offen.
+ * Ersatzwiderstand zwischen zwei Knoten (Modul elektrik, EL-E01 bis EL-E04).
+ * Innenwiderstand der Schaltung zwischen den Klemmen a und b (Ersatzspannungsquelle, Helmholtz/Thévenin), ab 0.19.1
+ * (Freigabe Seti 17.11.2026): EL-E04 deaktiviert die Quellen. Spannungsquellen (Gleich-, Wechselspannungsquelle,
+ * Digitalpin) werden kurzgeschlossen, die Batterie durch ihren Innenwiderstand R_i ersetzt, Stromquellen geöffnet.
+ * Eine Quelle, die genau zwischen a und b liegt, wird entfernt: Ergebnis ist dann der Widerstand, den diese Quelle sieht.
+ * Gleichstrombild: Kondensator offen, Spule → Wicklungswiderstand r (0 = Kurzschluss), Schalter nach Stellung,
+ * Amperemeter Kurzschluss, Voltmeter, Transformator und nichtlineare Bauteile offen. Kurzschlüsse (0 Ω) werden vor der
+ * Reduktion zu einem Knoten zusammengefasst.
  * EL-E01 Reihen-/Parallelreduktion mit Spur; EL-E02 allgemein über eine Testquelle 1 A und die Knotenpunktanalyse;
- * EL-E03 Gegenprüfung beider Wege.
+ * EL-E03 Gegenprüfung beider Wege; EL-E04 Quellen deaktivieren.
  */
 import { fmt } from "../format";
 import { step, type CalcStep, type Trace } from "../trace";
 import { solveDc, type ElElement, type ElFinding, type ElGroup, type ElNetlist } from "./network";
 
 export interface ReductionStep { kind: "reihe" | "parallel"; elementIds: string[]; label: string; r: number }
+/** Behandlung einer Quelle beim Ersatzwiderstand (EL-E04). */
+export interface DeactivatedSource { elementId: string; name: string; how: "kurzgeschlossen" | "Innenwiderstand" | "offen" | "entfernt" }
 export interface EquivalentResult { ok: boolean; r: number | null; reducible: boolean; rMna: number | null; steps: ReductionStep[]; findings: ElFinding[]; trace: Trace<ElGroup> }
 
 interface Edge { a: string; b: string; r: number; ids: string[]; name: string }
@@ -20,9 +26,14 @@ export const EQ_TOL = 1e-9;
 
 const par = (r1: number, r2: number): number => (r1 === 0 || r2 === 0 ? 0 : (r1 * r2) / (r1 + r2));
 
-/** Widerstandskanten des deaktivierten Netzes. */
-export function resistiveEdges(net: ElNetlist, findings: ElFinding[]): Edge[] {
+/**
+ * Widerstandskanten des deaktivierten Netzes. terminals: Klemmen a, b (eine Quelle genau dazwischen wird entfernt);
+ * sources sammelt die Behandlung jeder Quelle für EL-E04.
+ */
+export function resistiveEdges(net: ElNetlist, findings: ElFinding[], terminals?: readonly [string, string], sources?: DeactivatedSource[]): Edge[] {
   const out: Edge[] = [];
+  const atTerminals = (p: string, q: string): boolean => !!terminals && ((p === terminals[0] && q === terminals[1]) || (p === terminals[1] && q === terminals[0]));
+  const src = (e: ElElement, how: DeactivatedSource["how"]): void => { sources?.push({ elementId: e.id, name: e.label ?? e.id, how }); };
   const nm = (e: ElElement): string => e.label ?? e.id;
   const num = (e: ElElement, k: string): number | null => (typeof e.params[k] === "number" && Number.isFinite(e.params[k]) ? (e.params[k] as number) : null);
   const two = (e: ElElement, a: string, b: string, r: number): void => { const na = e.pins[a], nb = e.pins[b]; if (na && nb) out.push({ a: na, b: nb, r, ids: [e.id], name: nm(e) }); };
@@ -39,6 +50,19 @@ export function resistiveEdges(net: ElNetlist, findings: ElFinding[]): Edge[] {
       case "schalter": if (e.params["geschlossen"] === true) two(e, "a", "b", 0); break;
       case "taster": if (e.params["gedrueckt"] === true) two(e, "a", "b", 0); break;
       case "amperemeter": two(e, "a", "b", 0); break;
+      // EL-E04: Quellen deaktivieren
+      case "gleichspannungsquelle": case "wechselspannungsquelle": case "batterie": {
+        const p = e.pins["plus"], q = e.pins["minus"]; if (!p || !q) break;
+        if (atTerminals(p, q)) { src(e, "entfernt"); break; }
+        const ri = e.kind === "batterie" ? Math.max(num(e, "r_i_ohm") ?? 0, 0) : 0;
+        two(e, "plus", "minus", ri); src(e, ri > 0 ? "Innenwiderstand" : "kurzgeschlossen"); break;
+      }
+      case "digitalpin": {
+        const p = e.pins["pin"], q = e.pins["gnd"]; if (!p || !q) break;
+        if (atTerminals(p, q)) { src(e, "entfernt"); break; }
+        two(e, "pin", "gnd", 0); src(e, "kurzgeschlossen"); break;
+      }
+      case "gleichstromquelle": src(e, "offen"); break;
       default: break;
     }
   }
@@ -68,16 +92,33 @@ export function equivalentResistance(net: ElNetlist, a: string, b: string): Equi
   const findings: ElFinding[] = [];
   const steps: ReductionStep[] = [], tr: CalcStep[] = [];
   if (a === b) return { ok: true, r: 0, reducible: true, rMna: 0, steps, findings: [{ level: "info", text: "Beide Klemmen am selben Knoten: R = 0" }], trace: {} };
-  const all = resistiveEdges(net, findings);
+  const sources: DeactivatedSource[] = [];
+  const all = resistiveEdges(net, findings, [a, b], sources);
   if (findings.some((f) => f.level === "fail")) return { ok: false, r: null, reducible: false, rMna: null, steps, findings, trace: {} };
+  if (sources.length) {
+    const txt = sources.map((s) => `${s.name} ${s.how === "entfernt" ? "entfernt (an den Klemmen)" : s.how === "Innenwiderstand" ? "durch R_i ersetzt" : s.how}`).join(", ");
+    tr.push(step("EL-E04", "Quellen deaktivieren (Innenwiderstand der Schaltung)", "U_q → Kurzschluss (Batterie → R_i), I_q → offen; Quelle zwischen a und b → entfernt", txt, sources.length, "1"));
+  }
   // Verbindung a – b prüfen
   const adj = new Map<string, string[]>();
   for (const e of all) { (adj.get(e.a) ?? adj.set(e.a, []).get(e.a)!).push(e.b); (adj.get(e.b) ?? adj.set(e.b, []).get(e.b)!).push(e.a); }
   const seen = new Set([a]), q = [a];
   while (q.length) { const n = q.shift()!; for (const m of adj.get(n) ?? []) if (!seen.has(m)) { seen.add(m); q.push(m); } }
   if (!seen.has(b)) return { ok: true, r: null, reducible: true, rMna: null, steps, findings: [{ level: "info", text: "Keine leitende Verbindung zwischen den Klemmen: R = ∞" }], trace: {} };
-  let E: Edge[] = all.filter((e) => seen.has(e.a));
-  const keep = (n: string): boolean => n === a || n === b;
+  // Kurzschlüsse (0 Ω) zu einem Knoten zusammenfassen, Klemmen behalten ihren Namen, wenn möglich
+  const uf = new Map<string, string>();
+  const root = (x: string): string => { let r = x; while (uf.has(r) && uf.get(r) !== r) r = uf.get(r)!; return r; };
+  for (const e of all) if (e.r === 0 && seen.has(e.a)) {
+    const x = root(e.a), y = root(e.b); if (x === y) continue;
+    if (y === a || y === b) uf.set(x, y); else uf.set(y, x);
+  }
+  const ra = root(a), rb = root(b);
+  if (ra === rb) {
+    tr.push(step("EL-E01", "Ersatzwiderstand durch Reihen-/Parallelreduktion", "R_ab = Ergebnis der Reduktion", "R_ab = 0 Ω (Klemmen über Kurzschluss verbunden)", 0, "Ω"));
+    return { ok: true, r: 0, reducible: true, rMna: 0, steps, findings: [...findings, { level: "info", text: "Klemmen über einen Kurzschluss verbunden: R = 0" }], trace: { ersatz: tr } };
+  }
+  let E: Edge[] = all.filter((e) => seen.has(e.a) && e.r > 0).map((e) => ({ ...e, a: root(e.a), b: root(e.b) }));
+  const keep = (n: string): boolean => n === ra || n === rb;
   for (let guard = 0; guard < 10000; guard++) {
     let changed = false;
     // Kanten mit beiden Enden am selben Knoten tragen keinen Strom
@@ -119,7 +160,7 @@ export function equivalentResistance(net: ElNetlist, a: string, b: string): Equi
   const rRed = reducible ? E[0]!.r : null;
   if (reducible) tr.push(step("EL-E01", "Ersatzwiderstand durch Reihen-/Parallelreduktion", "R_ab = Ergebnis der Reduktion", `R_ab = ${E[0]!.name} = ${f6(rRed!)} Ω`, rRed!, "Ω"));
   const rM = viaMna(all.filter((e) => seen.has(e.a)), a, b);
-  if (rM !== null) tr.push(step("EL-E02", "Ersatzwiderstand über Testquelle (Knotenpunktanalyse)", "R_ab = (u_a − u_b) / I_T", `R_ab = (u_a − u_b) / 1 A mit I_T = 1 A von a nach b, Quellen entfernt`, rM, "Ω"));
+  if (rM !== null) tr.push(step("EL-E02", "Ersatzwiderstand über Testquelle (Knotenpunktanalyse)", "R_ab = (u_a − u_b) / I_T", `R_ab = (u_a − u_b) / 1 A mit I_T = 1 A von a nach b${sources.length ? ", Quellen deaktiviert (EL-E04)" : ""}`, rM, "Ω"));
   if (!reducible) findings.push({ level: "info", text: "Nicht auf Reihen- und Parallelschaltungen zurückführbar (z. B. Brücke): Ergebnis über Testquelle" });
   let ok = rM !== null || rRed !== null;
   if (rRed !== null && rM !== null) {

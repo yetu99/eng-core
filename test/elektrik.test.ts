@@ -4,7 +4,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { elektrik as E } from "../src/index";
-import { P1, P4, P5 } from "../scripts/elektrik-faelle";
+import { P1, P4, P5, Q7, Q8 } from "../scripts/elektrik-faelle";
 
 const el = (id: string, kind: string, pins: Record<string, string>, params: Record<string, number | string | boolean> = {}): E.ElElement => ({ id, kind, pins, params, label: id });
 
@@ -74,6 +74,29 @@ describe("Ersatzwiderstand (EL-E)", () => {
   it("gleiche Klemmen: 0; Quelle zwischen den Klemmen wird entfernt", () => {
     expect(E.equivalentResistance(P1, "1", "1").r).toBe(0);
     expect(E.equivalentResistance(P1, "1", "0").r).toBeCloseTo(220, 12);
+  });
+  it("EL-E04: Spannungsquelle innen kurzgeschlossen (Spannungsteiler am Abgriff: R1 ∥ R2)", () => {
+    const r = E.equivalentResistance(Q7, "2", "0");
+    expect(r.r! / (2000 / 3) - 1).toBeLessThan(1e-12);
+    expect(r.reducible).toBe(true);
+    expect(r.trace.ersatz!.find((s) => s.id === "EL-E04")!.subst).toBe("U1 kurzgeschlossen");
+  });
+  it("EL-E04: Batterie durch R_i, Stromquelle offen", () => {
+    const r = E.equivalentResistance(Q8, "2", "0");
+    expect(Math.abs(r.r! - 1 / (1 / 102 + 1 / 200))).toBeLessThan(1e-12);
+    expect(r.trace.ersatz!.find((s) => s.id === "EL-E04")!.subst).toBe("B1 durch R_i ersetzt, I1 offen");
+  });
+  it("EL-E04: Brücke zwischen den Mitten mit kurzgeschlossener Quelle ist reduzierbar und stimmt mit der Testquelle", () => {
+    const r = E.equivalentResistance(P4, "2", "3");
+    const soll = 1 / (1 / (1 / (1 / 1000 + 1 / 1200) + 1 / (1 / 820 + 1 / 1500)) + 1 / 330);
+    expect(r.reducible).toBe(true);
+    expect(Math.abs(r.r! / soll - 1)).toBeLessThan(1e-12);
+    expect(Math.abs(r.rMna! / soll - 1)).toBeLessThan(1e-9);
+  });
+  it("Klemmen über Kurzschluss verbunden (Amperemeter): 0", () => {
+    const r = E.equivalentResistance(P1, "1", "3");
+    expect(r.r).toBe(0);
+    expect(r.ok).toBe(true);
   });
 });
 

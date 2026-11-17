@@ -511751,7 +511751,7 @@
   "tol": 1e-12
  },
  {
-  "id": "EL-Q5 Brücke zwischen den Mittelpunkten (Quelle entfernt: reduzierbar)",
+  "id": "EL-Q5 Brücke zwischen den Mittelpunkten (Quelle kurzgeschlossen: reduzierbar)",
   "case": {
    "type": "elreq",
    "net": {
@@ -511848,12 +511848,12 @@
    },
    "a": "2",
    "b": "3",
-   "id": "EL-Q5 Brücke zwischen den Mittelpunkten (Quelle entfernt: reduzierbar)",
+   "id": "EL-Q5 Brücke zwischen den Mittelpunkten (Quelle kurzgeschlossen: reduzierbar)",
    "module": "elektrik"
   },
   "expect": {
-   "r": 253.15661296365687,
-   "rMna": 253.15661296365687,
+   "r": 252.525674907169,
+   "rMna": 252.525674907169,
    "reducible": 1.0,
    "ok": 1.0
   },
@@ -511975,6 +511975,784 @@
   },
   "expect": {
    "r": 220.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q5 Kennwert von Hand (R1 ∥ R2 + R3 ∥ R4) ∥ R5",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "3",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "U1",
+      "kind": "gleichspannungsquelle",
+      "pins": {
+       "plus": "1",
+       "minus": "0"
+      },
+      "params": {
+       "u_V": 10.0
+      },
+      "label": "U1"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 1200.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "R3",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "3"
+      },
+      "params": {
+       "r_ohm": 820.0
+      },
+      "label": "R3"
+     },
+     {
+      "id": "R4",
+      "kind": "widerstand",
+      "pins": {
+       "a": "3",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 1500.0
+      },
+      "label": "R4"
+     },
+     {
+      "id": "R5",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "3"
+      },
+      "params": {
+       "r_ohm": 330.0
+      },
+      "label": "R5"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "3",
+   "id": "EL-Q5 Kennwert von Hand (R1 ∥ R2 + R3 ∥ R4) ∥ R5",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 252.52567490716888
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q7 Spannungsteiler am Abgriff, Quelle kurzgeschlossen",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "U1",
+      "kind": "gleichspannungsquelle",
+      "pins": {
+       "plus": "1",
+       "minus": "0"
+      },
+      "params": {
+       "u_V": 12.0
+      },
+      "label": "U1"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 2000.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "0",
+   "id": "EL-Q7 Spannungsteiler am Abgriff, Quelle kurzgeschlossen",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 666.6666666666665,
+   "rMna": 666.6666666666665,
+   "reducible": 1.0,
+   "ok": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q8 Batterie R_i, Stromquelle offen",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "3",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "B1",
+      "kind": "batterie",
+      "pins": {
+       "plus": "1",
+       "minus": "0"
+      },
+      "params": {
+       "u_V": 9.0,
+       "r_i_ohm": 2.0
+      },
+      "label": "B1"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 100.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 200.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "R3",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "3"
+      },
+      "params": {
+       "r_ohm": 50.0
+      },
+      "label": "R3"
+     },
+     {
+      "id": "I1",
+      "kind": "gleichstromquelle",
+      "pins": {
+       "plus": "3",
+       "minus": "0"
+      },
+      "params": {
+       "i_A": 0.01
+      },
+      "label": "I1"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "0",
+   "id": "EL-Q8 Batterie R_i, Stromquelle offen",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 67.5496688741722,
+   "rMna": 67.5496688741722,
+   "reducible": 1.0,
+   "ok": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q9 Digitalpin kurzgeschlossen, Wechselspannungsquelle an den Klemmen entfernt",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "PIN",
+      "kind": "digitalpin",
+      "pins": {
+       "pin": "1",
+       "gnd": "0"
+      },
+      "params": {
+       "zustand": "HIGH",
+       "u_high_V": 5.0
+      },
+      "label": "PIN"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 330.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "AC1",
+      "kind": "wechselspannungsquelle",
+      "pins": {
+       "plus": "2",
+       "minus": "0"
+      },
+      "params": {
+       "u_eff_V": 1.0,
+       "f_Hz": 50.0
+      },
+      "label": "AC1"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "0",
+   "id": "EL-Q9 Digitalpin kurzgeschlossen, Wechselspannungsquelle an den Klemmen entfernt",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 248.1203007518796,
+   "rMna": 248.1203007518796,
+   "reducible": 1.0,
+   "ok": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q10 Digitalpin an den Klemmen entfernt, Wechselspannungsquelle kurzgeschlossen",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "PIN",
+      "kind": "digitalpin",
+      "pins": {
+       "pin": "1",
+       "gnd": "0"
+      },
+      "params": {
+       "zustand": "HIGH",
+       "u_high_V": 5.0
+      },
+      "label": "PIN"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 330.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "AC1",
+      "kind": "wechselspannungsquelle",
+      "pins": {
+       "plus": "2",
+       "minus": "0"
+      },
+      "params": {
+       "u_eff_V": 1.0,
+       "f_Hz": 50.0
+      },
+      "label": "AC1"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "1",
+   "b": "0",
+   "id": "EL-Q10 Digitalpin an den Klemmen entfernt, Wechselspannungsquelle kurzgeschlossen",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 330.0,
+   "rMna": 330.0,
+   "reducible": 1.0,
+   "ok": 1.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q7 Kennwert von Hand R1 ∥ R2",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "U1",
+      "kind": "gleichspannungsquelle",
+      "pins": {
+       "plus": "1",
+       "minus": "0"
+      },
+      "params": {
+       "u_V": 12.0
+      },
+      "label": "U1"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 2000.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "0",
+   "id": "EL-Q7 Kennwert von Hand R1 ∥ R2",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 666.6666666666666
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q8 Kennwert von Hand (R_i + R1) ∥ R2",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "3",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "B1",
+      "kind": "batterie",
+      "pins": {
+       "plus": "1",
+       "minus": "0"
+      },
+      "params": {
+       "u_V": 9.0,
+       "r_i_ohm": 2.0
+      },
+      "label": "B1"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 100.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 200.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "R3",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "3"
+      },
+      "params": {
+       "r_ohm": 50.0
+      },
+      "label": "R3"
+     },
+     {
+      "id": "I1",
+      "kind": "gleichstromquelle",
+      "pins": {
+       "plus": "3",
+       "minus": "0"
+      },
+      "params": {
+       "i_A": 0.01
+      },
+      "label": "I1"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "0",
+   "id": "EL-Q8 Kennwert von Hand (R_i + R1) ∥ R2",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 67.54966887417218
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q9 Kennwert von Hand R1 ∥ R2",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "PIN",
+      "kind": "digitalpin",
+      "pins": {
+       "pin": "1",
+       "gnd": "0"
+      },
+      "params": {
+       "zustand": "HIGH",
+       "u_high_V": 5.0
+      },
+      "label": "PIN"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 330.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "AC1",
+      "kind": "wechselspannungsquelle",
+      "pins": {
+       "plus": "2",
+       "minus": "0"
+      },
+      "params": {
+       "u_eff_V": 1.0,
+       "f_Hz": 50.0
+      },
+      "label": "AC1"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "2",
+   "b": "0",
+   "id": "EL-Q9 Kennwert von Hand R1 ∥ R2",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 248.1203007518797
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "EL-Q10 Kennwert von Hand: Klemme 1 über R1 an kurzgeschlossene Quelle",
+  "case": {
+   "type": "elreq",
+   "net": {
+    "nodes": [
+     "1",
+     "2",
+     "0"
+    ],
+    "ground": "0",
+    "elements": [
+     {
+      "id": "PIN",
+      "kind": "digitalpin",
+      "pins": {
+       "pin": "1",
+       "gnd": "0"
+      },
+      "params": {
+       "zustand": "HIGH",
+       "u_high_V": 5.0
+      },
+      "label": "PIN"
+     },
+     {
+      "id": "R1",
+      "kind": "widerstand",
+      "pins": {
+       "a": "1",
+       "b": "2"
+      },
+      "params": {
+       "r_ohm": 330.0
+      },
+      "label": "R1"
+     },
+     {
+      "id": "R2",
+      "kind": "widerstand",
+      "pins": {
+       "a": "2",
+       "b": "0"
+      },
+      "params": {
+       "r_ohm": 1000.0
+      },
+      "label": "R2"
+     },
+     {
+      "id": "AC1",
+      "kind": "wechselspannungsquelle",
+      "pins": {
+       "plus": "2",
+       "minus": "0"
+      },
+      "params": {
+       "u_eff_V": 1.0,
+       "f_Hz": 50.0
+      },
+      "label": "AC1"
+     },
+     {
+      "id": "GND",
+      "kind": "masse",
+      "pins": {
+       "a": "0"
+      },
+      "params": {},
+      "label": "GND"
+     }
+    ]
+   },
+   "a": "1",
+   "b": "0",
+   "id": "EL-Q10 Kennwert von Hand: Klemme 1 über R1 an kurzgeschlossene Quelle",
+   "module": "elektrik"
+  },
+  "expect": {
+   "r": 330.0
   },
   "tol": 1e-12
  },

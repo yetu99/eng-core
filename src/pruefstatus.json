@@ -1,14 +1,14 @@
 {
- "core": "0.19.0",
- "formulas": 814,
- "approved": 814,
+ "core": "0.19.1",
+ "formulas": 815,
+ "approved": 815,
  "rejected": 0,
  "stale": 0,
  "draft": 0,
- "lastApproval": "2026-11-13",
+ "lastApproval": "2026-11-17",
  "verification": {
-  "passed": 14048,
-  "total": 14048
+  "passed": 14069,
+  "total": 14069
  },
  "acceptance": {
   "P5": {
@@ -121,15 +121,15 @@
    }
   },
   "elektrik": {
-   "formulas": 140,
-   "approved": 140,
+   "formulas": 141,
+   "approved": 141,
    "rejected": 0,
    "stale": 0,
    "draft": 0,
-   "lastApproval": "2026-11-13",
+   "lastApproval": "2026-11-17",
    "verification": {
-    "passed": 3983,
-    "total": 3983
+    "passed": 4004,
+    "total": 4004
    }
   }
  },
@@ -335,6 +335,7 @@
   "EL-E01-S": "freigegeben",
   "EL-E02": "freigegeben",
   "EL-E03": "freigegeben",
+  "EL-E04": "freigegeben",
   "EL-G01-I": "freigegeben",
   "EL-G01-R": "freigegeben",
   "EL-G01-U": "freigegeben",

@@ -26,6 +26,13 @@ export const P5 = net(["1", "2", "0"], el("AC1", "wechselspannungsquelle", { plu
 const P7 = { ...net(["1", "2", "3", "0"], el("AC1", "wechselspannungsquelle", { plus: "1", minus: "0" }, { u_eff_V: 230, f_Hz: 50, phase_deg: 0 }),
   el("T1", "transformator", { p1: "1", p2: "0", s1: "2", s2: "0" }, { n1: 230, n2: 12 }), el("R1", "widerstand", { a: "2", b: "3" }, { r_ohm: 4 }),
   el("L1", "spule", { a: "3", b: "0" }, { l_H: 0.02, r_ohm: 0.5 })) };
+/** EL-Q7: Spannungsteiler 12 V, R1 1 kΩ, R2 2 kΩ; Innenwiderstand am Abgriff: Quelle kurzgeschlossen → R1 ∥ R2. */
+export const Q7 = net(["1", "2", "0"], el("U1", "gleichspannungsquelle", { plus: "1", minus: "0" }, { u_V: 12 }),
+  el("R1", "widerstand", { a: "1", b: "2" }, { r_ohm: 1000 }), el("R2", "widerstand", { a: "2", b: "0" }, { r_ohm: 2000 }));
+/** EL-Q8: Batterie 9 V (R_i 2 Ω), R1 100 Ω, R2 200 Ω, Stromquelle 10 mA über R3 50 Ω; Klemmen 2–0 → (R_i + R1) ∥ R2. */
+export const Q8 = net(["1", "2", "3", "0"], el("B1", "batterie", { plus: "1", minus: "0" }, { u_V: 9, r_i_ohm: 2, kapazitaet_Ah: 0.5 }),
+  el("R1", "widerstand", { a: "1", b: "2" }, { r_ohm: 100 }), el("R2", "widerstand", { a: "2", b: "0" }, { r_ohm: 200 }),
+  el("R3", "widerstand", { a: "2", b: "3" }, { r_ohm: 50 }), el("I1", "gleichstromquelle", { plus: "3", minus: "0" }, { i_A: 0.01 }));
 const Q1 = net(["1", "2", "3", "4", "0"], el("R1", "widerstand", { a: "1", b: "2" }, { r_ohm: 100 }), el("R2", "widerstand", { a: "2", b: "0" }, { r_ohm: 200 }),
   el("R3", "widerstand", { a: "2", b: "3" }, { r_ohm: 150 }), el("R4", "widerstand", { a: "3", b: "0" }, { r_ohm: 150 }), el("R5", "widerstand", { a: "3", b: "4" }, { r_ohm: 47 }));
 
@@ -45,6 +52,8 @@ export function elektrikFaelle(): ElRun[] {
   push("EL-P7 Transformator 230 V / 12 V mit R 4 Ω und Spule 20 mH (r 0,5 Ω), 50 Hz", flat(E.solveAc(P7, 50).trace));
   push("EL-B1 Frequenzgang RC-Tiefpass 10 Hz bis 100 kHz, 200 Punkte", flat(E.sweep(P5, "1", "2", 10, 1e5, 200).trace));
   push("EL-Q1 Ersatzwiderstand Leiter R1 100 Ω, R2 200 Ω, R3 150 Ω, R4 150 Ω, R5 47 Ω (offen)", flat(E.equivalentResistance(Q1, "1", "0").trace));
+  push("EL-Q7 Innenwiderstand Spannungsteiler 12 V, R1 1 kΩ, R2 2 kΩ am Abgriff (Quelle kurzgeschlossen)", flat(E.equivalentResistance(Q7, "2", "0").trace));
+  push("EL-Q8 Innenwiderstand Batterie 9 V (R_i 2 Ω), R1 100 Ω, R2 200 Ω, Stromquelle 10 mA über R3 50 Ω (offen)", flat(E.equivalentResistance(Q8, "2", "0").trace));
   push("EL-Q2 Ersatzwiderstand Brücke mit Querwiderstand 330 Ω (nicht reduzierbar)", flat(E.equivalentResistance(P4, "1", "0").trace));
   for (const g of E.OHM_GIVEN) {
     const v = { "U und R": { u: 12, r: 120 }, "U und I": { u: 230, i: 0.5 }, "I und R": { i: 0.02, r: 150 }, "P und U": { p: 60, u: 230 }, "P und R": { p: 0.25, r: 1000 }, "P und I": { p: 2, i: 0.1 } }[g];

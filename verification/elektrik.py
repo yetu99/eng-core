@@ -169,10 +169,16 @@ def sweep_ref(net, a, b, f0, f1, n):
 
 
 def req_ref(net, a, b):
-    """Laplace-Pseudoinverse; Quellen entfernt, Kurzschlüsse verschmolzen."""
+    """Laplace-Pseudoinverse; Quellen deaktiviert (EL-E04, ab 0.19.1): U-Quellen kurz, Batterie R_i, I-Quellen offen,
+    Quelle genau zwischen a und b entfernt; Kurzschlüsse verschmolzen."""
     edges = []
     for e in net['elements']:
         k, p, P = e['kind'], e['pins'], e['params']
+        if k in ('gleichspannungsquelle', 'wechselspannungsquelle', 'batterie', 'digitalpin'):
+            x, y = (p['pin'], p['gnd']) if k == 'digitalpin' else (p['plus'], p['minus'])
+            if {x, y} == {a, b}: continue
+            edges.append((x, y, max(P.get('r_i_ohm', 0) or 0, 0) if k == 'batterie' else 0))
+            continue
         if k == 'widerstand': edges.append((p['a'], p['b'], P['r_ohm']))
         elif k == 'lampe': edges.append((p['a'], p['b'], P['u_nenn_V'] ** 2 / P['p_nenn_W']))
         elif k == 'potentiometer': edges += [(p['a'], p['s'], max(P['position'] * P['r_ohm'], R_MIN)), (p['s'], p['b'], max((1 - P['position']) * P['r_ohm'], R_MIN))]
@@ -416,10 +422,29 @@ def add_cases(cases, ref):
              E_('U1', 'gleichspannungsquelle', dict(plus='1', minus='0'), u_V=10.0), E_('S1', 'schalter', dict(a='4', b='0'), geschlossen=False))
     for id_, nt, a, b, red in (('EL-Q1 Leiter (Reihe/Parallel), Quelle entfernt, Schalter offen', Q1, '1', '0', 1), ('EL-Q2 Brücke mit Querwiderstand', P4, '1', '0', 0),
                                ('EL-Q3 Beispiel Reihe und Parallel an den Quellenklemmen', P1, '1', '0', 1), ('EL-Q4 Potentiometer, Lampe, geschlossener Schalter', P2, '1', '0', 1),
-                               ('EL-Q5 Brücke zwischen den Mittelpunkten (Quelle entfernt: reduzierbar)', P4, '2', '3', 1)):
+                               ('EL-Q5 Brücke zwischen den Mittelpunkten (Quelle kurzgeschlossen: reduzierbar)', P4, '2', '3', 1)):
         r = req_ref(nt, a, b)
         case(id_, dict(type='elreq', net=nt, a=a, b=b), dict(r=r, rMna=r, reducible=float(red), ok=1.0), 1e-12, False)
     case('EL-Q1 Kennwert von Hand', dict(type='elreq', net=Q1, a='1', b='0'), dict(r=100 + 1 / (1 / 200 + 1 / 300)), 1e-12, False)
+    # Quellen deaktiviert (EL-E04): Werte von Hand
+    case('EL-Q5 Kennwert von Hand (R1 ∥ R2 + R3 ∥ R4) ∥ R5', dict(type='elreq', net=P4, a='2', b='3'),
+         dict(r=1 / (1 / (1 / (1 / 1000 + 1 / 1200) + 1 / (1 / 820 + 1 / 1500)) + 1 / 330)), 1e-12, False)
+    Q7 = net(['1', '2', '0'], E_('U1', 'gleichspannungsquelle', dict(plus='1', minus='0'), u_V=12.0), E_('R1', 'widerstand', dict(a='1', b='2'), r_ohm=1000.0),
+             E_('R2', 'widerstand', dict(a='2', b='0'), r_ohm=2000.0))
+    Q8 = net(['1', '2', '3', '0'], E_('B1', 'batterie', dict(plus='1', minus='0'), u_V=9.0, r_i_ohm=2.0), E_('R1', 'widerstand', dict(a='1', b='2'), r_ohm=100.0),
+             E_('R2', 'widerstand', dict(a='2', b='0'), r_ohm=200.0), E_('R3', 'widerstand', dict(a='2', b='3'), r_ohm=50.0),
+             E_('I1', 'gleichstromquelle', dict(plus='3', minus='0'), i_A=0.01))
+    Q9 = net(['1', '2', '0'], E_('PIN', 'digitalpin', dict(pin='1', gnd='0'), zustand='HIGH', u_high_V=5.0), E_('R1', 'widerstand', dict(a='1', b='2'), r_ohm=330.0),
+             E_('R2', 'widerstand', dict(a='2', b='0'), r_ohm=1000.0), E_('AC1', 'wechselspannungsquelle', dict(plus='2', minus='0'), u_eff_V=1.0, f_Hz=50.0))
+    for id_, nt, a, b, red in (('EL-Q7 Spannungsteiler am Abgriff, Quelle kurzgeschlossen', Q7, '2', '0', 1), ('EL-Q8 Batterie R_i, Stromquelle offen', Q8, '2', '0', 1),
+                               ('EL-Q9 Digitalpin kurzgeschlossen, Wechselspannungsquelle an den Klemmen entfernt', Q9, '2', '0', 1),
+                               ('EL-Q10 Digitalpin an den Klemmen entfernt, Wechselspannungsquelle kurzgeschlossen', Q9, '1', '0', 1)):
+        r = req_ref(nt, a, b)
+        case(id_, dict(type='elreq', net=nt, a=a, b=b), dict(r=r, rMna=r, reducible=float(red), ok=1.0), 1e-12, False)
+    case('EL-Q7 Kennwert von Hand R1 ∥ R2', dict(type='elreq', net=Q7, a='2', b='0'), dict(r=2000 / 3), 1e-12, False)
+    case('EL-Q8 Kennwert von Hand (R_i + R1) ∥ R2', dict(type='elreq', net=Q8, a='2', b='0'), dict(r=1 / (1 / 102 + 1 / 200)), 1e-12, False)
+    case('EL-Q9 Kennwert von Hand R1 ∥ R2', dict(type='elreq', net=Q9, a='2', b='0'), dict(r=1 / (1 / 330 + 1 / 1000)), 1e-12, False)
+    case('EL-Q10 Kennwert von Hand: Klemme 1 über R1 an kurzgeschlossene Quelle', dict(type='elreq', net=Q9, a='1', b='0'), dict(r=330.0), 1e-12, False)
     Q6 = net(['1', '2', '3', '0'], E_('R1', 'widerstand', dict(a='1', b='2'), r_ohm=100.0), E_('R2', 'widerstand', dict(a='3', b='0'), r_ohm=100.0))
     case('EL-Q6 Keine Verbindung', dict(type='elreq', net=Q6, a='1', b='0'), dict(open=1.0), 0, False)
     # ---------------- Vorlagen

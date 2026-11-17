@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.19.0
+# Formelkatalog eng-core 0.19.1
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 814 Formeln, davon 814 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 815 Formeln, davon 815 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -17,7 +17,7 @@ Stand: 814 Formeln, davon 814 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | dichtungen | fachtools | OR | 0 | 0 |
 | stabwerke | fachtools | FW | 0 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
-| elektrik | stromwerk | EL | 140 | 140 |
+| elektrik | stromwerk | EL | 141 | 141 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -249,6 +249,7 @@ Stand: 814 Formeln, davon 814 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | EL-E01-S | Reihenschaltung (R3 + R4) | R_s = R_1 + R_2 | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-E02 | Ersatzwiderstand über Testquelle (Knotenpunktanalyse) | R_ab = (u_a − u_b) / I_T | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-E03 | Gegenprüfung Reduktion gegen Testquelle | \|R_red − R_MNA\| / R_red ≤ 10⁻⁹ | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-E04 | Quellen deaktivieren (Innenwiderstand der Schaltung) | U_q → Kurzschluss (Batterie → R_i), I_q → offen; Quelle zwischen a und b → entfernt | 1 |  | freigegeben (2026-11-17, Seti) |
 | EL-G01-I | Strom | I = U / R | A |  | freigegeben (2026-11-12, Seti) |
 | EL-G01-R | Widerstand | R = U / I | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-G01-U | Spannung | U = R · I | V |  | freigegeben (2026-11-12, Seti) |

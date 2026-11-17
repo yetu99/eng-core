@@ -1282,6 +1282,13 @@
     "durch": "Seti",
     "formel": "|R_red − R_MNA| / R_red ≤ 10⁻⁹"
   },
+  "EL-E04": {
+    "status": "freigegeben",
+    "datum": "2026-11-17",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 17.11.2026 (Entscheidung E-v4-3, Stromwerk Übergabe v4): Ersatzwiderstand als Innenwiderstand, Quellen deaktiviert",
+    "formel": "U_q → Kurzschluss (Batterie → R_i), I_q → offen; Quelle zwischen a und b → entfernt"
+  },
   "EL-G01-I": {
     "status": "freigegeben",
     "datum": "2026-11-12",
