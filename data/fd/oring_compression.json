@@ -1,0 +1,202 @@
+[
+ {
+  "id": "ORC-a-1.78",
+  "application": "a_hydr_dyn",
+  "d2_mm": 1.78,
+  "c_min_pct": 13,
+  "c_max_pct": 27,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 a) (S. 13)"
+ },
+ {
+  "id": "ORC-a-2.62",
+  "application": "a_hydr_dyn",
+  "d2_mm": 2.62,
+  "c_min_pct": 12,
+  "c_max_pct": 24,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 a) (S. 13)"
+ },
+ {
+  "id": "ORC-a-3.53",
+  "application": "a_hydr_dyn",
+  "d2_mm": 3.53,
+  "c_min_pct": 11,
+  "c_max_pct": 22,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 a) (S. 13)"
+ },
+ {
+  "id": "ORC-a-5.33",
+  "application": "a_hydr_dyn",
+  "d2_mm": 5.33,
+  "c_min_pct": 11,
+  "c_max_pct": 20,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 a) (S. 13)"
+ },
+ {
+  "id": "ORC-a-6.99",
+  "application": "a_hydr_dyn",
+  "d2_mm": 6.99,
+  "c_min_pct": 9,
+  "c_max_pct": 19,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 a) (S. 13)"
+ },
+ {
+  "id": "ORC-b-1.78",
+  "application": "b_pneu_dyn",
+  "d2_mm": 1.78,
+  "c_min_pct": 10,
+  "c_max_pct": 24,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 b) (S. 13)"
+ },
+ {
+  "id": "ORC-b-2.62",
+  "application": "b_pneu_dyn",
+  "d2_mm": 2.62,
+  "c_min_pct": 8,
+  "c_max_pct": 22,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 b) (S. 13)"
+ },
+ {
+  "id": "ORC-b-3.53",
+  "application": "b_pneu_dyn",
+  "d2_mm": 3.53,
+  "c_min_pct": 7,
+  "c_max_pct": 20,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 b) (S. 13)"
+ },
+ {
+  "id": "ORC-b-5.33",
+  "application": "b_pneu_dyn",
+  "d2_mm": 5.33,
+  "c_min_pct": 7,
+  "c_max_pct": 18,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 b) (S. 13)"
+ },
+ {
+  "id": "ORC-b-6.99",
+  "application": "b_pneu_dyn",
+  "d2_mm": 6.99,
+  "c_min_pct": 6,
+  "c_max_pct": 17,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 b) (S. 13)"
+ },
+ {
+  "id": "ORC-c-1.78",
+  "application": "c_statisch",
+  "d2_mm": 1.78,
+  "c_min_pct": 14,
+  "c_max_pct": 35,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 c) (S. 13)"
+ },
+ {
+  "id": "ORC-c-2.62",
+  "application": "c_statisch",
+  "d2_mm": 2.62,
+  "c_min_pct": 13,
+  "c_max_pct": 30,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 c) (S. 13)"
+ },
+ {
+  "id": "ORC-c-3.53",
+  "application": "c_statisch",
+  "d2_mm": 3.53,
+  "c_min_pct": 13,
+  "c_max_pct": 30,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 c) (S. 13)"
+ },
+ {
+  "id": "ORC-c-5.33",
+  "application": "c_statisch",
+  "d2_mm": 5.33,
+  "c_min_pct": 12,
+  "c_max_pct": 28,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 c) (S. 13)"
+ },
+ {
+  "id": "ORC-c-6.99",
+  "application": "c_statisch",
+  "d2_mm": 6.99,
+  "c_min_pct": 10,
+  "c_max_pct": 25,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 c) (S. 13)"
+ },
+ {
+  "id": "ORC-d-1.78",
+  "application": "d_axial",
+  "d2_mm": 1.78,
+  "c_min_pct": 21,
+  "c_max_pct": 36,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 d) (S. 13)"
+ },
+ {
+  "id": "ORC-d-2.62",
+  "application": "d_axial",
+  "d2_mm": 2.62,
+  "c_min_pct": 19,
+  "c_max_pct": 30,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 d) (S. 13)"
+ },
+ {
+  "id": "ORC-d-3.53",
+  "application": "d_axial",
+  "d2_mm": 3.53,
+  "c_min_pct": 17,
+  "c_max_pct": 26,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 d) (S. 13)"
+ },
+ {
+  "id": "ORC-d-5.33",
+  "application": "d_axial",
+  "d2_mm": 5.33,
+  "c_min_pct": 15,
+  "c_max_pct": 23,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 d) (S. 13)"
+ },
+ {
+  "id": "ORC-d-6.99",
+  "application": "d_axial",
+  "d2_mm": 6.99,
+  "c_min_pct": 13,
+  "c_max_pct": 20,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Bild 8 d) (S. 13)"
+ }
+]

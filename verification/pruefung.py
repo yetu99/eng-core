@@ -646,6 +646,12 @@ verbindungen.add_cases(cases, ref)
 import elektrik
 elektrik.add_cases(cases, ref)
 
+# ---------------------------------------------------------------- O-Ring (eng-core 0.20.0, Modul dichtungen)
+# Unabhängige Python-Umsetzung in verification/dichtungen.py (Ecken der Toleranzbox statt min/max-Formeln, numpy-Polynom und interp,
+# Polygon-Integration der Flächen, brentq für die Einbauraumtiefe, eigene Aufzählung der Normringe, Literaturfälle Parker 8.24, ISO 3601-2 B.2, B.3).
+import dichtungen
+dichtungen.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

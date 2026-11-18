@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.19.1
+# Formelkatalog eng-core 0.20.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 815 Formeln, davon 815 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -14,7 +14,7 @@ Stand: 815 Formeln, davon 815 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ashby | werkbank | A, C | 90 | 90 |
 | fluid | fachtools | RH, PU, FS | 100 | 100 |
 | verbindungen | fachtools | SV, PV | 152 | 152 |
-| dichtungen | fachtools | OR | 0 | 0 |
+| dichtungen | fachtools | OR | 55 | 55 |
 | stabwerke | fachtools | FW | 0 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
 | elektrik | stromwerk | EL | 141 | 141 |
@@ -517,6 +517,66 @@ Stand: 815 Formeln, davon 815 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | N-SK | Sicherheit gegen Knicken | S_K = F_k / \|F_N\| | – |  | freigegeben (2026-10-08, Seti) |
 | N-SV | Vergleichsspannung (GEH, Randfaser) | σ_v = √(σ² + 3τ_t²),  σ = \|σ_b\| + \|σ_N\| | MPa | Gestaltänderungsenergiehypothese | freigegeben (2026-10-08, Seti) |
 
+## O-Ring
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| OR-AAX | Flansch | Innendruck: d₇ so, dass U im Bereich 1 bis 3 % (Ziel 2 %): d₁ = d₇/(1 − 0,02) − 2·d₂; Außendruck: S ≤ 6 % (Ziel 3 %): d₁ = d₈/1,03; h = t_x mittig im Toleranzfeld aus Tab. 2.3 (±Δh/2, eigene Festlegung U-or8) | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2, Tab. 2.3; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 7 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-AD1 | Innendurchmesser | d₁,max = 0,98·d₃ bzw. 0,98·d₅max | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.6) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-AD2 | Schnurstärke | aus d₄ (Kolben) bzw. d₅ (Stange) nach Tab. B.1, B.2 | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. B.1 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-AN | Nutquerschnitt | A_N = t·b, A_N,min = t_min·b_min, A_N,max = t_max·b_max | mm² | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.2) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-ANG | Nutgrund | d₃ = d₄ − 2·t_x bzw. d₆ = d₅max + 2·t_x | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.5) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-AOR | Querschnittsfläche O-Ring | A_OR = π·(d₂*/2)² (min, max) | mm² | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.1) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-ATX | Einbauraumtiefe | t_x = d₂ − C·d₂/100; C von Hand (ISO B.2 mit C_nom, B.3 mit C_max), ohne Vorgabe Bandmitte Bild 8 | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.4), (B.8) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-C | Verpressung | C_min = (d₂*min − t_max)/d₂*min·100, C_max = (d₂*max − t_min)/d₂*max·100; axial mit h statt t | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (9), (10) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-CMM | Verformung | Δ_min = d₂*min − t_max, Δ_max = d₂*max − t_min | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 3.1, 3.5, 3.8 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-CNOM | Verpressung nominal | C_nom = (d₂ − t)/d₂·100 mit Nennmaßen | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.4) umgestellt; Roloff/Matek 27 (Q219) TB 19-2b | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-CT | Verpressung bei -20 °C (Option) | C(T) wie OR-C mit d₂*(T), t(T) | % | Übertragung von ISO 3601-2 Gl. (9), (10), Hinweis | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-CZUL | zulässiger Verpressungsbereich | C_zul,min, C_zul,max aus Bild 8 je Anwendung, linear in d₂ | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8 (O3) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-D2E | effektiver Querschnitt | d₂*min = d₂min·(1 − R(S_max)/100), d₂*max = d₂max·(1 − R(S_min)/100) | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (7), (8) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-D2GM | Grenzmaße O-Ring | d₁ ± Δd₁, d₂ ± Δd₂ | mm | DIN ISO 3601-1:2026-07 (Q250) Abschn. 6 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-DA | Außendurchmesser O-Ring | D = d₁ + 2·d₂ (min, max) | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.2.1; Roloff/Matek 27 (Q219) TB 19-2b | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-F | Füllgrad | F_max = A_OR,max/A_N,min·100, F_min = A_OR,min/A_N,max·100 | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.1) bis (B.3) (B-or13) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-FQ | Füllgrad mit Quellung (Option) | F_Q = F_max·(1 + ΔV/100) | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 81; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.3 (Übertragung, Hinweis) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-FT | Füllgrad bei -20 °C (Option) | F_T = F_max·(1 + α_E·ΔT)²/(1 + α_B·ΔT)² | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.5, Tab. 8.1; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.4 (Übertragung, Hinweis) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-G | Spaltmaß | Kolben g = d₄max − d₉min (Worst Case) bzw. (d₄max − d₉min)/2 + e (geführt); Stange g = d₁₀max − d₅min bzw. Hälfte + e; Flansch g von Hand | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.3, 8.24; Roloff/Matek 27 (Q219) TB 19-3 (O5) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-GA | Ausnutzung Spalt | η_g = g/g_zul | 1 | eigene Kennzahl | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-GM | Grenzmaße d₅ | Bohrung H: [N; N + IT], Welle h: [N − IT; N], f, g: [N + es − IT; N + es]; von Hand [N + ei; N + es] | mm | ISO 286-1:2019 (Q236) Tab. 1 (fd 1.2), Tab. 4 (fd 1.4, B-or25) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-GZUL | zulässiges Spaltmaß | g_zul aus TB 19-3 (70 bzw. 90 Shore A, Druckstufe ≤ 35, 70, 100, 175, 350 bar, Spalte d₂; zwischen den Spalten der kleinere Wert, über 6,99 Spalte 5,33/6,99, unter 1,78 kein Wert) × Spaltfaktor | mm | Roloff/Matek 27 (Q219) TB 19-3 (S. 1231); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 9, Bild 4.10 Anm. 2 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-MED | Medienbeständigkeit | Bewertung 1 beständig, 2 eingeschränkt, 3 bedingt, 4 nicht beständig |  | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 11.3 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-C | Nachweis Verpressung | C_zul,min ≤ C_min und C_max ≤ C_zul,max; Anzeige Parker-Mindestwert 8 % bzw. 4 % | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 13 f. | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-F | Nachweis Nutfüllung | F_max ≤ 85 % (mit Optionen F_Q, F_T) | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.3 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-G | Nachweis Extrusion | g ≤ g_zul, sonst Stützring bzw. härterer Werkstoff; drucklos erfüllt; d₂ unter 1,78 mm nicht bewertbar | 1 | Roloff/Matek 27 (Q219) TB 19-3 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-GUELT | Gültigkeit | d₂ 1,78 bis 6,99 für Bild 8 (sonst nächster Wert), dynamisch d₁ ≤ 250 mm, Druck ≤ 350 bar, d₂ nach Tab. B.1/B.2 als Empfehlung |  | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8, Tab. B.1, B.2; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 34 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-M | Nachweis Montage | S_M ≤ 50 % | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.5.4 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-MED | Nachweis Medium | Bewertung ≤ 2 erfüllt, 3 Hinweis, 4 nicht erfüllt, ohne Angabe nicht bewertbar |  | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 11.3 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-OBF | Oberflächen (Anzeige) | Ra und Rmax der Kontaktfläche, des Nutgrunds und der Fase je Einbaufall | µm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 2.2 bis 2.12 (B-or22); DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 1 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-Q | Nachweis Quellung (Option) | ΔV ≤ 25 % statisch, ≤ 10 % dynamisch, Schrumpf < 0 Warnung | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 81 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-S | Nachweis Dehnung | Kolben statisch S_max ≤ 8 %, dynamisch ≤ 5 %, S_min ≥ 0; Stange S_max ≤ 8 % bzw. 5 %; Parker ≤ 6 % als Hinweis; Flansch außen 0 ≤ S ≤ 6 % | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.1.1; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.1, 2.2.2 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-T | Nachweis Temperatur | OR-TB erfüllt; mit Option C(T_min) ≥ C_zul,min, dazu C(T_max) ≤ C_zul,max als Hinweis | K | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 6.4, 7.6 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-N-U | Nachweis Stauchung | Stange und Flansch innen: U_min ≥ 0, U_max ≤ 5 % (d₁ < 250 mm) bzw. 3 %; Flansch innen nominal 1 bis 3 % als Hinweis | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.2.1; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-R | Querschnittsverringerung bei S_max | 0 ≤ S ≤ 3: R = 0,01 + 1,06·S − 0,1·S²; 3 < S < 25: R = 0,56 + 0,59·S − 0,0046·S²; S ≤ 0: R = 0; S ≥ 25 % außerhalb (Fehler) | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (5), (6); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Bild 8.13 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-SA | Dehnung Flansch bei Außendruck | S_min = (d₈min − d₁max)/d₁max·100, S_max = (d₈max − d₁min)/d₁min·100 | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.3.1 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-SK | Dehnung Kolben | S_min = (d₃min − d₁max)/d₁max·100, S_max = (d₃max − d₁min)/d₁min·100 | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (1), (2) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-SM | Montagedehnung | S_M = (d_M − d₁min)/d₁min·100, d_M = d₉max (Kolben) bzw. größter überfahrener Durchmesser | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.5.4 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-SS | Dehnung Stange | S_min = (d₅min − d₁max)/d₁max·100, S_max = (d₅max − d₁min)/d₁min·100 | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (3), (4) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-STR | Stützring | erforderlich, wenn p > 0 und g > g_zul oder p über der Tabelle; Nutbreite b₁ (ein Stützring) bzw. b₂ (zwei, wechselnde Druckrichtung) |  | Roloff/Matek 27 (Q219) TB 19-3 Fußnote; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.3, Tab. 3.1, 3.5 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TA | Nuttiefe axial | h mit Toleranz (Parker +0,10) | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 2.3; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 6 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TB | Temperaturbereich | T_min,W ≤ T_min und T_max ≤ T_max,W(Medium) | K | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 6.4, 7.6; Medienklasse eigene Zuordnung (U-or7) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TD2 | Querschnitt bei -20 °C (Option) | d₂*(T) = d₂*·(1 + α_E·(T − 24 °C)) | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 8.1; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.4 (Bezug 24 °C) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TEXK | Nuttiefe Kolben mit Radialspiel und Exzentrizität | t_max = d₄max − (d₉min + d₃min)/2 + e, t_min = (d₉min − d₃max)/2 − e | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.24 B, C (B-or3) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TEXS | Nuttiefe Stange mit Radialspiel und Exzentrizität | t_max = (d₆max + d₁₀max)/2 − d₅min + e, t_min = (d₆min − d₁₀max)/2 − e | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.24 übertragen (Hinweis) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TK | Nuttiefe Kolben | t = (d₄ − d₃)/2, t_min = (d₄min − d₃max)/2, t_max = (d₄max − d₃min)/2 | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (11); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.24 A | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TOLA | Toleranz d₁ Klasse A | Normzeile Tab. 1 bis 6, sonst Tab. A.2 | mm | DIN ISO 3601-1:2026-07 (Q250) Tab. A.2, Tab. 1 bis 6 (B-or23) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TOLB | Toleranz d₁ Klasse B | Δd₁ = ±(d₁^0,95·0,009 + 0,11), nicht genormt auf 0,01 mm gerundet, Normzeile hat Vorrang | mm | DIN ISO 3601-1:2026-07 (Q250) Gl. (A.1), Tab. 1 bis 6 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TOLD2 | Toleranz d₂ | Normzeile, sonst Tab. A.1 (Klasse A bzw. B) | mm | DIN ISO 3601-1:2026-07 (Q250) Tab. A.1, Tab. 1 bis 6 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TS | Nuttiefe Stange | t = (d₆ − d₅)/2, t_min = (d₆min − d₅max)/2, t_max = (d₆max − d₅min)/2 | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (12) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-TT | Nuttiefe bei -20 °C (Option) | t(T) = t·(1 + α_B·(T − 24 °C)) | mm | α des Bauteils (WDB bzw. von Hand) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-UA | Stauchung Flansch bei Innendruck | U = (D − d₇)/D·100, U_min mit D_min und d₇max, U_max mit D_max und d₇min | % | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.3.1 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-US | Stauchung Stange | U = (D − d₆)/D·100, U_min mit D_min und d₆max, U_max mit D_max und d₆min | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.2.1, Anhang B.3.8 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-WAHL | Normring-Auswahl | alle Ringe der Reihe d₂ aus fd_oring_sizes nachrechnen, gültig wenn die Pflichtnachweise der Ringwahl erfüllt sind (Verpressung, Dehnung, Stauchung, Nutfüllung, Montage; Spalt gilt für den Einbauraum), sortiert nach \|C_Mitte − C_zul,Mitte\|, dann S_max (Flansch: \|d₁ − d₁,Ziel\|) |  | Verfahren (O7) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-WW | Werkstoffvorschlag | alle Elastomere mit OR-TB erfüllt und Bewertung ≤ 2, sortiert nach Bewertung, dann Abstand zur T-Grenze |  | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 6.4, 7.6, Kap. 11.3 (Verfahren O8) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+
 ## Druckbehälter
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -921,10 +981,10 @@ Stand: 815 Formeln, davon 815 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.4 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.5 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.4 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.5 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 

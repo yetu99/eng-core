@@ -7,6 +7,7 @@ import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, typ
 import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_FIELDS, type PressFitInput, type FitSpecIso } from "../src/index";
 import { computeBoltJoint, svRepo, jointDiagram, threadOf, threadProps, fmZul, gradeOf, tighteningTorque, tighteningTorqueExact, computeBoltUnpreloaded, coneLayers, type BoltJointInput, type PlateLayer } from "../src/index";
 import { elektrik } from "../src/index";
+import { computeOring, orRepo, crossSectionReduction, tolClassB, gapAllowed, compressionLimits, sizeOf, dimLimits, orCompressionProfile, orGapChart, type OringInput, type OrDim, type OrApplication } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -44,6 +45,13 @@ export type Case =
   | { id: string; type: "svma"; d: number; mu: number; DKm: number; module?: string }
   | { id: string; type: "svnv"; F: number; grade: string; underLoad: boolean; module?: string }
   | { id: string; type: "svcone"; layers: PlateLayer[]; dW: number; dh: number; DA: number; w: 1 | 2; t: number; module?: string }
+  | { id: string; type: "or"; inp: OringInput; module?: string; abs?: boolean }
+  | { id: string; type: "orr"; S: number; module?: string; abs?: boolean }
+  | { id: string; type: "ortolb"; d1: number; module?: string; abs?: boolean }
+  | { id: string; type: "orgap"; shore: number; pBar: number; d2: number; factor: number; module?: string; abs?: boolean }
+  | { id: string; type: "orcz"; app: OrApplication; d2: number; module?: string; abs?: boolean }
+  | { id: string; type: "orsize"; code: string; module?: string; abs?: boolean }
+  | { id: string; type: "orlim"; dim: OrDim; module?: string; abs?: boolean }
   | { id: string; type: "eldc"; net: elektrik.ElNetlist; module?: string; abs?: boolean }
   | { id: string; type: "elac"; net: elektrik.ElNetlist; f: number; module?: string; abs?: boolean }
   | { id: string; type: "elsweep"; net: elektrik.ElNetlist; inNode: string; outNode: string; fMin: number; fMax: number; n: number; module?: string; abs?: boolean }
@@ -313,8 +321,40 @@ function evalSv(inp: BoltJointInput): Record<string, number | null> {
   return o;
 }
 
+/** O-Ring (0.20.0): Kennwerte, Grenzmaße, Nachweise als 1/0 und Zustand, Auslegung, Grafiken S2 und S4 gegen die Kennwerte. */
+const OR_STATE: Record<string, number> = { "erfüllt": 0, "nicht erfüllt": 1, "nicht bewertbar": 2, "Hinweis": 3 };
+function evalOr(inp: OringInput): Record<string, number | null> {
+  const r = computeOring(orRepo, inp);
+  if (r.errors.length) return { errors: 1, nErrors: r.errors.length, warnings: r.warnings.length };
+  const o: Record<string, number | null> = { errors: 0, warnings: r.warnings.length, ok: r.ok === null ? 2 : r.ok ? 1 : 0 };
+  if (r.values) for (const [k, v] of Object.entries(r.values)) o[k] = v;
+  for (const [k, d] of Object.entries(r.dims)) { o[`${k}min`] = d.min; o[`${k}max`] = d.max; }
+  for (const c of r.checks) { o[`st_${c.key}`] = OR_STATE[c.state]!; if (c.ok !== null) o[`ok_${c.key}`] = c.ok ? 1 : 0; }
+  o["nSugg"] = r.materials.length;
+  if (r.design) {
+    const d = r.design, v = d.candidates.filter((c) => c.valid);
+    Object.assign(o, { dsD2: d.d2, dsC: d.C, dsTx: d.tx, dsGroove: d.groove.dim.nom, dsD1Ref: d.d1Ref, nCand: d.candidates.length, nValid: v.length, bestD1: d.best?.d1 ?? null, sumCminValid: v.reduce((a, c) => a + c.Cmin!, 0) });
+  }
+  const pr = orCompressionProfile(r);
+  if (pr && r.values) {
+    const v = r.values;
+    o["prErr"] = Math.max(Math.abs(pr.states[0]!.t - v.tmax), Math.abs(pr.states[1]!.t - v.tmin), Math.abs(Math.PI / 4 * pr.states[0]!.t * pr.states[0]!.w - v.AORmin), Math.abs(Math.PI / 4 * pr.states[1]!.t * pr.states[1]!.w - v.AORmax),
+      Math.abs((pr.states[0]!.d2s - pr.states[0]!.t) / pr.states[0]!.d2s * 100 - v.Cmin), Math.abs((pr.states[1]!.d2s - pr.states[1]!.t) / pr.states[1]!.d2s * 100 - v.Cmax));
+    const gc = orGapChart(orRepo, v.d2, v.shore, v.pBar, v.g, r.material?.gap_factor ?? 1);
+    o["gcErr"] = gc.point.gZul === v.gZul ? 0 : 1;
+  }
+  return o;
+}
+
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
   if (c.type === "eldc" || c.type === "elac" || c.type === "elsweep" || c.type === "elreq" || c.type === "elsheet" || c.type === "eltool" || c.type === "eleseries") return evalEl(c);
+  if (c.type === "or") return evalOr(c.inp);
+  if (c.type === "orr") return { R: crossSectionReduction(c.S) };
+  if (c.type === "ortolb") return { tol: tolClassB(c.d1) };
+  if (c.type === "orgap") { const a = gapAllowed(orRepo, c.shore, c.pBar, c.d2, c.factor); return { gZul: a.gZul ?? -1, column: a.column, shoreTable: a.shoreTable }; }
+  if (c.type === "orcz") { const z = compressionLimits(orRepo, c.app, c.d2); return { min: z.min, max: z.max }; }
+  if (c.type === "orsize") { const z = sizeOf(orRepo, c.code); return z ? { d1: z.d1_mm, d2: z.d2_mm, tolA: z.tol_a_mm, tolB: z.tol_b_mm } : { errors: 1 }; }
+  if (c.type === "orlim") { const L = dimLimits(orRepo, "d", c.dim); return typeof L === "string" ? { errors: 1 } : { min: L.min, max: L.max }; }
   if (c.type === "pv") return evalPv(c.inp);
   if (c.type === "sv") return evalSv(c.inp);
   if (c.type === "svthread") { const t = threadOf(svRepo, c.d); if (!t) return { errors: 1 }; const T = threadProps(t); return { errors: 0, As: T.As, Ad3: T.Ad3, AN: T.AN, dS: T.dS, phiDeg: T.phiDeg }; }

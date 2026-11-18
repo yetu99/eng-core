@@ -16,6 +16,8 @@ import { pvFaelle } from "./pv-faelle";
 import { computeBoltJoint, computeBoltUnpreloaded, svRepo } from "../src/index";
 import { svFaelle } from "./sv-faelle";
 import { elektrikFaelle } from "./elektrik-faelle";
+import { computeOring, orRepo } from "../src/index";
+import { orFaelle } from "./or-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -194,6 +196,12 @@ export function collectCatalog(): CatalogEntry[] {
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
   }
   { const r = computeBoltUnpreloaded(svRepo, 20000, "8.8", false); r.steps.forEach((s) => take(s, "P-SV18 nicht vorgespannte Schraube, F 20 kN, 8.8, ohne Last angezogen (Roloff (8.38))")); }
+  // O-Ring (0.20.0, Modul dichtungen): Parker 8.24, ISO 3601-2 Anhang B.2, B.3, Spalt TB 19-3, Stange, Flansch, Optionen, Auslegung
+  for (const f of orFaelle) {
+    const r = computeOring(orRepo, f.inp);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
+  }
   // Elektrotechnik (0.19.0, Modul elektrik): Netze, Wechselstrom, Frequenzgang, Ersatzwiderstand, Grundlagen, Vorlagen, Rechner
   for (const f of elektrikFaelle()) f.steps.forEach((s) => take(s, f.text));
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));

@@ -2744,6 +2744,391 @@
     "durch": "Seti",
     "formel": "σ_v = √(σ² + 3τ_t²),  σ = |σ_b| + |σ_N|"
   },
+  "OR-AAX": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Eigene Festlegung: h = t_x mittig im Toleranzfeld (U-or8), weil Parker-Nuttiefe meist unter dem ISO-Band d liegt (B-or8); Ziel-d₁ für U 2 % bzw. S 3 %.",
+    "formel": "Innendruck: d₇ so, dass U im Bereich 1 bis 3 % (Ziel 2 %): d₁ = d₇/(1 − 0,02) − 2·d₂; Außendruck: S ≤ 6 % (Ziel 3 %): d₁ = d₈/1,03; h = t_x mittig im Toleranzfeld aus Tab. 2.3 (±Δh/2, eigene Festlegung U-or8)"
+  },
+  "OR-AD1": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "d₁,max = 0,98·d₃ bzw. 0,98·d₅max"
+  },
+  "OR-AD2": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "aus d₄ (Kolben) bzw. d₅ (Stange) nach Tab. B.1, B.2"
+  },
+  "OR-AN": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "A_N = t·b, A_N,min = t_min·b_min, A_N,max = t_max·b_max"
+  },
+  "OR-ANG": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "d₃ = d₄ − 2·t_x bzw. d₆ = d₅max + 2·t_x"
+  },
+  "OR-AOR": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "A_OR = π·(d₂*/2)² (min, max)"
+  },
+  "OR-ATX": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "KLARGESTELLT im Formeltext: C von Hand (ISO B.2 mit C_nom, B.3 mit C_max), ohne Vorgabe Bandmitte Bild 8 (U-or8). Keine Rundung von t_x (B-or5: Anhang rundet auf 4,27).",
+    "formel": "t_x = d₂ − C·d₂/100; C von Hand (ISO B.2 mit C_nom, B.3 mit C_max), ohne Vorgabe Bandmitte Bild 8"
+  },
+  "OR-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "C_min = (d₂*min − t_max)/d₂*min·100, C_max = (d₂*max − t_min)/d₂*max·100; axial mit h statt t"
+  },
+  "OR-CMM": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "Δ_min = d₂*min − t_max, Δ_max = d₂*max − t_min"
+  },
+  "OR-CNOM": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "C_nom = (d₂ − t)/d₂·100 mit Nennmaßen"
+  },
+  "OR-CT": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "C(T) wie OR-C mit d₂*(T), t(T)"
+  },
+  "OR-CZUL": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Bild 8 linear zwischen 5 Stützstellen, außerhalb nächster Wert mit Hinweis; Anhang B 28 % und 22 % gleich Bild (P-OR12).",
+    "formel": "C_zul,min, C_zul,max aus Bild 8 je Anwendung, linear in d₂"
+  },
+  "OR-D2E": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "d₂*min = d₂min·(1 − R(S_max)/100), d₂*max = d₂max·(1 − R(S_min)/100)"
+  },
+  "OR-D2GM": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "d₁ ± Δd₁, d₂ ± Δd₂"
+  },
+  "OR-DA": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "D = d₁ + 2·d₂ (min, max)"
+  },
+  "OR-F": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "F_min mit t_max und b_max (B-or13: Anhang B.2 passt zu b_min); F_max 73,6 % gegen Anhang 74 %.",
+    "formel": "F_max = A_OR,max/A_N,min·100, F_min = A_OR,min/A_N,max·100"
+  },
+  "OR-FQ": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "F_Q = F_max·(1 + ΔV/100)"
+  },
+  "OR-FT": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "DARSTELLUNG verbessert: negative Temperaturdifferenz in Klammern. Formel: Ringfläche mit (1 + α_E·ΔT)², Nutfläche mit (1 + α_B·ΔT)²; eigene Übertragung, Option.",
+    "formel": "F_T = F_max·(1 + α_E·ΔT)²/(1 + α_B·ΔT)²"
+  },
+  "OR-G": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Worst Case mit voller Exzentrizität als Standard (F-or5), geführt als Umschalter; Ø50 H8/f7 g 0,089 mm (P-OR9).",
+    "formel": "Kolben g = d₄max − d₉min (Worst Case) bzw. (d₄max − d₉min)/2 + e (geführt); Stange g = d₁₀max − d₅min bzw. Hälfte + e; Flansch g von Hand"
+  },
+  "OR-GA": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "η_g = g/g_zul"
+  },
+  "OR-GM": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "Bohrung H: [N; N + IT], Welle h: [N − IT; N], f, g: [N + es − IT; N + es]; von Hand [N + ei; N + es]"
+  },
+  "OR-GZUL": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "VERBESSERT: unter d₂ 1,78 mm kein Tabellenwert mehr (vorher Wert der Spalte 1,78 mm, unsichere Seite), Nachweis dann nicht bewertbar; über 6,99 mm Spalte 5,33/6,99 mit Hinweis. 80 Shore A wie 70 (B-or17). Beispiel P-OR4N nachgerechnet.",
+    "formel": "g_zul aus TB 19-3 (70 bzw. 90 Shore A, Druckstufe ≤ 35, 70, 100, 175, 350 bar, Spalte d₂; zwischen den Spalten der kleinere Wert, über 6,99 Spalte 5,33/6,99, unter 1,78 kein Wert) × Spaltfaktor"
+  },
+  "OR-MED": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Beispiel jetzt mit Medium HLP (vorher kein Medium). Bewertung aus Parker 11.3, Auswahl 31 Medien.",
+    "formel": "Bewertung 1 beständig, 2 eingeschränkt, 3 bedingt, 4 nicht beständig"
+  },
+  "OR-N-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Grenzen nach Bild 8 (strenger als Parker, B-or8); Worst Case weicht von ISO-Anhang bis 0,9 %-Punkte ab (B-or7).",
+    "formel": "C_zul,min ≤ C_min und C_max ≤ C_zul,max; Anzeige Parker-Mindestwert 8 % bzw. 4 %"
+  },
+  "OR-N-F": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "F_max ≤ 85 % (mit Optionen F_Q, F_T)"
+  },
+  "OR-N-G": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "VERBESSERT: drucklos erfüllt; d₂ unter 1,78 mm nicht bewertbar; Stützring vorgesehen und g > g_zul nicht bewertbar (U-or5, ISO 3601-4 nicht im Umfang).",
+    "formel": "g ≤ g_zul, sonst Stützring bzw. härterer Werkstoff; drucklos erfüllt; d₂ unter 1,78 mm nicht bewertbar"
+  },
+  "OR-N-GUELT": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "d₂ 1,78 bis 6,99 für Bild 8 (sonst nächster Wert), dynamisch d₁ ≤ 250 mm, Druck ≤ 350 bar, d₂ nach Tab. B.1/B.2 als Empfehlung"
+  },
+  "OR-N-M": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "S_M ≤ 50 %"
+  },
+  "OR-N-MED": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Beispiel jetzt mit Medium HLP. Bewertung 3 nur Hinweis, 4 nicht erfüllt, fehlende Angabe nicht bewertbar.",
+    "formel": "Bewertung ≤ 2 erfüllt, 3 Hinweis, 4 nicht erfüllt, ohne Angabe nicht bewertbar"
+  },
+  "OR-N-OBF": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "Ra und Rmax der Kontaktfläche, des Nutgrunds und der Fase je Einbaufall"
+  },
+  "OR-N-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "ΔV ≤ 25 % statisch, ≤ 10 % dynamisch, Schrumpf < 0 Warnung"
+  },
+  "OR-N-S": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Stange mit S_max-Grenze, ohne S_min-Pflicht (Sitz über Stauchung, U-or4); ISO 2 % Untergrenze bewusst als 0 % (Konzept).",
+    "formel": "Kolben statisch S_max ≤ 8 %, dynamisch ≤ 5 %, S_min ≥ 0; Stange S_max ≤ 8 % bzw. 5 %; Parker ≤ 6 % als Hinweis; Flansch außen 0 ≤ S ≤ 6 %"
+  },
+  "OR-N-T": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "ERGÄNZT: mit Option Temperatur zusätzlich C_max bei T_max als Hinweis (Wärmedehnung des Rings erhöht die Verpressung). Beispiel jetzt mit Medium und Temperatur (vorher ohne Angaben).",
+    "formel": "OR-TB erfüllt; mit Option C(T_min) ≥ C_zul,min, dazu C(T_max) ≤ C_zul,max als Hinweis"
+  },
+  "OR-N-U": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Beispiel jetzt Stange ISO B.3 (U 0,05 bis 2,66 % wie Anhang). Flansch innen 1 bis 3 % nominal nur als Hinweis (U-or4).",
+    "formel": "Stange und Flansch innen: U_min ≥ 0, U_max ≤ 5 % (d₁ < 250 mm) bzw. 3 %; Flansch innen nominal 1 bis 3 % als Hinweis"
+  },
+  "OR-R": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "ERGÄNZT im Formeltext: S ≥ 25 % ist außerhalb Gl. (6) und ergibt einen Fehler; S ≤ 0 ergibt R = 0 (B-or18). R(2) = 1,73 % wie ISO.",
+    "formel": "0 ≤ S ≤ 3: R = 0,01 + 1,06·S − 0,1·S²; 3 < S < 25: R = 0,56 + 0,59·S − 0,0046·S²; S ≤ 0: R = 0; S ≥ 25 % außerhalb (Fehler)"
+  },
+  "OR-SA": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "S_min = (d₈min − d₁max)/d₁max·100, S_max = (d₈max − d₁min)/d₁min·100"
+  },
+  "OR-SK": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "S_min = (d₃min − d₁max)/d₁max·100, S_max = (d₃max − d₁min)/d₁min·100"
+  },
+  "OR-SM": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Montage über d₉max beim Kolben; bei Stange und Flansch nur mit Montagedurchmesser von Hand.",
+    "formel": "S_M = (d_M − d₁min)/d₁min·100, d_M = d₉max (Kolben) bzw. größter überfahrener Durchmesser"
+  },
+  "OR-SS": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "S_min = (d₅min − d₁max)/d₁max·100, S_max = (d₅max − d₁min)/d₁min·100"
+  },
+  "OR-STR": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "VERBESSERT: drucklos (p = 0) und d₂ unter 1,78 mm wird kein Stützring mehr gefordert (vorher Widerspruch zu OR-N-G). Zwei Stützringe bei wechselnder Druckrichtung, b₁/b₂ aus Parker Tab. 3.x.",
+    "formel": "erforderlich, wenn p > 0 und g > g_zul oder p über der Tabelle; Nutbreite b₁ (ein Stützring) bzw. b₂ (zwei, wechselnde Druckrichtung)"
+  },
+  "OR-TA": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "h mit Toleranz (Parker +0,10)"
+  },
+  "OR-TB": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Beispiel jetzt aus ISO B.3 mit HLP, −20 bis 80 °C (vorher ohne Angaben). Medienklasse Öl, Wasser, Luft feste Zuordnung (U-or7).",
+    "formel": "T_min,W ≤ T_min und T_max ≤ T_max,W(Medium)"
+  },
+  "OR-TD2": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "d₂*(T) = d₂*·(1 + α_E·(T − 24 °C))"
+  },
+  "OR-TEXK": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Größtwert bei d₉min (B-or3): 1,4655 statt Buch 1,457; Exzentrizität addiert (Parker C). Umschalter Radialspiel (U-or1).",
+    "formel": "t_max = d₄max − (d₉min + d₃min)/2 + e, t_min = (d₉min − d₃max)/2 − e"
+  },
+  "OR-TEXS": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "t_min = (d₆min − d₁₀max)/2 − e unabhängig von d₅ (Stange anliegend), entspricht der unteren Schranke des Konzepts (U-or2).",
+    "formel": "t_max = (d₆max + d₁₀max)/2 − d₅min + e, t_min = (d₆min − d₁₀max)/2 − e"
+  },
+  "OR-TK": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Konzentrisch nach ISO Gl. (11) als Standard (U-or1); Parker A t_max 1,435 exakt.",
+    "formel": "t = (d₄ − d₃)/2, t_min = (d₄min − d₃max)/2, t_max = (d₄max − d₃min)/2"
+  },
+  "OR-TOLA": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "Normzeile Tab. 1 bis 6, sonst Tab. A.2"
+  },
+  "OR-TOLB": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "ERGÄNZT im Formeltext: nicht genormte Ringe auf 0,01 mm gerundet wie die Normzeilen (U-or3). Gl. (A.1) gegen alle 349 Normzeilen auf 0,005 mm (P-OR8).",
+    "formel": "Δd₁ = ±(d₁^0,95·0,009 + 0,11), nicht genormt auf 0,01 mm gerundet, Normzeile hat Vorrang"
+  },
+  "OR-TOLD2": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "Normzeile, sonst Tab. A.1 (Klasse A bzw. B)"
+  },
+  "OR-TS": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "t = (d₆ − d₅)/2, t_min = (d₆min − d₅max)/2, t_max = (d₆max − d₅min)/2"
+  },
+  "OR-TT": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "t(T) = t·(1 + α_B·(T − 24 °C))"
+  },
+  "OR-UA": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "U = (D − d₇)/D·100, U_min mit D_min und d₇max, U_max mit D_max und d₇min"
+  },
+  "OR-US": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "U = (D − d₆)/D·100, U_min mit D_min und d₆max, U_max mit D_max und d₆min"
+  },
+  "OR-WAHL": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Ringwahl nur über ringabhängige Nachweise (U-or6); Beispiel B.2 findet 348 (110,49 × 5,33) und 347, beide nachgerechnet.",
+    "formel": "alle Ringe der Reihe d₂ aus fd_oring_sizes nachrechnen, gültig wenn die Pflichtnachweise der Ringwahl erfüllt sind (Verpressung, Dehnung, Stauchung, Nutfüllung, Montage; Spalt gilt für den Einbauraum), sortiert nach |C_Mitte − C_zul,Mitte|, dann S_max (Flansch: |d₁ − d₁,Ziel|)"
+  },
+  "OR-WW": {
+    "status": "freigegeben",
+    "datum": "2026-11-18",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+    "formel": "alle Elastomere mit OR-TB erfüllt und Bewertung ≤ 2, sortiert nach Bewertung, dann Abstand zur T-Grenze"
+  },
   "P-BIS": {
     "status": "freigegeben",
     "datum": "2026-10-12",

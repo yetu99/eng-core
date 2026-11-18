@@ -1,8 +1,8 @@
 {
- "core": "0.19.1",
- "data": "WDB 1.1.4",
- "formulas": 815,
- "approved": 815,
+ "core": "0.20.0",
+ "data": "WDB 1.1.5",
+ "formulas": 870,
+ "approved": 870,
  "items": [
   {
    "id": "A-GR-X",
@@ -7536,6 +7536,941 @@
    "sort": 4430
   },
   {
+   "id": "OR-AAX",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Flansch",
+   "formula": "Innendruck: d₇ so, dass U im Bereich 1 bis 3 % (Ziel 2 %): d₁ = d₇/(1 − 0,02) − 2·d₂; Außendruck: S ≤ 6 % (Ziel 3 %): d₁ = d₈/1,03; h = t_x mittig im Toleranzfeld aus Tab. 2.3 (±Δh/2, eigene Festlegung U-or8)",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2, Tab. 2.3; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 7",
+   "example": "h = t_x = 2,77105 mm ± 0,05 mm (Parker Tab. 2.3: 2,8 mm, U-or8); d₁ = 59,1/0,98 − 2·3,53 = 53,2461 mm (Ziel)",
+   "example_result": 53.246122449,
+   "example_case": "P-OR16 Flansch bei Innendruck, Auslegung: d₇ 59,1 H11, d₂ 3,53, Klasse B, FKM, Mineralöl, −20 bis 150 °C, 50 bar",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Eigene Festlegung: h = t_x mittig im Toleranzfeld (U-or8), weil Parker-Nuttiefe meist unter dem ISO-Band d liegt (B-or8); Ziel-d₁ für U 2 % bzw. S 3 %.",
+   "sort": 4440
+  },
+  {
+   "id": "OR-AD1",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Innendurchmesser",
+   "formula": "d₁,max = 0,98·d₃ bzw. 0,98·d₅max",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.6)",
+   "example": "d₁,max = 0,98·114,472 = 112,183 mm",
+   "example_result": 112.18256,
+   "example_case": "P-OR3 ISO 3601-2 Anhang B.2 Auslegung: Kolben statisch, d₄ 123 H8, d₉ 123 f7, C_nom 20 %, Klasse A",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4450
+  },
+  {
+   "id": "OR-AD2",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Schnurstärke",
+   "formula": "aus d₄ (Kolben) bzw. d₅ (Stange) nach Tab. B.1, B.2",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. B.1",
+   "example": "d₄ = 123 mm im Bereich über 46 bis 124 mm: d₂ = 5,33 mm",
+   "example_result": 5.33,
+   "example_case": "P-OR3 ISO 3601-2 Anhang B.2 Auslegung: Kolben statisch, d₄ 123 H8, d₉ 123 f7, C_nom 20 %, Klasse A",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4460
+  },
+  {
+   "id": "OR-AN",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nutquerschnitt",
+   "formula": "A_N = t·b, A_N,min = t_min·b_min, A_N,max = t_max·b_max",
+   "unit": "mm²",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.2)",
+   "example": "A_N = 2,74·5 = 13,7; A_N,min = 2,7525·5 = 13,7625; A_N,max = 2,796·5,25 = 14,679 mm²",
+   "example_result": 13.7625,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4470
+  },
+  {
+   "id": "OR-ANG",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nutgrund",
+   "formula": "d₃ = d₄ − 2·t_x bzw. d₆ = d₅max + 2·t_x",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.5)",
+   "example": "d₃ = 123 − 2·4,264 = 114,472 mm, Passung h9",
+   "example_result": 114.472,
+   "example_case": "P-OR3 ISO 3601-2 Anhang B.2 Auslegung: Kolben statisch, d₄ 123 H8, d₉ 123 f7, C_nom 20 %, Klasse A",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4480
+  },
+  {
+   "id": "OR-AOR",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Querschnittsfläche O-Ring",
+   "formula": "A_OR = π·(d₂*/2)² (min, max)",
+   "unit": "mm²",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.1)",
+   "example": "A_OR,min = π·(3,33428/2)² = 8,73163; A_OR,max = π·(3,56836/2)² = 10,0006 mm²",
+   "example_result": 10.0006293557,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4490
+  },
+  {
+   "id": "OR-ATX",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Einbauraumtiefe",
+   "formula": "t_x = d₂ − C·d₂/100; C von Hand (ISO B.2 mit C_nom, B.3 mit C_max), ohne Vorgabe Bandmitte Bild 8",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.4), (B.8)",
+   "example": "von Hand C = 20 %: t_x = 5,33 − 20·5,33/100 = 4,264 mm (ohne Rundung, B-or5)",
+   "example_result": 4.264,
+   "example_case": "P-OR3 ISO 3601-2 Anhang B.2 Auslegung: Kolben statisch, d₄ 123 H8, d₉ 123 f7, C_nom 20 %, Klasse A",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "KLARGESTELLT im Formeltext: C von Hand (ISO B.2 mit C_nom, B.3 mit C_max), ohne Vorgabe Bandmitte Bild 8 (U-or8). Keine Rundung von t_x (B-or5: Anhang rundet auf 4,27).",
+   "sort": 4500
+  },
+  {
+   "id": "OR-C",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Verpressung",
+   "formula": "C_min = (d₂*min − t_max)/d₂*min·100, C_max = (d₂*max − t_min)/d₂*max·100; axial mit h statt t",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (9), (10)",
+   "example": "C_min = (3,33428 − 2,796)/3,33428·100 = 16,14; C_max = (3,56836 − 2,7525)/3,56836·100 = 22,86 %",
+   "example_result": 16.1439401735,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4510
+  },
+  {
+   "id": "OR-CMM",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Verformung",
+   "formula": "Δ_min = d₂*min − t_max, Δ_max = d₂*max − t_min",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 3.1, 3.5, 3.8",
+   "example": "Δ_min = 0,538285 mm, Δ_max = 0,815861 mm",
+   "example_result": 0.53828497092,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4520
+  },
+  {
+   "id": "OR-CNOM",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Verpressung nominal",
+   "formula": "C_nom = (d₂ − t)/d₂·100 mit Nennmaßen",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.4) umgestellt; Roloff/Matek 27 (Q219) TB 19-2b",
+   "example": "C_nom = (3,53 − 2,74)/3,53·100 = 22,38 %",
+   "example_result": 22.3796033994,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4530
+  },
+  {
+   "id": "OR-CT",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Verpressung bei -20 °C (Option)",
+   "formula": "C(T) wie OR-C mit d₂*(T), t(T)",
+   "unit": "%",
+   "source": "Übertragung von ISO 3601-2 Gl. (9), (10), Hinweis",
+   "example": "C_min = 22,84 %, C_max = 32,81 %",
+   "example_result": 22.8423329126,
+   "example_case": "P-OR18 Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4540
+  },
+  {
+   "id": "OR-CZUL",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "zulässiger Verpressungsbereich",
+   "formula": "C_zul,min, C_zul,max aus Bild 8 je Anwendung, linear in d₂",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8 (O3)",
+   "example": "Anwendung a dynamisch Hydraulik, d₂ = 3,53 mm: 11 bis 22 %",
+   "example_result": 11,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Bild 8 linear zwischen 5 Stützstellen, außerhalb nächster Wert mit Hinweis; Anhang B 28 % und 22 % gleich Bild (P-OR12).",
+   "sort": 4550
+  },
+  {
+   "id": "OR-D2E",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "effektiver Querschnitt",
+   "formula": "d₂*min = d₂min·(1 − R(S_max)/100), d₂*max = d₂max·(1 − R(S_min)/100)",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (7), (8)",
+   "example": "d₂*min = 3,43·(1 − 2,791/100) = 3,33428; d₂*max = 3,63·(1 − 1,698/100) = 3,56836 mm",
+   "example_result": 3.33428497092,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4560
+  },
+  {
+   "id": "OR-D2GM",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Grenzmaße O-Ring",
+   "formula": "d₁ ± Δd₁, d₂ ± Δd₂",
+   "unit": "mm",
+   "source": "DIN ISO 3601-1:2026-07 (Q250) Abschn. 6",
+   "example": "d₁ = 33 ± 0,3: 32,7 bis 33,3 mm; d₂ = 3,53 ± 0,1: 3,43 bis 3,63 mm",
+   "example_result": 3.43,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4570
+  },
+  {
+   "id": "OR-DA",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Außendurchmesser O-Ring",
+   "formula": "D = d₁ + 2·d₂ (min, max)",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.2.1; Roloff/Matek 27 (Q219) TB 19-2b",
+   "example": "D_min = 32,7 + 2·3,43 = 39,56 mm; D_max = 33,3 + 2·3,63 = 40,56 mm",
+   "example_result": 39.56,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4580
+  },
+  {
+   "id": "OR-F",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Füllgrad",
+   "formula": "F_max = A_OR,max/A_N,min·100, F_min = A_OR,min/A_N,max·100",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (B.1) bis (B.3) (B-or13)",
+   "example": "F_max = 10,0006/13,7625·100 = 72,67; F_min = 8,73163/14,679·100 = 59,48 %",
+   "example_result": 72.6657900505,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "F_min mit t_max und b_max (B-or13: Anhang B.2 passt zu b_min); F_max 73,6 % gegen Anhang 74 %.",
+   "sort": 4590
+  },
+  {
+   "id": "OR-FQ",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Füllgrad mit Quellung (Option)",
+   "formula": "F_Q = F_max·(1 + ΔV/100)",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 81; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.3 (Übertragung, Hinweis)",
+   "example": "F_Q = 82,71·(1 + 8/100) = 89,32 %",
+   "example_result": 89.3219318367,
+   "example_case": "P-OR18 Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4600
+  },
+  {
+   "id": "OR-FT",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Füllgrad bei -20 °C (Option)",
+   "formula": "F_T = F_max·(1 + α_E·ΔT)²/(1 + α_B·ΔT)²",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.5, Tab. 8.1; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.4 (Übertragung, Hinweis)",
+   "example": "F_T = 82,71·(1 + 112·10⁻⁶·(-44))²/(1 + 12·10⁻⁶·(-44))² = 81,98 %",
+   "example_result": 81.9789024926,
+   "example_case": "P-OR18 Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "DARSTELLUNG verbessert: negative Temperaturdifferenz in Klammern. Formel: Ringfläche mit (1 + α_E·ΔT)², Nutfläche mit (1 + α_B·ΔT)²; eigene Übertragung, Option.",
+   "sort": 4610
+  },
+  {
+   "id": "OR-G",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Spaltmaß",
+   "formula": "Kolben g = d₄max − d₉min (Worst Case) bzw. (d₄max − d₉min)/2 + e (geführt); Stange g = d₁₀max − d₅min bzw. Hälfte + e; Flansch g von Hand",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.3, 8.24; Roloff/Matek 27 (Q219) TB 19-3 (O5)",
+   "example": "Stange, Worst Case: g = d₁₀max − d₅min = 34,039 − 33,95 = 0,089 mm",
+   "example_result": 0.089,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Worst Case mit voller Exzentrizität als Standard (F-or5), geführt als Umschalter; Ø50 H8/f7 g 0,089 mm (P-OR9).",
+   "sort": 4620
+  },
+  {
+   "id": "OR-GA",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Ausnutzung Spalt",
+   "formula": "η_g = g/g_zul",
+   "unit": "1",
+   "source": "eigene Kennzahl",
+   "example": "η_g = 0,089/0,05 = 1,78",
+   "example_result": 1.78,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4630
+  },
+  {
+   "id": "OR-GM",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Grenzmaße d₅",
+   "formula": "Bohrung H: [N; N + IT], Welle h: [N − IT; N], f, g: [N + es − IT; N + es]; von Hand [N + ei; N + es]",
+   "unit": "mm",
+   "source": "ISO 286-1:2019 (Q236) Tab. 1 (fd 1.2), Tab. 4 (fd 1.4, B-or25)",
+   "example": "d₅ = 34 mm, Welle f7: es = -25 µm, [N + es − IT7; N + es] = [33,95; 33,975] mm",
+   "example_result": 0.025,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4640
+  },
+  {
+   "id": "OR-GZUL",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "zulässiges Spaltmaß",
+   "formula": "g_zul aus TB 19-3 (70 bzw. 90 Shore A, Druckstufe ≤ 35, 70, 100, 175, 350 bar, Spalte d₂; zwischen den Spalten der kleinere Wert, über 6,99 Spalte 5,33/6,99, unter 1,78 kein Wert) × Spaltfaktor",
+   "unit": "mm",
+   "source": "Roloff/Matek 27 (Q219) TB 19-3 (S. 1231); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 9, Bild 4.10 Anm. 2",
+   "example": "70 Shore A (Tabelle 70), p = 100 bar (Stufe bis 100 bar), Spalte 3,53: g = 0,05 mm × 1 = 0,05 mm",
+   "example_result": 0.05,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "VERBESSERT: unter d₂ 1,78 mm kein Tabellenwert mehr (vorher Wert der Spalte 1,78 mm, unsichere Seite), Nachweis dann nicht bewertbar; über 6,99 mm Spalte 5,33/6,99 mit Hinweis. 80 Shore A wie 70 (B-or17). Beispiel P-OR4N nachgerechnet.",
+   "sort": 4650
+  },
+  {
+   "id": "OR-MED",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Medienbeständigkeit",
+   "formula": "Bewertung 1 beständig, 2 eingeschränkt, 3 bedingt, 4 nicht beständig",
+   "unit": null,
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 11.3",
+   "example": "NBR in Hydrauliköle (Mineralölbasis): 1 (beständig), Parker-Werkstoff N0674-70",
+   "example_result": 1,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Beispiel jetzt mit Medium HLP (vorher kein Medium). Bewertung aus Parker 11.3, Auswahl 31 Medien.",
+   "sort": 4660
+  },
+  {
+   "id": "OR-N-C",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Verpressung",
+   "formula": "C_zul,min ≤ C_min und C_max ≤ C_zul,max; Anzeige Parker-Mindestwert 8 % bzw. 4 %",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 13 f.",
+   "example": "C_min 16,14 % ≥ 11 %, C_max 22,86 % > 22 % (Bild 8 a dynamisch Hydraulik); Parker-Mindestwert 8 %: erfüllt (Anzeige)",
+   "example_result": 16.1439401735,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Grenzen nach Bild 8 (strenger als Parker, B-or8); Worst Case weicht von ISO-Anhang bis 0,9 %-Punkte ab (B-or7).",
+   "sort": 4670
+  },
+  {
+   "id": "OR-N-F",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Nutfüllung",
+   "formula": "F_max ≤ 85 % (mit Optionen F_Q, F_T)",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.3",
+   "example": "F_max 72,67 % ≤ 85 %",
+   "example_result": 72.6657900505,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4680
+  },
+  {
+   "id": "OR-N-G",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Extrusion",
+   "formula": "g ≤ g_zul, sonst Stützring bzw. härterer Werkstoff; drucklos erfüllt; d₂ unter 1,78 mm nicht bewertbar",
+   "unit": "1",
+   "source": "Roloff/Matek 27 (Q219) TB 19-3",
+   "example": "g = 0,089 mm > g_zul = 0,05 mm: ein Stützring auf der druckabgewandten Seite, Nutbreite b₁ = 5,8 bis 6 mm oder härterer Werkstoff",
+   "example_result": 1.78,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "VERBESSERT: drucklos erfüllt; d₂ unter 1,78 mm nicht bewertbar; Stützring vorgesehen und g > g_zul nicht bewertbar (U-or5, ISO 3601-4 nicht im Umfang).",
+   "sort": 4690
+  },
+  {
+   "id": "OR-N-GUELT",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Gültigkeit",
+   "formula": "d₂ 1,78 bis 6,99 für Bild 8 (sonst nächster Wert), dynamisch d₁ ≤ 250 mm, Druck ≤ 350 bar, d₂ nach Tab. B.1/B.2 als Empfehlung",
+   "unit": null,
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8, Tab. B.1, B.2; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 34",
+   "example": "innerhalb der Gültigkeit (d₂ 1,78 bis 6,99 mm, dynamisch d₁ ≤ 250 mm, p ≤ 350 bar)",
+   "example_result": 0,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4700
+  },
+  {
+   "id": "OR-N-M",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Montage",
+   "formula": "S_M ≤ 50 %",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.5.4",
+   "example": "keine Montagedehnung angegeben (nicht zutreffend)",
+   "example_result": 0,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4710
+  },
+  {
+   "id": "OR-N-MED",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Medium",
+   "formula": "Bewertung ≤ 2 erfüllt, 3 Hinweis, 4 nicht erfüllt, ohne Angabe nicht bewertbar",
+   "unit": null,
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 11.3",
+   "example": "NBR in Hydrauliköle (Mineralölbasis): 1 (beständig), Parker-Werkstoff N0674-70",
+   "example_result": 1,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Beispiel jetzt mit Medium HLP. Bewertung 3 nur Hinweis, 4 nicht erfüllt, fehlende Angabe nicht bewertbar.",
+   "sort": 4720
+  },
+  {
+   "id": "OR-N-OBF",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Oberflächen (Anzeige)",
+   "formula": "Ra und Rmax der Kontaktfläche, des Nutgrunds und der Fase je Einbaufall",
+   "unit": "µm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 2.2 bis 2.12 (B-or22); DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 1",
+   "example": "dynamisch: Kontaktfläche Ra 0,4 µm, Rmax 1,6 µm; Nutgrund Ra 1,6 µm, Rmax 6,3 µm; Fase Ra 3,2 µm, Rmax 12,5 µm",
+   "example_result": 0.4,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4730
+  },
+  {
+   "id": "OR-N-Q",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Quellung (Option)",
+   "formula": "ΔV ≤ 25 % statisch, ≤ 10 % dynamisch, Schrumpf < 0 Warnung",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 81",
+   "example": "ΔV 8 % ≤ 25 % (statisch)",
+   "example_result": 8,
+   "example_case": "P-OR18 Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4740
+  },
+  {
+   "id": "OR-N-S",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Dehnung",
+   "formula": "Kolben statisch S_max ≤ 8 %, dynamisch ≤ 5 %, S_min ≥ 0; Stange S_max ≤ 8 % bzw. 5 %; Parker ≤ 6 % als Hinweis; Flansch außen 0 ≤ S ≤ 6 %",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.1.1; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.1, 2.2.2",
+   "example": "S_max 3,899 % ≤ 5 % (dynamisch); S_min 1,952 % (Ring sitzt über die Stauchung, U-or4)",
+   "example_result": 3.89908256881,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Stange mit S_max-Grenze, ohne S_min-Pflicht (Sitz über Stauchung, U-or4); ISO 2 % Untergrenze bewusst als 0 % (Konzept).",
+   "sort": 4750
+  },
+  {
+   "id": "OR-N-T",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Temperatur",
+   "formula": "OR-TB erfüllt; mit Option C(T_min) ≥ C_zul,min, dazu C(T_max) ≤ C_zul,max als Hinweis",
+   "unit": "K",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 6.4, 7.6",
+   "example": "NBR: T_min,W = -35 °C, T_max,W (Öl) = 100 °C; Betrieb -20 bis 80 °C: innerhalb (Abstand 15 K)",
+   "example_result": 15,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "ERGÄNZT: mit Option Temperatur zusätzlich C_max bei T_max als Hinweis (Wärmedehnung des Rings erhöht die Verpressung). Beispiel jetzt mit Medium und Temperatur (vorher ohne Angaben).",
+   "sort": 4760
+  },
+  {
+   "id": "OR-N-U",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nachweis Stauchung",
+   "formula": "Stange und Flansch innen: U_min ≥ 0, U_max ≤ 5 % (d₁ < 250 mm) bzw. 3 %; Flansch innen nominal 1 bis 3 % als Hinweis",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.2.1; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2",
+   "example": "U_min 0,0455 % ≥ 0, U_max 2,663 % ≤ 5 % (d₁ < 250 mm)",
+   "example_result": 2.66272189349,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Beispiel jetzt Stange ISO B.3 (U 0,05 bis 2,66 % wie Anhang). Flansch innen 1 bis 3 % nominal nur als Hinweis (U-or4).",
+   "sort": 4770
+  },
+  {
+   "id": "OR-R",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Querschnittsverringerung bei S_max",
+   "formula": "0 ≤ S ≤ 3: R = 0,01 + 1,06·S − 0,1·S²; 3 < S < 25: R = 0,56 + 0,59·S − 0,0046·S²; S ≤ 0: R = 0; S ≥ 25 % außerhalb (Fehler)",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (5), (6); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Bild 8.13",
+   "example": "S = 3,899 % > 3: R = 0,56 + 0,59·3,899 − 0,0046·3,899² = 2,791 %",
+   "example_result": 2.79052562916,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "ERGÄNZT im Formeltext: S ≥ 25 % ist außerhalb Gl. (6) und ergibt einen Fehler; S ≤ 0 ergibt R = 0 (B-or18). R(2) = 1,73 % wie ISO.",
+   "sort": 4780
+  },
+  {
+   "id": "OR-SA",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Dehnung Flansch bei Außendruck",
+   "formula": "S_min = (d₈min − d₁max)/d₁max·100, S_max = (d₈max − d₁min)/d₁min·100",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.3.1",
+   "example": "S = (33,8 − 32,99)/32,99·100 = 2,455; S_min = (33,64 − 33,35)/33,35·100 = 0,8696; S_max = (33,8 − 32,63)/32,63·100 = 3,586 %",
+   "example_result": 3.58565737052,
+   "example_case": "P-OR17 Flansch bei Außendruck: Normring 125 Klasse B (32,99 × 2,62), d₈ 33,8 h11, h 1,9 +0,05, Vakuum außen 1 bar, NBR, Luft 100 °C, Spalt 0,02 mm",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4790
+  },
+  {
+   "id": "OR-SK",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Dehnung Kolben",
+   "formula": "S_min = (d₃min − d₁max)/d₁max·100, S_max = (d₃max − d₁min)/d₁min·100",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (1), (2)",
+   "example": "S = (12,2 − 11,89)/11,89·100 = 2,607; S_min = (12,157 − 12,08)/12,08·100 = 0,6374; S_max = (12,2 − 11,7)/11,7·100 = 4,274 %",
+   "example_result": 4.2735042735,
+   "example_case": "P-OR1A Parker 8.24 A: Kolben Hydraulik dynamisch, d₁ 11,89 ± 0,19, d₂ 1,78 ± 0,08, d₃ 12,20 h9, d₄ 15,00 H8, d₉ 15,00 f7, konzentrisch, NBR in HLP, −20 bis 80 °C, 100 bar",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4800
+  },
+  {
+   "id": "OR-SM",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Montagedehnung",
+   "formula": "S_M = (d_M − d₁min)/d₁min·100, d_M = d₉max (Kolben) bzw. größter überfahrener Durchmesser",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.5.4",
+   "example": "d_M = 14,984 mm (d₉max): S_M = (14,984 − 11,7)/11,7·100 = 28,07 %",
+   "example_result": 28.0683760684,
+   "example_case": "P-OR1A Parker 8.24 A: Kolben Hydraulik dynamisch, d₁ 11,89 ± 0,19, d₂ 1,78 ± 0,08, d₃ 12,20 h9, d₄ 15,00 H8, d₉ 15,00 f7, konzentrisch, NBR in HLP, −20 bis 80 °C, 100 bar",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Montage über d₉max beim Kolben; bei Stange und Flansch nur mit Montagedurchmesser von Hand.",
+   "sort": 4810
+  },
+  {
+   "id": "OR-SS",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Dehnung Stange",
+   "formula": "S_min = (d₅min − d₁max)/d₁max·100, S_max = (d₅max − d₁min)/d₁min·100",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (3), (4)",
+   "example": "S = (34 − 33)/33·100 = 3,03; S_min = (33,95 − 33,3)/33,3·100 = 1,952; S_max = (33,975 − 32,7)/32,7·100 = 3,899 %",
+   "example_result": 3.89908256881,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4820
+  },
+  {
+   "id": "OR-STR",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Stützring",
+   "formula": "erforderlich, wenn p > 0 und g > g_zul oder p über der Tabelle; Nutbreite b₁ (ein Stützring) bzw. b₂ (zwei, wechselnde Druckrichtung)",
+   "unit": null,
+   "source": "Roloff/Matek 27 (Q219) TB 19-3 Fußnote; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.3, Tab. 3.1, 3.5",
+   "example": "g = 0,089 mm > g_zul = 0,05 mm: ein Stützring auf der druckabgewandten Seite, Nutbreite b₁ = 5,8 bis 6 mm oder härterer Werkstoff",
+   "example_result": 1,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "VERBESSERT: drucklos (p = 0) und d₂ unter 1,78 mm wird kein Stützring mehr gefordert (vorher Widerspruch zu OR-N-G). Zwei Stützringe bei wechselnder Druckrichtung, b₁/b₂ aus Parker Tab. 3.x.",
+   "sort": 4830
+  },
+  {
+   "id": "OR-TA",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nuttiefe axial",
+   "formula": "h mit Toleranz (Parker +0,10)",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 2.3; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 6",
+   "example": "h = 2,771 mm, h_min = 2,72105, h_max = 2,82105 mm",
+   "example_result": 2.82105,
+   "example_case": "P-OR16 Flansch bei Innendruck, Auslegung: d₇ 59,1 H11, d₂ 3,53, Klasse B, FKM, Mineralöl, −20 bis 150 °C, 50 bar",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4840
+  },
+  {
+   "id": "OR-TB",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Temperaturbereich",
+   "formula": "T_min,W ≤ T_min und T_max ≤ T_max,W(Medium)",
+   "unit": "K",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 6.4, 7.6; Medienklasse eigene Zuordnung (U-or7)",
+   "example": "NBR: T_min,W = -35 °C, T_max,W (Öl) = 100 °C; Betrieb -20 bis 80 °C: innerhalb (Abstand 15 K)",
+   "example_result": 15,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Beispiel jetzt aus ISO B.3 mit HLP, −20 bis 80 °C (vorher ohne Angaben). Medienklasse Öl, Wasser, Luft feste Zuordnung (U-or7).",
+   "sort": 4850
+  },
+  {
+   "id": "OR-TD2",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Querschnitt bei -20 °C (Option)",
+   "formula": "d₂*(T) = d₂*·(1 + α_E·(T − 24 °C))",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 8.1; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.4 (Bezug 24 °C)",
+   "example": "α_E = 112·10⁻⁶/K, ΔT = -44 K: d₂*min = 1,62762, d₂*max = 1,82235 mm",
+   "example_result": 1.62762381939,
+   "example_case": "P-OR18 Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4860
+  },
+  {
+   "id": "OR-TEXK",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nuttiefe Kolben mit Radialspiel und Exzentrizität",
+   "formula": "t_max = d₄max − (d₉min + d₃min)/2 + e, t_min = (d₉min − d₃max)/2 − e",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.24 B, C (B-or3)",
+   "example": "t_max = 15,027 − (14,966 + 12,157)/2 + 0 = 1,4655; t_min = (14,966 − 12,2)/2 − 0 = 1,383 mm (Größtwert bei d₉min, B-or3)",
+   "example_result": 1.4655,
+   "example_case": "P-OR1B Parker 8.24 B: wie A mit Radialspiel (Kolben anliegend, Worst Case d₉min, B-or3)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Größtwert bei d₉min (B-or3): 1,4655 statt Buch 1,457; Exzentrizität addiert (Parker C). Umschalter Radialspiel (U-or1).",
+   "sort": 4870
+  },
+  {
+   "id": "OR-TEXS",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nuttiefe Stange mit Radialspiel und Exzentrizität",
+   "formula": "t_max = (d₆max + d₁₀max)/2 − d₅min + e, t_min = (d₆min − d₁₀max)/2 − e",
+   "unit": "mm",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.24 übertragen (Hinweis)",
+   "example": "t_max = (26,252 + 20,633)/2 − 20,559 + 0,02 = 2,9035; t_min = (26,2 − 20,633)/2 − 0,02 = 2,7635 mm (Stange anliegend, unabhängig von d₅; U-or2)",
+   "example_result": 2.9035,
+   "example_case": "P-OR15 Stange statisch mit Radialspiel und Exzentrizität: Normring 211 Klasse B (20,22 × 3,53), d₅ 20,6 f7, d₆ 26,2 H9, d₁₀ 20,6 H8, e 0,02, EPDM, Wasser bis 70 °C, 5 bis 60 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "t_min = (d₆min − d₁₀max)/2 − e unabhängig von d₅ (Stange anliegend), entspricht der unteren Schranke des Konzepts (U-or2).",
+   "sort": 4880
+  },
+  {
+   "id": "OR-TK",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nuttiefe Kolben",
+   "formula": "t = (d₄ − d₃)/2, t_min = (d₄min − d₃max)/2, t_max = (d₄max − d₃min)/2",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (11); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 8.24 A",
+   "example": "t = (15 − 12,2)/2 = 1,4; t_min = (15 − 12,2)/2 = 1,4; t_max = (15,027 − 12,157)/2 = 1,435 mm",
+   "example_result": 1.435,
+   "example_case": "P-OR1A Parker 8.24 A: Kolben Hydraulik dynamisch, d₁ 11,89 ± 0,19, d₂ 1,78 ± 0,08, d₃ 12,20 h9, d₄ 15,00 H8, d₉ 15,00 f7, konzentrisch, NBR in HLP, −20 bis 80 °C, 100 bar",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Konzentrisch nach ISO Gl. (11) als Standard (U-or1); Parker A t_max 1,435 exakt.",
+   "sort": 4890
+  },
+  {
+   "id": "OR-TOLA",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Toleranz d₁ Klasse A",
+   "formula": "Normzeile Tab. 1 bis 6, sonst Tab. A.2",
+   "unit": "mm",
+   "source": "DIN ISO 3601-1:2026-07 (Q250) Tab. A.2, Tab. 1 bis 6 (B-or23)",
+   "example": "d₁ = 33 mm: Tab. A.2 (28,71 bis 35,56 mm): ±0,3 mm",
+   "example_result": 0.3,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4900
+  },
+  {
+   "id": "OR-TOLB",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Toleranz d₁ Klasse B",
+   "formula": "Δd₁ = ±(d₁^0,95·0,009 + 0,11), nicht genormt auf 0,01 mm gerundet, Normzeile hat Vorrang",
+   "unit": "mm",
+   "source": "DIN ISO 3601-1:2026-07 (Q250) Gl. (A.1), Tab. 1 bis 6",
+   "example": "d₁ = 42,52 mm: Gl. (A.1): 42,52^0,95·0,009 + 0,11 = ±0,43 mm",
+   "example_result": 0.43,
+   "example_case": "P-OR9A Spalt TB 19-3: Kolben Hydraulik Ø50 H8/f7, d₃ 43,9 h9, 42,52 × 3,53 Klasse B, NBR 70 Shore A, 100 bar, Worst Case (Stützring nötig)",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "ERGÄNZT im Formeltext: nicht genormte Ringe auf 0,01 mm gerundet wie die Normzeilen (U-or3). Gl. (A.1) gegen alle 349 Normzeilen auf 0,005 mm (P-OR8).",
+   "sort": 4910
+  },
+  {
+   "id": "OR-TOLD2",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Toleranz d₂",
+   "formula": "Normzeile, sonst Tab. A.1 (Klasse A bzw. B)",
+   "unit": "mm",
+   "source": "DIN ISO 3601-1:2026-07 (Q250) Tab. A.1, Tab. 1 bis 6",
+   "example": "d₂ = 3,53 mm: Tab. A.1 (über 3,15 bis 4,5 mm, Klasse A): ±0,1 mm",
+   "example_result": 0.1,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4920
+  },
+  {
+   "id": "OR-TS",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nuttiefe Stange",
+   "formula": "t = (d₆ − d₅)/2, t_min = (d₆min − d₅max)/2, t_max = (d₆max − d₅min)/2",
+   "unit": "mm",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Gl. (12)",
+   "example": "t = (39,48 − 34)/2 = 2,74; t_min = (39,48 − 33,975)/2 = 2,7525; t_max = (39,542 − 33,95)/2 = 2,796 mm",
+   "example_result": 2.796,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4930
+  },
+  {
+   "id": "OR-TT",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Nuttiefe bei -20 °C (Option)",
+   "formula": "t(T) = t·(1 + α_B·(T − 24 °C))",
+   "unit": "mm",
+   "source": "α des Bauteils (WDB bzw. von Hand)",
+   "example": "α_B = 12·10⁻⁶/K: t_min = 1,22435, t_max = 1,25584 mm",
+   "example_result": 1.255836568,
+   "example_case": "P-OR18 Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4940
+  },
+  {
+   "id": "OR-UA",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Stauchung Flansch bei Innendruck",
+   "formula": "U = (D − d₇)/D·100, U_min mit D_min und d₇max, U_max mit D_max und d₇min",
+   "unit": "%",
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) 2.2.2; DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.3.1",
+   "example": "U = (60,63 − 59,1)/60,63·100 = 2,524; U_min = (59,92 − 59,29)/59,92·100 = 1,051; U_max = (61,34 − 59,1)/61,34·100 = 3,652 %",
+   "example_result": 3.65177698076,
+   "example_case": "P-OR16 Flansch bei Innendruck, Auslegung: d₇ 59,1 H11, d₂ 3,53, Klasse B, FKM, Mineralöl, −20 bis 150 °C, 50 bar",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4950
+  },
+  {
+   "id": "OR-US",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Stauchung Stange",
+   "formula": "U = (D − d₆)/D·100, U_min mit D_min und d₆max, U_max mit D_max und d₆min",
+   "unit": "%",
+   "source": "DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.1.2.1, Anhang B.3.8",
+   "example": "U = (40,06 − 39,48)/40,06·100 = 1,448; U_min = (39,56 − 39,542)/39,56·100 = 0,0455; U_max = (40,56 − 39,48)/40,56·100 = 2,663 %",
+   "example_result": 2.66272189349,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4960
+  },
+  {
+   "id": "OR-WAHL",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Normring-Auswahl",
+   "formula": "alle Ringe der Reihe d₂ aus fd_oring_sizes nachrechnen, gültig wenn die Pflichtnachweise der Ringwahl erfüllt sind (Verpressung, Dehnung, Stauchung, Nutfüllung, Montage; Spalt gilt für den Einbauraum), sortiert nach |C_Mitte − C_zul,Mitte|, dann S_max (Flansch: |d₁ − d₁,Ziel|)",
+   "unit": null,
+   "source": "Verfahren (O7)",
+   "example": "d₂ = 5,33 mm: 2 von 87 gültig; bester 348 (110,5 × 5,33); alle gültigen: 348, 347",
+   "example_result": 2,
+   "example_case": "P-OR3 ISO 3601-2 Anhang B.2 Auslegung: Kolben statisch, d₄ 123 H8, d₉ 123 f7, C_nom 20 %, Klasse A",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Ringwahl nur über ringabhängige Nachweise (U-or6); Beispiel B.2 findet 348 (110,49 × 5,33) und 347, beide nachgerechnet.",
+   "sort": 4970
+  },
+  {
+   "id": "OR-WW",
+   "area": "O-Ring",
+   "module": "dichtungen",
+   "quantity": "Werkstoffvorschlag",
+   "formula": "alle Elastomere mit OR-TB erfüllt und Bewertung ≤ 2, sortiert nach Bewertung, dann Abstand zur T-Grenze",
+   "unit": null,
+   "source": "Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Tab. 6.4, 7.6, Kap. 11.3 (Verfahren O8)",
+   "example": "HNBR (1) Abstand 15 K, NBR (1) Abstand 15 K, FKM (1) Abstand 5 K, FKM_HF (1) Abstand 5 K, ACM (1) Abstand 0 K",
+   "example_result": 5,
+   "example_case": "P-OR4N ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "status": "freigegeben",
+   "approved_at": "2026-11-18",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Formel gegen Quelle geprüft, Beispiel von Hand nachgerechnet, Gegenrechnung dichtungen.py OK.",
+   "sort": 4980
+  },
+  {
    "id": "P-BIS",
    "area": "Druckbehälter",
    "module": "festigkeit",
@@ -7550,7 +8485,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 08.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 4440
+   "sort": 4990
   },
   {
    "id": "P-GEO",
@@ -7567,7 +8502,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 09.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 4450
+   "sort": 5000
   },
   {
    "id": "P-KU-B",
@@ -7584,7 +8519,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 10.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 4460
+   "sort": 5010
   },
   {
    "id": "P-KU-BI",
@@ -7601,7 +8536,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": "Datum beim Import korrigiert: 11.10.2026 lag vor dem Export (12.10.2026), Ausfüllfehler",
-   "sort": 4470
+   "sort": 5020
   },
   {
    "id": "P-KU-KS",
@@ -7618,7 +8553,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4480
+   "sort": 5030
   },
   {
    "id": "P-KU-SR",
@@ -7635,7 +8570,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4490
+   "sort": 5040
   },
   {
    "id": "P-KU-ST",
@@ -7652,7 +8587,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4500
+   "sort": 5050
   },
   {
    "id": "P-KU-SV",
@@ -7669,7 +8604,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4510
+   "sort": 5060
   },
   {
    "id": "P-KU-U",
@@ -7686,7 +8621,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4520
+   "sort": 5070
   },
   {
    "id": "P-NA",
@@ -7703,7 +8638,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4530
+   "sort": 5080
   },
   {
    "id": "P-NZ",
@@ -7720,7 +8655,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4540
+   "sort": 5090
   },
   {
    "id": "P-TR",
@@ -7737,7 +8672,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4550
+   "sort": 5100
   },
   {
    "id": "P-ZY-B",
@@ -7754,7 +8689,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4560
+   "sort": 5110
   },
   {
    "id": "P-ZY-BI",
@@ -7771,7 +8706,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4570
+   "sort": 5120
   },
   {
    "id": "P-ZY-KS",
@@ -7788,7 +8723,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4580
+   "sort": 5130
   },
   {
    "id": "P-ZY-SR",
@@ -7805,7 +8740,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4590
+   "sort": 5140
   },
   {
    "id": "P-ZY-ST",
@@ -7822,7 +8757,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4600
+   "sort": 5150
   },
   {
    "id": "P-ZY-SV",
@@ -7839,7 +8774,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4610
+   "sort": 5160
   },
   {
    "id": "P-ZY-SZ",
@@ -7856,7 +8791,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4620
+   "sort": 5170
   },
   {
    "id": "P-ZY-U",
@@ -7873,7 +8808,7 @@
    "approved_at": "2026-10-12",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4630
+   "sort": 5180
   },
   {
    "id": "PU-AFF-H",
@@ -7890,7 +8825,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4640
+   "sort": 5190
   },
   {
    "id": "PU-AFF-NPSH",
@@ -7907,7 +8842,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4650
+   "sort": 5200
   },
   {
    "id": "PU-AFF-P",
@@ -7924,7 +8859,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4660
+   "sort": 5210
   },
   {
    "id": "PU-AFF-Q",
@@ -7941,7 +8876,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4670
+   "sort": 5220
   },
   {
    "id": "PU-BE",
@@ -7958,7 +8893,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4680
+   "sort": 5230
   },
   {
    "id": "PU-BP",
@@ -7975,7 +8910,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4690
+   "sort": 5240
   },
   {
    "id": "PU-FIT-ETA",
@@ -7992,7 +8927,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4700
+   "sort": 5250
   },
   {
    "id": "PU-FIT-H",
@@ -8009,7 +8944,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4710
+   "sort": 5260
   },
   {
    "id": "PU-FIT-NPSH",
@@ -8026,7 +8961,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4720
+   "sort": 5270
   },
   {
    "id": "PU-FIT-R2",
@@ -8043,7 +8978,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4730
+   "sort": 5280
   },
   {
    "id": "PU-HA",
@@ -8060,7 +8995,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4740
+   "sort": 5290
   },
   {
    "id": "PU-N-AFF",
@@ -8077,7 +9012,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4750
+   "sort": 5300
   },
   {
    "id": "PU-N-BER",
@@ -8094,7 +9029,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4760
+   "sort": 5310
   },
   {
    "id": "PU-N-BIS",
@@ -8111,7 +9046,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4770
+   "sort": 5320
   },
   {
    "id": "PU-N-NPSH",
@@ -8128,7 +9063,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4780
+   "sort": 5330
   },
   {
    "id": "PU-NPSHA",
@@ -8145,7 +9080,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4790
+   "sort": 5340
   },
   {
    "id": "PU-NQ",
@@ -8162,7 +9097,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4800
+   "sort": 5350
   },
   {
    "id": "PU-P",
@@ -8179,7 +9114,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4810
+   "sort": 5360
   },
   {
    "id": "PU-PU",
@@ -8196,7 +9131,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4820
+   "sort": 5370
   },
   {
    "id": "PU-RES",
@@ -8213,7 +9148,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4830
+   "sort": 5380
   },
   {
    "id": "PV-AF",
@@ -8230,7 +9165,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4840
+   "sort": 5390
   },
   {
    "id": "PV-DAA",
@@ -8247,7 +9182,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4850
+   "sort": 5400
   },
   {
    "id": "PV-EP-P",
@@ -8264,7 +9199,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4860
+   "sort": 5410
   },
   {
    "id": "PV-EP-PPA",
@@ -8281,7 +9216,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4870
+   "sort": 5420
   },
   {
    "id": "PV-EP-PPI",
@@ -8298,7 +9233,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4880
+   "sort": 5430
   },
   {
    "id": "PV-EP-QPA",
@@ -8315,7 +9250,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4890
+   "sort": 5440
   },
   {
    "id": "PV-EP-XI",
@@ -8332,7 +9267,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4900
+   "sort": 5450
   },
   {
    "id": "PV-EP-ZETA",
@@ -8349,7 +9284,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4910
+   "sort": 5460
   },
   {
    "id": "PV-EP-ZU",
@@ -8366,7 +9301,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4920
+   "sort": 5470
   },
   {
    "id": "PV-EP-ZZUL",
@@ -8383,7 +9318,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4930
+   "sort": 5480
   },
   {
    "id": "PV-FAX",
@@ -8400,7 +9335,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4940
+   "sort": 5490
   },
   {
    "id": "PV-FE",
@@ -8417,7 +9352,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4950
+   "sort": 5500
   },
   {
    "id": "PV-FIT-H",
@@ -8434,7 +9369,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4960
+   "sort": 5510
   },
   {
    "id": "PV-FIT-SEL",
@@ -8451,7 +9386,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4970
+   "sort": 5520
   },
   {
    "id": "PV-FIT-W",
@@ -8468,7 +9403,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4980
+   "sort": 5530
   },
   {
    "id": "PV-FL-NG",
@@ -8485,7 +9420,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 4990
+   "sort": 5540
   },
   {
    "id": "PV-FL-PN",
@@ -8502,7 +9437,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5000
+   "sort": 5550
   },
   {
    "id": "PV-FL-TN",
@@ -8519,7 +9454,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5010
+   "sort": 5560
   },
   {
    "id": "PV-FL-U",
@@ -8536,7 +9471,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5020
+   "sort": 5570
   },
   {
    "id": "PV-FL-UAB",
@@ -8553,7 +9488,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5030
+   "sort": 5580
   },
   {
    "id": "PV-FRES",
@@ -8570,7 +9505,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5040
+   "sort": 5590
   },
   {
    "id": "PV-FT",
@@ -8587,7 +9522,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5050
+   "sort": 5600
   },
   {
    "id": "PV-GL",
@@ -8604,7 +9539,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5060
+   "sort": 5610
   },
   {
    "id": "PV-K",
@@ -8621,7 +9556,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5070
+   "sort": 5620
   },
   {
    "id": "PV-LE",
@@ -8638,7 +9573,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5080
+   "sort": 5630
   },
   {
    "id": "PV-N-ELAST",
@@ -8655,7 +9590,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5090
+   "sort": 5640
   },
   {
    "id": "PV-N-EP",
@@ -8672,7 +9607,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5100
+   "sort": 5650
   },
   {
    "id": "PV-N-FL",
@@ -8689,7 +9624,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5110
+   "sort": 5660
   },
   {
    "id": "PV-N-FL10",
@@ -8706,7 +9641,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5120
+   "sort": 5670
   },
   {
    "id": "PV-N-GEO",
@@ -8723,7 +9658,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5130
+   "sort": 5680
   },
   {
    "id": "PV-N-PASS",
@@ -8740,7 +9675,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5140
+   "sort": 5690
   },
   {
    "id": "PV-N-SPA",
@@ -8757,7 +9692,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5150
+   "sort": 5700
   },
   {
    "id": "PV-N-SPI",
@@ -8774,7 +9709,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5160
+   "sort": 5710
   },
   {
    "id": "PV-N-SR",
@@ -8791,7 +9726,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5170
+   "sort": 5720
   },
   {
    "id": "PV-N-TA",
@@ -8808,7 +9743,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5180
+   "sort": 5730
   },
   {
    "id": "PV-N-VERF",
@@ -8825,7 +9760,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5190
+   "sort": 5740
   },
   {
    "id": "PV-P",
@@ -8842,7 +9777,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5200
+   "sort": 5750
   },
   {
    "id": "PV-PERF",
@@ -8859,7 +9794,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5210
+   "sort": 5760
   },
   {
    "id": "PV-PT",
@@ -8876,7 +9811,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5220
+   "sort": 5770
   },
   {
    "id": "PV-PZA",
@@ -8893,7 +9828,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5230
+   "sort": 5780
   },
   {
    "id": "PV-PZI-H",
@@ -8910,7 +9845,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5240
+   "sort": 5790
   },
   {
    "id": "PV-PZI-V",
@@ -8927,7 +9862,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5250
+   "sort": 5800
   },
   {
    "id": "PV-QA",
@@ -8944,7 +9879,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5260
+   "sort": 5810
   },
   {
    "id": "PV-QI",
@@ -8961,7 +9896,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5270
+   "sort": 5820
   },
   {
    "id": "PV-RZ",
@@ -8978,7 +9913,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5280
+   "sort": 5830
   },
   {
    "id": "PV-S-TAA",
@@ -8995,7 +9930,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5290
+   "sort": 5840
   },
   {
    "id": "PV-S-TAI",
@@ -9012,7 +9947,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5300
+   "sort": 5850
   },
   {
    "id": "PV-S-TIA",
@@ -9029,7 +9964,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5310
+   "sort": 5860
   },
   {
    "id": "PV-S-TII",
@@ -9046,7 +9981,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5320
+   "sort": 5870
   },
   {
    "id": "PV-S-VA",
@@ -9063,7 +9998,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5330
+   "sort": 5880
   },
   {
    "id": "PV-S-VI",
@@ -9080,7 +10015,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5340
+   "sort": 5890
   },
   {
    "id": "PV-SPA",
@@ -9097,7 +10032,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5350
+   "sort": 5900
   },
   {
    "id": "PV-SPI",
@@ -9114,7 +10049,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5360
+   "sort": 5910
   },
   {
    "id": "PV-SR",
@@ -9131,7 +10066,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5370
+   "sort": 5920
   },
   {
    "id": "PV-T",
@@ -9148,7 +10083,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5380
+   "sort": 5930
   },
   {
    "id": "PV-TA",
@@ -9165,7 +10100,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5390
+   "sort": 5940
   },
   {
    "id": "PV-U-MAN",
@@ -9182,7 +10117,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5400
+   "sort": 5950
   },
   {
    "id": "PV-UF",
@@ -9199,7 +10134,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5410
+   "sort": 5960
   },
   {
    "id": "PV-UG",
@@ -9216,7 +10151,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5420
+   "sort": 5970
   },
   {
    "id": "PV-UK",
@@ -9233,7 +10168,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5430
+   "sort": 5980
   },
   {
    "id": "PV-UMAX",
@@ -9250,7 +10185,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5440
+   "sort": 5990
   },
   {
    "id": "PV-UO",
@@ -9267,7 +10202,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5450
+   "sort": 6000
   },
   {
    "id": "PV-US",
@@ -9284,7 +10219,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5460
+   "sort": 6010
   },
   {
    "id": "PV-UU",
@@ -9301,7 +10236,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5470
+   "sort": 6020
   },
   {
    "id": "PV-UW",
@@ -9318,7 +10253,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5480
+   "sort": 6030
   },
   {
    "id": "PV-XI",
@@ -9335,7 +10270,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5490
+   "sort": 6040
   },
   {
    "id": "PV-XIERF",
@@ -9352,7 +10287,7 @@
    "approved_at": "2026-11-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5500
+   "sort": 6050
   },
   {
    "id": "Q-DH-A",
@@ -9369,7 +10304,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5510
+   "sort": 6060
   },
   {
    "id": "Q-DH-ai",
@@ -9386,7 +10321,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5520
+   "sort": 6070
   },
   {
    "id": "Q-DH-I",
@@ -9403,7 +10338,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5530
+   "sort": 6080
   },
   {
    "id": "Q-DH-K",
@@ -9420,7 +10355,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5540
+   "sort": 6090
   },
   {
    "id": "Q-DH-W",
@@ -9437,7 +10372,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5550
+   "sort": 6100
   },
   {
    "id": "Q-DH-WT",
@@ -9454,7 +10389,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5560
+   "sort": 6110
   },
   {
    "id": "Q-DV-A",
@@ -9471,7 +10406,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5570
+   "sort": 6120
   },
   {
    "id": "Q-DV-e",
@@ -9488,7 +10423,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5580
+   "sort": 6130
   },
   {
    "id": "Q-DV-I",
@@ -9505,7 +10440,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5590
+   "sort": 6140
   },
   {
    "id": "Q-DV-K",
@@ -9522,7 +10457,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5600
+   "sort": 6150
   },
   {
    "id": "Q-DV-W",
@@ -9539,7 +10474,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5610
+   "sort": 6160
   },
   {
    "id": "Q-DV-WT",
@@ -9556,7 +10491,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5620
+   "sort": 6170
   },
   {
    "id": "Q-i",
@@ -9573,7 +10508,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5630
+   "sort": 6180
   },
   {
    "id": "Q-IP-A",
@@ -9590,7 +10525,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5640
+   "sort": 6190
   },
   {
    "id": "Q-IP-IY",
@@ -9607,7 +10542,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5650
+   "sort": 6200
   },
   {
    "id": "Q-IP-IZ",
@@ -9624,7 +10559,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5660
+   "sort": 6210
   },
   {
    "id": "Q-IP-K",
@@ -9641,7 +10576,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5670
+   "sort": 6220
   },
   {
    "id": "Q-IP-KA",
@@ -9658,7 +10593,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5680
+   "sort": 6230
   },
   {
    "id": "Q-IP-KAZ",
@@ -9675,7 +10610,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5690
+   "sort": 6240
   },
   {
    "id": "Q-IP-S",
@@ -9692,7 +10627,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5700
+   "sort": 6250
   },
   {
    "id": "Q-IP-SZ",
@@ -9709,7 +10644,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5710
+   "sort": 6260
   },
   {
    "id": "Q-IP-W",
@@ -9726,7 +10661,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5720
+   "sort": 6270
   },
   {
    "id": "Q-IP-WT",
@@ -9743,7 +10678,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5730
+   "sort": 6280
   },
   {
    "id": "Q-IP-WZ",
@@ -9760,7 +10695,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5740
+   "sort": 6290
   },
   {
    "id": "Q-LP-A",
@@ -9777,7 +10712,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5750
+   "sort": 6300
   },
   {
    "id": "Q-LP-AL",
@@ -9794,7 +10729,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5760
+   "sort": 6310
   },
   {
    "id": "Q-LP-I1",
@@ -9811,7 +10746,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5770
+   "sort": 6320
   },
   {
    "id": "Q-LP-I2",
@@ -9828,7 +10763,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5780
+   "sort": 6330
   },
   {
    "id": "Q-LP-IY",
@@ -9845,7 +10780,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5790
+   "sort": 6340
   },
   {
    "id": "Q-LP-IYZ",
@@ -9862,7 +10797,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5800
+   "sort": 6350
   },
   {
    "id": "Q-LP-IZ",
@@ -9879,7 +10814,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5810
+   "sort": 6360
   },
   {
    "id": "Q-LP-K",
@@ -9896,7 +10831,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5820
+   "sort": 6370
   },
   {
    "id": "Q-LP-KA",
@@ -9913,7 +10848,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5830
+   "sort": 6380
   },
   {
    "id": "Q-LP-S",
@@ -9930,7 +10865,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5840
+   "sort": 6390
   },
   {
    "id": "Q-LP-W",
@@ -9947,7 +10882,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5850
+   "sort": 6400
   },
   {
    "id": "Q-LP-WT",
@@ -9964,7 +10899,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5860
+   "sort": 6410
   },
   {
    "id": "Q-LP-YS",
@@ -9981,7 +10916,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5870
+   "sort": 6420
   },
   {
    "id": "Q-LP-ZS",
@@ -9998,7 +10933,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 5880
+   "sort": 6430
   },
   {
    "id": "Q-m",
@@ -10015,7 +10950,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5890
+   "sort": 6440
   },
   {
    "id": "Q-RE-A",
@@ -10032,7 +10967,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5900
+   "sort": 6450
   },
   {
    "id": "Q-RE-I",
@@ -10049,7 +10984,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5910
+   "sort": 6460
   },
   {
    "id": "Q-RE-K",
@@ -10066,7 +11001,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5920
+   "sort": 6470
   },
   {
    "id": "Q-RE-W",
@@ -10083,7 +11018,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5930
+   "sort": 6480
   },
   {
    "id": "Q-RE-WT",
@@ -10100,7 +11035,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5940
+   "sort": 6490
   },
   {
    "id": "Q-RH-A",
@@ -10117,7 +11052,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5950
+   "sort": 6500
   },
   {
    "id": "Q-RH-d",
@@ -10134,7 +11069,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5960
+   "sort": 6510
   },
   {
    "id": "Q-RH-I",
@@ -10151,7 +11086,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5970
+   "sort": 6520
   },
   {
    "id": "Q-RH-K",
@@ -10168,7 +11103,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5980
+   "sort": 6530
   },
   {
    "id": "Q-RH-W",
@@ -10185,7 +11120,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 5990
+   "sort": 6540
   },
   {
    "id": "Q-RH-WT",
@@ -10202,7 +11137,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6000
+   "sort": 6550
   },
   {
    "id": "Q-RR-A",
@@ -10219,7 +11154,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6010
+   "sort": 6560
   },
   {
    "id": "Q-RR-AM",
@@ -10236,7 +11171,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6020
+   "sort": 6570
   },
   {
    "id": "Q-RR-I",
@@ -10253,7 +11188,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6030
+   "sort": 6580
   },
   {
    "id": "Q-RR-K",
@@ -10270,7 +11205,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6040
+   "sort": 6590
   },
   {
    "id": "Q-RR-W",
@@ -10287,7 +11222,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6050
+   "sort": 6600
   },
   {
    "id": "Q-RR-WT",
@@ -10304,7 +11239,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6060
+   "sort": 6610
   },
   {
    "id": "Q-RV-A",
@@ -10321,7 +11256,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6070
+   "sort": 6620
   },
   {
    "id": "Q-RV-I",
@@ -10338,7 +11273,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6080
+   "sort": 6630
   },
   {
    "id": "Q-RV-K",
@@ -10355,7 +11290,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6090
+   "sort": 6640
   },
   {
    "id": "Q-RV-W",
@@ -10372,7 +11307,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6100
+   "sort": 6650
   },
   {
    "id": "Q-RV-WT",
@@ -10389,7 +11324,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6110
+   "sort": 6660
   },
   {
    "id": "Q-SIGO",
@@ -10406,7 +11341,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6120
+   "sort": 6670
   },
   {
    "id": "Q-SIGU",
@@ -10423,7 +11358,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6130
+   "sort": 6680
   },
   {
    "id": "Q-TP-A",
@@ -10440,7 +11375,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6140
+   "sort": 6690
   },
   {
    "id": "Q-TP-IY",
@@ -10457,7 +11392,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6150
+   "sort": 6700
   },
   {
    "id": "Q-TP-IZ",
@@ -10474,7 +11409,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6160
+   "sort": 6710
   },
   {
    "id": "Q-TP-K",
@@ -10491,7 +11426,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6170
+   "sort": 6720
   },
   {
    "id": "Q-TP-KA",
@@ -10508,7 +11443,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6180
+   "sort": 6730
   },
   {
    "id": "Q-TP-S",
@@ -10525,7 +11460,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6190
+   "sort": 6740
   },
   {
    "id": "Q-TP-W",
@@ -10542,7 +11477,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6200
+   "sort": 6750
   },
   {
    "id": "Q-TP-WT",
@@ -10559,7 +11494,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6210
+   "sort": 6760
   },
   {
    "id": "Q-TP-ZS",
@@ -10576,7 +11511,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6220
+   "sort": 6770
   },
   {
    "id": "Q-UP-A",
@@ -10593,7 +11528,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6230
+   "sort": 6780
   },
   {
    "id": "Q-UP-EM",
@@ -10610,7 +11545,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6240
+   "sort": 6790
   },
   {
    "id": "Q-UP-IY",
@@ -10627,7 +11562,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6250
+   "sort": 6800
   },
   {
    "id": "Q-UP-IZ",
@@ -10644,7 +11579,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6260
+   "sort": 6810
   },
   {
    "id": "Q-UP-K",
@@ -10661,7 +11596,7 @@
    "approved_at": "2026-10-18",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6270
+   "sort": 6820
   },
   {
    "id": "Q-UP-KA",
@@ -10678,7 +11613,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6280
+   "sort": 6830
   },
   {
    "id": "Q-UP-KAZ",
@@ -10695,7 +11630,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6290
+   "sort": 6840
   },
   {
    "id": "Q-UP-S",
@@ -10712,7 +11647,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6300
+   "sort": 6850
   },
   {
    "id": "Q-UP-SZ",
@@ -10729,7 +11664,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6310
+   "sort": 6860
   },
   {
    "id": "Q-UP-W",
@@ -10746,7 +11681,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6320
+   "sort": 6870
   },
   {
    "id": "Q-UP-WT",
@@ -10763,7 +11698,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6330
+   "sort": 6880
   },
   {
    "id": "Q-UP-WZ",
@@ -10780,7 +11715,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6340
+   "sort": 6890
   },
   {
    "id": "Q-UP-YS",
@@ -10797,7 +11732,7 @@
    "approved_at": "2026-10-15",
    "approved_by": "seti",
    "comment": null,
-   "sort": 6350
+   "sort": 6900
   },
   {
    "id": "RH-A",
@@ -10814,7 +11749,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6360
+   "sort": 6910
   },
   {
    "id": "RH-A-RE",
@@ -10831,7 +11766,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6370
+   "sort": 6920
   },
   {
    "id": "RH-A-RI",
@@ -10848,7 +11783,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6380
+   "sort": 6930
   },
   {
    "id": "RH-AU-MAN",
@@ -10865,7 +11800,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6390
+   "sort": 6940
   },
   {
    "id": "RH-BE",
@@ -10882,7 +11817,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6400
+   "sort": 6950
   },
   {
    "id": "RH-D-BIS",
@@ -10899,7 +11834,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6410
+   "sort": 6960
   },
   {
    "id": "RH-D-DN",
@@ -10916,7 +11851,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6420
+   "sort": 6970
   },
   {
    "id": "RH-DH",
@@ -10933,7 +11868,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6430
+   "sort": 6980
   },
   {
    "id": "RH-DI",
@@ -10950,7 +11885,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6440
+   "sort": 6990
   },
   {
    "id": "RH-DP-ERF",
@@ -10967,7 +11902,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6450
+   "sort": 7000
   },
   {
    "id": "RH-DP-GEO",
@@ -10984,7 +11919,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6460
+   "sort": 7010
   },
   {
    "id": "RH-DP-R",
@@ -11001,7 +11936,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6470
+   "sort": 7020
   },
   {
    "id": "RH-DP-V",
@@ -11018,7 +11953,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6480
+   "sort": 7030
   },
   {
    "id": "RH-DP-Z",
@@ -11035,7 +11970,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6490
+   "sort": 7040
   },
   {
    "id": "RH-DS-AH",
@@ -11052,7 +11987,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6500
+   "sort": 7050
   },
   {
    "id": "RH-DS-AK",
@@ -11069,7 +12004,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6510
+   "sort": 7060
   },
   {
    "id": "RH-DS-AR",
@@ -11086,7 +12021,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6520
+   "sort": 7070
   },
   {
    "id": "RH-DS-AW",
@@ -11103,7 +12038,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6530
+   "sort": 7080
   },
   {
    "id": "RH-DS-J",
@@ -11120,7 +12055,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6540
+   "sort": 7090
   },
   {
    "id": "RH-DS-L",
@@ -11137,7 +12072,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6550
+   "sort": 7100
   },
   {
    "id": "RH-DS-N",
@@ -11154,7 +12089,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6560
+   "sort": 7110
   },
   {
    "id": "RH-DS-P",
@@ -11171,7 +12106,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6570
+   "sort": 7120
   },
   {
    "id": "RH-DS-PSI-D",
@@ -11188,7 +12123,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6580
+   "sort": 7130
   },
   {
    "id": "RH-DS-PSI-K",
@@ -11205,7 +12140,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6590
+   "sort": 7140
   },
   {
    "id": "RH-DS-TR",
@@ -11222,7 +12157,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6600
+   "sort": 7150
   },
   {
    "id": "RH-EPS",
@@ -11239,7 +12174,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6610
+   "sort": 7160
   },
   {
    "id": "RH-H-E",
@@ -11256,7 +12191,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6620
+   "sort": 7170
   },
   {
    "id": "RH-H-P",
@@ -11273,7 +12208,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6630
+   "sort": 7180
   },
   {
    "id": "RH-H-PG",
@@ -11290,7 +12225,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6640
+   "sort": 7190
   },
   {
    "id": "RH-HV",
@@ -11307,7 +12242,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6650
+   "sort": 7200
   },
   {
    "id": "RH-K",
@@ -11324,7 +12259,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6660
+   "sort": 7210
   },
   {
    "id": "RH-L-CB",
@@ -11341,7 +12276,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6670
+   "sort": 7220
   },
   {
    "id": "RH-L-EX",
@@ -11358,7 +12293,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6680
+   "sort": 7230
   },
   {
    "id": "RH-L-LAM",
@@ -11375,7 +12310,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6690
+   "sort": 7240
   },
   {
    "id": "RH-L-LAM-PHI",
@@ -11392,7 +12327,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6700
+   "sort": 7250
   },
   {
    "id": "RH-M-BETA",
@@ -11409,7 +12344,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6710
+   "sort": 7260
   },
   {
    "id": "RH-M-CB",
@@ -11426,7 +12361,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6720
+   "sort": 7270
   },
   {
    "id": "RH-M-CV",
@@ -11443,7 +12378,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6730
+   "sort": 7280
   },
   {
    "id": "RH-M-DP",
@@ -11460,7 +12395,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6740
+   "sort": 7290
   },
   {
    "id": "RH-M-DW",
@@ -11477,7 +12412,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6750
+   "sort": 7300
   },
   {
    "id": "RH-M-DWV",
@@ -11494,7 +12429,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6760
+   "sort": 7310
   },
   {
    "id": "RH-M-N",
@@ -11511,7 +12446,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6770
+   "sort": 7320
   },
   {
    "id": "RH-M-Q",
@@ -11528,7 +12463,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6780
+   "sort": 7330
   },
   {
    "id": "RH-M-QIT",
@@ -11545,7 +12480,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6790
+   "sort": 7340
   },
   {
    "id": "RH-M-ZETA",
@@ -11562,7 +12497,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6800
+   "sort": 7350
   },
   {
    "id": "RH-N-KAV",
@@ -11579,7 +12514,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6810
+   "sort": 7360
   },
   {
    "id": "RH-N-RE",
@@ -11596,7 +12531,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6820
+   "sort": 7370
   },
   {
    "id": "RH-N-V",
@@ -11613,7 +12548,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6830
+   "sort": 7380
   },
   {
    "id": "RH-P-HYD",
@@ -11630,7 +12565,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6840
+   "sort": 7390
   },
   {
    "id": "RH-P-W",
@@ -11647,7 +12582,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6850
+   "sort": 7400
   },
   {
    "id": "RH-PHI",
@@ -11664,7 +12599,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6860
+   "sort": 7410
   },
   {
    "id": "RH-Q-BIS",
@@ -11681,7 +12616,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6870
+   "sort": 7420
   },
   {
    "id": "RH-RE",
@@ -11698,7 +12633,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6880
+   "sort": 7430
   },
   {
    "id": "RH-U-RE",
@@ -11715,7 +12650,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6890
+   "sort": 7440
   },
   {
    "id": "RH-U-RI",
@@ -11732,7 +12667,7 @@
    "approved_at": "2026-11-06",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6900
+   "sort": 7450
   },
   {
    "id": "RH-V",
@@ -11749,7 +12684,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6910
+   "sort": 7460
   },
   {
    "id": "RH-Z-BC",
@@ -11766,7 +12701,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6920
+   "sort": 7470
   },
   {
    "id": "RH-Z-IP",
@@ -11783,7 +12718,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6930
+   "sort": 7480
   },
   {
    "id": "RH-Z-MAN",
@@ -11800,7 +12735,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6940
+   "sort": 7490
   },
   {
    "id": "RH-Z-TAB",
@@ -11817,7 +12752,7 @@
    "approved_at": "2026-10-29",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6950
+   "sort": 7500
   },
   {
    "id": "SV-A3",
@@ -11834,7 +12769,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6960
+   "sort": 7510
   },
   {
    "id": "SV-AN",
@@ -11851,7 +12786,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6970
+   "sort": 7520
   },
   {
    "id": "SV-AP",
@@ -11868,7 +12803,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6980
+   "sort": 7530
   },
   {
    "id": "SV-AS",
@@ -11885,7 +12820,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 6990
+   "sort": 7540
   },
   {
    "id": "SV-ASMIN",
@@ -11902,7 +12837,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7000
+   "sort": 7550
   },
   {
    "id": "SV-AT",
@@ -11919,7 +12854,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7010
+   "sort": 7560
   },
   {
    "id": "SV-DAGR",
@@ -11936,7 +12871,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7020
+   "sort": 7570
   },
   {
    "id": "SV-DG",
@@ -11953,7 +12888,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7030
+   "sort": 7580
   },
   {
    "id": "SV-DGEW",
@@ -11970,7 +12905,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7040
+   "sort": 7590
   },
   {
    "id": "SV-DI",
@@ -11987,7 +12922,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7050
+   "sort": 7600
   },
   {
    "id": "SV-DKM",
@@ -12004,7 +12939,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7060
+   "sort": 7610
   },
   {
    "id": "SV-DM",
@@ -12021,7 +12956,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7070
+   "sort": 7620
   },
   {
    "id": "SV-DP-H",
@@ -12038,7 +12973,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7080
+   "sort": 7630
   },
   {
    "id": "SV-DP-HZ",
@@ -12055,7 +12990,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7090
+   "sort": 7640
   },
   {
    "id": "SV-DP-K",
@@ -12072,7 +13007,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7100
+   "sort": 7650
   },
   {
    "id": "SV-DP-KH",
@@ -12089,7 +13024,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7110
+   "sort": 7660
   },
   {
    "id": "SV-DP-T",
@@ -12106,7 +13041,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7120
+   "sort": 7670
   },
   {
    "id": "SV-DS",
@@ -12123,7 +13058,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7130
+   "sort": 7680
   },
   {
    "id": "SV-DS0",
@@ -12140,7 +13075,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7140
+   "sort": 7690
   },
   {
    "id": "SV-DSK",
@@ -12157,7 +13092,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7150
+   "sort": 7700
   },
   {
    "id": "SV-FAM",
@@ -12174,7 +13109,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7160
+   "sort": 7710
   },
   {
    "id": "SV-FBS01",
@@ -12191,7 +13126,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7170
+   "sort": 7720
   },
   {
    "id": "SV-FKERF",
@@ -12208,7 +13143,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7180
+   "sort": 7730
   },
   {
    "id": "SV-FKP",
@@ -12225,7 +13160,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7190
+   "sort": 7740
   },
   {
    "id": "SV-FKQ",
@@ -12242,7 +13177,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7200
+   "sort": 7750
   },
   {
    "id": "SV-FKR",
@@ -12259,7 +13194,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7210
+   "sort": 7760
   },
   {
    "id": "SV-FMMAX",
@@ -12276,7 +13211,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7220
+   "sort": 7770
   },
   {
    "id": "SV-FMMIN",
@@ -12293,7 +13228,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7230
+   "sort": 7780
   },
   {
    "id": "SV-FMZUL",
@@ -12310,7 +13245,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7240
+   "sort": 7790
   },
   {
    "id": "SV-FPA",
@@ -12327,7 +13262,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7250
+   "sort": 7800
   },
   {
    "id": "SV-FQT",
@@ -12344,7 +13279,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7260
+   "sort": 7810
   },
   {
    "id": "SV-FSA",
@@ -12361,7 +13296,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7270
+   "sort": 7820
   },
   {
    "id": "SV-FSMAX",
@@ -12378,7 +13313,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7280
+   "sort": 7830
   },
   {
    "id": "SV-FVMIN",
@@ -12395,7 +13330,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7290
+   "sort": 7840
   },
   {
    "id": "SV-FZ",
@@ -12412,7 +13347,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7300
+   "sort": 7850
   },
   {
    "id": "SV-FZSUM",
@@ -12429,7 +13364,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7310
+   "sort": 7860
   },
   {
    "id": "SV-KEF",
@@ -12446,7 +13381,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7320
+   "sort": 7870
   },
   {
    "id": "SV-LE",
@@ -12463,7 +13398,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7330
+   "sort": 7880
   },
   {
    "id": "SV-LGEW",
@@ -12480,7 +13415,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7340
+   "sort": 7890
   },
   {
    "id": "SV-LK",
@@ -12497,7 +13432,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7350
+   "sort": 7900
   },
   {
    "id": "SV-MA",
@@ -12514,7 +13449,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7360
+   "sort": 7910
   },
   {
    "id": "SV-MA-EX",
@@ -12531,7 +13466,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7370
+   "sort": 7920
   },
   {
    "id": "SV-MG",
@@ -12548,7 +13483,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7380
+   "sort": 7930
   },
   {
    "id": "SV-ML",
@@ -12565,7 +13500,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7390
+   "sort": 7940
   },
   {
    "id": "SV-MLI",
@@ -12582,7 +13517,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7400
+   "sort": 7950
   },
   {
    "id": "SV-MVORH",
@@ -12599,7 +13534,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7410
+   "sort": 7960
   },
   {
    "id": "SV-N-FBS",
@@ -12616,7 +13551,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7420
+   "sort": 7970
   },
   {
    "id": "SV-N-FM",
@@ -12633,7 +13568,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7430
+   "sort": 7980
   },
   {
    "id": "SV-N-GEO",
@@ -12650,7 +13585,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7440
+   "sort": 7990
   },
   {
    "id": "SV-N-GUELT",
@@ -12667,7 +13602,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7450
+   "sort": 8000
   },
   {
    "id": "SV-N-KR",
@@ -12684,7 +13619,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7460
+   "sort": 8010
   },
   {
    "id": "SV-N-LE",
@@ -12701,7 +13636,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7470
+   "sort": 8020
   },
   {
    "id": "SV-N-P",
@@ -12718,7 +13653,7 @@
    "approved_at": "2026-11-10",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7480
+   "sort": 8030
   },
   {
    "id": "SV-N-SA",
@@ -12735,7 +13670,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7490
+   "sort": 8040
   },
   {
    "id": "SV-N-SD",
@@ -12752,7 +13687,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7500
+   "sort": 8050
   },
   {
    "id": "SV-N-SF",
@@ -12769,7 +13704,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7510
+   "sort": 8060
   },
   {
    "id": "SV-N-SG",
@@ -12786,7 +13721,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7520
+   "sort": 8070
   },
   {
    "id": "SV-NV",
@@ -12803,7 +13738,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7530
+   "sort": 8080
   },
   {
    "id": "SV-OPT-A24",
@@ -12820,7 +13755,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7540
+   "sort": 8090
   },
   {
    "id": "SV-OPT-FEIN",
@@ -12837,7 +13772,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7550
+   "sort": 8100
   },
   {
    "id": "SV-OPT-FL",
@@ -12854,7 +13789,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7560
+   "sort": 8110
   },
   {
    "id": "SV-OPT-SAZ",
@@ -12871,7 +13806,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7570
+   "sort": 8120
   },
   {
    "id": "SV-OPT-VTH",
@@ -12888,7 +13823,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7580
+   "sort": 8130
   },
   {
    "id": "SV-PB",
@@ -12905,7 +13840,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7590
+   "sort": 8140
   },
   {
    "id": "SV-PHI",
@@ -12922,7 +13857,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7600
+   "sort": 8150
   },
   {
    "id": "SV-PHIK",
@@ -12939,7 +13874,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7610
+   "sort": 8160
   },
   {
    "id": "SV-PHIN",
@@ -12956,7 +13891,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7620
+   "sort": 8170
   },
   {
    "id": "SV-PM",
@@ -12973,7 +13908,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7630
+   "sort": 8180
   },
   {
    "id": "SV-PSG",
@@ -12990,7 +13925,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7640
+   "sort": 8190
   },
   {
    "id": "SV-SA",
@@ -13007,7 +13942,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7650
+   "sort": 8200
   },
   {
    "id": "SV-SAB",
@@ -13024,7 +13959,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7660
+   "sort": 8210
   },
   {
    "id": "SV-SASG",
@@ -13041,7 +13976,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7670
+   "sort": 8220
   },
   {
    "id": "SV-SASV",
@@ -13058,7 +13993,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7680
+   "sort": 8230
   },
   {
    "id": "SV-SD",
@@ -13075,7 +14010,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7690
+   "sort": 8240
   },
   {
    "id": "SV-SF",
@@ -13092,7 +14027,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7700
+   "sort": 8250
   },
   {
    "id": "SV-SG",
@@ -13109,7 +14044,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7710
+   "sort": 8260
   },
   {
    "id": "SV-SP",
@@ -13126,7 +14061,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7720
+   "sort": 8270
   },
   {
    "id": "SV-SREDB",
@@ -13143,7 +14078,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7730
+   "sort": 8280
   },
   {
    "id": "SV-SREDM",
@@ -13160,7 +14095,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7740
+   "sort": 8290
   },
   {
    "id": "SV-SZMAX",
@@ -13177,7 +14112,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7750
+   "sort": 8300
   },
   {
    "id": "SV-TANPHI",
@@ -13194,7 +14129,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7760
+   "sort": 8310
   },
   {
    "id": "SV-TAU",
@@ -13211,7 +14146,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7770
+   "sort": 8320
   },
   {
    "id": "SV-TAUQ",
@@ -13228,7 +14163,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7780
+   "sort": 8330
   },
   {
    "id": "SV-WAHL",
@@ -13245,7 +14180,7 @@
    "approved_at": "2026-11-10",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7790
+   "sort": 8340
   },
   {
    "id": "SV-WP",
@@ -13262,7 +14197,7 @@
    "approved_at": "2026-11-09",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7800
+   "sort": 8350
   },
   {
    "id": "T-PHI1",
@@ -13279,7 +14214,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 7810
+   "sort": 8360
   },
   {
    "id": "T-PHI2",
@@ -13296,7 +14231,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 7820
+   "sort": 8370
   },
   {
    "id": "T-TA",
@@ -13313,7 +14248,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 7830
+   "sort": 8380
   },
   {
    "id": "T-TAU",
@@ -13330,7 +14265,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 7840
+   "sort": 8390
   },
   {
    "id": "V-B",
@@ -13347,7 +14282,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7850
+   "sort": 8400
   },
   {
    "id": "V-BL",
@@ -13364,7 +14299,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7860
+   "sort": 8410
   },
   {
    "id": "V-CK-EE",
@@ -13381,7 +14316,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7870
+   "sort": 8420
   },
   {
    "id": "V-CK-EG",
@@ -13398,7 +14333,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7880
+   "sort": 8430
   },
   {
    "id": "V-CK-GG",
@@ -13415,7 +14350,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7890
+   "sort": 8440
   },
   {
    "id": "V-CK-KR",
@@ -13432,7 +14367,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7900
+   "sort": 8450
   },
   {
    "id": "V-EI",
@@ -13449,7 +14384,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7910
+   "sort": 8460
   },
   {
    "id": "V-EW",
@@ -13466,7 +14401,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7920
+   "sort": 8470
   },
   {
    "id": "V-FN",
@@ -13483,7 +14418,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7930
+   "sort": 8480
   },
   {
    "id": "V-MB",
@@ -13500,7 +14435,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
-   "sort": 7940
+   "sort": 8490
   },
   {
    "id": "V-NR",
@@ -13517,7 +14452,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7950
+   "sort": 8500
   },
   {
    "id": "V-NZ",
@@ -13534,7 +14469,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7960
+   "sort": 8510
   },
   {
    "id": "V-OM",
@@ -13551,7 +14486,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7970
+   "sort": 8520
   },
   {
    "id": "V-PH-EE",
@@ -13568,7 +14503,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7980
+   "sort": 8530
   },
   {
    "id": "V-PH-EG",
@@ -13585,7 +14520,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 7990
+   "sort": 8540
   },
   {
    "id": "V-PH-GG",
@@ -13602,7 +14537,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8000
+   "sort": 8550
   },
   {
    "id": "V-PH-KR",
@@ -13619,7 +14554,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8010
+   "sort": 8560
   },
   {
    "id": "V-RQ",
@@ -13636,7 +14571,7 @@
    "approved_at": "2026-10-13",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8020
+   "sort": 8570
   },
   {
    "id": "W-BB",
@@ -13653,7 +14588,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 8030
+   "sort": 8580
   },
   {
    "id": "W-E",
@@ -13662,7 +14597,7 @@
    "quantity": "E-Modul",
    "formula": "E (Werkstoffdatenbank, Standardvariante)",
    "unit": "MPa",
-   "source": "WDB 1.1.4",
+   "source": "WDB 1.1.5",
    "example": "70 GPa",
    "example_result": 70000,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -13670,7 +14605,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8040
+   "sort": 8590
   },
   {
    "id": "W-G",
@@ -13687,7 +14622,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": "v meist 0,3, dh wenn nichts anderes gegeben am einfachsten?",
-   "sort": 8050
+   "sort": 8600
   },
   {
    "id": "W-G-DB",
@@ -13704,7 +14639,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8060
+   "sort": 8610
   },
   {
    "id": "W-RHO",
@@ -13713,7 +14648,7 @@
    "quantity": "Dichte",
    "formula": "ρ (Werkstoffdatenbank)",
    "unit": "kg/m³",
-   "source": "WDB 1.1.4",
+   "source": "WDB 1.1.5",
    "example": "2700 kg/m³",
    "example_result": 2700,
    "example_case": "Zugstab, Einzelkraft am Ende; EN AW-6082 (W038); Rund hohl 60 × 4 mm; L 1200 mm; F 2 kN; q 2 kN/m",
@@ -13721,7 +14656,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8070
+   "sort": 8620
   },
   {
    "id": "W-RM",
@@ -13738,7 +14673,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 8080
+   "sort": 8630
   },
   {
    "id": "W-RP",
@@ -13755,7 +14690,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 8090
+   "sort": 8640
   },
   {
    "id": "Z-DL",
@@ -13772,7 +14707,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8100
+   "sort": 8650
   },
   {
    "id": "Z-DL2",
@@ -13789,7 +14724,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 8110
+   "sort": 8660
   },
   {
    "id": "Z-NMAX",
@@ -13806,7 +14741,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8120
+   "sort": 8670
   },
   {
    "id": "Z-QG",
@@ -13823,7 +14758,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8130
+   "sort": 8680
   },
   {
    "id": "Z-SIG",
@@ -13840,7 +14775,7 @@
    "approved_at": "2026-10-08",
    "approved_by": "Seti",
    "comment": null,
-   "sort": 8140
+   "sort": 8690
   },
   {
    "id": "Z-SIG2",
@@ -13857,7 +14792,7 @@
    "approved_at": "2026-10-10",
    "approved_by": "S. Frotscher",
    "comment": "Datum und Prüfer beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)",
-   "sort": 8150
+   "sort": 8700
   }
  ]
 }

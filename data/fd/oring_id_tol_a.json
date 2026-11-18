@@ -1,0 +1,322 @@
+[
+ {
+  "id": "ORIA-01",
+  "d1_from_mm": 0.68,
+  "d1_to_mm": 1.53,
+  "tol_mm": 0.1,
+  "tol_in": 0.004,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 36)"
+ },
+ {
+  "id": "ORIA-02",
+  "d1_from_mm": 1.54,
+  "d1_to_mm": 11.69,
+  "tol_mm": 0.13,
+  "tol_in": 0.005,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 36)"
+ },
+ {
+  "id": "ORIA-03",
+  "d1_from_mm": 11.7,
+  "d1_to_mm": 13.46,
+  "tol_mm": 0.15,
+  "tol_in": 0.006,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 36)"
+ },
+ {
+  "id": "ORIA-04",
+  "d1_from_mm": 13.47,
+  "d1_to_mm": 17.53,
+  "tol_mm": 0.18,
+  "tol_in": 0.007,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-05",
+  "d1_from_mm": 17.54,
+  "d1_to_mm": 20.57,
+  "tol_mm": 0.2,
+  "tol_in": 0.008,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-06",
+  "d1_from_mm": 20.58,
+  "d1_to_mm": 23.88,
+  "tol_mm": 0.23,
+  "tol_in": 0.009,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-07",
+  "d1_from_mm": 23.89,
+  "d1_to_mm": 28.7,
+  "tol_mm": 0.25,
+  "tol_in": 0.01,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-08",
+  "d1_from_mm": 28.71,
+  "d1_to_mm": 35.56,
+  "tol_mm": 0.3,
+  "tol_in": 0.012,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-09",
+  "d1_from_mm": 35.57,
+  "d1_to_mm": 43.18,
+  "tol_mm": 0.36,
+  "tol_in": 0.014,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-10",
+  "d1_from_mm": 43.19,
+  "d1_to_mm": 50.8,
+  "tol_mm": 0.41,
+  "tol_in": 0.016,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-11",
+  "d1_from_mm": 50.81,
+  "d1_to_mm": 58.42,
+  "tol_mm": 0.46,
+  "tol_in": 0.018,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-12",
+  "d1_from_mm": 58.43,
+  "d1_to_mm": 66.55,
+  "tol_mm": 0.51,
+  "tol_in": 0.02,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-13",
+  "d1_from_mm": 66.56,
+  "d1_to_mm": 74.93,
+  "tol_mm": 0.56,
+  "tol_in": 0.022,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-14",
+  "d1_from_mm": 74.94,
+  "d1_to_mm": 83.57,
+  "tol_mm": 0.61,
+  "tol_in": 0.024,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-15",
+  "d1_from_mm": 83.58,
+  "d1_to_mm": 92.2,
+  "tol_mm": 0.66,
+  "tol_in": 0.026,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-16",
+  "d1_from_mm": 92.21,
+  "d1_to_mm": 101.6,
+  "tol_mm": 0.71,
+  "tol_in": 0.028,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-17",
+  "d1_from_mm": 101.61,
+  "d1_to_mm": 117.35,
+  "tol_mm": 0.76,
+  "tol_in": 0.03,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-18",
+  "d1_from_mm": 117.36,
+  "d1_to_mm": 141.22,
+  "tol_mm": 0.89,
+  "tol_in": 0.035,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-19",
+  "d1_from_mm": 141.23,
+  "d1_to_mm": 166.37,
+  "tol_mm": 1.02,
+  "tol_in": 0.04,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-20",
+  "d1_from_mm": 166.38,
+  "d1_to_mm": 192.02,
+  "tol_mm": 1.14,
+  "tol_in": 0.045,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-21",
+  "d1_from_mm": 192.03,
+  "d1_to_mm": 218.69,
+  "tol_mm": 1.27,
+  "tol_in": 0.05,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-22",
+  "d1_from_mm": 218.7,
+  "d1_to_mm": 253.37,
+  "tol_mm": 1.4,
+  "tol_in": 0.055,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-23",
+  "d1_from_mm": 253.38,
+  "d1_to_mm": 289.56,
+  "tol_mm": 1.52,
+  "tol_in": 0.06,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-24",
+  "d1_from_mm": 289.57,
+  "d1_to_mm": 347.98,
+  "tol_mm": 1.78,
+  "tol_in": 0.07,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-25",
+  "d1_from_mm": 347.99,
+  "d1_to_mm": 408.94,
+  "tol_mm": 2.03,
+  "tol_in": 0.08,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-26",
+  "d1_from_mm": 408.95,
+  "d1_to_mm": 472.44,
+  "tol_mm": 2.29,
+  "tol_in": 0.09,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-27",
+  "d1_from_mm": 472.45,
+  "d1_to_mm": 571.5,
+  "tol_mm": 2.54,
+  "tol_in": 0.1,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-28",
+  "d1_from_mm": 571.51,
+  "d1_to_mm": 711.2,
+  "tol_mm": 3.05,
+  "tol_in": 0.12,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-29",
+  "d1_from_mm": 711.21,
+  "d1_to_mm": 855.98,
+  "tol_mm": 3.56,
+  "tol_in": 0.14,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-30",
+  "d1_from_mm": 855.99,
+  "d1_to_mm": 1005.84,
+  "tol_mm": 4.06,
+  "tol_in": 0.16,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-31",
+  "d1_from_mm": 1005.85,
+  "d1_to_mm": 1163.32,
+  "tol_mm": 4.57,
+  "tol_in": 0.18,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ },
+ {
+  "id": "ORIA-32",
+  "d1_from_mm": 1163.33,
+  "d1_to_mm": 1320.8,
+  "tol_mm": 5.08,
+  "tol_in": 0.2,
+  "remark": null,
+  "source_id": "Q250",
+  "source_locator": "Tab. A.2 (S. 37)"
+ }
+]

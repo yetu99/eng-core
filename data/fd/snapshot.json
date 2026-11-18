@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "fd 1.3.1",
-  "released_at": "2026-11-10T06:47:20.958089+00:00",
-  "title": "Schraubenverbindung: Korrektur Normlängen ISO 4014 und ISO 4017"
+  "version": "fd 1.4",
+  "released_at": "2026-11-17T06:52:46.14536+00:00",
+  "title": "O-Ring: Größen und Toleranzen ISO 3601-1, Nutmaße, Verpressungsgrenzen, Spaltmaße, Rauheit, Elastomere, Medienbeständigkeit (Auswahl), Schnurstärkenwahl, Grundabmaße f und g"
  },
  "source": "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
  "files": {
@@ -133,6 +133,50 @@
   "sv_engagement": {
    "rows": 40,
    "sha256": "653f59a95c62e877bcae9d62f77c2505c7be1ab83b9e6df5702679b072979abe"
+  },
+  "oring_sizes": {
+   "rows": 349,
+   "sha256": "1284d7a1f2856e9a0ba057b669f261faa0aa9f2bff134b5c97d0073f09d90e73"
+  },
+  "oring_cs_tol": {
+   "rows": 9,
+   "sha256": "442229c88f53b01fd051d1dada29e6bfbb42be0233f0fed8970b6b2f512ce957"
+  },
+  "oring_id_tol_a": {
+   "rows": 32,
+   "sha256": "a776c4cfd0dd1ca511a1edebdbae18e86f24c827e0d6fa6c86c40260bcb6e3e1"
+  },
+  "oring_grooves": {
+   "rows": 54,
+   "sha256": "6499c3bf555832d2a146bf8e925c9e696ee1d5a2f60ca19d7c9fc6c80cff5e95"
+  },
+  "oring_compression": {
+   "rows": 20,
+   "sha256": "a342963ac22c4dd651d260b13c7001c57dc3070e77de25d5f190dcdd8cdee516"
+  },
+  "oring_gap": {
+   "rows": 32,
+   "sha256": "2e6a2d0352e2c2679fac36bde44916fbc372317f85cba3302c901d77f28e2c42"
+  },
+  "oring_surface": {
+   "rows": 14,
+   "sha256": "73f5d4303a2eb69ca8c2883f2f489b7c94d75c117e311e6c80fa8db06cb2174b"
+  },
+  "oring_materials": {
+   "rows": 12,
+   "sha256": "b3e15cd0f64d7b878940d753f0a7d32520f009d84975bf48640fef87f8362647"
+  },
+  "oring_media": {
+   "rows": 327,
+   "sha256": "73a73e604aa329b21fc37d35a1dd67cd13ed4006025647e444ec19dac2ef5974"
+  },
+  "oring_cs_select": {
+   "rows": 10,
+   "sha256": "a77e8a0302f61ef0fcf68996f5f8d0e4c04d613d45f5d8c20d7848c06dd1e5d2"
+  },
+  "fit_shaft_es": {
+   "rows": 13,
+   "sha256": "c175c01f552a0dbc5553210a315c650d52769255007509c8166d8591de659479"
   }
  }
 }

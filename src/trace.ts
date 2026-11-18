@@ -31,7 +31,7 @@ export const TRACE_GROUPS = {
   ashby: [],
   fluid: ["stoffwerte", "geometrie", "reibung", "verluste", "energie", "pumpe", "messung", "druckstoss", "nachweis"],
   verbindungen: ["werkstoff", "geometrie", "passung", "fugendruck", "betrieb", "spannungen", "montage", "plastisch", "fliehkraft", "nachgiebigkeit", "kraft", "vorspannung", "festigkeit", "schwingung", "pressung", "gleiten", "anziehen", "vorwahl", "nachweis"],
-  dichtungen: ["abmessungen", "verpressung", "nut", "extrusion", "nachweis"],
+  dichtungen: ["toleranz", "einbauraum", "dehnung", "verpressung", "fuellung", "spalt", "werkstoff", "auslegung", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
   kinematik: ["orientierung", "umrechnung", "pruefung", "lage", "kette", "inverse", "abbildung", "gelenke", "vorwaerts", "kontrolle"],
   elektrik: ["grundlagen", "netz", "wechselstrom", "ersatz", "vorlage", "rechner", "nachweis"],
@@ -58,6 +58,7 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   gleiten: "Gleiten, Abscheren, Einschraubtiefe (R11, R12)", anziehen: "Anziehen und Lösen (R13)", vorwahl: "Vorwahl und Auslegung (R0)",
   lage: "Lage der Rahmen", kette: "Rahmenkette und relative Lage", inverse: "Inverse", abbildung: "Punkt, Richtung und Verschieben",
   gelenke: "Gelenke und DH-Gliedmatrizen", vorwaerts: "Vorwärtskinematik", kontrolle: "Kontrolle und Umrechnung",
+  toleranz: "Toleranzen und Grenzmaße", einbauraum: "Einbauraum und Spalt", dehnung: "Dehnung und Stauchung", fuellung: "Nutfüllung", spalt: "Spaltmaß und Extrusion", auslegung: "Auslegung",
   grundlagen: "Grundlagen", netz: "Netzwerk (Knotenpunktanalyse)", wechselstrom: "Wechselstrom", ersatz: "Ersatzwiderstand", vorlage: "Vorlage", rechner: "Rechner",
 };
 

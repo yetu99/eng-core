@@ -1,0 +1,156 @@
+[
+ {
+  "id": "ORSF-axial-kontakt-n",
+  "install": "axial",
+  "surface": "kontakt",
+  "pulsating": false,
+  "ra_um": 1.6,
+  "rmax_um": 6.3,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.4 (S. 11)"
+ },
+ {
+  "id": "ORSF-axial-kontakt-p",
+  "install": "axial",
+  "surface": "kontakt",
+  "pulsating": true,
+  "ra_um": 0.8,
+  "rmax_um": 3.2,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.4 (S. 11)"
+ },
+ {
+  "id": "ORSF-axial-nutgrund-n",
+  "install": "axial",
+  "surface": "nutgrund",
+  "pulsating": false,
+  "ra_um": 3.2,
+  "rmax_um": 12.5,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.4 (S. 11)"
+ },
+ {
+  "id": "ORSF-axial-nutgrund-p",
+  "install": "axial",
+  "surface": "nutgrund",
+  "pulsating": true,
+  "ra_um": 1.6,
+  "rmax_um": 6.3,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.4 (S. 11)"
+ },
+ {
+  "id": "ORSF-dynamisch-fase-x",
+  "install": "dynamisch",
+  "surface": "fase",
+  "pulsating": null,
+  "ra_um": 3.2,
+  "rmax_um": 12.5,
+  "remark": "Traganteil tp > 50 %; dynamisch gilt für Hydraulik, Pneumatik und schwimmend (Tab. 2.8, 2.10, 2.12 gleich)",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.8 (S. 14)"
+ },
+ {
+  "id": "ORSF-dynamisch-kontakt-n",
+  "install": "dynamisch",
+  "surface": "kontakt",
+  "pulsating": false,
+  "ra_um": 0.4,
+  "rmax_um": 1.6,
+  "remark": "Traganteil tp > 50 %; dynamisch gilt für Hydraulik, Pneumatik und schwimmend (Tab. 2.8, 2.10, 2.12 gleich)",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.8 (S. 14), 4.13 (S. 56)"
+ },
+ {
+  "id": "ORSF-dynamisch-kontakt-p",
+  "install": "dynamisch",
+  "surface": "kontakt",
+  "pulsating": true,
+  "ra_um": 0.4,
+  "rmax_um": 1.6,
+  "remark": "Traganteil tp > 50 %; dynamisch gilt für Hydraulik, Pneumatik und schwimmend (Tab. 2.8, 2.10, 2.12 gleich)",
+  "source_id": "Q253",
+  "source_locator": "Tab. 4.13 (S. 56)"
+ },
+ {
+  "id": "ORSF-dynamisch-nutgrund-n",
+  "install": "dynamisch",
+  "surface": "nutgrund",
+  "pulsating": false,
+  "ra_um": 1.6,
+  "rmax_um": 6.3,
+  "remark": "Traganteil tp > 50 %; dynamisch gilt für Hydraulik, Pneumatik und schwimmend (Tab. 2.8, 2.10, 2.12 gleich)",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.8 (S. 14), 4.13 (S. 56)"
+ },
+ {
+  "id": "ORSF-dynamisch-nutgrund-p",
+  "install": "dynamisch",
+  "surface": "nutgrund",
+  "pulsating": true,
+  "ra_um": 1.6,
+  "rmax_um": 6.3,
+  "remark": "Traganteil tp > 50 %; dynamisch gilt für Hydraulik, Pneumatik und schwimmend (Tab. 2.8, 2.10, 2.12 gleich)",
+  "source_id": "Q253",
+  "source_locator": "Tab. 4.13 (S. 56)"
+ },
+ {
+  "id": "ORSF-radial_statisch-fase-x",
+  "install": "radial_statisch",
+  "surface": "fase",
+  "pulsating": null,
+  "ra_um": 3.2,
+  "rmax_um": 12.5,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.2 (S. 10)"
+ },
+ {
+  "id": "ORSF-radial_statisch-kontakt-n",
+  "install": "radial_statisch",
+  "surface": "kontakt",
+  "pulsating": false,
+  "ra_um": 1.6,
+  "rmax_um": 6.3,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.2 (S. 10)"
+ },
+ {
+  "id": "ORSF-radial_statisch-kontakt-p",
+  "install": "radial_statisch",
+  "surface": "kontakt",
+  "pulsating": true,
+  "ra_um": 0.8,
+  "rmax_um": 3.2,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.2 (S. 10)"
+ },
+ {
+  "id": "ORSF-radial_statisch-nutgrund-n",
+  "install": "radial_statisch",
+  "surface": "nutgrund",
+  "pulsating": false,
+  "ra_um": 3.2,
+  "rmax_um": 12.5,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.2 (S. 10)"
+ },
+ {
+  "id": "ORSF-radial_statisch-nutgrund-p",
+  "install": "radial_statisch",
+  "surface": "nutgrund",
+  "pulsating": true,
+  "ra_um": 1.6,
+  "rmax_um": 6.3,
+  "remark": "Traganteil tp > 50 %",
+  "source_id": "Q253",
+  "source_locator": "Tab. 2.2 (S. 10)"
+ }
+]

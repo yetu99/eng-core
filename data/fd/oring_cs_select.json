@@ -1,0 +1,112 @@
+[
+ {
+  "id": "ORCS-kolben-004",
+  "kind": "kolben",
+  "d_min_mm": 4,
+  "d_min_incl": true,
+  "d_max_mm": 12,
+  "d2_mm": 1.78,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.1 (S. 42)"
+ },
+ {
+  "id": "ORCS-kolben-012",
+  "kind": "kolben",
+  "d_min_mm": 12,
+  "d_min_incl": false,
+  "d_max_mm": 24,
+  "d2_mm": 2.62,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.1 (S. 42)"
+ },
+ {
+  "id": "ORCS-kolben-024",
+  "kind": "kolben",
+  "d_min_mm": 24,
+  "d_min_incl": false,
+  "d_max_mm": 46,
+  "d2_mm": 3.53,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.1 (S. 42)"
+ },
+ {
+  "id": "ORCS-kolben-046",
+  "kind": "kolben",
+  "d_min_mm": 46,
+  "d_min_incl": false,
+  "d_max_mm": 124,
+  "d2_mm": 5.33,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.1 (S. 42)"
+ },
+ {
+  "id": "ORCS-kolben-124",
+  "kind": "kolben",
+  "d_min_mm": 124,
+  "d_min_incl": false,
+  "d_max_mm": 500,
+  "d2_mm": 6.99,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.1 (S. 42)"
+ },
+ {
+  "id": "ORCS-stange-002",
+  "kind": "stange",
+  "d_min_mm": 2,
+  "d_min_incl": true,
+  "d_max_mm": 8,
+  "d2_mm": 1.78,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.2 (S. 43)"
+ },
+ {
+  "id": "ORCS-stange-008",
+  "kind": "stange",
+  "d_min_mm": 8,
+  "d_min_incl": false,
+  "d_max_mm": 18,
+  "d2_mm": 2.62,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.2 (S. 43)"
+ },
+ {
+  "id": "ORCS-stange-018",
+  "kind": "stange",
+  "d_min_mm": 18,
+  "d_min_incl": false,
+  "d_max_mm": 38,
+  "d2_mm": 3.53,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.2 (S. 43)"
+ },
+ {
+  "id": "ORCS-stange-038",
+  "kind": "stange",
+  "d_min_mm": 38,
+  "d_min_incl": false,
+  "d_max_mm": 112,
+  "d2_mm": 5.33,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.2 (S. 43)"
+ },
+ {
+  "id": "ORCS-stange-112",
+  "kind": "stange",
+  "d_min_mm": 112,
+  "d_min_incl": false,
+  "d_max_mm": 400,
+  "d2_mm": 6.99,
+  "remark": null,
+  "source_id": "Q251",
+  "source_locator": "Tab. B.2 (S. 43)"
+ }
+]

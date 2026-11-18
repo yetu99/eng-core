@@ -3261,5 +3261,57 @@
   "viewed": "ja",
   "local_file": "DIN 974-2_1991-05-00_DE_2412464.pdf",
   "kb_source_id": null
+ },
+ {
+  "id": "Q250",
+  "kind": "Norm",
+  "short_name": "ISO 3601-1",
+  "title": "Fluidtechnik, O-Ringe, Teil 1: Innendurchmesser, Schnurstärken, Toleranzen und Bezeichnung (ISO 3601-1:2012 + Cor. 1:2012 + Amd. 1:2019)",
+  "publisher": "DIN ISO 3601-1:2026-07",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen 16.11.2026 (lokale Datei, KIT-Lizenz); Tab. 1 bis 6 Größen, Toleranzklassen A und B, Tab. A.1, A.2, Gl. (A.1) als Einzelwerte",
+  "viewed": "ja",
+  "local_file": "DIN ISO 3601-1_2026-07-00_DE_3676806.pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q251",
+  "kind": "Norm",
+  "short_name": "ISO 3601-2",
+  "title": "Fluidtechnik, O-Ringe, Teil 2: Einbauräume für allgemeine Anwendungen (ISO 3601-2:2008)",
+  "publisher": "DIN ISO 3601-2:2010-08",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen 16.11.2026 (lokale Datei, KIT-Lizenz); Ausdruck mit Vermerk „zurückgezogen“ (Befund B-or2, Lücke L1); Gl. (1) bis (12), Bild 8, Tab. 1, 6, B.1, B.2, Anhang B",
+  "viewed": "ja",
+  "local_file": "DIN ISO 3601-2_2010-08-00_DE_1631804.pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q252",
+  "kind": "Norm",
+  "short_name": "ISO 3601-3",
+  "title": "Fluidtechnik, O-Ringe, Teil 3: Form- und Oberflächenabweichungen (ISO 3601-3:2005)",
+  "publisher": "DIN ISO 3601-3:2010-08",
+  "url": "https://www.dinmedia.de",
+  "access": "kostenpflichtig",
+  "note": "Wortlaut eingesehen 16.11.2026 (lokale Datei, KIT-Lizenz); nur Sortenmerkmal N, S, CS für die Bezeichnung",
+  "viewed": "ja",
+  "local_file": "DIN ISO 3601-3_2010-08-00_DE_1631805.pdf",
+  "kb_source_id": null
+ },
+ {
+  "id": "Q253",
+  "kind": "Hersteller",
+  "short_name": "Parker O-Ring-Handbuch PTD 5705 DE",
+  "title": "O-Ring-Handbuch (PTD 5705 DE)",
+  "publisher": "Parker Hannifin GmbH, O-Ring Division Europa, ODE 5705 DE 10/2019",
+  "url": "https://www.parker.com",
+  "access": "frei",
+  "note": "eingesehen 16.11.2026 (lokale Datei); Kap. 2, 3, 4.1, 4.3, 6, 7.7, 8.1, 8.24, 11.3 als Einzelwerte",
+  "viewed": "ja",
+  "local_file": "Parker - O-Ring-Handbuch (PTD5705-DE).pdf",
+  "kb_source_id": null
  }
 ]

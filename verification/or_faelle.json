@@ -1,0 +1,1732 @@
+{
+ "faelle": [
+  {
+   "id": "P-OR4N",
+   "label": "ISO 3601-2 Anhang B.3.8 Nachrechnen: 33 × 3,53 Klasse A, d₅ 34 f7, d₆ 39,48 H9, d₁₀ 34 H8, b 5,0 +0,25, dynamisch Hydraulik, NBR in HLP, −20 bis 80 °C",
+   "inp": {
+    "task": "A",
+    "install": "stange",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 33,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": {
+     "nom": 34,
+     "fit": "f7"
+    },
+    "d6": {
+     "nom": 39.48,
+     "fit": "H9"
+    },
+    "d10": {
+     "nom": 34,
+     "fit": "H8"
+    },
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": {
+     "nom": 5,
+     "fit": null,
+     "dev": [
+      0,
+      0.25
+     ]
+    },
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": "HLP",
+    "Tmin": -20,
+    "Tmax": 80,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR1A",
+   "label": "Parker 8.24 A: Kolben Hydraulik dynamisch, d₁ 11,89 ± 0,19, d₂ 1,78 ± 0,08, d₃ 12,20 h9, d₄ 15,00 H8, d₉ 15,00 f7, konzentrisch, NBR in HLP, −20 bis 80 °C, 100 bar",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 11.89,
+     "d2": 1.78,
+     "cls": "A",
+     "tolD1": 0.19,
+     "tolD2": 0.08,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 15,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 12.2,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 15,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": "HLP",
+    "Tmin": -20,
+    "Tmax": 80,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR1B",
+   "label": "Parker 8.24 B: wie A mit Radialspiel (Kolben anliegend, Worst Case d₉min, B-or3)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 11.89,
+     "d2": 1.78,
+     "cls": "A",
+     "tolD1": 0.19,
+     "tolD2": 0.08,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 15,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 12.2,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 15,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "radialspiel",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": "HLP",
+    "Tmin": -20,
+    "Tmax": 80,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR1C",
+   "label": "Parker 8.24 C: wie B mit Exzentrizität e = 0,05 mm, Spalt geführt",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 11.89,
+     "d2": 1.78,
+     "cls": "A",
+     "tolD1": 0.19,
+     "tolD2": 0.08,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 15,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 12.2,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 15,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0.05,
+    "depth": "radialspiel",
+    "gap": "gefuehrt",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": "HLP",
+    "Tmin": -20,
+    "Tmax": 80,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR3",
+   "label": "ISO 3601-2 Anhang B.2 Auslegung: Kolben statisch, d₄ 123 H8, d₉ 123 f7, C_nom 20 %, Klasse A",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": "",
+     "d1": null,
+     "d2": null,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 123,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 123,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": {
+     "C": 20,
+     "d2": null
+    }
+   }
+  },
+  {
+   "id": "P-OR3N",
+   "label": "ISO 3601-2 Anhang B.2.8 Nachrechnen: 111,41 × 5,33 Klasse A, d₃ 114,46 h9 (B-or6), d₄ 123 H8, d₉ 123 f7, b 7,2 +0,25",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 111.41,
+     "d2": 5.33,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 123,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 114.46,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 123,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": {
+     "nom": 7.2,
+     "fit": null,
+     "dev": [
+      0,
+      0.25
+     ]
+    },
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR4",
+   "label": "ISO 3601-2 Anhang B.3 Auslegung: Stange Ø34 f7, d₁₀ 34 H8, dynamisch Hydraulik, C_max 22 %, Klasse A",
+   "inp": {
+    "task": "B",
+    "install": "stange",
+    "motion": "hydraulik",
+    "ring": {
+     "size": "",
+     "d1": null,
+     "d2": null,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": {
+     "nom": 34,
+     "fit": "f7"
+    },
+    "d6": null,
+    "d10": {
+     "nom": 34,
+     "fit": "H8"
+    },
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": {
+     "C": 22,
+     "d2": null
+    }
+   }
+  },
+  {
+   "id": "P-OR9A",
+   "label": "Spalt TB 19-3: Kolben Hydraulik Ø50 H8/f7, d₃ 43,9 h9, 42,52 × 3,53 Klasse B, NBR 70 Shore A, 100 bar, Worst Case (Stützring nötig)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 42.52,
+     "d2": 3.53,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 50,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 43.9,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 50,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR9B",
+   "label": "Spalt TB 19-3: wie P-OR9A, geführt mit e = 0",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 42.52,
+     "d2": 3.53,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 50,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 43.9,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 50,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "gefuehrt",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR9C",
+   "label": "Spalt TB 19-3: wie P-OR9A mit 90 Shore A von Hand",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 42.52,
+     "d2": 3.53,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 50,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 43.9,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 50,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": 90,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR9D",
+   "label": "Spalt TB 19-3: wie P-OR9A statisch mit VMQ 70 Shore A (Spaltfaktor 0,5), wechselnde Druckrichtung",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 42.52,
+     "d2": 3.53,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 50,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 43.9,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 50,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": true,
+    "dM": null,
+    "p": 10,
+    "material": "VMQ",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR9E",
+   "label": "Spalt TB 19-3: wie P-OR9A mit einem Stützring (Nutbreite b₁ aus Parker Tab. 3.5)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 42.52,
+     "d2": 3.53,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 50,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 43.9,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 50,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 1,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR15",
+   "label": "Stange statisch mit Radialspiel und Exzentrizität: Normring 211 Klasse B (20,22 × 3,53), d₅ 20,6 f7, d₆ 26,2 H9, d₁₀ 20,6 H8, e 0,02, EPDM, Wasser bis 70 °C, 5 bis 60 °C",
+   "inp": {
+    "task": "A",
+    "install": "stange",
+    "motion": "statisch",
+    "ring": {
+     "size": "211",
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "S"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": {
+     "nom": 20.6,
+     "fit": "f7"
+    },
+    "d6": {
+     "nom": 26.2,
+     "fit": "H9"
+    },
+    "d10": {
+     "nom": 20.6,
+     "fit": "H8"
+    },
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0.02,
+    "depth": "radialspiel",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 5,
+    "material": "EPDM",
+    "shore": null,
+    "medium": "WASSER70",
+    "Tmin": 5,
+    "Tmax": 60,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR16",
+   "label": "Flansch bei Innendruck, Auslegung: d₇ 59,1 H11, d₂ 3,53, Klasse B, FKM, Mineralöl, −20 bis 150 °C, 50 bar",
+   "inp": {
+    "task": "B",
+    "install": "flansch_innen",
+    "motion": "statisch",
+    "ring": {
+     "size": "",
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": {
+     "nom": 59.1,
+     "fit": "H11"
+    },
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 5,
+    "material": "FKM",
+    "shore": null,
+    "medium": "MINOEL",
+    "Tmin": -20,
+    "Tmax": 150,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": {
+     "C": null,
+     "d2": 3.53
+    }
+   }
+  },
+  {
+   "id": "P-OR17",
+   "label": "Flansch bei Außendruck: Normring 125 Klasse B (32,99 × 2,62), d₈ 33,8 h11, h 1,9 +0,05, Vakuum außen 1 bar, NBR, Luft 100 °C, Spalt 0,02 mm",
+   "inp": {
+    "task": "A",
+    "install": "flansch_aussen",
+    "motion": "statisch",
+    "ring": {
+     "size": "125",
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": {
+     "nom": 33.8,
+     "fit": "h11"
+    },
+    "h": {
+     "nom": 1.9,
+     "fit": null,
+     "dev": [
+      0,
+      0.05
+     ]
+    },
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": 0.02,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0.1,
+    "material": "NBR",
+    "shore": null,
+    "medium": "LUFT100",
+    "Tmin": -10,
+    "Tmax": 80,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR18",
+   "label": "Optionen: Kolben statisch, Normring 011 Klasse A (7,65 × 1,78), d₄ 10,4 H8, d₃ 7,95 h9, d₉ 10,4 f7, b 2,6 +0,2, NBR in HLP, −20 bis 90 °C, Temperatur α_B 12·10⁻⁶/K, Quellung 8 %, pulsierend",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": "011",
+     "d1": null,
+     "d2": null,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "S"
+    },
+    "d4": {
+     "nom": 10.4,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 7.95,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 10.4,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": {
+     "nom": 2.6,
+     "fit": null,
+     "dev": [
+      0,
+      0.2
+     ]
+    },
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 16,
+    "material": "NBR",
+    "shore": null,
+    "medium": "HLP",
+    "Tmin": -20,
+    "Tmax": 90,
+    "pulsating": true,
+    "temp": {
+     "alphaB": 12
+    },
+    "swell": {
+     "dV": 8
+    },
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR19",
+   "label": "Kolben Pneumatik, Auslegung: d₄ 40 H8, d₉ 40 f7, C 15 %, Klasse B, NBR, Luft, 10 bar, Montage über d₉",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "pneumatik",
+    "ring": {
+     "size": "",
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 40,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 40,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 1,
+    "material": "NBR",
+    "shore": null,
+    "medium": "LUFT100",
+    "Tmin": -10,
+    "Tmax": 80,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": {
+     "C": 15,
+     "d2": null
+    }
+   }
+  },
+  {
+   "id": "P-OR20",
+   "label": "Grenzfall Nutfüllung: wie P-OR18 ohne Optionen mit b 2,515 +0,2 (F_max knapp über 85 %)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": "011",
+     "d1": null,
+     "d2": null,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "S"
+    },
+    "d4": {
+     "nom": 10.4,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 7.95,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 10.4,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": {
+     "nom": 2.515,
+     "fit": null,
+     "dev": [
+      0,
+      0.2
+     ]
+    },
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 16,
+    "material": "NBR",
+    "shore": null,
+    "medium": "HLP",
+    "Tmin": -20,
+    "Tmax": 90,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR21",
+   "label": "Kleine Schnurstärke: Kolben statisch, 10 × 1,5 Klasse B, d₄ 12,4 H8, d₃ 10,2 h9, d₉ 12,4 f7, 100 bar (TB 19-3 erst ab 1,78 mm: Spalt nicht bewertbar)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 10,
+     "d2": 1.5,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 12.4,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 10.2,
+     "fit": "h9"
+    },
+    "d9": {
+     "nom": 12.4,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": {
+     "nom": 2.1,
+     "fit": null,
+     "dev": [
+      0,
+      0.2
+     ]
+    },
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": "NBR",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  }
+ ],
+ "fehler": [
+  {
+   "id": "P-OR14a",
+   "label": "d₂ ≤ 0",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20,
+     "d2": 0,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 21,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14b",
+   "label": "d₁ ≤ 0",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 0,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 21,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14c",
+   "label": "t ≥ d₂ (keine Verpressung)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20,
+     "d2": 2.62,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 20.5,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14d",
+   "label": "t ≤ 0",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20,
+     "d2": 2.62,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 26,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14e",
+   "label": "S ≥ 25 %",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 16,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 27.6,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 21.6,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14f",
+   "label": "Druck < 0",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20.22,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 20.4,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": -1,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14g",
+   "label": "T_min > T_max",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20.22,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 20.4,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": 80,
+    "Tmax": 20,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14h",
+   "label": "unbekanntes Medium",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20.22,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 20.4,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": "XYZ",
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14i",
+   "label": "Passung außerhalb 500 mm",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 590,
+     "d2": 6.99,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 605,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 593,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14j",
+   "label": "Klasse A ohne Normzeile über 1 320,80 mm",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 1400,
+     "d2": 6.99,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 1412,
+     "fit": null
+    },
+    "d3": {
+     "nom": 1402,
+     "fit": null
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14k",
+   "label": "b ≤ d₂ (Nut zu schmal, nur Hinweis)",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20.22,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 20.4,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": {
+     "nom": 3.5,
+     "fit": null
+    },
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14l",
+   "label": "Flansch dynamisch",
+   "inp": {
+    "task": "A",
+    "install": "flansch_innen",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": 50,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": {
+     "nom": 57,
+     "fit": "H11"
+    },
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR14m",
+   "label": "unbekanntes Elastomer",
+   "inp": {
+    "task": "A",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": 20.22,
+     "d2": 3.53,
+     "cls": "A",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 26,
+     "fit": "H8"
+    },
+    "d3": {
+     "nom": 20.4,
+     "fit": "h9"
+    },
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": "XYZ",
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  }
+ ]
+}
