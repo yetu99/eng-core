@@ -1,8 +1,8 @@
 {
  "release": {
-  "version": "fd 1.4",
-  "released_at": "2026-11-17T06:52:46.14536+00:00",
-  "title": "O-Ring: Größen und Toleranzen ISO 3601-1, Nutmaße, Verpressungsgrenzen, Spaltmaße, Rauheit, Elastomere, Medienbeständigkeit (Auswahl), Schnurstärkenwahl, Grundabmaße f und g"
+  "version": "fd 1.5",
+  "released_at": "2026-11-20T07:58:28.329905+00:00",
+  "title": "Stromwerk: Grenzwerte der Mikrocontroller-Pins (ATmega328P, ESP32), Boards, Portgruppen, Pinzuordnung Uno und Nano"
  },
  "source": "Supabase Kompendium, Tabellen fd_* (eng-core scripts/pull-data.mjs --fd)",
  "files": {
@@ -177,6 +177,22 @@
   "fit_shaft_es": {
    "rows": 13,
    "sha256": "c175c01f552a0dbc5553210a315c650d52769255007509c8166d8591de659479"
+  },
+  "mcu_boards": {
+   "rows": 3,
+   "sha256": "ef323c1492c429b434cc54e5486db161726c8c9b0f3553240aa9771814e1d30f"
+  },
+  "mcu_limits": {
+   "rows": 6,
+   "sha256": "7e188d8b82bc60a1ba1a580016a356a367280095a44b34f0f6bf083f785563ba"
+  },
+  "mcu_port_groups": {
+   "rows": 5,
+   "sha256": "496a339933ff1d07603f1352f556bb5c360296d65b53b829d2ff7b7f8af27f13"
+  },
+  "mcu_pins": {
+   "rows": 40,
+   "sha256": "686867afddde150d30960edc7434d33e1e81a814d5e59d8b6db01f8dd5383fdb"
   }
  }
 }

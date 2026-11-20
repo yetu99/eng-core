@@ -3313,5 +3313,57 @@
   "viewed": "ja",
   "local_file": "Parker - O-Ring-Handbuch (PTD5705-DE).pdf",
   "kb_source_id": null
+ },
+ {
+  "id": "Q254",
+  "kind": "Hersteller",
+  "short_name": "ATmega328/P Datasheet",
+  "title": "ATmega328/P Datasheet Complete",
+  "publisher": "Atmel (Microchip Technology Inc.), Atmel-42735B-ATmega328/P_Datasheet_Complete-11/2016",
+  "url": "https://www.microchip.com/en-us/product/ATmega328P",
+  "access": "frei",
+  "note": "Abschn. 32.1 Absolute Maximum Ratings (Tab. 32-1), Abschn. 32.2 Common DC Characteristics (Tab. 32-2, V_OL, V_OH, Fußnoten zu Σ I_OH und Σ I_OL); eingesehen 20.11.2026 (Kopie Univ. Nebraska-Lincoln). Ersetzt den Entwurf vom 18.11.2026, der die Gruppengrenzen 150 mA aus einem anderen Microchip-Dokument (Errata ATmega48PA/88PA/168PA) übernommen hatte",
+  "viewed": "ja",
+  "local_file": null,
+  "kb_source_id": null
+ },
+ {
+  "id": "Q255",
+  "kind": "Hersteller",
+  "short_name": "Espressif ESP32 Datasheet v5.3",
+  "title": "ESP32 Series Datasheet, Version 5.3",
+  "publisher": "Espressif Systems",
+  "url": "https://documentation.espressif.com/esp32_datasheet_en.pdf",
+  "access": "frei",
+  "note": "Kap. 5.1 Absolute Maximum Ratings (Cumulative IO output current 1200 mA), Kap. 5.3 DC Characteristics (3,3 V, 25 °C) I_OH, I_OL mit Fußnoten 2 und 3; eingesehen 17.11.2026",
+  "viewed": "ja",
+  "local_file": null,
+  "kb_source_id": null
+ },
+ {
+  "id": "Q256",
+  "kind": "Hersteller",
+  "short_name": "Arduino UNO R3",
+  "title": "Arduino UNO R3: Full Pinout (SKU A000066) und Datasheet Rev. 5",
+  "publisher": "Arduino S.r.l.",
+  "url": "https://docs.arduino.cc/resources/pinouts/A000066-full-pinout.pdf",
+  "access": "frei",
+  "note": "Full Pinout (Stand 12.11.2026): D0 bis D7 an PD0 bis PD7, D8 bis D13 an PB0 bis PB5, A0 bis A5 an PC0 bis PC5, „MAXIMUM current per I/O pin is 20mA“; Datasheet Rev. 5 Abschn. 5.1: IOREF an 5 V; eingesehen 20.11.2026",
+  "viewed": "ja",
+  "local_file": null,
+  "kb_source_id": null
+ },
+ {
+  "id": "Q257",
+  "kind": "Hersteller",
+  "short_name": "Arduino Nano",
+  "title": "Arduino Nano: Full Pinout (SKU A000005) und User Manual Rev. 5",
+  "publisher": "Arduino S.r.l.",
+  "url": "https://docs.arduino.cc/resources/pinouts/A000005-full-pinout.pdf",
+  "access": "frei",
+  "note": "Full Pinout (Stand 30.06.2021): D0 bis D7 an PD0 bis PD7, D8 bis D13 an PB0 bis PB5, A0 bis A5 an PC0 bis PC5, A6 und A7 nur ADC; User Manual Rev. 5 Abschn. 3.3: Versorgung über LDO auf 5 V; eingesehen 20.11.2026",
+  "viewed": "ja",
+  "local_file": null,
+  "kb_source_id": null
  }
 ]

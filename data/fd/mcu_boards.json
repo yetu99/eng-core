@@ -1,0 +1,29 @@
+[
+ {
+  "id": "MB01",
+  "board": "Uno",
+  "mcu": "ATmega328P",
+  "u_io_v": 5,
+  "remark": "Arduino UNO R3; nominale Logikspannung (IOREF 5 V), im Modell idealer HIGH-Pegel (E-v11-10); unter Last sinkt V_OH, garantiert ≥ 4,2 V bei 20 mA (Q254 Tab. 32-2)",
+  "source_id": "Q256",
+  "source_locator": "Datasheet Rev. 5 Abschn. 5.1 (IOREF)"
+ },
+ {
+  "id": "MB02",
+  "board": "Nano",
+  "mcu": "ATmega328P",
+  "u_io_v": 5,
+  "remark": "Arduino Nano; nominale Logikspannung 5 V (LDO), im Modell idealer HIGH-Pegel (E-v11-10); unter Last sinkt V_OH, garantiert ≥ 4,2 V bei 20 mA (Q254 Tab. 32-2)",
+  "source_id": "Q257",
+  "source_locator": "User Manual Rev. 5 Abschn. 3.3"
+ },
+ {
+  "id": "MB03",
+  "board": "ESP32 DevKit",
+  "mcu": "ESP32",
+  "u_io_v": 3.3,
+  "remark": "ESP32-DevKitC; nominale Versorgung VDD 3,3 V, im Modell idealer HIGH-Pegel (E-v11-10); unter Last sinkt V_OH, garantiert ≥ 0,8 · VDD bei I_OH (Q255 Kap. 5.3)",
+  "source_id": "Q255",
+  "source_locator": "Kap. 5.3 DC Characteristics (VDD = 3,3 V)"
+ }
+]

@@ -34,7 +34,7 @@ export const TRACE_GROUPS = {
   dichtungen: ["toleranz", "einbauraum", "dehnung", "verpressung", "fuellung", "spalt", "werkstoff", "auslegung", "nachweis"],
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
   kinematik: ["orientierung", "umrechnung", "pruefung", "lage", "kette", "inverse", "abbildung", "gelenke", "vorwaerts", "kontrolle"],
-  elektrik: ["grundlagen", "netz", "wechselstrom", "ersatz", "vorlage", "rechner", "nachweis"],
+  elektrik: ["grundlagen", "netz", "halbleiter", "konvergenz", "wechselstrom", "ersatz", "vorlage", "rechner", "nachweis"],
 } as const satisfies Record<ModuleId, readonly string[]>;
 
 /** Gruppen eines Moduls als Typ, z. B. TraceGroupOf<"fluid">. */
@@ -59,6 +59,7 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   lage: "Lage der Rahmen", kette: "Rahmenkette und relative Lage", inverse: "Inverse", abbildung: "Punkt, Richtung und Verschieben",
   gelenke: "Gelenke und DH-Gliedmatrizen", vorwaerts: "Vorwärtskinematik", kontrolle: "Kontrolle und Umrechnung",
   toleranz: "Toleranzen und Grenzmaße", einbauraum: "Einbauraum und Spalt", dehnung: "Dehnung und Stauchung", fuellung: "Nutfüllung", spalt: "Spaltmaß und Extrusion", auslegung: "Auslegung",
+  halbleiter: "Halbleiter am Arbeitspunkt", konvergenz: "Newton-Iteration",
   grundlagen: "Grundlagen", netz: "Netzwerk (Knotenpunktanalyse)", wechselstrom: "Wechselstrom", ersatz: "Ersatzwiderstand", vorlage: "Vorlage", rechner: "Rechner",
 };
 

@@ -41,5 +41,9 @@
  { "file": "oring_materials", "table": "fd_oring_materials", "min": 12, "cols": ["id", "code", "name", "parker_compound", "shore_a", "t_min_c", "t_max_static_c", "t_max_oil_c", "t_max_water_c", "t_max_air_c", "alpha_1e6", "gap_factor", "static_only", "wdb_id", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "oring_media", "table": "fd_oring_media", "min": 327, "cols": ["id", "medium_key", "medium", "parker_compound", "material_code", "rating", "remark", "source_id", "source_locator"], "sort": ["id"] },
  { "file": "oring_cs_select", "table": "fd_oring_cs_select", "min": 10, "cols": ["id", "kind", "d_min_mm", "d_min_incl", "d_max_mm", "d2_mm", "remark", "source_id", "source_locator"], "sort": ["id"] },
- { "file": "fit_shaft_es", "table": "fd_fit_shaft_es", "min": 13, "cols": ["id", "d_over_mm", "d_to_mm", "f_um", "g_um", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] }
+ { "file": "fit_shaft_es", "table": "fd_fit_shaft_es", "min": 13, "cols": ["id", "d_over_mm", "d_to_mm", "f_um", "g_um", "remark", "source_id", "source_locator"], "sort": ["d_over_mm"] },
+ { "file": "mcu_boards", "table": "fd_mcu_boards", "min": 3, "cols": ["id", "board", "mcu", "u_io_v", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "mcu_limits", "table": "fd_mcu_limits", "min": 6, "cols": ["id", "mcu", "quantity", "value_a", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "mcu_port_groups", "table": "fd_mcu_port_groups", "min": 5, "cols": ["id", "mcu", "direction", "ports", "i_max_a", "remark", "source_id", "source_locator"], "sort": ["id"] },
+ { "file": "mcu_pins", "table": "fd_mcu_pins", "min": 40, "cols": ["id", "board", "pin", "port", "remark", "source_id", "source_locator"], "sort": ["id"] }
 ]

@@ -1,0 +1,362 @@
+[
+ {
+  "id": "MP101",
+  "board": "Uno",
+  "pin": "D0",
+  "port": "PD0",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP102",
+  "board": "Uno",
+  "pin": "D1",
+  "port": "PD1",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP103",
+  "board": "Uno",
+  "pin": "D2",
+  "port": "PD2",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP104",
+  "board": "Uno",
+  "pin": "D3",
+  "port": "PD3",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP105",
+  "board": "Uno",
+  "pin": "D4",
+  "port": "PD4",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP106",
+  "board": "Uno",
+  "pin": "D5",
+  "port": "PD5",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP107",
+  "board": "Uno",
+  "pin": "D6",
+  "port": "PD6",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP108",
+  "board": "Uno",
+  "pin": "D7",
+  "port": "PD7",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP109",
+  "board": "Uno",
+  "pin": "D8",
+  "port": "PB0",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP110",
+  "board": "Uno",
+  "pin": "D9",
+  "port": "PB1",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP111",
+  "board": "Uno",
+  "pin": "D10",
+  "port": "PB2",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP112",
+  "board": "Uno",
+  "pin": "D11",
+  "port": "PB3",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP113",
+  "board": "Uno",
+  "pin": "D12",
+  "port": "PB4",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP114",
+  "board": "Uno",
+  "pin": "D13",
+  "port": "PB5",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP115",
+  "board": "Uno",
+  "pin": "A0",
+  "port": "PC0",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP116",
+  "board": "Uno",
+  "pin": "A1",
+  "port": "PC1",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP117",
+  "board": "Uno",
+  "pin": "A2",
+  "port": "PC2",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP118",
+  "board": "Uno",
+  "pin": "A3",
+  "port": "PC3",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP119",
+  "board": "Uno",
+  "pin": "A4",
+  "port": "PC4",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP120",
+  "board": "Uno",
+  "pin": "A5",
+  "port": "PC5",
+  "remark": null,
+  "source_id": "Q256",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP201",
+  "board": "Nano",
+  "pin": "D0",
+  "port": "PD0",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP202",
+  "board": "Nano",
+  "pin": "D1",
+  "port": "PD1",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP203",
+  "board": "Nano",
+  "pin": "D2",
+  "port": "PD2",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP204",
+  "board": "Nano",
+  "pin": "D3",
+  "port": "PD3",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP205",
+  "board": "Nano",
+  "pin": "D4",
+  "port": "PD4",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP206",
+  "board": "Nano",
+  "pin": "D5",
+  "port": "PD5",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP207",
+  "board": "Nano",
+  "pin": "D6",
+  "port": "PD6",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP208",
+  "board": "Nano",
+  "pin": "D7",
+  "port": "PD7",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP209",
+  "board": "Nano",
+  "pin": "D8",
+  "port": "PB0",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP210",
+  "board": "Nano",
+  "pin": "D9",
+  "port": "PB1",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP211",
+  "board": "Nano",
+  "pin": "D10",
+  "port": "PB2",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP212",
+  "board": "Nano",
+  "pin": "D11",
+  "port": "PB3",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP213",
+  "board": "Nano",
+  "pin": "D12",
+  "port": "PB4",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP214",
+  "board": "Nano",
+  "pin": "D13",
+  "port": "PB5",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP215",
+  "board": "Nano",
+  "pin": "A0",
+  "port": "PC0",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP216",
+  "board": "Nano",
+  "pin": "A1",
+  "port": "PC1",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP217",
+  "board": "Nano",
+  "pin": "A2",
+  "port": "PC2",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP218",
+  "board": "Nano",
+  "pin": "A3",
+  "port": "PC3",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP219",
+  "board": "Nano",
+  "pin": "A4",
+  "port": "PC4",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ },
+ {
+  "id": "MP220",
+  "board": "Nano",
+  "pin": "A5",
+  "port": "PC5",
+  "remark": null,
+  "source_id": "Q257",
+  "source_locator": "Full Pinout"
+ }
+]

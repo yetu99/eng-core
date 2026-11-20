@@ -10,7 +10,7 @@
   "dichtungen": { "title": "O-Ring", "tool": "fachtools", "prefixes": ["OR"], "paths": ["seals"], "units": "N, mm, MPa", "fd": true },
   "stabwerke": { "title": "Fachwerk mit Prinzip der virtuellen Verschiebung", "tool": "fachtools", "prefixes": ["FW"], "paths": ["structures"], "units": "N, mm, MPa", "fd": false },
   "kinematik": { "title": "Kinematik: Orientierung (K1), homogene Transformation (K2), DH und Vorwärtskinematik (K3), später Rückwärtskinematik, Jacobi, Bahn", "tool": "greifwerk", "prefixes": ["G"], "paths": ["kinematics"], "units": "SI: m, rad, s (Anzeige Grad, mm)", "fd": false, "wdb": false },
-  "elektrik": { "title": "Elektrotechnik: Grundlagen, Netzwerk (MNA Gleich- und Wechselstrom), Ersatzwiderstand, Vorlagen S1 bis S8, Rechner R1 bis R6", "tool": "stromwerk", "prefixes": ["EL"], "paths": ["electrical"], "units": "SI: V, A, Ω, S, F, H, Hz, W, VA, var, J, s (Anzeige Wh, h, 1/min, Grad)", "fd": false, "wdb": false }
+  "elektrik": { "title": "Elektrotechnik: Grundlagen, Netzwerk (MNA Gleich- und Wechselstrom), Halbleiter (Newton), Pinstrom, Leitungsströme, Ersatzwiderstand, Vorlagen S1 bis S8, Rechner R1 bis R6", "tool": "stromwerk", "prefixes": ["EL"], "paths": ["electrical"], "units": "SI: V, A, Ω, S, F, H, Hz, W, VA, var, J, s (Anzeige Wh, h, 1/min, Grad)", "fd": true, "wdb": false }
  },
  "reserved": ["WL"],
  "tools": {

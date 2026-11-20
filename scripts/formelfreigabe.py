@@ -20,6 +20,10 @@ Regeln beim Import:
   - "freigegeben" braucht Datum und Prüfer, sonst wird der Eintrag nicht übernommen.
   - Ein Kommentar aus einer früheren Runde, der bei einer Freigabe unverändert in der Zeile steht, wird als
     "erledigt" gespeichert (Verlauf), nicht als offener Kommentar.
+  - Verlauf ist unverlierbar (ab 0.21.0): »erledigt« und die Antwort bleiben bei jedem Import erhalten, auch wenn die Zeile
+    nach einer Formeländerung wieder »offen« ist; ein neu erledigter Einwand wird mit » ¦ « angehängt. Vorangestellte
+    Hinweise »[Antwort: …]« werden exakt entfernt (Antworten dürfen eckige Klammern enthalten). Würde trotzdem ein
+    Verlauf fehlen, bricht der Import ab. Tests: python3 scripts/formelfreigabe_test.py
   - "abgelehnt" sollte einen Kommentar haben (Warnung, wird trotzdem übernommen).
   - Hat sich eine Formel seit dem Export geändert, wird ihre Zeile nicht übernommen (neu exportieren).
   - Eine Freigabe speichert den Formeltext. Ändert sich die Formel später im Kern, zeigt der Katalog
@@ -348,8 +352,67 @@ def write_guide(ws, cat: dict) -> None:
 
 # --------------------------------------------------------------------------------------------- Import
 
-def import_xlsx(path: Path, dry_run: bool, fill_datum: str | None = None, fill_durch: str | None = None) -> int:
-    cat = load_catalog()
+VERLAUF_SEP = " ¦ "
+
+
+def merge_verlauf(alt: str | None, neu: str | None) -> str | None:
+    """Verlauf »erledigt« fortschreiben (ab 0.21.0): nie verlieren, neuen Einwand anhängen, Wiederholung nicht doppeln."""
+    if not neu:
+        return alt or None
+    if not alt:
+        return neu
+    return alt if neu in alt.split(VERLAUF_SEP) else f"{alt}{VERLAUF_SEP}{neu}"
+
+
+def strip_prefixes(text: str, antwort: str | None) -> str | None:
+    """Vom Export vorangestellte Hinweise entfernen (ab 0.21.0 exakt): »[Formel geändert seit Prüfung vom …] « und
+    »[Antwort: <antwort>] « werden als ganzer Text verglichen, damit eckige Klammern in der Antwort (z. B. ρ[t/mm³])
+    nicht zum Abschneiden mitten in der Antwort führen. Übrige Klammerhinweise ohne »]« im Inneren wie bisher."""
+    t = text.strip()
+    while True:
+        m = re.match(r"^\[Formel geändert seit Prüfung vom [^\]]*\]\s*", t)
+        if m:
+            t = t[m.end():]
+            continue
+        if antwort and t.startswith(f"[Antwort: {antwort}]"):
+            t = t[len(f"[Antwort: {antwort}]"):].lstrip()
+            continue
+        m = re.match(r"^\[(?!Antwort: )[^\]]*\]\s*", t)
+        if m:
+            t = t[m.end():]
+            continue
+        break
+    return t.strip() or None
+
+
+def merge_row(prev: dict, stat: str, kommentar: str | None, datum: str | None, durch: str | None, formel: str) -> dict | None:
+    """Eine gelesene Zeile mit dem bisherigen Eintrag zusammenführen. Verlauf (erledigt, antwort) bleibt immer erhalten.
+
+    Rückgabe None: kein Eintrag nötig (offen, ohne Kommentar, ohne Verlauf)."""
+    erledigt = None
+    if stat == "freigegeben" and kommentar and kommentar == prev.get("kommentar"):
+        erledigt, kommentar = kommentar, None  # Einwand der Vorrunde, mit dieser Freigabe erledigt
+    verlauf = merge_verlauf(prev.get("erledigt"), erledigt)
+    antwort = prev.get("antwort")  # Antwort des Kern-Verantwortlichen bleibt erhalten
+    if stat == "offen" and not kommentar and not verlauf and not antwort:
+        return None
+    rec: dict = {"status": stat}
+    if datum:
+        rec["datum"] = datum
+    if durch:
+        rec["durch"] = durch
+    if kommentar:
+        rec["kommentar"] = kommentar
+    if verlauf:
+        rec["erledigt"] = verlauf
+    if antwort:
+        rec["antwort"] = antwort
+    rec["formel"] = formel
+    return rec
+
+
+def read_import(path: Path, cat: dict, fill_datum: str | None = None, fill_durch: str | None = None) -> tuple[dict, list[str], set[str]]:
+    """Excel lesen und mit formelstatus.json zusammenführen, ohne zu schreiben. Rückgabe (neuer Status, Warnungen, gelesene IDs)."""
     by_id = {e["id"]: e for e in cat["entries"]}
     wb = load_workbook(path, data_only=True)
     if SHEET not in wb.sheetnames:
@@ -381,7 +444,7 @@ def import_xlsx(path: Path, dry_run: bool, fill_datum: str | None = None, fill_d
         get = lambda k: ws.cell(row=r, column=col[k]).value if col.get(k) else None
         stat = str(get("in_status") or "offen").strip().lower()
         # automatisch vorangestellte Hinweise ([Formel geändert …], [Antwort: …], [umgesetzt …]) nicht erneut speichern
-        kommentar = re.sub(r"^(\[[^\]]*\]\s*)+", "", str(get("in_kommentar") or "").strip()).strip() or None
+        kommentar = strip_prefixes(str(get("in_kommentar") or ""), cat["status"].get(fid, {}).get("antwort"))
         durch = str(get("in_durch") or "").strip() or None
         try:
             datum = parse_date(get("in_datum"))
@@ -405,29 +468,14 @@ def import_xlsx(path: Path, dry_run: bool, fill_datum: str | None = None, fill_d
             continue
         if stat == "abgelehnt" and not kommentar:
             warn.append(f"{fid}: abgelehnt ohne Kommentar")
-        if stat == "offen" and not kommentar:
-            continue
         prev = cat["status"].get(fid, {})
-        erledigt = None
-        if stat == "freigegeben" and kommentar and kommentar == prev.get("kommentar"):
-            erledigt, kommentar = kommentar, None  # Einwand der Vorrunde, mit dieser Freigabe erledigt
         if filled:
             vermerk = f"{' und '.join(filled)} beim Import ergänzt (Freigabe vom Prüfer außerhalb der Excel bestätigt)"
             kommentar = f"{kommentar} · {vermerk}" if kommentar else vermerk
             warn.append(f"{fid}: {vermerk}")
-        rec: dict = {"status": stat}
-        if datum:
-            rec["datum"] = datum
-        if durch:
-            rec["durch"] = durch
-        if kommentar:
-            rec["kommentar"] = kommentar
-        if erledigt:
-            rec["erledigt"] = erledigt
-        if prev.get("antwort"):
-            rec["antwort"] = prev["antwort"]  # Antwort des Kern-Verantwortlichen bleibt erhalten
-        rec["formel"] = e["formula"]
-        new[fid] = rec
+        rec = merge_row(prev, stat, kommentar, datum, durch, e["formula"])
+        if rec is not None:
+            new[fid] = rec
 
     old = cat["status"]
     missing = [i for i in by_id if i not in seen]
@@ -437,10 +485,29 @@ def import_xlsx(path: Path, dry_run: bool, fill_datum: str | None = None, fill_d
             if i in old:
                 new[i] = old[i]
 
+    lost = [k for k, v in old.items() if k in by_id and (v.get("erledigt") or v.get("antwort")) and not all(
+        (new.get(k) or {}).get(f) and set((v.get(f) or "").split(VERLAUF_SEP)) <= set(new[k][f].split(VERLAUF_SEP))
+        for f in ("erledigt", "antwort") if v.get(f))]
+    if lost:
+        warn.append(f"Verlauf würde verloren gehen bei {', '.join(lost)}: bitte melden, Import abgebrochen")
     out = {k: new[k] for k in sorted(new)}
+    return out, warn, seen
+
+
+def import_xlsx(path: Path, dry_run: bool, fill_datum: str | None = None, fill_durch: str | None = None) -> int:
+    cat = load_catalog()
+    by_id = {e["id"]: e for e in cat["entries"]}
+    out, warn, seen = read_import(path, cat, fill_datum, fill_durch)
+    if any(w.startswith("Verlauf würde verloren gehen") for w in warn):
+        for w in warn:
+            print(f"  Warnung: {w}")
+        return 1
+    old = cat["status"]
     cnt = {s: sum(1 for v in out.values() if v["status"] == s) for s in STATES}
     changed = sorted(k for k in set(out) | set(old) if out.get(k) != old.get(k))
     print(f"{path.name}: {len(seen)} Formeln gelesen · {cnt['freigegeben']} freigegeben · {cnt['abgelehnt']} abgelehnt · {len(changed)} Änderungen gegenüber formelstatus.json")
+    verlauf = sum(1 for v in out.values() if v.get("erledigt") or v.get("antwort"))
+    print(f"  Verlauf erhalten: {verlauf} Einträge mit »erledigt« oder Antwort")
     for w in warn:
         print(f"  Warnung: {w}")
     rejected = [(k, v) for k, v in out.items() if v["status"] == "abgelehnt" or (v["status"] == "offen" and v.get("kommentar"))]

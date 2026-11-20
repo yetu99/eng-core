@@ -12,6 +12,11 @@ EL-B (Frequenzgang), EL-V (Vorlagen), EL-T (Rechner), EL-E (E-Reihen). Netzwerke
 import math
 import numpy as np
 
+import elektrik_nl as NL
+from scipy.optimize import brentq
+
+NL_TOL = 1e-9   # nichtlinear absolut (V, A, W), Konzept v1.1 Abschn. 4.7
+
 TOL_ABS = 1e-10
 TOL_REL = 1e-12
 MOD = 'elektrik'
@@ -389,8 +394,10 @@ def add_cases(cases, ref):
     # ---------------- Gleichstrom
     for id_, nt in (('EL-P1 Reihe und Parallel (Beispiel Stromwerk)', P1), ('EL-P2 Batterie, Potentiometer, Lampe, Schalter', P2),
                     ('EL-P3 Stromquelle, Spule mit r, Kondensator offen, Schalter offen', P3), ('EL-P4 Brücke mit Querwiderstand', P4),
-                    ('EL-P8 Digitalpin, LED nicht simuliert', P8), ('EL-P9 Batterie und Wechselquelle bei Gleichstrom', P9)):
+                    ('EL-P9 Batterie und Wechselquelle bei Gleichstrom', P9)):
         case(id_ + ' DC', dict(type='eldc', net=nt), dc_ref(nt), TOL_ABS, True)
+    # ab 0.21.0: LED wird simuliert (vorher offen)
+    case('EL-P8 Digitalpin, LED (ab 0.21.0 simuliert) DC', dict(type='eldc', net=P8), NL.dc_ref_nl(P8, branches, TERM), NL_TOL, True)
     # Literatur/Lehrbuchwert des Beispiels: R_ges = 220 Ω, I = 54,545 mA, U_R1 = 5,4545 V
     case('EL-P1 Kennwerte von Hand', dict(type='eldc', net=P1), dict(I_R1=12 / 220, U_R1=12 * 100 / 220, U_V1=12 * 100 / 220, I_A1=12 / 220, P_U1=-12 * 12 / 220), 1e-12, False)
     for s in range(20):
@@ -492,3 +499,118 @@ def add_cases(cases, ref):
         for _ in range(10):
             x = float(10 ** g.uniform(-3, 7)); near, lo, hi = e_pick(x, n)
             case(f'EL-E E{n} {x:.6g}', dict(type='eleseries', x=x, n=n), dict(nearest=near, lower=lo, upper=hi), 1e-15, False)
+    add_cases_nl(case)
+
+
+# ---------------------------------------------------------------- Halbleiter, Pinstrom, Leitungsströme (ab 0.21.0, Konzept v1.1 Abschn. 4)
+def add_cases_nl(case):
+    S_ = lambda id_, plus, u: E_(id_, 'gleichspannungsquelle', dict(plus=plus, minus='0'), u_V=float(u))
+    R_ = lambda id_, a, b, r: E_(id_, 'widerstand', dict(a=a, b=b), r_ohm=float(r))
+    nS = 0.1 / math.log(10) / NL.UT
+    D1 = net(['1', '2', '0'], S_('U1', '1', 5), R_('R1', '1', '2', 1000), E_('D1', 'diode', dict(anode='2', kathode='0'), u_f_V=0.7, i_f_A=1e-3, n=nS))
+    def led(r, pin='D13'):
+        L = dict(u_f_V=2.0, i_f_A=0.02, i_max_A=0.03, farbe='rot')
+        if r is None: return net(['1', '0'], E_('PIN', 'digitalpin', dict(pin='1', gnd='0'), zustand='HIGH', board='Uno', pin=pin, u_high_V=5.0), E_('LED1', 'led', dict(anode='1', kathode='0'), **L))
+        return net(['1', '2', '0'], E_('PIN', 'digitalpin', dict(pin='1', gnd='0'), zustand='HIGH', board='Uno', pin=pin, u_high_V=5.0), R_('R1', '1', '2', r), E_('LED1', 'led', dict(anode='2', kathode='0'), **L))
+    D5 = net(['1', '2', '0'], S_('U1', '1', 12), R_('R1', '1', '2', 470), E_('Z1', 'z_diode', dict(anode='0', kathode='2'), u_z_V=5.1, i_zt_A=0.005, n_z=1.0, p_tot_W=0.5), R_('RL', '2', '0', 1000))
+    D6 = net(['1', '2', '0'], S_('U1', '1', 5), R_('R1', '1', '2', 1000), E_('D1', 'diode', dict(anode='0', kathode='2'), u_f_V=0.7))
+    D8 = net(['1', '2', '0'], S_('U1', '1', 5), R_('R1', '1', '2', 100), E_('D1', 'diode', dict(anode='2', kathode='0'), u_f_V=0.7, i_f_A=0.01, n=1.8, r_s_ohm=0.5, i_max_A=0.2))
+    X1 = net(['1', '2', '3', '4', '0'], E_('PIN', 'digitalpin', dict(pin='1', gnd='0'), zustand='HIGH', board='Uno', pin='D9'), R_('RB', '1', '2', 1000), S_('U1', '4', 5), R_('RC', '4', '3', 220),
+             E_('Q1', 'npn', dict(b='2', c='3', e='0'), beta=100.0, i_c_max_A=0.1, p_tot_W=0.5))
+    X2 = net(['1', '2', '3', '4', '0'], S_('U0', '1', 2), R_('RB', '1', '2', 1e5), S_('U1', '4', 10), R_('RC', '4', '3', 1000), E_('Q1', 'npn', dict(b='2', c='3', e='0'), beta=100.0))
+    X3 = net(['1', '2', '3', '4', '0'], S_('U1', '1', 5), E_('PIN', 'digitalpin', dict(pin='4', gnd='0'), zustand='LOW', board='Uno', pin='D8'), R_('RB', '2', '4', 47000),
+             E_('Q1', 'pnp', dict(b='2', c='3', e='1'), beta=100.0), R_('RC', '3', '0', 1000))
+    mos = lambda ug: net(['1', '2', '3', '0'], S_('UG', '1', ug), S_('U1', '2', 12), R_('RL', '2', '3', 10), E_('M1', 'n_mosfet', dict(g='1', d='3', s='0'), u_th_V=2.0, r_on_ohm=0.05, i_d_max_A=5.0))
+    X8 = net(['1', '2', '3', '0'], S_('UG', '1', 10), S_('U1', '2', -12), R_('RL', '3', '2', 10), E_('M1', 'n_mosfet', dict(g='1', d='3', s='0'), u_th_V=2.0, r_on_ohm=0.05))
+    X7 = net(['1', '2', '3', '4', '0'], S_('U1', '1', 5), R_('RB', '1', '2', 1e6), R_('RC', '1', '3', 100), E_('Q1', 'npn', dict(b='2', c='3', e='4'), beta=100.0), E_('Q2', 'npn', dict(b='4', c='3', e='0'), beta=100.0))
+    M5 = net(['0'] + [x for k in range(8) for x in (f'p{k}', f'l{k}')],
+             *[y for k in range(8) for y in (E_(f'PIN{k}', 'digitalpin', dict(pin=f'p{k}', gnd='0'), zustand='HIGH', board='Uno', pin=f'D{k + 2}'), R_(f'R{k}', f'p{k}', f'l{k}', 106),
+                                               E_(f'LED{k}', 'led', dict(anode=f'l{k}', kathode='0'), u_f_V=2.0, i_f_A=0.02, i_max_A=0.03))])
+    M6 = net(['1', '2', '0'], E_('PIN', 'digitalpin', dict(pin='1', gnd='0'), zustand='HIGH', board='ESP32 DevKit', pin='GPIO2'), R_('R1', '1', '2', 33),
+             E_('LED1', 'led', dict(anode='2', kathode='0'), u_f_V=3.0, i_f_A=0.02, farbe='blau'))
+    M7 = net(['1', '2', '3', '0'], S_('U1', '1', 5), R_('R1', '1', '2', 100), E_('LED1', 'led', dict(anode='2', kathode='3'), u_f_V=2.0, i_f_A=0.02, i_max_A=0.03),
+             E_('PIN', 'digitalpin', dict(pin='3', gnd='0'), zustand='LOW', board='Uno', pin='D4'))
+    for nt in (X1, X3, M5, M6, M7):   # Digitalpin: HIGH-Spannung aus dem Board (Kern), hier ausgeschrieben
+        for e in nt['elements']:
+            if e['kind'] == 'digitalpin': e['params'].setdefault('u_high_V', 3.3 if e['params']['board'] == 'ESP32 DevKit' else 5.0)
+    dc = lambda nt: NL.dc_ref_nl(nt, branches, TERM)
+    strip = lambda nt: dict(nt, elements=[dict(e, params={k: v for k, v in e['params'].items() if not (e['kind'] == 'digitalpin' and k == 'u_high_V')}) for e in nt['elements']])
+    for id_, nt in (('EL-D1 Diode Sedra/Smith 5 V, 1 kΩ', D1), ('EL-D2 Uno-Pin, LED über 220 Ω', led(220)), ('EL-D3 Uno-Pin, LED über 100 Ω', led(100)), ('EL-D4 Uno-Pin, LED über 47 Ω', led(47)),
+                    ('EL-D5 Z-Diode 5,1 V an 12 V über 470 Ω, Last 1 kΩ', D5), ('EL-D6 Diode in Sperrrichtung', D6), ('EL-D8 Diode mit Bahnwiderstand 0,5 Ω', D8),
+                    ('EL-X1 NPN als Schalter', X1), ('EL-X2 NPN aktiv', X2), ('EL-X3 PNP als Schalter', X3), ('EL-X4 N-MOSFET linear U_GS 5 V', mos(5)), ('EL-X5 N-MOSFET Sättigung U_GS 2,5 V', mos(2.5)),
+                    ('EL-X9 N-MOSFET gesperrt U_GS 1 V', mos(1)), ('EL-X8 N-MOSFET U_DS < 0', X8), ('EL-X7 Darlington', X7),
+                    ('EL-M5 Uno, acht Pins je LED über 106 Ω', M5), ('EL-M6 ESP32, LED blau über 33 Ω', M6), ('EL-M7 Uno-Pin LOW, Senkstrom', M7)):
+        case(id_, dict(type='eldc', net=strip(nt)), dc(nt), NL_TOL, True)
+    # LED direkt am Pin: Strom über die Exponentenbegrenzung (EL-H05) etwa 2,5 · 10¹⁷ A, Vergleich relativ
+    # geschlossen: die ideale Quelle legt U = 5 V an, I = I(5 V) mit linear fortgesetzter Exponentialfunktion
+    m4 = NL.dmodel(dict(kind='led', params=dict(u_f_V=2.0, i_f_A=0.02))); i4 = NL.diode_i(m4, 5.0)
+    case('EL-M4 LED direkt am Uno-Pin (Exponentenbegrenzung)', dict(type='eldc', net=strip(led(None))), dict(U_LED1=5.0, I_LED1=i4, pin_PIN=i4, aAbs_PIN=i4 / 0.04, lvl_PIN=2.0), 1e-9, False)
+    # Stufen der Newton-Iteration (Testschalter): gleiche Lösung, Stufe und Abbruch
+    r1 = dc(D1)
+    case('EL-D1 nur G_min-Stufung', dict(type='eldc', net=D1, opts=dict(newton=dict(stages=['gmin']))), dict(r1, stage=1.0), NL_TOL, True)
+    case('EL-D1 nur Quellenstufung', dict(type='eldc', net=D1, opts=dict(newton=dict(stages=['quellen']))), dict(r1, stage=2.0), NL_TOL, True)
+    case('EL-F-NL4 Budget 3 Schritte: Abbruch', dict(type='eldc', net=D1, opts=dict(newton=dict(budget=3))), dict(ok=0.0, aborted=1.0), 0, False)
+    # ---------------- geschlossene Lösungen und Literaturwerte (Konzept v1.1 Abschn. 4.1, 4.2)
+    Is = 1e-3 / (math.exp(0.7 / (nS * NL.UT)) - 1); I, U = NL.lambert_diode(5.0, 1000.0, Is, nS * NL.UT)
+    case('EL-D1 Lambert W', dict(type='eldc', net=D1), dict(I_D1=I, U_D1=U), 1e-9, False)
+    case('EL-D1 Literatur Sedra/Smith 4,237 mA, 0,762 V', dict(type='eldc', net=D1), dict(I_D1=4.237e-3, U_D1=0.762), 2e-3, False)
+    for r, soll in ((220, 13.724e-3), (100, 29.795e-3), (47, 62.583e-3)):
+        IsL = 0.02 / (math.exp(2.0 / (2 * NL.UT)) - 1); I, U = NL.lambert_diode(5.0, float(r), IsL, 2 * NL.UT)
+        case(f'EL-D LED {r} Ω Lambert W', dict(type='eldc', net=strip(led(r))), dict(I_LED1=I, U_LED1=U), 1e-9, False)
+        case(f'EL-D LED {r} Ω Sollwert Konzept', dict(type='eldc', net=strip(led(r))), dict(I_LED1=soll), 5e-5, False)
+    case('EL-D2 Näherung feste U_F (S5): innerhalb 1 %', dict(type='eldc', net=strip(led(220))), dict(I_LED1=3 / 220), 1e-2, False)
+    IsZ = 0.01 / (math.exp(0.7 / (1.8 * NL.UT)) - 1)   # Durchlasszweig der Z-Diode (Vorgabe 0,7 V bei 10 mA, n = 1,8)
+    z = brentq(lambda u: (12 - u) / 470 - u / 1000 - (0.005 * math.exp((u - 5.1) / NL.UT) + NL.GMIN * u + IsZ * (1 - math.exp(-u / (1.8 * NL.UT)))), 0, 12, xtol=1e-15)
+    case('EL-D5 Z-Diode brentq', dict(type='eldc', net=D5), dict(V_2=z), 1e-9, True)
+    m1 = dict(s=1, Is=1e-3 / math.exp(0.65 / NL.UT), bf=100.0, br=1.0)
+    for id_, nt, args in (('EL-X1 Bisektion', X1, (5.0, 1000.0, 5.0, 220.0)), ('EL-X2 Bisektion', X2, (2.0, 1e5, 10.0, 1000.0))):
+        st = NL.bjt_stage(m1, *args); case(id_, dict(type='eldc', net=strip(nt)), dict(V_2=st['vb'], V_3=st['vc'], I_Q1=st['ic'], Ip_Q1_b=st['ib']), 1e-9, True)
+    case('EL-X2 Näherung U_BE 0,7 V: I_C 1,3 mA', dict(type='eldc', net=X2), dict(I_Q1=1.3424e-3), 1e-4, False)
+    K = 1 / (0.05 * 8); uds = brentq(lambda u: (12 - u) / 10 - (K * (3 * u - u * u / 2) + NL.GMIN * u), 0, 3, xtol=1e-15)
+    case('EL-X4 MOSFET linear brentq', dict(type='eldc', net=mos(5)), dict(V_3=uds, I_M1=(12 - uds) / 10), 1e-9, True)
+    case('EL-X5 MOSFET Sättigung geschlossen 312,5 mA, 8,875 V', dict(type='eldc', net=mos(2.5)), dict(I_M1=0.3125, V_3=8.875), 1e-9, True)
+    case('EL-X9 MOSFET gesperrt: nur G_min', dict(type='eldc', net=mos(1)), dict(V_3=12 / (1 + 10 * NL.GMIN)), 1e-12, True)
+    # Pinstrom von Hand (Konzept Abschn. 4.4)
+    case('EL-M2 Uno 100 Ω: Warnung über 20 mA', dict(type='eldc', net=strip(led(100))), dict(lvl_PIN=1.0, aRef_PIN=29.795e-3 / 0.02), 5e-5, False)
+    case('EL-M3 Uno 47 Ω: Fehler über 40 mA', dict(type='eldc', net=strip(led(47))), dict(lvl_PIN=2.0, aAbs_PIN=62.583e-3 / 0.04), 5e-5, False)
+    case('EL-M5 Summenstrom über 200 mA', dict(type='eldc', net=strip(M5)), dict(bsum_Uno=8 * dc(M5)['pin_PIN0'] / 0.2), 1e-9, False)
+    # ---------------- Leitungsströme (Konzept Abschn. 4.6)
+    L1 = net(['1', '2', '3', '0'], S_('U1', '1', 12), E_('A1', 'amperemeter', dict(a='1', b='3')), R_('R1', '3', '2', 100), R_('R2', '2', '0', 200), R_('R3', '2', '0', 300),
+             E_('V1', 'voltmeter', dict(a='3', b='2')), E_('K1', 'knoten', dict(k='2')))
+    W = lambda i, a, ap, b, bp: dict(id=f'w{i}', a=dict(el=a, pin=ap), b=dict(el=b, pin=bp))
+    L1['wires'] = [W(1, 'U1', 'plus', 'A1', 'a'), W(2, 'A1', 'b', 'R1', 'a'), W(3, 'R1', 'a', 'V1', 'a'), W(4, 'R1', 'b', 'K1', 'k'), W(5, 'K1', 'k', 'R2', 'a'), W(6, 'K1', 'k', 'R3', 'a'),
+                   W(7, 'V1', 'b', 'K1', 'k'), W(8, 'U1', 'minus', 'GND', 'a'), W(9, 'GND', 'a', 'R2', 'b'), W(10, 'R2', 'b', 'R3', 'b'), W(11, 'R2', 'b', 'R3', 'b')]
+    wl = {k: v for k, v in NL.dc_ref_nl(L1, branches, TERM).items() if k.startswith('W_')}
+    case('EL-L1 Leitungsströme lstsq', dict(type='eldc', net=L1), wl, 1e-12, True)
+    case('EL-L1 Leitungsströme von Hand', dict(type='eldc', net=L1), dict(W_w1=12 / 220, W_w4=12 / 220, W_w5=12 / 220 * 0.6, W_w6=12 / 220 * 0.4, W_w3=0.0, W_w7=0.0, W_w10=-12 / 220 * 0.2, W_w11=-12 / 220 * 0.2), 1e-12, True)
+    # ---------------- Kleinsignal (Konzept Abschn. 4.2 EL-X6, E-v11-7)
+    AC = lambda id_, plus, minus: E_(id_, 'wechselspannungsquelle', dict(plus=plus, minus=minus), u_eff_V=0.01, f_Hz=1000.0, phase_deg=0.0)
+    X6 = net(['1', '2', '3', '4', '5', '6', '7', '0'], S_('U1', '1', 12), R_('R1', '1', '3', 47000), R_('R2', '3', '0', 10000), R_('RC', '1', '4', 4700), R_('RE', '5', '0', 1000),
+             E_('Q1', 'npn', dict(b='3', c='4', e='5'), beta=100.0), AC('AC1', '2', '0'), E_('C1', 'kondensator', dict(a='2', b='3'), c_F=1e-5), E_('C2', 'kondensator', dict(a='4', b='6'), c_F=1e-5),
+             R_('RL', '6', '0', 10000), E_('CE', 'kondensator', dict(a='5', b='0'), c_F=1e-4), R_('RX', '7', '0', 1))
+    D9 = net(['1', '2', '3', '0'], S_('U1', '1', 5), R_('R1', '1', '2', 1000), E_('D1', 'diode', dict(anode='2', kathode='0'), u_f_V=0.7), AC('AC1', '3', '0'), E_('C1', 'kondensator', dict(a='3', b='2'), c_F=1e-5))
+    M9 = net(['1', '2', '3', '4', '0'], S_('UG', '4', 2.5), AC('AC1', '1', '4'), S_('U1', '2', 12), R_('RL', '2', '3', 10), E_('M1', 'n_mosfet', dict(g='1', d='3', s='0'), u_th_V=2.0, r_on_ohm=0.05))
+    for id_, nt in (('EL-D9 Kleinsignal Diode 1 kHz', D9), ('EL-X6 Emitterschaltung Kleinsignal 1 kHz', X6), ('EL-M9 Kleinsignal MOSFET 1 kHz', M9)):
+        case(id_, dict(type='elac', net=nt, f=1000.0), NL.ac_ref_nl(nt, 1000.0, branches, TERM)[0], NL_TOL, True)
+    case('EL-M9 Kleinsignal von Hand: |u_D| = g_m · R_L · 10 mV = 125 mV', dict(type='elac', net=M9, f=1000.0), dict(Vre_3=-2.5 * 0.5 * 10 * 0.01 / (1 + 10 * NL.GMIN)), 1e-9, True)
+    case('EL-B3 Emitterschaltung 10 Hz bis 100 kHz, 50 Punkte', dict(type='elsweep', net=X6, inNode='2', outNode='6', fMin=10.0, fMax=1e5, n=50), NL.sweep_ref_nl(X6, '2', '6', 10.0, 1e5, 50, branches, TERM), 1e-8, True)
+    # ---------------- Zufallsnetze mit Dioden und einem Transistor (feste Seeds)
+    for s in range(20):
+        nt = rand_nl(500 + s)
+        case(f'EL-Z{s + 41:02d} Zufallsnetz mit Halbleitern', dict(type='eldc', net=nt), NL.dc_ref_nl(nt, branches, TERM, util=False, pins=False), NL_TOL, True)
+
+
+def rand_nl(seed):
+    """Widerstandsnetz mit 1 bis 3 Dioden bzw. LEDs (Durchlass- und Sperrrichtung, nicht am Quellenknoten) und bei jedem zweiten Seed einem NPN."""
+    g = np.random.RandomState(seed); nodes = ['1', '2', '3', '4', '5', '0']; els = [E_('U1', 'gleichspannungsquelle', dict(plus='1', minus='0'), u_V=float(g.uniform(3, 15)))]
+    for i in range(1, 6):
+        els.append(E_(f'R{i}', 'widerstand', dict(a=nodes[i - 1], b=nodes[i]), r_ohm=float(10 ** g.uniform(1.5, 4))))
+    for i in range(3):
+        a, b = g.choice(5, 2, replace=False); els.append(E_(f'RX{i}', 'widerstand', dict(a=nodes[a], b=nodes[b]), r_ohm=float(10 ** g.uniform(2, 4))))
+    for i in range(int(g.randint(1, 4))):
+        a, b = 1 + g.choice(5, 2, replace=False)   # nicht am Quellenknoten 1: kein Übergang direkt an der idealen Quelle (das ist Fall EL-M4)
+        if g.rand() < 0.5: els.append(E_(f'D{i}', 'diode', dict(anode=nodes[a], kathode=nodes[b]), u_f_V=float(g.uniform(0.6, 0.8))))
+        else: els.append(E_(f'D{i}', 'led', dict(anode=nodes[a], kathode=nodes[b]), u_f_V=float(g.uniform(1.8, 3.0)), i_f_A=0.02))
+    if seed % 2 == 0:
+        els.append(E_('Q1', 'npn', dict(b='3', c='2', e='0'), beta=float(g.uniform(50, 300))))
+    return net(nodes, *els)

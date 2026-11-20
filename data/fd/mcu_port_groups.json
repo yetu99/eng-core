@@ -1,0 +1,107 @@
+[
+ {
+  "id": "MG01",
+  "mcu": "ATmega328P",
+  "direction": "source",
+  "ports": [
+   "PC0",
+   "PC1",
+   "PC2",
+   "PC3",
+   "PC4",
+   "PC5",
+   "PD0",
+   "PD1",
+   "PD2",
+   "PD3",
+   "PD4",
+   "ADC7",
+   "RESET"
+  ],
+  "i_max_a": 0.1,
+  "remark": "Σ I_OH der Ports C0 bis C5, D0 bis D4, ADC7, RESET; ADC6, ADC7 nur analoge Eingänge; RESET, XTAL1, XTAL2 am Uno und Nano belegt, daher ohne Pinzuordnung",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.2, Fußnote zu Tab. 32-2 (Σ I_OH)"
+ },
+ {
+  "id": "MG02",
+  "mcu": "ATmega328P",
+  "direction": "source",
+  "ports": [
+   "PB0",
+   "PB1",
+   "PB2",
+   "PB3",
+   "PB4",
+   "PB5",
+   "PD5",
+   "PD6",
+   "PD7",
+   "ADC6",
+   "XTAL1",
+   "XTAL2"
+  ],
+  "i_max_a": 0.1,
+  "remark": "Σ I_OH der Ports B0 bis B5, D5 bis D7, ADC6, XTAL1, XTAL2; ADC6, ADC7 nur analoge Eingänge; RESET, XTAL1, XTAL2 am Uno und Nano belegt, daher ohne Pinzuordnung",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.2, Fußnote zu Tab. 32-2 (Σ I_OH)"
+ },
+ {
+  "id": "MG03",
+  "mcu": "ATmega328P",
+  "direction": "sink",
+  "ports": [
+   "PC0",
+   "PC1",
+   "PC2",
+   "PC3",
+   "PC4",
+   "PC5",
+   "ADC7",
+   "ADC6"
+  ],
+  "i_max_a": 0.1,
+  "remark": "Σ I_OL der Ports C0 bis C5, ADC7, ADC6; ADC6, ADC7 nur analoge Eingänge; RESET, XTAL1, XTAL2 am Uno und Nano belegt, daher ohne Pinzuordnung",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.2, Fußnote zu Tab. 32-2 (Σ I_OL)"
+ },
+ {
+  "id": "MG04",
+  "mcu": "ATmega328P",
+  "direction": "sink",
+  "ports": [
+   "PB0",
+   "PB1",
+   "PB2",
+   "PB3",
+   "PB4",
+   "PB5",
+   "PD5",
+   "PD6",
+   "PD7",
+   "XTAL1",
+   "XTAL2"
+  ],
+  "i_max_a": 0.1,
+  "remark": "Σ I_OL der Ports B0 bis B5, D5 bis D7, XTAL1, XTAL2; ADC6, ADC7 nur analoge Eingänge; RESET, XTAL1, XTAL2 am Uno und Nano belegt, daher ohne Pinzuordnung",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.2, Fußnote zu Tab. 32-2 (Σ I_OL)"
+ },
+ {
+  "id": "MG05",
+  "mcu": "ATmega328P",
+  "direction": "sink",
+  "ports": [
+   "PD0",
+   "PD1",
+   "PD2",
+   "PD3",
+   "PD4",
+   "RESET"
+  ],
+  "i_max_a": 0.1,
+  "remark": "Σ I_OL der Ports D0 bis D4, RESET; ADC6, ADC7 nur analoge Eingänge; RESET, XTAL1, XTAL2 am Uno und Nano belegt, daher ohne Pinzuordnung",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.2, Fußnote zu Tab. 32-2 (Σ I_OL)"
+ }
+]

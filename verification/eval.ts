@@ -52,7 +52,7 @@ export type Case =
   | { id: string; type: "orcz"; app: OrApplication; d2: number; module?: string; abs?: boolean }
   | { id: string; type: "orsize"; code: string; module?: string; abs?: boolean }
   | { id: string; type: "orlim"; dim: OrDim; module?: string; abs?: boolean }
-  | { id: string; type: "eldc"; net: elektrik.ElNetlist; module?: string; abs?: boolean }
+  | { id: string; type: "eldc"; net: elektrik.ElNetlist; opts?: elektrik.DcOptions; module?: string; abs?: boolean }
   | { id: string; type: "elac"; net: elektrik.ElNetlist; f: number; module?: string; abs?: boolean }
   | { id: string; type: "elsweep"; net: elektrik.ElNetlist; inNode: string; outNode: string; fMin: number; fMax: number; n: number; module?: string; abs?: boolean }
   | { id: string; type: "elreq"; net: elektrik.ElNetlist; a: string; b: string; module?: string; abs?: boolean }
@@ -64,11 +64,18 @@ export type Case =
 function evalEl(c: Extract<Case, { type: `el${string}` }>): Record<string, number | null> {
   const nFail = (f: readonly elektrik.ElFinding[]): number => f.filter((x) => x.level === "fail").length;
   if (c.type === "eldc") {
-    const r = elektrik.solveDc(c.net), o: Record<string, number | null> = { ok: r.ok ? 1 : 0, nFail: nFail(r.findings) };
+    const r = elektrik.solveDc(c.net, c.opts), o: Record<string, number | null> = { ok: r.ok ? 1 : 0, nFail: nFail(r.findings), nWarn: r.findings.filter((x) => x.level === "warn").length };
+    if (r.iterations) Object.assign(o, { stage: ["newton", "gmin", "quellen"].indexOf(r.iterations.stage), aborted: r.iterations.aborted ? 1 : 0 });
     if (!r.ok) return o;
     for (const [n, v] of Object.entries(r.nodes)) o[`V_${n}`] = v;
-    for (const [id, e] of Object.entries(r.elements)) Object.assign(o, { [`U_${id}`]: e.u, [`I_${id}`]: e.i, [`P_${id}`]: e.p });
+    for (const [id, e] of Object.entries(r.elements)) {
+      Object.assign(o, { [`U_${id}`]: e.u, [`I_${id}`]: e.i, [`P_${id}`]: e.p });
+      for (const [pin, i] of Object.entries(e.pins ?? {})) o[`Ip_${id}_${pin}`] = i;
+    }
     for (const [id, a] of Object.entries(r.utilization)) o[`util_${id}`] = a;
+    for (const [id, pc] of Object.entries(r.pinChecks ?? {})) Object.assign(o, { [`pin_${id}`]: pc.i, [`aAbs_${id}`]: pc.aAbs, [`aRef_${id}`]: pc.aRef, [`lvl_${id}`]: ["ok", "warn", "fail"].indexOf(pc.level) });
+    for (const bs of r.boardSums ?? []) o[`bsum_${bs.board}`] = bs.a;
+    for (const [id, i] of Object.entries(r.wires ?? {})) o[`W_${id}`] = i;
     o["bal"] = r.balance;
     return o;
   }

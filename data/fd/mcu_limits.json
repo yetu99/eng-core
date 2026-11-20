@@ -1,0 +1,56 @@
+[
+ {
+  "id": "ML01",
+  "mcu": "ATmega328P",
+  "quantity": "i_pin_abs",
+  "value_a": 0.04,
+  "remark": "Absolute Maximum Rating (Grenze gegen Beschädigung), kein zulässiger Betriebsstrom; Betriebsgrenze siehe ML02",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.1 Absolute Maximum Ratings, Tab. 32-1"
+ },
+ {
+  "id": "ML02",
+  "mcu": "ATmega328P",
+  "quantity": "i_pin_ref",
+  "value_a": 0.02,
+  "remark": "Prüfbedingung der Pegel: V_OH ≥ 4,2 V bei I_OH = −20 mA, V_OL ≤ 0,9 V bei I_OL = 20 mA (V_CC = 5 V, T_A = 85 °C); darüber keine Pegelgarantie. Arduino nennt 20 mA als größten Strom je Pin (Q256)",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.2 Common DC Characteristics, Tab. 32-2 (V_OL, V_OH)"
+ },
+ {
+  "id": "ML03",
+  "mcu": "ATmega328P",
+  "quantity": "i_sum",
+  "value_a": 0.2,
+  "remark": "Absolute Maximum Rating „DC Current VCC and GND Pins“ (Grenze gegen Beschädigung), kein zulässiger Betriebsstrom",
+  "source_id": "Q254",
+  "source_locator": "Abschn. 32.1 Absolute Maximum Ratings, Tab. 32-1"
+ },
+ {
+  "id": "ML04",
+  "mcu": "ESP32",
+  "quantity": "i_oh_typ",
+  "value_a": 0.04,
+  "remark": "typische Treiberfähigkeit bei höchster Treiberstärke und V_OH ≥ 2,64 V, keine zulässige Dauerbelastbarkeit; gilt für VDD3P3_CPU und VDD3P3_RTC (VDD_SDIO 20 mA, in Stromwerk nicht unterschieden) und sinkt mit der Zahl gleichzeitig treibender Pins (Fußnote); kein Absolutgrenzwert je Pin, Stromwerk prüft dagegen als Treibergrenze (E-v11-9)",
+  "source_id": "Q255",
+  "source_locator": "Kap. 5.3 DC Characteristics, I_OH"
+ },
+ {
+  "id": "ML05",
+  "mcu": "ESP32",
+  "quantity": "i_ol_typ",
+  "value_a": 0.028,
+  "remark": "typische Senkfähigkeit bei höchster Treiberstärke und V_OL = 0,495 V, keine zulässige Dauerbelastbarkeit; Stromwerk prüft dagegen als Treibergrenze (E-v11-9)",
+  "source_id": "Q255",
+  "source_locator": "Kap. 5.3 DC Characteristics, I_OL"
+ },
+ {
+  "id": "ML06",
+  "mcu": "ESP32",
+  "quantity": "i_sum",
+  "value_a": 1.2,
+  "remark": "Absolute Maximum Rating „Cumulative IO output current“ (Grenze gegen Beschädigung), kein zulässiger Betriebsstrom; Stromwerk meldet darüber einen Fehler",
+  "source_id": "Q255",
+  "source_locator": "Kap. 5.1 Absolute Maximum Ratings"
+ }
+]

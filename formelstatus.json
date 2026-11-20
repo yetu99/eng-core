@@ -1252,6 +1252,41 @@
     "durch": "Seti",
     "formel": "N(x_K), M_b(x_K), T(x_K) aus dem Blatt-1-Lastfall"
   },
+  "EL-A01": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_Pin = −I (Verbraucherzählpfeil des Digitalpins)"
+  },
+  "EL-A02": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = |I_Pin| / I_Pin,abs"
+  },
+  "EL-A03": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = |I_Pin| / I_ref"
+  },
+  "EL-A04": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = max(Σ I_Quelle, Σ I_Senke) / I_Summe"
+  },
+  "EL-A05": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = Σ |I_Pin| der Gruppe / I_Gruppe"
+  },
   "EL-E01": {
     "status": "freigegeben",
     "datum": "2026-11-12",
@@ -1260,15 +1295,17 @@
   },
   "EL-E01-P": {
     "status": "freigegeben",
-    "datum": "2026-11-12",
+    "datum": "2026-11-20",
     "durch": "Seti",
-    "formel": "R_p = R_1 · R_2 / (R_1 + R_2)"
+    "kommentar": "Freigabe im Chat 20.11.2026: Formeltext nach Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf angepasst (Betrag |Z| bzw. R_a, R_b)",
+    "formel": "R_p = R_a · R_b / (R_a + R_b)"
   },
   "EL-E01-S": {
     "status": "freigegeben",
-    "datum": "2026-11-12",
+    "datum": "2026-11-20",
     "durch": "Seti",
-    "formel": "R_s = R_1 + R_2"
+    "kommentar": "Freigabe im Chat 20.11.2026: Formeltext nach Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf angepasst (Betrag |Z| bzw. R_a, R_b)",
+    "formel": "R_s = R_a + R_b"
   },
   "EL-E02": {
     "status": "freigegeben",
@@ -1286,7 +1323,7 @@
     "status": "freigegeben",
     "datum": "2026-11-17",
     "durch": "Seti",
-    "kommentar": "Freigabe im Chat 17.11.2026 (Entscheidung E-v4-3, Stromwerk Übergabe v4): Ersatzwiderstand als Innenwiderstand, Quellen deaktiviert",
+    "erledigt": "Freigabe im Chat 17.11.2026 (Entscheidung E-v4-3, Stromwerk Übergabe v4): Ersatzwiderstand als Innenwiderstand, Quellen deaktiviert",
     "formel": "U_q → Kurzschluss (Batterie → R_i), I_q → offen; Quelle zwischen a und b → entfernt"
   },
   "EL-G01-I": {
@@ -1414,6 +1451,230 @@
     "datum": "2026-11-12",
     "durch": "Seti",
     "formel": "I_k = I · G_k / Σ G_i"
+  },
+  "EL-H01": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "U_T = k · T / q"
+  },
+  "EL-H02": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I = I_S · (e^(U_j / (n · U_T)) − 1)"
+  },
+  "EL-H03": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_S = I_F / (e^((U_F − r_S · I_F) / (n · U_T)) − 1)"
+  },
+  "EL-H04": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "U = U_j + r_S · I"
+  },
+  "EL-H05": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "x > x_max = 80: e^x ≈ e^x_max · (1 + x − x_max)"
+  },
+  "EL-H06": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_Z = −I_ZT · e^(−(U + U_Z) / (n_Z · U_T))"
+  },
+  "EL-H07": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "g_d = dI / dU_j"
+  },
+  "EL-H09": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_C = I_S · (e^(U_BE/U_T) − e^(U_BC/U_T)) − (I_S/β_R) · (e^(U_BC/U_T) − 1)"
+  },
+  "EL-H10": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_B = (I_S/β_F) · (e^(U_BE/U_T) − 1) + (I_S/β_R) · (e^(U_BC/U_T) − 1)"
+  },
+  "EL-H11": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_S = I_C,ref / e^(U_BE,ref / U_T)"
+  },
+  "EL-H12-B": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_B = −[(I_S/β_F) · (e^(U_EB/U_T) − 1) + (I_S/β_R) · (e^(U_CB/U_T) − 1)]"
+  },
+  "EL-H12-C": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_C = −[I_S · (e^(U_EB/U_T) − e^(U_CB/U_T)) − (I_S/β_R) · (e^(U_CB/U_T) − 1)]"
+  },
+  "EL-H13": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "∂I_C/∂U_BE, ∂I_C/∂U_BC, ∂I_B/∂U_BE, ∂I_B/∂U_BC"
+  },
+  "EL-H14": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "U_GS ≤ U_th: I_D = 0"
+  },
+  "EL-H15": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_D = K · ((U_GS − U_th) · U_DS − U_DS²/2)"
+  },
+  "EL-H16": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "I_D = K/2 · (U_GS − U_th)²"
+  },
+  "EL-H17": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "K = 1 / (R_DS(on) · (U_GS,ref − U_th))"
+  },
+  "EL-H18": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "U_DS < 0: I_D(U_GS, U_DS) = −I_D(U_GD, −U_DS)"
+  },
+  "EL-H19": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "g_m = ∂I_D/∂U_GS, g_ds = ∂I_D/∂U_DS"
+  },
+  "EL-H20-D": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "Y = g_d am Arbeitspunkt"
+  },
+  "EL-H20-M": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "g_m = ∂I_D/∂U_GS, g_ds = ∂I_D/∂U_DS am Arbeitspunkt"
+  },
+  "EL-H20-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "g_m = ∂I_C/∂U_BE, g_π = ∂I_B/∂U_BE, g_μ = ∂I_B/∂U_BC, g_o aus ∂I_C/∂U_BC"
+  },
+  "EL-H21": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "P = Σ u_Klemme · I_Klemme"
+  },
+  "EL-K01": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "J(x_k) · x_(k+1) = z(x_k) mit Begleitmodellen am Punkt x_k"
+  },
+  "EL-K02": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "x_0 = 0; pn-Übergänge bei U_krit, MOSFET bei U_GS = U_DS = 0"
+  },
+  "EL-K03": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "|Δx_i| ≤ 1e-10 · |x_i| + 1e-12 V und |ΔI| ≤ 1e-10 · |I| + 1e-15 A in zwei Schritten"
+  },
+  "EL-K04": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "U_krit = n U_T · ln(n U_T / (√2 · I_S))"
+  },
+  "EL-K05": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "|ΔU_GS| ≤ 0,5 V + 0,5 · |U_GS,alt − U_th|, |ΔU_DS| ≤ 2 V"
+  },
+  "EL-K06": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "G_min = 1e-12 S"
+  },
+  "EL-K07": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "G_min,k = 1e-2 S … 1e-11 S, dann 0 (Lösung der Stufe als Start)"
+  },
+  "EL-K08": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "Quellen · λ, λ = 0 → 1 (Schritt 0,1, halbieren bei Misserfolg, verdoppeln bei Erfolg)"
+  },
+  "EL-K09": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "Gesamtbudget 5000 Schritte bzw. alle Stufen ohne Konvergenz"
   },
   "EL-N01-LA": {
     "status": "freigegeben",
@@ -1551,11 +1812,46 @@
     "durch": "Seti",
     "formel": "a = √2 · |U| / U_max"
   },
+  "EL-N13-D": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = |I| / I_max"
+  },
+  "EL-N13-M": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = |I_D| / I_D,max"
+  },
+  "EL-N13-Q": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = max(|I_C| / I_C,max, |P| / P_tot)"
+  },
   "EL-N13-R": {
     "status": "freigegeben",
     "datum": "2026-11-12",
     "durch": "Seti",
     "formel": "a = |P| / P_max"
+  },
+  "EL-N13-Z": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "a = |P| / P_tot"
+  },
+  "EL-N14": {
+    "status": "freigegeben",
+    "datum": "2026-11-20",
+    "durch": "Seti",
+    "kommentar": "Freigabe im Chat 20.11.2026 (Stromwerk v1.1, Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf ohne Befund)",
+    "formel": "B · i = s, i = Bᵀ · φ mit (B · Bᵀ) · φ = s"
   },
   "EL-R1": {
     "status": "freigegeben",
@@ -1997,15 +2293,17 @@
   },
   "EL-W02-C": {
     "status": "freigegeben",
-    "datum": "2026-11-12",
+    "datum": "2026-11-20",
     "durch": "Seti",
-    "formel": "Z_C = 1 / (jωC)"
+    "kommentar": "Freigabe im Chat 20.11.2026: Formeltext nach Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf angepasst (Betrag |Z| bzw. R_a, R_b)",
+    "formel": "|Z_C| = 1 / (ω · C)"
   },
   "EL-W02-L": {
     "status": "freigegeben",
-    "datum": "2026-11-12",
+    "datum": "2026-11-20",
     "durch": "Seti",
-    "formel": "Z_L = r + jωL"
+    "kommentar": "Freigabe im Chat 20.11.2026: Formeltext nach Prüfbericht Formelpruefung_Freigabe_elektrik_0.21.0.pdf angepasst (Betrag |Z| bzw. R_a, R_b)",
+    "formel": "|Z_L| = √(r² + (ω · L)²)"
   },
   "EL-W02-R": {
     "status": "freigegeben",
@@ -5275,7 +5573,7 @@
     "status": "freigegeben",
     "datum": "2026-10-13",
     "durch": "Seti",
-    "kommentar": "·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.] Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
+    "erledigt": "Der Exponent bei der Fläche AA ist mit 10−12 falsch. Da 1mm2=10−6m2 ist, muss der Umrechnungsfaktor für die Fläche 10−6 sein, damit die Einheit kg/mkg/m korrekt herauskommt ((kg/m3)⋅m2=kg/m(kg/m3)⋅m2=kg/m).",
     "antwort": "Rechenweg ist richtig, Text präzisiert. Die Rechnung läuft im System N, mm, t, s und braucht m′ in t/mm, nicht in kg/m: ρ[kg/m³]·10⁻¹² = ρ[t/mm³] (1 kg = 10⁻³ t, 1 m³ = 10⁹ mm³), mal A[mm²] ergibt t/mm. Der Faktor 10⁻⁶ für die Fläche gilt für die Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ = kg/m; von kg/m nach t/mm folgt nochmals 10⁻⁶, zusammen 10⁻¹². Beispiel 2700·10⁻¹²·703,7 = 1,9·10⁻⁶ t/mm = 1,9 kg/m. Bestätigt durch F1 bis F4 (Blevins, Handrechnung) und die FE-Gegenrechnung. Formeltext nennt jetzt beide Wege und die Umrechnungsfaktoren, Einsetzen zeigt t/mm und kg/m.",
     "formel": "m′ = ρ·A + m_z;  Rechnung in t/mm: ρ[kg/m³]·10⁻¹²·A[mm²] + m_z[kg/m]·10⁻⁶ (1 kg/m³ = 10⁻¹² t/mm³, 1 kg/m = 10⁻⁶ t/mm);  Anzeige in kg/m: ρ[kg/m³]·A[mm²]·10⁻⁶ + m_z[kg/m] (1 mm² = 10⁻⁶ m²)"
   },

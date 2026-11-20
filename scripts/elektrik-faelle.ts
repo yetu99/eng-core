@@ -36,6 +36,70 @@ export const Q8 = net(["1", "2", "3", "0"], el("B1", "batterie", { plus: "1", mi
 const Q1 = net(["1", "2", "3", "4", "0"], el("R1", "widerstand", { a: "1", b: "2" }, { r_ohm: 100 }), el("R2", "widerstand", { a: "2", b: "0" }, { r_ohm: 200 }),
   el("R3", "widerstand", { a: "2", b: "3" }, { r_ohm: 150 }), el("R4", "widerstand", { a: "3", b: "0" }, { r_ohm: 150 }), el("R5", "widerstand", { a: "3", b: "4" }, { r_ohm: 47 }));
 
+// ---------------------------------------------------------------- Halbleiter, Pinstrom, Leitungsströme (ab 0.21.0, Konzept v1.1 Abschn. 4)
+const src = (id: string, plus: string, u: number): El => el(id, "gleichspannungsquelle", { plus, minus: "0" }, { u_V: u });
+const R = (id: string, a: string, b: string, r: number): El => el(id, "widerstand", { a, b }, { r_ohm: r });
+/** n der Diode in Sedra/Smith Bsp. iterative Analyse: 0,1 V je Dekade → n · U_T = 0,1 V / ln 10. */
+export const N_SEDRA = 0.1 / Math.log(10) / E.U_T;
+/** EL-D1 Sedra/Smith: 5 V, 1 kΩ, Diode 1 mA bei 0,7 V, 0,1 V je Dekade. */
+export const D1 = net(["1", "2", "0"], src("U1", "1", 5), R("R1", "1", "2", 1000), el("D1", "diode", { anode: "2", kathode: "0" }, { u_f_V: 0.7, i_f_A: 1e-3, n: N_SEDRA }));
+/** EL-D2 bis EL-D4: Uno-Pin HIGH, LED rot 2 V bei 20 mA (n = 2, I_max 30 mA) über R. */
+export const ledPin = (r: number | null, pin = "D13"): E.ElNetlist => r === null
+  ? net(["1", "0"], el("PIN", "digitalpin", { pin: "1", gnd: "0" }, { zustand: "HIGH", board: "Uno", pin }), el("LED1", "led", { anode: "1", kathode: "0" }, { u_f_V: 2, i_f_A: 0.02, i_max_A: 0.03, farbe: "rot" }))
+  : net(["1", "2", "0"], el("PIN", "digitalpin", { pin: "1", gnd: "0" }, { zustand: "HIGH", board: "Uno", pin }), R("R1", "1", "2", r), el("LED1", "led", { anode: "2", kathode: "0" }, { u_f_V: 2, i_f_A: 0.02, i_max_A: 0.03, farbe: "rot" }));
+/** EL-D5 Z-Diode 5,1 V bei 5 mA an 12 V über 470 Ω, Last 1 kΩ (P_tot 0,5 W). */
+export const D5 = net(["1", "2", "0"], src("U1", "1", 12), R("R1", "1", "2", 470), el("Z1", "z_diode", { anode: "0", kathode: "2" }, { u_z_V: 5.1, i_zt_A: 0.005, n_z: 1, p_tot_W: 0.5 }), R("RL", "2", "0", 1000));
+/** Diode mit Bahnwiderstand 0,5 Ω an 5 V über 100 Ω. */
+export const D8 = net(["1", "2", "0"], src("U1", "1", 5), R("R1", "1", "2", 100), el("D1", "diode", { anode: "2", kathode: "0" }, { u_f_V: 0.7, i_f_A: 0.01, n: 1.8, r_s_ohm: 0.5, i_max_A: 0.2 }));
+/** EL-X1 NPN als Schalter: Pin 5 V über R_B 1 kΩ, R_C 220 Ω an 5 V (BC547: I_C,max 100 mA, P_tot 0,5 W). */
+export const X1 = net(["1", "2", "3", "4", "0"], el("PIN", "digitalpin", { pin: "1", gnd: "0" }, { zustand: "HIGH", board: "Uno", pin: "D9" }), R("RB", "1", "2", 1000), src("U1", "4", 5), R("RC", "4", "3", 220),
+  el("Q1", "npn", { b: "2", c: "3", e: "0" }, { beta: 100, i_c_max_A: 0.1, p_tot_W: 0.5 }));
+/** EL-X2 NPN aktiv: 2 V über 100 kΩ, R_C 1 kΩ an 10 V. */
+export const X2 = net(["1", "2", "3", "4", "0"], src("U0", "1", 2), R("RB", "1", "2", 1e5), src("U1", "4", 10), R("RC", "4", "3", 1000), el("Q1", "npn", { b: "2", c: "3", e: "0" }, { beta: 100 }));
+/** EL-X3 PNP als Schalter: Emitter 5 V, Basis über 47 kΩ an Pin LOW, R_C 1 kΩ gegen Masse. */
+export const X3 = net(["1", "2", "3", "4", "0"], src("U1", "1", 5), el("PIN", "digitalpin", { pin: "4", gnd: "0" }, { zustand: "LOW", board: "Uno", pin: "D8" }), R("RB", "2", "4", 47000),
+  el("Q1", "pnp", { b: "2", c: "3", e: "1" }, { beta: 100 }), R("RC", "3", "0", 1000));
+/** EL-X4, EL-X5 N-MOSFET: U_GS fest, Last 10 Ω an 12 V (U_th 2 V, R_on 0,05 Ω bei 10 V, I_D,max 5 A). */
+export const mos = (ugs: number): E.ElNetlist => net(["1", "2", "3", "0"], src("UG", "1", ugs), src("U1", "2", 12), R("RL", "2", "3", 10), el("M1", "n_mosfet", { g: "1", d: "3", s: "0" }, { u_th_V: 2, r_on_ohm: 0.05, i_d_max_A: 5 }));
+/** MOSFET mit U_DS < 0: Source an Masse, Drain über 10 Ω an −12 V, Gate 10 V. */
+export const X8 = net(["1", "2", "3", "0"], src("UG", "1", 10), src("U1", "2", -12), R("RL", "3", "2", 10), el("M1", "n_mosfet", { g: "1", d: "3", s: "0" }, { u_th_V: 2, r_on_ohm: 0.05 }));
+/** EL-X6 Emitterschaltung mit Spannungsteiler 47 kΩ / 10 kΩ, R_C 4,7 kΩ, R_E 1 kΩ an 12 V; Eingang über 10 µF, Ausgang an 10 kΩ über 10 µF. */
+export const X6 = net(["1", "2", "3", "4", "5", "6", "7", "0"], src("U1", "1", 12), R("R1", "1", "3", 47000), R("R2", "3", "0", 10000), R("RC", "1", "4", 4700), R("RE", "5", "0", 1000),
+  el("Q1", "npn", { b: "3", c: "4", e: "5" }, { beta: 100 }), el("AC1", "wechselspannungsquelle", { plus: "2", minus: "0" }, { u_eff_V: 0.01, f_Hz: 1000, phase_deg: 0 }),
+  el("C1", "kondensator", { a: "2", b: "3" }, { c_F: 1e-5 }), el("C2", "kondensator", { a: "4", b: "6" }, { c_F: 1e-5 }), R("RL", "6", "0", 10000), el("CE", "kondensator", { a: "5", b: "0" }, { c_F: 1e-4 }), R("RX", "7", "0", 1));
+/** Kleinsignal Diode: 5 V über 1 kΩ an die Diode, Wechselquelle 10 mV über 10 µF. */
+export const D9 = net(["1", "2", "3", "0"], src("U1", "1", 5), R("R1", "1", "2", 1000), el("D1", "diode", { anode: "2", kathode: "0" }, { u_f_V: 0.7 }),
+  el("AC1", "wechselspannungsquelle", { plus: "3", minus: "0" }, { u_eff_V: 0.01, f_Hz: 1000, phase_deg: 0 }), el("C1", "kondensator", { a: "3", b: "2" }, { c_F: 1e-5 }));
+/** Kleinsignal MOSFET: Sättigung U_GS 2,5 V, Wechselquelle 10 mV am Gate in Reihe, Last 10 Ω an 12 V. */
+export const M9 = net(["1", "2", "3", "4", "0"], src("UG", "4", 2.5), el("AC1", "wechselspannungsquelle", { plus: "1", minus: "4" }, { u_eff_V: 0.01, f_Hz: 1000, phase_deg: 0 }),
+  src("U1", "2", 12), R("RL", "2", "3", 10), el("M1", "n_mosfet", { g: "1", d: "3", s: "0" }, { u_th_V: 2, r_on_ohm: 0.05 }));
+/** EL-M5: acht Uno-Pins D2 bis D9, je 28 mA über LED (I_max 30 mA) und 106 Ω. */
+export const M5 = net(["0", ...Array.from({ length: 8 }, (_, k) => [`p${k}`, `l${k}`]).flat()],
+  ...Array.from({ length: 8 }, (_, k) => [el(`PIN${k}`, "digitalpin", { pin: `p${k}`, gnd: "0" }, { zustand: "HIGH", board: "Uno", pin: `D${k + 2}` }), R(`R${k}`, `p${k}`, `l${k}`, 106),
+    el(`LED${k}`, "led", { anode: `l${k}`, kathode: "0" }, { u_f_V: 2, i_f_A: 0.02, i_max_A: 0.03 })]).flat());
+/** EL-M6 ESP32: LED blau 3,0 V bei 20 mA über 33 Ω an 3,3 V. */
+export const M6 = net(["1", "2", "0"], el("PIN", "digitalpin", { pin: "1", gnd: "0" }, { zustand: "HIGH", board: "ESP32 DevKit", pin: "GPIO2" }), R("R1", "1", "2", 33),
+  el("LED1", "led", { anode: "2", kathode: "0" }, { u_f_V: 3, i_f_A: 0.02, farbe: "blau" }));
+/** EL-M7 Uno-Pin LOW, LED von 5 V über 100 Ω in den Pin (Senkstrom). */
+export const M7 = net(["1", "2", "3", "0"], src("U1", "1", 5), R("R1", "1", "2", 100), el("LED1", "led", { anode: "2", kathode: "3" }, { u_f_V: 2, i_f_A: 0.02, i_max_A: 0.03 }),
+  el("PIN", "digitalpin", { pin: "3", gnd: "0" }, { zustand: "LOW", board: "Uno", pin: "D4" }));
+/** EL-F-NL3 Kippstufe aus zwei NPN (leicht unsymmetrisch). */
+export const F7 = net(["1", "2", "3", "4", "5", "0"], src("U1", "1", 5), R("RC1", "1", "2", 1000), R("RC2", "1", "3", 1100), R("RB1", "3", "4", 10000), R("RB2", "2", "5", 10000),
+  el("Q1", "npn", { b: "4", c: "2", e: "0" }, { beta: 100 }), el("Q2", "npn", { b: "5", c: "3", e: "0" }, { beta: 100 }));
+/** EL-X7 Darlington: Basis über 1 MΩ an 5 V, Kollektoren über 100 Ω an 5 V. */
+export const X7 = net(["1", "2", "3", "4", "0"], src("U1", "1", 5), R("RB", "1", "2", 1e6), R("RC", "1", "3", 100),
+  el("Q1", "npn", { b: "2", c: "3", e: "4" }, { beta: 100 }), el("Q2", "npn", { b: "4", c: "3", e: "0" }, { beta: 100 }));
+/** EL-L Leitungsströme am Beispiel Reihe und Parallel, mit Knotenpunkt und doppeltem Draht. */
+export const L1: E.ElNetlist = { ...net(["1", "2", "3", "0"], el("U1", "gleichspannungsquelle", { plus: "1", minus: "0" }, { u_V: 12 }), el("A1", "amperemeter", { a: "1", b: "3" }),
+  el("R1", "widerstand", { a: "3", b: "2" }, { r_ohm: 100 }), el("R2", "widerstand", { a: "2", b: "0" }, { r_ohm: 200 }), el("R3", "widerstand", { a: "2", b: "0" }, { r_ohm: 300 }),
+  el("V1", "voltmeter", { a: "3", b: "2" }), el("K1", "knoten", { k: "2" })),
+  wires: [
+    { id: "w1", a: { el: "U1", pin: "plus" }, b: { el: "A1", pin: "a" } }, { id: "w2", a: { el: "A1", pin: "b" }, b: { el: "R1", pin: "a" } }, { id: "w3", a: { el: "R1", pin: "a" }, b: { el: "V1", pin: "a" } },
+    { id: "w4", a: { el: "R1", pin: "b" }, b: { el: "K1", pin: "k" } }, { id: "w5", a: { el: "K1", pin: "k" }, b: { el: "R2", pin: "a" } }, { id: "w6", a: { el: "K1", pin: "k" }, b: { el: "R3", pin: "a" } },
+    { id: "w7", a: { el: "V1", pin: "b" }, b: { el: "K1", pin: "k" } }, { id: "w8", a: { el: "U1", pin: "minus" }, b: { el: "GND", pin: "a" } }, { id: "w9", a: { el: "GND", pin: "a" }, b: { el: "R2", pin: "b" } },
+    { id: "w10", a: { el: "R2", pin: "b" }, b: { el: "R3", pin: "b" } }, { id: "w11", a: { el: "R2", pin: "b" }, b: { el: "R3", pin: "b" } },
+  ] };
+
 export const SHEET_BASE: Record<string, number> = { u_V: 12, r1_ohm: 1e4, r2_ohm: 1e4, r_last_ohm: 1e6, r_ohm: 1000, c_F: 1e-7, f_Hz: 1000, l_H: 0.01, u_f_V: 2, i_f_A: 0.02, t_s: 5e-4,
   r3_ohm: 1000, r4_ohm: 1200, u2_V: 5, fg_Hz: 1000, f0_Hz: 5000, tau_s: 1e-3, e_reihe: 24 };
 
@@ -74,5 +138,26 @@ export function elektrikFaelle(): ElRun[] {
     ["R6", { p_W: 1500, n_rpm: 1450, u_V: 400, eta: 0.85, cos_phi: 0.82, f_Hz: 50, polpaare: 2 }, "1,5 kW, 1450 1/min, 400 V, η 0,85, cos φ 0,82, 50 Hz, p = 2"],
   ];
   for (const [id, inp, txt] of tools) push(`Rechner ${id}: ${txt}`, flat(E.computeTool(id, inp).trace));
+  // Halbleiter (ab 0.21.0): Literaturfälle zuerst
+  push("EL-D1 Sedra/Smith (iterative Analyse): 5 V, 1 kΩ, Diode 1 mA bei 0,7 V, 0,1 V je Dekade", flat(E.solveDc(D1).trace));
+  push("EL-D2 Uno D13 HIGH, LED rot 2 V bei 20 mA (n = 2, I_max 30 mA) über 220 Ω", flat(E.solveDc(ledPin(220)).trace));
+  push("EL-D5 Z-Diode 5,1 V bei 5 mA an 12 V über 470 Ω, Last 1 kΩ, P_tot 0,5 W", flat(E.solveDc(D5).trace));
+  push("EL-X1 NPN als Schalter: Uno D9 5 V, R_B 1 kΩ, R_C 220 Ω an 5 V (I_C,max 100 mA, P_tot 0,5 W)", flat(E.solveDc(X1).trace));
+  push("EL-X3 PNP als Schalter: Emitter 5 V, Basis über 47 kΩ an Uno D8 LOW, R_C 1 kΩ", flat(E.solveDc(X3).trace));
+  push("EL-X4 N-MOSFET Schalter U_GS 5 V, Last 10 Ω an 12 V (U_th 2 V, R_on 0,05 Ω bei 10 V, I_D,max 5 A)", flat(E.solveDc(mos(5)).trace));
+  push("EL-X5 N-MOSFET Sättigung U_GS 2,5 V, Last 10 Ω an 12 V", flat(E.solveDc(mos(2.5)).trace));
+  push("EL-X9 N-MOSFET gesperrt U_GS 1 V, Last 10 Ω an 12 V", flat(E.solveDc(mos(1)).trace));
+  push("EL-X8 N-MOSFET mit U_DS < 0 (Source an Masse, Drain über 10 Ω an −12 V, Gate 10 V)", flat(E.solveDc(X8).trace));
+  push("EL-D8 Diode mit Bahnwiderstand 0,5 Ω an 5 V über 100 Ω", flat(E.solveDc(D8).trace));
+  push("EL-M4 Uno D13 HIGH, LED direkt am Pin (ohne Vorwiderstand)", flat(E.solveDc(ledPin(null)).trace));
+  push("EL-M6 ESP32 GPIO2 HIGH 3,3 V, LED blau 3,0 V über 33 Ω", flat(E.solveDc(M6).trace));
+  push("EL-M5 Uno D2 bis D9 je LED über 106 Ω (Summenstrom, Portgruppen)", flat(E.solveDc(M5).trace));
+  push("EL-D9 Kleinsignal Diode am Arbeitspunkt (5 V über 1 kΩ), 10 mV bei 1 kHz", flat(E.solveAc(D9, 1000).trace));
+  push("EL-X6 Emitterschaltung mit Spannungsteiler, Kleinsignal 10 mV bei 1 kHz", flat(E.solveAc(X6, 1000).trace));
+  push("EL-M9 Kleinsignal N-MOSFET in Sättigung (U_GS 2,5 V), 10 mV bei 1 kHz", flat(E.solveAc(M9, 1000).trace));
+  push("EL-L1 Leitungsströme Reihe und Parallel mit Knotenpunkt und doppeltem Draht", flat(E.solveDc(L1).trace));
+  push("EL-F-NL6 Testschalter: nur G_min-Stufung (Diode Sedra/Smith)", flat(E.solveDc(D1, { newton: { stages: ["gmin"] } }).trace));
+  push("EL-F-NL7 Testschalter: nur Quellenstufung (Diode Sedra/Smith)", flat(E.solveDc(D1, { newton: { stages: ["quellen"] } }).trace));
+  push("EL-F-NL4 Testschalter: Budget 3 Schritte (Abbruch)", flat(E.solveDc(D1, { newton: { budget: 3 } }).trace));
   return out;
 }

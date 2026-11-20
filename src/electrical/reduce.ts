@@ -136,7 +136,7 @@ export function equivalentResistance(net: ElNetlist, a: string, b: string): Equi
       if ((x.a === y.a && x.b === y.b) || (x.a === y.b && x.b === y.a)) {
         const r = par(x.r, y.r), name = `(${x.name} ∥ ${y.name})`;
         steps.push({ kind: "parallel", elementIds: [...x.ids, ...y.ids], label: name, r });
-        tr.push(step("EL-E01-P", `Parallelschaltung ${name}`, "R_p = R_1 · R_2 / (R_1 + R_2)", `R_p = ${f6(x.r)} Ω · ${f6(y.r)} Ω / (${f6(x.r)} Ω + ${f6(y.r)} Ω)`, r, "Ω"));
+        tr.push(step("EL-E01-P", `Parallelschaltung ${name}, R_a = ${x.name}, R_b = ${y.name}`, "R_p = R_a · R_b / (R_a + R_b)", `R_p = ${f6(x.r)} Ω (${x.name}) · ${f6(y.r)} Ω (${y.name}) / (${f6(x.r)} Ω + ${f6(y.r)} Ω)`, r, "Ω"));
         E.splice(j, 1); E[i] = { a: x.a, b: x.b, r, ids: [...x.ids, ...y.ids], name }; done = true;
       }
     }
@@ -150,7 +150,7 @@ export function equivalentResistance(net: ElNetlist, a: string, b: string): Equi
       const xo = x.a === n ? x.b : x.a, yo = y.a === n ? y.b : y.a;
       const r = x.r + y.r, name = `(${x.name} + ${y.name})`;
       steps.push({ kind: "reihe", elementIds: [...x.ids, ...y.ids], label: name, r });
-      tr.push(step("EL-E01-S", `Reihenschaltung ${name}`, "R_s = R_1 + R_2", `R_s = ${f6(x.r)} Ω + ${f6(y.r)} Ω`, r, "Ω"));
+      tr.push(step("EL-E01-S", `Reihenschaltung ${name}, R_a = ${x.name}, R_b = ${y.name}`, "R_s = R_a + R_b", `R_s = ${f6(x.r)} Ω (${x.name}) + ${f6(y.r)} Ω (${y.name})`, r, "Ω"));
       E = E.filter((_, k) => k !== i && k !== j); E.push({ a: xo, b: yo, r, ids: [...x.ids, ...y.ids], name }); done = true; break;
     }
     if (done) continue;

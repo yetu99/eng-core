@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.20.0
+# Formelkatalog eng-core 0.21.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 912 Formeln, davon 912 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -17,7 +17,7 @@ Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | dichtungen | fachtools | OR | 55 | 55 |
 | stabwerke | fachtools | FW | 0 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
-| elektrik | stromwerk | EL | 141 | 141 |
+| elektrik | stromwerk | EL | 183 | 183 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -244,9 +244,14 @@ Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
+| EL-A01 | Pinstrom PIN (Uno, ATmega328P; > 0 Quellstrom) | I_Pin = −I (Verbraucherzählpfeil des Digitalpins) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-A02 | Auslastung PIN gegen Absolutgrenzwert ATmega328P (Abschn. 32.1 Absolute Maximum Ratings, Tab. 32-1) | a = \|I_Pin\| / I_Pin,abs | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-A03 | Auslastung PIN gegen Pegelgrenze (Prüfbedingung) ATmega328P (Abschn. 32.2 Common DC Characteristics, Tab. 32-2 (V_OL, V_OH)) | a = \|I_Pin\| / I_ref | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-A04 | Summenstrom Uno (ATmega328P, Abschn. 32.1 Absolute Maximum Ratings, Tab. 32-1) | a = max(Σ I_Quelle, Σ I_Senke) / I_Summe | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-A05 | Portgruppe PB0, PB1, PB2, PB3, PB4, PB5, PD5, PD6, PD7, ADC6, XTAL1, XTAL2 am Uno (Σ I_OH, Abschn. 32.2, Fußnote zu Tab. 32-2 (Σ I_OH)) | a = Σ \|I_Pin\| der Gruppe / I_Gruppe | 1 |  | freigegeben (2026-11-20, Seti) |
 | EL-E01 | Ersatzwiderstand durch Reihen-/Parallelreduktion | R_ab = Ergebnis der Reduktion | Ω |  | freigegeben (2026-11-12, Seti) |
-| EL-E01-P | Parallelschaltung (R2 ∥ (R3 + R4)) | R_p = R_1 · R_2 / (R_1 + R_2) | Ω |  | freigegeben (2026-11-12, Seti) |
-| EL-E01-S | Reihenschaltung (R3 + R4) | R_s = R_1 + R_2 | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-E01-P | Parallelschaltung (R2 ∥ (R3 + R4)), R_a = R2, R_b = (R3 + R4) | R_p = R_a · R_b / (R_a + R_b) | Ω |  | freigegeben (2026-11-20, Seti) |
+| EL-E01-S | Reihenschaltung (R3 + R4), R_a = R3, R_b = R4 | R_s = R_a + R_b | Ω |  | freigegeben (2026-11-20, Seti) |
 | EL-E02 | Ersatzwiderstand über Testquelle (Knotenpunktanalyse) | R_ab = (u_a − u_b) / I_T | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-E03 | Gegenprüfung Reduktion gegen Testquelle | \|R_red − R_MNA\| / R_red ≤ 10⁻⁹ | 1 |  | freigegeben (2026-11-12, Seti) |
 | EL-E04 | Quellen deaktivieren (Innenwiderstand der Schaltung) | U_q → Kurzschluss (Batterie → R_i), I_q → offen; Quelle zwischen a und b → entfernt | 1 |  | freigegeben (2026-11-17, Seti) |
@@ -271,6 +276,38 @@ Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | EL-G05-R | Parallelschaltung Widerstände | 1 / R_ges = Σ 1 / R_i | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-G06 | Unbelasteter Spannungsteiler | U_2 = U · R_2 / (R_1 + R_2) | V |  | freigegeben (2026-11-12, Seti) |
 | EL-G07 | Stromteiler Zweig 1 | I_k = I · G_k / Σ G_i | A |  | freigegeben (2026-11-12, Seti) |
+| EL-H01 | Temperaturspannung (25 °C) | U_T = k · T / q | V |  | freigegeben (2026-11-20, Seti) |
+| EL-H02 | Strom D1 (leitend) | I = I_S · (e^(U_j / (n · U_T)) − 1) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H03 | Sättigungsstrom D1 aus Datenblattpunkt | I_S = I_F / (e^((U_F − r_S · I_F) / (n · U_T)) − 1) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H04 | Spannung D1 mit Bahnwiderstand | U = U_j + r_S · I | V |  | freigegeben (2026-11-20, Seti) |
+| EL-H05 | Exponentenbegrenzung LED1 | x > x_max = 80: e^x ≈ e^x_max · (1 + x − x_max) | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-H06 | Z-Durchbruch Z1 | I_Z = −I_ZT · e^(−(U + U_Z) / (n_Z · U_T)) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H07 | Differentieller Leitwert D1 | g_d = dI / dU_j | S |  | freigegeben (2026-11-20, Seti) |
+| EL-H09 | Kollektorstrom Q1 (gesättigt) | I_C = I_S · (e^(U_BE/U_T) − e^(U_BC/U_T)) − (I_S/β_R) · (e^(U_BC/U_T) − 1) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H10 | Basisstrom Q1 | I_B = (I_S/β_F) · (e^(U_BE/U_T) − 1) + (I_S/β_R) · (e^(U_BC/U_T) − 1) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H11 | Sättigungsstrom Q1 | I_S = I_C,ref / e^(U_BE,ref / U_T) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H12-B | Basisstrom Q1 (PNP; in das Bauteil hinein) | I_B = −[(I_S/β_F) · (e^(U_EB/U_T) − 1) + (I_S/β_R) · (e^(U_CB/U_T) − 1)] | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H12-C | Kollektorstrom Q1 (PNP, gesättigt; in das Bauteil hinein) | I_C = −[I_S · (e^(U_EB/U_T) − e^(U_CB/U_T)) − (I_S/β_R) · (e^(U_CB/U_T) − 1)] | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H13 | Jacobi-Matrix Q1 (Steilheit ∂I_C/∂U_BE) | ∂I_C/∂U_BE, ∂I_C/∂U_BC, ∂I_B/∂U_BE, ∂I_B/∂U_BC | S |  | freigegeben (2026-11-20, Seti) |
+| EL-H14 | Drainstrom M1 (sperrend) | U_GS ≤ U_th: I_D = 0 | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H15 | Drainstrom M1 (linearer Bereich) | I_D = K · ((U_GS − U_th) · U_DS − U_DS²/2) | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H16 | Drainstrom M1 (Sättigung) | I_D = K/2 · (U_GS − U_th)² | A |  | freigegeben (2026-11-20, Seti) |
+| EL-H17 | Steilheitsfaktor M1 aus R_DS(on) | K = 1 / (R_DS(on) · (U_GS,ref − U_th)) | A/V² |  | freigegeben (2026-11-20, Seti) |
+| EL-H18 | Drain und Source getauscht M1 | U_DS < 0: I_D(U_GS, U_DS) = −I_D(U_GD, −U_DS) | V |  | freigegeben (2026-11-20, Seti) |
+| EL-H19 | Steilheit M1 | g_m = ∂I_D/∂U_GS, g_ds = ∂I_D/∂U_DS | S |  | freigegeben (2026-11-20, Seti) |
+| EL-H20-D | Kleinsignal D1 | Y = g_d am Arbeitspunkt | S |  | freigegeben (2026-11-20, Seti) |
+| EL-H20-M | Kleinsignal M1 (Steilheit g_m) | g_m = ∂I_D/∂U_GS, g_ds = ∂I_D/∂U_DS am Arbeitspunkt | S |  | freigegeben (2026-11-20, Seti) |
+| EL-H20-Q | Kleinsignal Q1 (hybrid-π, Steilheit g_m) | g_m = ∂I_C/∂U_BE, g_π = ∂I_B/∂U_BE, g_μ = ∂I_B/∂U_BC, g_o aus ∂I_C/∂U_BC | S |  | freigegeben (2026-11-20, Seti) |
+| EL-H21 | Verlustleistung D1 | P = Σ u_Klemme · I_Klemme | W |  | freigegeben (2026-11-20, Seti) |
+| EL-K01 | Newton-Iteration | J(x_k) · x_(k+1) = z(x_k) mit Begleitmodellen am Punkt x_k | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-K02 | Startwerte | x_0 = 0; pn-Übergänge bei U_krit, MOSFET bei U_GS = U_DS = 0 | V |  | freigegeben (2026-11-20, Seti) |
+| EL-K03 | Konvergenz (größter Rest der Bauteilströme) | \|Δx_i\| ≤ 1e-10 · \|x_i\| + 1e-12 V und \|ΔI\| ≤ 1e-10 · \|I\| + 1e-15 A in zwei Schritten | A |  | freigegeben (2026-11-20, Seti) |
+| EL-K04 | pn-Spannungsbegrenzung (kritische Spannung) | U_krit = n U_T · ln(n U_T / (√2 · I_S)) | V |  | freigegeben (2026-11-20, Seti) |
+| EL-K05 | MOSFET-Schrittbegrenzung | \|ΔU_GS\| ≤ 0,5 V + 0,5 · \|U_GS,alt − U_th\|, \|ΔU_DS\| ≤ 2 V | V |  | freigegeben (2026-11-20, Seti) |
+| EL-K06 | Mindestleitwert parallel zu den Übergängen | G_min = 1e-12 S | S |  | freigegeben (2026-11-20, Seti) |
+| EL-K07 | G_min-Stufung | G_min,k = 1e-2 S … 1e-11 S, dann 0 (Lösung der Stufe als Start) | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-K08 | Quellenstufung | Quellen · λ, λ = 0 → 1 (Schritt 0,1, halbieren bei Misserfolg, verdoppeln bei Erfolg) | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-K09 | Abbruch ohne Lösung | Gesamtbudget 5000 Schritte bzw. alle Stufen ohne Konvergenz | 1 |  | freigegeben (2026-11-20, Seti) |
 | EL-N01-LA | Widerstand Glühlampe H1 (warm, EL-E4) | R = U_N² / P_N | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-N01-PA | Teilwiderstand a–s P1 | R_as = x · R | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-N01-PB | Teilwiderstand s–b P1 | R_sb = (1 − x) · R | Ω |  | freigegeben (2026-11-12, Seti) |
@@ -293,7 +330,12 @@ Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | EL-N12 | Leistungsbilanz | Σ P = 0 | W |  | freigegeben (2026-11-12, Seti) |
 | EL-N13-C | Auslastung C1 | a = \|U\| / U_max | 1 |  | freigegeben (2026-11-12, Seti) |
 | EL-N13-CA | Auslastung C1 (Scheitelwert) | a = √2 · \|U\| / U_max | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-N13-D | Auslastung LED1 | a = \|I\| / I_max | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-N13-M | Auslastung M1 | a = \|I_D\| / I_D,max | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-N13-Q | Auslastung Q1 | a = max(\|I_C\| / I_C,max, \|P\| / P_tot) | 1 |  | freigegeben (2026-11-20, Seti) |
 | EL-N13-R | Auslastung R1 | a = \|P\| / P_max | 1 |  | freigegeben (2026-11-12, Seti) |
+| EL-N13-Z | Auslastung Z1 | a = \|P\| / P_tot | 1 |  | freigegeben (2026-11-20, Seti) |
+| EL-N14 | Leitungsströme (minimale Norm) | B · i = s, i = Bᵀ · φ mit (B · Bᵀ) · φ = s | A |  | freigegeben (2026-11-20, Seti) |
 | EL-R1 | Widerstand aus 4 Ringen | R = (10 · z_1 + z_2) · 10^m | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-R1-5 | Widerstand aus 5 Ringen | R = (100 · z_1 + 10 · z_2 + z_3) · 10^m | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-R1-TO | Obere Grenze | R_max = R · (1 + t) | Ω |  | freigegeben (2026-11-12, Seti) |
@@ -367,8 +409,8 @@ Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | EL-S8-UL | Spulenspannung beim Einschalten | u_L(t) = U · e^(−t/τ) | V |  | freigegeben (2026-11-12, Seti) |
 | EL-S8-W | Gespeicherte Energie (Endstrom) | W = ½ · L · I_∞² | J |  | freigegeben (2026-11-12, Seti) |
 | EL-W01 | Kreisfrequenz | ω = 2π · f | 1/s |  | freigegeben (2026-11-12, Seti) |
-| EL-W02-C | Impedanz C1 | Z_C = 1 / (jωC) | Ω |  | freigegeben (2026-11-12, Seti) |
-| EL-W02-L | Impedanz L1 | Z_L = r + jωL | Ω |  | freigegeben (2026-11-12, Seti) |
+| EL-W02-C | Betrag der Impedanz C1 (Z_C = 1 / (jωC) = −j · \|Z_C\|) | \|Z_C\| = 1 / (ω · C) | Ω |  | freigegeben (2026-11-20, Seti) |
+| EL-W02-L | Betrag der Impedanz L1 (Z_L = r + jωL) | \|Z_L\| = √(r² + (ω · L)²) | Ω |  | freigegeben (2026-11-20, Seti) |
 | EL-W02-R | Impedanz R1 | Z_R = R | Ω |  | freigegeben (2026-11-12, Seti) |
 | EL-W03 | Zeiger der Quelle AC1 (Effektivwert) | U = U_eff · e^(jφ) | V |  | freigegeben (2026-11-12, Seti) |
 | EL-W04 | Komplexes Gleichungssystem der Knotenpunktanalyse | Y · u = i | 1 |  | freigegeben (2026-11-12, Seti) |
@@ -981,10 +1023,10 @@ Stand: 870 Formeln, davon 870 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
 | W-BB | Biegefestigkeit (Auslegungswert) | σ_bB = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | dataholz Bauholz | freigegeben (2026-10-10, S. Frotscher) |
-| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.5 | freigegeben (2026-10-08, Seti) |
+| W-E | E-Modul | E (Werkstoffdatenbank, Standardvariante) | MPa | WDB 1.1.6 | freigegeben (2026-10-08, Seti) |
 | W-G | Schubmodul | G = E / (2·(1 + ν)) | MPa | ν Klassen-Richtwert (Annahme) | freigegeben (2026-10-08, Seti) |
 | W-G-DB | Schubmodul | G (Werkstoffdatenbank) | MPa | BIKAR EN AW-6082 | freigegeben (2026-10-08, Seti) |
-| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.5 | freigegeben (2026-10-08, Seti) |
+| W-RHO | Dichte | ρ (Werkstoffdatenbank) | kg/m³ | WDB 1.1.6 | freigegeben (2026-10-08, Seti) |
 | W-RM | Zugfestigkeit (Auslegungswert) | R_m = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 | W-RP | Streckgrenze (Auslegungswert) | R_p = Auslegungswert aus der Datenbankzeile des Werkstoffs (Standard: unterer Wert) | MPa | EN 755-2 | freigegeben (2026-10-10, S. Frotscher) |
 

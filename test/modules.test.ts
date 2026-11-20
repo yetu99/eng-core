@@ -143,13 +143,13 @@ describe("sync-to-app nach Modulen", () => {
     expect(mb.modules).toEqual(TOOLS.werkbank.modules);
     expect(mb.version).toBe(CORE_VERSION);
   });
-  it("--tool stromwerk (ab 0.19.0): nur Basis und Modul elektrik, keine Werkstoff- und Fachdaten", () => {
+  it("--tool stromwerk (ab 0.19.0): nur Basis und Modul elektrik, keine Werkstoffdaten; ab 0.21.0 nur die Fachdaten mcu_*", () => {
     const d = app();
     sync(d, "--tool", "stromwerk", "--core-dir", "engcore");
     const m = JSON.parse(readFileSync(join(d, "src/engcore/MANIFEST.json"), "utf8")) as { modules?: string[]; files: Record<string, string> }, files = Object.keys(m.files);
     expect(files.filter((f) => f.startsWith("engcore/") && f.split("/").length > 2).every((f) => f.startsWith("engcore/electrical/"))).toBe(true);
     for (const f of ["engcore/electrical/network.ts", "engcore/electrical/sheets.ts", "engcore/electrical/tools.ts", "engcore/trace.ts"]) expect(files).toContain(f);
-    expect(files.some((f) => f.startsWith("data/fd/") && f !== "data/fd/snapshot.json")).toBe(false);
+    expect(files.filter((f) => f.startsWith("data/fd/") && f !== "data/fd/snapshot.json").sort()).toEqual(["data/fd/mcu_boards.json", "data/fd/mcu_limits.json", "data/fd/mcu_pins.json", "data/fd/mcu_port_groups.json"]);
     expect(readFileSync(join(d, "src/engcore/index.ts"), "utf8")).toContain("./electrical/index");
     expect(m.modules).toEqual(["elektrik"]);
   });
