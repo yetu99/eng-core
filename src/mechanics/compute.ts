@@ -10,12 +10,13 @@ import { DATA_VERSION } from "../dataVersion";
 import { sectionProps, sectionHeight, isOpenSection, SECTIONS, type Dims, type SecType, type SectionProps } from "../sections";
 import { step, type CalcStep, type Trace, type TraceGroup } from "../trace";
 import { defaultNu, strengthDesign, DV_SYMBOL, type DvChoice, type Material, type Repo, type StrengthDesign } from "../materials";
-import { BENDING_CASES, BUCKLING_CASES, EULER_BETA, isBendingCase, isBucklingCase, type BendingCase, type Kind } from "./cases";
+import { BENDING_CASES, BUCKLING_CASES, isBendingCase, isBucklingCase, type BendingCase, type Kind } from "./cases";
 import { beamFns, bendingMax, type BeamFns, type BeamMax } from "./beam";
 import { isLoadListCase, normalizeLoads, solveBeam, loadText, LOADLIST_SUPPORTS, type LoadList, type LoadSI, type BeamSolution } from "./loadlist";
 import { computePressure, isPressureCase, PRESSURE_CASES, type PressureLoad, type PressureMaterial, type PressureResult } from "./pressure";
 import { computeVibration, isVibrationCase, type VibrationLoad, type VibrationResult } from "./vibration";
 import { computeFatigue, type FatigueInput, type FatigueResult } from "./fatigue";
+import { bucklingCheck, type BucklingResult } from "./buckling";
 
 export const G_ACC = 9.81; // m/s²
 
@@ -92,7 +93,7 @@ export interface StrengthResult {
   loadErrors: Array<{ index: number; message: string }>;
   fzul: number | null;
   axial: { N: number; qG: number; Nmax: number; dL: number; N_x: (x: number) => number; u_x: (x: number) => number } | null;
-  buck: { eulerCase: 1 | 2 | 3 | 4; beta: number; Lk: number; lambda: number; lambdaT: number | null; sigmaK: number; Fk: number; model: "Euler" | "Johnson"; SK: number; Rp: number | null; E: number; sigmaD: number } | null;
+  buck: BucklingResult | null;
   tors: { T: number; Teff: number; theta: number; twoSided: boolean; T_x: (x: number) => number; phi_x: (x: number) => number } | null;
   sigmaB: number; sigmaN: number; tauT: number; tauQ: number; sigmaV: number;
   checks: Check[];
@@ -275,23 +276,13 @@ export function computeStrength(repo: Repo, inp: StrengthInput): StrengthResult 
       add("belastung", step("Z-DL", "Längenänderung", "ΔL = F_N·L / (E·A)", `${fmt(N)}·${fmt(L)} / (${fmt(E)}·${fmt(sec.A)})`, dL, "mm"));
     }
   }
-  // Knicken
+  // Knicken (ab 0.23.0 über bucklingCheck aus mechanics/buckling.ts, Formeln und Schritte unverändert)
   if (N < 0 && eulerCase !== null) {
-    const beta = EULER_BETA[eulerCase], Lk = beta * L, lam = Lk / sec.i;
-    const lamT = Rp ? Math.PI * Math.sqrt(2 * E / Rp) : null;
-    add("belastung", step("K-LK", "Knicklänge", "L_k = β·L", `β = ${fmt(beta)} (Eulerfall ${eulerCase}): ${fmt(beta)}·${fmt(L)}`, Lk, "mm", inp.mode === "combined" ? "aus der Lagerung abgeleitet" : "Eulerfall gewählt"));
-    add("belastung", step("K-LAM", "Schlankheitsgrad", "λ = L_k / i", `${fmt(Lk)} / ${fmt(sec.i)}`, lam, "–"));
-    if (lamT) add("belastung", step("K-LAMT", "Übergangsschlankheit Johnson/Euler", "λ_T = π·√(2E / R_p)", `π·√(2·${fmt(E)} / ${fmt(Rp)})`, lamT, "–", "Johnson-Parabel tangiert Euler bei σ = R_p/2"));
-    let sk = Math.PI ** 2 * E / (lam * lam), model: "Euler" | "Johnson" = "Euler";
-    if (lamT && Rp && lam < lamT) {
-      sk = Rp - (Rp * Rp / (4 * Math.PI ** 2 * E)) * lam * lam; model = "Johnson";
-      add("belastung", step("K-SKJ", "Knickspannung (unelastisch, Johnson)", "σ_k = R_p − R_p²·λ² / (4π²E)", `${fmt(Rp)} − ${fmt(Rp)}²·${fmt(lam)}² / (4π²·${fmt(E)})`, sk, "MPa", "Johnson-Parabel"));
-    } else add("belastung", step("K-SKE", "Knickspannung (Euler)", "σ_k = π²·E / λ²", `π²·${fmt(E)} / ${fmt(lam)}²`, sk, "MPa", "Ashby App. A.5"));
-    if (!Rp) res.warnings.push("Knicken ohne R_p: nur Euler, unelastischer Bereich nicht abgedeckt");
-    const Fk = sk * sec.A;
-    add("belastung", step("K-FK", "Knicklast", "F_k = σ_k·A", `${fmt(sk)}·${fmt(sec.A)}`, Fk, "N"));
-    res.buck = { eulerCase, beta, Lk, lambda: lam, lambdaT: lamT, sigmaK: sk, Fk, model, SK: Fk / Math.abs(N), Rp, E, sigmaD: Math.abs(N) / sec.A };
-    add("nachweis", step("N-SK", "Sicherheit gegen Knicken", "S_K = F_k / |F_N|", `${fmt(Fk)} / ${fmt(Math.abs(N))}`, res.buck.SK, "–"));
+    const bk = bucklingCheck({ E, Rp, A: sec.A, i: sec.i, L, eulerCase, N, lkRef: inp.mode === "combined" ? "aus der Lagerung abgeleitet" : "Eulerfall gewählt" });
+    bk.steps.forEach((s) => add("belastung", s));
+    res.warnings.push(...bk.warnings);
+    res.buck = bk.buck;
+    add("nachweis", bk.check);
   }
   // Torsion
   if (Tm !== 0) {

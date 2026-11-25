@@ -1,14 +1,14 @@
 {
- "core": "0.21.0",
- "formulas": 912,
- "approved": 912,
+ "core": "0.23.0",
+ "formulas": 934,
+ "approved": 915,
  "rejected": 0,
  "stale": 0,
- "draft": 0,
- "lastApproval": "2026-11-20",
+ "draft": 19,
+ "lastApproval": "2026-11-25",
  "verification": {
-  "passed": 18409,
-  "total": 18409
+  "passed": 23894,
+  "total": 23894
  },
  "acceptance": {
   "P5": {
@@ -85,27 +85,27 @@
    }
   },
   "dichtungen": {
-   "formulas": 55,
-   "approved": 55,
+   "formulas": 58,
+   "approved": 58,
    "rejected": 0,
    "stale": 0,
    "draft": 0,
-   "lastApproval": "2026-11-18",
+   "lastApproval": "2026-11-25",
    "verification": {
-    "passed": 2116,
-    "total": 2116
+    "passed": 2260,
+    "total": 2260
    }
   },
   "stabwerke": {
-   "formulas": 0,
+   "formulas": 19,
    "approved": 0,
    "rejected": 0,
    "stale": 0,
-   "draft": 0,
+   "draft": 19,
    "lastApproval": null,
    "verification": {
-    "passed": 0,
-    "total": 0
+    "passed": 5341,
+    "total": 5341
    }
   },
   "kinematik": {
@@ -537,6 +537,25 @@
   "FS-WA-KM": "freigegeben",
   "FS-WA-N": "freigegeben",
   "FS-WA-NU": "freigegeben",
+  "FW-ABZ": "entwurf",
+  "FW-D10": "entwurf",
+  "FW-D11": "entwurf",
+  "FW-DL": "entwurf",
+  "FW-E": "entwurf",
+  "FW-EL": "entwurf",
+  "FW-GG": "entwurf",
+  "FW-L": "entwurf",
+  "FW-LAG": "entwurf",
+  "FW-NULL": "entwurf",
+  "FW-PRB": "entwurf",
+  "FW-RANG": "entwurf",
+  "FW-SF": "entwurf",
+  "FW-SIG": "entwurf",
+  "FW-SUP": "entwurf",
+  "FW-VK": "entwurf",
+  "FW-VS": "entwurf",
+  "FW-VV": "entwurf",
+  "FW-X": "entwurf",
   "G-01-X": "freigegeben",
   "G-01-Y": "freigegeben",
   "G-01-Z": "freigegeben",
@@ -641,6 +660,9 @@
   "OR-GA": "freigegeben",
   "OR-GM": "freigegeben",
   "OR-GZUL": "freigegeben",
+  "OR-KAT": "freigegeben",
+  "OR-KATN": "freigegeben",
+  "OR-KATW": "freigegeben",
   "OR-MED": "freigegeben",
   "OR-N-C": "freigegeben",
   "OR-N-F": "freigegeben",

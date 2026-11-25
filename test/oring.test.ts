@@ -1,5 +1,5 @@
 /**
- * O-Ring (Modul dichtungen, eng-core 0.20.0): Fachdaten fd 1.4, Bezeichnung P-OR7, Querschnittsverringerung, Grenzmaße, Fehlerfälle P-OR14,
+ * O-Ring (Modul dichtungen, eng-core 0.20.0, Nut zum Ring ab 0.22.0): Fachdaten fd 1.4, Bezeichnung P-OR7, Querschnittsverringerung, Grenzmaße, Fehlerfälle P-OR14,
  * Auslegung, Datenblatt, Grafiken S2 und S4. Literatur- und Gegenrechnungswerte stehen in golden.json (verification/dichtungen.py).
  */
 import { readFileSync } from "node:fs";
@@ -7,15 +7,16 @@ import { describe, expect, it } from "vitest";
 import {
   computeOring, checkOring, designOring, orRepo, oringDatasheet, oringDesignation, oringSizes, orCompressionProfile, orGapChart, crossSectionReduction, compressionLimits,
   tolClassB, dimLimits, gapAllowed, sizeOf, mediaList, suggestMaterials, OR_WAHL_KEYS, FD_VERSION, FD_FILES, CORE_VERSION, moduleOfId, TRACE_GROUPS, PRUEFSTATUS, type OringInput,
+  oringCatalog, oringGrooveForRing, orMainD2,
 } from "../src/index";
-import { orFaelle, orFehlerfaelle, orBase, dim } from "../scripts/or-faelle";
+import { orFaelle, orFehlerfaelle, orKatFaelle, orBase, dim } from "../scripts/or-faelle";
 import { orJson } from "../scripts/or-json";
 
 const fall = (id: string): OringInput => orFaelle.find((f) => f.id === id)!.inp;
 
 describe("Fachdaten fd 1.4", () => {
   it("Stand, Zeilenzahlen, Version, Modul, Rechenweg-Gruppen", () => {
-    expect(CORE_VERSION).toBe("0.21.0");
+    expect(CORE_VERSION).toBe("0.23.0");
     expect(FD_VERSION).toBe("fd 1.5"); // ab eng-core 0.21.0 (Stromwerk Pinstrom), O-Ring-Tabellen unverändert
     expect(["oring_sizes", "oring_cs_tol", "oring_id_tol_a", "oring_grooves", "oring_compression", "oring_gap", "oring_surface", "oring_materials", "oring_media", "oring_cs_select", "fit_shaft_es"]
       .map((k) => FD_FILES[k]!.rows)).toEqual([349, 9, 32, 54, 20, 32, 14, 12, 327, 10, 13]);
@@ -26,8 +27,8 @@ describe("Fachdaten fd 1.4", () => {
   it("verification/or_faelle.json ist aktuell (npx tsx scripts/or-json.ts)", () => {
     expect(readFileSync(new URL("../verification/or_faelle.json", import.meta.url), "utf8")).toBe(orJson());
   });
-  it("Prüfstatus: 55 Formeln im Modul dichtungen", () => {
-    expect(PRUEFSTATUS.modules.dichtungen.formulas).toBe(55);
+  it("Prüfstatus: 58 Formeln im Modul dichtungen (55 aus 0.20.0, ab 0.22.0 OR-KAT, OR-KATN, OR-KATW)", () => {
+    expect(PRUEFSTATUS.modules.dichtungen.formulas).toBe(58);
   });
 });
 
@@ -167,3 +168,51 @@ describe("Fehlerfälle P-OR14", () => {
     expect(designOring(orRepo, orBase({ task: "B", install: "flansch_innen", d7: dim(50, "H11") })).errors.length).toBeGreaterThan(0);
   });
 });
+
+describe("Nut zum Ring (OR-KAT, OR-KATN, OR-KATW, eng-core 0.22.0)", () => {
+  const kat = (id: string) => { const f = orKatFaelle.find((x) => x.id === id)!; return oringCatalog(orRepo, f.inp, f.d2max ?? null); };
+  const ringOk = (inp: OringInput) => { const a = checkOring(orRepo, inp); return !a.errors.length && a.checks.filter((c) => OR_WAHL_KEYS.includes(c.key)).every((c) => c.ok === true); };
+  it("Hauptreihe d₂ aus Bild 8", () => expect(orMainD2(orRepo)).toEqual([1.78, 2.62, 3.53, 5.33, 6.99]));
+  it("jede gültige Zeile: Nennmaß im Bereich, Nachweise erfüllt, außerhalb der Grenzen nicht (± 0,002 mm)", () => {
+    let n = 0;
+    for (const f of orKatFaelle) {
+      const c = oringCatalog(orRepo, f.inp, f.d2max ?? null);
+      for (const r of c.groups.flatMap((g) => g.rows.filter((x) => x.valid))) {
+        const x = r.groove!.dim.nom;
+        expect(x).toBeGreaterThanOrEqual(r.lo! - 1e-12); expect(x).toBeLessThanOrEqual(r.hi! + 1e-12);
+        expect(ringOk(r.input!)).toBe(true);
+        const at = (v: number) => { const k = r.groove!.name === "d₃" ? "d3" : r.groove!.name === "d₆" ? "d6" : "h"; return { ...r.input!, [k]: { ...r.groove!.dim, nom: v } } as OringInput; };
+        if (r.lo! > (r.groove!.name === "h" ? 0.06 : 1)) expect(ringOk(at(r.lo! - 0.002))).toBe(false);
+        expect(ringOk(at(r.hi! + 0.002))).toBe(false);
+        n++;
+      }
+    }
+    expect(n).toBeGreaterThan(20);
+  });
+  it("Kolben Pneumatik Ø40: Anhang B ohne Normring, Katalog findet 219 (32,92 × 3,53) mit d₃ 34,05 h9", () => {
+    expect(designOring(orRepo, { ...orKatFaelle.find((x) => x.id === "P-OR22d")!.inp, design: { C: null, d2: 3.53 } }).design?.best ?? null).toBeNull();
+    const c = kat("P-OR22d");
+    expect(c.rec?.size).toBe("219"); expect(c.rec?.groove?.dim).toEqual({ nom: 34.05, fit: "h9" });
+    expect(c.step?.id).toBe("OR-KATW"); expect(c.rec?.steps.map((s) => s.id)).toEqual(["OR-KAT", "OR-KATN"]);
+  });
+  it("ISO 3601-2 B.2: Kolben statisch Ø123 empfiehlt 5,33 mm mit dem Ring aus dem Beispiel (348, 110,49 × 5,33)", () => {
+    const c = kat("P-OR22a"); expect(c.rec?.d2).toBe(5.33); expect(c.rec?.size).toBe("348"); expect(c.isoD2).toBe(5.33);
+  });
+  it("Bauraumgrenze d₂ ≤ 3,53 mm wird eingehalten, kein Ring für Kolben Hydraulik Ø15 in der Hauptreihe", () => {
+    expect(kat("P-OR22j").rec!.d2).toBeLessThanOrEqual(3.53);
+    expect(kat("P-OR22j").groups.filter((g) => !g.allowed).map((g) => g.d2)).toEqual([5.33, 6.99]);
+    expect(kat("P-OR22b").rec).toBeNull();
+  });
+  it("Flansch: Nuttiefe h mit ± Δh/2, Stange: Nutgrund H9; Einzelring wie Tabellenzeile", () => {
+    expect(kat("P-OR22h").rec!.groove!.name).toBe("h"); expect(kat("P-OR22h").rec!.groove!.dim.dev).toBeDefined();
+    const s = kat("P-OR22f"); expect(s.rec!.groove!.dim.fit).toBe("H9");
+    const one = oringGrooveForRing(orRepo, orKatFaelle.find((x) => x.id === "P-OR22f")!.inp, s.rec!.size);
+    expect(typeof one === "string" ? one : one.groove).toEqual(s.rec!.groove);
+  });
+  it("Fehler: Bezugsmaß fehlt, Flansch dynamisch, unbekannte Größe", () => {
+    expect(oringCatalog(orRepo, orBase({ task: "B" })).errors).toEqual(["d₄ fehlt"]);
+    expect(oringCatalog(orRepo, orBase({ task: "B", install: "flansch_innen", motion: "hydraulik", d7: dim(60, "H9") })).errors.length).toBe(1);
+    expect(oringGrooveForRing(orRepo, orKatFaelle[0]!.inp, "999")).toMatch(/nicht in fd_oring_sizes/);
+  });
+});
+

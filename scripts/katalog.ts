@@ -16,8 +16,10 @@ import { pvFaelle } from "./pv-faelle";
 import { computeBoltJoint, computeBoltUnpreloaded, svRepo } from "../src/index";
 import { svFaelle } from "./sv-faelle";
 import { elektrikFaelle } from "./elektrik-faelle";
-import { computeOring, orRepo } from "../src/index";
-import { orFaelle } from "./or-faelle";
+import { computeOring, oringCatalog, orRepo } from "../src/index";
+import { orFaelle, orKatFaelle } from "./or-faelle";
+import { computeTruss } from "../src/index";
+import { fwFaelle } from "./fw-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -199,6 +201,19 @@ export function collectCatalog(): CatalogEntry[] {
   // O-Ring (0.20.0, Modul dichtungen): Parker 8.24, ISO 3601-2 Anhang B.2, B.3, Spalt TB 19-3, Stange, Flansch, Optionen, Auslegung
   for (const f of orFaelle) {
     const r = computeOring(orRepo, f.inp);
+    if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
+    Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
+  }
+  // Nut zum Ring (0.22.0, Modul dichtungen): OR-KAT, OR-KATN je Zeile der Empfehlung, OR-KATW je Katalog
+  for (const f of orKatFaelle) {
+    const c = oringCatalog(orRepo, f.inp, f.d2max ?? null);
+    if (c.errors.length) throw new Error(`${f.id}: ${c.errors.join("; ")}`);
+    c.rec?.steps.forEach((s) => take(s, `${f.id} ${f.label}`));
+    if (c.step) take(c.step, `${f.id} ${f.label}`);
+  }
+  // Fachwerk (0.23.0, Modul stabwerke): Literaturfälle Gross TM 1/2, Dubbel Abb. 12.25, Vorlagen; Knicken K-* und N-SK bleiben bei der Werkbank
+  for (const f of fwFaelle) {
+    const r = computeTruss(f.inp);
     if (r.errors.length) throw new Error(`${f.id}: ${r.errors.join("; ")}`);
     Object.values(r.trace).forEach((arr) => arr?.forEach((s) => take(s, `${f.id} ${f.label}`)));
   }

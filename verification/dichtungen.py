@@ -430,3 +430,89 @@ def add_cases(cases, ref):
     for nom, fit, lo, hi in ((50, 'f7', 49.95, 49.975), (123, 'H8', 123.0, 123.063), (15, 'f7', 14.966, 14.984)):
         id_ = f'OR-GM OR Passung {nom:g} {fit} ISO 286-2'; cases.append(dict(id=id_, type='orlim', dim=dict(nom=nom, fit=fit), module=M, abs=True)); ref[id_] = (dict(min=lo, max=hi), 1e-12)
     id_ = 'OR-GM OR Passung außerhalb 500 mm'; cases.append(dict(id=id_, type='orlim', dim=dict(nom=605, fit='H8'), module=M)); ref[id_] = (dict(errors=1.0), 0)
+    # P-OR22: Nut zum Ring (OR-KAT, OR-KATN, OR-KATW) gegen den zweiten Weg (Nullstellen der Reserven); Grenzen auf 0,001 mm
+    # Anzahl, Empfehlung und Nennmaß exakt; Grenzen auf 2·10⁻⁴ mm je Ring (Bisektion des Kerns auf 10⁻⁴ mm, brentq 10⁻⁹ mm)
+    for f in F.get('katalog', []):
+        o = or_kat(f['inp'], f.get('d2max'))
+        exact = {k: v for k, v in o.items() if k not in ('sumLo', 'sumHi', 'recLo', 'recHi')}
+        bounds = {k: o[k] for k in ('sumLo', 'sumHi', 'recLo', 'recHi') if k in o}
+        for nm, vals, tol in (('Auswahl', exact, 1e-9), ('Grenzen', bounds, 2e-4 * max(1, o['nValid']))):
+            id_ = f'{f["id"]} OR Katalog {nm}'
+            cases.append(dict(id=id_, type='orkat', inp=copy.deepcopy(f['inp']), d2max=f.get('d2max'), module=M, abs=True)); ref[id_] = (vals, tol)
+
+
+# ---------------------------------------------------------------- Nut zum Ring (OR-KAT, OR-KATN, OR-KATW, eng-core 0.22.0)
+# Zweiter Weg ohne den Kern: statt Ja/Nein-Raster mit Bisektion (Kern) werden die Reserven der einzelnen Pflichtnachweise als stetige
+# Funktionen des Nutmaßes x betrachtet (C_min − C_zul,min, C_zul,max − C_max, S_min, S_lim − S_max, U_min, U_lim − U_max, 85 − F, 50 − S_M)
+# und ihre Nullstellen mit scipy brentq bestimmt; der zulässige Bereich ist der längste Abschnitt, in dem alle Reserven ≥ 0 sind.
+# Eigenes, weiteres Suchfeld (t von 0,02·d₂ bis 0,99·d₂) und eigene Vorauswahl (d₁ bzw. D ± 15 % um das Bezugsmaß).
+MAIN_D2 = sorted({c['d2_mm'] for c in COMP})
+
+def _kat_setup(inp, d2):
+    inst, mot = inp['install'], inp['motion']
+    refk = {'kolben': 'd4', 'stange': 'd5', 'flansch_innen': 'd7', 'flansch_aussen': 'd8'}[inst]
+    L = lim(inp[refk]); n = inp[refk]['nom']
+    gr = groove_of(inst, mot, d2); ht = gr['t_tol_mm'] if gr and gr['t_tol_mm'] is not None else 0.1
+    if inst == 'kolben': gk, mkd, xa, xb = 'd3', (lambda x: dict(nom=x, fit='h9')), n - 2 * 0.99 * d2, n - 2 * 0.02 * d2
+    elif inst == 'stange': gk, mkd, xa, xb = 'd6', (lambda x: dict(nom=x, fit='H9')), L[1] + 2 * 0.02 * d2, L[1] + 2 * 0.99 * d2
+    else: gk, mkd, xa, xb = 'h', (lambda x: dict(nom=x, fit=None, dev=[-ht / 2, ht / 2])), 0.02 * d2, 0.99 * d2
+    return inst, mot, L, n, gk, mkd, xa, xb
+
+def _margins(o, inst, dyn):
+    m = [o['Cmin'] - o['Czmin'], o['Czmax'] - o['Cmax']]
+    if inst == 'kolben': m += [o['Smin'], (5 if dyn else 8) - o['Smax']]
+    elif inst == 'stange': m += [(5 if dyn else 8) - o['Smax']]
+    elif inst == 'flansch_aussen': m += [o['Smin'], 6 - o['Smax']]
+    if inst in ('stange', 'flansch_innen'): m += [o['Umin'], (5 if o['d1'] < 250 else 3) - o['Umax']]
+    m.append(85 - max(x for x in (o['Fmax'], o['FQ'], o['FTmax'], o['FTmin']) if x is not None))
+    if o['SM'] is not None: m.append(50 - o['SM'])
+    return m
+
+def or_kat_ring(inp, s, d2):
+    inst, mot, L, n, gk, mkd, xa, xb = _kat_setup(inp, d2); dyn = mot != 'statisch'
+    base = copy.deepcopy(inp); base.update(task='A', design=None); base['ring'] = dict(inp['ring'], size=s['size_code'], d1=None, d2=None, tolD1=None, tolD2=None)
+    def at(x):
+        c = copy.deepcopy(base); c[gk] = mkd(x); return or_check(c)
+    def mmin(x):
+        o = at(x); return -1e9 if o is None else min(_margins(o, inst, dyn))
+    N = 600
+    xs = [xa + i * (xb - xa) / N for i in range(N + 1)]; vs = [mmin(x) for x in xs]
+    runs, i = [], 0
+    while i <= N:
+        if vs[i] < 0: i += 1; continue
+        j = i
+        while j + 1 <= N and vs[j + 1] >= 0: j += 1
+        runs.append((i, j)); i = j + 1
+    if not runs: return None
+    i, j = max(runs, key=lambda r: (r[1] - r[0], -r[0]))
+    lo = brentq(mmin, xs[i - 1], xs[i], xtol=1e-9) if i > 0 else xs[0]
+    hi = brentq(mmin, xs[j], xs[j + 1], xtol=1e-9) if j < N else xs[N]
+    mid = (lo + hi) / 2
+    def pick(q):
+        k0 = round(mid / q)
+        cand = sorted({round((k0 + k) * q, 2) for k in (-2, -1, 0, 1, 2)}, key=lambda v: abs(v - mid))
+        return next((v for v in cand if lo - 1e-12 <= v <= hi + 1e-12 and mmin(v) >= 0), None)
+    x = pick(0.05); x = pick(0.01) if x is None else x; x = mid if x is None else x
+    o = at(x)
+    return dict(lo=lo, hi=hi, span=hi - lo, nom=x, Cmin=o['Cmin'], Cmax=o['Cmax'], size=s['size_code'], d1=s['d1_mm'])
+
+def or_kat(inp, d2max=None):
+    inst = inp['install']
+    refk = {'kolben': 'd4', 'stange': 'd5', 'flansch_innen': 'd7', 'flansch_aussen': 'd8'}[inst]
+    L = lim(inp[refk]); groups = []
+    for d2 in MAIN_D2:
+        def near(s):
+            D = s['d1_mm'] + 2 * s['d2_mm']
+            if inst == 'kolben': return L[0] / 1.15 - 2 * d2 <= s['d1_mm'] <= L[1]
+            if inst == 'stange': return L[0] / 1.15 <= s['d1_mm'] and D <= L[1] * 1.15 + 2 * d2
+            if inst == 'flansch_innen': return L[0] / 1.15 <= D <= L[1] * 1.15
+            return L[0] / 1.15 <= s['d1_mm'] <= L[1] * 1.15
+        rows = [r for r in (or_kat_ring(inp, s, d2) for s in SIZES if abs(s['d2_mm'] - d2) < 1e-6 and near(s)) if r]
+        rows.sort(key=lambda r: (-r['span'], r['size']))
+        groups.append(dict(d2=d2, rows=rows, allowed=d2max is None or d2 <= d2max + 1e-9))
+    rec = next((g['rows'][0] for g in reversed(groups) if g['allowed'] and g['rows']), None)
+    o = dict(nValid=sum(len(g['rows']) for g in groups), sumLo=sum(r['lo'] for g in groups for r in g['rows']), sumHi=sum(r['hi'] for g in groups for r in g['rows']))
+    for g in groups: o['nValid_%g' % g['d2']] = len(g['rows'])
+    if rec: o.update(recD1=rec['d1'], recD2=next(g['d2'] for g in groups if rec in g['rows']), recLo=rec['lo'], recHi=rec['hi'], recNom=rec['nom'], recCmin=rec['Cmin'], recCmax=rec['Cmax'])
+    else: o.update(recD1=-1)
+    return o

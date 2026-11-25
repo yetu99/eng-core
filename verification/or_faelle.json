@@ -1728,5 +1728,512 @@
     "design": null
    }
   }
+ ],
+ "katalog": [
+  {
+   "id": "P-OR22a",
+   "label": "Katalog Kolben statisch Ø123 H8/f7 (wie ISO 3601-2 B.2)",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 123,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 123,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22b",
+   "label": "Katalog Kolben Hydraulik Ø15 H8/f7, 100 bar (wie Parker 8.24)",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 15,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 15,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22c",
+   "label": "Katalog Kolben Hydraulik Ø60 H8/f7, 160 bar",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 60,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 60,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 16,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22d",
+   "label": "Katalog Kolben Pneumatik Ø40 H8/f7, 6 bar (Anhang B ohne Normring)",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "pneumatik",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 40,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 40,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0.6,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22e",
+   "label": "Katalog Stange statisch Ø50 f7/H8",
+   "inp": {
+    "task": "B",
+    "install": "stange",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": {
+     "nom": 50,
+     "fit": "f7"
+    },
+    "d6": null,
+    "d10": {
+     "nom": 50,
+     "fit": "H8"
+    },
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22f",
+   "label": "Katalog Stange Hydraulik Ø34 f7/H8, 100 bar (wie ISO 3601-2 B.3)",
+   "inp": {
+    "task": "B",
+    "install": "stange",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": {
+     "nom": 34,
+     "fit": "f7"
+    },
+    "d6": null,
+    "d10": {
+     "nom": 34,
+     "fit": "H8"
+    },
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22g",
+   "label": "Katalog Stange Pneumatik Ø25 f7/H8, 6 bar",
+   "inp": {
+    "task": "B",
+    "install": "stange",
+    "motion": "pneumatik",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": {
+     "nom": 25,
+     "fit": "f7"
+    },
+    "d6": null,
+    "d10": {
+     "nom": 25,
+     "fit": "H8"
+    },
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0.6,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22h",
+   "label": "Katalog Flansch Innendruck d₇ 60 H9",
+   "inp": {
+    "task": "B",
+    "install": "flansch_innen",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": {
+     "nom": 60,
+     "fit": "H9"
+    },
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22i",
+   "label": "Katalog Flansch Außendruck d₈ 100 h9 (wie ISO 3601-2 B.4.3)",
+   "inp": {
+    "task": "B",
+    "install": "flansch_aussen",
+    "motion": "statisch",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": null,
+    "d3": null,
+    "d9": null,
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": {
+     "nom": 100,
+     "fit": "h9"
+    },
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 0,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   }
+  },
+  {
+   "id": "P-OR22j",
+   "label": "Katalog Kolben Hydraulik Ø80 H8/f7 mit Bauraumgrenze d₂ ≤ 3,53 mm",
+   "inp": {
+    "task": "B",
+    "install": "kolben",
+    "motion": "hydraulik",
+    "ring": {
+     "size": null,
+     "d1": null,
+     "d2": null,
+     "cls": "B",
+     "tolD1": null,
+     "tolD2": null,
+     "sorte": "N"
+    },
+    "d4": {
+     "nom": 80,
+     "fit": "H8"
+    },
+    "d3": null,
+    "d9": {
+     "nom": 80,
+     "fit": "f7"
+    },
+    "d5": null,
+    "d6": null,
+    "d10": null,
+    "d7": null,
+    "d8": null,
+    "h": null,
+    "b": null,
+    "e": 0,
+    "depth": "konzentrisch",
+    "gap": "worst",
+    "gFlange": null,
+    "backup": 0,
+    "pressureBoth": false,
+    "dM": null,
+    "p": 10,
+    "material": null,
+    "shore": null,
+    "medium": null,
+    "Tmin": null,
+    "Tmax": null,
+    "pulsating": false,
+    "temp": null,
+    "swell": null,
+    "design": null
+   },
+   "d2max": 3.53
+  }
  ]
 }

@@ -1,2 +1,2 @@
 /** Version des Rechenkerns (identisch mit package.json, geprüft im Test). */
-export const CORE_VERSION = "0.21.0";
+export const CORE_VERSION = "0.23.0";

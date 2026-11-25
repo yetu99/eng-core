@@ -652,6 +652,12 @@ elektrik.add_cases(cases, ref)
 import dichtungen
 dichtungen.add_cases(cases, ref)
 
+# ---------------------------------------------------------------- Fachwerk (eng-core 0.23.0, Modul stabwerke)
+# Unabhängige Python-Umsetzung in verification/stabwerke.py (Weggrößenverfahren mit Lagrange-Nebenbedingungen, eigener Rang, Grundsystem
+# und Einheitslasten über Steifigkeit, Zufallsfachwerke mit fester Saat, Dualität PdvV; Literatur Gross TM 1/2, Dubbel Abb. 12.25).
+import stabwerke
+stabwerke.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

@@ -47,7 +47,7 @@ export const KINDS: Readonly<Record<Kind, { label: string; cases: Readonly<Recor
 };
 
 /** Knicklängenbeiwert β je Eulerfall. Fall 3 mit dem exakten Wert 0,699. */
-export const EULER_BETA: Readonly<Record<1 | 2 | 3 | 4, number>> = { 1: 2, 2: 1, 3: 0.699, 4: 0.5 };
+export { EULER_BETA } from "./buckling"; // ab 0.23.0 in buckling.ts (Fachwerk ohne Werkbank-Lastfälle), Werte unverändert
 
 export const OUTLOOK_V2: readonly string[] = ["Kerbwirkung", "Ermüdung", "Durchlaufträger", "Offene Profile (I, U, L)", "Biegedrillknicken", "Schiefe Biegung", "Kontaktspannung (Hertz)", "Schraubenverbindung"];
 

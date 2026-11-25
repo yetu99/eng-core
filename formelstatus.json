@@ -3196,6 +3196,24 @@
     "kommentar": "VERBESSERT: unter d₂ 1,78 mm kein Tabellenwert mehr (vorher Wert der Spalte 1,78 mm, unsichere Seite), Nachweis dann nicht bewertbar; über 6,99 mm Spalte 5,33/6,99 mit Hinweis. 80 Shore A wie 70 (B-or17). Beispiel P-OR4N nachgerechnet.",
     "formel": "g_zul aus TB 19-3 (70 bzw. 90 Shore A, Druckstufe ≤ 35, 70, 100, 175, 350 bar, Spalte d₂; zwischen den Spalten der kleinere Wert, über 6,99 Spalte 5,33/6,99, unter 1,78 kein Wert) × Spaltfaktor"
   },
+  "OR-KAT": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Seti",
+    "formel": "Nutmaß d₃ (h9) so, dass alle Pflichtnachweise der Ringwahl erfüllt sind (Verpressung, Dehnung, Stauchung, Nutfüllung, Montage); Raster 0,05 mm, Grenzen per Bisektion auf 0,0001 mm, Prüfer checkOring"
+  },
+  "OR-KATN": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Seti",
+    "formel": "Mitte (lo + hi)/2, gerundet auf 0,05 mm, sonst nächster Rasterpunkt 0,05 bzw. 0,01 mm im Bereich, sonst ungerundet"
+  },
+  "OR-KATW": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Seti",
+    "formel": "gültig sind Ringe mit Bereich (OR-KAT); je Schnurstärke sortiert nach Spielraum hi − lo (absteigend), dann Größe; Empfehlung: größte zugelassene Schnurstärke mit gültigem Ring (größter konstruktiv möglicher Querschnitt), daraus der Ring mit dem größten Spielraum"
+  },
   "OR-MED": {
     "status": "freigegeben",
     "datum": "2026-11-18",

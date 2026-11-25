@@ -7,7 +7,8 @@ import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, typ
 import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_FIELDS, type PressFitInput, type FitSpecIso } from "../src/index";
 import { computeBoltJoint, svRepo, jointDiagram, threadOf, threadProps, fmZul, gradeOf, tighteningTorque, tighteningTorqueExact, computeBoltUnpreloaded, coneLayers, type BoltJointInput, type PlateLayer } from "../src/index";
 import { elektrik } from "../src/index";
-import { computeOring, orRepo, crossSectionReduction, tolClassB, gapAllowed, compressionLimits, sizeOf, dimLimits, orCompressionProfile, orGapChart, type OringInput, type OrDim, type OrApplication } from "../src/index";
+import { oringCatalog, computeOring, orRepo, crossSectionReduction, tolClassB, gapAllowed, compressionLimits, sizeOf, dimLimits, orCompressionProfile, orGapChart, type OringInput, type OrDim, type OrApplication } from "../src/index";
+import { computeTruss, trussPdvv, type TrussInput } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
 
 export type Case =
@@ -50,6 +51,7 @@ export type Case =
   | { id: string; type: "ortolb"; d1: number; module?: string; abs?: boolean }
   | { id: string; type: "orgap"; shore: number; pBar: number; d2: number; factor: number; module?: string; abs?: boolean }
   | { id: string; type: "orcz"; app: OrApplication; d2: number; module?: string; abs?: boolean }
+  | { id: string; type: "orkat"; inp: OringInput; d2max?: number | null; module?: string; abs?: boolean }
   | { id: string; type: "orsize"; code: string; module?: string; abs?: boolean }
   | { id: string; type: "orlim"; dim: OrDim; module?: string; abs?: boolean }
   | { id: string; type: "eldc"; net: elektrik.ElNetlist; opts?: elektrik.DcOptions; module?: string; abs?: boolean }
@@ -58,7 +60,9 @@ export type Case =
   | { id: string; type: "elreq"; net: elektrik.ElNetlist; a: string; b: string; module?: string; abs?: boolean }
   | { id: string; type: "elsheet"; sheet: elektrik.SheetId; mode: elektrik.SheetMode; inp: Record<string, number>; module?: string; abs?: boolean }
   | { id: string; type: "eltool"; tool: elektrik.ToolId; inp: Record<string, number | string>; module?: string; abs?: boolean }
-  | { id: string; type: "eleseries"; x: number; n: elektrik.ESeries; module?: string; abs?: boolean };
+  | { id: string; type: "eleseries"; x: number; n: elektrik.ESeries; module?: string; abs?: boolean }
+  | { id: string; type: "fw"; inp: TrussInput; Fref: number; uref: number; module?: string; abs?: boolean }
+  | { id: string; type: "fwdual"; inp: TrussInput; Fref: number; module?: string; abs?: boolean };
 
 /** Modul elektrik (ab 0.19.0): Netzwerk, Wechselstrom, Frequenzgang, Ersatzwiderstand, Vorlagen, Rechner, E-Reihen. */
 function evalEl(c: Extract<Case, { type: `el${string}` }>): Record<string, number | null> {
@@ -353,12 +357,68 @@ function evalOr(inp: OringInput): Record<string, number | null> {
   return o;
 }
 
+/** Nut zum Ring (OR-KAT, OR-KATN, OR-KATW): Kennzahlen wie verification/dichtungen.py or_kat. */
+function evalOrKat(inp: OringInput, d2max: number | null): Record<string, number | null> {
+  const c = oringCatalog(orRepo, inp, d2max);
+  if (c.errors.length) return { errors: 1 };
+  const valid = c.groups.flatMap((g) => g.rows.filter((r) => r.valid));
+  const o: Record<string, number | null> = { nValid: valid.length, sumLo: valid.reduce((a, r) => a + r.lo!, 0), sumHi: valid.reduce((a, r) => a + r.hi!, 0) };
+  for (const g of c.groups) o[`nValid_${g.d2}`] = g.rows.filter((r) => r.valid).length;
+  const r = c.rec;
+  if (r) Object.assign(o, { recD1: r.d1, recD2: r.d2, recLo: r.lo, recHi: r.hi, recNom: r.groove!.dim.nom, recCmin: r.Cmin, recCmax: r.Cmax });
+  else o["recD1"] = -1;
+  return o;
+}
+
+const FW_KIND: Record<string, number> = { bestimmt: 0, unbestimmt: 1, beweglich: 2, ausnahme: 3 };
+/** Modul stabwerke (ab 0.23.0): Kräfte bezogen auf Fref [N], Verschiebungen auf uref [mm], wie verification/stabwerke.py. */
+function evalFw(inp: TrussInput, Fref: number, uref: number): Record<string, number | null> {
+  const r = computeTruss(inp);
+  const o: Record<string, number | null> = { errors: r.errors.length ? 1 : 0, kind: r.kind === null ? -1 : FW_KIND[r.kind]! };
+  if (r.model) Object.assign(o, { rank: r.model.rank, n: r.model.n, f: r.model.f, abz: r.model.abz });
+  if (r.errors.length) return o;
+  r.bars.forEach((b) => {
+    o[`S${b.index}`] = b.S / Fref; o[`sig${b.index}`] = b.check.sigma;
+    if (b.check.SF !== null) o[`SF${b.index}`] = b.check.SF;
+    if (b.check.buck) { o[`Fk${b.index}`] = b.check.buck.Fk / Fref; o[`SK${b.index}`] = b.check.buck.SK; }
+  });
+  o["nZero"] = r.bars.filter((b) => b.zero).length;
+  r.reactions.forEach((re) => { o[`R${re.index}`] = re.R / Fref; });
+  r.displacements!.forEach((d, i) => { o[`ux${i}`] = d.ux / uref; o[`uy${i}`] = d.uy / uref; });
+  o["prb"] = Math.max(Math.abs(r.probe!.Fx), Math.abs(r.probe!.Fy)) / Fref; o["res"] = r.residual! / Fref;
+  if (r.deflection) { o["dux"] = r.deflection.ux / uref; o["duy"] = r.deflection.uy / uref; }
+  if (r.pdvv) { o["pv"] = r.pdvv.value / Fref; o["pvres"] = r.pdvv.compatResidual; }
+  if (r.influence) r.influence.points.forEach((p, k) => { o[`eta${k}`] = p.eta; });
+  const fm = r.forceMethod;
+  if (fm) {
+    fm.X.forEach((X, i) => { o[`X${i}`] = X / Fref; o[`d10_${i}`] = fm.d10[i]! / uref; fm.d11[i]!.forEach((v, j) => { o[`d11_${i}${j}`] = v * Fref / uref; }); });
+    fm.S0.forEach((v, b) => { o[`S0_${b}`] = v / Fref; });
+    fm.Sbar.forEach((row, i) => row.forEach((v, b) => { o[`Sb${i}_${b}`] = v; }));
+  }
+  return o;
+}
+/** Dualität: jede Stab- und Lagerkraft über PdvV gegen das Gleichungssystem. */
+function evalFwDual(inp: TrussInput, Fref: number): Record<string, number | null> {
+  const r = computeTruss(inp);
+  if (r.errors.length || !r.model) return { errors: 1 };
+  const o: Record<string, number | null> = { errors: 0 };
+  let mx = 0;
+  const noop = () => {};
+  for (let b = 0; b < r.model.s; b++) { const p = trussPdvv(inp, r.model, { kind: "bar", index: b }, noop); if (typeof p === "string") return { errors: 1 }; o[`V${b}`] = p.value / Fref; mx = Math.max(mx, Math.abs(p.value - r.bars[b]!.S) / Fref); }
+  for (let j = 0; j < r.model.r; j++) { const p = trussPdvv(inp, r.model, { kind: "support", index: j }, noop); if (typeof p === "string") return { errors: 1 }; o[`VR${j}`] = p.value / Fref; mx = Math.max(mx, Math.abs(p.value - r.reactions[j]!.R) / Fref); }
+  o["dualMax"] = mx;
+  return o;
+}
+
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
+  if (c.type === "fw") return evalFw(c.inp, c.Fref, c.uref);
+  if (c.type === "fwdual") return evalFwDual(c.inp, c.Fref);
   if (c.type === "eldc" || c.type === "elac" || c.type === "elsweep" || c.type === "elreq" || c.type === "elsheet" || c.type === "eltool" || c.type === "eleseries") return evalEl(c);
   if (c.type === "or") return evalOr(c.inp);
   if (c.type === "orr") return { R: crossSectionReduction(c.S) };
   if (c.type === "ortolb") return { tol: tolClassB(c.d1) };
   if (c.type === "orgap") { const a = gapAllowed(orRepo, c.shore, c.pBar, c.d2, c.factor); return { gZul: a.gZul ?? -1, column: a.column, shoreTable: a.shoreTable }; }
+  if (c.type === "orkat") return evalOrKat(c.inp, c.d2max ?? null);
   if (c.type === "orcz") { const z = compressionLimits(orRepo, c.app, c.d2); return { min: z.min, max: z.max }; }
   if (c.type === "orsize") { const z = sizeOf(orRepo, c.code); return z ? { d1: z.d1_mm, d2: z.d2_mm, tolA: z.tol_a_mm, tolB: z.tol_b_mm } : { errors: 1 }; }
   if (c.type === "orlim") { const L = dimLimits(orRepo, "d", c.dim); return typeof L === "string" ? { errors: 1 } : { min: L.min, max: L.max }; }

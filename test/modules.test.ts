@@ -42,9 +42,9 @@ describe("Modulregister src/modules.json", () => {
     expect([...traceGroupsOf("gemeinsam"), ...traceGroupsOf("festigkeit")].sort()).toEqual(["belastung", "bemessung", "ermuedung", "formfaktor", "nachweis", "querschnitt", "werkstoff"]);
     for (const m of MODULE_IDS) expect(new Set(traceGroupsOf(m)).size).toBe(traceGroupsOf(m).length);
   });
-  it("jede Katalogformel ist einem Modul zugeordnet (ab 0.20.0 Werkbank-Module, fluid, kinematik, verbindungen, elektrik und dichtungen)", () => {
+  it("jede Katalogformel ist einem Modul zugeordnet (ab 0.23.0 Werkbank-Module, fluid, kinematik, verbindungen, elektrik, dichtungen und stabwerke)", () => {
     for (const e of entries) expect(e.module).toBe(moduleOfId(e.id));
-    expect(new Set(entries.map((e) => e.module))).toEqual(new Set([...TOOLS.werkbank.modules, "fluid", "kinematik", "verbindungen", "elektrik", "dichtungen"]));
+    expect(new Set(entries.map((e) => e.module))).toEqual(new Set([...TOOLS.werkbank.modules, "fluid", "kinematik", "verbindungen", "elektrik", "dichtungen", "stabwerke"]));
   });
 });
 
@@ -135,10 +135,10 @@ describe("sync-to-app nach Modulen", () => {
     const a = app(), b = app();
     sync(a); sync(b, "--tool", "werkbank");
     const ma = manifest(a), mb = manifest(b);
-    const fluidOnly = (k: string) => k.startsWith("core/fluid/") || k.startsWith("core/kinematics/") || k.startsWith("core/joints/") || k.startsWith("core/electrical/") || k.startsWith("core/seals/") || (k.startsWith("data/fd/") && k !== "data/fd/snapshot.json");
+    const fluidOnly = (k: string) => k.startsWith("core/fluid/") || k.startsWith("core/kinematics/") || k.startsWith("core/joints/") || k.startsWith("core/electrical/") || k.startsWith("core/seals/") || k.startsWith("core/structures/") || (k.startsWith("data/fd/") && k !== "data/fd/snapshot.json");
     expect(Object.keys(mb.files)).toEqual(Object.keys(ma.files).filter((k) => !fluidOnly(k)));
     for (const k of Object.keys(mb.files)) if (k !== "core/index.ts") expect(mb.files[k], k).toBe(ma.files[k]);
-    const strip = (s: string) => s.split("\n").filter((l) => !l.includes("Gekürzt von") && l.trim() !== "*" && !l.includes("./fluid/") && !l.includes("./kinematics/") && !l.includes("./joints/") && !l.includes("./electrical/") && !l.includes("./seals/")).join("\n");
+    const strip = (s: string) => s.split("\n").filter((l) => !l.includes("Gekürzt von") && l.trim() !== "*" && !l.includes("./fluid/") && !l.includes("./kinematics/") && !l.includes("./joints/") && !l.includes("./electrical/") && !l.includes("./seals/") && !l.includes("./structures/")).join("\n");
     expect(strip(readFileSync(join(b, "src/core/index.ts"), "utf8"))).toBe(strip(readFileSync(join(a, "src/core/index.ts"), "utf8")));
     expect(mb.modules).toEqual(TOOLS.werkbank.modules);
     expect(mb.version).toBe(CORE_VERSION);
@@ -160,13 +160,14 @@ describe("sync-to-app nach Modulen", () => {
     const m = manifest(d);
     const files = Object.keys(m.files);
     expect(files.some((f) => f.startsWith("core/ashby/"))).toBe(false);
-    // ab 0.17.0 nur Lamé aus mechanics/pressure.ts über die Importhülle des Pressverbands (P6)
-    expect(files.filter((f) => f.startsWith("core/mechanics/"))).toEqual(["core/mechanics/pressure.ts"]);
+    // ab 0.17.0 Lamé aus mechanics/pressure.ts über die Importhülle des Pressverbands (P6), ab 0.23.0 Knicken aus mechanics/buckling.ts (Fachwerk)
+    expect(files.filter((f) => f.startsWith("core/mechanics/"))).toEqual(["core/mechanics/buckling.ts", "core/mechanics/pressure.ts"]);
+    for (const f of ["core/structures/truss.ts", "core/structures/pdvv.ts", "core/structures/pdvk.ts", "core/structures/check.ts", "core/structures/presets.ts", "core/structures/compute.ts", "core/structures/linalg.ts"]) expect(files).toContain(f);
     expect(files).toContain("core/joints/pressfit.ts");
     for (const f of ["core/fluid/line.ts", "core/fluid/water.ts", "data/fd/loss_coeff.json"]) expect(files).toContain(f);
     for (const f of ["core/report.ts", "core/modules.json", "core/fdVersion.ts", "core/data.ts", "data/fd/snapshot.json", "data/materials.json"]) expect(files).toContain(f);
     expect(existsSync(join(d, "src/core/mechanics/compute.ts"))).toBe(false);
-    expect(readFileSync(join(d, "src/core/index.ts"), "utf8")).not.toMatch(/\.\/mechanics\/(?!pressure")/);
+    expect(readFileSync(join(d, "src/core/index.ts"), "utf8")).not.toMatch(/\.\/mechanics\/(?!pressure"|buckling")/);
     expect(out).toContain("veraltete entfernt");
   });
   it("unbekanntes Modul bricht ab", () => {

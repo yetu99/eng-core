@@ -1,6 +1,6 @@
 {
- "passed": 18409,
- "total": 18409,
+ "passed": 23894,
+ "total": 23894,
  "modules": {
   "gemeinsam": {
    "passed": 173,
@@ -23,8 +23,12 @@
    "total": 2871
   },
   "dichtungen": {
-   "passed": 2116,
-   "total": 2116
+   "passed": 2260,
+   "total": 2260
+  },
+  "stabwerke": {
+   "passed": 5341,
+   "total": 5341
   },
   "kinematik": {
    "passed": 5486,

@@ -57,3 +57,24 @@ export const orFehlerfaelle: OrFall[] = [
   { id: "P-OR14l", label: "Flansch dynamisch", inp: orBase({ install: "flansch_innen", motion: "hydraulik", ring: frei(50, 3.53), d7: dim(57, "H11") }) },
   { id: "P-OR14m", label: "unbekanntes Elastomer", inp: orBase({ ring: frei(20.22, 3.53), d4: dim(26, "H8"), d3: dim(20.4, "h9"), material: "XYZ" }) },
 ];
+
+/**
+ * Katalogfälle P-OR22 „Nut zum Ring“ (eng-core 0.22.0, OR-KAT, OR-KATN, OR-KATW; konzept_or_katalog.md Abschn. 7): Bezugsmaß wie Aufgabe B,
+ * je Einbaufall und Bewegung, darunter die Durchmesser, für die die Auslegung nach Anhang B keinen Normring findet (Kolben Pneumatik Ø40,
+ * Kolben Hydraulik Ø15 und Ø60), die Anhang-B-Beispiele (Ø123, Ø34), Flansche und eine Bauraumgrenze d₂ ≤ 3,53 mm.
+ */
+export interface OrKatFall { id: string; label: string; inp: OringInput; d2max?: number | null }
+const kolbenB = (d: number, motion: "statisch" | "hydraulik" | "pneumatik", p = 0) => orBase({ task: "B", install: "kolben", motion, d4: dim(d, "H8"), d9: dim(d, "f7"), p });
+const stangeB = (d: number, motion: "statisch" | "hydraulik" | "pneumatik", p = 0) => orBase({ task: "B", install: "stange", motion, d5: dim(d, "f7"), d10: dim(d, "H8"), p });
+export const orKatFaelle: OrKatFall[] = [
+  { id: "P-OR22a", label: "Katalog Kolben statisch Ø123 H8/f7 (wie ISO 3601-2 B.2)", inp: kolbenB(123, "statisch") },
+  { id: "P-OR22b", label: "Katalog Kolben Hydraulik Ø15 H8/f7, 100 bar (wie Parker 8.24)", inp: kolbenB(15, "hydraulik", 10) },
+  { id: "P-OR22c", label: "Katalog Kolben Hydraulik Ø60 H8/f7, 160 bar", inp: kolbenB(60, "hydraulik", 16) },
+  { id: "P-OR22d", label: "Katalog Kolben Pneumatik Ø40 H8/f7, 6 bar (Anhang B ohne Normring)", inp: kolbenB(40, "pneumatik", 0.6) },
+  { id: "P-OR22e", label: "Katalog Stange statisch Ø50 f7/H8", inp: stangeB(50, "statisch") },
+  { id: "P-OR22f", label: "Katalog Stange Hydraulik Ø34 f7/H8, 100 bar (wie ISO 3601-2 B.3)", inp: stangeB(34, "hydraulik", 10) },
+  { id: "P-OR22g", label: "Katalog Stange Pneumatik Ø25 f7/H8, 6 bar", inp: stangeB(25, "pneumatik", 0.6) },
+  { id: "P-OR22h", label: "Katalog Flansch Innendruck d₇ 60 H9", inp: orBase({ task: "B", install: "flansch_innen", d7: dim(60, "H9") }) },
+  { id: "P-OR22i", label: "Katalog Flansch Außendruck d₈ 100 h9 (wie ISO 3601-2 B.4.3)", inp: orBase({ task: "B", install: "flansch_aussen", d8: dim(100, "h9") }) },
+  { id: "P-OR22j", label: "Katalog Kolben Hydraulik Ø80 H8/f7 mit Bauraumgrenze d₂ ≤ 3,53 mm", inp: kolbenB(80, "hydraulik", 10), d2max: 3.53 },
+];

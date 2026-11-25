@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.21.0
+# Formelkatalog eng-core 0.23.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 912 Formeln, davon 912 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 934 Formeln, davon 915 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 19 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -14,8 +14,8 @@ Stand: 912 Formeln, davon 912 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | ashby | werkbank | A, C | 90 | 90 |
 | fluid | fachtools | RH, PU, FS | 100 | 100 |
 | verbindungen | fachtools | SV, PV | 152 | 152 |
-| dichtungen | fachtools | OR | 55 | 55 |
-| stabwerke | fachtools | FW | 0 | 0 |
+| dichtungen | fachtools | OR | 58 | 58 |
+| stabwerke | fachtools | FW | 19 | 0 |
 | kinematik | greifwerk | G | 71 | 71 |
 | elektrik | stromwerk | EL | 183 | 183 |
 
@@ -462,6 +462,30 @@ Stand: 912 Formeln, davon 912 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | FS-WA-N | Gültigkeitsbereich Walther | T₁ − 20 K ≤ T ≤ T₂ + 20 K | K | Verfahren (R21) | freigegeben (2026-11-06, Seti) |
 | FS-WA-NU | Kinematische Viskosität Öl (Walther) | ν = 10^(10^(K − m·lg T)) − C (ν in mm²/s, T in K) | m²/s | Dubbel 26 Bd. 1 Kap. 33 (S. 681) | freigegeben (2026-11-06, Seti) |
 
+## Fachwerk
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| FW-ABZ | Abzählkriterium | 2k − (s + r) | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Gl. (6.1) | Entwurf |
+| FW-D10 | Verschiebungszahl δ_i0 | δ_i0 = Σ S₀·S̄_i·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5, Gl. (6.46); Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | Entwurf |
+| FW-D11 | Verschiebungszahl δ_ij | δ_ij = Σ S̄_i·S̄_j·l / (E·A) | mm/N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.4, 6.5; Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | Entwurf |
+| FW-DL | Längenänderung | Δl = S·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Gl. (1.17); Dubbel 26 Bd. 1 (2020) Abschn. 20.1 | Entwurf |
+| FW-E | Richtungsvektor | e = (Δx, Δy) / l | 1 | Geometrie; Wert: Betrag \|e\| = 1 (Kontrolle) | Entwurf |
+| FW-EL | Einflusswert | η = −d·δu (Wanderlast F = 1 in Richtung d) | 1 | Dubbel 26 Bd. 1 (2020) Abschn. 12.8.1, Abb. 12.25e; Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.4 | Entwurf |
+| FW-GG | Stabkraft | A·x = −F (Knotengleichgewicht, Gauß mit Spaltenpivot), Zug positiv | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 | Entwurf |
+| FW-L | Stablänge | l = √(Δx² + Δy²) | mm | Geometrie | Entwurf |
+| FW-LAG | Lagerkraft | R = x_(s+j) (Lagerkraft in Lagerrichtung n) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Kap. 5, Abschn. 6.3.1 | Entwurf |
+| FW-NULL | Nullstab | \|S\| ≤ 10⁻⁹·max\|F\| | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1, Abb. 6.6 | Entwurf |
+| FW-PRB | Gesamtprobe | ΣF_x = 0, ΣF_y = 0, ΣM = 0 (Restwerte am Gesamtsystem) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 (Probe) | Entwurf |
+| FW-RANG | Rang der Gleichgewichtsmatrix | n = s + r − rang A,  f = 2k − rang A | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.1, 6.2; Dubbel 26 Bd. 1 (2020) Abschn. 12.8.1 | Entwurf |
+| FW-SF | Sicherheit gegen Fließen | S_F = R_p / \|σ\| | – | wie Werkbank (Zug und Druck) | Entwurf |
+| FW-SIG | Stabspannung | σ = S / A | MPa | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 1.1; Dubbel 26 Bd. 1 (2020) Abschn. 20.1 | Entwurf |
+| FW-SUP | Stabkraft (Überlagerung) | S = S₀ + Σ X_i·S̄_i | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5, Bsp. 6.9; Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | Entwurf |
+| FW-VK | Knotenverschiebung (Arbeitssatz mit Einheitslast) | δ = Σ S·S̄·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.3, Gl. (6.30), Bsp. 6.3, 6.4; Dubbel 26 Bd. 1 (2020) Abschn. 20.4.9 | Entwurf |
+| FW-VS | Bindungskraft aus dem Arbeitssatz (PdvV) | X_i = −Σ F_j·δu_j (δW = 0) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.2, 8.4 | Entwurf |
+| FW-VV | Virtuelle Verschiebungsfigur | Aᵀ·δu = e_i (Bindung i gibt um 1 nach, alle anderen starr) | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.4, Bsp. 8.6 | Entwurf |
+| FW-X | Überzählige | δ_i0 + Σ δ_ij·X_j = 0 | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5; Dubbel 26 Bd. 1 (2020) Abschn. 20.7, Abb. 20.41 | Entwurf |
+
 ## Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
@@ -585,6 +609,9 @@ Stand: 912 Formeln, davon 912 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | OR-GA | Ausnutzung Spalt | η_g = g/g_zul | 1 | eigene Kennzahl | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
 | OR-GM | Grenzmaße d₅ | Bohrung H: [N; N + IT], Welle h: [N − IT; N], f, g: [N + es − IT; N + es]; von Hand [N + ei; N + es] | mm | ISO 286-1:2019 (Q236) Tab. 1 (fd 1.2), Tab. 4 (fd 1.4, B-or25) | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
 | OR-GZUL | zulässiges Spaltmaß | g_zul aus TB 19-3 (70 bzw. 90 Shore A, Druckstufe ≤ 35, 70, 100, 175, 350 bar, Spalte d₂; zwischen den Spalten der kleinere Wert, über 6,99 Spalte 5,33/6,99, unter 1,78 kein Wert) × Spaltfaktor | mm | Roloff/Matek 27 (Q219) TB 19-3 (S. 1231); Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 9, Bild 4.10 Anm. 2 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
+| OR-KAT | Nut zum Ring: zulässiger Bereich | Nutmaß d₃ (h9) so, dass alle Pflichtnachweise der Ringwahl erfüllt sind (Verpressung, Dehnung, Stauchung, Nutfüllung, Montage); Raster 0,05 mm, Grenzen per Bisektion auf 0,0001 mm, Prüfer checkOring | mm | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Tab. 2 bis 5; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 3 Tab. 3.2 bis 3.10 | freigegeben (2026-11-25, Seti) |
+| OR-KATN | Nut zum Ring: Nennmaß | Mitte (lo + hi)/2, gerundet auf 0,05 mm, sonst nächster Rasterpunkt 0,05 bzw. 0,01 mm im Bereich, sonst ungerundet | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 3 (Raster 0,1 mm); Verfahren | freigegeben (2026-11-25, Seti) |
+| OR-KATW | Ringwahl im Katalog | gültig sind Ringe mit Bereich (OR-KAT); je Schnurstärke sortiert nach Spielraum hi − lo (absteigend), dann Größe; Empfehlung: größte zugelassene Schnurstärke mit gültigem Ring (größter konstruktiv möglicher Querschnitt), daraus der Ring mit dem größten Spielraum | mm | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 9, Kap. 3; Verfahren (konzept_or_katalog Abschn. 7) | freigegeben (2026-11-25, Seti) |
 | OR-MED | Medienbeständigkeit | Bewertung 1 beständig, 2 eingeschränkt, 3 bedingt, 4 nicht beständig |  | Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) Kap. 11.3 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
 | OR-N-C | Nachweis Verpressung | C_zul,min ≤ C_min und C_max ≤ C_zul,max; Anzeige Parker-Mindestwert 8 % bzw. 4 % | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) Bild 8; Parker O-Ring-Handbuch PTD 5705 DE 10/2019 (Q253) S. 13 f. | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
 | OR-N-F | Nachweis Nutfüllung | F_max ≤ 85 % (mit Optionen F_Q, F_T) | % | DIN ISO 3601-2:2010-08 (Q251, zurückgezogen, L1) 6.3 | freigegeben (2026-11-18, Claude (Selbstprüfung im Auftrag Seti)) |
