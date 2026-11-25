@@ -385,7 +385,7 @@ function evalFw(inp: TrussInput, Fref: number, uref: number): Record<string, num
   o["nZero"] = r.bars.filter((b) => b.zero).length;
   r.reactions.forEach((re) => { o[`R${re.index}`] = re.R / Fref; });
   r.displacements!.forEach((d, i) => { o[`ux${i}`] = d.ux / uref; o[`uy${i}`] = d.uy / uref; });
-  o["prb"] = Math.max(Math.abs(r.probe!.Fx), Math.abs(r.probe!.Fy)) / Fref; o["res"] = r.residual! / Fref;
+  o["prb"] = r.probe!.max / Fref; o["res"] = r.residual! / Fref;
   if (r.deflection) { o["dux"] = r.deflection.ux / uref; o["duy"] = r.deflection.uy / uref; }
   if (r.pdvv) { o["pv"] = r.pdvv.value / Fref; o["pvres"] = r.pdvv.compatResidual; }
   if (r.influence) r.influence.points.forEach((p, k) => { o[`eta${k}`] = p.eta; });

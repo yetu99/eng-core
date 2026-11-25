@@ -5,7 +5,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
-import { computeTruss, computeStrength, bucklingCheck, trussBarProps, trussPreset, trussChordNodes, trussModel, trussPdvv, proposeRedundants, redundantsError, sectionProps, TRUSS_PRESETS, CORE_VERSION, type TrussInput, type StrengthInput, type TrussPresetId } from "../src/index";
+import { FW_AMP_WARN, computeTruss, computeStrength, bucklingCheck, trussBarProps, trussPreset, trussChordNodes, trussModel, trussPdvv, proposeRedundants, redundantsError, sectionProps, TRUSS_PRESETS, CORE_VERSION, type TrussInput, type StrengthInput, type TrussPresetId } from "../src/index";
 import { repo } from "../src/data";
 import pruef from "../src/pruefstatus.json";
 import { fwJson } from "../scripts/fw-json";
@@ -143,5 +143,34 @@ describe("Vorlagen", () => {
       const r = computeTruss(trussPreset(id, D)), R = r.reactions;
       expect(R[1]!.R, id).toBeCloseTo(R[2]!.R, 8);
     }
+  });
+});
+
+describe("Prüfung 25.11.2026 (unabhängige Proben)", () => {
+  it("Clapeyron: Arbeit der Lasten = Formänderungsenergie (FW-VK, FW-SUP), bestimmt und unbestimmt", () => {
+    for (const f of fwFaelle) {
+      const r = computeTruss(f.inp);
+      const We = f.inp.loads.reduce((a, l) => a + 0.5 * (l.Fx * 1000 * r.displacements![l.node]!.ux + l.Fy * 1000 * r.displacements![l.node]!.uy), 0);
+      const Wi = r.bars.reduce((a, b) => a + 0.5 * b.S * b.S * b.l / (b.E * b.A), 0);
+      expect(Math.abs(We - Wi) / Wi, f.id).toBeLessThan(1e-12);
+    }
+  });
+  it("Maxwell: Verschiebungen aus Einheitslasten vertauschbar (Durchlaufträger, n = 1)", () => {
+    const base = trussPreset("durchlauf", D);
+    const u = (n: number) => computeTruss({ ...base, loads: [{ node: n, Fx: 0, Fy: -1e-3 }] }).displacements!;
+    for (const [i, j] of [[1, 5], [2, 10], [4, 12]] as const) expect(u(j)[i]!.uy).toBeCloseTo(u(i)[j]!.uy, 12);
+  });
+  it("nahezu verschiebliche Geometrie (Gross Abb. 6.2c, Knoten IV 1 mm aus der Geraden): Hinweis", () => {
+    const inp = fwFehler.find((f) => f.id === "P-FW20b")!.inp;
+    const r = computeTruss({ ...inp, nodes: inp.nodes.map((p, i) => (i === 3 ? { ...p, y: p.y + 1 } : p)) });
+    expect(r.kind).toBe("bestimmt");
+    expect(r.warnings.some((w) => w.includes("nahezu verschieblich"))).toBe(true);
+    expect(Math.max(...r.bars.map((b) => Math.abs(b.S)))).toBeGreaterThan(FW_AMP_WARN * 1000);
+    expect(computeTruss(fall("P-FW6")).warnings.some((w) => w.includes("nahezu verschieblich"))).toBe(false);
+  });
+  it("Gesamtprobe enthält das Moment (FW-PRB)", () => {
+    const r = computeTruss(fall("P-FW6"));
+    expect(r.probe!.max).toBeLessThan(1e-9 * 20000);
+    expect(r.trace.gleichgewicht!.find((s) => s.id === "FW-PRB")!.formula).toContain("|ΣM|/L_max");
   });
 });

@@ -9,6 +9,7 @@ import type { CalcStep } from "../trace";
 import { trussBarCheck, type TrussBarCheck } from "./check";
 import { FW_MAX_N, proposeRedundants, solveForceMethod, trussDeflection, trussDisplacements, type DeflectionResult } from "./pdvk";
 import { trussInfluence, trussPdvv, type InfluenceResult, type PdvvResult } from "./pdvv";
+import { pivotRatio } from "./linalg";
 import { barName, bondColumn, solveDeterminate, trussInputErrors, trussModel, trussResults, type ForceMethodResult, type FwGroup, type FwTrace, type TrussBarResult, type TrussBond, type TrussInput, type TrussKind, type TrussModel, type TrussReactionResult } from "./truss";
 
 export type TrussBarOut = TrussBarResult & { check: TrussBarCheck };
@@ -19,7 +20,7 @@ export interface TrussResult {
   kind: TrussKind | null;
   bars: TrussBarOut[];
   reactions: TrussReactionResult[];
-  probe: { Fx: number; Fy: number; M: number; ref: string } | null;
+  probe: { Fx: number; Fy: number; M: number; ref: string; max: number } | null;
   /** Restfehler des Gleichgewichts max|A·x + F| [N] */
   residual: number | null;
   /** Knotenverschiebungen [mm] (PdvK, alle Knoten) */
@@ -41,6 +42,11 @@ export const FW_LIMITS: readonly string[] = [
   "Knicken nur in der Fachwerkebene (Eulerfall 2, L_k = l); Knicken aus der Ebene nicht erfasst",
   "keine Stahlbau-Nachweise nach EN 1993, keine Biegesteifigkeit der Knoten",
 ];
+
+/** Schwelle für den Hinweis auf schlechte Kondition (Pivotverhältnis der LU-Zerlegung). */
+export const FW_COND_WARN = 1e-8;
+/** Schwelle für den Hinweis auf nahezu verschiebliche Geometrie: max|S| > 100·max|F|. */
+export const FW_AMP_WARN = 100;
 
 export function computeTruss(inp: TrussInput): TrussResult {
   const trace: FwTrace = {};
@@ -65,6 +71,12 @@ export function computeTruss(inp: TrussInput): TrussResult {
   }
   if (!sol) { res.errors.push("Gleichgewichtsmatrix singulär"); return res; }
   res.forceMethod = sol.forceMethod; res.residual = sol.residual;
+  // Prüfbefund 25.11.2026: nahezu verschiebliche Fachwerke (Ausnahmefachwerk im Kleinen, fast gerade Stabzüge) sind numerisch bestimmt, liefern aber sehr große Stabkräfte
+  const pr = pivotRatio(sol.basis.lu);
+  if (pr < FW_COND_WARN) res.warnings.push(`Gleichgewichtsmatrix schlecht konditioniert (kleinster/größter Pivot ${fmt(pr, 2)} < ${fmt(FW_COND_WARN)}): Ergebnis numerisch unzuverlässig; Geometrie prüfen`);
+  const Fmax = Math.max(...Array.from({ length: m.k }, (_, i) => Math.hypot(m.F[2 * i]!, m.F[2 * i + 1]!)));
+  const Smax = Math.max(...sol.S.map(Math.abs));
+  if (Fmax > 0 && Smax > FW_AMP_WARN * Fmax) res.warnings.push(`Stabkräfte bis ${fmt(Smax / Fmax, 3)}-fach der größten Knotenlast: Fachwerk nahezu verschieblich (fast gerade Stabzüge, Gross Abb. 6.2c); Theorie 1. Ordnung und kleine Verformungen fraglich`);
   const { bars, reactions, probe } = trussResults(inp, m, sol, add);
   res.reactions = reactions; res.probe = probe;
   const SFreq = inp.SFreq ?? 1.5, SKreq = inp.SKreq ?? 3;

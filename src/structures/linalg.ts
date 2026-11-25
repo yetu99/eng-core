@@ -90,6 +90,13 @@ export function pivotColumns(M: Matrix, nCols: number): number[] {
   return cols;
 }
 
+/** Verhältnis kleinster zu größter Pivot |u_kk| der Zerlegung (Anzeichen schlechter Kondition, 1 = ideal). */
+export function pivotRatio(F: LuFactor): number {
+  let lo = Infinity, hi = 0;
+  for (let k = 0; k < F.n; k++) { const v = Math.abs(F.lu[k]![k]!); lo = Math.min(lo, v); hi = Math.max(hi, v); }
+  return hi > 0 ? lo / hi : 0;
+}
+
 /** Löst ein kleines quadratisches System (bis 3 × 3 im Kraftgrößenverfahren); null, wenn singulär. */
 export function solveSmall(M: Matrix, b: readonly number[]): number[] | null {
   const F = luFactor(M);

@@ -5,7 +5,7 @@ Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py expor
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 934 Formeln, davon 915 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 19 Entwurf.
+Stand: 934 Formeln, davon 934 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -15,7 +15,7 @@ Stand: 934 Formeln, davon 915 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 19 Ent
 | fluid | fachtools | RH, PU, FS | 100 | 100 |
 | verbindungen | fachtools | SV, PV | 152 | 152 |
 | dichtungen | fachtools | OR | 58 | 58 |
-| stabwerke | fachtools | FW | 19 | 0 |
+| stabwerke | fachtools | FW | 19 | 19 |
 | kinematik | greifwerk | G | 71 | 71 |
 | elektrik | stromwerk | EL | 183 | 183 |
 
@@ -466,25 +466,25 @@ Stand: 934 Formeln, davon 915 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 19 Ent
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
-| FW-ABZ | Abzählkriterium | 2k − (s + r) | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Gl. (6.1) | Entwurf |
-| FW-D10 | Verschiebungszahl δ_i0 | δ_i0 = Σ S₀·S̄_i·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5, Gl. (6.46); Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | Entwurf |
-| FW-D11 | Verschiebungszahl δ_ij | δ_ij = Σ S̄_i·S̄_j·l / (E·A) | mm/N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.4, 6.5; Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | Entwurf |
-| FW-DL | Längenänderung | Δl = S·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Gl. (1.17); Dubbel 26 Bd. 1 (2020) Abschn. 20.1 | Entwurf |
-| FW-E | Richtungsvektor | e = (Δx, Δy) / l | 1 | Geometrie; Wert: Betrag \|e\| = 1 (Kontrolle) | Entwurf |
-| FW-EL | Einflusswert | η = −d·δu (Wanderlast F = 1 in Richtung d) | 1 | Dubbel 26 Bd. 1 (2020) Abschn. 12.8.1, Abb. 12.25e; Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.4 | Entwurf |
-| FW-GG | Stabkraft | A·x = −F (Knotengleichgewicht, Gauß mit Spaltenpivot), Zug positiv | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 | Entwurf |
-| FW-L | Stablänge | l = √(Δx² + Δy²) | mm | Geometrie | Entwurf |
-| FW-LAG | Lagerkraft | R = x_(s+j) (Lagerkraft in Lagerrichtung n) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Kap. 5, Abschn. 6.3.1 | Entwurf |
-| FW-NULL | Nullstab | \|S\| ≤ 10⁻⁹·max\|F\| | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1, Abb. 6.6 | Entwurf |
-| FW-PRB | Gesamtprobe | ΣF_x = 0, ΣF_y = 0, ΣM = 0 (Restwerte am Gesamtsystem) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 (Probe) | Entwurf |
-| FW-RANG | Rang der Gleichgewichtsmatrix | n = s + r − rang A,  f = 2k − rang A | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.1, 6.2; Dubbel 26 Bd. 1 (2020) Abschn. 12.8.1 | Entwurf |
-| FW-SF | Sicherheit gegen Fließen | S_F = R_p / \|σ\| | – | wie Werkbank (Zug und Druck) | Entwurf |
-| FW-SIG | Stabspannung | σ = S / A | MPa | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 1.1; Dubbel 26 Bd. 1 (2020) Abschn. 20.1 | Entwurf |
-| FW-SUP | Stabkraft (Überlagerung) | S = S₀ + Σ X_i·S̄_i | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5, Bsp. 6.9; Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | Entwurf |
-| FW-VK | Knotenverschiebung (Arbeitssatz mit Einheitslast) | δ = Σ S·S̄·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.3, Gl. (6.30), Bsp. 6.3, 6.4; Dubbel 26 Bd. 1 (2020) Abschn. 20.4.9 | Entwurf |
-| FW-VS | Bindungskraft aus dem Arbeitssatz (PdvV) | X_i = −Σ F_j·δu_j (δW = 0) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.2, 8.4 | Entwurf |
-| FW-VV | Virtuelle Verschiebungsfigur | Aᵀ·δu = e_i (Bindung i gibt um 1 nach, alle anderen starr) | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.4, Bsp. 8.6 | Entwurf |
-| FW-X | Überzählige | δ_i0 + Σ δ_ij·X_j = 0 | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5; Dubbel 26 Bd. 1 (2020) Abschn. 20.7, Abb. 20.41 | Entwurf |
+| FW-ABZ | Abzählkriterium | 2k − (s + r) | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Gl. (6.1) | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-D10 | Verschiebungszahl δ_i0 | δ_i0 = Σ S₀·S̄_i·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5, Gl. (6.46); Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-D11 | Verschiebungszahl δ_ij | δ_ij = Σ S̄_i·S̄_j·l / (E·A) | mm/N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.4, 6.5; Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-DL | Längenänderung | Δl = S·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Gl. (1.17); Dubbel 26 Bd. 1 (2020) Abschn. 20.1 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-E | Richtungsvektor | e = (Δx, Δy) / l | 1 | Geometrie; Wert: Betrag \|e\| = 1 (Kontrolle) | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-EL | Einflusswert | η = −d·δu (Wanderlast F = 1 in Richtung d) | 1 | Dubbel 26 Bd. 1 (2020) Abschn. 12.8.1, Abb. 12.25e; Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.4 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-GG | Stabkraft | A·x = −F (Knotengleichgewicht, Gauß mit Spaltenpivot), Zug positiv | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-L | Stablänge | l = √(Δx² + Δy²) | mm | Geometrie | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-LAG | Lagerkraft | R = x_(s+j) (Lagerkraft in Lagerrichtung n) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Kap. 5, Abschn. 6.3.1 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-NULL | Nullstab | \|S\| ≤ 10⁻⁹·max\|F\| | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1, Abb. 6.6 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-PRB | Gesamtprobe | ΣF_x = 0, ΣF_y = 0, ΣM = 0; Restwert max(\|ΣF_x\|, \|ΣF_y\|, \|ΣM\|/L_max) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 (Probe); L_max größter Knotenabstand vom Bezugspunkt | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-RANG | Rang der Gleichgewichtsmatrix | n = s + r − rang A,  f = 2k − rang A | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.1, 6.2; Dubbel 26 Bd. 1 (2020) Abschn. 12.8.1 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-SF | Sicherheit gegen Fließen | S_F = R_p / \|σ\| | – | wie Werkbank (Zug und Druck) | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-SIG | Stabspannung | σ = S / A | MPa | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 1.1; Dubbel 26 Bd. 1 (2020) Abschn. 20.1 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-SUP | Stabkraft (Überlagerung) | S = S₀ + Σ X_i·S̄_i | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5, Bsp. 6.9; Dubbel 26 Bd. 1 (2020) Abschn. 20.7 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-VK | Knotenverschiebung (Arbeitssatz mit Einheitslast) | δ = Σ S·S̄·l / (E·A) | mm | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.3, Gl. (6.30), Bsp. 6.3, 6.4; Dubbel 26 Bd. 1 (2020) Abschn. 20.4.9 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-VS | Bindungskraft aus dem Arbeitssatz (PdvV) | X_i = −Σ F_j·δu_j (δW = 0) | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.2, 8.4 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-VV | Virtuelle Verschiebungsfigur | Aᵀ·δu = e_i (Bindung i gibt um 1 nach, alle anderen starr) | 1 | Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 8.4, Bsp. 8.6 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
+| FW-X | Überzählige | δ_i0 + Σ δ_ij·X_j = 0 | N | Gross, Hauger, Schröder, Wall: Technische Mechanik 2 (15. Aufl. 2024) Abschn. 6.5; Dubbel 26 Bd. 1 (2020) Abschn. 20.7, Abb. 20.41 | freigegeben (2026-11-25, Claude (Selbstprüfung im Auftrag Seti)) |
 
 ## Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)
 

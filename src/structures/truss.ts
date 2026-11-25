@@ -255,7 +255,7 @@ export function zeroThreshold(m: TrussModel): number {
 }
 
 /** Stabergebnisse, Lagerkräfte, Gesamtprobe und Nullstäbe in den Rechenweg (FW-GG bzw. FW-SUP, FW-LAG, FW-PRB, FW-NULL, FW-DL). */
-export function trussResults(inp: TrussInput, m: TrussModel, sol: TrussSolution, add: (g: FwGroup, s: CalcStep) => void): { bars: TrussBarResult[]; reactions: TrussReactionResult[]; probe: { Fx: number; Fy: number; M: number; ref: string } } {
+export function trussResults(inp: TrussInput, m: TrussModel, sol: TrussSolution, add: (g: FwGroup, s: CalcStep) => void): { bars: TrussBarResult[]; reactions: TrussReactionResult[]; probe: { Fx: number; Fy: number; M: number; ref: string; max: number } } {
   const thr = zeroThreshold(m), rules = zeroBarRules(inp, m);
   const fm = sol.forceMethod;
   const bars: TrussBarResult[] = inp.bars.map((b, i) => {
@@ -284,6 +284,8 @@ export function trussResults(inp: TrussInput, m: TrussModel, sol: TrussSolution,
   for (const ld of inp.loads) force(ld.node, ld.Fx * 1000, ld.Fy * 1000);
   for (const re of reactions) force(re.node, re.R * re.dir[0], re.R * re.dir[1]);
   const ref = nodeName(inp, m.reactions[0]?.node ?? 0);
-  add("gleichgewicht", step("FW-PRB", "Gesamtprobe", "ΣF_x = 0, ΣF_y = 0, ΣM = 0 (Restwerte am Gesamtsystem)", `ΣF_x = ${fmt(Fx, 3)} N, ΣF_y = ${fmt(Fy, 3)} N, ΣM_${ref} = ${fmt(M, 3)} N·mm`, Math.max(Math.abs(Fx), Math.abs(Fy)), "N", `${FW_REF_GROSS1} Abschn. 6.3.1 (Probe)`));
-  return { bars, reactions, probe: { Fx, Fy, M, ref } };
+  const Lmax = Math.max(...inp.nodes.map((p) => Math.hypot(p.x - o.x, p.y - o.y)));
+  const max = Math.max(Math.abs(Fx), Math.abs(Fy), Math.abs(M) / Lmax);
+  add("gleichgewicht", step("FW-PRB", "Gesamtprobe", "ΣF_x = 0, ΣF_y = 0, ΣM = 0; Restwert max(|ΣF_x|, |ΣF_y|, |ΣM|/L_max)", `ΣF_x = ${fmt(Fx, 3)} N, ΣF_y = ${fmt(Fy, 3)} N, ΣM_${ref} = ${fmt(M, 3)} N·mm, L_max = ${fmt(Lmax)} mm`, max, "N", `${FW_REF_GROSS1} Abschn. 6.3.1 (Probe); L_max größter Knotenabstand vom Bezugspunkt`));
+  return { bars, reactions, probe: { Fx, Fy, M, ref, max } };
 }

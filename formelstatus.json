@@ -2547,6 +2547,139 @@
     "durch": "Seti",
     "formel": "ν = 10^(10^(K − m·lg T)) − C (ν in mm²/s, T in K)"
   },
+  "FW-ABZ": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "nur notwendige Bedingung, hinreichend erst mit FW-RANG (Gross Abb. 6.2b, c geprüft).",
+    "formel": "2k − (s + r)"
+  },
+  "FW-D10": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Gross TM 2 Bsp. 6.9 exakt (−2 − 3/√2)·Fa/EA.",
+    "formel": "δ_i0 = Σ S₀·S̄_i·l / (E·A)"
+  },
+  "FW-D11": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Gross TM 2 Bsp. 6.9 exakt 2(1 + √2)·a/EA; Überzählige als Lagerkraft ohne Nachgiebigkeit (starres Lager).",
+    "formel": "δ_ij = Σ S̄_i·S̄_j·l / (E·A)"
+  },
+  "FW-DL": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "geprüft mit Gross TM 2 Bsp. 1.6 (Δl₃ = 1,0 mm).",
+    "formel": "Δl = S·l / (E·A)"
+  },
+  "FW-E": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Wert ist Kontrollgröße |e| = 1, Vektor im Beispiel (wie Kinematik).",
+    "formel": "e = (Δx, Δy) / l"
+  },
+  "FW-EL": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Werte nur an Knoten, dazwischen linear (mittelbare Belastung); nur bestimmte Fachwerke; Dubbel Abb. 12.25e exakt.",
+    "formel": "η = −d·δu (Wanderlast F = 1 in Richtung d)"
+  },
+  "FW-GG": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "LU mit Spaltenpivot, Restfehler im Schritt; gegen Weggrößenverfahren (bestimmt und Zufall) und Literatur geprüft.",
+    "formel": "A·x = −F (Knotengleichgewicht, Gauß mit Spaltenpivot), Zug positiv"
+  },
+  "FW-L": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "geprüft: Geometrie, alle Fälle gegen Weggrößenverfahren.",
+    "formel": "l = √(Δx² + Δy²)"
+  },
+  "FW-LAG": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Vorzeichen in Lagerrichtung n: Dubbel F_B = 55 kN (Pfeil nach links) entspricht R = −55 kN bei n = (1, 0).",
+    "formel": "R = x_(s+j) (Lagerkraft in Lagerrichtung n)"
+  },
+  "FW-NULL": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Schranke relativ zur größten Knotenlast; Regeln Gross Abb. 6.6 nur als Erklärung in einem Durchgang (Folgenullstäbe: „aus der Rechnung“); Bsp. 6.1 Regeln wie Buch.",
+    "formel": "|S| ≤ 10⁻⁹·max|F|"
+  },
+  "FW-PRB": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Befund: Restmoment stand nur im Text, nicht im Prüfwert; geändert auf max(|ΣF_x|, |ΣF_y|, |ΣM|/L_max).",
+    "formel": "ΣF_x = 0, ΣF_y = 0, ΣM = 0; Restwert max(|ΣF_x|, |ΣF_y|, |ΣM|/L_max)"
+  },
+  "FW-RANG": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Schranke 10⁻¹⁰ relativ. Befund: knapp bestimmte Geometrie (Abb. 6.2c, Knoten IV 1 mm aus der Geraden) gilt als bestimmt, Stabkräfte 800-fach der Last; Hinweis ergänzt (max|S| > 100·max|F|, Pivotverhältnis < 10⁻⁸), keine Formeländerung.",
+    "formel": "n = s + r − rang A,  f = 2k − rang A"
+  },
+  "FW-SF": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Druckstäbe zusätzlich Knicken; Knicken nur in der Ebene mit kleinstem Trägheitsradius, Knicklänge aus der Ebene ohne Aussteifung größer als l (Hinweis im Blatt).",
+    "formel": "S_F = R_p / |σ|"
+  },
+  "FW-SIG": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Nullstab: σ = 0 gesetzt.",
+    "formel": "σ = S / A"
+  },
+  "FW-SUP": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Endwerte unabhängig von der Wahl der Überzähligen (6.9 mit Stab 5 und Stab 6 gleich).",
+    "formel": "S = S₀ + Σ X_i·S̄_i"
+  },
+  "FW-VK": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "S̄ im Grundsystem bei unbestimmten Fachwerken (Reduktionssatz); unabhängig geprüft mit Clapeyron (Fehler < 10⁻¹⁵) und Maxwell.",
+    "formel": "δ = Σ S·S̄·l / (E·A)"
+  },
+  "FW-VS": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Dualität 1166 Werte gegen Gleichungssystem und Weggrößenverfahren; Gross Bsp. 8.6 für β = 30°, 60°, 120°.",
+    "formel": "X_i = −Σ F_j·δu_j (δW = 0)"
+  },
+  "FW-VV": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Vorzeichen: Bindung gibt in Richtung ihrer positiven Kraft nach (Stab um 1 verkürzt), von Seti am 25.11.2026 bestätigt; Verträglichkeit im Test für alle Stäbe geprüft.",
+    "formel": "Aᵀ·δu = e_i (Bindung i gibt um 1 nach, alle anderen starr)"
+  },
+  "FW-X": {
+    "status": "freigegeben",
+    "datum": "2026-11-25",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "bis 3 × 3 über Gauß; singuläre Wahl (z. B. Lager an einem Festlagerknoten) mit Fehlertext.",
+    "formel": "δ_i0 + Σ δ_ij·X_j = 0"
+  },
   "G-01-X": {
     "status": "freigegeben",
     "datum": "2026-11-01",

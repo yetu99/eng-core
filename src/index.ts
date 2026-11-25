@@ -74,6 +74,6 @@ export * from "./structures/truss";
 export * from "./structures/pdvk";
 export * from "./structures/pdvv";
 export * from "./structures/check";
-export { computeTruss, trussKindText, FW_LIMITS, type TrussResult, type TrussBarOut } from "./structures/compute";
+export { computeTruss, trussKindText, FW_LIMITS, FW_COND_WARN, FW_AMP_WARN, type TrussResult, type TrussBarOut } from "./structures/compute";
 export * from "./structures/presets";
 export * as elektrik from "./electrical/index";

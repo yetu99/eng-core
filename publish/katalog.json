@@ -2,7 +2,7 @@
  "core": "0.23.0",
  "data": "WDB 1.1.6",
  "formulas": 934,
- "approved": 915,
+ "approved": 934,
  "items": [
   {
    "id": "A-GR-X",
@@ -6866,10 +6866,10 @@
    "example": "2·3 − (3 + 3) = 0: notwendige Bedingung erfüllt",
    "example_result": 0,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "nur notwendige Bedingung, hinreichend erst mit FW-RANG (Gross Abb. 6.2b, c geprüft).",
    "sort": 4040
   },
   {
@@ -6883,10 +6883,10 @@
    "example": "δ10 (Überzählige 5): 10000·-0,7071·5·10⁻⁵ + 10000·-0,7071·5·10⁻⁵ + 10000·-0,7071·5·10⁻⁵ + -14140·1·7,071·10⁻⁵",
    "example_result": -2.06066017178,
    "example_case": "P-FW11a Gross TM 2 Bsp. 6.9, innerlich unbestimmt, Überzählige Stab 5 wie Quelle",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Gross TM 2 Bsp. 6.9 exakt (−2 − 3/√2)·Fa/EA.",
    "sort": 4050
   },
   {
@@ -6900,10 +6900,10 @@
    "example": "δ11: -0,7071·-0,7071·5·10⁻⁵ + -0,7071·-0,7071·5·10⁻⁵ + -0,7071·-0,7071·5·10⁻⁵ + -0,7071·-0,7071·5·10⁻⁵ + 1·1·7,071·10⁻⁵ + 1·1·7,071·10⁻⁵",
    "example_result": 0.000241421356237,
    "example_case": "P-FW11a Gross TM 2 Bsp. 6.9, innerlich unbestimmt, Überzählige Stab 5 wie Quelle",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Gross TM 2 Bsp. 6.9 exakt 2(1 + √2)·a/EA; Überzählige als Lagerkraft ohne Nachgiebigkeit (starres Lager).",
    "sort": 4060
   },
   {
@@ -6917,10 +6917,10 @@
    "example": "S1: 5·2000 / (2·10⁵·100)",
    "example_result": 0.0005,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "geprüft mit Gross TM 2 Bsp. 1.6 (Δl₃ = 1,0 mm).",
    "sort": 4070
   },
   {
@@ -6934,10 +6934,10 @@
    "example": "S1 (K1 → K2): (2000, 0) / 2000 = (1, 0)",
    "example_result": 1,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Wert ist Kontrollgröße |e| = 1, Vektor im Beispiel (wie Kinematik).",
    "sort": 4080
   },
   {
@@ -6951,10 +6951,10 @@
    "example": "6, Last in E: d = (0, -1), δu = (0, -2,5)",
    "example_result": -2.5,
    "example_case": "P-FW6 Dubbel Abb. 12.25 Kragausleger, Einflusslinie F_S6 am Obergurt, PdvV Stab 6",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Werte nur an Knoten, dazwischen linear (mittelbare Belastung); nur bestimmte Fachwerke; Dubbel Abb. 12.25e exakt.",
    "sort": 4090
   },
   {
@@ -6968,10 +6968,10 @@
    "example": "S1: x_1 aus dem 6×6-System, Restfehler 0 N",
    "example_result": 5,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "LU mit Spaltenpivot, Restfehler im Schritt; gegen Weggrößenverfahren (bestimmt und Zufall) und Literatur geprüft.",
    "sort": 4100
   },
   {
@@ -6985,10 +6985,10 @@
    "example": "S1: √(2000² + 0²)",
    "example_result": 2000,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "geprüft: Geometrie, alle Fälle gegen Weggrößenverfahren.",
    "sort": 4110
   },
   {
@@ -7002,10 +7002,10 @@
    "example": "K1,x: n = (1, 0): R = 0",
    "example_result": 0,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Vorzeichen in Lagerrichtung n: Dubbel F_B = 55 kN (Pfeil nach links) entspricht R = −55 kN bei n = (1, 0).",
    "sort": 4120
   },
   {
@@ -7019,10 +7019,10 @@
    "example": "4: |0| ≤ 1·10⁻⁵: Regel 2 (Gross Abb. 6.6)",
    "example_result": 0,
    "example_case": "P-FW2 Gross TM 1 Bsp. 6.1, l = 1000 mm, F = 10 kN (Nullstäbe, Lagerkräfte)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Schranke relativ zur größten Knotenlast; Regeln Gross Abb. 6.6 nur als Erklärung in einem Durchgang (Folgenullstäbe: „aus der Rechnung“); Bsp. 6.1 Regeln wie Buch.",
    "sort": 4130
   },
   {
@@ -7030,16 +7030,16 @@
    "area": "Fachwerk",
    "module": "stabwerke",
    "quantity": "Gesamtprobe",
-   "formula": "ΣF_x = 0, ΣF_y = 0, ΣM = 0 (Restwerte am Gesamtsystem)",
+   "formula": "ΣF_x = 0, ΣF_y = 0, ΣM = 0; Restwert max(|ΣF_x|, |ΣF_y|, |ΣM|/L_max)",
    "unit": "N",
-   "source": "Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 (Probe)",
-   "example": "ΣF_x = 0 N, ΣF_y = 0 N, ΣM_K1 = 0 N·mm",
+   "source": "Gross, Hauger, Schröder, Wall: Technische Mechanik 1 (15. Aufl. 2024) Abschn. 6.3.1 (Probe); L_max größter Knotenabstand vom Bezugspunkt",
+   "example": "ΣF_x = 0 N, ΣF_y = 0 N, ΣM_K1 = 0 N·mm, L_max = 2000 mm",
    "example_result": 0,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Befund: Restmoment stand nur im Text, nicht im Prüfwert; geändert auf max(|ΣF_x|, |ΣF_y|, |ΣM|/L_max).",
    "sort": 4140
   },
   {
@@ -7053,10 +7053,10 @@
    "example": "rang A = 6: n = 6 − 6 = 0, f = 6 − 6 = 0; statisch und kinematisch bestimmt",
    "example_result": 6,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Schranke 10⁻¹⁰ relativ. Befund: knapp bestimmte Geometrie (Abb. 6.2c, Knoten IV 1 mm aus der Geraden) gilt als bestimmt, Stabkräfte 800-fach der Last; Hinweis ergänzt (max|S| > 100·max|F|, Pivotverhältnis < 10⁻⁸), keine Formeländerung.",
    "sort": 4150
   },
   {
@@ -7070,10 +7070,10 @@
    "example": "S1: 235 / |0,05|",
    "example_result": 4700,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Druckstäbe zusätzlich Knicken; Knicken nur in der Ebene mit kleinstem Trägheitsradius, Knicklänge aus der Ebene ohne Aussteifung größer als l (Hinweis im Blatt).",
    "sort": 4160
   },
   {
@@ -7087,10 +7087,10 @@
    "example": "S1: 5 / 100",
    "example_result": 0.05,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Nullstab: σ = 0 gesetzt.",
    "sort": 4170
   },
   {
@@ -7104,10 +7104,10 @@
    "example": "1: 10000 + 8536·-0,7071",
    "example_result": 3964.46609407,
    "example_case": "P-FW11a Gross TM 2 Bsp. 6.9, innerlich unbestimmt, Überzählige Stab 5 wie Quelle",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Endwerte unabhängig von der Wahl der Überzähligen (6.9 mit Stab 5 und Stab 6 gleich).",
    "sort": 4180
   },
   {
@@ -7121,10 +7121,10 @@
    "example": "B in x: 10000·1·1·10⁻⁴",
    "example_result": 1,
    "example_case": "P-FW7 Gross TM 2 Bsp. 1.6, drei Stahlstäbe, F = 20 kN, σ_zul = 150 MPa",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "S̄ im Grundsystem bei unbestimmten Fachwerken (Reduktionssatz); unabhängig geprüft mit Clapeyron (Fehler < 10⁻¹⁵) und Maxwell.",
    "sort": 4190
   },
   {
@@ -7138,10 +7138,10 @@
    "example": "S2: −(0·-0,7071 + -10·-0,7071); Gleichungssystem -7,071 N, Abweichung 0 N",
    "example_result": -7.07106781187,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Dualität 1166 Werte gegen Gleichungssystem und Weggrößenverfahren; Gross Bsp. 8.6 für β = 30°, 60°, 120°.",
    "sort": 4200
   },
   {
@@ -7155,10 +7155,10 @@
    "example": "Stab S2 um 1 verkürzt, übrige Stäbe starr, Lager fest; max|δu| = 0,7071, Restfehler 0",
    "example_result": 0.707106781187,
    "example_case": "P-FW1 Dreieck Konzept Abschn. 1, F = 10 N, PdvV Stab S2",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "Vorzeichen: Bindung gibt in Richtung ihrer positiven Kraft nach (Stab um 1 verkürzt), von Seti am 25.11.2026 bestätigt; Verträglichkeit im Test für alle Stäbe geprüft.",
    "sort": 4210
   },
   {
@@ -7172,10 +7172,10 @@
    "example": "X1 = 5: X = −δ10/δ11 = −(-2,061) / 2,414·10⁻⁴",
    "example_result": 8535.53390593,
    "example_case": "P-FW11a Gross TM 2 Bsp. 6.9, innerlich unbestimmt, Überzählige Stab 5 wie Quelle",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-25",
+   "approved_by": "Claude (Selbstprüfung im Auftrag Seti)",
+   "comment": "bis 3 × 3 über Gauß; singuläre Wahl (z. B. Lager an einem Festlagerknoten) mit Fehlertext.",
    "sort": 4220
   },
   {
