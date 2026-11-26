@@ -120,6 +120,8 @@ if (dry) {
 for (const [dst, buf] of writes) { mkdirSync(dirname(dst), { recursive: true }); writeFileSync(dst, buf); }
 for (const k of stale) { const p = join(app, "src", k); if (existsSync(p)) rmSync(p); }
 writeFileSync(join(app, "src", coreDir, "README.md"), `# src/${coreDir} (eng-core ${pkg.version})\n\nNicht in dieser App bearbeiten. Quelle: Repo eng-core, eingespielt mit scripts/sync-to-app.mjs.\nPrüfsummen: MANIFEST.json. Formeln: FORMELKATALOG.md im Repo eng-core.\n${modText}`);
-writeFileSync(join(app, "src/data/README.md"), `# src/data (Werkstoffdaten ${snap.release.version})\n\nVersionierter Abzug aus Supabase (Tabellen wa_*), identisch mit dem Werkstoffatlas. Nicht in dieser App bearbeiten; neu erzeugen mit npm run data:pull im Repo eng-core.\n`);
+const dataReadme = join(app, "src/data/README.md");
+// Nur schreiben, wenn fehlend oder vom Sync selbst erzeugt (App-eigene README, z. B. Chemiewerk, bleibt unberührt).
+if (!existsSync(dataReadme) || readFileSync(dataReadme, "utf8").startsWith("# src/data (Werkstoffdaten ")) writeFileSync(dataReadme, `# src/data (Werkstoffdaten ${snap.release.version})\n\nVersionierter Abzug aus Supabase (Tabellen wa_*), identisch mit dem Werkstoffatlas. Nicht in dieser App bearbeiten; neu erzeugen mit npm run data:pull im Repo eng-core.\n`);
 writeFileSync(oldManifest, JSON.stringify(manifest, null, 1) + "\n");
 console.log(`eng-core ${pkg.version}${modules ? ` (Module ${modules.join(", ")})` : ""}: ${Object.keys(manifest.files).length} Dateien nach ${app} kopiert${stale.length ? `, ${stale.length} veraltete entfernt` : ""}${missing.length ? `; noch leer: ${missing.join(", ")}` : ""}`);
