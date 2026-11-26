@@ -6,7 +6,8 @@ import { computeLine, fdRepo, waterDensity, waterViscosity, saturationPressure, 
 import { waterSoundSpeed, walther, computeMeter, computeSurge, fitQuadratic, type WaltherInput, type MeterInput, type SurgeInput } from "../src/index";
 import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_FIELDS, type PressFitInput, type FitSpecIso } from "../src/index";
 import { computeBoltJoint, svRepo, jointDiagram, threadOf, threadProps, fmZul, gradeOf, tighteningTorque, tighteningTorqueExact, computeBoltUnpreloaded, coneLayers, type BoltJointInput, type PlateLayer } from "../src/index";
-import { elektrik } from "../src/index";
+import { elektrik, chemie } from "../src/index";
+import { CH_TABLE } from "../scripts/chemie-faelle";
 import { oringCatalog, computeOring, orRepo, crossSectionReduction, tolClassB, gapAllowed, compressionLimits, sizeOf, dimLimits, orCompressionProfile, orGapChart, type OringInput, type OrDim, type OrApplication } from "../src/index";
 import { computeTruss, trussPdvv, type TrussInput } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
@@ -62,7 +63,51 @@ export type Case =
   | { id: string; type: "eltool"; tool: elektrik.ToolId; inp: Record<string, number | string>; module?: string; abs?: boolean }
   | { id: string; type: "eleseries"; x: number; n: elektrik.ESeries; module?: string; abs?: boolean }
   | { id: string; type: "fw"; inp: TrussInput; Fref: number; uref: number; module?: string; abs?: boolean }
-  | { id: string; type: "fwdual"; inp: TrussInput; Fref: number; module?: string; abs?: boolean };
+  | { id: string; type: "fwdual"; inp: TrussInput; Fref: number; module?: string; abs?: boolean }
+  | { id: string; type: "chbal"; l: string[]; r: string[]; module?: string; abs?: boolean }
+  | { id: string; type: "chmass"; f: string; module?: string; abs?: boolean }
+  | { id: string; type: "chox"; f: string; module?: string; abs?: boolean }
+  | { id: string; type: "chredox"; l: string[]; r: string[]; m: chemie.RedoxMedium; module?: string; abs?: boolean }
+  | { id: string; type: "chstoich"; sp: Array<[string, "edukt" | "produkt", number, boolean]>; given: Array<[number, "m" | "n", number]>; gas: chemie.GasConditions; eta: number; module?: string; abs?: boolean }
+  | { id: string; type: "chnuc"; z: number; a: number; m: number; module?: string; abs?: boolean }
+  | { id: string; type: "chdecay"; N0: number; T: number; t: number; module?: string; abs?: boolean }
+  | { id: string; type: "chmean"; iso: Array<{ mass_u: number; abundance: number }>; module?: string; abs?: boolean }
+  | { id: string; type: "chcomp"; a: string; b: string; module?: string; abs?: boolean };
+
+type ChCase = Extract<Case, { type: `ch${string}` }>;
+const isCh = (c: Case): c is ChCase => c.type.startsWith("ch");
+/** Modul chemie (ab 0.24.0): Bilanz, Molmasse, Oxidationszahlen, Redox, Stöchiometrie, Kern, Zerfall, mittlere Atommasse, Vorschlag. */
+function evalCh(c: ChCase): Record<string, number | null> {
+  const sp = (l: string[], r: string[]): chemie.Species[] => [...l.map((f) => ({ formula: f, side: "edukt" as const })), ...r.map((f) => ({ formula: f, side: "produkt" as const }))];
+  if (c.type === "chbal") {
+    const r = chemie.balance(sp(c.l, c.r));
+    const o: Record<string, number | null> = { dim: r.status === "nicht_bilanzierbar" && r.basis.length === 1 ? -1 : r.basis.length };
+    r.coefficients.forEach((x, i) => { o[`c${i}`] = x; });
+    return o;
+  }
+  if (c.type === "chmass") return { Mr: chemie.molarMass(c.f, CH_TABLE).Mr };
+  if (c.type === "chox") return Object.fromEntries(chemie.oxidationStates(c.f, CH_TABLE).atoms.map((a) => [`ox_${a.element}`, a.ox.toNumber()]));
+  if (c.type === "chredox") {
+    const r = chemie.redox(sp(c.l, c.r), c.m, CH_TABLE);
+    const o: Record<string, number | null> = { z: r.electrons };
+    for (const t of r.terms) o[`c_${t.key}`] = t.side === "edukt" ? t.coefficient : -t.coefficient;
+    return o;
+  }
+  if (c.type === "chstoich") {
+    const S = c.sp.map(([f, side, nu, gas]) => ({ label: f, side, coefficient: nu, M: chemie.molarMass(f, CH_TABLE).M, gas }));
+    const r = chemie.stoichiometry(S, c.given.map(([index, kind, value]) => ({ index, kind, value })), c.gas, c.eta);
+    const o: Record<string, number | null> = { xi: r.xi };
+    r.rows.forEach((x, i) => { o[`n${i}`] = x.n; o[`m${i}`] = x.m; o[`V${i}`] = x.V; o[`rest${i}`] = x.rest_n; });
+    return o;
+  }
+  if (c.type === "chnuc") { const b = chemie.bindingEnergy(c.z, c.a, c.m); return { dm: b.massDefect_u, EB: b.E_B_MeV, EBA: b.E_B_per_A_MeV }; }
+  if (c.type === "chdecay") { const d = chemie.decay(c.N0, c.T, c.t); return { N: d.N, A: d.A }; }
+  if (c.type === "chmean") return { mean: chemie.meanAtomicMass(c.iso).mean };
+  const v = chemie.suggestCompound(c.a, c.b, CH_TABLE);
+  const o: Record<string, number | null> = { n: v.variants.length };
+  v.variants.forEach((x, k) => { const B = -x.anionOx; let g = x.cationOx, h = B; while (h) [g, h] = [h, g % h]; o[`x${k}`] = B / g; o[`y${k}`] = x.cationOx / g; });
+  return o;
+}
 
 /** Modul elektrik (ab 0.19.0): Netzwerk, Wechselstrom, Frequenzgang, Ersatzwiderstand, Vorlagen, Rechner, E-Reihen. */
 function evalEl(c: Extract<Case, { type: `el${string}` }>): Record<string, number | null> {
@@ -411,6 +456,7 @@ function evalFwDual(inp: TrussInput, Fref: number): Record<string, number | null
 }
 
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
+  if (isCh(c)) return evalCh(c);
   if (c.type === "fw") return evalFw(c.inp, c.Fref, c.uref);
   if (c.type === "fwdual") return evalFwDual(c.inp, c.Fref);
   if (c.type === "eldc" || c.type === "elac" || c.type === "elsweep" || c.type === "elreq" || c.type === "elsheet" || c.type === "eltool" || c.type === "eleseries") return evalEl(c);

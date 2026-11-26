@@ -20,6 +20,7 @@ import { computeOring, oringCatalog, orRepo } from "../src/index";
 import { orFaelle, orKatFaelle } from "./or-faelle";
 import { computeTruss } from "../src/index";
 import { fwFaelle } from "./fw-faelle";
+import { chemieFaelle } from "./chemie-faelle";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -37,7 +38,9 @@ export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Form
   // Greifwerk (ab 0.12.0)
   G: "Kinematik: Orientierung, Lage, DH und Vorwärtskinematik (Lynch/Park Kap. 3, 4 und Anhang B, C, Weber/Koch Kap. 2, 3, ISO 9787)",
   // Stromwerk (ab 0.19.0)
-  EL: "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)" };
+  EL: "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
+  // Chemiewerk (ab 0.24.0)
+  CH: "Chemie: Formel, molare Masse, Bilanz, Stöchiometrie, Oxidationszahlen, Redox, Verbindungsvorschlag, Isotope (IUPAC, CODATA 2022, AME2020, DIN 1343)" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
@@ -219,6 +222,8 @@ export function collectCatalog(): CatalogEntry[] {
   }
   // Elektrotechnik (0.19.0, Modul elektrik): Netze, Wechselstrom, Frequenzgang, Ersatzwiderstand, Grundlagen, Vorlagen, Rechner
   for (const f of elektrikFaelle()) f.steps.forEach((s) => take(s, f.text));
+  // Chemie (0.24.0, Modul chemie): Bilanzen, Redox, Molmassen, Formeln, Oxidationszahlen, Stöchiometrie, Vorschläge, Kern
+  for (const f of chemieFaelle()) f.steps.forEach((s) => take(s, f.text));
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));
 }
 

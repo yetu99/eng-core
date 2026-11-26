@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.23.0
+# Formelkatalog eng-core 0.24.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 934 Formeln, davon 934 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 991 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -18,6 +18,7 @@ Stand: 934 Formeln, davon 934 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | stabwerke | fachtools | FW | 19 | 19 |
 | kinematik | greifwerk | G | 71 | 71 |
 | elektrik | stromwerk | EL | 183 | 183 |
+| chemie | chemiewerk | CH | 57 | 57 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -147,6 +148,68 @@ Stand: 934 Formeln, davon 934 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | C-W0 | Ausgangsprofil Blatt 1: Widerstandsmoment | W₀ (siehe Q-…) | mm³ |  | freigegeben (2026-10-08, Seti) |
 | C-WK | Durchbiegungsbeiwert (Durchbiegung mal E·I) | w_k = f·E·I nach Lastfall, siehe B-F-… | N·mm³ | Ashby App. A.3; Roark Tab. 8.1 Fall 2e | freigegeben (2026-10-08, Seti) |
 | C-Z | Gesamtwertung | Z = α·m + C | € | Ashby (1999) Kap. 9.6, Austauschkonstante | freigegeben (2026-10-08, Seti) |
+
+## Chemie: Formel, molare Masse, Bilanz, Stöchiometrie, Oxidationszahlen, Redox, Verbindungsvorschlag, Isotope (IUPAC, CODATA 2022, AME2020, DIN 1343)
+
+| ID | Größe | Formel | Einheit | Quelle | Status |
+|---|---|---|---|---|---|
+| CH-B01 | Elementmatrix | a_ej = Anzahl Atome von Element e in Stoff j, Edukte positiv, Produkte negativ; bei Ionen Zeile Ladung a_zj = ± z_j | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-B02 | Nullraum (exakt) | A · ν = 0, Gauß-Jordan mit Brüchen, dim = n − Rang | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-B03 | Fallunterscheidung | dim 0: nicht bilanzierbar; dim 1: eindeutig; dim > 1: mehrdeutig | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-B04 | Vorzeichenprüfung | alle ν_j gleiches Vorzeichen und ≠ 0 | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-B05 | Kleinste ganze Koeffizienten | ν = v · kgV(Nenner von v), danach ÷ ggT aller Komponenten, Vorzeichen positiv | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-B06 | Probe | Σ links = Σ rechts je Element und Ladung | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-B07 | Ursache | Elemente nur auf einer Seite → Meldung mit allen solchen Elementen je Seite; sonst Atome und Ladung nicht ausgleichbar | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K01 | Neutronenzahl | N = A − Z | 1 | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K02 | Massendefekt | Δm = Z · m(¹H) + N · m_n − m_Atom | u | AME2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K03 | Bindungsenergie | E_B = Δm · m_u c², m_u c² = 931,494 103 72 MeV | MeV | CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K04 | Bindungsenergie je Nukleon | E_B / A | MeV | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K05 | Zerfallskonstante | λ = ln 2 / T½ | 1/s | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K06 | Anzahl | N(t) = N_0 · 2^(−t / T½) | 1 | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K07 | Aktivität | A(t) = λ · N(t) | Bq | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K08 | Anzahl aus Masse | N_0 = m / (A_r · m_u), A_r = Atommasse des Nuklids in u, m_u = 1,660 539 068 92 · 10⁻²⁷ kg | 1 | CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K09 | Zeit bis Restanteil | t = T½ · log₂(N_0 / N) | s | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-K10 | Mittlere Atommasse | Ā = Σ h_i · m_i / Σ h_i | u | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-M01 | Molare Masse H2O | M = Σ ν_i · A_r,i · M_u, M_u = 1 g/mol | kg/mol | IUPAC CIAAW 2021, Abzug ch_elements | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-M02 | Massenanteil H in H2O | w_i = ν_i · A_r,i / Σ ν_j · A_r,j | 1 | IUPAC CIAAW 2021 (Atomgewichte), IUPAC Green Book 3. Aufl. | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-M03 | Stoffmenge H₂ | n = m / M | mol | IUPAC CIAAW 2021 (Atomgewichte), IUPAC Green Book 3. Aufl. | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-M04 | Teilchenzahl | N = n · N_A, N_A = 6,022 140 76 · 10²³ 1/mol | 1 | IUPAC CIAAW 2021 (Atomgewichte), IUPAC Green Book 3. Aufl. | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-M05 | Ionen | M(Ion) = M(Atome), Elektronenmasse vernachlässigt | kg/mol | IUPAC CIAAW 2021 (Atomgewichte), IUPAC Green Book 3. Aufl. | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O01 | Elementare Form O₂ | nur ein Element, Ladung 0 → OZ = 0 | 1 | IUPAC Red Book IR-9.1 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O02 | Ion Fe³⁺ | OZ = Ladung / Anzahl | 1 | IUPAC Red Book IR-9.1 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O03 | Feste Regeln Fe₃O₄ | Rang 1 F −1; 2 Alkali +1, Erdalkali +2, Al +3; 3 H +1; 4 O −2; 5 Cl, Br, I −1 als elektronegativstes Element | 1 | IUPAC Red Book IR-9.1; Riedel/Janiak | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O04 | Ladungsbilanz Fe₃O₄ | OZ = (Ladung − Σ festgelegt) / Anzahl | 1 | IUPAC Red Book 2005 IR-9.1; Riedel, Janiak: Anorganische Chemie | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O05 | Regelkonflikt H₂O₂ | Summe ≠ Ladung: Regel mit niedrigstem Rang lösen, Element über Ladungsbilanz | 1 | IUPAC Red Book 2005 IR-9.1; Riedel, Janiak: Anorganische Chemie | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O06 | Schätzung CuFeS₂ | mehrere freie Elemente: elektronegativstes erhält seine negativste übliche OZ (markiert) | 1 | IUPAC Red Book 2005 IR-9.1; Riedel, Janiak: Anorganische Chemie | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-O07 | Probe O₂ | Σ Anzahl · OZ = Ladung | 1 | IUPAC Red Book 2005 IR-9.1; Riedel, Janiak: Anorganische Chemie | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P01 | Elemente und Indizes | Symbol aus 118 Elementen, Index ganze Zahl ≥ 1 (ohne Index 1) | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P02 | Gruppen | (…)_k und […]_k: Inhalt · k | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P03 | Hydrat oder Addukt | A·kB = A + k · B | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P04 | Ladung | z aus ^n±, ⁿ⁺/ⁿ⁻, {n±}; Vorzeichen ohne Ziffer davor = ±1; Ziffer direkt vor dem Vorzeichen ohne ^ → Meldung mit beiden Lesarten (CH-E1) | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P05 | Zustand | (s), (l), (g), (aq): gespeichert, nicht gezählt | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P06 | Eingabefehler | Formel nicht auswertbar → Meldung statt Rechnung | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-P07 | Summenformel (Hill) | mit C: C, H, Rest alphabetisch; ohne C: alphabetisch | 1 | IUPAC Red Book 2005 IR-4 (Formeln, Ladung), Hill-System | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R01 | Änderungen der Oxidationszahl | OZ steigt: oxidiert; OZ sinkt: reduziert | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R02 | Redoxpaare | je Element mit OZ-Änderung: Edukt und Produkt mit diesem Element | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R03 | Oxidation (Fe) | Zentralatom ausgleichen, O mit H₂O, H mit H⁺, Ladung mit e⁻ (basisch danach je H⁺ ein OH⁻ auf beiden Seiten); z = \|ΔOZ\| · Atomzahl | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R04 | Zuschauer | Element außer Zentralatom, H, O offen → Ionengleichung nötig | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R05 | Elektronenausgleich | Faktoren kgV(z_ox, z_red) / z | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R06 | Summengleichung | Halbreaktionen addieren, gleiche Stoffe verrechnen, durch ggT teilen | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R07 | Probe und Gegenprüfung | Elemente und Ladung ausgeglichen, e⁻ abgegeben = aufgenommen; Vergleich mit Modus A (Nullraum) | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-R08 | Übertragene Elektronen | z = Σ_X max(0, Δ_X), Δ_X = Σ_rechts ν·n·OZ − Σ_links ν·n·OZ | 1 | Mortimer, Müller: Chemie (Redoxreaktionen, Ionen-Elektronen-Methode) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S01 | Reaktionslaufzahl aus H₂ | ξ = n_k / ν_k | mol | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S02 | Limitierender Reaktant | ξ = min_k (n_k / ν_k) | mol | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S03 | Stoffmenge H₂ | n_i = ν_i · ξ | mol | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S04 | Masse H₂O | m_i = n_i · M_i | kg | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S05 | Überschuss O₂ | n_rest = n_k,0 − ν_k · ξ | mol | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S06 | Stoffmenge H₂O mit Ausbeute | n_i,ist = η · ν_i · ξ | mol | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S07 | Normvolumen H₂ | V = n · V_m,n, V_m,n = R · T_n / p_n (DIN 1343) | m³ | DIN 1343 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-S08 | Volumen H₂ (ideales Gas) | V = n · R · T / p | m³ | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-V01 | Rollen | höhere Elektronegativität = Anion (negativste übliche OZ), anderes Element = Kation (alle positiven üblichen OZ) | 1 | Pauling-Elektronegativität, Abzug ch_elements | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-V02 | Formel für Al +3 | K_x A_y mit x = \|b\| / ggT(a, \|b\|), y = a / ggT(a, \|b\|) | 1 | IUPAC Red Book 2005 IR-4.4; Pauling-Elektronegativität (Abzug ch_elements) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-V03 | Schreibweise | weniger elektronegatives Element zuerst; Hydride von B, C, Si, Ge, N, P, As, Sb mit Element zuerst | 1 | IUPAC Red Book IR-4.4 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-V04 | Bildungsgleichung Al2O3 | Elemente in Standardform (H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂, P₄, S₈, sonst einatomig), Bilanz über CH-B | 1 | IUPAC Red Book 2005 IR-4.4; Pauling-Elektronegativität (Abzug ch_elements) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-V05 | Kein Vorschlag | gleiches Element, fehlende Elektronegativität, keine negative übliche OZ, zwei Metalle → kein Vorschlag | 1 | IUPAC Red Book 2005 IR-4.4; Pauling-Elektronegativität (Abzug ch_elements) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 
 ## Bemessen
 

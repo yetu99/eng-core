@@ -42,9 +42,11 @@ describe("Modulregister src/modules.json", () => {
     expect([...traceGroupsOf("gemeinsam"), ...traceGroupsOf("festigkeit")].sort()).toEqual(["belastung", "bemessung", "ermuedung", "formfaktor", "nachweis", "querschnitt", "werkstoff"]);
     for (const m of MODULE_IDS) expect(new Set(traceGroupsOf(m)).size).toBe(traceGroupsOf(m).length);
   });
-  it("jede Katalogformel ist einem Modul zugeordnet (ab 0.23.0 Werkbank-Module, fluid, kinematik, verbindungen, elektrik, dichtungen und stabwerke)", () => {
+  it("jede Katalogformel ist einem Modul zugeordnet (ab 0.24.0 Werkbank-Module, fluid, kinematik, verbindungen, elektrik, dichtungen, stabwerke und chemie)", () => {
     for (const e of entries) expect(e.module).toBe(moduleOfId(e.id));
-    expect(new Set(entries.map((e) => e.module))).toEqual(new Set([...TOOLS.werkbank.modules, "fluid", "kinematik", "verbindungen", "elektrik", "dichtungen", "stabwerke"]));
+    expect(new Set(entries.map((e) => e.module))).toEqual(new Set([...TOOLS.werkbank.modules, "fluid", "kinematik", "verbindungen", "elektrik", "dichtungen", "stabwerke", "chemie"]));
+    expect(moduleOfId("CH-B01")).toBe("chemie");
+    expect(moduleOfId("C-M")).toBe("ashby");
   });
 });
 
@@ -131,14 +133,14 @@ describe("sync-to-app nach Modulen", () => {
   const app = () => { const d = mkdtempSync(join(tmpdir(), "app-")); writeFileSync(join(d, "package.json"), "{}"); return d; };
   const sync = (dir: string, ...extra: string[]) => execFileSync("node", ["scripts/sync-to-app.mjs", dir, ...extra], { cwd: root, encoding: "utf8" });
   const manifest = (dir: string) => JSON.parse(readFileSync(join(dir, "src/core/MANIFEST.json"), "utf8")) as { version: string; modules?: string[]; files: Record<string, string> };
-  it("--tool werkbank kopiert den ganzen Kern ohne die Module fluid, kinematik und verbindungen und ohne Fachdaten-Tabellen, Inhalte gleich", () => {
+  it("--tool werkbank kopiert den ganzen Kern ohne die Module fluid, kinematik, verbindungen und chemie und ohne Fachdaten-Tabellen, Inhalte gleich", () => {
     const a = app(), b = app();
     sync(a); sync(b, "--tool", "werkbank");
     const ma = manifest(a), mb = manifest(b);
-    const fluidOnly = (k: string) => k.startsWith("core/fluid/") || k.startsWith("core/kinematics/") || k.startsWith("core/joints/") || k.startsWith("core/electrical/") || k.startsWith("core/seals/") || k.startsWith("core/structures/") || (k.startsWith("data/fd/") && k !== "data/fd/snapshot.json");
+    const fluidOnly = (k: string) => k.startsWith("core/fluid/") || k.startsWith("core/kinematics/") || k.startsWith("core/joints/") || k.startsWith("core/electrical/") || k.startsWith("core/chemistry/") || k.startsWith("core/seals/") || k.startsWith("core/structures/") || (k.startsWith("data/fd/") && k !== "data/fd/snapshot.json");
     expect(Object.keys(mb.files)).toEqual(Object.keys(ma.files).filter((k) => !fluidOnly(k)));
     for (const k of Object.keys(mb.files)) if (k !== "core/index.ts") expect(mb.files[k], k).toBe(ma.files[k]);
-    const strip = (s: string) => s.split("\n").filter((l) => !l.includes("Gekürzt von") && l.trim() !== "*" && !l.includes("./fluid/") && !l.includes("./kinematics/") && !l.includes("./joints/") && !l.includes("./electrical/") && !l.includes("./seals/") && !l.includes("./structures/")).join("\n");
+    const strip = (s: string) => s.split("\n").filter((l) => !l.includes("Gekürzt von") && l.trim() !== "*" && !l.includes("./fluid/") && !l.includes("./kinematics/") && !l.includes("./joints/") && !l.includes("./electrical/") && !l.includes("./chemistry/") && !l.includes("./seals/") && !l.includes("./structures/")).join("\n");
     expect(strip(readFileSync(join(b, "src/core/index.ts"), "utf8"))).toBe(strip(readFileSync(join(a, "src/core/index.ts"), "utf8")));
     expect(mb.modules).toEqual(TOOLS.werkbank.modules);
     expect(mb.version).toBe(CORE_VERSION);
@@ -152,6 +154,16 @@ describe("sync-to-app nach Modulen", () => {
     expect(files.filter((f) => f.startsWith("data/fd/") && f !== "data/fd/snapshot.json").sort()).toEqual(["data/fd/mcu_boards.json", "data/fd/mcu_limits.json", "data/fd/mcu_pins.json", "data/fd/mcu_port_groups.json"]);
     expect(readFileSync(join(d, "src/engcore/index.ts"), "utf8")).toContain("./electrical/index");
     expect(m.modules).toEqual(["elektrik"]);
+  });
+  it("--tool chemiewerk (ab 0.24.0): nur Basis und Modul chemie, keine Werkstoff- und Fachdaten", () => {
+    const d = app();
+    sync(d, "--tool", "chemiewerk", "--core-dir", "engcore");
+    const m = JSON.parse(readFileSync(join(d, "src/engcore/MANIFEST.json"), "utf8")) as { modules?: string[]; files: Record<string, string> }, files = Object.keys(m.files);
+    expect(files.filter((f) => f.startsWith("engcore/") && f.split("/").length > 2).every((f) => f.startsWith("engcore/chemistry/"))).toBe(true);
+    for (const f of ["engcore/chemistry/balance.ts", "engcore/chemistry/redox.ts", "engcore/chemistry/nuclear.ts", "engcore/trace.ts"]) expect(files).toContain(f);
+    expect(files.some((f) => f.startsWith("data/fd/") && f !== "data/fd/snapshot.json")).toBe(false);
+    expect(readFileSync(join(d, "src/engcore/index.ts"), "utf8")).toContain("./chemistry/index");
+    expect(m.modules).toEqual(["chemie"]);
   });
   it("--tool fachtools: keine Werkbank-Module, Hülle vollständig, Index gekürzt, veraltete Dateien entfernt", () => {
     const d = app();

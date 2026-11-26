@@ -658,6 +658,12 @@ dichtungen.add_cases(cases, ref)
 import stabwerke
 stabwerke.add_cases(cases, ref)
 
+# ---------------------------------------------------------------- Chemie (eng-core 0.24.0, Modul chemie, Werkzeug Chemiewerk)
+# Unabhängige Python-Umsetzung in verification/chemie.py (sympy-Nullraum, Oxidationszahlen als lineares System, Halbreaktionen
+# über den Nullraum je Paar, Zerfall über exp(−λt)); Elementdaten aus test/fixtures/ch_snapshot.json.
+import chemie
+chemie.add_cases(cases, ref)
+
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))
 # Rückeinsetzen der Bemessung des Kerns in die eigene Lamé-Umsetzung: Ausnutzung 1 (geschlossen 10⁻⁹, Bisektion 10⁻⁶)

@@ -582939,5 +582939,1450 @@
    "res": 0.0
   },
   "tol": 1e-08
+ },
+ {
+  "id": "CH-B01 C3H8 + O2 -> CO2 + H2O",
+  "case": {
+   "id": "CH-B01 C3H8 + O2 -> CO2 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "C3H8",
+    "O2"
+   ],
+   "r": [
+    "CO2",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 1,
+   "c1": 5,
+   "c2": 3,
+   "c3": 4
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B02 KMnO4 + HCl -> KCl + MnCl2 + Cl2 + H2O",
+  "case": {
+   "id": "CH-B02 KMnO4 + HCl -> KCl + MnCl2 + Cl2 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "KMnO4",
+    "HCl"
+   ],
+   "r": [
+    "KCl",
+    "MnCl2",
+    "Cl2",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 2,
+   "c1": 16,
+   "c2": 2,
+   "c3": 2,
+   "c4": 5,
+   "c5": 8
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B03 Fe + Cl2 -> FeCl3",
+  "case": {
+   "id": "CH-B03 Fe + Cl2 -> FeCl3",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "Fe",
+    "Cl2"
+   ],
+   "r": [
+    "FeCl3"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 2,
+   "c1": 3,
+   "c2": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B04 NaOH + H2SO4 -> Na2SO4 + H2O",
+  "case": {
+   "id": "CH-B04 NaOH + H2SO4 -> Na2SO4 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "NaOH",
+    "H2SO4"
+   ],
+   "r": [
+    "Na2SO4",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 2,
+   "c1": 1,
+   "c2": 1,
+   "c3": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B05 Fe2O3 + CO -> Fe + CO2",
+  "case": {
+   "id": "CH-B05 Fe2O3 + CO -> Fe + CO2",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "Fe2O3",
+    "CO"
+   ],
+   "r": [
+    "Fe",
+    "CO2"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 1,
+   "c1": 3,
+   "c2": 2,
+   "c3": 3
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B06 N2 + H2 -> NH3",
+  "case": {
+   "id": "CH-B06 N2 + H2 -> NH3",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "N2",
+    "H2"
+   ],
+   "r": [
+    "NH3"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 1,
+   "c1": 3,
+   "c2": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B07 CuSO4·5H2O -> CuSO4 + H2O",
+  "case": {
+   "id": "CH-B07 CuSO4·5H2O -> CuSO4 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "CuSO4·5H2O"
+   ],
+   "r": [
+    "CuSO4",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 1,
+   "c1": 1,
+   "c2": 5
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B08 MnO4^- + Fe^2+ + H^+ -> Mn^2+ + Fe^3+ + H2O",
+  "case": {
+   "id": "CH-B08 MnO4^- + Fe^2+ + H^+ -> Mn^2+ + Fe^3+ + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "MnO4^-",
+    "Fe^2+",
+    "H^+"
+   ],
+   "r": [
+    "Mn^2+",
+    "Fe^3+",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 1,
+   "c1": 5,
+   "c2": 8,
+   "c3": 1,
+   "c4": 5,
+   "c5": 4
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B09 Ca(OH)2 + CO2 -> CaCO3 + H2O",
+  "case": {
+   "id": "CH-B09 Ca(OH)2 + CO2 -> CaCO3 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "Ca(OH)2",
+    "CO2"
+   ],
+   "r": [
+    "CaCO3",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 1,
+   "c1": 1,
+   "c2": 1,
+   "c3": 1
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B10 K4Fe(CN)6 + KMnO4 + H2SO4 -> KHSO4 + Fe2(SO4)3 + MnSO4 + HNO3 + CO2 + H2O",
+  "case": {
+   "id": "CH-B10 K4Fe(CN)6 + KMnO4 + H2SO4 -> KHSO4 + Fe2(SO4)3 + MnSO4 + HNO3 + CO2 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "K4Fe(CN)6",
+    "KMnO4",
+    "H2SO4"
+   ],
+   "r": [
+    "KHSO4",
+    "Fe2(SO4)3",
+    "MnSO4",
+    "HNO3",
+    "CO2",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 10,
+   "c1": 122,
+   "c2": 299,
+   "c3": 162,
+   "c4": 5,
+   "c5": 122,
+   "c6": 60,
+   "c7": 60,
+   "c8": 188
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B11 H2 + O2 -> H2O + H2O2",
+  "case": {
+   "id": "CH-B11 H2 + O2 -> H2O + H2O2",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "H2",
+    "O2"
+   ],
+   "r": [
+    "H2O",
+    "H2O2"
+   ]
+  },
+  "expect": {
+   "dim": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B12 Fe + O2 -> FeCl3",
+  "case": {
+   "id": "CH-B12 Fe + O2 -> FeCl3",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "Fe",
+    "O2"
+   ],
+   "r": [
+    "FeCl3"
+   ]
+  },
+  "expect": {
+   "dim": 0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B13 MnO4^- + H2O2 + H^+ -> Mn^2+ + O2 + H2O",
+  "case": {
+   "id": "CH-B13 MnO4^- + H2O2 + H^+ -> Mn^2+ + O2 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "MnO4^-",
+    "H2O2",
+    "H^+"
+   ],
+   "r": [
+    "Mn^2+",
+    "O2",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-B14 C8H18 + O2 -> CO2 + H2O",
+  "case": {
+   "id": "CH-B14 C8H18 + O2 -> CO2 + H2O",
+   "type": "chbal",
+   "module": "chemie",
+   "l": [
+    "C8H18",
+    "O2"
+   ],
+   "r": [
+    "CO2",
+    "H2O"
+   ]
+  },
+  "expect": {
+   "dim": 1,
+   "c0": 2,
+   "c1": 25,
+   "c2": 16,
+   "c3": 18
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-M H2O",
+  "case": {
+   "id": "CH-M H2O",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "H2O"
+  },
+  "expect": {
+   "Mr": 18.015
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M CO2",
+  "case": {
+   "id": "CH-M CO2",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "CO2"
+  },
+  "expect": {
+   "Mr": 44.009
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M H2SO4",
+  "case": {
+   "id": "CH-M H2SO4",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "H2SO4"
+  },
+  "expect": {
+   "Mr": 98.072
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M Fe3O4",
+  "case": {
+   "id": "CH-M Fe3O4",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "Fe3O4"
+  },
+  "expect": {
+   "Mr": 231.531
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M C6H12O6",
+  "case": {
+   "id": "CH-M C6H12O6",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "C6H12O6"
+  },
+  "expect": {
+   "Mr": 180.156
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M NaCl",
+  "case": {
+   "id": "CH-M NaCl",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "NaCl"
+  },
+  "expect": {
+   "Mr": 58.439769
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M CuSO4·5H2O",
+  "case": {
+   "id": "CH-M CuSO4·5H2O",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "CuSO4·5H2O"
+  },
+  "expect": {
+   "Mr": 249.67700000000002
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M [Cu(NH3)4]^2+",
+  "case": {
+   "id": "CH-M [Cu(NH3)4]^2+",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "[Cu(NH3)4]^2+"
+  },
+  "expect": {
+   "Mr": 131.67
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M Ca3(PO4)2",
+  "case": {
+   "id": "CH-M Ca3(PO4)2",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "Ca3(PO4)2"
+  },
+  "expect": {
+   "Mr": 310.17352400000004
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-M K4Fe(CN)6",
+  "case": {
+   "id": "CH-M K4Fe(CN)6",
+   "type": "chmass",
+   "module": "chemie",
+   "f": "K4Fe(CN)6"
+  },
+  "expect": {
+   "Mr": 368.34620000000007
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-O Fe3O4",
+  "case": {
+   "id": "CH-O Fe3O4",
+   "type": "chox",
+   "module": "chemie",
+   "f": "Fe3O4"
+  },
+  "expect": {
+   "ox_Fe": 2.6666666666666665,
+   "ox_O": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O KMnO4",
+  "case": {
+   "id": "CH-O KMnO4",
+   "type": "chox",
+   "module": "chemie",
+   "f": "KMnO4"
+  },
+  "expect": {
+   "ox_K": 1.0,
+   "ox_Mn": 7.0,
+   "ox_O": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O K2Cr2O7",
+  "case": {
+   "id": "CH-O K2Cr2O7",
+   "type": "chox",
+   "module": "chemie",
+   "f": "K2Cr2O7"
+  },
+  "expect": {
+   "ox_Cr": 6.0,
+   "ox_K": 1.0,
+   "ox_O": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O H2O2",
+  "case": {
+   "id": "CH-O H2O2",
+   "type": "chox",
+   "module": "chemie",
+   "f": "H2O2"
+  },
+  "expect": {
+   "ox_H": 1.0,
+   "ox_O": -1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O NaH",
+  "case": {
+   "id": "CH-O NaH",
+   "type": "chox",
+   "module": "chemie",
+   "f": "NaH"
+  },
+  "expect": {
+   "ox_H": -1.0,
+   "ox_Na": 1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O OF2",
+  "case": {
+   "id": "CH-O OF2",
+   "type": "chox",
+   "module": "chemie",
+   "f": "OF2"
+  },
+  "expect": {
+   "ox_F": -1.0,
+   "ox_O": 2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O KO2",
+  "case": {
+   "id": "CH-O KO2",
+   "type": "chox",
+   "module": "chemie",
+   "f": "KO2"
+  },
+  "expect": {
+   "ox_K": 1.0,
+   "ox_O": -0.5
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O S2O3^2-",
+  "case": {
+   "id": "CH-O S2O3^2-",
+   "type": "chox",
+   "module": "chemie",
+   "f": "S2O3^2-"
+  },
+  "expect": {
+   "ox_O": -2.0,
+   "ox_S": 2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O NH4^+",
+  "case": {
+   "id": "CH-O NH4^+",
+   "type": "chox",
+   "module": "chemie",
+   "f": "NH4^+"
+  },
+  "expect": {
+   "ox_H": 1.0,
+   "ox_N": -3.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O CH4",
+  "case": {
+   "id": "CH-O CH4",
+   "type": "chox",
+   "module": "chemie",
+   "f": "CH4"
+  },
+  "expect": {
+   "ox_C": -4.0,
+   "ox_H": 1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O C6H12O6",
+  "case": {
+   "id": "CH-O C6H12O6",
+   "type": "chox",
+   "module": "chemie",
+   "f": "C6H12O6"
+  },
+  "expect": {
+   "ox_C": 0.0,
+   "ox_H": 1.0,
+   "ox_O": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O HClO4",
+  "case": {
+   "id": "CH-O HClO4",
+   "type": "chox",
+   "module": "chemie",
+   "f": "HClO4"
+  },
+  "expect": {
+   "ox_Cl": 7.0,
+   "ox_H": 1.0,
+   "ox_O": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O ICl",
+  "case": {
+   "id": "CH-O ICl",
+   "type": "chox",
+   "module": "chemie",
+   "f": "ICl"
+  },
+  "expect": {
+   "ox_Cl": -1.0,
+   "ox_I": 1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O LiAlH4",
+  "case": {
+   "id": "CH-O LiAlH4",
+   "type": "chox",
+   "module": "chemie",
+   "f": "LiAlH4"
+  },
+  "expect": {
+   "ox_Al": 3.0,
+   "ox_H": -1.0,
+   "ox_Li": 1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O CuFeS2",
+  "case": {
+   "id": "CH-O CuFeS2",
+   "type": "chox",
+   "module": "chemie",
+   "f": "CuFeS2"
+  },
+  "expect": {
+   "ox_Cu": 2.0,
+   "ox_Fe": 2.0,
+   "ox_S": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O Hg2^2+",
+  "case": {
+   "id": "CH-O Hg2^2+",
+   "type": "chox",
+   "module": "chemie",
+   "f": "Hg2^2+"
+  },
+  "expect": {
+   "ox_Hg": 1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O CaH2",
+  "case": {
+   "id": "CH-O CaH2",
+   "type": "chox",
+   "module": "chemie",
+   "f": "CaH2"
+  },
+  "expect": {
+   "ox_Ca": 2.0,
+   "ox_H": -1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O Na2O2",
+  "case": {
+   "id": "CH-O Na2O2",
+   "type": "chox",
+   "module": "chemie",
+   "f": "Na2O2"
+  },
+  "expect": {
+   "ox_Na": 1.0,
+   "ox_O": -1.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O HCN",
+  "case": {
+   "id": "CH-O HCN",
+   "type": "chox",
+   "module": "chemie",
+   "f": "HCN"
+  },
+  "expect": {
+   "ox_C": 2.0,
+   "ox_H": 1.0,
+   "ox_N": -3.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-O Cr2O7^2-",
+  "case": {
+   "id": "CH-O Cr2O7^2-",
+   "type": "chox",
+   "module": "chemie",
+   "f": "Cr2O7^2-"
+  },
+  "expect": {
+   "ox_Cr": 6.0,
+   "ox_O": -2.0
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R01 MnO4^- + Fe^2+ -> Mn^2+ + Fe^3+ (sauer)",
+  "case": {
+   "id": "CH-R01 MnO4^- + Fe^2+ -> Mn^2+ + Fe^3+ (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "MnO4^-",
+    "Fe^2+"
+   ],
+   "r": [
+    "Mn^2+",
+    "Fe^3+"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 5,
+   "c_MnO4^-": 1,
+   "c_Mn^2+": -1,
+   "c_H2O": -4,
+   "c_H^+": 8,
+   "c_Fe^2+": 5,
+   "c_Fe^3+": -5
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R02 Cu + NO3^- -> Cu^2+ + NO (sauer)",
+  "case": {
+   "id": "CH-R02 Cu + NO3^- -> Cu^2+ + NO (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "Cu",
+    "NO3^-"
+   ],
+   "r": [
+    "Cu^2+",
+    "NO"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 6,
+   "c_Cu": 3,
+   "c_Cu^2+": -3,
+   "c_H2O": -4,
+   "c_H^+": 8,
+   "c_NO3^-": 2,
+   "c_NO": -2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R03 MnO4^- + H2O2 -> Mn^2+ + O2 (sauer)",
+  "case": {
+   "id": "CH-R03 MnO4^- + H2O2 -> Mn^2+ + O2 (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "MnO4^-",
+    "H2O2"
+   ],
+   "r": [
+    "Mn^2+",
+    "O2"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 10,
+   "c_MnO4^-": 2,
+   "c_Mn^2+": -2,
+   "c_H2O": -8,
+   "c_H^+": 6,
+   "c_H2O2": 5,
+   "c_O2": -5
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R04 Cr2O7^2- + SO3^2- -> Cr(OH)3 + SO4^2- (basisch)",
+  "case": {
+   "id": "CH-R04 Cr2O7^2- + SO3^2- -> Cr(OH)3 + SO4^2- (basisch)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "Cr2O7^2-",
+    "SO3^2-"
+   ],
+   "r": [
+    "Cr(OH)3",
+    "SO4^2-"
+   ],
+   "m": "basisch"
+  },
+  "expect": {
+   "z": 6,
+   "c_Cr2O7^2-": 1,
+   "c_CrH3O3": -2,
+   "c_H2O": 4,
+   "c_O3S^2-": 3,
+   "c_O4S^2-": -3,
+   "c_HO^-": -2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R05 Cl2 -> Cl^- + ClO^- (basisch)",
+  "case": {
+   "id": "CH-R05 Cl2 -> Cl^- + ClO^- (basisch)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "Cl2"
+   ],
+   "r": [
+    "Cl^-",
+    "ClO^-"
+   ],
+   "m": "basisch"
+  },
+  "expect": {
+   "z": 1,
+   "c_Cl2": 1,
+   "c_Cl^-": -1,
+   "c_H2O": -1,
+   "c_ClO^-": -1,
+   "c_HO^-": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R06 IO3^- + I^- -> I2 (sauer)",
+  "case": {
+   "id": "CH-R06 IO3^- + I^- -> I2 (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "IO3^-",
+    "I^-"
+   ],
+   "r": [
+    "I2"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 5,
+   "c_IO3^-": 1,
+   "c_I2": -3,
+   "c_H2O": -3,
+   "c_H^+": 6,
+   "c_I^-": 5
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R07 H2O2 + Fe^2+ -> Fe^3+ (sauer)",
+  "case": {
+   "id": "CH-R07 H2O2 + Fe^2+ -> Fe^3+ (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "H2O2",
+    "Fe^2+"
+   ],
+   "r": [
+    "Fe^3+"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 2,
+   "c_H2O2": 1,
+   "c_H2O": -2,
+   "c_H^+": 2,
+   "c_Fe^2+": 2,
+   "c_Fe^3+": -2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R08 MnO4^- + SO3^2- -> MnO2 + SO4^2- (basisch)",
+  "case": {
+   "id": "CH-R08 MnO4^- + SO3^2- -> MnO2 + SO4^2- (basisch)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "MnO4^-",
+    "SO3^2-"
+   ],
+   "r": [
+    "MnO2",
+    "SO4^2-"
+   ],
+   "m": "basisch"
+  },
+  "expect": {
+   "z": 6,
+   "c_MnO4^-": 2,
+   "c_MnO2": -2,
+   "c_H2O": 1,
+   "c_O3S^2-": 3,
+   "c_O4S^2-": -3,
+   "c_HO^-": -2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R09 Zn + NO3^- -> Zn^2+ + NH4^+ (sauer)",
+  "case": {
+   "id": "CH-R09 Zn + NO3^- -> Zn^2+ + NH4^+ (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "Zn",
+    "NO3^-"
+   ],
+   "r": [
+    "Zn^2+",
+    "NH4^+"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 8,
+   "c_Zn": 4,
+   "c_Zn^2+": -4,
+   "c_H2O": -3,
+   "c_H^+": 10,
+   "c_NO3^-": 1,
+   "c_H4N^+": -1
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-R10 Fe3O4 + MnO4^- -> Fe^3+ + Mn^2+ (sauer)",
+  "case": {
+   "id": "CH-R10 Fe3O4 + MnO4^- -> Fe^3+ + Mn^2+ (sauer)",
+   "type": "chredox",
+   "module": "chemie",
+   "l": [
+    "Fe3O4",
+    "MnO4^-"
+   ],
+   "r": [
+    "Fe^3+",
+    "Mn^2+"
+   ],
+   "m": "sauer"
+  },
+  "expect": {
+   "z": 5,
+   "c_Fe3O4": 5,
+   "c_Fe^3+": -15,
+   "c_H2O": -24,
+   "c_H^+": 48,
+   "c_MnO4^-": 1,
+   "c_Mn^2+": -1
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-S1 4 g H2 + 40 g O2 Normzustand",
+  "case": {
+   "id": "CH-S1 4 g H2 + 40 g O2 Normzustand",
+   "type": "chstoich",
+   "module": "chemie",
+   "sp": [
+    [
+     "H2",
+     "edukt",
+     2,
+     true
+    ],
+    [
+     "O2",
+     "edukt",
+     1,
+     true
+    ],
+    [
+     "H2O",
+     "produkt",
+     2,
+     false
+    ]
+   ],
+   "given": [
+    [
+     0,
+     "m",
+     0.004
+    ],
+    [
+     1,
+     "m",
+     0.04
+    ]
+   ],
+   "gas": {
+    "mode": "norm",
+    "T": 273.15,
+    "p": 101325
+   },
+   "eta": 1
+  },
+  "expect": {
+   "xi": 0.9920634920634921,
+   "n2": 1.9841269841269842,
+   "m2": 0.03574404761904762,
+   "V0": 0.04447216179566297,
+   "rest1": 0.25801463781962575
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-S2 1 mol O2, 298,15 K, 1e5 Pa, eta 0,85",
+  "case": {
+   "id": "CH-S2 1 mol O2, 298,15 K, 1e5 Pa, eta 0,85",
+   "type": "chstoich",
+   "module": "chemie",
+   "sp": [
+    [
+     "H2",
+     "edukt",
+     2,
+     true
+    ],
+    [
+     "O2",
+     "edukt",
+     1,
+     true
+    ],
+    [
+     "H2O",
+     "produkt",
+     2,
+     false
+    ]
+   ],
+   "given": [
+    [
+     1,
+     "n",
+     1.0
+    ]
+   ],
+   "gas": {
+    "mode": "frei",
+    "T": 298.15,
+    "p": 100000.0
+   },
+   "eta": 0.85
+  },
+  "expect": {
+   "xi": 1.0,
+   "n2": 1.7,
+   "m2": 0.0306255,
+   "V1": 0.02478957029602388
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-K 56-26",
+  "case": {
+   "id": "CH-K 56-26",
+   "type": "chnuc",
+   "module": "chemie",
+   "z": 26,
+   "a": 56,
+   "m": 55.934935537
+  },
+  "expect": {
+   "dm": 0.5284627741479966,
+   "EB": 492.25995815437284,
+   "EBA": 8.7903563956138
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-K 4-2",
+  "case": {
+   "id": "CH-K 4-2",
+   "type": "chnuc",
+   "module": "chemie",
+   "z": 2,
+   "a": 4,
+   "m": 4.002603254
+  },
+  "expect": {
+   "dm": 0.03037664191599987,
+   "EB": 28.295662835567683,
+   "EBA": 7.073915708891921
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-K 16-8",
+  "case": {
+   "id": "CH-K 16-8",
+   "type": "chnuc",
+   "module": "chemie",
+   "z": 8,
+   "a": 16,
+   "m": 15.994914619
+  },
+  "expect": {
+   "dm": 0.13700496466400125,
+   "EB": 127.61931676488412,
+   "EBA": 7.976207297805257
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-K 235-92",
+  "case": {
+   "id": "CH-K 235-92",
+   "type": "chnuc",
+   "module": "chemie",
+   "z": 92,
+   "a": 235,
+   "m": 235.043928117
+  },
+  "expect": {
+   "dm": 1.9150578141960182,
+   "EB": 1783.8650622065022,
+   "EBA": 7.590915158325541
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-K 2-1",
+  "case": {
+   "id": "CH-K 2-1",
+   "type": "chnuc",
+   "module": "chemie",
+   "z": 1,
+   "a": 2,
+   "m": 2.014101778
+  },
+  "expect": {
+   "dm": 0.0023881699579999527,
+   "EB": 2.224566234558196,
+   "EBA": 1.112283117279098
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-K 208-82",
+  "case": {
+   "id": "CH-K 208-82",
+   "type": "chnuc",
+   "module": "chemie",
+   "z": 82,
+   "a": 208,
+   "m": 207.976652005
+  },
+  "expect": {
+   "dm": 1.7567800341960265,
+   "EB": 1636.4302433866187,
+   "EBA": 7.867453093204897
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-Z 1e+20 3600 7200",
+  "case": {
+   "id": "CH-Z 1e+20 3600 7200",
+   "type": "chdecay",
+   "module": "chemie",
+   "N0": 1e+20,
+   "T": 3600.0,
+   "t": 7200.0
+  },
+  "expect": {
+   "N": 2.5e+19,
+   "A": 4813522087221842.0
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-Z 5e+15 1.66349e+08 3.15576e+07",
+  "case": {
+   "id": "CH-Z 5e+15 1.66349e+08 3.15576e+07",
+   "type": "chdecay",
+   "module": "chemie",
+   "N0": 5000000000000000.0,
+   "T": 166349000.0,
+   "t": 31557600.0
+  },
+  "expect": {
+   "N": 4383918302861959.5,
+   "A": 18267020.60988589
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-Z 1e+10 1.79874e+11 1e+11",
+  "case": {
+   "id": "CH-Z 1e+10 1.79874e+11 1e+11",
+   "type": "chdecay",
+   "module": "chemie",
+   "N0": 10000000000.0,
+   "T": 179874000000.0,
+   "t": 100000000000.0
+  },
+  "expect": {
+   "N": 6802114909.688096,
+   "A": 0.026212052722989817
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-A Z=17",
+  "case": {
+   "id": "CH-A Z=17",
+   "type": "chmean",
+   "module": "chemie",
+   "iso": [
+    {
+     "mass_u": 34.968852694,
+     "abundance": 0.758
+    },
+    {
+     "mass_u": 36.965902573,
+     "abundance": 0.242
+    }
+   ]
+  },
+  "expect": {
+   "mean": 35.452138764718
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Z=29",
+  "case": {
+   "id": "CH-A Z=29",
+   "type": "chmean",
+   "module": "chemie",
+   "iso": [
+    {
+     "mass_u": 62.929597119,
+     "abundance": 0.6915
+    },
+    {
+     "mass_u": 64.927789476,
+     "abundance": 0.3085
+    }
+   ]
+  },
+  "expect": {
+   "mean": 63.5460394611345
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Z=26",
+  "case": {
+   "id": "CH-A Z=26",
+   "type": "chmean",
+   "module": "chemie",
+   "iso": [
+    {
+     "mass_u": 53.939608189,
+     "abundance": 0.05845
+    },
+    {
+     "mass_u": 55.934935537,
+     "abundance": 0.91754
+    },
+    {
+     "mass_u": 56.93539195,
+     "abundance": 0.02119
+    },
+    {
+     "mass_u": 57.933273575,
+     "abundance": 0.00282
+    }
+   ]
+  },
+  "expect": {
+   "mean": 55.84514363816803
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-V Al+O",
+  "case": {
+   "id": "CH-V Al+O",
+   "type": "chcomp",
+   "module": "chemie",
+   "a": "Al",
+   "b": "O"
+  },
+  "expect": {
+   "n": 1,
+   "x0": 2,
+   "y0": 3
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-V Fe+O",
+  "case": {
+   "id": "CH-V Fe+O",
+   "type": "chcomp",
+   "module": "chemie",
+   "a": "Fe",
+   "b": "O"
+  },
+  "expect": {
+   "n": 2,
+   "x0": 1,
+   "y0": 1,
+   "x1": 2,
+   "y1": 3
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-V Mg+N",
+  "case": {
+   "id": "CH-V Mg+N",
+   "type": "chcomp",
+   "module": "chemie",
+   "a": "Mg",
+   "b": "N"
+  },
+  "expect": {
+   "n": 1,
+   "x0": 3,
+   "y0": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-V Xe+F",
+  "case": {
+   "id": "CH-V Xe+F",
+   "type": "chcomp",
+   "module": "chemie",
+   "a": "Xe",
+   "b": "F"
+  },
+  "expect": {
+   "n": 3,
+   "x0": 1,
+   "y0": 2,
+   "x1": 1,
+   "y1": 4,
+   "x2": 1,
+   "y2": 6
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-V Ca+Cl",
+  "case": {
+   "id": "CH-V Ca+Cl",
+   "type": "chcomp",
+   "module": "chemie",
+   "a": "Ca",
+   "b": "Cl"
+  },
+  "expect": {
+   "n": 1,
+   "x0": 1,
+   "y0": 2
+  },
+  "tol": 0
+ },
+ {
+  "id": "CH-V Ti+O",
+  "case": {
+   "id": "CH-V Ti+O",
+   "type": "chcomp",
+   "module": "chemie",
+   "a": "Ti",
+   "b": "O"
+  },
+  "expect": {
+   "n": 1,
+   "x0": 1,
+   "y0": 2
+  },
+  "tol": 0
  }
 ]

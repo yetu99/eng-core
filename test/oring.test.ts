@@ -16,7 +16,7 @@ const fall = (id: string): OringInput => orFaelle.find((f) => f.id === id)!.inp;
 
 describe("Fachdaten fd 1.4", () => {
   it("Stand, Zeilenzahlen, Version, Modul, Rechenweg-Gruppen", () => {
-    expect(CORE_VERSION).toBe("0.23.0");
+    expect(CORE_VERSION).toBe("0.24.0");
     expect(FD_VERSION).toBe("fd 1.5"); // ab eng-core 0.21.0 (Stromwerk Pinstrom), O-Ring-Tabellen unverändert
     expect(["oring_sizes", "oring_cs_tol", "oring_id_tol_a", "oring_grooves", "oring_compression", "oring_gap", "oring_surface", "oring_materials", "oring_media", "oring_cs_select", "fit_shaft_es"]
       .map((k) => FD_FILES[k]!.rows)).toEqual([349, 9, 32, 54, 20, 32, 14, 12, 327, 10, 13]);

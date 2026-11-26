@@ -15,7 +15,7 @@ const fall = (id: string): TrussInput => fwFaelle.find((f) => f.id === id)!.inp;
 const D = { A: 100, E: 2e5, Rp: 235, iGyr: 10 };
 
 describe("Stand", () => {
-  it("Kernversion 0.23.0", () => { expect(CORE_VERSION).toBe("0.23.0"); });
+  it("Kernversion 0.24.0", () => { expect(CORE_VERSION).toBe("0.24.0"); });
   it("verification/fw_faelle.json ist aktuell (npx tsx scripts/fw-json.ts)", () => {
     expect(readFileSync(new URL("../verification/fw_faelle.json", import.meta.url), "utf8")).toBe(fwJson());
   });

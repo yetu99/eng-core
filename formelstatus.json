@@ -760,6 +760,405 @@
     "durch": "Seti",
     "formel": "Z = α·m + C"
   },
+  "CH-B01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formeltext präzisiert (Atomanzahl, Vorzeichen, Ladungszeile). Matrix C3H8/O2/CO2/H2O von Hand geprüft: [3 0 −1 0; 8 0 0 −2; 0 2 −2 −1].",
+    "formel": "a_ej = Anzahl Atome von Element e in Stoff j, Edukte positiv, Produkte negativ; bei Ionen Zeile Ladung a_zj = ± z_j"
+  },
+  "CH-B02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Rang 3 bei 4 Stoffen, dim 1. Gegenrechnung sympy.Matrix.nullspace für 14 Gleichungen identisch (verification/chemie.py).",
+    "formel": "A · ν = 0, Gauß-Jordan mit Brüchen, dim = n − Rang"
+  },
+  "CH-B03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Alle drei Zweige geprüft: Propan dim 1, H2 + O2 → H2O + H2O2 dim 2, Fe + O2 → FeCl3 dim 0.",
+    "formel": "dim 0: nicht bilanzierbar; dim 1: eindeutig; dim > 1: mehrdeutig"
+  },
+  "CH-B04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Kontrollwert = Anzahl unzulässiger Stoffe (0). Fälle Null (Stoff nimmt nicht teil) und Vorzeichenwechsel (andere Seite) in test/chemie.test.ts.",
+    "formel": "alle ν_j gleiches Vorzeichen und ≠ 0"
+  },
+  "CH-B05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formeltext präzisiert (erst ×kgV der Nenner, dann ÷ggT der Komponenten). 1/4; 5/4; 3/4; 1 → 1; 5; 3; 4 nachgerechnet; großer Fall K4Fe(CN)6 + KMnO4 + H2SO4 mit 10, 122, 299, 162, 5, 122, 60, 60, 188 exakt.",
+    "formel": "ν = v · kgV(Nenner von v), danach ÷ ggT aller Komponenten, Vorzeichen positiv"
+  },
+  "CH-B06": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "C 3 = 3, H 8 = 8, O 10 = 10. Kontrollwert = größte Restabweichung (0).",
+    "formel": "Σ links = Σ rechts je Element und Ladung"
+  },
+  "CH-B07": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Korrigiert: Meldung nannte nur Cl, jetzt alle einseitigen Elemente je Seite (Cl fehlt links, O fehlt rechts). Kontrollwert = Anzahl solcher Elemente (2).",
+    "formel": "Elemente nur auf einer Seite → Meldung mit allen solchen Elementen je Seite; sonst Atome und Ladung nicht ausgleichbar"
+  },
+  "CH-K01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "N = 56 − 26 = 30.",
+    "formel": "N = A − Z"
+  },
+  "CH-K02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Atommassen, Elektronen über m(¹H) kompensiert. m(¹H) AME2020 1,007825031898 u, m_n CODATA 2022 1,00866491606 u (NIST SP 961 geprüft). Δm(⁵⁶Fe) = 0,528463 u.",
+    "formel": "Δm = Z · m(¹H) + N · m_n − m_Atom"
+  },
+  "CH-K03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "m_u c² = 931,49410372 MeV (CODATA 2022, NIST/PDG geprüft). 492,260 MeV; Literatur ⁵⁶Fe 492,26 MeV.",
+    "formel": "E_B = Δm · m_u c², m_u c² = 931,494 103 72 MeV"
+  },
+  "CH-K04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "8,7904 MeV je Nukleon wie Literatur (⁶²Ni/⁵⁶Fe Maximum ≈ 8,79). Weitere: ⁴He 7,0739, ¹⁶O 7,9762, ²³⁵U 7,5909, ²⁰⁸Pb 7,8675 MeV, alle mit Gegenrechnung gleich.",
+    "formel": "E_B / A"
+  },
+  "CH-K05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "ln 2 / 3600 s = 1,92541·10⁻⁴ 1/s.",
+    "formel": "λ = ln 2 / T½"
+  },
+  "CH-K06": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Zwei Halbwertszeiten → N_0/4. Gegenrechnung über exp(−λt) statt 2^(−t/T½), relativ < 1e-11.",
+    "formel": "N(t) = N_0 · 2^(−t / T½)"
+  },
+  "CH-K07": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "A = λN = 4,8135·10¹⁵ Bq. ¹⁴C 1 mg: A_0 = 1,6572·10⁸ Bq (Literatur spezifische Aktivität ¹⁴C ≈ 165 GBq/g).",
+    "formel": "A(t) = λ · N(t)"
+  },
+  "CH-K08": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formeltext und Rechenweg präzisiert (A_r in u als Zahl, m_u in kg, Einheiten jetzt stimmig). 1 mg ¹⁴C → 4,3005·10¹⁹ Atome.",
+    "formel": "N_0 = m / (A_r · m_u), A_r = Atommasse des Nuklids in u, m_u = 1,660 539 068 92 · 10⁻²⁷ kg"
+  },
+  "CH-K09": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "¹⁴C: T½ = 1,79874·10¹¹ s = 5700 a (NUBASE2020), 25 % nach 2 T½ = 11 400 a.",
+    "formel": "t = T½ · log₂(N_0 / N)"
+  },
+  "CH-K10": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Häufigkeiten Cl aus dem Abzug 0,758/0,242 (mendeleev); IUPAC 0,7576/0,2424 ergibt 35,4529 u. Differenz zum Standardatomgewicht 35,45 wird angezeigt, Normierung bei Σh ≠ 1 geprüft.",
+    "formel": "Ā = Σ h_i · m_i / Σ h_i"
+  },
+  "CH-M01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "18,015 g/mol (IUPAC konventionell H 1,008, O 15,999). Weitere Molmassen (CO2, H2SO4, Fe3O4, C6H12O6, NaCl, CuSO4·5H2O, Ca3(PO4)2, K4Fe(CN)6) mit Gegenrechnung gleich.",
+    "formel": "M = Σ ν_i · A_r,i · M_u, M_u = 1 g/mol"
+  },
+  "CH-M02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "w_H = 2,016 / 18,015 = 0,111907; Summe aller w_i = 1 geprüft.",
+    "formel": "w_i = ν_i · A_r,i / Σ ν_j · A_r,j"
+  },
+  "CH-M03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "4 g H2 / 2,016 g/mol = 1,98413 mol.",
+    "formel": "n = m / M"
+  },
+  "CH-M04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "N_A exakt (SI 2019).",
+    "formel": "N = n · N_A, N_A = 6,022 140 76 · 10²³ 1/mol"
+  },
+  "CH-M05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Nach CH-E3: keine Elektronenkorrektur, Hinweis an der Anzeige. SO4²⁻ 96,056 g/mol (Korrektur wäre +0,0011 g/mol).",
+    "formel": "M(Ion) = M(Atome), Elektronenmasse vernachlässigt"
+  },
+  "CH-O01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "O2 → 0. Einelementige Ionen über CH-O02 (Hg2²⁺ → +1 geprüft).",
+    "formel": "nur ein Element, Ladung 0 → OZ = 0"
+  },
+  "CH-O02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Fe³⁺ → +3.",
+    "formel": "OZ = Ladung / Anzahl"
+  },
+  "CH-O03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Rangfolge nach IUPAC Red Book IR-9.1 geprüft; Halogenregel nur als elektronegativstes Element (HClO4 → Cl +7, ICl → Cl −1, I +1).",
+    "formel": "Rang 1 F −1; 2 Alkali +1, Erdalkali +2, Al +3; 3 H +1; 4 O −2; 5 Cl, Br, I −1 als elektronegativstes Element"
+  },
+  "CH-O04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Fe3O4 → +8/3 als Bruch (gemittelt). KMnO4 Mn +7, K2Cr2O7 Cr +6, S2O3²⁻ S +2, NH4⁺ N −3, CH4 C −4, C6H12O6 C 0 geprüft.",
+    "formel": "OZ = (Ladung − Σ festgelegt) / Anzahl"
+  },
+  "CH-O05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Rechenweg zeigt jetzt die Summe der übrigen Atome ((0 − (+2)) / 2). Konflikte H2O2 O −1, NaH H −1, CaH2 H −1, LiAlH4 H −1, OF2 O +2, KO2 O −1/2, Na2O2 O −1 mit Gegenrechnung (lineares System) gleich.",
+    "formel": "Summe ≠ Ladung: Regel mit niedrigstem Rang lösen, Element über Ladungsbilanz"
+  },
+  "CH-O06": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Verfahren wie CH-E8 freigegeben, Ergebnis ausdrücklich als Schätzung markiert. Kritischer Hinweis: Literatur für CuFeS2 ist Cu +1, Fe +3; die Schätzung ergibt Cu +2, Fe +2, weil Cu im Abzug nur OZ +2 führt. FeS2 ergibt Fe +4 statt +2 (Disulfid). Konzept korrigiert, Ergänzung Cu +1 beim Steckbrief-Abgleich vorgemerkt.",
+    "formel": "mehrere freie Elemente: elektronegativstes erhält seine negativste übliche OZ (markiert)"
+  },
+  "CH-O07": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Probe exakt in Brüchen, Kontrollwert Restabweichung 0.",
+    "formel": "Σ Anzahl · OZ = Ladung"
+  },
+  "CH-P01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Kontrollwert = Anzahl Elemente. Groß/Klein: Co → Cobalt, CO → C + O, co → Meldung.",
+    "formel": "Symbol aus 118 Elementen, Index ganze Zahl ≥ 1 (ohne Index 1)"
+  },
+  "CH-P02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Ca(OH)2 → Ca 1, O 2, H 2; [Cu(NH3)4]²⁺ → Cu 1, N 4, H 12; Klammertiefe ≤ 6 geprüft.",
+    "formel": "(…)_k und […]_k: Inhalt · k"
+  },
+  "CH-P03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "CuSO4·5H2O → Cu 1, S 1, O 9, H 10; Trenner ·, *, ., • gleichwertig.",
+    "formel": "A·kB = A + k · B"
+  },
+  "CH-P04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formeltext um die Regel CH-E1 ergänzt. Eindeutig: Fe^2+, Fe²⁺, Fe{2+}, MnO4^-, MnO4⁻, H+, Cl-, OH-. Gemeldet mit beiden Lesarten: MnO4-, Fe2+, SO42-, NH4+.",
+    "formel": "z aus ^n±, ⁿ⁺/ⁿ⁻, {n±}; Vorzeichen ohne Ziffer davor = ±1; Ziffer direkt vor dem Vorzeichen ohne ^ → Meldung mit beiden Lesarten (CH-E1)"
+  },
+  "CH-P05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Zustand wird gespeichert, ändert die Zusammensetzung nicht; Stöchiometrie nutzt (g) für das Gasvolumen.",
+    "formel": "(s), (l), (g), (aq): gespeichert, nicht gezählt"
+  },
+  "CH-P06": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Fehlerfälle Xy2, Ca(OH2, H0, 2H2O, co, leer, Ca(OH)), (), Fe++, H· und zu tiefe Klammern liefern Meldungen statt Rechnung.",
+    "formel": "Formel nicht auswertbar → Meldung statt Rechnung"
+  },
+  "CH-P07": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Hill-System nach IUPAC geprüft: C2H5OH → C2H6O, CuSO4·5H2O → CuH10O9S, Ladung angehängt.",
+    "formel": "mit C: C, H, Rest alphabetisch; ohne C: alphabetisch"
+  },
+  "CH-R01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Mn +7 → +2, Fe +2 → +3 korrekt erkannt; Fall ohne OZ-Änderung meldet »keine Redoxreaktion«.",
+    "formel": "OZ steigt: oxidiert; OZ sinkt: reduziert"
+  },
+  "CH-R02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Paarbildung über das gemeinsame Element mit OZ-Änderung (nicht H/O bevorzugt). Disproportionierung Cl2, Komproportionierung IO3⁻/I⁻ und H2O als Partner bei H2O2 → H2O geprüft.",
+    "formel": "je Element mit OZ-Änderung: Edukt und Produkt mit diesem Element"
+  },
+  "CH-R03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Formeltext unabhängig vom Medium gefasst (vorher je Medium anderer Text, Stempel wäre instabil). Halbreaktionen gegen Mortimer/Müller: MnO4⁻ + 8 H⁺ + 5 e⁻ → Mn²⁺ + 4 H2O.",
+    "formel": "Zentralatom ausgleichen, O mit H₂O, H mit H⁺, Ladung mit e⁻ (basisch danach je H⁺ ein OH⁻ auf beiden Seiten); z = |ΔOZ| · Atomzahl"
+  },
+  "CH-R04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "KMnO4/MnCl2 meldet K, Cl als Zuschauer; Rechnung bricht definiert ab.",
+    "formel": "Element außer Zentralatom, H, O offen → Ionengleichung nötig"
+  },
+  "CH-R05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "kgV(1, 5) = 5.",
+    "formel": "Faktoren kgV(z_ox, z_red) / z"
+  },
+  "CH-R06": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "MnO4⁻ + 5 Fe²⁺ + 8 H⁺ → Mn²⁺ + 5 Fe³⁺ + 4 H2O (Lehrbuch). 10 Redoxfälle sauer und basisch mit Gegenrechnung (Nullraum je Halbreaktion) identisch, u. a. Cr2O7²⁻/SO3²⁻ basisch, Zn/NO3⁻ → NH4⁺, Fe3O4/MnO4⁻.",
+    "formel": "Halbreaktionen addieren, gleiche Stoffe verrechnen, durch ggT teilen"
+  },
+  "CH-R07": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Ladung 17 = 17. Gegenprüfung Modus A: gleich, bei MnO4⁻ + H2O2 korrekt »algebraisch mehrdeutig« (CH-E6).",
+    "formel": "Elemente und Ladung ausgeglichen, e⁻ abgegeben = aufgenommen; Vergleich mit Modus A (Nullraum)"
+  },
+  "CH-R08": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Δ_Cl = +10, Δ_Mn = −10 → z = 10. Ergänzt beim Bau: Probe auf bilanzierte Gleichung vorab, sonst Meldung.",
+    "formel": "z = Σ_X max(0, Δ_X), Δ_X = Σ_rechts ν·n·OZ − Σ_links ν·n·OZ"
+  },
+  "CH-S01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "ξ = 1,98413 mol / 2 = 0,992063 mol.",
+    "formel": "ξ = n_k / ν_k"
+  },
+  "CH-S02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "H2 limitierend (0,992 < 1,250 mol). Gleichstand innerhalb 1e-12 relativ als »stöchiometrisch«.",
+    "formel": "ξ = min_k (n_k / ν_k)"
+  },
+  "CH-S03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "n = ν · ξ.",
+    "formel": "n_i = ν_i · ξ"
+  },
+  "CH-S04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "m(H2O) = 35,744 g bei 4 g H2 und 40 g O2; Massenbilanz 4 + 40 = 35,744 + 8,256 g geprüft.",
+    "formel": "m_i = n_i · M_i"
+  },
+  "CH-S05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Rest O2 0,258015 mol = 8,256 g.",
+    "formel": "n_rest = n_k,0 − ν_k · ξ"
+  },
+  "CH-S06": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Ausbeute wirkt nur auf Produkte, 0 < η ≤ 1. η aus Ist- und Sollmasse über yieldOf.",
+    "formel": "n_i,ist = η · ν_i · ξ"
+  },
+  "CH-S07": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "V_m,n = R · 273,15 K / 101 325 Pa = 22,413 970 L/mol (CODATA: 22,41396954 L/mol), 1,98413 mol → 44,472 L.",
+    "formel": "V = n · V_m,n, V_m,n = R · T_n / p_n (DIN 1343)"
+  },
+  "CH-S08": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "298,15 K, 10⁵ Pa: 24,789570 L/mol. Volumen nur für gasförmige Stoffe, sonst leer.",
+    "formel": "V = n · R · T / p"
+  },
+  "CH-V01": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Pauling χ(Al) 1,61, χ(O) 3,44 aus dem Abzug. Immer als Vorschlag gekennzeichnet.",
+    "formel": "höhere Elektronegativität = Anion (negativste übliche OZ), anderes Element = Kation (alle positiven üblichen OZ)"
+  },
+  "CH-V02": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Al2O3, Mg3N2, NaCl, FeO und Fe2O3, XeF2/4/6, TiO2, CaCl2 mit Gegenrechnung (kgV) gleich.",
+    "formel": "K_x A_y mit x = |b| / ggT(a, |b|), y = a / ggT(a, |b|)"
+  },
+  "CH-V03": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Hydride mit Element zuerst nach IUPAC IR-4.4: NH3, CH4.",
+    "formel": "weniger elektronegatives Element zuerst; Hydride von B, C, Si, Ge, N, P, As, Sb mit Element zuerst"
+  },
+  "CH-V04": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Standardformen H2, N2, O2, F2, Cl2, Br2, I2, P4, S8; 4 Al + 3 O2 → 2 Al2O3.",
+    "formel": "Elemente in Standardform (H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂, P₄, S₈, sonst einatomig), Bilanz über CH-B"
+  },
+  "CH-V05": {
+    "status": "freigegeben",
+    "datum": "2026-11-26",
+    "durch": "Claude (Selbstprüfung im Auftrag Seti)",
+    "kommentar": "Fe + Cu (zwei Metalle), He + O (keine Elektronegativität), O + O (gleiches Element) ohne Vorschlag.",
+    "formel": "gleiches Element, fehlende Elektronegativität, keine negative übliche OZ, zwei Metalle → kein Vorschlag"
+  },
   "D-BIS": {
     "status": "freigegeben",
     "datum": "2026-10-08",
