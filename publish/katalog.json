@@ -2,7 +2,7 @@
  "core": "0.25.0",
  "data": "WDB 1.1.6",
  "formulas": 1047,
- "approved": 991,
+ "approved": 1047,
  "items": [
   {
    "id": "A-GR-X",
@@ -1953,10 +1953,10 @@
    "example": "k = 1·10¹³ · exp(−100 kJ/mol / (8,314462618 J/(mol·K) · 300 K))",
    "example_result": 0.0000387965665853,
    "example_case": "Arrhenius A = 10¹³ 1/s, E_A = 100 kJ/mol, 300 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1150
   },
   {
@@ -1970,10 +1970,10 @@
    "example": "E_A = 8,314462618 J/(mol·K) · ln(0,004 / 0,001) / (1/300 K − 1/320 K); A = 4,29497·10⁶",
    "example_result": 55326.2046878,
    "example_case": "Aktivierungsenergie aus k(300 K) = 10⁻³ und k(320 K) = 4 · 10⁻³ 1/s",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1160
   },
   {
@@ -1987,10 +1987,10 @@
    "example": "exp(55,3262 kJ/mol / R · (1/300 K − 1/320 K))",
    "example_result": 4,
    "example_case": "Aktivierungsenergie aus k(300 K) = 10⁻³ und k(320 K) = 4 · 10⁻³ 1/s",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1170
   },
   {
@@ -2004,10 +2004,10 @@
    "example": "c = 1000 mol/m³ · exp(−0,001 1/s · 600 s)",
    "example_result": 548.811636094,
    "example_case": "Zeitgesetz 1. Ordnung k = 10⁻³ 1/s, c₀ = 1 mol/L, t = 600 s, Umsatz 90 %",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1180
   },
   {
@@ -2021,10 +2021,10 @@
    "example": "t½ = ln 2 / 0,001 1/s",
    "example_result": 693.14718056,
    "example_case": "Zeitgesetz 1. Ordnung k = 10⁻³ 1/s, c₀ = 1 mol/L, t = 600 s, Umsatz 90 %",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1190
   },
   {
@@ -2038,10 +2038,10 @@
    "example": "t = −ln(1 − 0,9) / 0,001 1/s",
    "example_result": 2302.58509299,
    "example_case": "Zeitgesetz 1. Ordnung k = 10⁻³ 1/s, c₀ = 1 mol/L, t = 600 s, Umsatz 90 %",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1200
   },
   {
@@ -2055,10 +2055,10 @@
    "example": "n = 0: k = 0,478355 mol/(m³·s), R² = 0,901771; n = 1: k = 0,00120229 1/s, R² = 0,999972; n = 2: k = 4,17027·10⁻⁶ m³/(mol·s), R² = 0,902817",
    "example_result": 1,
    "example_case": "Reaktionsordnung aus Messreihe (6 Punkte)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Nur wahrscheinlichste Ordnung (größtes R²), keine Signifikanzprüfung. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1210
   },
   {
@@ -2191,10 +2191,10 @@
    "example": "lg K = −(-818,1 kJ/mol) / (8,314462618 J/(mol·K) · 298,15 K · ln 10)",
    "example_result": 143.32491907,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1290
   },
   {
@@ -2208,10 +2208,10 @@
    "example": "lg K = -2,168 − -8,812 kJ/mol / (R · ln 10) · (1/313,15 K − 1/298,15 K)",
    "example_result": -2.24194837656,
    "example_case": "lg K Phosphorsäure 1. Stufe bei 40 °C (van't Hoff)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1300
   },
   {
@@ -2225,10 +2225,10 @@
    "example": "A = (-356,3094; -0,06091964; 21834,37; 126,8339; -1,684915·10⁶; 0), T = 283,15 K",
    "example_result": -6.46334214824,
    "example_case": "lg K Kohlensäure 1. Stufe bei 10 °C (Temperaturfunktion PHREEQC)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Form wie PHREEQC (USGS TM 6-A43); Gültigkeit laut Quelle meist 0 bis 100 °C. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1310
   },
   {
@@ -2242,10 +2242,10 @@
    "example": "Q = 0,5^-1 · 0,2^-3 · 2^2 = 1000; K = 1·10⁻⁴ → rückwärts",
    "example_result": 1000,
    "example_case": "Reaktionsquotient N₂ + 3 H₂ ⇌ 2 NH₃, a = 0,5; 0,2; 2, K = 10⁻⁴, 700 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1320
   },
   {
@@ -2259,10 +2259,10 @@
    "example": "Δ_rG = 8,314462618 J/(mol·K) · 700 K · ln(1000 / 1·10⁻⁴)",
    "example_result": 93809.312636,
    "example_case": "Reaktionsquotient N₂ + 3 H₂ ⇌ 2 NH₃, a = 0,5; 0,2; 2, K = 10⁻⁴, 700 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1330
   },
   {
@@ -2276,10 +2276,10 @@
    "example": "K = 3,16228·10⁻⁵, p = 2·10⁷ Pa, ξ ∈ [0; 1] mol → n(N₂) = 0,637446 mol, n(H₂) = 1,91234 mol, n(NH₃) = 0,725107 mol",
    "example_result": 0.362553564001,
    "example_case": "Gleichgewicht Ammoniak, 1 mol N₂ + 3 mol H₂, K = 10^−4,5, 200 bar",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. ln Q steigt monoton in ξ (ideal); reine Phasen begrenzen ξ. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1340
   },
   {
@@ -3058,10 +3058,10 @@
    "example": "Δ_rH° = − 1 · -74,6 kJ/mol − 2 · 0 kJ/mol + 1 · -393,5 kJ/mol + 2 · -285,8 kJ/mol",
    "example_result": -890500,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1800
   },
   {
@@ -3075,10 +3075,10 @@
    "example": "Δ_rS° = − 1 · 186,3 J/(mol·K) − 2 · 205,2 J/(mol·K) + 1 · 213,8 J/(mol·K) + 2 · 70 J/(mol·K)",
    "example_result": -242.9,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1810
   },
   {
@@ -3092,10 +3092,10 @@
    "example": "Δ_rG° = − 1 · -50,5 kJ/mol − 2 · 0 kJ/mol + 1 · -394,4 kJ/mol + 2 · -237,1 kJ/mol",
    "example_result": -818100,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1820
   },
   {
@@ -3109,10 +3109,10 @@
    "example": "Δ_rG° = 179,2 kJ/mol − 1200 K · 160,2 J/(mol·K)",
    "example_result": -13040,
    "example_case": "Thermochemie Kalkbrennen CaCO₃ → CaO + CO₂ bei 1200 K (Ellingham)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Ellingham-Näherung (CH-E11): Δc_p = 0; Fehler wächst mit |T − 298 K|. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1830
   },
   {
@@ -3126,10 +3126,10 @@
    "example": "T_U = -890,5 kJ/mol / -242,9 J/(mol·K)",
    "example_result": 3666.11774393,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1840
   },
   {
@@ -3143,10 +3143,10 @@
    "example": "δ = -818,1 kJ/mol − (-890,5 kJ/mol − 298,15 K · -242,9 J/(mol·K))",
    "example_result": -20.635,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Abweichung nur aus gerundeten Tabellenwerten (Methan −20,6 J/mol). Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1850
   },
   {
@@ -3160,10 +3160,10 @@
    "example": "Q_p = 2 mol · -890,5 kJ/mol",
    "example_result": -1781000,
    "example_case": "Reaktionswärme: 2 mol Methan verbrannt",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1860
   },
   {
@@ -3177,10 +3177,10 @@
    "example": "a = 1, b = 4, c = 0, d = 0, e = 0: CH₄ + 2 O₂ → CO₂ + 2 H₂O",
    "example_result": 2,
    "example_case": "Brenn- und Heizwert CH4",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1870
   },
   {
@@ -3194,10 +3194,10 @@
    "example": "H_s,m = −(1 · -393,5 kJ/mol + 2 · -285,8 kJ/mol + 0 · -296,8 kJ/mol − (-74,6 kJ/mol))",
    "example_result": 890500,
    "example_case": "Brenn- und Heizwert CH4",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Bezug 25 °C, Produkte CO₂(g), H₂O(l), N₂, SO₂; N₂ ohne Beitrag (Δ_fH° = 0). Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1880
   },
   {
@@ -3211,10 +3211,10 @@
    "example": "H_i,m = 890,5 kJ/mol − 2 · (-241,8 kJ/mol − (-285,8 kJ/mol))",
    "example_result": 802500,
    "example_case": "Brenn- und Heizwert CH4",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1890
   },
   {
@@ -3228,10 +3228,10 @@
    "example": "H_s = 890,5 kJ/mol / 0,016043 kg/mol; H_i = 802,5 kJ/mol / 0,016043 kg/mol → H_i = 50,0218 MJ/kg",
    "example_result": 55507074.7366,
    "example_case": "Brenn- und Heizwert CH4",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1900
   },
   {
@@ -3245,10 +3245,10 @@
    "example": "H_s,n = 890,5 kJ/mol / 0,022414 m³/mol; H_i,n = 802,5 kJ/mol / 0,022414 m³/mol → H_i,n = 35,8036 MJ/m³",
    "example_result": 39729687.2476,
    "example_case": "Brenn- und Heizwert CH4",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Normzustand DIN 1343, ideales Gas (ohne Realgasfaktor); Methan 39,73 MJ/m³, ISO 6976 real 39,82 MJ/m³. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1910
   },
   {
@@ -3262,10 +3262,10 @@
    "example": "0,6 · 35,8036 MJ/m³ (CH₄) + 0,02 · 10,7879 MJ/m³ (H₂)",
    "example_result": 21697896.8863,
    "example_case": "Biogas 60 % CH₄, 2 % H₂, Rest CO₂ und N₂",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Inerte Anteile ohne Heizwert; Hinweis bei Σ x < 1. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1920
   },
   {
@@ -3364,10 +3364,10 @@
    "example": "pK_w = 14,5314 bei 10 °C → pH_n = 7,26571",
    "example_result": 14.5314116112,
    "example_case": "Ionenprodukt des Wassers bei 10 °C",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1980
   },
   {
@@ -3381,10 +3381,10 @@
    "example": "Essigsäure: c_T = 100 mmol/L, pK_s = 4,757; pK_w = 14",
    "example_result": 2.88137243995,
    "example_case": "Essigsäure 0,1 mol/L (ideal)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 1990
   },
   {
@@ -3398,10 +3398,10 @@
    "example": "α(CH₃COOH) = 0,986859; α(CH₃COO⁻) = 0,013141",
    "example_result": 0.986859025954,
    "example_case": "Essigsäure 0,1 mol/L (ideal)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2000
   },
   {
@@ -3415,10 +3415,10 @@
    "example": "pH = 4,757 + lg(100 / 100)",
    "example_result": 4.757,
    "example_case": "Acetatpuffer je 0,1 mol/L (Näherung)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2010
   },
   {
@@ -3432,10 +3432,10 @@
    "example": "β = 2,302585 · (1,3141 + 7,60979·10⁻⁹ + 1,29683) mmol/L",
    "example_result": 6.0118799876,
    "example_case": "Essigsäure 0,1 mol/L (ideal)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Exakt für bedingte Konstanten bei festem I. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2020
   },
   {
@@ -3449,10 +3449,10 @@
    "example": "I = ½ · (15 mmol/L · 1 + 1,08117·10⁻⁴ mmol/L · 1 + 1,22054·10⁻⁴ mmol/L · 1 + 6,03132·10⁻⁵ mmol/L · 0 + 4,99994 mmol/L · 1 + 4,99995 mmol/L · 4 + 4,79087·10⁻⁵ mmol/L · 9) / 1000",
    "example_result": 0.0200002024025,
    "example_case": "Phosphatpuffer 10 mmol/L mit 15 mmol/L Na⁺ (Davies)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2030
   },
   {
@@ -3466,10 +3466,10 @@
    "example": "lg γ = −0,510807 · 1 · (√0,0200002 / (1 + √0,0200002) − 0,3 · 0,0200002)",
    "example_result": 0.870514293559,
    "example_case": "Phosphatpuffer 10 mmol/L mit 15 mmol/L Na⁺ (Davies)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Davies bis I = 0,5 mol/L, darüber Fehlermeldung. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2040
   },
   {
@@ -3483,10 +3483,10 @@
    "example": "ϑ = 25 °C: ε_r = 78,3033, ρ_w = 997,045 kg/m³ (Kell)",
    "example_result": 0.510807290211,
    "example_case": "Phosphatpuffer 10 mmol/L mit 15 mmol/L Na⁺ (Davies)",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. ε_r Malmberg-Maryott, ρ_w Kell; A(25 °C) = 0,5108; gegen iapws-Dichte < 2·10⁻⁵. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2050
   },
   {
@@ -3500,10 +3500,10 @@
    "example": "c = 80 mg/L / 40,078 g/mol + 12 mg/L / 24,305 g/mol = 2,48983 mmol/L; °dH = 2,48983 / 0,178326 → mittel",
    "example_result": 13.9622374173,
    "example_case": "Wasserhärte 80 mg/L Ca, 12 mg/L Mg, K_S4,3 = 4 mmol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. 1 °dH = 0,17832 mmol/L aus M(CaO); Bereiche WRMG § 9. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2060
   },
   {
@@ -3517,10 +3517,10 @@
    "example": "KH = min(4 / 2; 2,48983) mmol/L = 2 mmol/L = 11,2154 °dH; NKH = 0,489833 mmol/L",
    "example_result": 2,
    "example_case": "Wasserhärte 80 mg/L Ca, 12 mg/L Mg, K_S4,3 = 4 mmol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2070
   },
   {
@@ -3534,10 +3534,10 @@
    "example": "pH = 7,5, K_S4,3 = 4 mmol/L, lg K₁ = -6,46334, lg K₂ = -10,4879, γ₁ = 0,912509, γ₂ = 0,693345 → CO₂ 0,334548, HCO₃⁻ 3,98914, CO₃²⁻ 0,00539869 mmol/L",
    "example_result": 4.32908190811,
    "example_case": "Kalk-Kohlensäure 10 °C, pH 7,5, Ca 2 mmol/L, K_S4,3 4 mmol/L, I 0,008 mol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Ohne Ionenpaare (CH-E14); Abweichung zu DIN 38404-10 im SI wenige Hundertstel. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2080
   },
   {
@@ -3551,10 +3551,10 @@
    "example": "SI = lg(0,693345 · 0,002 · 0,693345 · 5,39869·10⁻⁶ / 10^-8,34906)",
    "example_result": 0.0642753891824,
    "example_case": "Kalk-Kohlensäure 10 °C, pH 7,5, Ca 2 mmol/L, K_S4,3 4 mmol/L, I 0,008 mol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2090
   },
   {
@@ -3568,10 +3568,10 @@
    "example": "pH_C = 7,43556; ΔpH = 7,5 − 7,43556",
    "example_result": 7.43556079553,
    "example_case": "Kalk-Kohlensäure 10 °C, pH 7,5, Ca 2 mmol/L, K_S4,3 4 mmol/L, I 0,008 mol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. SI(pH) bei festem K_S4,3 hat ein Maximum; untere Nullstelle ist maßgeblich. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2100
   },
   {
@@ -3585,10 +3585,10 @@
    "example": "x = -0,0345168 mmol/L → D_C = -3,45465 mg/L CaCO₃",
    "example_result": -0.0345168433741,
    "example_case": "Kalk-Kohlensäure 10 °C, pH 7,5, Ca 2 mmol/L, K_S4,3 4 mmol/L, I 0,008 mol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. I beim Lösen konstant (Näherung); > 0 calcitlösend wie DIN 38404-10. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2110
   },
   {
@@ -3602,10 +3602,10 @@
    "example": "p_CO₂ = 3,34548·10⁻⁴ / 10^-1,26948 · 10⁵ Pa; β_CO₂ = 14,7231 mg/L",
    "example_result": 622.212397855,
    "example_case": "Kalk-Kohlensäure 10 °C, pH 7,5, Ca 2 mmol/L, K_S4,3 4 mmol/L, I 0,008 mol/L",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2120
   },
   {
@@ -3619,10 +3619,10 @@
    "example": "Δ = (6,1 − 6,2) mmol/L / (6,1 + 6,2) mmol/L",
    "example_result": -0.00813008130081,
    "example_case": "Wasseranalyse: Ionenstärke und Ionenbilanz",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2130
   },
   {
@@ -3636,10 +3636,10 @@
    "example": "I ≈ 1,6 · 10⁻⁵ · 500",
    "example_result": 0.008,
    "example_case": "Ionenstärke aus Leitfähigkeit 500 µS/cm",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Näherung Russell (1976), nur ohne Ionenanalyse. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2140
   },
   {
@@ -3653,10 +3653,10 @@
    "example": "E° = −147,1 kJ/mol / (2 · 96485,33212 C/mol)",
    "example_result": -0.762292033218,
    "example_case": "Standardpotential Zn²⁺/Zn aus Δ_rG° = 147,1 kJ/mol",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2150
   },
   {
@@ -3670,10 +3670,10 @@
    "example": "ΔE° = 0,3419 V − (-0,7618 V); Zellreaktion (z = 2): Cu^2+(aq) + Zn(s) → Cu(s) + Zn^2+(aq)",
    "example_result": 1.1037,
    "example_case": "Daniell-Element Zn | Zn²⁺ (0,1) || Cu²⁺ (1) | Cu, 25 °C",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Kathode = höheres Potential nach Nernst. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2160
   },
   {
@@ -3687,10 +3687,10 @@
    "example": "E = 0,3419 V − 8,314462618 J/(mol·K) · 298,15 K / (2 · 96485,33212 C/mol) · ln((1) / (1))",
    "example_result": 0.3419,
    "example_case": "Daniell-Element Zn | Zn²⁺ (0,1) || Cu²⁺ (1) | Cu, 25 °C",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. Aktivitäten als Eingabe (CH-E17). Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2170
   },
   {
@@ -3704,10 +3704,10 @@
    "example": "ΔE = 0,3419 V − (-0,79138 V)",
    "example_result": 1.13327967484,
    "example_case": "Daniell-Element Zn | Zn²⁺ (0,1) || Cu²⁺ (1) | Cu, 25 °C",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2180
   },
   {
@@ -3721,10 +3721,10 @@
    "example": "Δ_rG = −2 · 96485,33212 C/mol · 1,13328 V",
    "example_result": -218689.731632,
    "example_case": "Daniell-Element Zn | Zn²⁺ (0,1) || Cu²⁺ (1) | Cu, 25 °C",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2190
   },
   {
@@ -3738,10 +3738,10 @@
    "example": "lg K = 2 · 96485,33212 C/mol · 1,1037 V / (8,314462618 J/(mol·K) · 298,15 K · ln 10)",
    "example_result": 37.3127833852,
    "example_case": "Daniell-Element Zn | Zn²⁺ (0,1) || Cu²⁺ (1) | Cu, 25 °C",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2200
   },
   {
@@ -3755,10 +3755,10 @@
    "example": "E°₃ = (2 · -0,447 V + 1 · 0,771 V) / 3",
    "example_result": -0.041,
    "example_case": "Luther Fe³⁺/Fe aus Fe²⁺/Fe und Fe³⁺/Fe²⁺",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2210
   },
   {
@@ -3772,10 +3772,10 @@
    "example": "n = 1 · 10 A · 3600 s / (2 · 96485,33212 C/mol)",
    "example_result": 0.186556853813,
    "example_case": "Faraday Kupfer 10 A, 1 h",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2220
   },
   {
@@ -3789,10 +3789,10 @@
    "example": "m = 0,186557 mol · 0,063546 kg/mol",
    "example_result": 0.0118549418324,
    "example_case": "Faraday Kupfer 10 A, 1 h",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2230
   },
   {
@@ -3806,10 +3806,10 @@
    "example": "U_rev = 237,1 kJ/mol / (2 · 96485,33212 C/mol)",
    "example_result": 1.22868416775,
    "example_case": "Wasserelektrolyse 1,8 V, η_F = 0,98",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2240
   },
   {
@@ -3823,10 +3823,10 @@
    "example": "U_th = 285,8 kJ/mol / (2 · 96485,33212 C/mol)",
    "example_result": 1.48105413388,
    "example_case": "Wasserelektrolyse 1,8 V, η_F = 0,98",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2250
   },
   {
@@ -3840,10 +3840,10 @@
    "example": "η_U = 1,48105 V / 1,8 V; η_U,rev = 1,22868 V / 1,8 V = 0,682602",
    "example_result": 0.822807852155,
    "example_case": "Wasserelektrolyse 1,8 V, η_F = 0,98",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden. η_U auf Brennwert (U_th), zusätzlich η_U,rev. Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2260
   },
   {
@@ -3857,10 +3857,10 @@
    "example": "w = 2 · 96485,33212 C/mol · 1,8 V / (0,98 · 0,002016 kg/mol) = 48,8365 kWh/kg; η = 0,806352",
    "example_result": 175811465.239,
    "example_case": "Wasserelektrolyse 1,8 V, η_F = 0,98",
-   "status": "offen",
-   "approved_at": null,
-   "approved_by": null,
-   "comment": null,
+   "status": "freigegeben",
+   "approved_at": "2026-11-27",
+   "approved_by": "Claude (im Auftrag Seti)",
+   "comment": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
    "sort": 2270
   },
   {

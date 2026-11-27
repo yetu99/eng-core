@@ -760,6 +760,55 @@
     "durch": "Seti",
     "formel": "Z = α·m + C"
   },
+  "CH-A01": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "k = A · exp(−E_A / (R · T))"
+  },
+  "CH-A02": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "E_A = R · ln(k₂ / k₁) / (1/T₁ − 1/T₂); A = k₁ · exp(E_A / (R · T₁))"
+  },
+  "CH-A03": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "k(T₂) / k(T₁) = exp(E_A / R · (1/T₁ − 1/T₂))"
+  },
+  "CH-A04": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "n = 0: c = max(0, c₀ − k · t); n = 1: c = c₀ · exp(−k · t); n = 2: c = c₀ / (1 + k · c₀ · t)"
+  },
+  "CH-A05": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "n = 0: t½ = c₀ / (2 · k); n = 1: t½ = ln 2 / k; n = 2: t½ = 1 / (k · c₀)"
+  },
+  "CH-A06": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "n = 0: t_X = X · c₀ / k; n = 1: t_X = −ln(1 − X) / k; n = 2: t_X = X / (k · c₀ · (1 − X))"
+  },
+  "CH-A07": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Nur wahrscheinlichste Ordnung (größtes R²), keine Signifikanzprüfung. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Regression c, ln c, 1/c über t; Steigung −k, −k, +k; größtes R²"
+  },
   "CH-B01": {
     "status": "freigegeben",
     "datum": "2026-11-26",
@@ -808,6 +857,48 @@
     "durch": "Claude (Selbstprüfung im Auftrag Seti)",
     "kommentar": "Korrigiert: Meldung nannte nur Cl, jetzt alle einseitigen Elemente je Seite (Cl fehlt links, O fehlt rechts). Kontrollwert = Anzahl solcher Elemente (2).",
     "formel": "Elemente nur auf einer Seite → Meldung mit allen solchen Elementen je Seite; sonst Atome und Ladung nicht ausgleichbar"
+  },
+  "CH-G01": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "K = exp(−Δ_rG° / (R · T)), lg K = −Δ_rG° / (R · T · ln 10)"
+  },
+  "CH-G02": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "lg K(T) = lg K(T₁) − Δ_rH° / (R · ln 10) · (1/T − 1/T₁)"
+  },
+  "CH-G03": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Form wie PHREEQC (USGS TM 6-A43); Gültigkeit laut Quelle meist 0 bis 100 °C. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "lg K = A₁ + A₂ · T + A₃ / T + A₄ · lg T + A₅ / T² + A₆ · T²"
+  },
+  "CH-G04": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Q = Π a_i^ν_i; Q < K: läuft vorwärts, Q > K: rückwärts"
+  },
+  "CH-G05": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ_rG = Δ_rG° + R · T · ln Q = R · T · ln(Q / K)"
+  },
+  "CH-G06": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. ln Q steigt monoton in ξ (ideal); reine Phasen begrenzen ξ. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "n_i = n_i,0 + ν_i · ξ; Π a_i^ν_i = K mit a_i = x_i · p / p° (Gas), n_i / (V · c°) (gelöst), 1 (rein); Bisektion in ξ"
   },
   "CH-K01": {
     "status": "freigegeben",
@@ -1124,6 +1215,97 @@
     "kommentar": "298,15 K, 10⁵ Pa: 24,789570 L/mol. Volumen nur für gasförmige Stoffe, sonst leer.",
     "formel": "V = n · R · T / p"
   },
+  "CH-T01": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ_rH° = Σ ν_i · Δ_fH°_i (Produkte) − Σ ν_j · Δ_fH°_j (Edukte)"
+  },
+  "CH-T02": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ_rS° = Σ ν_i · S°_i (Produkte) − Σ ν_j · S°_j (Edukte)"
+  },
+  "CH-T03": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ_rG° = Σ ν_i · Δ_fG°_i (Produkte) − Σ ν_j · Δ_fG°_j (Edukte)"
+  },
+  "CH-T04": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Ellingham-Näherung (CH-E11): Δc_p = 0; Fehler wächst mit |T − 298 K|. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ_rG°(T) = Δ_rH° − T · Δ_rS°"
+  },
+  "CH-T05": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "T_U = Δ_rH° / Δ_rS°"
+  },
+  "CH-T06": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Abweichung nur aus gerundeten Tabellenwerten (Methan −20,6 J/mol). Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "δ = Δ_rG°(Δ_fG°) − (Δ_rH° − T° · Δ_rS°)"
+  },
+  "CH-T07": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Q_p = ξ · Δ_rH°"
+  },
+  "CH-T08": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "C_aH_bO_cN_dS_e + (a + b/4 + e − c/2) O₂ → a CO₂ + b/2 H₂O + d/2 N₂ + e SO₂"
+  },
+  "CH-T09": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Bezug 25 °C, Produkte CO₂(g), H₂O(l), N₂, SO₂; N₂ ohne Beitrag (Δ_fH° = 0). Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "H_s,m = −Δ_cH° = −(a · Δ_fH°(CO₂) + b/2 · Δ_fH°(H₂O, l) + e · Δ_fH°(SO₂) − Δ_fH°(Brennstoff))"
+  },
+  "CH-T10": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "H_i,m = −Δ_cH° mit Δ_fH°(H₂O, g) = H_s,m − b/2 · (Δ_fH°(H₂O, g) − Δ_fH°(H₂O, l))"
+  },
+  "CH-T11": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "H_s = H_s,m / M, H_i = H_i,m / M"
+  },
+  "CH-T12": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Normzustand DIN 1343, ideales Gas (ohne Realgasfaktor); Methan 39,73 MJ/m³, ISO 6976 real 39,82 MJ/m³. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "H_s,n = H_s,m / V_m,n, H_i,n = H_i,m / V_m,n"
+  },
+  "CH-T13": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Inerte Anteile ohne Heizwert; Hinweis bei Σ x < 1. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "H_i,n = Σ x_i · H_i,n,i (Volumenanteile x_i, Normzustand)"
+  },
   "CH-V01": {
     "status": "freigegeben",
     "datum": "2026-11-26",
@@ -1158,6 +1340,216 @@
     "durch": "Claude (Selbstprüfung im Auftrag Seti)",
     "kommentar": "Fe + Cu (zwei Metalle), He + O (keine Elektronegativität), O + O (gleiches Element) ohne Vorschlag.",
     "formel": "gleiches Element, fehlende Elektronegativität, keine negative übliche OZ, zwei Metalle → kein Vorschlag"
+  },
+  "CH-W01": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "pK_w = −lg K_w, pH_n = pK_w / 2"
+  },
+  "CH-W02": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "c_H⁺ − c_OH⁻ + Σ c_k · z_k + Σ c_T · Σ_i α_i · z_i = 0, pH = −lg a_H⁺"
+  },
+  "CH-W03": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "α_i = (Π_{j≤i} K_j / a_H^i / γ_i) / Σ_k (Π_{j≤k} K_j / a_H^k / γ_k)"
+  },
+  "CH-W04": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "pH = pK_s + lg(c_B / c_S)"
+  },
+  "CH-W05": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Exakt für bedingte Konstanten bei festem I. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "β = dc_B / dpH = ln 10 · (c_H⁺ + c_OH⁻ + Σ c_T · Σ_i (i − n̄)² · α_i)"
+  },
+  "CH-W06": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "I = ½ · Σ c_i · z_i²"
+  },
+  "CH-W07": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Davies bis I = 0,5 mol/L, darüber Fehlermeldung. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "lg γ = −A · z² · (√I / (1 + √I) − 0,3 · I)"
+  },
+  "CH-W07a": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. ε_r Malmberg-Maryott, ρ_w Kell; A(25 °C) = 0,5108; gegen iapws-Dichte < 2·10⁻⁵. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "A = 1,82483 · 10⁶ · √(ρ_w / (g/cm³)) / (ε_r · T)^(3/2); ε_r = 87,740 − 0,40008 · ϑ + 9,398 · 10⁻⁴ · ϑ² − 1,410 · 10⁻⁶ · ϑ³"
+  },
+  "CH-W08": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. 1 °dH = 0,17832 mmol/L aus M(CaO); Bereiche WRMG § 9. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "c(Ca + Mg) = β_Ca / M_Ca + β_Mg / M_Mg; 1 °dH = 10 mg/L CaO = 10 mg/L / M(CaO); WRMG: weich < 1,5, mittel ≤ 2,5, hart > 2,5 mmol/L"
+  },
+  "CH-W08b": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "KH = min(K_S4,3 / 2, GH); NKH = GH − KH"
+  },
+  "CH-W09": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Ohne Ionenpaare (CH-E14); Abweichung zu DIN 38404-10 im SI wenige Hundertstel. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "K_S4,3 = c_HCO₃ + 2 · c_CO₃ + c_OH − c_H → C_T = (K_S4,3 − c_OH + c_H) / (α₁ + 2 · α₂)"
+  },
+  "CH-W10": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "SI = lg(γ₂ · c_Ca · γ₂ · c_CO₃ / K_sp); SI < 0 calcitlösend, SI > 0 abscheidend"
+  },
+  "CH-W11": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. SI(pH) bei festem K_S4,3 hat ein Maximum; untere Nullstelle ist maßgeblich. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "pH_C: SI(pH_C) = 0; ΔpH = pH − pH_C"
+  },
+  "CH-W12": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. I beim Lösen konstant (Näherung); > 0 calcitlösend wie DIN 38404-10. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "x mit SI = 0 nach Lösen von x CaCO₃: Ca + x, C_T + x, K_S4,3 + 2x (I konstant); D_C = x · M(CaCO₃); > 0 calcitlösend"
+  },
+  "CH-W13": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "p_CO₂ = (c_CO₂ / c°) / K_H · p°; β_CO₂ = c_CO₂ · M(CO₂)"
+  },
+  "CH-W14": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ = (Σ c_i · z_i (Kationen) − Σ c_j · |z_j| (Anionen)) / (Σ Kationen + Σ Anionen)"
+  },
+  "CH-W15": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Näherung Russell (1976), nur ohne Ionenanalyse. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "I ≈ 1,6 · 10⁻⁵ · κ / (µS/cm)"
+  },
+  "CH-Z01": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "E° = −Δ_rG° / (z · F)"
+  },
+  "CH-Z02": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Kathode = höheres Potential nach Nernst. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "ΔE° = E°(Kathode) − E°(Anode); Kathode: höheres Potential, Reduktion"
+  },
+  "CH-Z03": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. Aktivitäten als Eingabe (CH-E17). Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "E = E° − R · T / (z · F) · ln(Π a_red^ν / Π a_ox^ν)"
+  },
+  "CH-Z04": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "ΔE = E(Kathode) − E(Anode)"
+  },
+  "CH-Z05": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "Δ_rG = −z · F · ΔE (Δ_rG° mit ΔE°)"
+  },
+  "CH-Z06": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "lg K = z · F · ΔE° / (R · T · ln 10)"
+  },
+  "CH-Z07": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "E°₃ = (z₁ · E°₁ + z₂ · E°₂) / (z₁ + z₂)"
+  },
+  "CH-Z08": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "n = η_F · I · t / (z · F); umgekehrt t = n · z · F / (η_F · I)"
+  },
+  "CH-Z09": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "m = n · M"
+  },
+  "CH-Z10": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "U_rev = Δ_rG° / (z · F)"
+  },
+  "CH-Z11": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "U_th = Δ_rH° / (z · F)"
+  },
+  "CH-Z12": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden. η_U auf Brennwert (U_th), zusätzlich η_U,rev. Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "η_U = U_th / U (Brennwert); η_U,rev = U_rev / U"
+  },
+  "CH-Z13": {
+    "status": "freigegeben",
+    "datum": "2026-11-27",
+    "durch": "Claude (im Auftrag Seti)",
+    "kommentar": "Gegenrechnung verification/chemie_v11.py bestanden.  Freigabe auf Anweisung Seti 27.11.2026.",
+    "formel": "w = z · F · U / (η_F · M); η = Δ_rH° / (w · M) = η_U · η_F"
   },
   "D-BIS": {
     "status": "freigegeben",
