@@ -2188,7 +2188,7 @@
    "formula": "K = exp(−Δ_rG° / (R · T)), lg K = −Δ_rG° / (R · T · ln 10)",
    "unit": "1",
    "source": "Atkins, de Paula: Physikalische Chemie Kap. 6 (Gleichgewicht, van't Hoff); Parkhurst, Appelo: PHREEQC 3, USGS TM 6-A43",
-   "example": "lg K = −-818,1 kJ/mol / (8,314462618 J/(mol·K) · 298,15 K · ln 10)",
+   "example": "lg K = −(-818,1 kJ/mol) / (8,314462618 J/(mol·K) · 298,15 K · ln 10)",
    "example_result": 143.32491907,
    "example_case": "Thermochemie CH₄ + 2 O₂ → CO₂ + 2 H₂O(l), 298,15 K",
    "status": "offen",

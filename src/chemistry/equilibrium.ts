@@ -15,7 +15,7 @@ const LN10 = Math.LN10;
 export function eqConstant(dG: number, T: number): { K: number; logK: number; step: CalcStep } {
   if (!(T > 0) || !Number.isFinite(dG)) throw new Error("T > 0 und Δ_rG° endlich");
   const logK = -dG / (R_GAS * T * LN10);
-  return { K: Math.pow(10, logK), logK, step: step("CH-G01", "Gleichgewichtskonstante", "K = exp(−Δ_rG° / (R · T)), lg K = −Δ_rG° / (R · T · ln 10)", `lg K = −${f6(dG / 1000)} kJ/mol / (8,314462618 J/(mol·K) · ${f6(T)} K · ln 10)`, logK, "1") };
+  return { K: Math.pow(10, logK), logK, step: step("CH-G01", "Gleichgewichtskonstante", "K = exp(−Δ_rG° / (R · T)), lg K = −Δ_rG° / (R · T · ln 10)", `lg K = −(${f6(dG / 1000)} kJ/mol) / (8,314462618 J/(mol·K) · ${f6(T)} K · ln 10)`, logK, "1") };
 }
 
 /** CH-G02 van't Hoff mit konstantem Δ_rH°: lg K(T) = lg K(T₁) − Δ_rH° / (R · ln 10) · (1/T − 1/T₁). */
