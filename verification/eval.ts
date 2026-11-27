@@ -8,6 +8,7 @@ import { computePressFit, pvRepo, fitLimits, selectFits, pressFitProfile, SHAFT_
 import { computeBoltJoint, svRepo, jointDiagram, threadOf, threadProps, fmZul, gradeOf, tighteningTorque, tighteningTorqueExact, computeBoltUnpreloaded, coneLayers, type BoltJointInput, type PlateLayer } from "../src/index";
 import { elektrik, chemie } from "../src/index";
 import { CH_TABLE } from "../scripts/chemie-faelle";
+import { evalChV11, CH_V11_TYPES, type ChV11Case } from "./eval_v11";
 import { oringCatalog, computeOring, orRepo, crossSectionReduction, tolClassB, gapAllowed, compressionLimits, sizeOf, dimLimits, orCompressionProfile, orGapChart, type OringInput, type OrDim, type OrApplication } from "../src/index";
 import { computeTruss, trussPdvv, type TrussInput } from "../src/index";
 import { computeStrength, designPressureStrength, designSize, sectionProps, multiConstraint, buildIndex, points, ranking, coverage, MAT_CLASSES, type StrengthInput, type SecType, type ConflictBasis, type FunctionName, type ObjectiveName, type FreeVar, type ShapeMode, type PhiSet, type MatClass, type Repo } from "../src/index";
@@ -72,10 +73,12 @@ export type Case =
   | { id: string; type: "chnuc"; z: number; a: number; m: number; module?: string; abs?: boolean }
   | { id: string; type: "chdecay"; N0: number; T: number; t: number; module?: string; abs?: boolean }
   | { id: string; type: "chmean"; iso: Array<{ mass_u: number; abundance: number }>; module?: string; abs?: boolean }
-  | { id: string; type: "chcomp"; a: string; b: string; module?: string; abs?: boolean };
+  | { id: string; type: "chcomp"; a: string; b: string; module?: string; abs?: boolean }
+  | ChV11Case;
 
-type ChCase = Extract<Case, { type: `ch${string}` }>;
-const isCh = (c: Case): c is ChCase => c.type.startsWith("ch");
+type ChCase = Exclude<Extract<Case, { type: `ch${string}` }>, ChV11Case>;
+const isV11 = (c: Case): c is ChV11Case => CH_V11_TYPES.has(c.type);
+const isCh = (c: Case): c is ChCase => c.type.startsWith("ch") && !CH_V11_TYPES.has(c.type);
 /** Modul chemie (ab 0.24.0): Bilanz, Molmasse, Oxidationszahlen, Redox, Stöchiometrie, Kern, Zerfall, mittlere Atommasse, Vorschlag. */
 function evalCh(c: ChCase): Record<string, number | null> {
   const sp = (l: string[], r: string[]): chemie.Species[] => [...l.map((f) => ({ formula: f, side: "edukt" as const })), ...r.map((f) => ({ formula: f, side: "produkt" as const }))];
@@ -456,6 +459,7 @@ function evalFwDual(inp: TrussInput, Fref: number): Record<string, number | null
 }
 
 export function evalCase(repo: Repo, c: Case): Record<string, number | null> {
+  if (isV11(c)) return evalChV11(c);
   if (isCh(c)) return evalCh(c);
   if (c.type === "fw") return evalFw(c.inp, c.Fref, c.uref);
   if (c.type === "fwdual") return evalFwDual(c.inp, c.Fref);

@@ -1,11 +1,11 @@
-# Formelkatalog eng-core 0.24.0
+# Formelkatalog eng-core 0.25.0
 
 Automatisch erzeugt mit `npx tsx scripts/formelkatalog.ts`. Nicht von Hand bearbeiten.
 Freigaben laufen über die Excel-Datei: `python3 scripts/formelfreigabe.py export` → ausfüllen → `python3 scripts/formelfreigabe.py import <datei.xlsx>`.
 
 Status: **Entwurf** = implementiert und gegengerechnet (verification/pruefung.py), **freigegeben** = vom Verantwortlichen geprüft, **abgelehnt** = Einwand offen (siehe unten), **geändert, neu prüfen** = Formel hat sich seit der Freigabe geändert.
 
-Stand: 991 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entwurf.
+Stand: 1047 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 56 Entwurf.
 
 | Modul | Werkzeug | Präfixe | Formeln | freigegeben |
 |---|---|---|---|---|
@@ -18,7 +18,7 @@ Stand: 991 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | stabwerke | fachtools | FW | 19 | 19 |
 | kinematik | greifwerk | G | 71 | 71 |
 | elektrik | stromwerk | EL | 183 | 183 |
-| chemie | chemiewerk | CH | 57 | 57 |
+| chemie | chemiewerk | CH | 113 | 57 |
 
 ## Werkstoffauswahl (Ashby Kap. 5 bis 7)
 
@@ -149,10 +149,17 @@ Stand: 991 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | C-WK | Durchbiegungsbeiwert (Durchbiegung mal E·I) | w_k = f·E·I nach Lastfall, siehe B-F-… | N·mm³ | Ashby App. A.3; Roark Tab. 8.1 Fall 2e | freigegeben (2026-10-08, Seti) |
 | C-Z | Gesamtwertung | Z = α·m + C | € | Ashby (1999) Kap. 9.6, Austauschkonstante | freigegeben (2026-10-08, Seti) |
 
-## Chemie: Formel, molare Masse, Bilanz, Stöchiometrie, Oxidationszahlen, Redox, Verbindungsvorschlag, Isotope (IUPAC, CODATA 2022, AME2020, DIN 1343)
+## Chemie: Formel, molare Masse, Bilanz, Stöchiometrie, Oxidationszahlen, Redox, Verbindungsvorschlag, Isotope, Thermochemie, Gleichgewicht, Kinetik, Elektrochemie, Wasserchemie (IUPAC, CODATA 2022, AME2020, DIN 1343, CRC, PHREEQC)
 
 | ID | Größe | Formel | Einheit | Quelle | Status |
 |---|---|---|---|---|---|
+| CH-A01 | Geschwindigkeitskonstante (Arrhenius) | k = A · exp(−E_A / (R · T)) | wie A | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
+| CH-A02 | Aktivierungsenergie aus zwei Messpunkten | E_A = R · ln(k₂ / k₁) / (1/T₁ − 1/T₂); A = k₁ · exp(E_A / (R · T₁)) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
+| CH-A03 | Beschleunigungsfaktor | k(T₂) / k(T₁) = exp(E_A / R · (1/T₁ − 1/T₂)) | 1 | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
+| CH-A04 | Zeitgesetz 1. Ordnung | n = 0: c = max(0, c₀ − k · t); n = 1: c = c₀ · exp(−k · t); n = 2: c = c₀ / (1 + k · c₀ · t) | mol/m³ | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
+| CH-A05 | Halbwertszeit 1. Ordnung | n = 0: t½ = c₀ / (2 · k); n = 1: t½ = ln 2 / k; n = 2: t½ = 1 / (k · c₀) | s | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
+| CH-A06 | Zeit bis Umsatz X, 1. Ordnung | n = 0: t_X = X · c₀ / k; n = 1: t_X = −ln(1 − X) / k; n = 2: t_X = X / (k · c₀ · (1 − X)) | s | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
+| CH-A07 | Reaktionsordnung aus Messreihe | Regression c, ln c, 1/c über t; Steigung −k, −k, +k; größtes R² | 1 | Atkins, de Paula: Physikalische Chemie Kap. 17, 18 (Zeitgesetze, Arrhenius) | Entwurf |
 | CH-B01 | Elementmatrix | a_ej = Anzahl Atome von Element e in Stoff j, Edukte positiv, Produkte negativ; bei Ionen Zeile Ladung a_zj = ± z_j | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-B02 | Nullraum (exakt) | A · ν = 0, Gauß-Jordan mit Brüchen, dim = n − Rang | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-B03 | Fallunterscheidung | dim 0: nicht bilanzierbar; dim 1: eindeutig; dim > 1: mehrdeutig | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
@@ -160,6 +167,12 @@ Stand: 991 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | CH-B05 | Kleinste ganze Koeffizienten | ν = v · kgV(Nenner von v), danach ÷ ggT aller Komponenten, Vorzeichen positiv | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-B06 | Probe | Σ links = Σ rechts je Element und Ladung | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-B07 | Ursache | Elemente nur auf einer Seite → Meldung mit allen solchen Elementen je Seite; sonst Atome und Ladung nicht ausgleichbar | 1 | Smith, Missen: Chemical Reaction Equilibrium Analysis Kap. 2 (Formelmatrix, Nullraum) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-G01 | Gleichgewichtskonstante | K = exp(−Δ_rG° / (R · T)), lg K = −Δ_rG° / (R · T · ln 10) | 1 | Atkins, de Paula: Physikalische Chemie Kap. 6 (Gleichgewicht, van't Hoff); Parkhurst, Appelo: PHREEQC 3, USGS TM 6-A43 | Entwurf |
+| CH-G02 | Temperaturabhängigkeit (van't Hoff, Δ_rH° konstant) | lg K(T) = lg K(T₁) − Δ_rH° / (R · ln 10) · (1/T − 1/T₁) | 1 | Atkins, de Paula: Physikalische Chemie Kap. 6 (Gleichgewicht, van't Hoff); Parkhurst, Appelo: PHREEQC 3, USGS TM 6-A43 | Entwurf |
+| CH-G03 | Temperaturfunktion (PHREEQC) | lg K = A₁ + A₂ · T + A₃ / T + A₄ · lg T + A₅ / T² + A₆ · T² | 1 | Parkhurst, Appelo: PHREEQC Version 3, USGS TM 6-A43 (2013) | Entwurf |
+| CH-G04 | Reaktionsquotient und Richtung | Q = Π a_i^ν_i; Q < K: läuft vorwärts, Q > K: rückwärts | 1 | Atkins, de Paula: Physikalische Chemie Kap. 6 (Gleichgewicht, van't Hoff); Parkhurst, Appelo: PHREEQC 3, USGS TM 6-A43 | Entwurf |
+| CH-G05 | Freie Reaktionsenthalpie bei Q | Δ_rG = Δ_rG° + R · T · ln Q = R · T · ln(Q / K) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 6 (Gleichgewicht, van't Hoff); Parkhurst, Appelo: PHREEQC 3, USGS TM 6-A43 | Entwurf |
+| CH-G06 | Gleichgewichtszusammensetzung | n_i = n_i,0 + ν_i · ξ; Π a_i^ν_i = K mit a_i = x_i · p / p° (Gas), n_i / (V · c°) (gelöst), 1 (rein); Bisektion in ξ | mol | Atkins, de Paula: Physikalische Chemie Kap. 6 (Gleichgewicht, van't Hoff); Parkhurst, Appelo: PHREEQC 3, USGS TM 6-A43 | Entwurf |
 | CH-K01 | Neutronenzahl | N = A − Z | 1 | AME2020, NUBASE2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-K02 | Massendefekt | Δm = Z · m(¹H) + N · m_n − m_Atom | u | AME2020, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-K03 | Bindungsenergie | E_B = Δm · m_u c², m_u c² = 931,494 103 72 MeV | MeV | CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
@@ -205,11 +218,54 @@ Stand: 991 Formeln, davon 991 freigegeben, 0 abgelehnt, 0 neu zu prüfen, 0 Entw
 | CH-S06 | Stoffmenge H₂O mit Ausbeute | n_i,ist = η · ν_i · ξ | mol | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-S07 | Normvolumen H₂ | V = n · V_m,n, V_m,n = R · T_n / p_n (DIN 1343) | m³ | DIN 1343 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-S08 | Volumen H₂ (ideales Gas) | V = n · R · T / p | m³ | Mortimer, Müller: Chemie (Stöchiometrie), DIN 1343, CODATA 2022 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-T01 | Reaktionsenthalpie (Hess) | Δ_rH° = Σ ν_i · Δ_fH°_i (Produkte) − Σ ν_j · Δ_fH°_j (Edukte) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T02 | Reaktionsentropie | Δ_rS° = Σ ν_i · S°_i (Produkte) − Σ ν_j · S°_j (Edukte) | J/(mol·K) | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T03 | Freie Reaktionsenthalpie bei 298,15 K | Δ_rG° = Σ ν_i · Δ_fG°_i (Produkte) − Σ ν_j · Δ_fG°_j (Edukte) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T04 | Freie Reaktionsenthalpie bei T (Ellingham, Δc_p = 0) | Δ_rG°(T) = Δ_rH° − T · Δ_rS° | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T05 | Umkehrtemperatur (Δ_rG° = 0) | T_U = Δ_rH° / Δ_rS° | K | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T06 | Probe Gibbs-Helmholtz bei 298,15 K | δ = Δ_rG°(Δ_fG°) − (Δ_rH° − T° · Δ_rS°) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T07 | Reaktionswärme (p konstant) | Q_p = ξ · Δ_rH° | J | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T08 | Verbrennungsgleichung | C_aH_bO_cN_dS_e + (a + b/4 + e − c/2) O₂ → a CO₂ + b/2 H₂O + d/2 N₂ + e SO₂ | mol/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T09 | Brennwert molar (H₂O flüssig) | H_s,m = −Δ_cH° = −(a · Δ_fH°(CO₂) + b/2 · Δ_fH°(H₂O, l) + e · Δ_fH°(SO₂) − Δ_fH°(Brennstoff)) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T10 | Heizwert molar (H₂O gasförmig) | H_i,m = −Δ_cH° mit Δ_fH°(H₂O, g) = H_s,m − b/2 · (Δ_fH°(H₂O, g) − Δ_fH°(H₂O, l)) | J/mol | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T11 | Brenn- und Heizwert massenbezogen | H_s = H_s,m / M, H_i = H_i,m / M | J/kg | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
+| CH-T12 | Brenn- und Heizwert volumenbezogen (Normzustand DIN 1343, ideales Gas) | H_s,n = H_s,m / V_m,n, H_i,n = H_i,m / V_m,n | J/m³ | DIN 1343, Verbrennung bei 25 °C | Entwurf |
+| CH-T13 | Heizwert eines Gasgemischs (ideal) | H_i,n = Σ x_i · H_i,n,i (Volumenanteile x_i, Normzustand) | J/m³ | Atkins, de Paula: Physikalische Chemie Kap. 2, 3 (Hess, Gibbs-Helmholtz, Ellingham); Daten CRC Handbook (ch_thermo); DIN 1343; DIN EN ISO 6976 (Begriffe Brenn- und Heizwert) | Entwurf |
 | CH-V01 | Rollen | höhere Elektronegativität = Anion (negativste übliche OZ), anderes Element = Kation (alle positiven üblichen OZ) | 1 | Pauling-Elektronegativität, Abzug ch_elements | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-V02 | Formel für Al +3 | K_x A_y mit x = \|b\| / ggT(a, \|b\|), y = a / ggT(a, \|b\|) | 1 | IUPAC Red Book 2005 IR-4.4; Pauling-Elektronegativität (Abzug ch_elements) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-V03 | Schreibweise | weniger elektronegatives Element zuerst; Hydride von B, C, Si, Ge, N, P, As, Sb mit Element zuerst | 1 | IUPAC Red Book IR-4.4 | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-V04 | Bildungsgleichung Al2O3 | Elemente in Standardform (H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂, P₄, S₈, sonst einatomig), Bilanz über CH-B | 1 | IUPAC Red Book 2005 IR-4.4; Pauling-Elektronegativität (Abzug ch_elements) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
 | CH-V05 | Kein Vorschlag | gleiches Element, fehlende Elektronegativität, keine negative übliche OZ, zwei Metalle → kein Vorschlag | 1 | IUPAC Red Book 2005 IR-4.4; Pauling-Elektronegativität (Abzug ch_elements) | freigegeben (2026-11-26, Claude (Selbstprüfung im Auftrag Seti)) |
+| CH-W01 | Ionenprodukt des Wassers | pK_w = −lg K_w, pH_n = pK_w / 2 | 1 | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W02 | pH aus der Ladungsbilanz | c_H⁺ − c_OH⁻ + Σ c_k · z_k + Σ c_T · Σ_i α_i · z_i = 0, pH = −lg a_H⁺ | 1 | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W03 | Speziesverteilung Essigsäure | α_i = (Π_{j≤i} K_j / a_H^i / γ_i) / Σ_k (Π_{j≤k} K_j / a_H^k / γ_k) | 1 | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W04 | Henderson-Hasselbalch (Näherung) | pH = pK_s + lg(c_B / c_S) | 1 | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W05 | Pufferkapazität | β = dc_B / dpH = ln 10 · (c_H⁺ + c_OH⁻ + Σ c_T · Σ_i (i − n̄)² · α_i) | mol/m³ | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W06 | Ionenstärke | I = ½ · Σ c_i · z_i² | mol/L | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W07 | Aktivitätskoeffizient (Davies), z = 1 | lg γ = −A · z² · (√I / (1 + √I) − 0,3 · I) | 1 | Davies: Ion Association (1962) | Entwurf |
+| CH-W07a | Debye-Hückel-Konstante | A = 1,82483 · 10⁶ · √(ρ_w / (g/cm³)) / (ε_r · T)^(3/2); ε_r = 87,740 − 0,40008 · ϑ + 9,398 · 10⁻⁴ · ϑ² − 1,410 · 10⁻⁶ · ϑ³ | (L/mol)^½ | Robinson, Stokes: Electrolyte Solutions; Malmberg, Maryott, J. Res. NBS 56 (1956) 1; Kell, J. Chem. Eng. Data 20 (1975) 97 | Entwurf |
+| CH-W08 | Gesamthärte | c(Ca + Mg) = β_Ca / M_Ca + β_Mg / M_Mg; 1 °dH = 10 mg/L CaO = 10 mg/L / M(CaO); WRMG: weich < 1,5, mittel ≤ 2,5, hart > 2,5 mmol/L | °dH | WRMG § 9; DIN 38409-6 | Entwurf |
+| CH-W08b | Karbonat- und Nichtkarbonathärte | KH = min(K_S4,3 / 2, GH); NKH = GH − KH | mol/m³ | DIN 38409-7 | Entwurf |
+| CH-W09 | Gesamter anorganischer Kohlenstoff aus K_S4,3 | K_S4,3 = c_HCO₃ + 2 · c_CO₃ + c_OH − c_H → C_T = (K_S4,3 − c_OH + c_H) / (α₁ + 2 · α₂) | mol/m³ | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W10 | Sättigungsindex Calcit | SI = lg(γ₂ · c_Ca · γ₂ · c_CO₃ / K_sp); SI < 0 calcitlösend, SI > 0 abscheidend | 1 | DIN 38404-10 (Begriffe); Konstanten PHREEQC | Entwurf |
+| CH-W11 | pH bei Calcitsättigung (gleiches Ca und K_S4,3) | pH_C: SI(pH_C) = 0; ΔpH = pH − pH_C | 1 | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W12 | Calcitlösekapazität (geschlossenes System) | x mit SI = 0 nach Lösen von x CaCO₃: Ca + x, C_T + x, K_S4,3 + 2x (I konstant); D_C = x · M(CaCO₃); > 0 calcitlösend | mol/m³ | Begriff nach DIN 38404-10 | Entwurf |
+| CH-W13 | CO₂-Partialdruck im Gleichgewicht und freies CO₂ | p_CO₂ = (c_CO₂ / c°) / K_H · p°; β_CO₂ = c_CO₂ · M(CO₂) | Pa | Stumm, Morgan: Aquatic Chemistry, 3. Aufl. Kap. 3, 4; DIN 38404-10 (Calcitsättigung, Begriffe); WRMG § 9; Davies (1962) | Entwurf |
+| CH-W14 | Ionenbilanz | Δ = (Σ c_i · z_i (Kationen) − Σ c_j · \|z_j\| (Anionen)) / (Σ Kationen + Σ Anionen) | 1 | Richtwert \|Δ\| ≤ 5 % (DVGW W 216) | Entwurf |
+| CH-W15 | Ionenstärke aus Leitfähigkeit (Näherung) | I ≈ 1,6 · 10⁻⁵ · κ / (µS/cm) | mol/L | Russell, J. AWWA 68 (1976) 499 | Entwurf |
+| CH-Z01 | Standardpotential aus der freien Reaktionsenthalpie | E° = −Δ_rG° / (z · F) | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z02 | Standard-Zellspannung | ΔE° = E°(Kathode) − E°(Anode); Kathode: höheres Potential, Reduktion | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z03 | Nernst-Gleichung Cu²⁺/Cu | E = E° − R · T / (z · F) · ln(Π a_red^ν / Π a_ox^ν) | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z04 | Zellspannung | ΔE = E(Kathode) − E(Anode) | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z05 | Freie Reaktionsenthalpie aus der Zellspannung | Δ_rG = −z · F · ΔE (Δ_rG° mit ΔE°) | J/mol | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z06 | Gleichgewichtskonstante der Zellreaktion | lg K = z · F · ΔE° / (R · T · ln 10) | 1 | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z07 | Regel von Luther | E°₃ = (z₁ · E°₁ + z₂ · E°₂) / (z₁ + z₂) | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z08 | Faraday: Stoffmenge aus Strom und Zeit | n = η_F · I · t / (z · F); umgekehrt t = n · z · F / (η_F · I) | mol | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z09 | Faraday: Masse | m = n · M | kg | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z10 | Reversible Zellspannung | U_rev = Δ_rG° / (z · F) | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z11 | Thermoneutrale Spannung | U_th = Δ_rH° / (z · F) | V | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z12 | Spannungswirkungsgrad | η_U = U_th / U (Brennwert); η_U,rev = U_rev / U | 1 | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
+| CH-Z13 | Spezifischer Energiebedarf und Gesamtwirkungsgrad | w = z · F · U / (η_F · M); η = Δ_rH° / (w · M) = η_U · η_F | J/kg | Hamann, Vielstich: Elektrochemie; Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985); CODATA 2022 (F exakt) | Entwurf |
 
 ## Bemessen
 

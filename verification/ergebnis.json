@@ -1,6 +1,6 @@
 {
- "passed": 24141,
- "total": 24141,
+ "passed": 24531,
+ "total": 24531,
  "modules": {
   "gemeinsam": {
    "passed": 173,
@@ -39,8 +39,8 @@
    "total": 6228
   },
   "chemie": {
-   "passed": 247,
-   "total": 247
+   "passed": 637,
+   "total": 637
   }
  }
 }

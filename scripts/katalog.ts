@@ -21,6 +21,7 @@ import { orFaelle, orKatFaelle } from "./or-faelle";
 import { computeTruss } from "../src/index";
 import { fwFaelle } from "./fw-faelle";
 import { chemieFaelle } from "./chemie-faelle";
+import { chemieFaelleV11 } from "./chemie-faelle-v11";
 
 export interface CatalogEntry {
   id: string; group: string; groupTitle: string; module: ModuleId; title: string; formula: string; unit: string; ref: string;
@@ -40,7 +41,7 @@ export const GROUP_TITLE: Record<string, string> = { Q: "Querschnitte", F: "Form
   // Stromwerk (ab 0.19.0)
   EL: "Elektrotechnik: Grundlagen, Knotenpunktanalyse, Wechselstrom, Ersatzwiderstand, Vorlagen, Rechner (Hagmann, Weißgerber, IEC 60062, IEC 60063)",
   // Chemiewerk (ab 0.24.0)
-  CH: "Chemie: Formel, molare Masse, Bilanz, Stöchiometrie, Oxidationszahlen, Redox, Verbindungsvorschlag, Isotope (IUPAC, CODATA 2022, AME2020, DIN 1343)" };
+  CH: "Chemie: Formel, molare Masse, Bilanz, Stöchiometrie, Oxidationszahlen, Redox, Verbindungsvorschlag, Isotope, Thermochemie, Gleichgewicht, Kinetik, Elektrochemie, Wasserchemie (IUPAC, CODATA 2022, AME2020, DIN 1343, CRC, PHREEQC)" };
 
 const base: StrengthInput = { mode: "single", kind: "biegung", sub: "EQ", materialId: "W038", secType: "rund_hohl", dims: { D: 60, t: 4 }, L: 1200, F: 2, q: 2, a: 300, N: 0, T: 200, fDiv: 300, SFreq: 1.5, SBreq: 2, SKreq: 3, dvChoice: { RE: "lower", RM: "lower" }, dvManual: { RE: null, RM: null } };
 
@@ -224,6 +225,8 @@ export function collectCatalog(): CatalogEntry[] {
   for (const f of elektrikFaelle()) f.steps.forEach((s) => take(s, f.text));
   // Chemie (0.24.0, Modul chemie): Bilanzen, Redox, Molmassen, Formeln, Oxidationszahlen, Stöchiometrie, Vorschläge, Kern
   for (const f of chemieFaelle()) f.steps.forEach((s) => take(s, f.text));
+  // Chemie v1.1 bis v1.4 (0.25.0): Thermochemie, Gleichgewicht, Kinetik, Elektrochemie, Wasserchemie
+  for (const f of chemieFaelleV11()) f.steps.forEach((s) => take(s, f.text));
   return [...seen.values()].sort((a, b) => a.id.localeCompare(b.id, "de"));
 }
 

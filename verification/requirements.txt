@@ -1,3 +1,5 @@
 numpy>=1.26
 scipy>=1.11
 openpyxl>=3.1
+sympy>=1.12
+iapws>=1.5

@@ -35,7 +35,7 @@ export const TRACE_GROUPS = {
   stabwerke: ["geometrie", "gleichgewicht", "stabkraefte", "verschiebung", "nachweis"],
   kinematik: ["orientierung", "umrechnung", "pruefung", "lage", "kette", "inverse", "abbildung", "gelenke", "vorwaerts", "kontrolle"],
   elektrik: ["grundlagen", "netz", "halbleiter", "konvergenz", "wechselstrom", "ersatz", "vorlage", "rechner", "nachweis"],
-  chemie: ["formel", "masse", "bilanz", "stoechiometrie", "oxidation", "redox", "vorschlag", "kern"],
+  chemie: ["formel", "masse", "bilanz", "stoechiometrie", "oxidation", "redox", "vorschlag", "kern", "thermo", "gleichgewicht", "kinetik", "elektro", "wasser"],
 } as const satisfies Record<ModuleId, readonly string[]>;
 
 /** Gruppen eines Moduls als Typ, z. B. TraceGroupOf<"fluid">. */
@@ -61,7 +61,7 @@ export const TRACE_GROUP_TITLES: Readonly<Record<string, string>> = {
   gelenke: "Gelenke und DH-Gliedmatrizen", vorwaerts: "Vorwärtskinematik", kontrolle: "Kontrolle und Umrechnung",
   toleranz: "Toleranzen und Grenzmaße", einbauraum: "Einbauraum und Spalt", dehnung: "Dehnung und Stauchung", fuellung: "Nutfüllung", spalt: "Spaltmaß und Extrusion", auslegung: "Auslegung",
   halbleiter: "Halbleiter am Arbeitspunkt", konvergenz: "Newton-Iteration",
-  formel: "Formel", masse: "Molare Masse", bilanz: "Bilanz", stoechiometrie: "Stöchiometrie", oxidation: "Oxidationszahlen", redox: "Redox (Halbreaktionen)", vorschlag: "Verbindungsvorschlag", kern: "Isotope und Kern",
+  formel: "Formel", masse: "Molare Masse", bilanz: "Bilanz", stoechiometrie: "Stöchiometrie", oxidation: "Oxidationszahlen", redox: "Redox (Halbreaktionen)", vorschlag: "Verbindungsvorschlag", kern: "Isotope und Kern", thermo: "Thermochemie", kinetik: "Kinetik", elektro: "Elektrochemie", wasser: "Wasserchemie",
   grundlagen: "Grundlagen", netz: "Netzwerk (Knotenpunktanalyse)", wechselstrom: "Wechselstrom", ersatz: "Ersatzwiderstand", vorlage: "Vorlage", rechner: "Rechner",
 };
 

@@ -663,6 +663,10 @@ stabwerke.add_cases(cases, ref)
 # über den Nullraum je Paar, Zerfall über exp(−λt)); Elementdaten aus test/fixtures/ch_snapshot.json.
 import chemie
 chemie.add_cases(cases, ref)
+# Chemie v1.1 bis v1.4 (eng-core 0.25.0): Thermochemie, Gleichgewicht, Kinetik, Elektrochemie, Wasserchemie in verification/chemie_v11.py
+# (sympy-Nullraum der Verbrennung, brentq für Gleichgewicht, Säure-Base und Kalk-Kohlensäure, Wasserdichte aus iapws, numpy.polyfit).
+import chemie_v11
+chemie_v11.add_cases(cases, ref)
 
 import tempfile; CASES = os.path.join(tempfile.gettempdir(), 'mech_core_cases.json'); json.dump(cases, open(CASES, 'w'))
 out = json.loads(subprocess.check_output(['npx', 'tsx', os.path.join(HERE, 'engine_out.ts'), CASES], cwd=os.path.dirname(HERE)))

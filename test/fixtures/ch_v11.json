@@ -1,0 +1,4641 @@
+{
+"version": "ch-2026-11-27c",
+"thermo": [
+{
+"id": "Ag(s)",
+"formula": "Ag",
+"phase": "s",
+"name_de": "Silber",
+"cas": "7440-22-4",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 42.6,
+"cp_J_molK": 25.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "AgCl(s)",
+"formula": "AgCl",
+"phase": "s",
+"name_de": "Silberchlorid",
+"cas": "7783-90-6",
+"default_phase": true,
+"dfH_kJ_mol": -127.0,
+"dfG_kJ_mol": -109.8,
+"S_J_molK": 96.3,
+"cp_J_molK": 50.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ag^+(aq)",
+"formula": "Ag^+",
+"phase": "aq",
+"name_de": "Silberion",
+"cas": "14701-21-4",
+"default_phase": true,
+"dfH_kJ_mol": 105.6,
+"dfG_kJ_mol": 77.1,
+"S_J_molK": 72.7,
+"cp_J_molK": 21.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Al(s)",
+"formula": "Al",
+"phase": "s",
+"name_de": "Aluminium",
+"cas": "7429-90-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 28.3,
+"cp_J_molK": 24.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Al2O3(s)",
+"formula": "Al2O3",
+"phase": "s",
+"name_de": "Aluminiumoxid (Korund)",
+"cas": "1344-28-1",
+"default_phase": true,
+"dfH_kJ_mol": -1675.7,
+"dfG_kJ_mol": -1582.3,
+"S_J_molK": 50.9,
+"cp_J_molK": 79.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Al^3+(aq)",
+"formula": "Al^3+",
+"phase": "aq",
+"name_de": "Aluminiumion",
+"cas": "22537-23-1",
+"default_phase": true,
+"dfH_kJ_mol": -531.0,
+"dfG_kJ_mol": -485.0,
+"S_J_molK": -321.7,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Au(s)",
+"formula": "Au",
+"phase": "s",
+"name_de": "Gold",
+"cas": "7440-57-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 47.4,
+"cp_J_molK": 25.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ba(s)",
+"formula": "Ba",
+"phase": "s",
+"name_de": "Barium",
+"cas": "7440-39-3",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 62.5,
+"cp_J_molK": 28.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "BaSO4(s)",
+"formula": "BaSO4",
+"phase": "s",
+"name_de": "Bariumsulfat",
+"cas": "7727-43-7",
+"default_phase": true,
+"dfH_kJ_mol": -1473.2,
+"dfG_kJ_mol": -1362.2,
+"S_J_molK": 132.2,
+"cp_J_molK": 101.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ba^2+(aq)",
+"formula": "Ba^2+",
+"phase": "aq",
+"name_de": "Bariumion",
+"cas": "22541-12-4",
+"default_phase": true,
+"dfH_kJ_mol": -537.6,
+"dfG_kJ_mol": -560.8,
+"S_J_molK": 9.6,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Br2(l)",
+"formula": "Br2",
+"phase": "l",
+"name_de": "Brom",
+"cas": "7726-95-6",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 152.2,
+"cp_J_molK": 75.7,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "BrO3^-(aq)",
+"formula": "BrO3^-",
+"phase": "aq",
+"name_de": "Bromation",
+"cas": "15541-45-4",
+"default_phase": true,
+"dfH_kJ_mol": -67.1,
+"dfG_kJ_mol": 18.6,
+"S_J_molK": 161.7,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Br^-(aq)",
+"formula": "Br^-",
+"phase": "aq",
+"name_de": "Bromidion",
+"cas": "24959-67-9",
+"default_phase": true,
+"dfH_kJ_mol": -121.6,
+"dfG_kJ_mol": -104.0,
+"S_J_molK": 82.4,
+"cp_J_molK": -141.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C(s)",
+"formula": "C",
+"phase": "s",
+"name_de": "Kohlenstoff (Graphit)",
+"cas": "7782-42-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 5.7,
+"cp_J_molK": 8.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C2H2(g)",
+"formula": "C2H2",
+"phase": "g",
+"name_de": "Ethin",
+"cas": "74-86-2",
+"default_phase": true,
+"dfH_kJ_mol": 227.4,
+"dfG_kJ_mol": 209.9,
+"S_J_molK": 200.9,
+"cp_J_molK": 44.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C2H4(g)",
+"formula": "C2H4",
+"phase": "g",
+"name_de": "Ethen",
+"cas": "74-85-1",
+"default_phase": true,
+"dfH_kJ_mol": 52.4,
+"dfG_kJ_mol": 68.4,
+"S_J_molK": 219.3,
+"cp_J_molK": 42.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C2H5OH(g)",
+"formula": "C2H5OH",
+"phase": "g",
+"name_de": "Ethanol (Gas)",
+"cas": "64-17-5",
+"default_phase": false,
+"dfH_kJ_mol": -234.8,
+"dfG_kJ_mol": -167.9,
+"S_J_molK": 281.6,
+"cp_J_molK": 65.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C2H5OH(l)",
+"formula": "C2H5OH",
+"phase": "l",
+"name_de": "Ethanol",
+"cas": "64-17-5",
+"default_phase": true,
+"dfH_kJ_mol": -277.6,
+"dfG_kJ_mol": -174.8,
+"S_J_molK": 160.7,
+"cp_J_molK": 112.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C2H6(g)",
+"formula": "C2H6",
+"phase": "g",
+"name_de": "Ethan",
+"cas": "74-84-0",
+"default_phase": true,
+"dfH_kJ_mol": -84.0,
+"dfG_kJ_mol": -32.0,
+"S_J_molK": 229.2,
+"cp_J_molK": 52.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C3H8(g)",
+"formula": "C3H8",
+"phase": "g",
+"name_de": "Propan",
+"cas": "74-98-6",
+"default_phase": true,
+"dfH_kJ_mol": -103.8,
+"dfG_kJ_mol": -23.4,
+"S_J_molK": 270.3,
+"cp_J_molK": 73.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C4H10(g)",
+"formula": "C4H10",
+"phase": "g",
+"name_de": "Butan",
+"cas": "106-97-8",
+"default_phase": true,
+"dfH_kJ_mol": -125.7,
+"dfG_kJ_mol": null,
+"S_J_molK": null,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C6H12O6(s)",
+"formula": "C6H12O6",
+"phase": "s",
+"name_de": "Glucose",
+"cas": "26655-34-5",
+"default_phase": true,
+"dfH_kJ_mol": -1273.3,
+"dfG_kJ_mol": null,
+"S_J_molK": null,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C6H6(l)",
+"formula": "C6H6",
+"phase": "l",
+"name_de": "Benzol",
+"cas": "71-43-2",
+"default_phase": true,
+"dfH_kJ_mol": 49.1,
+"dfG_kJ_mol": 124.5,
+"S_J_molK": 173.4,
+"cp_J_molK": 136.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "C8H18(l)",
+"formula": "C8H18",
+"phase": "l",
+"name_de": "Octan",
+"cas": "111-65-9",
+"default_phase": true,
+"dfH_kJ_mol": -250.1,
+"dfG_kJ_mol": null,
+"S_J_molK": null,
+"cp_J_molK": 254.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CH3COOH(aq)",
+"formula": "CH3COOH",
+"phase": "aq",
+"name_de": "Essigsäure, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -485.76,
+"dfG_kJ_mol": -396.46,
+"S_J_molK": 178.7,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "CH3COOH(l)",
+"formula": "CH3COOH",
+"phase": "l",
+"name_de": "Essigsäure",
+"cas": "64-19-7",
+"default_phase": true,
+"dfH_kJ_mol": -484.3,
+"dfG_kJ_mol": -389.9,
+"S_J_molK": 159.8,
+"cp_J_molK": 123.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CH3COO^-(aq)",
+"formula": "CH3COO^-",
+"phase": "aq",
+"name_de": "Acetation",
+"cas": "71-50-1",
+"default_phase": true,
+"dfH_kJ_mol": -486.0,
+"dfG_kJ_mol": -369.3,
+"S_J_molK": 86.6,
+"cp_J_molK": -6.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CH3OH(g)",
+"formula": "CH3OH",
+"phase": "g",
+"name_de": "Methanol (Gas)",
+"cas": "67-56-1",
+"default_phase": false,
+"dfH_kJ_mol": -201.0,
+"dfG_kJ_mol": -162.3,
+"S_J_molK": 239.9,
+"cp_J_molK": 44.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CH3OH(l)",
+"formula": "CH3OH",
+"phase": "l",
+"name_de": "Methanol",
+"cas": "67-56-1",
+"default_phase": true,
+"dfH_kJ_mol": -239.2,
+"dfG_kJ_mol": -166.6,
+"S_J_molK": 126.8,
+"cp_J_molK": 81.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CH4(g)",
+"formula": "CH4",
+"phase": "g",
+"name_de": "Methan",
+"cas": "74-82-8",
+"default_phase": true,
+"dfH_kJ_mol": -74.6,
+"dfG_kJ_mol": -50.5,
+"S_J_molK": 186.3,
+"cp_J_molK": 35.7,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CO(NH2)2(s)",
+"formula": "CO(NH2)2",
+"phase": "s",
+"name_de": "Harnstoff",
+"cas": "57-13-6",
+"default_phase": true,
+"dfH_kJ_mol": -333.1,
+"dfG_kJ_mol": null,
+"S_J_molK": null,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CO(g)",
+"formula": "CO",
+"phase": "g",
+"name_de": "Kohlenstoffmonoxid",
+"cas": "630-08-0",
+"default_phase": true,
+"dfH_kJ_mol": -110.5,
+"dfG_kJ_mol": -137.2,
+"S_J_molK": 197.7,
+"cp_J_molK": 29.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CO2(aq)",
+"formula": "CO2",
+"phase": "aq",
+"name_de": "Kohlenstoffdioxid, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -413.8,
+"dfG_kJ_mol": -385.98,
+"S_J_molK": 117.6,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "CO2(g)",
+"formula": "CO2",
+"phase": "g",
+"name_de": "Kohlenstoffdioxid",
+"cas": "124-38-9",
+"default_phase": true,
+"dfH_kJ_mol": -393.5,
+"dfG_kJ_mol": -394.4,
+"S_J_molK": 213.8,
+"cp_J_molK": 37.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CO3^2-(aq)",
+"formula": "CO3^2-",
+"phase": "aq",
+"name_de": "Carbonation",
+"cas": "3812-32-6",
+"default_phase": true,
+"dfH_kJ_mol": -677.1,
+"dfG_kJ_mol": -527.8,
+"S_J_molK": -56.9,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ca(OH)2(s)",
+"formula": "Ca(OH)2",
+"phase": "s",
+"name_de": "Calciumhydroxid",
+"cas": "1305-62-0",
+"default_phase": true,
+"dfH_kJ_mol": -985.2,
+"dfG_kJ_mol": -897.5,
+"S_J_molK": 83.4,
+"cp_J_molK": 87.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ca(s)",
+"formula": "Ca",
+"phase": "s",
+"name_de": "Calcium",
+"cas": "7440-70-2",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 41.6,
+"cp_J_molK": 25.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CaCO3(s)",
+"formula": "CaCO3",
+"phase": "s",
+"name_de": "Calciumcarbonat (Calcit)",
+"cas": "471-34-1",
+"default_phase": true,
+"dfH_kJ_mol": -1207.6,
+"dfG_kJ_mol": -1129.1,
+"S_J_molK": 91.7,
+"cp_J_molK": 83.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CaCl2(s)",
+"formula": "CaCl2",
+"phase": "s",
+"name_de": "Calciumchlorid",
+"cas": "10043-52-4",
+"default_phase": true,
+"dfH_kJ_mol": -795.4,
+"dfG_kJ_mol": -748.8,
+"S_J_molK": 108.4,
+"cp_J_molK": 72.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CaO(s)",
+"formula": "CaO",
+"phase": "s",
+"name_de": "Calciumoxid",
+"cas": "1305-78-8",
+"default_phase": true,
+"dfH_kJ_mol": -634.9,
+"dfG_kJ_mol": -603.3,
+"S_J_molK": 38.1,
+"cp_J_molK": 42.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CaSO4(s)",
+"formula": "CaSO4",
+"phase": "s",
+"name_de": "Calciumsulfat (Anhydrit)",
+"cas": "7778-18-9",
+"default_phase": true,
+"dfH_kJ_mol": -1434.5,
+"dfG_kJ_mol": -1322.0,
+"S_J_molK": 106.5,
+"cp_J_molK": 99.7,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ca^2+(aq)",
+"formula": "Ca^2+",
+"phase": "aq",
+"name_de": "Calciumion",
+"cas": "14127-61-8",
+"default_phase": true,
+"dfH_kJ_mol": -542.8,
+"dfG_kJ_mol": -553.6,
+"S_J_molK": -53.1,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cd(OH)2(s)",
+"formula": "Cd(OH)2",
+"phase": "s",
+"name_de": "Cadmiumhydroxid",
+"cas": "21041-95-2",
+"default_phase": true,
+"dfH_kJ_mol": -560.7,
+"dfG_kJ_mol": -473.6,
+"S_J_molK": 96.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cd(s)",
+"formula": "Cd",
+"phase": "s",
+"name_de": "Cadmium",
+"cas": "7440-43-9",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 51.8,
+"cp_J_molK": 26.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cd^2+(aq)",
+"formula": "Cd^2+",
+"phase": "aq",
+"name_de": "Cadmiumion",
+"cas": "22537-48-0",
+"default_phase": true,
+"dfH_kJ_mol": -75.9,
+"dfG_kJ_mol": -77.6,
+"S_J_molK": -73.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cl2(aq)",
+"formula": "Cl2",
+"phase": "aq",
+"name_de": "Chlor, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -23.4,
+"dfG_kJ_mol": 6.94,
+"S_J_molK": 121.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cl2(g)",
+"formula": "Cl2",
+"phase": "g",
+"name_de": "Chlor",
+"cas": "7782-50-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 223.1,
+"cp_J_molK": 33.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "ClO3^-(aq)",
+"formula": "ClO3^-",
+"phase": "aq",
+"name_de": "Chloration",
+"cas": "14866-68-3",
+"default_phase": true,
+"dfH_kJ_mol": -104.0,
+"dfG_kJ_mol": -8.0,
+"S_J_molK": 162.3,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "ClO4^-(aq)",
+"formula": "ClO4^-",
+"phase": "aq",
+"name_de": "Perchloration",
+"cas": "14797-73-0",
+"default_phase": true,
+"dfH_kJ_mol": -129.3,
+"dfG_kJ_mol": -8.5,
+"S_J_molK": 182.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "ClO^-(aq)",
+"formula": "ClO^-",
+"phase": "aq",
+"name_de": "Hypochloration",
+"cas": "14380-61-1",
+"default_phase": true,
+"dfH_kJ_mol": -107.1,
+"dfG_kJ_mol": -36.8,
+"S_J_molK": 42.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cl^-(aq)",
+"formula": "Cl^-",
+"phase": "aq",
+"name_de": "Chloridion",
+"cas": "16887-00-6",
+"default_phase": true,
+"dfH_kJ_mol": -167.2,
+"dfG_kJ_mol": -131.2,
+"S_J_molK": 56.5,
+"cp_J_molK": -136.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Co(OH)2(s)",
+"formula": "Co(OH)2",
+"phase": "s",
+"name_de": "Cobalt(II)-hydroxid",
+"cas": "21041-93-0",
+"default_phase": true,
+"dfH_kJ_mol": -539.7,
+"dfG_kJ_mol": -454.3,
+"S_J_molK": 79.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Co(s)",
+"formula": "Co",
+"phase": "s",
+"name_de": "Cobalt",
+"cas": "7440-48-4",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 30.0,
+"cp_J_molK": 24.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Co^2+(aq)",
+"formula": "Co^2+",
+"phase": "aq",
+"name_de": "Cobalt(II)-ion",
+"cas": "22541-53-3",
+"default_phase": true,
+"dfH_kJ_mol": -58.2,
+"dfG_kJ_mol": -54.4,
+"S_J_molK": -113.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cr(s)",
+"formula": "Cr",
+"phase": "s",
+"name_de": "Chrom",
+"cas": "7440-47-3",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 23.8,
+"cp_J_molK": 23.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cr2O7^2-(aq)",
+"formula": "Cr2O7^2-",
+"phase": "aq",
+"name_de": "Dichromation",
+"cas": "13907-47-6",
+"default_phase": true,
+"dfH_kJ_mol": -1490.3,
+"dfG_kJ_mol": -1301.1,
+"S_J_molK": 261.9,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CrO4^2-(aq)",
+"formula": "CrO4^2-",
+"phase": "aq",
+"name_de": "Chromation",
+"cas": "13907-45-4",
+"default_phase": true,
+"dfH_kJ_mol": -881.2,
+"dfG_kJ_mol": -727.8,
+"S_J_molK": 50.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cs(s)",
+"formula": "Cs",
+"phase": "s",
+"name_de": "Caesium",
+"cas": "7440-46-2",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 85.2,
+"cp_J_molK": 32.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cs^+(aq)",
+"formula": "Cs^+",
+"phase": "aq",
+"name_de": "Caesiumion",
+"cas": "18459-37-5",
+"default_phase": true,
+"dfH_kJ_mol": -258.3,
+"dfG_kJ_mol": -292.0,
+"S_J_molK": 133.1,
+"cp_J_molK": -10.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cu(s)",
+"formula": "Cu",
+"phase": "s",
+"name_de": "Kupfer",
+"cas": "7440-50-8",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 33.2,
+"cp_J_molK": 24.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cu2O(s)",
+"formula": "Cu2O",
+"phase": "s",
+"name_de": "Kupfer(I)-oxid",
+"cas": "1317-39-1",
+"default_phase": true,
+"dfH_kJ_mol": -168.6,
+"dfG_kJ_mol": -146.0,
+"S_J_molK": 93.1,
+"cp_J_molK": 63.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CuO(s)",
+"formula": "CuO",
+"phase": "s",
+"name_de": "Kupfer(II)-oxid",
+"cas": "1317-38-0",
+"default_phase": true,
+"dfH_kJ_mol": -157.3,
+"dfG_kJ_mol": -129.7,
+"S_J_molK": 42.6,
+"cp_J_molK": 42.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CuSO4(s)",
+"formula": "CuSO4",
+"phase": "s",
+"name_de": "Kupfer(II)-sulfat",
+"cas": "7758-98-7",
+"default_phase": true,
+"dfH_kJ_mol": -771.4,
+"dfG_kJ_mol": -662.2,
+"S_J_molK": 109.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cu^+(aq)",
+"formula": "Cu^+",
+"phase": "aq",
+"name_de": "Kupfer(I)-ion",
+"cas": "17493-86-6",
+"default_phase": true,
+"dfH_kJ_mol": 71.7,
+"dfG_kJ_mol": 50.0,
+"S_J_molK": 40.6,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Cu^2+(aq)",
+"formula": "Cu^2+",
+"phase": "aq",
+"name_de": "Kupfer(II)-ion",
+"cas": "15158-11-9",
+"default_phase": true,
+"dfH_kJ_mol": 64.8,
+"dfG_kJ_mol": 65.5,
+"S_J_molK": -99.6,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "F2(g)",
+"formula": "F2",
+"phase": "g",
+"name_de": "Fluor",
+"cas": "7782-41-4",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 202.8,
+"cp_J_molK": 31.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "F^-(aq)",
+"formula": "F^-",
+"phase": "aq",
+"name_de": "Fluoridion",
+"cas": "16984-48-8",
+"default_phase": true,
+"dfH_kJ_mol": -332.6,
+"dfG_kJ_mol": -278.8,
+"S_J_molK": -13.8,
+"cp_J_molK": -106.7,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Fe(s)",
+"formula": "Fe",
+"phase": "s",
+"name_de": "Eisen",
+"cas": "7439-89-6",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 27.3,
+"cp_J_molK": 25.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Fe2O3(s)",
+"formula": "Fe2O3",
+"phase": "s",
+"name_de": "Eisen(III)-oxid",
+"cas": "1309-37-1",
+"default_phase": true,
+"dfH_kJ_mol": -824.2,
+"dfG_kJ_mol": -742.2,
+"S_J_molK": 87.4,
+"cp_J_molK": 103.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Fe3O4(s)",
+"formula": "Fe3O4",
+"phase": "s",
+"name_de": "Eisen(II,III)-oxid",
+"cas": "1317-61-9",
+"default_phase": true,
+"dfH_kJ_mol": -1118.4,
+"dfG_kJ_mol": -1015.4,
+"S_J_molK": 146.4,
+"cp_J_molK": 143.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "FeO(s)",
+"formula": "FeO",
+"phase": "s",
+"name_de": "Eisen(II)-oxid",
+"cas": "1345-25-1",
+"default_phase": true,
+"dfH_kJ_mol": -272.0,
+"dfG_kJ_mol": null,
+"S_J_molK": null,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "FeS(s)",
+"formula": "FeS",
+"phase": "s",
+"name_de": "Eisen(II)-sulfid",
+"cas": "1317-37-9",
+"default_phase": true,
+"dfH_kJ_mol": -100.0,
+"dfG_kJ_mol": -100.4,
+"S_J_molK": 60.3,
+"cp_J_molK": 50.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "FeS2(s)",
+"formula": "FeS2",
+"phase": "s",
+"name_de": "Eisendisulfid (Pyrit)",
+"cas": "1317-66-4",
+"default_phase": true,
+"dfH_kJ_mol": -178.2,
+"dfG_kJ_mol": -166.9,
+"S_J_molK": 52.9,
+"cp_J_molK": 62.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Fe^2+(aq)",
+"formula": "Fe^2+",
+"phase": "aq",
+"name_de": "Eisen(II)-ion",
+"cas": "15438-31-0",
+"default_phase": true,
+"dfH_kJ_mol": -89.1,
+"dfG_kJ_mol": -78.9,
+"S_J_molK": -137.7,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Fe^3+(aq)",
+"formula": "Fe^3+",
+"phase": "aq",
+"name_de": "Eisen(III)-ion",
+"cas": "20074-52-6",
+"default_phase": true,
+"dfH_kJ_mol": -48.5,
+"dfG_kJ_mol": -4.7,
+"S_J_molK": -315.9,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2(aq)",
+"formula": "H2",
+"phase": "aq",
+"name_de": "Wasserstoff, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -4.2,
+"dfG_kJ_mol": 17.6,
+"S_J_molK": 57.7,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "H2(g)",
+"formula": "H2",
+"phase": "g",
+"name_de": "Wasserstoff",
+"cas": "1333-74-0",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 130.7,
+"cp_J_molK": 28.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2O(g)",
+"formula": "H2O",
+"phase": "g",
+"name_de": "Wasserdampf",
+"cas": "7732-18-5",
+"default_phase": false,
+"dfH_kJ_mol": -241.8,
+"dfG_kJ_mol": -228.6,
+"S_J_molK": 188.8,
+"cp_J_molK": 33.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2O(l)",
+"formula": "H2O",
+"phase": "l",
+"name_de": "Wasser",
+"cas": "7732-18-5",
+"default_phase": true,
+"dfH_kJ_mol": -285.8,
+"dfG_kJ_mol": -237.1,
+"S_J_molK": 70.0,
+"cp_J_molK": 75.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2O2(aq)",
+"formula": "H2O2",
+"phase": "aq",
+"name_de": "Wasserstoffperoxid, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -191.17,
+"dfG_kJ_mol": -134.03,
+"S_J_molK": 143.9,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "H2O2(l)",
+"formula": "H2O2",
+"phase": "l",
+"name_de": "Wasserstoffperoxid",
+"cas": "7722-84-1",
+"default_phase": true,
+"dfH_kJ_mol": -187.8,
+"dfG_kJ_mol": -120.4,
+"S_J_molK": 109.6,
+"cp_J_molK": 89.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2PO4^-(aq)",
+"formula": "H2PO4^-",
+"phase": "aq",
+"name_de": "Dihydrogenphosphation",
+"cas": "14066-20-7",
+"default_phase": true,
+"dfH_kJ_mol": -1296.3,
+"dfG_kJ_mol": -1130.2,
+"S_J_molK": 90.4,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2S(aq)",
+"formula": "H2S",
+"phase": "aq",
+"name_de": "Schwefelwasserstoff, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -39.7,
+"dfG_kJ_mol": -27.83,
+"S_J_molK": 121.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "H2S(g)",
+"formula": "H2S",
+"phase": "g",
+"name_de": "Schwefelwasserstoff",
+"cas": "7783-06-4",
+"default_phase": true,
+"dfH_kJ_mol": -20.6,
+"dfG_kJ_mol": -33.4,
+"S_J_molK": 205.8,
+"cp_J_molK": 34.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2SO4(l)",
+"formula": "H2SO4",
+"phase": "l",
+"name_de": "Schwefelsäure",
+"cas": "7664-93-9",
+"default_phase": true,
+"dfH_kJ_mol": -814.0,
+"dfG_kJ_mol": -690.0,
+"S_J_molK": 156.9,
+"cp_J_molK": 138.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H3PO4(aq)",
+"formula": "H3PO4",
+"phase": "aq",
+"name_de": "Phosphorsäure, gelöst",
+"cas": null,
+"default_phase": true,
+"dfH_kJ_mol": -1288.34,
+"dfG_kJ_mol": -1142.54,
+"S_J_molK": 158.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "HCO3^-(aq)",
+"formula": "HCO3^-",
+"phase": "aq",
+"name_de": "Hydrogencarbonation",
+"cas": "71-52-3",
+"default_phase": true,
+"dfH_kJ_mol": -692.0,
+"dfG_kJ_mol": -586.8,
+"S_J_molK": 91.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HCOOH(l)",
+"formula": "HCOOH",
+"phase": "l",
+"name_de": "Ameisensäure",
+"cas": "64-18-6",
+"default_phase": true,
+"dfH_kJ_mol": -425.0,
+"dfG_kJ_mol": -361.4,
+"S_J_molK": 129.0,
+"cp_J_molK": 99.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HCl(g)",
+"formula": "HCl",
+"phase": "g",
+"name_de": "Chlorwasserstoff",
+"cas": "7647-01-0",
+"default_phase": true,
+"dfH_kJ_mol": -92.3,
+"dfG_kJ_mol": -95.3,
+"S_J_molK": 186.9,
+"cp_J_molK": 29.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HClO(aq)",
+"formula": "HClO",
+"phase": "aq",
+"name_de": "Hypochlorige Säure",
+"cas": null,
+"default_phase": true,
+"dfH_kJ_mol": -120.9,
+"dfG_kJ_mol": -79.9,
+"S_J_molK": 142.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "HF(aq)",
+"formula": "HF",
+"phase": "aq",
+"name_de": "Fluorwasserstoff, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -320.08,
+"dfG_kJ_mol": -296.82,
+"S_J_molK": 88.7,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "HF(g)",
+"formula": "HF",
+"phase": "g",
+"name_de": "Fluorwasserstoff",
+"cas": "7664-39-3",
+"default_phase": true,
+"dfH_kJ_mol": -273.3,
+"dfG_kJ_mol": -275.4,
+"S_J_molK": 173.8,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HNO3(l)",
+"formula": "HNO3",
+"phase": "l",
+"name_de": "Salpetersäure",
+"cas": "7697-37-2",
+"default_phase": true,
+"dfH_kJ_mol": -174.1,
+"dfG_kJ_mol": -80.7,
+"S_J_molK": 155.6,
+"cp_J_molK": 109.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HPO4^2-(aq)",
+"formula": "HPO4^2-",
+"phase": "aq",
+"name_de": "Hydrogenphosphation",
+"cas": "14066-19-4",
+"default_phase": true,
+"dfH_kJ_mol": -1292.1,
+"dfG_kJ_mol": -1089.2,
+"S_J_molK": -33.5,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HSO4^-(aq)",
+"formula": "HSO4^-",
+"phase": "aq",
+"name_de": "Hydrogensulfation",
+"cas": "14996-02-2",
+"default_phase": true,
+"dfH_kJ_mol": -887.3,
+"dfG_kJ_mol": -755.9,
+"S_J_molK": 131.8,
+"cp_J_molK": -84.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HS^-(aq)",
+"formula": "HS^-",
+"phase": "aq",
+"name_de": "Hydrogensulfidion",
+"cas": "15035-72-0",
+"default_phase": true,
+"dfH_kJ_mol": -17.6,
+"dfG_kJ_mol": 12.1,
+"S_J_molK": 62.8,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H^+(aq)",
+"formula": "H^+",
+"phase": "aq",
+"name_de": "Wasserstoffion",
+"cas": "12408-02-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 0.0,
+"cp_J_molK": 0.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Hg(l)",
+"formula": "Hg",
+"phase": "l",
+"name_de": "Quecksilber",
+"cas": "7439-97-6",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 75.9,
+"cp_J_molK": 28.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Hg2^2+(aq)",
+"formula": "Hg2^2+",
+"phase": "aq",
+"name_de": "Quecksilber(I)-ion",
+"cas": "12596-26-8",
+"default_phase": true,
+"dfH_kJ_mol": 172.4,
+"dfG_kJ_mol": 153.5,
+"S_J_molK": 84.5,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HgO(s)",
+"formula": "HgO",
+"phase": "s",
+"name_de": "Quecksilber(II)-oxid",
+"cas": "21908-53-2",
+"default_phase": true,
+"dfH_kJ_mol": -90.8,
+"dfG_kJ_mol": -58.5,
+"S_J_molK": 70.3,
+"cp_J_molK": 44.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Hg^2+(aq)",
+"formula": "Hg^2+",
+"phase": "aq",
+"name_de": "Quecksilber(II)-ion",
+"cas": "14302-87-5",
+"default_phase": true,
+"dfH_kJ_mol": 171.1,
+"dfG_kJ_mol": 164.4,
+"S_J_molK": -32.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "I2(s)",
+"formula": "I2",
+"phase": "s",
+"name_de": "Iod",
+"cas": "7553-56-2",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 116.1,
+"cp_J_molK": 54.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "IO3^-(aq)",
+"formula": "IO3^-",
+"phase": "aq",
+"name_de": "Iodation",
+"cas": "15454-31-6",
+"default_phase": true,
+"dfH_kJ_mol": -221.3,
+"dfG_kJ_mol": -128.0,
+"S_J_molK": 118.4,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "I^-(aq)",
+"formula": "I^-",
+"phase": "aq",
+"name_de": "Iodidion",
+"cas": "20461-54-5",
+"default_phase": true,
+"dfH_kJ_mol": -55.2,
+"dfG_kJ_mol": -51.6,
+"S_J_molK": 111.3,
+"cp_J_molK": -142.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "K(s)",
+"formula": "K",
+"phase": "s",
+"name_de": "Kalium",
+"cas": "7440-09-7",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 64.7,
+"cp_J_molK": 29.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "KCl(s)",
+"formula": "KCl",
+"phase": "s",
+"name_de": "Kaliumchlorid",
+"cas": "7447-40-7",
+"default_phase": true,
+"dfH_kJ_mol": -436.5,
+"dfG_kJ_mol": -408.5,
+"S_J_molK": 82.6,
+"cp_J_molK": 51.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "KOH(s)",
+"formula": "KOH",
+"phase": "s",
+"name_de": "Kaliumhydroxid",
+"cas": "1310-58-3",
+"default_phase": true,
+"dfH_kJ_mol": -424.6,
+"dfG_kJ_mol": -379.4,
+"S_J_molK": 81.2,
+"cp_J_molK": 68.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "K^+(aq)",
+"formula": "K^+",
+"phase": "aq",
+"name_de": "Kaliumion",
+"cas": "24203-36-9",
+"default_phase": true,
+"dfH_kJ_mol": -252.4,
+"dfG_kJ_mol": -283.3,
+"S_J_molK": 102.5,
+"cp_J_molK": 21.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Li(s)",
+"formula": "Li",
+"phase": "s",
+"name_de": "Lithium",
+"cas": "7439-93-2",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 29.1,
+"cp_J_molK": 24.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Li2CO3(s)",
+"formula": "Li2CO3",
+"phase": "s",
+"name_de": "Lithiumcarbonat",
+"cas": "554-13-2",
+"default_phase": true,
+"dfH_kJ_mol": -1215.9,
+"dfG_kJ_mol": -1132.1,
+"S_J_molK": 90.4,
+"cp_J_molK": 99.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "LiOH(s)",
+"formula": "LiOH",
+"phase": "s",
+"name_de": "Lithiumhydroxid",
+"cas": "1310-65-2",
+"default_phase": true,
+"dfH_kJ_mol": -487.5,
+"dfG_kJ_mol": -441.5,
+"S_J_molK": 42.8,
+"cp_J_molK": 49.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Li^+(aq)",
+"formula": "Li^+",
+"phase": "aq",
+"name_de": "Lithiumion",
+"cas": "17341-24-1",
+"default_phase": true,
+"dfH_kJ_mol": -278.5,
+"dfG_kJ_mol": -293.3,
+"S_J_molK": 13.4,
+"cp_J_molK": 68.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Mg(OH)2(s)",
+"formula": "Mg(OH)2",
+"phase": "s",
+"name_de": "Magnesiumhydroxid",
+"cas": "1309-42-8",
+"default_phase": true,
+"dfH_kJ_mol": -924.5,
+"dfG_kJ_mol": -833.5,
+"S_J_molK": 63.2,
+"cp_J_molK": 77.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Mg(s)",
+"formula": "Mg",
+"phase": "s",
+"name_de": "Magnesium",
+"cas": "7439-95-4",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 32.7,
+"cp_J_molK": 24.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "MgCO3(s)",
+"formula": "MgCO3",
+"phase": "s",
+"name_de": "Magnesiumcarbonat",
+"cas": "546-93-0",
+"default_phase": true,
+"dfH_kJ_mol": -1095.8,
+"dfG_kJ_mol": -1012.1,
+"S_J_molK": 65.7,
+"cp_J_molK": 75.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "MgCl2(s)",
+"formula": "MgCl2",
+"phase": "s",
+"name_de": "Magnesiumchlorid",
+"cas": "7786-30-3",
+"default_phase": true,
+"dfH_kJ_mol": -641.3,
+"dfG_kJ_mol": -591.8,
+"S_J_molK": 89.6,
+"cp_J_molK": 71.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "MgO(s)",
+"formula": "MgO",
+"phase": "s",
+"name_de": "Magnesiumoxid",
+"cas": "1309-48-4",
+"default_phase": true,
+"dfH_kJ_mol": -601.6,
+"dfG_kJ_mol": -569.3,
+"S_J_molK": 27.0,
+"cp_J_molK": 37.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "MgSO4(s)",
+"formula": "MgSO4",
+"phase": "s",
+"name_de": "Magnesiumsulfat",
+"cas": "7487-88-9",
+"default_phase": true,
+"dfH_kJ_mol": -1284.9,
+"dfG_kJ_mol": -1170.6,
+"S_J_molK": 91.6,
+"cp_J_molK": 96.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Mg^2+(aq)",
+"formula": "Mg^2+",
+"phase": "aq",
+"name_de": "Magnesiumion",
+"cas": "22537-22-0",
+"default_phase": true,
+"dfH_kJ_mol": -466.9,
+"dfG_kJ_mol": -454.8,
+"S_J_molK": -138.1,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Mn(s)",
+"formula": "Mn",
+"phase": "s",
+"name_de": "Mangan",
+"cas": "7439-96-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 32.0,
+"cp_J_molK": 26.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "MnO2(s)",
+"formula": "MnO2",
+"phase": "s",
+"name_de": "Mangan(IV)-oxid",
+"cas": "1313-13-9",
+"default_phase": true,
+"dfH_kJ_mol": -520.0,
+"dfG_kJ_mol": -465.1,
+"S_J_molK": 53.1,
+"cp_J_molK": 54.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "MnO4^-(aq)",
+"formula": "MnO4^-",
+"phase": "aq",
+"name_de": "Permanganation",
+"cas": "14333-13-2",
+"default_phase": true,
+"dfH_kJ_mol": -541.4,
+"dfG_kJ_mol": -447.2,
+"S_J_molK": 191.2,
+"cp_J_molK": -82.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Mn^2+(aq)",
+"formula": "Mn^2+",
+"phase": "aq",
+"name_de": "Mangan(II)-ion",
+"cas": "16397-91-4",
+"default_phase": true,
+"dfH_kJ_mol": -220.8,
+"dfG_kJ_mol": -228.1,
+"S_J_molK": -73.6,
+"cp_J_molK": 50.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "N2(g)",
+"formula": "N2",
+"phase": "g",
+"name_de": "Stickstoff",
+"cas": "7727-37-9",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 191.6,
+"cp_J_molK": 29.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "N2H4(l)",
+"formula": "N2H4",
+"phase": "l",
+"name_de": "Hydrazin",
+"cas": "302-01-2",
+"default_phase": true,
+"dfH_kJ_mol": 50.6,
+"dfG_kJ_mol": 149.3,
+"S_J_molK": 121.2,
+"cp_J_molK": 98.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "N2O(g)",
+"formula": "N2O",
+"phase": "g",
+"name_de": "Distickstoffmonoxid",
+"cas": "10024-97-2",
+"default_phase": true,
+"dfH_kJ_mol": 81.6,
+"dfG_kJ_mol": 103.7,
+"S_J_molK": 220.0,
+"cp_J_molK": 38.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NH3(aq)",
+"formula": "NH3",
+"phase": "aq",
+"name_de": "Ammoniak, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -80.29,
+"dfG_kJ_mol": -26.5,
+"S_J_molK": 111.3,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "NH3(g)",
+"formula": "NH3",
+"phase": "g",
+"name_de": "Ammoniak",
+"cas": "7664-41-7",
+"default_phase": true,
+"dfH_kJ_mol": -45.9,
+"dfG_kJ_mol": -16.4,
+"S_J_molK": 192.8,
+"cp_J_molK": 35.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NH4Cl(s)",
+"formula": "NH4Cl",
+"phase": "s",
+"name_de": "Ammoniumchlorid",
+"cas": "12125-02-9",
+"default_phase": true,
+"dfH_kJ_mol": -314.4,
+"dfG_kJ_mol": -202.9,
+"S_J_molK": 94.6,
+"cp_J_molK": 84.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NH4NO3(s)",
+"formula": "NH4NO3",
+"phase": "s",
+"name_de": "Ammoniumnitrat",
+"cas": "6484-52-2",
+"default_phase": true,
+"dfH_kJ_mol": -365.6,
+"dfG_kJ_mol": -183.9,
+"S_J_molK": 151.1,
+"cp_J_molK": 139.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NH4^+(aq)",
+"formula": "NH4^+",
+"phase": "aq",
+"name_de": "Ammoniumion",
+"cas": "14798-03-9",
+"default_phase": true,
+"dfH_kJ_mol": -132.5,
+"dfG_kJ_mol": -79.3,
+"S_J_molK": 113.4,
+"cp_J_molK": 79.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NO(g)",
+"formula": "NO",
+"phase": "g",
+"name_de": "Stickstoffmonoxid",
+"cas": "10102-43-9",
+"default_phase": true,
+"dfH_kJ_mol": 91.3,
+"dfG_kJ_mol": 87.6,
+"S_J_molK": 210.8,
+"cp_J_molK": 29.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NO2(g)",
+"formula": "NO2",
+"phase": "g",
+"name_de": "Stickstoffdioxid",
+"cas": "10102-44-0",
+"default_phase": true,
+"dfH_kJ_mol": 33.2,
+"dfG_kJ_mol": 51.3,
+"S_J_molK": 240.1,
+"cp_J_molK": 37.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NO2^-(aq)",
+"formula": "NO2^-",
+"phase": "aq",
+"name_de": "Nitrition",
+"cas": "14797-65-0",
+"default_phase": true,
+"dfH_kJ_mol": -104.6,
+"dfG_kJ_mol": -32.2,
+"S_J_molK": 123.0,
+"cp_J_molK": -97.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NO3^-(aq)",
+"formula": "NO3^-",
+"phase": "aq",
+"name_de": "Nitration",
+"cas": "14797-55-8",
+"default_phase": true,
+"dfH_kJ_mol": -207.4,
+"dfG_kJ_mol": -111.3,
+"S_J_molK": 146.4,
+"cp_J_molK": -86.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Na(s)",
+"formula": "Na",
+"phase": "s",
+"name_de": "Natrium",
+"cas": "7440-23-5",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 51.3,
+"cp_J_molK": 28.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Na2CO3(s)",
+"formula": "Na2CO3",
+"phase": "s",
+"name_de": "Natriumcarbonat",
+"cas": "497-19-8",
+"default_phase": true,
+"dfH_kJ_mol": -1130.7,
+"dfG_kJ_mol": -1044.4,
+"S_J_molK": 135.0,
+"cp_J_molK": 112.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NaCl(s)",
+"formula": "NaCl",
+"phase": "s",
+"name_de": "Natriumchlorid",
+"cas": "7647-14-5",
+"default_phase": true,
+"dfH_kJ_mol": -411.2,
+"dfG_kJ_mol": -384.1,
+"S_J_molK": 72.1,
+"cp_J_molK": 50.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NaHCO3(s)",
+"formula": "NaHCO3",
+"phase": "s",
+"name_de": "Natriumhydrogencarbonat",
+"cas": "144-55-8",
+"default_phase": true,
+"dfH_kJ_mol": -950.8,
+"dfG_kJ_mol": -851.0,
+"S_J_molK": 101.7,
+"cp_J_molK": 87.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NaOH(s)",
+"formula": "NaOH",
+"phase": "s",
+"name_de": "Natriumhydroxid",
+"cas": "1310-73-2",
+"default_phase": true,
+"dfH_kJ_mol": -425.8,
+"dfG_kJ_mol": -379.7,
+"S_J_molK": 64.4,
+"cp_J_molK": 59.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Na^+(aq)",
+"formula": "Na^+",
+"phase": "aq",
+"name_de": "Natriumion",
+"cas": "17341-25-2",
+"default_phase": true,
+"dfH_kJ_mol": -240.1,
+"dfG_kJ_mol": -261.9,
+"S_J_molK": 59.0,
+"cp_J_molK": 46.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ni(s)",
+"formula": "Ni",
+"phase": "s",
+"name_de": "Nickel",
+"cas": "7440-02-0",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 29.9,
+"cp_J_molK": 26.1,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ni^2+(aq)",
+"formula": "Ni^2+",
+"phase": "aq",
+"name_de": "Nickel(II)-ion",
+"cas": "14701-22-5",
+"default_phase": true,
+"dfH_kJ_mol": -54.0,
+"dfG_kJ_mol": -45.6,
+"S_J_molK": -128.9,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "O2(aq)",
+"formula": "O2",
+"phase": "aq",
+"name_de": "Sauerstoff, gelöst",
+"cas": null,
+"default_phase": false,
+"dfH_kJ_mol": -11.7,
+"dfG_kJ_mol": 16.4,
+"S_J_molK": 110.9,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "Wagman et al.: The NBS tables of chemical thermodynamic properties, J. Phys. Chem. Ref. Data 11 (1982) Suppl. 2, von Hand übertragen, geprüft über Gibbs-Helmholtz und pKs (phreeqc.dat)",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "O2(g)",
+"formula": "O2",
+"phase": "g",
+"name_de": "Sauerstoff",
+"cas": "7782-44-7",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 205.2,
+"cp_J_molK": 29.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "O3(g)",
+"formula": "O3",
+"phase": "g",
+"name_de": "Ozon",
+"cas": "10028-15-6",
+"default_phase": true,
+"dfH_kJ_mol": 142.7,
+"dfG_kJ_mol": 163.2,
+"S_J_molK": 238.9,
+"cp_J_molK": 39.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "OH^-(aq)",
+"formula": "OH^-",
+"phase": "aq",
+"name_de": "Hydroxidion",
+"cas": "14280-30-9",
+"default_phase": true,
+"dfH_kJ_mol": -230.0,
+"dfG_kJ_mol": -157.2,
+"S_J_molK": -10.8,
+"cp_J_molK": -148.5,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "P(s)",
+"formula": "P",
+"phase": "s",
+"name_de": "Phosphor (weiß)",
+"cas": "7723-14-0",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 41.1,
+"cp_J_molK": 23.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "PO4^3-(aq)",
+"formula": "PO4^3-",
+"phase": "aq",
+"name_de": "Phosphation",
+"cas": "14265-44-2",
+"default_phase": true,
+"dfH_kJ_mol": -1277.4,
+"dfG_kJ_mol": -1018.7,
+"S_J_molK": -220.5,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Pb(s)",
+"formula": "Pb",
+"phase": "s",
+"name_de": "Blei",
+"cas": "7439-92-1",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 64.8,
+"cp_J_molK": 26.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "PbO(s)",
+"formula": "PbO",
+"phase": "s",
+"name_de": "Blei(II)-oxid",
+"cas": "1317-36-8",
+"default_phase": true,
+"dfH_kJ_mol": -219.0,
+"dfG_kJ_mol": -188.9,
+"S_J_molK": 66.5,
+"cp_J_molK": 45.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "PbO2(s)",
+"formula": "PbO2",
+"phase": "s",
+"name_de": "Blei(IV)-oxid",
+"cas": "1309-60-0",
+"default_phase": true,
+"dfH_kJ_mol": -277.4,
+"dfG_kJ_mol": -217.3,
+"S_J_molK": 68.6,
+"cp_J_molK": 64.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "PbSO4(s)",
+"formula": "PbSO4",
+"phase": "s",
+"name_de": "Blei(II)-sulfat",
+"cas": "7446-14-2",
+"default_phase": true,
+"dfH_kJ_mol": -920.0,
+"dfG_kJ_mol": -813.0,
+"S_J_molK": 148.5,
+"cp_J_molK": 103.2,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Pb^2+(aq)",
+"formula": "Pb^2+",
+"phase": "aq",
+"name_de": "Blei(II)-ion",
+"cas": "14280-50-3",
+"default_phase": true,
+"dfH_kJ_mol": -1.7,
+"dfG_kJ_mol": -24.4,
+"S_J_molK": 10.5,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Pt(s)",
+"formula": "Pt",
+"phase": "s",
+"name_de": "Platin",
+"cas": "7440-06-4",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 41.6,
+"cp_J_molK": 25.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "S(s)",
+"formula": "S",
+"phase": "s",
+"name_de": "Schwefel (rhombisch)",
+"cas": "7704-34-9",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 32.1,
+"cp_J_molK": 22.6,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "S2O3^2-(aq)",
+"formula": "S2O3^2-",
+"phase": "aq",
+"name_de": "Thiosulfation",
+"cas": "14383-50-7",
+"default_phase": true,
+"dfH_kJ_mol": -652.3,
+"dfG_kJ_mol": -522.5,
+"S_J_molK": 67.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "SO2(g)",
+"formula": "SO2",
+"phase": "g",
+"name_de": "Schwefeldioxid",
+"cas": "7446-09-5",
+"default_phase": true,
+"dfH_kJ_mol": -296.8,
+"dfG_kJ_mol": -300.1,
+"S_J_molK": 248.2,
+"cp_J_molK": 39.9,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "SO3(g)",
+"formula": "SO3",
+"phase": "g",
+"name_de": "Schwefeltrioxid (Gas)",
+"cas": "7446-11-9",
+"default_phase": true,
+"dfH_kJ_mol": -395.7,
+"dfG_kJ_mol": -371.1,
+"S_J_molK": 256.8,
+"cp_J_molK": 50.7,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "SO3^2-(aq)",
+"formula": "SO3^2-",
+"phase": "aq",
+"name_de": "Sulfition",
+"cas": "14265-45-3",
+"default_phase": true,
+"dfH_kJ_mol": -635.5,
+"dfG_kJ_mol": -486.5,
+"S_J_molK": -29.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "SO4^2-(aq)",
+"formula": "SO4^2-",
+"phase": "aq",
+"name_de": "Sulfation",
+"cas": "14808-79-8",
+"default_phase": true,
+"dfH_kJ_mol": -909.3,
+"dfG_kJ_mol": -744.5,
+"S_J_molK": 20.1,
+"cp_J_molK": -293.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Si(s)",
+"formula": "Si",
+"phase": "s",
+"name_de": "Silicium",
+"cas": "7440-21-3",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 18.8,
+"cp_J_molK": 20.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "SiO2(s)",
+"formula": "SiO2",
+"phase": "s",
+"name_de": "Siliciumdioxid (Quarz)",
+"cas": "14808-60-7",
+"default_phase": true,
+"dfH_kJ_mol": -910.7,
+"dfG_kJ_mol": -856.3,
+"S_J_molK": 41.5,
+"cp_J_molK": 44.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Sn^2+(aq)",
+"formula": "Sn^2+",
+"phase": "aq",
+"name_de": "Zinn(II)-ion",
+"cas": "22541-90-8",
+"default_phase": true,
+"dfH_kJ_mol": -8.8,
+"dfG_kJ_mol": -27.2,
+"S_J_molK": -17.0,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Sr(s)",
+"formula": "Sr",
+"phase": "s",
+"name_de": "Strontium",
+"cas": "7440-24-6",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 55.0,
+"cp_J_molK": 26.8,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Sr^2+(aq)",
+"formula": "Sr^2+",
+"phase": "aq",
+"name_de": "Strontiumion",
+"cas": "22537-39-9",
+"default_phase": true,
+"dfH_kJ_mol": -545.8,
+"dfG_kJ_mol": -559.5,
+"S_J_molK": -32.6,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Ti(s)",
+"formula": "Ti",
+"phase": "s",
+"name_de": "Titan",
+"cas": "7440-32-6",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 30.7,
+"cp_J_molK": 25.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "TiO2(s)",
+"formula": "TiO2",
+"phase": "s",
+"name_de": "Titan(IV)-oxid (Rutil)",
+"cas": "1317-80-2",
+"default_phase": true,
+"dfH_kJ_mol": -944.0,
+"dfG_kJ_mol": -888.8,
+"S_J_molK": 50.6,
+"cp_J_molK": 55.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Zn(OH)2(s)",
+"formula": "Zn(OH)2",
+"phase": "s",
+"name_de": "Zinkhydroxid",
+"cas": "20427-58-1",
+"default_phase": true,
+"dfH_kJ_mol": -641.9,
+"dfG_kJ_mol": -553.5,
+"S_J_molK": 81.2,
+"cp_J_molK": null,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Zn(s)",
+"formula": "Zn",
+"phase": "s",
+"name_de": "Zink",
+"cas": "7440-66-6",
+"default_phase": true,
+"dfH_kJ_mol": 0.0,
+"dfG_kJ_mol": 0.0,
+"S_J_molK": 41.6,
+"cp_J_molK": 25.4,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "ZnO(s)",
+"formula": "ZnO",
+"phase": "s",
+"name_de": "Zinkoxid",
+"cas": "1314-13-2",
+"default_phase": true,
+"dfH_kJ_mol": -350.5,
+"dfG_kJ_mol": -320.5,
+"S_J_molK": 43.7,
+"cp_J_molK": 40.3,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Standard Thermodynamic Properties of Chemical Substances (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Zn^2+(aq)",
+"formula": "Zn^2+",
+"phase": "aq",
+"name_de": "Zinkion",
+"cas": "23713-49-7",
+"default_phase": true,
+"dfH_kJ_mol": -153.9,
+"dfG_kJ_mol": -147.1,
+"S_J_molK": -112.1,
+"cp_J_molK": 46.0,
+"dfG_derived": false,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Thermodynamic Properties of Aqueous Ions (Abzug chemicals 1.5.2)",
+"url": "https://github.com/CalebBell/chemicals",
+"kind": "extern"
+}
+]
+}
+],
+"equilibria": [
+{
+"id": "Anhydrit",
+"kind": "loeslichkeit",
+"title": "Anhydrit",
+"reaction": "CaSO4(s) = Ca^2+(aq) + SO4^2-(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -4.25,
+"delta_h_kJ_mol": -22.4,
+"analytic": null,
+"note": "Temperaturfunktion verworfen: ergibt -4.314 statt -4.250 bei 25 °C",
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 1013: Anhydrite",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Aragonit",
+"kind": "loeslichkeit",
+"title": "Aragonit",
+"reaction": "CaCO3(s) = Ca^2+(aq) + CO3^2-(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -8.336,
+"delta_h_kJ_mol": -10.832,
+"analytic": [
+-171.9773,
+-0.077993,
+2903.293,
+71.595,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 974: Aragonite",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CH3COOH",
+"kind": "saeure",
+"title": "Essigsäure",
+"reaction": "CH3COOH(aq) = H^+(aq) + CH3COO^-(aq)",
+"acid": "CH3COOH",
+"base": "CH3COO^-",
+"log_k_25": -4.757,
+"delta_h_kJ_mol": -0.41,
+"analytic": null,
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank minteq.v4.dat (USGS, aus MINTEQA2 4.0, NIST 46.4), −minteq.v4.dat Z. 8720: H+ + Acetate- = H(Acetate)",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "CO2g",
+"kind": "gas",
+"title": "Kohlenstoffdioxid, Henry",
+"reaction": "CO2(g) = CO2(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -1.468,
+"delta_h_kJ_mol": -19.983,
+"analytic": [
+10.5624,
+-0.023547,
+-3972.8,
+0.0,
+587460.0,
+1.9194e-05
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 1213: CO2(g)",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Calcit",
+"kind": "loeslichkeit",
+"title": "Calcit",
+"reaction": "CaCO3(s) = Ca^2+(aq) + CO3^2-(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -8.45,
+"delta_h_kJ_mol": -13.18,
+"analytic": [
+-67.87,
+-0.051813,
+0.0,
+30.25746,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 969: Calcite",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Dolomit",
+"kind": "loeslichkeit",
+"title": "Dolomit",
+"reaction": "CaMg(CO3)2(s) = Ca^2+(aq) + Mg^2+(aq) + 2 CO3^2-(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -17.09,
+"delta_h_kJ_mol": -39.48,
+"analytic": [
+31.283,
+-0.0898,
+-6438.0,
+0.0,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 980: Dolomite",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Gips",
+"kind": "loeslichkeit",
+"title": "Gips",
+"reaction": "CaSO4·2H2O(s) = Ca^2+(aq) + SO4^2-(aq) + 2 H2O(l)",
+"acid": null,
+"base": null,
+"log_k_25": -4.55,
+"delta_h_kJ_mol": -6.7,
+"analytic": [
+72.244,
+-0.01474,
+-4040.0,
+-23.7823,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 1008: Gypsum",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2CO3",
+"kind": "saeure",
+"title": "Kohlensäure, 1. Stufe (CO₂(aq) + H₂O)",
+"reaction": "CO2(aq) + H2O(l) = H^+(aq) + HCO3^-(aq)",
+"acid": "CO2",
+"base": "HCO3^-",
+"log_k_25": -6.352,
+"delta_h_kJ_mol": 9.109,
+"analytic": [
+-356.3094,
+-0.06091964,
+21834.37,
+126.8339,
+-1684915.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), Kombination phreeqc.dat Z. 235: CO3-2 + H+ = HCO3-; −phreeqc.dat Z. 242: CO3-2 + 2 H+ = CO2 + H2O",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2PO4",
+"kind": "saeure",
+"title": "Phosphorsäure, 2. Stufe",
+"reaction": "H2PO4^-(aq) = H^+(aq) + HPO4^2-(aq)",
+"acid": "H2PO4^-",
+"base": "HPO4^2-",
+"log_k_25": -7.207,
+"delta_h_kJ_mol": 4.142,
+"analytic": null,
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), Kombination phreeqc.dat Z. 337: PO4-3 + H+ = HPO4-2; −phreeqc.dat Z. 343: PO4-3 + 2 H+ = H2PO4-",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2S",
+"kind": "saeure",
+"title": "Schwefelwasserstoff, 1. Stufe",
+"reaction": "H2S(aq) = H^+(aq) + HS^-(aq)",
+"acid": "H2S",
+"base": "HS^-",
+"log_k_25": -6.994,
+"delta_h_kJ_mol": 22.175,
+"analytic": null,
+"note": "Temperaturfunktion verworfen: ergibt -6.942 statt -6.994 bei 25 °C",
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), −phreeqc.dat Z. 278: HS- + H+ = H2S",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H2Sg",
+"kind": "gas",
+"title": "Schwefelwasserstoff, Henry",
+"reaction": "H2S(g) = H2S(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -0.936,
+"delta_h_kJ_mol": -13.075,
+"analytic": null,
+"note": "Temperaturfunktion verworfen: ergibt -0.994 statt -0.936 bei 25 °C",
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), Kombination phreeqc.dat Z. 1241: H2S(g); phreeqc.dat Z. 278: HS- + H+ = H2S",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H3BO3",
+"kind": "saeure",
+"title": "Borsäure",
+"reaction": "H3BO3(aq) = H^+(aq) + H2BO3^-(aq)",
+"acid": "H3BO3",
+"base": "H2BO3^-",
+"log_k_25": -9.24,
+"delta_h_kJ_mol": 13.489,
+"analytic": null,
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 322: H3BO3 = H2BO3- + H+",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H3PO4",
+"kind": "saeure",
+"title": "Phosphorsäure, 1. Stufe",
+"reaction": "H3PO4(aq) = H^+(aq) + H2PO4^-(aq)",
+"acid": "H3PO4",
+"base": "H2PO4^-",
+"log_k_25": -2.168,
+"delta_h_kJ_mol": -8.812,
+"analytic": null,
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), Kombination phreeqc.dat Z. 343: PO4-3 + 2 H+ = H2PO4-; −phreeqc.dat Z. 349: PO4-3 + 3 H+ = H3PO4",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "H4SiO4",
+"kind": "saeure",
+"title": "Kieselsäure, 1. Stufe",
+"reaction": "H4SiO4(aq) = H^+(aq) + H3SiO4^-(aq)",
+"acid": "H4SiO4",
+"base": "H3SiO4^-",
+"log_k_25": -9.83,
+"delta_h_kJ_mol": 25.606,
+"analytic": [
+-302.3724,
+-0.050698,
+15669.69,
+108.18466,
+-1119669.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 687: H4SiO4 = H3SiO4- + H+",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HCN",
+"kind": "saeure",
+"title": "Blausäure",
+"reaction": "HCN(aq) = H^+(aq) + CN^-(aq)",
+"acid": "HCN",
+"base": "CN^-",
+"log_k_25": -9.21,
+"delta_h_kJ_mol": 43.63,
+"analytic": null,
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank minteq.v4.dat (USGS, aus MINTEQA2 4.0, NIST 46.4), −minteq.v4.dat Z. 3928: H+ + Cyanide- = HCyanide",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HCO3",
+"kind": "saeure",
+"title": "Kohlensäure, 2. Stufe",
+"reaction": "HCO3^-(aq) = H^+(aq) + CO3^2-(aq)",
+"acid": "HCO3^-",
+"base": "CO3^2-",
+"log_k_25": -10.329,
+"delta_h_kJ_mol": 14.899,
+"analytic": [
+-107.8871,
+-0.03252849,
+5151.79,
+38.92561,
+-563713.9,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), −phreeqc.dat Z. 235: CO3-2 + H+ = HCO3-",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HClO",
+"kind": "saeure",
+"title": "Hypochlorige Säure",
+"reaction": "HClO(aq) = H^+(aq) + ClO^-(aq)",
+"acid": "HClO",
+"base": "ClO^-",
+"log_k_25": -7.5692,
+"delta_h_kJ_mol": null,
+"analytic": null,
+"note": "ΔrH° in llnl.dat nicht bestimmt, Temperaturabhängigkeit unbekannt",
+"sources": [
+{
+"label": "PHREEQC-Datenbank llnl.dat (USGS, Lawrence Livermore National Laboratory), −llnl.dat Z. 4493: H+ + ClO- = HClO",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HF",
+"kind": "saeure",
+"title": "Flusssäure",
+"reaction": "HF(aq) = H^+(aq) + F^-(aq)",
+"acid": "HF",
+"base": "F^-",
+"log_k_25": -3.18,
+"delta_h_kJ_mol": -13.305,
+"analytic": [
+2.033,
+-0.012645,
+-429.01,
+0.0,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), −phreeqc.dat Z. 353: H+ + F- = HF",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HPO4",
+"kind": "saeure",
+"title": "Phosphorsäure, 3. Stufe",
+"reaction": "HPO4^2-(aq) = H^+(aq) + PO4^3-(aq)",
+"acid": "HPO4^2-",
+"base": "PO4^3-",
+"log_k_25": -12.346,
+"delta_h_kJ_mol": 14.77,
+"analytic": null,
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), −phreeqc.dat Z. 337: PO4-3 + H+ = HPO4-2",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "HSO4",
+"kind": "saeure",
+"title": "Hydrogensulfat",
+"reaction": "HSO4^-(aq) = H^+(aq) + SO4^2-(aq)",
+"acid": "HSO4^-",
+"base": "SO4^2-",
+"log_k_25": -1.988,
+"delta_h_kJ_mol": -16.108,
+"analytic": [
+56.889,
+-0.006473,
+-2307.9,
+-19.8858,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), −phreeqc.dat Z. 261: SO4-2 + H+ = HSO4-",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "Kw",
+"kind": "wasser",
+"title": "Ionenprodukt des Wassers",
+"reaction": "H2O(l) = H^+(aq) + OH^-(aq)",
+"acid": "H2O",
+"base": "OH^-",
+"log_k_25": -14.0,
+"delta_h_kJ_mol": 56.4,
+"analytic": [
+293.29227,
+0.1360833,
+-10576.913,
+-123.73158,
+0.0,
+-6.996455e-05
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 212: H2O = OH- + H+",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "NH4",
+"kind": "saeure",
+"title": "Ammonium",
+"reaction": "NH4^+(aq) = H^+(aq) + NH3(aq)",
+"acid": "NH4^+",
+"base": "NH3",
+"log_k_25": -9.252,
+"delta_h_kJ_mol": 52.216,
+"analytic": [
+0.6322,
+-0.001225,
+-2835.76,
+0.0,
+0.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 309: NH4+ = NH3 + H+",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+},
+{
+"id": "O2g",
+"kind": "gas",
+"title": "Sauerstoff, Henry",
+"reaction": "O2(g) = O2(aq)",
+"acid": null,
+"base": null,
+"log_k_25": -2.8983,
+"delta_h_kJ_mol": null,
+"analytic": [
+-7.5001,
+0.0078981,
+0.0,
+0.0,
+200270.0,
+0.0
+],
+"note": null,
+"sources": [
+{
+"label": "PHREEQC-Datenbank phreeqc.dat (USGS, Parkhurst und Appelo), phreeqc.dat Z. 1226: O2(g)",
+"url": "https://github.com/usgs-coupled/phreeqc3/tree/master/database",
+"kind": "extern"
+}
+]
+}
+],
+"potentials": [
+{
+"id": "Li",
+"couple": "Li⁺/Li",
+"half_reaction": "Li^+(aq) + e^- = Li(s)",
+"z": 1,
+"E0_V": -3.0401,
+"medium": "sauer",
+"check_E0_V": -3.0398,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cs",
+"couple": "Cs⁺/Cs",
+"half_reaction": "Cs^+(aq) + e^- = Cs(s)",
+"z": 1,
+"E0_V": -3.026,
+"medium": "sauer",
+"check_E0_V": -3.0264,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "K",
+"couple": "K⁺/K",
+"half_reaction": "K^+(aq) + e^- = K(s)",
+"z": 1,
+"E0_V": -2.931,
+"medium": "sauer",
+"check_E0_V": -2.9362,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Ba",
+"couple": "Ba²⁺/Ba",
+"half_reaction": "Ba^2+(aq) + 2 e^- = Ba(s)",
+"z": 2,
+"E0_V": -2.912,
+"medium": "sauer",
+"check_E0_V": -2.9061,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Sr",
+"couple": "Sr²⁺/Sr",
+"half_reaction": "Sr^2+(aq) + 2 e^- = Sr(s)",
+"z": 2,
+"E0_V": -2.899,
+"medium": "sauer",
+"check_E0_V": -2.8994,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Ca",
+"couple": "Ca²⁺/Ca",
+"half_reaction": "Ca^2+(aq) + 2 e^- = Ca(s)",
+"z": 2,
+"E0_V": -2.868,
+"medium": "sauer",
+"check_E0_V": -2.8688,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Na",
+"couple": "Na⁺/Na",
+"half_reaction": "Na^+(aq) + e^- = Na(s)",
+"z": 1,
+"E0_V": -2.71,
+"medium": "sauer",
+"check_E0_V": -2.7144,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Mg",
+"couple": "Mg²⁺/Mg",
+"half_reaction": "Mg^2+(aq) + 2 e^- = Mg(s)",
+"z": 2,
+"E0_V": -2.372,
+"medium": "sauer",
+"check_E0_V": -2.3568,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Al",
+"couple": "Al³⁺/Al",
+"half_reaction": "Al^3+(aq) + 3 e^- = Al(s)",
+"z": 3,
+"E0_V": -1.662,
+"medium": "sauer",
+"check_E0_V": -1.6756,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Mn",
+"couple": "Mn²⁺/Mn",
+"half_reaction": "Mn^2+(aq) + 2 e^- = Mn(s)",
+"z": 2,
+"E0_V": -1.185,
+"medium": "sauer",
+"check_E0_V": -1.182,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "H2O_H2",
+"couple": "H₂O/H₂ (basisch)",
+"half_reaction": "2 H2O(l) + 2 e^- = H2(g) + 2 OH^-(aq)",
+"z": 2,
+"E0_V": -0.8277,
+"medium": "basisch",
+"check_E0_V": -0.8281,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Zn",
+"couple": "Zn²⁺/Zn",
+"half_reaction": "Zn^2+(aq) + 2 e^- = Zn(s)",
+"z": 2,
+"E0_V": -0.7618,
+"medium": "sauer",
+"check_E0_V": -0.7623,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cr",
+"couple": "Cr³⁺/Cr",
+"half_reaction": "Cr^3+(aq) + 3 e^- = Cr(s)",
+"z": 3,
+"E0_V": -0.744,
+"medium": "sauer",
+"check_E0_V": null,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Fe2",
+"couple": "Fe²⁺/Fe",
+"half_reaction": "Fe^2+(aq) + 2 e^- = Fe(s)",
+"z": 2,
+"E0_V": -0.447,
+"medium": "sauer",
+"check_E0_V": -0.4089,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cd",
+"couple": "Cd²⁺/Cd",
+"half_reaction": "Cd^2+(aq) + 2 e^- = Cd(s)",
+"z": 2,
+"E0_V": -0.403,
+"medium": "sauer",
+"check_E0_V": -0.4021,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "PbSO4",
+"couple": "PbSO₄/Pb",
+"half_reaction": "PbSO4(s) + 2 e^- = Pb(s) + SO4^2-(aq)",
+"z": 2,
+"E0_V": -0.3588,
+"medium": "sauer",
+"check_E0_V": -0.355,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Co",
+"couple": "Co²⁺/Co",
+"half_reaction": "Co^2+(aq) + 2 e^- = Co(s)",
+"z": 2,
+"E0_V": -0.28,
+"medium": "sauer",
+"check_E0_V": -0.2819,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Ni",
+"couple": "Ni²⁺/Ni",
+"half_reaction": "Ni^2+(aq) + 2 e^- = Ni(s)",
+"z": 2,
+"E0_V": -0.257,
+"medium": "sauer",
+"check_E0_V": -0.2363,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Sn",
+"couple": "Sn²⁺/Sn",
+"half_reaction": "Sn^2+(aq) + 2 e^- = Sn(s)",
+"z": 2,
+"E0_V": -0.1375,
+"medium": "sauer",
+"check_E0_V": null,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Pb",
+"couple": "Pb²⁺/Pb",
+"half_reaction": "Pb^2+(aq) + 2 e^- = Pb(s)",
+"z": 2,
+"E0_V": -0.1262,
+"medium": "sauer",
+"check_E0_V": -0.1264,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Fe3",
+"couple": "Fe³⁺/Fe",
+"half_reaction": "Fe^3+(aq) + 3 e^- = Fe(s)",
+"z": 3,
+"E0_V": -0.037,
+"medium": "sauer",
+"check_E0_V": -0.0162,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "H",
+"couple": "H⁺/H₂ (Bezug)",
+"half_reaction": "2 H^+(aq) + 2 e^- = H2(g)",
+"z": 2,
+"E0_V": 0.0,
+"medium": "sauer",
+"check_E0_V": -0.0,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cu21",
+"couple": "Cu²⁺/Cu⁺",
+"half_reaction": "Cu^2+(aq) + e^- = Cu^+(aq)",
+"z": 1,
+"E0_V": 0.153,
+"medium": "sauer",
+"check_E0_V": 0.1606,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "AgCl",
+"couple": "AgCl/Ag",
+"half_reaction": "AgCl(s) + e^- = Ag(s) + Cl^-(aq)",
+"z": 1,
+"E0_V": 0.22233,
+"medium": "sauer",
+"check_E0_V": 0.2218,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cu2",
+"couple": "Cu²⁺/Cu",
+"half_reaction": "Cu^2+(aq) + 2 e^- = Cu(s)",
+"z": 2,
+"E0_V": 0.3419,
+"medium": "sauer",
+"check_E0_V": 0.3394,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "O2_OH",
+"couple": "O₂/OH⁻ (basisch)",
+"half_reaction": "O2(g) + 2 H2O(l) + 4 e^- = 4 OH^-(aq)",
+"z": 4,
+"E0_V": 0.401,
+"medium": "basisch",
+"check_E0_V": 0.4006,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cu1",
+"couple": "Cu⁺/Cu",
+"half_reaction": "Cu^+(aq) + e^- = Cu(s)",
+"z": 1,
+"E0_V": 0.521,
+"medium": "sauer",
+"check_E0_V": 0.5182,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "I2",
+"couple": "I₂/I⁻",
+"half_reaction": "I2(s) + 2 e^- = 2 I^-(aq)",
+"z": 2,
+"E0_V": 0.5355,
+"medium": "sauer",
+"check_E0_V": 0.5348,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "O2_H2O2",
+"couple": "O₂/H₂O₂",
+"half_reaction": "O2(g) + 2 H^+(aq) + 2 e^- = H2O2(aq)",
+"z": 2,
+"E0_V": 0.695,
+"medium": "sauer",
+"check_E0_V": 0.6946,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Fe32",
+"couple": "Fe³⁺/Fe²⁺",
+"half_reaction": "Fe^3+(aq) + e^- = Fe^2+(aq)",
+"z": 1,
+"E0_V": 0.771,
+"medium": "sauer",
+"check_E0_V": 0.769,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Hg22",
+"couple": "Hg₂²⁺/Hg",
+"half_reaction": "Hg2^2+(aq) + 2 e^- = 2 Hg(l)",
+"z": 2,
+"E0_V": 0.7973,
+"medium": "sauer",
+"check_E0_V": 0.7955,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Ag",
+"couple": "Ag⁺/Ag",
+"half_reaction": "Ag^+(aq) + e^- = Ag(s)",
+"z": 1,
+"E0_V": 0.7996,
+"medium": "sauer",
+"check_E0_V": 0.7991,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Hg2",
+"couple": "Hg²⁺/Hg",
+"half_reaction": "Hg^2+(aq) + 2 e^- = Hg(l)",
+"z": 2,
+"E0_V": 0.851,
+"medium": "sauer",
+"check_E0_V": 0.8519,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "NO3_NO",
+"couple": "NO₃⁻/NO",
+"half_reaction": "NO3^-(aq) + 4 H^+(aq) + 3 e^- = NO(g) + 2 H2O(l)",
+"z": 3,
+"E0_V": 0.957,
+"medium": "sauer",
+"check_E0_V": 0.9511,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Br2",
+"couple": "Br₂/Br⁻",
+"half_reaction": "Br2(l) + 2 e^- = 2 Br^-(aq)",
+"z": 2,
+"E0_V": 1.066,
+"medium": "sauer",
+"check_E0_V": 1.0779,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "MnO2",
+"couple": "MnO₂/Mn²⁺",
+"half_reaction": "MnO2(s) + 4 H^+(aq) + 2 e^- = Mn^2+(aq) + 2 H2O(l)",
+"z": 2,
+"E0_V": 1.224,
+"medium": "sauer",
+"check_E0_V": 1.2292,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "O2_H2O",
+"couple": "O₂/H₂O",
+"half_reaction": "O2(g) + 4 H^+(aq) + 4 e^- = 2 H2O(l)",
+"z": 4,
+"E0_V": 1.229,
+"medium": "sauer",
+"check_E0_V": 1.2287,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cr2O7",
+"couple": "Cr₂O₇²⁻/Cr³⁺",
+"half_reaction": "Cr2O7^2-(aq) + 14 H^+(aq) + 6 e^- = 2 Cr^3+(aq) + 7 H2O(l)",
+"z": 6,
+"E0_V": 1.232,
+"medium": "sauer",
+"check_E0_V": null,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Cl2",
+"couple": "Cl₂/Cl⁻",
+"half_reaction": "Cl2(g) + 2 e^- = 2 Cl^-(aq)",
+"z": 2,
+"E0_V": 1.35827,
+"medium": "sauer",
+"check_E0_V": 1.3598,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "Au3",
+"couple": "Au³⁺/Au",
+"half_reaction": "Au^3+(aq) + 3 e^- = Au(s)",
+"z": 3,
+"E0_V": 1.498,
+"medium": "sauer",
+"check_E0_V": null,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "MnO4",
+"couple": "MnO₄⁻/Mn²⁺",
+"half_reaction": "MnO4^-(aq) + 8 H^+(aq) + 5 e^- = Mn^2+(aq) + 4 H2O(l)",
+"z": 5,
+"E0_V": 1.507,
+"medium": "sauer",
+"check_E0_V": 1.5117,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "PbO2",
+"couple": "PbO₂/PbSO₄",
+"half_reaction": "PbO2(s) + SO4^2-(aq) + 4 H^+(aq) + 2 e^- = PbSO4(s) + 2 H2O(l)",
+"z": 2,
+"E0_V": 1.6913,
+"medium": "sauer",
+"check_E0_V": 1.6863,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "H2O2",
+"couple": "H₂O₂/H₂O",
+"half_reaction": "H2O2(aq) + 2 H^+(aq) + 2 e^- = 2 H2O(l)",
+"z": 2,
+"E0_V": 1.776,
+"medium": "sauer",
+"check_E0_V": 1.7628,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "O3",
+"couple": "O₃/O₂",
+"half_reaction": "O3(g) + 2 H^+(aq) + 2 e^- = O2(g) + H2O(l)",
+"z": 2,
+"E0_V": 2.076,
+"medium": "sauer",
+"check_E0_V": 2.0744,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+},
+{
+"id": "F2",
+"couple": "F₂/F⁻",
+"half_reaction": "F2(g) + 2 e^- = 2 F^-(aq)",
+"z": 2,
+"E0_V": 2.866,
+"medium": "sauer",
+"check_E0_V": 2.8896,
+"sources": [
+{
+"label": "CRC Handbook of Chemistry and Physics, Electrochemical Series (Vanýsek), nach Bard, Parsons, Jordan: Standard Potentials in Aqueous Solution (IUPAC 1985), von Hand übertragen",
+"kind": "fachwissen"
+}
+]
+}
+]
+}

@@ -85,3 +85,14 @@ export function chTable(rows: ReadonlyArray<{ symbol: string; z: number; atomic_
   }
   return m;
 }
+
+/** Elementarladung [C], exakt (SI 2019). */
+export const E_CHARGE = 1.602176634e-19;
+/** Faraday-Konstante F = N_A · e [C/mol], exakt. */
+export const F_FARADAY = N_A * E_CHARGE;
+/** Tabellentemperatur der Standardgrößen [K] (v1.1). */
+export const T_STD = 298.15;
+/** Standarddruck p° [Pa] (IUPAC, CH-E12). */
+export const P_STD = 1e5;
+/** Standardkonzentration c° = 1 mol/L = 1000 mol/m³ (CH-E14). */
+export const C_STD = 1000;

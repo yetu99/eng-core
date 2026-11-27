@@ -584384,5 +584384,2607 @@
    "y0": 2
   },
   "tol": 0
+ },
+ {
+  "id": "CH-T1 Methan",
+  "case": {
+   "id": "CH-T1 Methan",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "CH4",
+     "edukt",
+     1
+    ],
+    [
+     "O2",
+     "edukt",
+     2
+    ],
+    [
+     "CO2",
+     "produkt",
+     1
+    ],
+    [
+     "H2O(l)",
+     "produkt",
+     2
+    ]
+   ],
+   "T": 298.15
+  },
+  "expect": {
+   "dH": -890500.0,
+   "dS": -242.90000000000003,
+   "dGT": -818100.0,
+   "Tinv": 3666.1177439275416,
+   "dG298": -818100.0,
+   "logK": 143.32491906970972
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T2 Kalkbrennen 1200 K",
+  "case": {
+   "id": "CH-T2 Kalkbrennen 1200 K",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "CaCO3",
+     "edukt",
+     1
+    ],
+    [
+     "CaO",
+     "produkt",
+     1
+    ],
+    [
+     "CO2",
+     "produkt",
+     1
+    ]
+   ],
+   "T": 1200.0
+  },
+  "expect": {
+   "dH": 179200.0,
+   "dS": 160.20000000000002,
+   "dGT": -13040.00000000003,
+   "Tinv": 1118.6017478152307,
+   "dG298": 131400.0,
+   "logK": 0.5676053386434705
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T3 Haber-Bosch 700 K",
+  "case": {
+   "id": "CH-T3 Haber-Bosch 700 K",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "N2",
+     "edukt",
+     1
+    ],
+    [
+     "H2",
+     "edukt",
+     3
+    ],
+    [
+     "NH3",
+     "produkt",
+     2
+    ]
+   ],
+   "T": 700.0
+  },
+  "expect": {
+   "dH": -91800.0,
+   "dS": -198.0999999999999,
+   "dGT": 46869.99999999994,
+   "Tinv": 463.4023220595661,
+   "dG298": -32800.0,
+   "logK": -3.497413964358375
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T4 Wassergas 1000 K",
+  "case": {
+   "id": "CH-T4 Wassergas 1000 K",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "C",
+     "edukt",
+     1
+    ],
+    [
+     "H2O(g)",
+     "edukt",
+     1
+    ],
+    [
+     "CO",
+     "produkt",
+     1
+    ],
+    [
+     "H2",
+     "produkt",
+     1
+    ]
+   ],
+   "T": 1000.0
+  },
+  "expect": {
+   "dH": 131300.0,
+   "dS": 133.89999999999998,
+   "dGT": -2599.999999999971,
+   "Tinv": 980.5825242718448,
+   "dG298": 91400.0,
+   "logK": 0.1358074123134666
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T5 Thermit",
+  "case": {
+   "id": "CH-T5 Thermit",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "Fe2O3",
+     "edukt",
+     1
+    ],
+    [
+     "Al",
+     "edukt",
+     2
+    ],
+    [
+     "Al2O3",
+     "produkt",
+     1
+    ],
+    [
+     "Fe",
+     "produkt",
+     2
+    ]
+   ],
+   "T": 298.15
+  },
+  "expect": {
+   "dH": -851500.0,
+   "dS": -38.49999999999999,
+   "dGT": -840100.0,
+   "Tinv": 22116.88311688312,
+   "dG298": -840100.0,
+   "logK": 147.17915231690887
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T6 Knallgas Wasser(g) 2000 K",
+  "case": {
+   "id": "CH-T6 Knallgas Wasser(g) 2000 K",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "H2",
+     "edukt",
+     2
+    ],
+    [
+     "O2",
+     "edukt",
+     1
+    ],
+    [
+     "H2O(g)",
+     "produkt",
+     2
+    ]
+   ],
+   "T": 2000.0
+  },
+  "expect": {
+   "dH": -483600.0,
+   "dS": -88.99999999999994,
+   "dGT": -305600.0000000001,
+   "Tinv": 5433.707865168542,
+   "dG298": -457200.0,
+   "logK": 7.9812971544222835
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T7 Neutralisation",
+  "case": {
+   "id": "CH-T7 Neutralisation",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "H^+",
+     "edukt",
+     1
+    ],
+    [
+     "OH^-",
+     "edukt",
+     1
+    ],
+    [
+     "H2O",
+     "produkt",
+     1
+    ]
+   ],
+   "T": 298.15
+  },
+  "expect": {
+   "dH": -55800.0,
+   "dS": 80.8,
+   "dGT": -79900.0,
+   "dG298": -79900.0,
+   "logK": 13.997874384145957
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T8 Calcit Lösung",
+  "case": {
+   "id": "CH-T8 Calcit Lösung",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "CaCO3",
+     "edukt",
+     1
+    ],
+    [
+     "Ca^2+",
+     "produkt",
+     1
+    ],
+    [
+     "CO3^2-",
+     "produkt",
+     1
+    ]
+   ],
+   "T": 298.15
+  },
+  "expect": {
+   "dH": -12300.0,
+   "dS": -201.70000000000002,
+   "dGT": 47700.0,
+   "Tinv": 60.98165592464055,
+   "dG298": 47700.0,
+   "logK": -8.356678449609038
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T9 SO2 Oxidation 800 K",
+  "case": {
+   "id": "CH-T9 SO2 Oxidation 800 K",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "SO2",
+     "edukt",
+     2
+    ],
+    [
+     "O2",
+     "edukt",
+     1
+    ],
+    [
+     "SO3(g)",
+     "produkt",
+     2
+    ]
+   ],
+   "T": 800.0
+  },
+  "expect": {
+   "dH": -197800.0,
+   "dS": -187.9999999999999,
+   "dGT": -47400.00000000009,
+   "Tinv": 1052.1276595744687,
+   "dG298": -142000.0,
+   "logK": 3.094841992143462
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T10 Methanol Synthese 500 K",
+  "case": {
+   "id": "CH-T10 Methanol Synthese 500 K",
+   "type": "chthermo",
+   "module": "chemie",
+   "terms": [
+    [
+     "CO",
+     "edukt",
+     1
+    ],
+    [
+     "H2",
+     "edukt",
+     2
+    ],
+    [
+     "CH3OH(g)",
+     "produkt",
+     1
+    ]
+   ],
+   "T": 500.0
+  },
+  "expect": {
+   "dH": -90500.0,
+   "dS": -219.19999999999996,
+   "dGT": 19099.999999999985,
+   "Tinv": 412.86496350364973,
+   "dG298": -25100.0,
+   "logK": -1.9953242886055684
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff H2",
+  "case": {
+   "id": "CH-T Brennstoff H2",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "H2"
+  },
+  "expect": {
+   "o2": 0.5,
+   "Hs_m": 285800.0,
+   "Hi_m": 241800.0,
+   "Hs_w": 141765873.01587301,
+   "Hi_w": 119940476.1904762,
+   "Hs_v": 12750976.547283417,
+   "Hi_v": 10787915.077442722
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff CH4",
+  "case": {
+   "id": "CH-T Brennstoff CH4",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "CH4"
+  },
+  "expect": {
+   "o2": 2.0,
+   "Hs_m": 890500.0,
+   "Hi_m": 802500.0,
+   "Hs_w": 55507074.736645274,
+   "Hi_w": 50021816.368509635,
+   "Hs_v": 39729687.24757132,
+   "Hi_v": 35803564.30788993
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C2H6",
+  "case": {
+   "id": "CH-T Brennstoff C2H6",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C2H6"
+  },
+  "expect": {
+   "o2": 3.5,
+   "Hs_m": 1560400.0,
+   "Hi_m": 1428400.0,
+   "Hs_w": 51892251.413368806,
+   "Hi_w": 47502494.18024609,
+   "Hs_v": 69617298.12589587,
+   "Hi_v": 63728113.7163738
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C3H8",
+  "case": {
+   "id": "CH-T Brennstoff C3H8",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C3H8"
+  },
+  "expect": {
+   "o2": 5.0,
+   "Hs_m": 2219900.0,
+   "Hi_m": 2043900.0,
+   "Hs_w": 50341293.058484696,
+   "Hi_w": 46350091.84298251,
+   "Hs_v": 99040912.65680355,
+   "Hi_v": 91188666.77744077
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C4H10",
+  "case": {
+   "id": "CH-T Brennstoff C4H10",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C4H10"
+  },
+  "expect": {
+   "o2": 6.5,
+   "Hs_m": 2877300.0,
+   "Hi_m": 2657300.0,
+   "Hs_w": 49502787.14472508,
+   "Hi_w": 45717775.78969101,
+   "Hs_v": 128370835.61755973,
+   "Hi_v": 118555528.26835626
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C8H18",
+  "case": {
+   "id": "CH-T Brennstoff C8H18",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C8H18"
+  },
+  "expect": {
+   "o2": 12.5,
+   "Hs_m": 5470100.0,
+   "Hi_m": 5074100.0,
+   "Hs_w": 47885881.36424119,
+   "Hi_w": 44419252.04846278
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff CH3OH",
+  "case": {
+   "id": "CH-T Brennstoff CH3OH",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "CH3OH"
+  },
+  "expect": {
+   "o2": 1.5,
+   "Hs_m": 725900.0,
+   "Hi_m": 637900.0,
+   "Hs_w": 22654640.783971038,
+   "Hi_w": 19908245.427875914
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C2H5OH",
+  "case": {
+   "id": "CH-T Brennstoff C2H5OH",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C2H5OH"
+  },
+  "expect": {
+   "o2": 3.0,
+   "Hs_m": 1366800.0,
+   "Hi_m": 1234800.0,
+   "Hs_w": 29668540.667259976,
+   "Hi_w": 26803273.350843295
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C",
+  "case": {
+   "id": "CH-T Brennstoff C",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C"
+  },
+  "expect": {
+   "o2": 1.0,
+   "Hs_m": 393500.0,
+   "Hi_m": 393500.0,
+   "Hs_w": 32761635.167762887,
+   "Hi_w": 32761635.167762887
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff CO",
+  "case": {
+   "id": "CH-T Brennstoff CO",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "CO"
+  },
+  "expect": {
+   "o2": 0.5,
+   "Hs_m": 283000.0,
+   "Hi_m": 283000.0,
+   "Hs_w": 10103534.451981435,
+   "Hi_w": 10103534.451981435,
+   "Hs_v": 12626054.4537481,
+   "Hi_v": 12626054.4537481
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff NH3",
+  "case": {
+   "id": "CH-T Brennstoff NH3",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "NH3"
+  },
+  "expect": {
+   "o2": 0.75,
+   "Hs_m": 382800.0,
+   "Hi_m": 316800.0,
+   "Hs_w": 22476660.207856264,
+   "Hi_w": 18601373.965122428,
+   "Hs_v": 17078634.787614036,
+   "Hi_v": 14134042.582852995
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff H2S",
+  "case": {
+   "id": "CH-T Brennstoff H2S",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "H2S"
+  },
+  "expect": {
+   "o2": 1.5,
+   "Hs_m": 562000.0,
+   "Hi_m": 518000.0,
+   "Hs_w": 16492546.073482802,
+   "Hi_w": 15201314.708299095,
+   "Hs_v": 25073648.773874316,
+   "Hi_v": 23110587.304033622
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff C2H2",
+  "case": {
+   "id": "CH-T Brennstoff C2H2",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "C2H2"
+  },
+  "expect": {
+   "o2": 2.5,
+   "Hs_m": 1300200.0,
+   "Hi_m": 1256200.0,
+   "Hs_w": 49934710.807281666,
+   "Hi_w": 48244872.87810124,
+   "Hs_v": 58008466.4337925,
+   "Hi_v": 56045404.96395181
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Brennstoff N2H4",
+  "case": {
+   "id": "CH-T Brennstoff N2H4",
+   "type": "chfuel",
+   "module": "chemie",
+   "f": "N2H4"
+  },
+  "expect": {
+   "o2": 1.0,
+   "Hs_m": 622200.0,
+   "Hi_m": 534200.0,
+   "Hs_w": 19415839.73038757,
+   "Hi_w": 16669787.180927418
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-T Biogas 60 % CH4, 2 % H2",
+  "case": {
+   "id": "CH-T Biogas 60 % CH4, 2 % H2",
+   "type": "chmix",
+   "module": "chemie",
+   "parts": [
+    [
+     "CH4",
+     0.6
+    ],
+    [
+     "H2",
+     0.02
+    ]
+   ]
+  },
+  "expect": {
+   "Hs_v": 24092831.87948846,
+   "Hi_v": 21697896.886282813
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-T Reaktionswärme 2 mol Methan",
+  "case": {
+   "id": "CH-T Reaktionswärme 2 mol Methan",
+   "type": "chheat",
+   "module": "chemie",
+   "xi": 2.0,
+   "dH": -890500.0
+  },
+  "expect": {
+   "Q": -1781000.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G K -32900 298.15",
+  "case": {
+   "id": "CH-G K -32900 298.15",
+   "type": "chk",
+   "module": "chemie",
+   "dG": -32900.0,
+   "T": 298.15
+  },
+  "expect": {
+   "logK": 5.763830628765982
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G K 130400 1200",
+  "case": {
+   "id": "CH-G K 130400 1200",
+   "type": "chk",
+   "module": "chemie",
+   "dG": 130400.0,
+   "T": 1200.0
+  },
+  "expect": {
+   "logK": -5.676053386434693
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G K 0 500",
+  "case": {
+   "id": "CH-G K 0 500",
+   "type": "chk",
+   "module": "chemie",
+   "dG": 0.0,
+   "T": 500.0
+  },
+  "expect": {
+   "logK": -0.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Kw 278.15 K",
+  "case": {
+   "id": "CH-G lgK Kw 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Kw",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -14.7295796398198
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Kw 283.15 K",
+  "case": {
+   "id": "CH-G lgK Kw 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Kw",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -14.531411611211494
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Kw 313.15 K",
+  "case": {
+   "id": "CH-G lgK Kw 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Kw",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -13.53343036949963
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Kw 333.15 K",
+  "case": {
+   "id": "CH-G lgK Kw 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Kw",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -13.01527953605197
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H2CO3 278.15 K",
+  "case": {
+   "id": "CH-G lgK H2CO3 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H2CO3",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -6.516301507636776
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H2CO3 283.15 K",
+  "case": {
+   "id": "CH-G lgK H2CO3 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H2CO3",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -6.463342148235316
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H2CO3 313.15 K",
+  "case": {
+   "id": "CH-G lgK H2CO3 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H2CO3",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -6.297395048667365
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H2CO3 333.15 K",
+  "case": {
+   "id": "CH-G lgK H2CO3 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H2CO3",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -6.2903045980234165
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HCO3 278.15 K",
+  "case": {
+   "id": "CH-G lgK HCO3 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HCO3",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -10.554412950000815
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HCO3 283.15 K",
+  "case": {
+   "id": "CH-G lgK HCO3 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HCO3",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -10.487878033272537
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HCO3 313.15 K",
+  "case": {
+   "id": "CH-G lgK HCO3 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HCO3",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -10.221694318791917
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HCO3 333.15 K",
+  "case": {
+   "id": "CH-G lgK HCO3 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HCO3",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -10.143808076769265
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Calcit 278.15 K",
+  "case": {
+   "id": "CH-G lgK Calcit 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Calcit",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -8.324109933805886
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Calcit 283.15 K",
+  "case": {
+   "id": "CH-G lgK Calcit 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Calcit",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -8.34905778605085
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Calcit 313.15 K",
+  "case": {
+   "id": "CH-G lgK Calcit 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Calcit",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -8.580112051847237
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK Calcit 333.15 K",
+  "case": {
+   "id": "CH-G lgK Calcit 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "Calcit",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -8.802827574434986
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK CO2g 278.15 K",
+  "case": {
+   "id": "CH-G lgK CO2g 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "CO2g",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -1.1920301933216992
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK CO2g 283.15 K",
+  "case": {
+   "id": "CH-G lgK CO2g 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "CO2g",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -1.2694803683079325
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK CO2g 313.15 K",
+  "case": {
+   "id": "CH-G lgK CO2g 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "CO2g",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -1.6250518404063634
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK CO2g 333.15 K",
+  "case": {
+   "id": "CH-G lgK CO2g 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "CO2g",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -1.7839597432344516
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK NH4 278.15 K",
+  "case": {
+   "id": "CH-G lgK NH4 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "NH4",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -9.903608350035952
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK NH4 283.15 K",
+  "case": {
+   "id": "CH-G lgK NH4 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "NH4",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -9.729703779136502
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK NH4 313.15 K",
+  "case": {
+   "id": "CH-G lgK NH4 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "NH4",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -8.80700510957209
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK NH4 333.15 K",
+  "case": {
+   "id": "CH-G lgK NH4 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "NH4",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -8.287870328868378
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HSO4 278.15 K",
+  "case": {
+   "id": "CH-G lgK HSO4 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HSO4",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -1.815231155467167
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HSO4 283.15 K",
+  "case": {
+   "id": "CH-G lgK HSO4 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HSO4",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -1.8549444384810698
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HSO4 313.15 K",
+  "case": {
+   "id": "CH-G lgK HSO4 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HSO4",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -2.13800384778893
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK HSO4 333.15 K",
+  "case": {
+   "id": "CH-G lgK HSO4 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "HSO4",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -2.359700965484528
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H3PO4 278.15 K",
+  "case": {
+   "id": "CH-G lgK H3PO4 278.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H3PO4",
+   "T": 278.15
+  },
+  "expect": {
+   "logK": -2.056995462310007
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H3PO4 283.15 K",
+  "case": {
+   "id": "CH-G lgK H3PO4 283.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H3PO4",
+   "T": 283.15
+  },
+  "expect": {
+   "logK": -2.086216725697144
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H3PO4 313.15 K",
+  "case": {
+   "id": "CH-G lgK H3PO4 313.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H3PO4",
+   "T": 313.15
+  },
+  "expect": {
+   "logK": -2.2419483765570933
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G lgK H3PO4 333.15 K",
+  "case": {
+   "id": "CH-G lgK H3PO4 333.15 K",
+   "type": "chlogk",
+   "module": "chemie",
+   "e": "H3PO4",
+   "T": 333.15
+  },
+  "expect": {
+   "logK": -2.330187742090126
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-G1 Ammoniak 200 bar",
+  "case": {
+   "id": "CH-G1 Ammoniak 200 bar",
+   "type": "cheqx",
+   "module": "chemie",
+   "sp": [
+    [
+     "N2",
+     -1,
+     1.0,
+     "gas"
+    ],
+    [
+     "H2",
+     -3,
+     3.0,
+     "gas"
+    ],
+    [
+     "NH3",
+     2,
+     0.0,
+     "gas"
+    ]
+   ],
+   "K": 3.1622776601683795e-05,
+   "mode": "gas",
+   "val": 20000000.0
+  },
+  "expect": {
+   "xi": 0.36255356400094707,
+   "n0": 0.6374464359990529,
+   "n1": 1.9123393079971587,
+   "n2": 0.7251071280018941
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-G2 N2O4 Zerfall",
+  "case": {
+   "id": "CH-G2 N2O4 Zerfall",
+   "type": "cheqx",
+   "module": "chemie",
+   "sp": [
+    [
+     "N2O4",
+     -1,
+     1.0,
+     "gas"
+    ],
+    [
+     "NO2",
+     2,
+     0.0,
+     "gas"
+    ]
+   ],
+   "K": 0.148,
+   "mode": "gas",
+   "val": 100000.0
+  },
+  "expect": {
+   "xi": 0.188891094837145,
+   "n0": 0.811108905162855,
+   "n1": 0.37778218967429
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-G3 Essigsäure Ester",
+  "case": {
+   "id": "CH-G3 Essigsäure Ester",
+   "type": "cheqx",
+   "module": "chemie",
+   "sp": [
+    [
+     "CH3COOH",
+     -1,
+     1.0,
+     "geloest"
+    ],
+    [
+     "C2H5OH",
+     -1,
+     1.0,
+     "geloest"
+    ],
+    [
+     "Ester",
+     1,
+     0.0,
+     "geloest"
+    ],
+    [
+     "H2O",
+     1,
+     0.0,
+     "geloest"
+    ]
+   ],
+   "K": 4.0,
+   "mode": "loesung",
+   "val": 0.001
+  },
+  "expect": {
+   "xi": 0.6666666666666666,
+   "n0": 0.33333333333333337,
+   "n1": 0.33333333333333337,
+   "n2": 0.6666666666666666,
+   "n3": 0.6666666666666666
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-G4 Wassergas-Shift",
+  "case": {
+   "id": "CH-G4 Wassergas-Shift",
+   "type": "cheqx",
+   "module": "chemie",
+   "sp": [
+    [
+     "CO",
+     -1,
+     1.0,
+     "gas"
+    ],
+    [
+     "H2O",
+     -1,
+     2.0,
+     "gas"
+    ],
+    [
+     "CO2",
+     1,
+     0.0,
+     "gas"
+    ],
+    [
+     "H2",
+     1,
+     0.5,
+     "gas"
+    ]
+   ],
+   "K": 1.44,
+   "mode": "gas",
+   "val": 300000.0
+  },
+  "expect": {
+   "xi": 0.634230090306677,
+   "n0": 0.365769909693323,
+   "n1": 1.3657699096933231,
+   "n2": 0.634230090306677,
+   "n3": 1.1342300903066769
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-G5 Boudouard 1000 K",
+  "case": {
+   "id": "CH-G5 Boudouard 1000 K",
+   "type": "cheqx",
+   "module": "chemie",
+   "sp": [
+    [
+     "C",
+     -1,
+     2.0,
+     "rein"
+    ],
+    [
+     "CO2",
+     -1,
+     1.0,
+     "gas"
+    ],
+    [
+     "CO",
+     2,
+     0.0,
+     "gas"
+    ]
+   ],
+   "K": 1.9,
+   "mode": "gas",
+   "val": 100000.0
+  },
+  "expect": {
+   "xi": 0.5674803065350239,
+   "n0": 1.4325196934649762,
+   "n1": 0.4325196934649761,
+   "n2": 1.1349606130700478
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-G Q N2+3H2=2NH3",
+  "case": {
+   "id": "CH-G Q N2+3H2=2NH3",
+   "type": "chq",
+   "module": "chemie",
+   "nu": [
+    -1,
+    -3,
+    2
+   ],
+   "a": [
+    0.5,
+    0.2,
+    2.0
+   ],
+   "K": 0.0001,
+   "T": 700.0
+  },
+  "expect": {
+   "lnQ": 6.907755278982137,
+   "dG": 93809.31263599786
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Arrhenius 1e+13 100000 300",
+  "case": {
+   "id": "CH-A Arrhenius 1e+13 100000 300",
+   "type": "charr",
+   "module": "chemie",
+   "A": 10000000000000.0,
+   "Ea": 100000.0,
+   "T": 300.0
+  },
+  "expect": {
+   "k": 3.879656658532674e-05
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Arrhenius 2.5e+10 75000 350",
+  "case": {
+   "id": "CH-A Arrhenius 2.5e+10 75000 350",
+   "type": "charr",
+   "module": "chemie",
+   "A": 25000000000.0,
+   "Ea": 75000.0,
+   "T": 350.0
+  },
+  "expect": {
+   "k": 0.16033244351843268
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Arrhenius 4e+06 50000 273.15",
+  "case": {
+   "id": "CH-A Arrhenius 4e+06 50000 273.15",
+   "type": "charr",
+   "module": "chemie",
+   "A": 4000000.0,
+   "Ea": 50000.0,
+   "T": 273.15
+  },
+  "expect": {
+   "k": 0.0010982883708973413
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Ea 0.001 300 0.004 320",
+  "case": {
+   "id": "CH-A Ea 0.001 300 0.004 320",
+   "type": "chea",
+   "module": "chemie",
+   "k1": 0.001,
+   "T1": 300.0,
+   "k2": 0.004,
+   "T2": 320.0
+  },
+  "expect": {
+   "Ea": 55326.204687782185,
+   "A": 4294967.295999967,
+   "f": 3.999999999999999
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-A Ea 2.1e-05 293.15 8.7e-05 313.15",
+  "case": {
+   "id": "CH-A Ea 2.1e-05 293.15 8.7e-05 313.15",
+   "type": "chea",
+   "module": "chemie",
+   "k1": 2.1e-05,
+   "T1": 293.15,
+   "k2": 8.7e-05,
+   "T2": 313.15
+  },
+  "expect": {
+   "Ea": 54244.8409302939,
+   "A": 97183.69008978487,
+   "f": 4.142857142857144
+  },
+  "tol": 1e-11
+ },
+ {
+  "id": "CH-A Zeitgesetz n=0 k=0.05",
+  "case": {
+   "id": "CH-A Zeitgesetz n=0 k=0.05",
+   "type": "chrate",
+   "module": "chemie",
+   "n": 0,
+   "k": 0.05,
+   "c0": 1000.0,
+   "t": 3600.0,
+   "X": 0.5
+  },
+  "expect": {
+   "c": 820.0,
+   "tHalf": 10000.0,
+   "tX": 10000.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Zeitgesetz n=1 k=0.001",
+  "case": {
+   "id": "CH-A Zeitgesetz n=1 k=0.001",
+   "type": "chrate",
+   "module": "chemie",
+   "n": 1,
+   "k": 0.001,
+   "c0": 1000.0,
+   "t": 600.0,
+   "X": 0.9
+  },
+  "expect": {
+   "c": 548.8116360940264,
+   "tHalf": 693.1471805599452,
+   "tX": 2302.5850929940457
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Zeitgesetz n=2 k=2e-06",
+  "case": {
+   "id": "CH-A Zeitgesetz n=2 k=2e-06",
+   "type": "chrate",
+   "module": "chemie",
+   "n": 2,
+   "k": 2e-06,
+   "c0": 500.0,
+   "t": 1200.0,
+   "X": 0.75
+  },
+  "expect": {
+   "c": 227.27272727272725,
+   "tHalf": 1000.0,
+   "tX": 3000.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Zeitgesetz n=0 k=1",
+  "case": {
+   "id": "CH-A Zeitgesetz n=0 k=1",
+   "type": "chrate",
+   "module": "chemie",
+   "n": 0,
+   "k": 1.0,
+   "c0": 10.0,
+   "t": 100.0,
+   "X": 0.3
+  },
+  "expect": {
+   "c": 0.0,
+   "tHalf": 5.0,
+   "tX": 3.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-A Ordnung aus Messreihe",
+  "case": {
+   "id": "CH-A Ordnung aus Messreihe",
+   "type": "chorder",
+   "module": "chemie",
+   "t": [
+    0.0,
+    300.0,
+    600.0,
+    900.0,
+    1200.0,
+    1800.0
+   ],
+   "c": [
+    1004.0,
+    694.8856207667469,
+    488.6992649838116,
+    338.2371435423595,
+    237.87546971685026,
+    114.86382055391032
+   ]
+  },
+  "expect": {
+   "k0": 0.478354733612023,
+   "k1": 0.0012022857264763049,
+   "k2": 4.170266147042237e-06,
+   "r0": 0.9017705897948117,
+   "r1": 0.9999719893831559,
+   "r2": 0.9028172728520777,
+   "best": 1.0
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-Z Zelle Zn|Cu2 298.15 K",
+  "case": {
+   "id": "CH-Z Zelle Zn|Cu2 298.15 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "Zn",
+   "b": "Cu2",
+   "T": 298.15,
+   "act": {
+    "Zn^2+(aq)": 0.1,
+    "Cu^2+(aq)": 1.0
+   }
+  },
+  "expect": {
+   "z": 2.0,
+   "dE0": 1.1037,
+   "dE": 1.1332796748423912,
+   "dG": -218689.7316315298,
+   "logK": 37.312783385240856
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Zelle Fe32|MnO4 298.15 K",
+  "case": {
+   "id": "CH-Z Zelle Fe32|MnO4 298.15 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "Fe32",
+   "b": "MnO4",
+   "T": 298.15,
+   "act": {
+    "H^+(aq)": 0.1
+   }
+  },
+  "expect": {
+   "z": 5.0,
+   "dE0": 0.7359999999999999,
+   "dE": 0.6413450405043483,
+   "dG": -309401.9461934988,
+   "logK": 62.20487580759551
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Zelle H|O2_H2O 353.15 K",
+  "case": {
+   "id": "CH-Z Zelle H|O2_H2O 353.15 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "H",
+   "b": "O2_H2O",
+   "T": 353.15,
+   "act": {
+    "H2(g)": 1.0,
+    "O2(g)": 0.21
+   }
+  },
+  "expect": {
+   "z": 4.0,
+   "dE0": 1.229,
+   "dE": 1.2171265480710447,
+   "dG": -469739.4369069304,
+   "logK": 70.15588152090973
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Zelle PbSO4|PbO2 298.15 K",
+  "case": {
+   "id": "CH-Z Zelle PbSO4|PbO2 298.15 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "PbSO4",
+   "b": "PbO2",
+   "T": 298.15,
+   "act": {}
+  },
+  "expect": {
+   "z": 2.0,
+   "dE0": 2.0501,
+   "dE": 2.0501,
+   "dG": -395609.15877199575,
+   "logK": 69.30772602888673
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Zelle Ag|AgCl 298.15 K",
+  "case": {
+   "id": "CH-Z Zelle Ag|AgCl 298.15 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "Ag",
+   "b": "AgCl",
+   "T": 298.15,
+   "act": {
+    "Ag^+(aq)": 0.001,
+    "Cl^-(aq)": 0.1
+   }
+  },
+  "expect": {
+   "z": 1.0,
+   "dE0": 0.57727,
+   "dE": 0.3406326012608707,
+   "dG": -32866.04966468214,
+   "logK": 9.757882787350724
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Zelle Li|F2 298.15 K",
+  "case": {
+   "id": "CH-Z Zelle Li|F2 298.15 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "Li",
+   "b": "F2",
+   "T": 298.15,
+   "act": {}
+  },
+  "expect": {
+   "z": 2.0,
+   "dE0": 5.9061,
+   "dE": 5.9061,
+   "dG": -1139704.0401069627,
+   "logK": 199.66750924306518
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Zelle Ni|Cd 310 K",
+  "case": {
+   "id": "CH-Z Zelle Ni|Cd 310 K",
+   "type": "chcell",
+   "module": "chemie",
+   "a": "Ni",
+   "b": "Cd",
+   "T": 310.0,
+   "act": {
+    "Ni^2+(aq)": 0.5,
+    "Cd^2+(aq)": 0.01
+   }
+  },
+  "expect": {
+   "z": 2.0,
+   "dE0": 0.14600000000000002,
+   "dE": 0.19825236924877732,
+   "dG": -38256.89138240275,
+   "logK": 4.747145903606333
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Nernst Cu2",
+  "case": {
+   "id": "CH-Z Nernst Cu2",
+   "type": "chnernst",
+   "module": "chemie",
+   "p": "Cu2",
+   "T": 298.15,
+   "act": {
+    "Cu^2+(aq)": 0.0001
+   }
+  },
+  "expect": {
+   "E": 0.22358130063043535
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Nernst MnO4",
+  "case": {
+   "id": "CH-Z Nernst MnO4",
+   "type": "chnernst",
+   "module": "chemie",
+   "p": "MnO4",
+   "T": 298.15,
+   "act": {
+    "MnO4^-(aq)": 0.01,
+    "H^+(aq)": 0.001,
+    "Mn^2+(aq)": 0.1
+   }
+  },
+  "expect": {
+   "E": 1.2112032515760882
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Nernst O2_OH",
+  "case": {
+   "id": "CH-Z Nernst O2_OH",
+   "type": "chnernst",
+   "module": "chemie",
+   "p": "O2_OH",
+   "T": 283.15,
+   "act": {
+    "O2(g)": 0.21,
+    "OH^-(aq)": 1e-06
+   }
+  },
+  "expect": {
+   "E": 0.7285782261865713
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z E0 aus dG -212310",
+  "case": {
+   "id": "CH-Z E0 aus dG -212310",
+   "type": "che0",
+   "module": "chemie",
+   "dG": -212310.0,
+   "z": 2
+  },
+  "expect": {
+   "E0": 1.1002190453605112
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z E0 aus dG 474260",
+  "case": {
+   "id": "CH-Z E0 aus dG 474260",
+   "type": "che0",
+   "module": "chemie",
+   "dG": 474260.0,
+   "z": 4
+  },
+  "expect": {
+   "E0": -1.2288396317947248
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z E0 aus dG -131200",
+  "case": {
+   "id": "CH-Z E0 aus dG -131200",
+   "type": "che0",
+   "module": "chemie",
+   "dG": -131200.0,
+   "z": 1
+  },
+  "expect": {
+   "E0": 1.3597921789015972
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Luther -0.447 0.771",
+  "case": {
+   "id": "CH-Z Luther -0.447 0.771",
+   "type": "chluther",
+   "module": "chemie",
+   "z1": 2,
+   "E1": -0.447,
+   "z2": 1,
+   "E2": 0.771
+  },
+  "expect": {
+   "E3": -0.041
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Luther 0.153 0.521",
+  "case": {
+   "id": "CH-Z Luther 0.153 0.521",
+   "type": "chluther",
+   "module": "chemie",
+   "z1": 1,
+   "E1": 0.153,
+   "z2": 1,
+   "E2": 0.521
+  },
+  "expect": {
+   "E3": 0.337
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Luther 0.695 1.776",
+  "case": {
+   "id": "CH-Z Luther 0.695 1.776",
+   "type": "chluther",
+   "module": "chemie",
+   "z1": 2,
+   "E1": 0.695,
+   "z2": 2,
+   "E2": 1.776
+  },
+  "expect": {
+   "E3": 1.2355
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Faraday I=10",
+  "case": {
+   "id": "CH-Z Faraday I=10",
+   "type": "chfar",
+   "module": "chemie",
+   "I": 10.0,
+   "z": 2,
+   "M": 0.063546,
+   "etaF": 1.0,
+   "t": 3600.0
+  },
+  "expect": {
+   "n": 0.18655685381271914,
+   "t": 3600.0,
+   "m": 0.01185494183238305,
+   "Q": 36000.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Faraday I=500",
+  "case": {
+   "id": "CH-Z Faraday I=500",
+   "type": "chfar",
+   "module": "chemie",
+   "I": 500.0,
+   "z": 2,
+   "M": 0.002016,
+   "etaF": 0.98,
+   "t": 86400.0
+  },
+  "expect": {
+   "n": 219.3908600837577,
+   "t": 86400.0,
+   "m": 0.4422919739288555,
+   "Q": 43200000.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Faraday I=2",
+  "case": {
+   "id": "CH-Z Faraday I=2",
+   "type": "chfar",
+   "module": "chemie",
+   "I": 2.0,
+   "z": 1,
+   "M": 0.1078682,
+   "etaF": 0.95,
+   "n": 0.01
+  },
+  "expect": {
+   "n": 0.01,
+   "t": 507.8175374911054,
+   "m": 0.001078682,
+   "Q": 1015.6350749822108
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Elektrolyse Wasser U=1.8",
+  "case": {
+   "id": "CH-Z Elektrolyse Wasser U=1.8",
+   "type": "chely",
+   "module": "chemie",
+   "dG": 237100.0,
+   "dH": 285800.0,
+   "z": 2,
+   "U": 1.8,
+   "M": 0.002016,
+   "etaF": 0.98
+  },
+  "expect": {
+   "Urev": 1.2286841677498808,
+   "Uth": 1.4810541338798646,
+   "etaU": 0.8228078521554804,
+   "w": 175811465.23926753,
+   "eta": 0.8063516951123708
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Elektrolyse Wasser U=2.1",
+  "case": {
+   "id": "CH-Z Elektrolyse Wasser U=2.1",
+   "type": "chely",
+   "module": "chemie",
+   "dG": 237100.0,
+   "dH": 285800.0,
+   "z": 2,
+   "U": 2.1,
+   "M": 0.002016,
+   "etaF": 1.0
+  },
+  "expect": {
+   "Urev": 1.2286841677498808,
+   "Uth": 1.4810541338798646,
+   "etaU": 0.7052638732761259,
+   "w": 201011108.5902292,
+   "eta": 0.705263873276126
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-Z Elektrolyse Wasser U=1.48",
+  "case": {
+   "id": "CH-Z Elektrolyse Wasser U=1.48",
+   "type": "chely",
+   "module": "chemie",
+   "dG": 237100.0,
+   "dH": 285800.0,
+   "z": 2,
+   "U": 1.48,
+   "M": 0.002016,
+   "etaF": 0.95
+  },
+  "expect": {
+   "Urev": 1.2286841677498808,
+   "Uth": 1.4810541338798646,
+   "etaU": 1.0007122526215302,
+   "w": 149121022.91405475,
+   "eta": 0.9506766399904536
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-W A 273.15 K",
+  "case": {
+   "id": "CH-W A 273.15 K",
+   "type": "chdh",
+   "module": "chemie",
+   "T": 273.15
+  },
+  "expect": {
+   "A": 0.49180206599278903,
+   "g1": 0.9052449848741588,
+   "g2": 0.6715285940400024
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W A 283.15 K",
+  "case": {
+   "id": "CH-W A 283.15 K",
+   "type": "chdh",
+   "module": "chemie",
+   "T": 283.15
+  },
+  "expect": {
+   "A": 0.49890722122139486,
+   "g1": 0.9039439860345778,
+   "g2": 0.6676764818000716
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W A 298.15 K",
+  "case": {
+   "id": "CH-W A 298.15 K",
+   "type": "chdh",
+   "module": "chemie",
+   "T": 298.15
+  },
+  "expect": {
+   "A": 0.5108080936719838,
+   "g1": 0.9017690484136548,
+   "g2": 0.6612737746415989
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W A 313.15 K",
+  "case": {
+   "id": "CH-W A 313.15 K",
+   "type": "chdh",
+   "module": "chemie",
+   "T": 313.15
+  },
+  "expect": {
+   "A": 0.5242942264340914,
+   "g1": 0.8993107217525479,
+   "g2": 0.6540923724596122
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W A 333.15 K",
+  "case": {
+   "id": "CH-W A 333.15 K",
+   "type": "chdh",
+   "module": "chemie",
+   "T": 333.15
+  },
+  "expect": {
+   "A": 0.5448607638411503,
+   "g1": 0.8955746367432487,
+   "g2": 0.6432905065928367
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Essigsäure 0,1 mol/L",
+  "case": {
+   "id": "CH-W Essigsäure 0,1 mol/L",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     100.0,
+     [
+      4.757
+     ],
+     0
+    ]
+   ],
+   "st": [],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 2.881372439947182,
+   "I": 0.0,
+   "beta": 6.011879987598164
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Essigsäure 1 mmol/L",
+  "case": {
+   "id": "CH-W Essigsäure 1 mmol/L",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     1.0,
+     [
+      4.757
+     ],
+     0
+    ]
+   ],
+   "st": [],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 3.9072035684979665,
+   "I": 0.0,
+   "beta": 0.5349168617231773
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Salzsäure 1e-7 mol/L",
+  "case": {
+   "id": "CH-W Salzsäure 1e-7 mol/L",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [],
+   "st": [
+    [
+     0.0001,
+     -1
+    ]
+   ],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 6.791012359750022,
+   "I": 0.0,
+   "beta": 0.0005148736791912357
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Ammoniak 10 mmol/L",
+  "case": {
+   "id": "CH-W Ammoniak 10 mmol/L",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     10.0,
+     [
+      9.252
+     ],
+     1
+    ]
+   ],
+   "st": [
+    [
+     10.0,
+     -1
+    ]
+   ],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 5.625663653163419,
+   "I": 0.0,
+   "beta": 0.010902618014036233
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Acetatpuffer 0,1/0,1 Davies",
+  "case": {
+   "id": "CH-W Acetatpuffer 0,1/0,1 Davies",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     200.0,
+     [
+      4.757
+     ],
+     0
+    ]
+   ],
+   "st": [
+    [
+     100.0,
+     1
+    ]
+   ],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": true
+  },
+  "expect": {
+   "pH": 4.649841153934397,
+   "I": 0.10002867918407095,
+   "beta": 115.1952827591036
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Phosphatpuffer Davies",
+  "case": {
+   "id": "CH-W Phosphatpuffer Davies",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     10.0,
+     [
+      2.168,
+      7.207,
+      12.346
+     ],
+     0
+    ]
+   ],
+   "st": [
+    [
+     15.0,
+     1
+    ]
+   ],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": true
+  },
+  "expect": {
+   "pH": 7.026328246549326,
+   "I": 0.020000202402825292,
+   "beta": 5.757491102731393
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Kohlensäure 2 mmol/L",
+  "case": {
+   "id": "CH-W Kohlensäure 2 mmol/L",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     2.0,
+     [
+      6.352,
+      10.329
+     ],
+     0
+    ]
+   ],
+   "st": [],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 4.528719507518119,
+   "I": 0.0,
+   "beta": 0.13530109090338588
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Natriumcarbonat 5 mmol/L Davies",
+  "case": {
+   "id": "CH-W Natriumcarbonat 5 mmol/L Davies",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     5.0,
+     [
+      6.352,
+      10.329
+     ],
+     0
+    ]
+   ],
+   "st": [
+    [
+     10.0,
+     1
+    ]
+   ],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": true
+  },
+  "expect": {
+   "pH": 10.869963329929078,
+   "I": 0.014164188388498615,
+   "beta": 3.527536202093006
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Schwefelsäure 10 mmol/L",
+  "case": {
+   "id": "CH-W Schwefelsäure 10 mmol/L",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [
+    [
+     10.0,
+     [
+      -3.0,
+      1.988
+     ],
+     0
+    ]
+   ],
+   "st": [],
+   "pKw": 14.0,
+   "T": 298.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 1.8477307635292788,
+   "I": 0.0,
+   "beta": 38.30451610171692
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Natronlauge 1 mmol/L 10 °C",
+  "case": {
+   "id": "CH-W Natronlauge 1 mmol/L 10 °C",
+   "type": "chab",
+   "module": "chemie",
+   "sy": [],
+   "st": [
+    [
+     1.0,
+     1
+    ]
+   ],
+   "pKw": 14.531411611211494,
+   "T": 283.15,
+   "act": false
+  },
+  "expect": {
+   "pH": 11.531411612489029,
+   "I": 0.0,
+   "beta": 2.3025851065407625
+  },
+  "tol": 1e-09
+ },
+ {
+  "id": "CH-W Härte Ca 80 mg/L Mg 12 mg/L",
+  "case": {
+   "id": "CH-W Härte Ca 80 mg/L Mg 12 mg/L",
+   "type": "chhard",
+   "module": "chemie",
+   "bCa": 0.08,
+   "bMg": 0.012,
+   "ks": 4.0
+  },
+  "expect": {
+   "c": 2.4898331610693027,
+   "dH": 13.96223741732833,
+   "KH": 2.0
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-W Härte Ca 20 mg/L Mg 4 mg/L",
+  "case": {
+   "id": "CH-W Härte Ca 20 mg/L Mg 4 mg/L",
+   "type": "chhard",
+   "module": "chemie",
+   "bCa": 0.02,
+   "bMg": 0.004,
+   "ks": 0.8
+  },
+  "expect": {
+   "c": 0.6636020878398416,
+   "dH": 3.72128142797948,
+   "KH": 0.4
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-W Härte Ca 150 mg/L Mg 30 mg/L",
+  "case": {
+   "id": "CH-W Härte Ca 150 mg/L Mg 30 mg/L",
+   "type": "chhard",
+   "module": "chemie",
+   "bCa": 0.15,
+   "bMg": 0.03,
+   "ks": 2.5
+  },
+  "expect": {
+   "c": 4.977015658798813,
+   "dH": 27.909610709846103,
+   "KH": 1.25
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-W Härte Ca 50 mg/L Mg 10 mg/L",
+  "case": {
+   "id": "CH-W Härte Ca 50 mg/L Mg 10 mg/L",
+   "type": "chhard",
+   "module": "chemie",
+   "bCa": 0.05,
+   "bMg": 0.01,
+   "ks": null
+  },
+  "expect": {
+   "c": 1.6590052195996041,
+   "dH": 9.303203569948701
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-W Ionenstärke und Ionenbilanz",
+  "case": {
+   "id": "CH-W Ionenstärke und Ionenbilanz",
+   "type": "chion",
+   "module": "chemie",
+   "ions": [
+    [
+     2.0,
+     2
+    ],
+    [
+     0.5,
+     2
+    ],
+    [
+     1.0,
+     1
+    ],
+    [
+     0.1,
+     1
+    ],
+    [
+     4.0,
+     -1
+    ],
+    [
+     1.0,
+     -1
+    ],
+    [
+     0.5,
+     -2
+    ],
+    [
+     0.2,
+     -1
+    ]
+   ]
+  },
+  "expect": {
+   "I": 0.00915,
+   "err": -0.00813008130081305
+  },
+  "tol": 1e-12
+ },
+ {
+  "id": "CH-W Kalk-Kohlensäure 10 °C pH 7.5",
+  "case": {
+   "id": "CH-W Kalk-Kohlensäure 10 °C pH 7.5",
+   "type": "chcarb",
+   "module": "chemie",
+   "T": 283.15,
+   "pH": 7.5,
+   "Ca": 2.0,
+   "alk": 4.0,
+   "I": 0.008,
+   "lk": [
+    -6.463342148235316,
+    -10.487878033272537,
+    -14.531411611211494,
+    -8.34905778605085,
+    -1.2694803683079325
+   ]
+  },
+  "expect": {
+   "CT": 4.329081877257889,
+   "SI": 0.0642751993692163,
+   "pHC": 7.4355609857490705,
+   "D": -0.03451673698803303,
+   "pCO2": 622.2123431132611
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Kalk-Kohlensäure 25 °C pH 8.2",
+  "case": {
+   "id": "CH-W Kalk-Kohlensäure 25 °C pH 8.2",
+   "type": "chcarb",
+   "module": "chemie",
+   "T": 298.15,
+   "pH": 8.2,
+   "Ca": 1.0,
+   "alk": 2.0,
+   "I": 0.004,
+   "lk": [
+    -6.352,
+    -10.329,
+    -14.0,
+    -8.45,
+    -1.468
+   ]
+  },
+  "expect": {
+   "CT": 2.006402023184764,
+   "SI": 0.46494845641828836,
+   "pHC": 7.729624416942786,
+   "D": -0.05254270523972272,
+   "pCO2": 76.38976329024233
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Kalk-Kohlensäure 15 °C pH 7.0",
+  "case": {
+   "id": "CH-W Kalk-Kohlensäure 15 °C pH 7.0",
+   "type": "chcarb",
+   "module": "chemie",
+   "T": 288.15,
+   "pH": 7.0,
+   "Ca": 3.0,
+   "alk": 5.5,
+   "I": 0.012,
+   "lk": [
+    -6.418795450033489,
+    -10.428426499008957,
+    -14.34328629604884,
+    -8.378103821564991,
+    -1.3410077036879688
+   ]
+  },
+  "expect": {
+   "CT": 6.788104765572272,
+   "SI": -0.07239322371015665,
+   "pHC": 7.072477061104567,
+   "D": 0.090567276523058,
+   "pCO2": 2830.7300400110353
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Kalk-Kohlensäure 5 °C pH 8.0",
+  "case": {
+   "id": "CH-W Kalk-Kohlensäure 5 °C pH 8.0",
+   "type": "chcarb",
+   "module": "chemie",
+   "T": 278.15,
+   "pH": 8.0,
+   "Ca": 0.5,
+   "alk": 1.0,
+   "I": 0.002,
+   "lk": [
+    -6.516301507636776,
+    -10.554412950000815,
+    -14.7295796398198,
+    -8.324109933805886,
+    -1.1920301933216992
+   ]
+  },
+  "expect": {
+   "CT": 1.0276961025788423,
+   "SI": -0.6387246396609797,
+   "pHC": 8.64851857188282,
+   "D": 0.03318693377168765,
+   "pCO2": 48.36781637352386
+  },
+  "tol": 2e-05
+ },
+ {
+  "id": "CH-W Kalk-Kohlensäure 30 °C pH 7.8",
+  "case": {
+   "id": "CH-W Kalk-Kohlensäure 30 °C pH 7.8",
+   "type": "chcarb",
+   "module": "chemie",
+   "T": 303.15,
+   "pH": 7.8,
+   "Ca": 2.5,
+   "alk": 3.0,
+   "I": 0.01,
+   "lk": [
+    -6.32814677770936,
+    -10.28788018267487,
+    -13.833258138541646,
+    -8.488456214236336,
+    -1.5246210216733997
+   ]
+  },
+  "expect": {
+   "CT": 3.0761369271318735,
+   "SI": 0.6452259540094474,
+   "pHC": 7.151672165820683,
+   "D": -0.19995010753822703,
+   "pCO2": 302.4224163901622
+  },
+  "tol": 2e-05
  }
 ]

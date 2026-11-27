@@ -160,7 +160,7 @@ describe("sync-to-app nach Modulen", () => {
     sync(d, "--tool", "chemiewerk", "--core-dir", "engcore");
     const m = JSON.parse(readFileSync(join(d, "src/engcore/MANIFEST.json"), "utf8")) as { modules?: string[]; files: Record<string, string> }, files = Object.keys(m.files);
     expect(files.filter((f) => f.startsWith("engcore/") && f.split("/").length > 2).every((f) => f.startsWith("engcore/chemistry/"))).toBe(true);
-    for (const f of ["engcore/chemistry/balance.ts", "engcore/chemistry/redox.ts", "engcore/chemistry/nuclear.ts", "engcore/trace.ts"]) expect(files).toContain(f);
+    for (const f of ["engcore/chemistry/balance.ts", "engcore/chemistry/redox.ts", "engcore/chemistry/nuclear.ts", "engcore/chemistry/thermo.ts", "engcore/chemistry/water.ts", "engcore/chemistry/electro.ts", "engcore/trace.ts"]) expect(files).toContain(f);
     expect(files.some((f) => f.startsWith("data/fd/") && f !== "data/fd/snapshot.json")).toBe(false);
     expect(readFileSync(join(d, "src/engcore/index.ts"), "utf8")).toContain("./chemistry/index");
     expect(m.modules).toEqual(["chemie"]);
